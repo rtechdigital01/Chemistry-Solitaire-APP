@@ -19,9 +19,11 @@ Chemistry Solitaire transforms foundational science curricula into interactive, 
 * Integrated Scoring, Hints, and Progress Tracking.
 
 ## 👥 Team
-* **Henry** – Lead Researcher, Curriculum/Content Lead & Data Engineer.
-* **Kay** – UI/UX Designer & Accessibility Lead.
-* **Kaycee** – Full-Stack Developer (Front-end, Back-end, & Deployment Lead).
+* **Chiemeka Henry EZECHINYERE** – Product Lead, Lead Researcher & Data Engineer.
+* **Kayode OYERINDE** – UI/UX Designer.
+* **Kelechi Austin EZECHINYERE** – Full-Stack Developer.
+* **Abisola Esther OLATUNJI** – Application Support Engineer.
+
 ## 📅 Roadmap & Milestones
 * **Milestone 1:** Planning, Setup, & PRD Approval *(Completed)*.
 * **Milestone 2:** UI/UX Wireframes (SEND-friendly design).
