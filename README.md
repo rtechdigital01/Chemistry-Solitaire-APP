@@ -9,8 +9,8 @@ Chemistry Solitaire transforms foundational science curricula into interactive, 
 * **Core Loop:** Players match approximately five related chemistry concepts into one common theme (e.g., matching *Proton, Neutron, Electron, Nucleus,* and *Shell* under *Atomic Structure*).
 * **Difficulty Scaling:** Complexity increases dynamically through a higher number of cards, fewer available hints, distractor cards, and advanced chemical concepts.
 
-The content covered include:
-Chemistry Solitaire
+* The content covered include:
+* Chemistry Solitaire
 │
 ├── KS3
 │   ├── Particle Model
