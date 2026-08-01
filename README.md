@@ -11,16 +11,16 @@ Chemistry Solitaire transforms foundational science curricula into interactive, 
 
 * The content covered include:
 * Chemistry Solitaire
-│
-├── KS3
-│   ├── Particle Model
-│   ├── Separating Mixtures
-│   ├── Periodic Table
-│   ├── Elements
-│   ├── Metals & Non-metals
-│   ├── Acids & Alkalis
-│   ├── Chemical Energy
-│   └── Types of Reaction
+* │
+* ├── KS3
+* │   ├── Particle Model
+* │   ├── Separating Mixtures
+* │   ├── Periodic Table
+* │   ├── Elements
+* │   ├── Metals & Non-metals
+* │   ├── Acids & Alkalis
+* │   ├── Chemical Energy
+│    └── Types of Reaction
 │
 ├── KS4 (Upcoming)
 │
