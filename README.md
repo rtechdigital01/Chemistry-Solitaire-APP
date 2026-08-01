@@ -9,24 +9,6 @@ Chemistry Solitaire transforms foundational science curricula into interactive, 
 * **Core Loop:** Players match approximately five related chemistry concepts into one common theme (e.g., matching *Proton, Neutron, Electron, Nucleus,* and *Shell* under *Atomic Structure*).
 * **Difficulty Scaling:** Complexity increases dynamically through a higher number of cards, fewer available hints, distractor cards, and advanced chemical concepts.
 
-* The content covered include:
-* Chemistry Solitaire
-* │
-* ├── KS3
-* 
-* │   ├── Particle Model
-* │   ├── Separating Mixtures
-* │   ├── Periodic Table
-* │   ├── Elements
-* │   ├── Metals & Non-metals
-* │   ├── Acids & Alkalis
-* │   ├── Chemical Energy
-│    └── Types of Reaction
-│
-├── KS4 (Upcoming)
-│
-└── KS5 (Upcoming)
-
 ## 🛠️ Tech Stack & Architecture
 * **Platform:** Responsive Web Application (optimized for desktop and tablet browsers).
 * **Architecture:** Full-stack web application designed to track key user analytics (topic selected, score, time spent, hints used, and completion status).
