@@ -13,6 +13,7 @@ Chemistry Solitaire transforms foundational science curricula into interactive, 
 * Chemistry Solitaire
 * │
 * ├── KS3
+* 
 * │   ├── Particle Model
 * │   ├── Separating Mixtures
 * │   ├── Periodic Table
