@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Chemistry Solitaire</title>
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+     HEADER
+========================================= -->
+
+<header class="site-header">
+
+    <div class="header-inner">
+
+        <!-- Logo -->
+        <a href="#" class="brand">
+
+            <div class="brand-icon">
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="3"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                    />
+
+                    <ellipse
+                        cx="12"
+                        cy="12"
+                        rx="9"
+                        ry="4"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    />
+
+                    <ellipse
+                        cx="12"
+                        cy="12"
+                        rx="9"
+                        ry="4"
+                        transform="rotate(60 12 12)"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    />
+
+                    <ellipse
+                        cx="12"
+                        cy="12"
+                        rx="9"
+                        ry="4"
+                        transform="rotate(120 12 12)"
+                        stroke="currentColor"
+                        stroke-width="1.5"
+                    />
+                </svg>
+            </div>
+
+            <span>Chemistry Solitaire</span>
+
+        </a>
+
+
+        <!-- Desktop Navigation -->
+        <nav class="header-nav">
+
+            <a href="#why-solitaire">Why Solitaire?</a>
+
+            <a href="#gameplay">Gameplay Preview</a>
+
+            <a href="#send-access">SEND &amp; Access</a>
+
+            <a href="#about">About</a>
+
+            <a href="#login">Log In</a>
+
+            <a href="#demo" class="header-play-button">
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                >
+                    <path
+                        d="M8 5L19 12L8 19V5Z"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                <span>Play Now</span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- Mobile Menu Button -->
+        <button
+            class="mobile-menu-button"
+            id="mobileMenuButton"
+            aria-label="Open navigation"
+            aria-expanded="false"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+    </div>
+
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+
+        <a href="#why-solitaire">Why Solitaire?</a>
+
+        <a href="#gameplay">Gameplay Preview</a>
+
+        <a href="#send-access">SEND &amp; Access</a>
+
+        <a href="#about">About</a>
+
+        <a href="#login">Log In</a>
+
+        <a href="#demo">Play Now</a>
+
+    </nav>
+
+</header>
+
+    <main class="hero-section">
+
+        <!-- LEFT SIDE -->
+        <section class="hero-content">
+
+            <!-- Revision Badge -->
+            <div class="revision-badge reveal" data-delay="0">
+
+                <svg
+                    class="revision-badge-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5L12 3Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M19 3L19.7 5.3L22 6L19.7 6.7L19 9L18.3 6.7L16 6L18.3 5.3L19 3Z"
+                        fill="currentColor"
+                    />
+                </svg>
+
+                <span>Interactive GCSE Chemistry Revision</span>
+
+            </div>
+
+
+            <!-- Main Heading -->
+            <h1 class="hero-heading reveal" data-delay="120">
+
+                <span class="heading-dark">
+                    Chemistry
+                </span>
+
+                <span class="heading-dark">
+                    Revision That
+                </span>
+
+                <span class="heading-blue">
+                    Actually Works
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+            <p class="hero-description reveal" data-delay="240">
+                The card-matching game built around GCSE and Key Stage 3
+                <a href="chemistry.html" class="chemistry-link">Chemistry</a>.
+                Master Atomic Structure, Chemical Bonding, and
+                the Periodic Table through active retrieval — not passive
+                reading.
+            </p>
+
+            <!-- ========================================
+     HERO BUTTONS
+========================================= -->
+
+<div class="hero-buttons reveal" data-delay="360">
+
+    <!-- Play Free Demo -->
+    <a href="#demo" class="demo-button">
+
+        <svg
+            class="play-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M8 5L19 12L8 19V5Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>Play Free Demo</span>
+
+    </a>
+
+
+    <!-- How It Works -->
+    <a href="#how-it-works" class="how-button">
+        How It Works
+    </a>
+
+</div>
+
+<!-- ========================================
+     HERO FEATURE PILLS
+========================================= -->
+
+<div class="hero-pills reveal" data-delay="480">
+
+    <!-- KS3 & GCSE Curriculum -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M3 9L12 5L21 9L12 13L3 9Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+
+        <span>KS3 &amp; GCSE Curriculum</span>
+
+    </div>
+
+
+    <!-- Designed for SEND Learners -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M20.8 4.6C18.7 2.5 15.3 2.5 13.2 4.6L12 5.8L10.8 4.6C8.7 2.5 5.3 2.5 3.2 4.6C1.1 6.7 1.1 10.1 3.2 12.2L12 21L20.8 12.2C22.9 10.1 22.9 6.7 20.8 4.6Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>Designed for SEND Learners</span>
+
+    </div>
+
+
+    <!-- No Ads · School Safe -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M12 3L19 6V11C19 15.8 16.1 19.1 12 21C7.9 19.1 5 15.8 5 11V6L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>No Ads · School Safe</span>
+
+    </div>
+
+</div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="hero-image-wrapper reveal scale-reveal" data-delay="180">
+
+            <img
+                src="./images/hero-chemistry.png"
+                alt="Interactive chemistry revision cards and laboratory characters"
+                class="hero-image"
+            >
+
+        </section>
+
+    </main>
+
+
+<section class="why-section">
+
+    <div class="why-content reveal" data-delay="0">
+
+        <h2 class="why-heading">
+            Why Card-Matching<br>
+            Works Better
+        </h2>
+
+        <p class="why-description">
+            Active retrieval practice builds stronger long-term memory than
+            re-reading notes. <a href="chemistry.html" class="chemistry-link">Chemistry</a> Solitaire puts this research into
+            practice.
+        </p>
+    </div>
+
+    <!-- ========================================
+     WHY CARDS
+========================================= -->
+
+<div class="why-cards">
+
+    <!-- Active Recall Card -->
+    <article class="why-card reveal" data-delay="120">
+
+        <!-- Icon -->
+        <div class="why-card-icon why-card-icon-blue">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                <path
+                    d="M4 5.5C4 4.67 4.67 4 5.5 4H10C11.1 4 12 4.9 12 6V20C12 18.9 11.1 18 10 18H4V5.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M20 5.5C20 4.67 19.33 4 18.5 4H14C12.9 4 12 4.9 12 6V20C12 18.9 12.9 18 14 18H20V5.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+            </svg>
+
+        </div>
+
+
+        <!-- Title -->
+        <h3 class="why-card-title">
+            Active Recall
+        </h3>
+
+
+        <!-- Description -->
+        <p class="why-card-description">
+            Matching chemistry cards forces your brain to actively retrieve
+            information — building stronger, longer-lasting memory connections
+            than passive revision.
+        </p>
+
+    </article>
+
+    <!-- Topic by Topic Card -->
+<article class="why-card reveal" data-delay="220">
+
+    <div class="why-card-icon why-card-icon-purple">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M3 9L12 5L21 9L12 13L3 9Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Topic by Topic
+    </h3>
+
+    <p class="why-card-description">
+        Each deck covers one GCSE or KS3 chemistry topic in depth.
+        Focus on what matters most for your upcoming assessments.
+    </p>
+
+</article>
+
+
+<!-- Progress Rewarded Card -->
+<article class="why-card reveal" data-delay="320">
+
+    <div class="why-card-icon why-card-icon-gold">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <circle
+                cx="12"
+                cy="8"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+
+            <path
+                d="M9.5 12L8 20L12 17.5L16 20L14.5 12"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Progress Rewarded
+    </h3>
+
+    <p class="why-card-description">
+        Earn coins for every correct match. Track your score,
+        completion time, and hints used — celebrating progress at every step.
+    </p>
+
+</article>
+
+
+<!-- Designed for Everyone Card -->
+<article class="why-card reveal" data-delay="420">
+
+    <div class="why-card-icon why-card-icon-green">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M20.8 4.6C18.7 2.5 15.3 2.5 13.2 4.6L12 5.8L10.8 4.6C8.7 2.5 5.3 2.5 3.2 4.6C1.1 6.7 1.1 10.1 3.2 12.2L12 21L20.8 12.2C22.9 10.1 22.9 6.7 20.8 4.6Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Designed for Everyone
+    </h3>
+
+    <p class="why-card-description">
+        Plain English mode, adjustable text size, high contrast,
+        and reduced motion make Chemistry Solitaire accessible to all learners.
+    </p>
+
+</article>
+
+
+
+
+
+</div>
+
+</section>
+
+
+
+
+    <div id="footer"></div>
+
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+
+</body>
+
+</html>
