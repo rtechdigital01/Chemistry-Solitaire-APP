@@ -181,6 +181,8 @@ body {
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-width: 140px;
+    flex-shrink: 0;
 
     gap: 8px;
 
@@ -211,7 +213,13 @@ body {
     width: 18px;
     height: 18px;
 }
-
+.header-play-button span {
+    display: inline-block !important;
+    color: #FFFFFF !important;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
 
 .header-play-button:hover {
     transform: translateY(-2px);
@@ -266,19 +274,33 @@ body {
 /* ========================================
    TABLET / SMALL LAPTOP
 ======================================== */
+/* ========================================
+   TABLET / SMALL LAPTOP
+======================================== */
 
-@media (max-width: 1100px) {
+@media (max-width: 1200px) {
 
     .header-inner {
         padding: 0 24px;
     }
 
     .header-nav {
-        gap: 22px;
+        gap: 16px;
     }
 
     .header-nav > a:not(.header-play-button) {
         font-size: 14px;
+    }
+
+    .header-play-button {
+        min-width: 125px;
+        height: 46px;
+        padding: 0 18px;
+    }
+
+    .brand {
+        gap: 10px;
+        font-size: 16px;
     }
 }
 
@@ -1491,4 +1513,569 @@ body {
 
         gap: 18px;
     }
+}
+
+
+
+
+
+
+
+/* ========================================
+   LOGIN PAGE
+======================================== */
+
+.login-page {
+    width: 100%;
+    min-height: 716px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F4F8FF 0%,
+            #FFFFFF 55%,
+            #F7FBFF 100%
+        );
+}
+
+
+/* ========================================
+   LOGIN INTRO
+======================================== */
+
+.login-intro {
+    padding-top: 76px;
+    padding-left: max(5.5vw, 32px);
+}
+
+
+/* ========================================
+   LOG IN PILL
+
+   Figma:
+   139 × 63px
+   Padding: 22px / 9px
+   Radius: 999px
+   Fill: #2563FF
+======================================== */
+
+.login-pill {
+    width: 139px;
+    height: 63px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 9px 22px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
+
+
+/* ========================================
+   AUTHENTICATION HEADING
+
+   Figma:
+   Width: 334px
+   Height: 72px
+   Nunito Black
+   48px
+   #14213D
+======================================== */
+
+.login-heading {
+    width: 334px;
+
+    margin: 20px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 72px;
+    letter-spacing: -1.2px;
+
+    color: #14213D;
+}
+
+
+/* ========================================
+   LOGIN DESCRIPTION
+
+   Figma:
+   Width: 560px
+   Height: 29px
+   Nunito Regular
+   17px
+   Line height: 28px
+   Colour: #5F6F88
+======================================== */
+
+.login-description {
+    width: 100%;
+    max-width: 560px;
+
+    margin: 16px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 28px;
+    letter-spacing: 0;
+
+    color: #5F6F88;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .login-intro {
+        padding: 48px 20px 0;
+    }
+
+    .login-heading {
+        width: 100%;
+
+        font-size: 40px;
+        line-height: 52px;
+    }
+
+    .login-description {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+
+/* ========================================
+   LOGIN CHEMISTRY CARDS IMAGE
+
+   Figma:
+   Width: 620.11px
+   Height: 349px
+======================================== */
+
+.login-cards {
+    width: 620.11px;
+    max-width: 100%;
+
+    margin-top: 30px;
+}
+
+.login-cards img {
+    display: block;
+
+    width: 100%;
+    height: auto;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .login-cards {
+        width: 100%;
+        margin-top: 40px;
+    }
+}
+
+
+
+/* ========================================
+   RIGHT LOGIN FORM AREA
+======================================== */
+
+.login-form-area {
+    position: absolute;
+
+    top: 84px;
+    right: 7%;
+
+    z-index: 2;
+}
+
+
+/* ========================================
+   LOGIN FORM CARD
+
+   FIGMA:
+   Width: 357.33px
+   Height: 558px Hug
+   Background: #FFFFFF
+   Border: #DDE5F1
+======================================== */
+
+.login-form-card {
+    width: 357.33px;
+    min-height: 558px;
+
+    padding: 40px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 14px;
+}
+
+
+/* ========================================
+   IMPORTANT:
+   LOGIN PAGE MUST POSITION CHILDREN
+======================================== */
+
+.login-page {
+    position: relative;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 900px) {
+
+    .login-form-area {
+        position: relative;
+
+        top: auto;
+        right: auto;
+
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+
+        padding: 40px 20px 60px;
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .login-form-card {
+        width: 100%;
+        min-height: auto;
+
+        padding: 32px 24px;
+        border-radius: 14px;
+    }
+
+}
+
+
+
+/* ========================================
+   LOGIN CARD HEADER
+======================================== */
+
+.login-card-header {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* Logo
+   Figma:
+   64 × 64px
+   Blue: #2563FF
+   24px space below
+*/
+
+.login-card-logo {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 24px;
+
+    background-color: #2563FF;
+
+    /* We can adjust this later if needed */
+    border-radius: 14px;
+
+    color: #FFFFFF;
+}
+
+
+.login-card-logo svg {
+    width: 36px;
+    height: 36px;
+}
+
+
+/* Welcome Back */
+
+.login-card-title {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    line-height: 39px;
+
+    color: #14213D;
+}
+
+
+/* Subtitle */
+
+.login-card-subtitle {
+    margin: 8px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    line-height: 28px;
+
+    color: #5F6F88;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   LOGIN FORM
+======================================== */
+
+.login-form {
+    width: 100%;
+
+    margin-top: 28px;
+}
+
+
+/* ========================================
+   FORM FIELD
+======================================== */
+
+.login-field {
+    width: 100%;
+
+    margin-bottom: 18px;
+}
+
+
+.login-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 22px;
+
+    color: #14213D;
+}
+
+
+.login-field input {
+    width: 100%;
+    height: 48px;
+
+    padding: 0 14px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 10px;
+
+    outline: none;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    color: #14213D;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.login-field input::placeholder {
+    color: #9AA7BA;
+}
+
+
+.login-field input:focus {
+    border-color: #2563FF;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 255, 0.10);
+}
+
+
+/* ========================================
+   PASSWORD FIELD
+======================================== */
+
+.password-input-wrapper {
+    position: relative;
+
+    width: 100%;
+}
+
+
+.password-input-wrapper input {
+    padding-right: 46px;
+}
+
+
+.password-toggle {
+    position: absolute;
+
+    top: 50%;
+    right: 12px;
+
+    transform: translateY(-50%);
+
+    width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    color: #7C8CA5;
+
+    cursor: pointer;
+}
+
+
+.password-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ========================================
+   FORGOT PASSWORD
+======================================== */
+
+.forgot-password-row {
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: -6px;
+    margin-bottom: 20px;
+}
+
+
+.forgot-password-row a {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #2563FF;
+
+    text-decoration: none;
+}
+
+
+.forgot-password-row a:hover {
+    text-decoration: underline;
+}
+
+
+/* ========================================
+   LOGIN BUTTON
+======================================== */
+
+.login-submit-button {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+
+.login-submit-button:hover {
+    transform: translateY(-1px);
+    background-color: #1D4ED8;
+}
+
+
+/* ========================================
+   CREATE ACCOUNT
+======================================== */
+
+.login-create-account {
+    margin: 20px 0 0;
+
+    text-align: center;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 22px;
+
+    color: #5F6F88;
+}
+
+
+.login-create-account a {
+    color: #2563FF;
+
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.login-create-account a:hover {
+    text-decoration: underline;
 }
