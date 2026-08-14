@@ -97,4 +97,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 
+
+    /* ========================================
+   PASSWORD VISIBILITY
+======================================== */
+
+const passwordInput =
+    document.getElementById("password");
+
+const passwordToggle =
+    document.getElementById("passwordToggle");
+
+
+if (passwordInput && passwordToggle) {
+
+    passwordToggle.addEventListener("click", () => {
+
+        const passwordIsHidden =
+            passwordInput.type === "password";
+
+
+        passwordInput.type =
+            passwordIsHidden ? "text" : "password";
+
+
+        passwordToggle.setAttribute(
+            "aria-label",
+            passwordIsHidden
+                ? "Hide password"
+                : "Show password"
+        );
+
+    });
+
+}
+
 });
