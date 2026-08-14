@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
                         Log In
                     </a>
 
-
                     <a href="./index.html#demo" class="header-play-button">
 
                         <svg
@@ -143,31 +142,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
         </header>
     `;
-
-
-    /* Mobile menu */
-
-    const mobileMenuButton =
-        document.getElementById("mobileMenuButton");
-
-    const mobileNav =
-        document.getElementById("mobileNav");
-
-
-    if (mobileMenuButton && mobileNav) {
-
-        mobileMenuButton.addEventListener("click", () => {
-
-            const isOpen =
-                mobileNav.classList.toggle("active");
-
-            mobileMenuButton.setAttribute(
-                "aria-expanded",
-                isOpen
-            );
-
-        });
-
-    }
 
 });
