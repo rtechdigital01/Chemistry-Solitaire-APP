@@ -3655,3 +3655,389 @@ body {
         padding: 22px;
     }
 }
+
+/* ========================================
+   DASHBOARD MOBILE FIX
+   Keep this at the VERY BOTTOM of style.css
+======================================== */
+
+@media (max-width: 700px) {
+
+    /* Prevent horizontal overflow */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /* ========================================
+       PAGE
+    ======================================== */
+
+    .dashboard-page {
+        width: 100%;
+        padding: 24px 16px 50px;
+    }
+
+
+    /* ========================================
+       PROFILE CARD
+    ======================================== */
+
+    .dashboard-profile-card {
+        width: 100%;
+        min-height: auto;
+
+        padding: 24px 18px;
+
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 28px;
+
+        border-radius: 20px;
+    }
+
+
+    /* User area */
+
+    .dashboard-user {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        gap: 16px;
+    }
+
+
+    .dashboard-avatar {
+        width: 68px;
+        height: 68px;
+
+        border-width: 2px;
+        border-radius: 20px;
+    }
+
+
+    .dashboard-avatar-content {
+        font-size: 32px;
+    }
+
+
+    .dashboard-avatar-status {
+        width: 21px;
+        height: 21px;
+
+        right: -5px;
+        bottom: -5px;
+
+        border-width: 2px;
+
+        font-size: 9px;
+    }
+
+
+    .dashboard-user-info {
+        min-width: 0;
+    }
+
+
+    .dashboard-greeting {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    .dashboard-user-name {
+        margin-top: 3px;
+
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+
+    .dashboard-user-course {
+        margin-top: 5px;
+
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    /* ========================================
+       COINS + ACCOUNT ACTIONS
+    ======================================== */
+
+    .dashboard-profile-actions {
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    .dashboard-coin-area {
+        flex: 1;
+
+        align-items: flex-start;
+    }
+
+
+    .coin-vault {
+        min-width: 0;
+        width: 100%;
+        height: 52px;
+
+        padding: 7px 12px;
+
+        gap: 9px;
+    }
+
+
+    .coin-vault-icon {
+        width: 22px;
+        height: 22px;
+
+        font-size: 11px;
+    }
+
+
+    .coin-vault-amount {
+        font-size: 17px;
+        line-height: 19px;
+    }
+
+
+    .coin-vault-label {
+        font-size: 9px;
+        line-height: 12px;
+    }
+
+
+    .coin-vault-note {
+        padding-left: 6px;
+
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+
+    .dashboard-account-area {
+        flex: 1;
+
+        align-items: stretch;
+    }
+
+
+    .dashboard-edit-button {
+        width: 100%;
+        height: 40px;
+
+        padding: 0 12px;
+
+        font-size: 12px;
+    }
+
+
+    .dashboard-logout-button {
+        align-self: center;
+
+        font-size: 12px;
+    }
+
+
+    /* ========================================
+       CHEMISTRY DECK HEADING
+    ======================================== */
+
+    .decks-heading-section {
+        width: 100%;
+
+        padding: 32px 0 24px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .decks-heading-content {
+        gap: 4px;
+    }
+
+
+    .decks-heading {
+        font-size: 26px;
+        line-height: 34px;
+
+        letter-spacing: -0.4px;
+    }
+
+
+    .decks-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+
+    .decks-available-pill {
+        padding: 6px 12px;
+
+        font-size: 11px;
+        line-height: 17px;
+    }
+
+
+    /* ========================================
+       DECK CARDS
+    ======================================== */
+
+    .deck-cards-section {
+        width: 100%;
+
+        padding-bottom: 30px;
+    }
+
+
+    .deck-cards-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .deck-card {
+        width: 100%;
+        min-height: auto;
+
+        border-radius: 20px;
+    }
+
+
+    .deck-card-top {
+        min-height: auto;
+
+        padding: 24px 20px;
+    }
+
+
+    .deck-card-heading-row {
+        gap: 14px;
+    }
+
+
+    .deck-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 15px;
+    }
+
+
+    .deck-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .deck-title {
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+
+    .deck-level {
+        margin-top: 6px;
+
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+
+    .deck-status {
+        margin-top: 9px;
+
+        padding: 4px 10px;
+
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    .deck-card-body {
+        padding: 22px 20px 24px;
+    }
+
+
+    .deck-outcomes-heading {
+        margin-bottom: 14px;
+
+        font-size: 11px;
+        line-height: 17px;
+    }
+
+
+    .deck-outcomes {
+        gap: 11px;
+    }
+
+
+    .deck-outcomes li {
+        padding-left: 17px;
+
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+
+    .deck-outcomes li::before {
+        width: 6px;
+        height: 6px;
+
+        top: 7px;
+    }
+
+
+    .deck-play-button,
+    .deck-locked-button {
+        height: 48px;
+
+        margin-top: 22px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 390px) {
+
+    .dashboard-profile-actions {
+        flex-direction: column;
+    }
+
+    .dashboard-coin-area,
+    .dashboard-account-area {
+        width: 100%;
+    }
+
+    .coin-vault {
+        width: 100%;
+    }
+
+    .dashboard-user-name {
+        font-size: 26px;
+    }
+}
