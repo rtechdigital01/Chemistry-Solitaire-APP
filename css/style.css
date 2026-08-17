@@ -2079,3 +2079,1579 @@ body {
 .login-create-account a:hover {
     text-decoration: underline;
 }
+
+
+
+
+/* ========================================
+   PROFILE SETUP PAGE
+======================================== */
+/* ========================================
+   PROFILE SETUP PAGE
+======================================== */
+
+.profile-setup-page {
+    width: 100%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #F4F8FF 0%,
+            #FFFFFF 55%,
+            #F7FBFF 100%
+        );
+}
+
+
+/* ========================================
+   PROFILE STAGE
+
+   Keeps atom + white card together
+======================================== */
+
+.profile-stage {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 60px 24px 80px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   ATOM BACKGROUND
+======================================== */
+
+.profile-atom-background {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(760px, 78vw);
+    height: auto;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 0;
+}
+
+
+/* ========================================
+   MAIN PROFILE CARD
+
+   Figma:
+   40px inner padding
+======================================== */
+
+.profile-setup-card {
+    position: relative;
+    z-index: 1;
+
+    width: 460px;
+    max-width: 100%;
+
+    padding: 24px 28px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 24px rgba(20, 33, 61, 0.05);
+}
+
+
+/* ========================================
+   PROFILE TOP CONTENT
+======================================== */
+
+.profile-top-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   ACCOUNT CREATED PILL
+
+   Figma:
+   214px Hug × 29px Hug
+   Padding: 5px 14px
+   Gap: 6px
+   Radius: 999px
+======================================== */
+
+.profile-status-pill {
+    min-height: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 14px;
+
+    background-color: #ECFDF3;
+
+    border: 1px solid #A7F3D0;
+    border-radius: 999px;
+
+    color: #168A47;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16.5px;
+
+    white-space: nowrap;
+}
+
+
+.profile-status-icon {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   SET UP YOUR PROFILE
+
+   Figma:
+   Nunito 900
+   24px
+   Line height 36px
+   #14213D
+======================================== */
+
+.profile-title {
+    margin: 20px 0 0;
+
+    color: #14213D;
+    margin-top: 16px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 36px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   PROFILE SUBTITLE
+
+   Figma:
+   Nunito Regular
+   14px
+   Line height 21px
+   #5F6F88
+======================================== */
+
+.profile-subtitle {
+    margin: 4px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   AVATAR SECTION
+======================================== */
+
+.profile-avatar-section {
+    width: 100%;
+
+    margin-top: 26px;
+}
+
+
+.avatar-section-title {
+    margin: 0 0 14px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+}
+
+
+/* ========================================
+   AVATAR GRID
+======================================== */
+
+.avatar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+}
+
+
+/* ========================================
+   AVATAR OPTION
+======================================== */
+
+.avatar-option {
+    min-width: 0;
+    height: 78px;
+
+    padding: 10px 6px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background-color: #F7F9FC;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 14px;
+
+    color: #7C8CA5;
+
+    font-family: "Nunito", sans-serif;
+
+    cursor: pointer;
+
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+
+.avatar-option:hover {
+    transform: translateY(-2px);
+
+    border-color: #AFC5FF;
+}
+
+
+/* Selected avatar */
+
+.avatar-option.active {
+    background-color: #F4F7FF;
+
+    border: 2px solid #2563FF;
+
+    color: #2563FF;
+}
+
+
+.avatar-emoji {
+    display: block;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+.avatar-name {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+
+/* ========================================
+   DISPLAY NAME
+======================================== */
+
+.profile-name-section {
+    width: 100%;
+
+    margin-top: 24px;
+}
+
+
+.profile-field-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+}
+
+
+.profile-name-input {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 14px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.profile-name-input:focus {
+    border-color: #2563FF;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 255, 0.10);
+}
+
+
+/* ========================================
+   PROFILE PREVIEW
+======================================== */
+
+.profile-preview {
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    background-color: #F3F6FB;
+
+    border-radius: 12px;
+}
+
+
+.profile-preview-avatar {
+    flex-shrink: 0;
+
+    font-size: 30px;
+}
+
+
+.profile-preview-content {
+    min-width: 0;
+}
+
+
+.profile-preview-title {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 21px;
+}
+
+
+.profile-preview-description {
+    margin: 2px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+
+/* ========================================
+   ENTER MY PORTAL BUTTON
+======================================== */
+
+.enter-portal-button {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+
+.enter-portal-button:hover {
+    transform: translateY(-2px);
+
+    background-color: #1D4ED8;
+}
+
+
+.enter-portal-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 750px) {
+
+    .profile-stage {
+        min-height: auto;
+
+        padding: 70px 20px 100px;
+    }
+
+    .profile-atom-background {
+        width: 850px;
+        max-width: none;
+
+        opacity: 0.35;
+    }
+
+    .profile-setup-card {
+        width: 100%;
+
+        max-width: 560px;
+
+        padding: 32px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .profile-stage {
+        padding: 48px 16px 70px;
+    }
+
+    .profile-setup-card {
+        padding: 28px 20px;
+
+        border-radius: 14px;
+    }
+
+    .profile-atom-background {
+        width: 720px;
+
+        opacity: 0.22;
+    }
+
+    .profile-title {
+        font-size: 22px;
+        line-height: 33px;
+    }
+
+    .profile-status-pill {
+        font-size: 10px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 8px;
+    }
+
+    .avatar-option {
+        height: 82px;
+    }
+
+    .enter-portal-button {
+        height: 50px;
+
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   CUSTOM AVATAR UPLOAD
+======================================== */
+
+.avatar-upload-preview {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+}
+
+
+.avatar-upload-preview svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+.avatar-upload-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* Uploaded image inside profile preview */
+
+.profile-preview-avatar img {
+    width: 42px;
+    height: 42px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+
+/* ========================================
+   DASHBOARD PAGE
+======================================== */
+
+.dashboard-page {
+    width: 100%;
+
+    padding: 48px 24px 80px;
+
+    background-color: #F8FAFD;
+}
+
+
+/* ========================================
+   DASHBOARD PROFILE CARD
+
+   Figma:
+   Width: 1280px
+   Height: 186px
+======================================== */
+
+.dashboard-profile-card {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 186px;
+
+    margin: 0 auto;
+
+    padding: 32px 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 24px;
+}
+
+
+/* ========================================
+   LEFT USER AREA
+======================================== */
+
+.dashboard-user {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+/* ========================================
+   AVATAR
+
+   Figma:
+   Width: 88px
+   Height: 88px
+   Radius: 26px
+   Border: 3px
+======================================== */
+
+.dashboard-avatar {
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EFF5FF;
+
+    border: 3px solid #2563FF;
+    border-radius: 26px;
+}
+
+
+.dashboard-avatar-content {
+    font-size: 42px;
+    line-height: 1;
+}
+
+
+/* Green status circle */
+
+.dashboard-avatar-status {
+    position: absolute;
+
+    right: -7px;
+    bottom: -7px;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #22C55E;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+
+/* ========================================
+   USER TEXT
+======================================== */
+
+.dashboard-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Good morning
+
+   Figma:
+   Nunito SemiBold
+   14px
+   Line height: 21px
+   #5F6F88
+*/
+
+.dashboard-greeting {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+
+/* Alex
+
+   Figma:
+   Nunito Black
+   36px
+   Line height: 36px
+*/
+
+.dashboard-user-name {
+    margin: 6px 0 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 36px;
+}
+
+
+/* Year 10 · GCSE Chemistry
+
+   Figma:
+   Nunito Regular
+   14px
+   Line height: 21px
+   #5F6F88
+*/
+
+.dashboard-user-course {
+    margin: 8px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .dashboard-page {
+        padding: 32px 16px 60px;
+    }
+
+    .dashboard-profile-card {
+        min-height: auto;
+
+        padding: 28px 22px;
+
+        align-items: flex-start;
+    }
+
+    .dashboard-user {
+        gap: 18px;
+    }
+
+    .dashboard-avatar {
+        width: 72px;
+        height: 72px;
+
+        border-radius: 22px;
+    }
+
+    .dashboard-avatar-content {
+        font-size: 34px;
+    }
+
+    .dashboard-user-name {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+
+/* ========================================
+   DASHBOARD RIGHT SIDE
+======================================== */
+
+.dashboard-profile-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+/* ========================================
+   COIN AREA
+======================================== */
+
+.dashboard-coin-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.coin-vault {
+    min-width: 142px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 8px 20px;
+
+    background-color: #FFF9E8;
+
+    border: 1px solid #F1D98A;
+    border-radius: 999px;
+}
+
+
+.coin-vault-icon {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #C99B2E;
+    border-radius: 50%;
+
+    color: #C99B2E;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+
+.coin-vault-amount {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 21px;
+}
+
+
+.coin-vault-label {
+    margin: 1px 0 0;
+
+    color: #8B6B1D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 14px;
+
+    text-transform: uppercase;
+}
+
+
+.coin-vault-note {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+
+/* ========================================
+   EDIT PROFILE + LOG OUT
+======================================== */
+
+.dashboard-account-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.dashboard-edit-button {
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 20px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.dashboard-edit-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.dashboard-logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.dashboard-logout-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* ========================================
+   CHEMISTRY DECKS HEADING SECTION
+
+   FIGMA:
+   Max width: 1280px
+   Horizontal spacing: 80px
+   Vertical spacing: 40px
+======================================== */
+
+.decks-heading-section {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 40px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+}
+
+
+/* ========================================
+   LEFT CONTENT
+======================================== */
+
+.decks-heading-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ========================================
+   YOUR CHEMISTRY DECKS
+
+   FIGMA:
+   Nunito Black
+   32px
+   Line height: 48px
+   Letter spacing: -0.64px
+   #14213D
+======================================== */
+
+.decks-heading {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: -0.64px;
+}
+
+
+/* ========================================
+   SUBTITLE
+
+   FIGMA:
+   Nunito Regular
+   15px
+   Line height: 22.5px
+   #5F6F88
+======================================== */
+
+.decks-subtitle {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+}
+
+
+/* ========================================
+   1 DECK AVAILABLE PILL
+
+   FIGMA:
+   Padding: 8px 16px
+   Radius: 999px
+   Background: #F3F6FB
+   Border: #DDE5F1
+======================================== */
+
+.decks-available-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    background-color: #F3F6FB;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+
+    white-space: nowrap;
+}
+
+
+.decks-available-icon {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .decks-heading-section {
+        padding: 32px 0;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .decks-heading {
+        font-size: 27px;
+        line-height: 38px;
+    }
+
+    .decks-subtitle {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+
+
+
+
+/* ========================================
+   DECK CARDS SECTION
+
+   FIGMA:
+   Width: 1280px
+   Approx height: 454px
+   3 cards
+======================================== */
+
+.deck-cards-section {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 0 0 40px;
+}
+
+
+.deck-cards-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 52px;
+}
+
+
+/* ========================================
+   BASE DECK CARD
+======================================== */
+
+.deck-card {
+    width: 100%;
+    min-height: 450px;
+
+    overflow: hidden;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(20, 33, 61, 0.08);
+}
+
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.deck-card-top {
+    min-height: 176px;
+
+    padding: 32px;
+
+    background-color: #FFF1F4;
+
+    border-bottom: 1px solid #F4CDD6;
+}
+
+
+.deck-card-top-locked {
+    background-color: #F3F6FB;
+
+    border-bottom-color: #DDE5F1;
+}
+
+
+.deck-card-heading-row {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.deck-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+}
+
+
+.deck-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.deck-icon-playable {
+    color: #B42345;
+
+    background-color: rgba(255, 201, 212, 0.27);
+
+    border: 1px solid rgba(180, 35, 69, 0.14);
+}
+
+
+.deck-icon-locked {
+    color: #7F8DA5;
+
+    background-color: #EEF2F7;
+
+    border: 1px solid #DDE5F1;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.deck-heading-text {
+    min-width: 0;
+}
+
+
+.deck-title {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 23.8px;
+}
+
+
+.deck-card-locked .deck-title {
+    color: #7F8DA5;
+}
+
+
+/* ========================================
+   LEVEL / SUBTITLE
+======================================== */
+
+.deck-level {
+    margin: 8px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.8px;
+}
+
+
+.deck-card-locked .deck-level {
+    color: #8D9AB0;
+}
+
+
+/* ========================================
+   STATUS PILLS
+======================================== */
+
+.deck-status {
+    width: fit-content;
+
+    margin-top: 12px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 12px;
+
+    border-radius: 999px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+
+    white-space: nowrap;
+}
+
+
+.deck-status-playable {
+    color: #B42345;
+
+    background-color: #FFF6F8;
+
+    border: 1px solid #F2CBD4;
+}
+
+
+.deck-status-locked {
+    color: #7F8DA5;
+
+    background-color: #EDF1F6;
+
+    border: 1px solid #E1E7EF;
+}
+
+
+/* ========================================
+   CARD BODY
+======================================== */
+
+.deck-card-body {
+    padding: 24px 32px 30px;
+}
+
+
+/* ========================================
+   LEARNING OUTCOMES
+======================================== */
+
+.deck-outcomes-heading {
+    margin: 0 0 18px;
+
+    color: #7F8DA5;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 18px;
+
+    letter-spacing: 1.3px;
+}
+
+
+.deck-outcomes {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.deck-outcomes li {
+    position: relative;
+
+    padding-left: 20px;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+
+.deck-outcomes li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #B42345;
+
+    border-radius: 50%;
+}
+
+
+.deck-card-locked .deck-outcomes li {
+    color: #A1ACBC;
+}
+
+
+.deck-card-locked .deck-outcomes li::before {
+    background-color: #CAD3E0;
+}
+
+
+/* ========================================
+   PLAY BUTTON
+======================================== */
+
+.deck-play-button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 255, 0.18);
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+
+.deck-play-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.deck-play-button:hover {
+    transform: translateY(-2px);
+
+    background-color: #1D4ED8;
+}
+
+
+/* ========================================
+   LOCKED BUTTON
+======================================== */
+
+.deck-locked-button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #F3F6FB;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #7F8DA5;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1050px) {
+
+    .deck-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .deck-cards-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .deck-card {
+        min-height: auto;
+    }
+
+    .deck-card-top {
+        padding: 26px 22px;
+    }
+
+    .deck-card-body {
+        padding: 22px;
+    }
+}
