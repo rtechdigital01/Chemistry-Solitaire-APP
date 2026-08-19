@@ -27,7 +27,7 @@
         <div class="gameplay-top-inner">
             <!-- Left: Level Info -->
             <div class="gameplay-level-info">
-                <button class="gameplay-close-btn">
+                <button class="gameplay-close-btn" onclick="window.location.href='dashboard.html'">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
@@ -80,17 +80,17 @@
                 </div>
 
                 <div class="gameplay-actions">
-                    <button class="btn-action btn-outline">
+                    <button class="btn-action btn-outline" id="redealBtn">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M4.06189 13C4.55399 16.9463 7.92038 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15M19.4185 15H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Redeal
                     </button>
-                    <button class="btn-action btn-yellow">
+                    <button class="btn-action btn-yellow" id="hintBtn">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Hint (free)
                     </button>
-                    <button class="btn-action btn-outline">
+                    <button class="btn-action btn-outline" onclick="window.location.href='results.html'">
                         <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Buy Hint
+                        Finish Demo
                     </button>
                 </div>
             </div>
@@ -283,5 +283,76 @@
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     <script src="./js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const redealBtn = document.getElementById('redealBtn');
+            const hintBtn = document.getElementById('hintBtn');
+            const cardsGrid = document.querySelector('.cards-grid');
+            const banner = document.querySelector('.game-info-banner');
+            
+            if(redealBtn && cardsGrid) {
+                redealBtn.addEventListener('click', () => {
+                    const cards = Array.from(cardsGrid.children);
+                    // Fisher-Yates shuffle
+                    for (let i = cards.length - 1; i > 0; i--) {
+                        const j = Math.floor(Math.random() * (i + 1));
+                        cardsGrid.appendChild(cards[j]);
+                    }
+                    
+                    // Reset hint states if any
+                    resetHintStates();
+                });
+            }
+            
+            function resetHintStates() {
+                const hintCards = document.querySelectorAll('.card-hint');
+                hintCards.forEach(c => c.classList.remove('card-hint'));
+                
+                const hintStacks = document.querySelectorAll('.stack-hint');
+                hintStacks.forEach(s => s.classList.remove('stack-hint'));
+                
+                if (banner) {
+                    banner.className = 'game-info-banner'; // Reset
+                    banner.innerHTML = `
+                        <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        Select a card from the deck, then tap a foundation stack.
+                    `;
+                }
+            }
+            
+            if(hintBtn) {
+                hintBtn.addEventListener('click', () => {
+                    resetHintStates();
+                    
+                    // Find a blue card to apply hint to
+                    const blueCards = document.querySelectorAll('.card-blue:not(.card-selected)');
+                    if(blueCards.length > 0) {
+                        const targetCard = blueCards[0];
+                        targetCard.classList.add('card-hint');
+                        
+                        // Find the corresponding electron stack
+                        const stacks = document.querySelectorAll('.foundation-stack');
+                        const electronStack = Array.from(stacks).find(s => s.innerHTML.includes('ELECTRON'));
+                        if (electronStack) {
+                            electronStack.classList.add('stack-hint');
+                        }
+                        
+                        if (banner) {
+                            banner.className = 'game-info-banner banner-hint';
+                            banner.innerHTML = `
+                                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                </svg>
+                                Hint: This card belongs to the Electron Structure category.
+                            `;
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 </html>

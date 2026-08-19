@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11 Gameplay States | Chemistry Solitaire</title>
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        /* ========================================
+           STATES PAGE LAYOUT
+        ======================================== */
+        body {
+            background: #F1F5F9;
+            margin: 0;
+            font-family: "Nunito", sans-serif;
+        }
+
+        .states-page-header {
+            padding: 48px 48px 0;
+        }
+
+        .states-page-title {
+            margin: 0 0 6px;
+            font-size: 28px;
+            font-weight: 900;
+            color: #0F172A;
+        }
+
+        .states-page-subtitle {
+            margin: 0 0 32px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #64748B;
+        }
+
+        /* Tab navigation */
+        .states-tab-nav {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+            padding: 0 48px;
+        }
+
+        .states-tab {
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            border: 1px solid #E2E8F0;
+            background: #FFFFFF;
+            color: #64748B;
+            cursor: pointer;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .states-tab.active {
+            background: #2563FF;
+            border-color: #2563FF;
+            color: #FFFFFF;
+        }
+
+        /* States grid layout */
+        .states-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            padding: 0 48px 80px;
+        }
+
+        /* Each state frame */
+        .state-frame {
+            background: #FFFFFF;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #E2E8F0;
+        }
+
+        .state-frame-label {
+            padding: 14px 20px 10px;
+            border-bottom: 1px solid #F1F5F9;
+            font-size: 11px;
+            font-weight: 800;
+            color: #94A3B8;
+            letter-spacing: 0.6px;
+            text-transform: uppercase;
+        }
+
+        .state-frame-label span {
+            color: #0F172A;
+            font-size: 13px;
+            text-transform: none;
+            letter-spacing: 0;
+        }
+
+        .state-frame-caption {
+            padding: 10px 20px 14px;
+            font-size: 11px;
+            color: #94A3B8;
+            font-weight: 400;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        /* Mini top bar inside each frame */
+        .mini-topbar {
+            padding: 10px 16px;
+            background: #FFFFFF;
+            border-bottom: 1px solid #EDF1F7;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+        }
+
+        .mini-traffic-lights {
+            display: flex;
+            gap: 5px;
+            align-items: center;
+        }
+
+        .traffic-dot {
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+        }
+
+        .traffic-dot.red { background: #FC5D59; }
+        .traffic-dot.yellow { background: #FDBC40; }
+        .traffic-dot.green { background: #34C749; }
+
+        .mini-progress-track {
+            flex: 1;
+            max-width: 100px;
+            height: 4px;
+            background: #E2E8F0;
+            border-radius: 999px;
+            overflow: hidden;
+            margin: 0 8px;
+        }
+
+        .mini-progress-fill {
+            height: 100%;
+            border-radius: 999px;
+        }
+
+        .fill-blue { background: #2563FF; }
+        .fill-green { background: #10B981; }
+
+        .mini-deck-label {
+            font-size: 9px;
+            font-weight: 700;
+            color: #94A3B8;
+            letter-spacing: 0.3px;
+        }
+
+        /* Mini board inside each state */
+        .mini-board {
+            padding: 12px 16px;
+            background: #F8FAFC;
+        }
+
+        /* Mini banner */
+        .mini-banner {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            font-size: 10px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            border: 1px solid;
+        }
+
+        .mini-banner svg {
+            width: 12px;
+            height: 12px;
+            flex-shrink: 0;
+        }
+
+        .mini-banner.blue {
+            background: #EFF6FF;
+            border-color: #DBEAFE;
+            color: #1D4ED8;
+        }
+
+        .mini-banner.green {
+            background: #ECFDF5;
+            border-color: #A7F3D0;
+            color: #047857;
+        }
+
+        .mini-banner.red {
+            background: #FEF2F2;
+            border-color: #FECACA;
+            color: #B91C1C;
+        }
+
+        .mini-banner.yellow {
+            background: #FFFBEB;
+            border-color: #FDE68A;
+            color: #B45309;
+        }
+
+        /* Buy hint row */
+        .mini-buy-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mini-buy-btn {
+            margin-left: auto;
+            padding: 3px 10px;
+            background: #2563FF;
+            color: #FFFFFF;
+            border-radius: 999px;
+            font-size: 9px;
+            font-weight: 800;
+            border: none;
+            cursor: pointer;
+        }
+
+        /* Mini section title */
+        .mini-section-title {
+            font-size: 8px;
+            font-weight: 800;
+            color: #94A3B8;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        /* Mini cards grid */
+        .mini-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 6px;
+            margin-bottom: 10px;
+        }
+
+        /* Mini game card */
+        .mini-card {
+            background: #FFFFFF;
+            border-radius: 8px;
+            padding: 6px 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 3px;
+            min-height: 64px;
+            border: 1.5px solid transparent;
+            position: relative;
+        }
+
+        .mini-card svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .mini-card-name {
+            font-size: 7px;
+            font-weight: 800;
+            color: #0F172A;
+            text-align: center;
+            line-height: 1.2;
+        }
+
+        .mini-card-cat {
+            font-size: 6px;
+            font-weight: 800;
+            letter-spacing: 0.3px;
+        }
+
+        /* Mini card variants */
+        .mini-card.pink {
+            background: #FFF1F2;
+            border-color: #FECDD3;
+        }
+
+        .mini-card.pink svg { color: #E11D48; }
+        .mini-card.pink .mini-card-cat { color: #E11D48; }
+
+        .mini-card.blue {
+            background: #EFF6FF;
+            border-color: #BFDBFE;
+        }
+
+        .mini-card.blue svg { color: #2563FF; }
+        .mini-card.blue .mini-card-cat { color: #2563FF; }
+
+        .mini-card.green {
+            background: #ECFDF5;
+            border-color: #A7F3D0;
+        }
+
+        .mini-card.green svg { color: #059669; }
+        .mini-card.green .mini-card-cat { color: #059669; }
+
+        .mini-card.selected {
+            border-color: #2563FF !important;
+            box-shadow: 0 0 0 2px rgba(37, 99, 255, 0.15);
+            background: #EFF6FF;
+        }
+
+        .mini-card.correct {
+            border-color: #10B981 !important;
+            background: #ECFDF5;
+            box-shadow: 0 0 0 1.5px #10B981;
+        }
+
+        .mini-card.incorrect {
+            border-color: #EF4444 !important;
+            background: #FEF2F2;
+            box-shadow: 0 0 0 1.5px #EF4444;
+        }
+
+        .mini-card.hint-glow {
+            border-color: #F59E0B !important;
+            box-shadow: 0 0 6px rgba(245, 158, 11, 0.5), 0 0 0 1.5px #F59E0B;
+        }
+
+        .mini-card.solved {
+            background: #F8FAFC;
+            border-color: #E2E8F0;
+            opacity: 0.5;
+        }
+
+        .mini-card.solved svg { color: #CBD5E1; }
+
+        /* Mini stacks */
+        .mini-stacks-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 6px;
+        }
+
+        .mini-stack {
+            background: #FFFFFF;
+            border: 1.5px solid #2563FF;
+            border-radius: 10px;
+            min-height: 52px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 8px 6px;
+            gap: 4px;
+        }
+
+        .mini-stack-title {
+            font-size: 7px;
+            font-weight: 800;
+            color: #2563FF;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .mini-stack-count {
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .mini-stack-count .grey { color: #94A3B8; }
+
+        .mini-stack.pink-stack {
+            border-color: #E11D48;
+        }
+
+        .mini-stack.pink-stack .mini-stack-title { color: #E11D48; }
+        .mini-stack.pink-stack .mini-stack-count { color: #E11D48; }
+
+        .mini-stack.blue-stack {
+            border-color: #2563FF;
+        }
+
+        .mini-stack.blue-stack .mini-stack-title { color: #2563FF; }
+        .mini-stack.blue-stack .mini-stack-count { color: #2563FF; }
+
+        .mini-stack.green-stack {
+            border-color: #059669;
+        }
+
+        .mini-stack.green-stack .mini-stack-title { color: #059669; }
+        .mini-stack.green-stack .mini-stack-count { color: #059669; }
+
+        .mini-stack.hint-stack {
+            border-color: #F59E0B;
+            background: #FFFBEB;
+            box-shadow: 0 0 6px rgba(245, 158, 11, 0.4);
+        }
+
+        .mini-stack.hint-stack .mini-stack-title { color: #B45309; }
+        .mini-stack.hint-stack .mini-stack-count { color: #B45309; }
+
+        .mini-stack.solved-stack {
+            border-color: #10B981;
+            background: #ECFDF5;
+        }
+
+        .mini-stack.solved-stack .mini-stack-title { color: #059669; }
+        .mini-stack.solved-stack .mini-stack-count { color: #059669; }
+
+        /* Status pill in topbar */
+        .status-pill {
+            font-size: 9px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+        }
+
+        .status-pill.dealing { background: #F1F5F9; color: #64748B; }
+        .status-pill.ready { background: #DCFCE7; color: #166534; }
+        .status-pill.active { background: #DCFCE7; color: #166534; }
+
+        @media (max-width: 1100px) {
+            .states-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+            .states-grid {
+                grid-template-columns: 1fr;
+                padding: 0 16px 60px;
+            }
+
+            .states-page-header,
+            .states-tab-nav {
+                padding-left: 16px;
+                padding-right: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Reusable Header -->
+    <div id="header"></div>
+
+    <!-- Page Header -->
+    <div class="states-page-header">
+        <h1 class="states-page-title">11 Gameplay States</h1>
+        <p class="states-page-subtitle">Every required interaction state as a standalone editable frame.</p>
+    </div>
+
+    <!-- Tab Nav -->
+    <nav class="states-tab-nav" aria-label="State tabs">
+        <a href="#state-01" class="states-tab active">01 — Dealing</a>
+        <a href="#state-02" class="states-tab">02 — Ready</a>
+        <a href="#state-03" class="states-tab">03 — Card Selected</a>
+        <a href="#state-04" class="states-tab">04 — Correct Match</a>
+        <a href="#state-05" class="states-tab">05 — Incorrect Match</a>
+        <a href="#state-06" class="states-tab">06 — Hint Revealed</a>
+        <a href="#state-07" class="states-tab">07 — No Free Hints</a>
+        <a href="#state-08" class="states-tab">08 — Buy Hint</a>
+        <a href="#state-09" class="states-tab">09 — Insufficient Coins</a>
+        <a href="#state-10" class="states-tab">10 — Partially Complete</a>
+        <a href="#state-11" class="states-tab">11 — All Cards Solved</a>
+    </nav>
+
+    <!-- States Grid -->
+    <div class="states-grid">
+
+        <!-- ============================
+             STATE 01 — DEALING
+        ============================= -->
+        <div class="state-frame" id="state-01">
+            <div class="state-frame-label">01 — <span>Dealing</span></div>
+
+            <!-- Mini Top Bar -->
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width: 0%;"></div>
+                </div>
+                <span class="status-pill dealing">Dealing</span>
+            </div>
+
+            <!-- Mini Board -->
+            <div class="mini-board">
+                <div class="mini-section-title">CHEMISTRY CARDS — DEALING IN</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink" style="opacity:0.4">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <div class="mini-card-name">Proton</div>
+                        <div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div>
+                    </div>
+                    <div class="mini-card pink" style="opacity:0.55">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <div class="mini-card-name">Neutron</div>
+                        <div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div>
+                    </div>
+                    <div class="mini-card pink" style="opacity:0.7">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <div class="mini-card-name">Electron</div>
+                        <div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div>
+                    </div>
+                    <div class="mini-card pink" style="opacity:0.85">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        <div class="mini-card-name">Nucleus</div>
+                        <div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div>
+                    </div>
+                    <div class="mini-card blue" style="opacity:0.4">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Shell</div>
+                        <div class="mini-card-cat" style="color:#2563FF">ELECTRON</div>
+                    </div>
+                    <div class="mini-card blue" style="opacity:0.55">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Arrangement</div>
+                        <div class="mini-card-cat" style="color:#2563FF">ELECTRON</div>
+                    </div>
+                    <div class="mini-card blue" style="opacity:0.7">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Energy Lvl</div>
+                        <div class="mini-card-cat" style="color:#2563FF">ELECTRON</div>
+                    </div>
+                    <div class="mini-card green" style="opacity:0.4">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Atomic No.</div>
+                        <div class="mini-card-cat" style="color:#059669">IDENTITY</div>
+                    </div>
+                    <div class="mini-card green" style="opacity:0.55">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Proton No.</div>
+                        <div class="mini-card-cat" style="color:#059669">IDENTITY</div>
+                    </div>
+                    <div class="mini-card green" style="opacity:0.7">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Element</div>
+                        <div class="mini-card-cat" style="color:#059669">IDENTITY</div>
+                    </div>
+                    <div class="mini-card green" style="opacity:0.85">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Per. Table</div>
+                        <div class="mini-card-cat" style="color:#059669">IDENTITY</div>
+                    </div>
+                    <div class="mini-card blue" style="opacity:0.85">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="mini-card-name">Orbit</div>
+                        <div class="mini-card-cat" style="color:#2563FF">ELECTRON</div>
+                    </div>
+                </div>
+                <div class="mini-section-title" style="margin-top:8px">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack">
+                        <div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div>
+                        <div class="mini-stack-count">0<span class="grey">/4</span></div>
+                    </div>
+                    <div class="mini-stack blue-stack">
+                        <div class="mini-stack-title">ELECTRON<br>STRUCTURE</div>
+                        <div class="mini-stack-count">0<span class="grey">/4</span></div>
+                    </div>
+                    <div class="mini-stack green-stack">
+                        <div class="mini-stack-title">ATOMIC<br>IDENTITY</div>
+                        <div class="mini-stack-count">0<span class="grey">/4</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Cards animate in from the top of the screen</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 02 — READY
+        ============================= -->
+        <div class="state-frame" id="state-02">
+            <div class="state-frame-label">02 — <span>Ready · <em style="font-style:normal;color:#16A34A">Active</em></span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width: 0%;"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner blue">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Select a card from the deck, then tap a foundation stack.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS — TAP TO SELECT</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">All 12 cards dealt, stacks empty, no selection</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 03 — CARD SELECTED
+        ============================= -->
+        <div class="state-frame" id="state-03">
+            <div class="state-frame-label">03 — <span>Card Selected</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:0%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner blue">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Select a card from the deck, then tap a foundation stack.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS — TAP TO SELECT</div>
+                <div class="mini-cards-grid">
+                    <!-- Selected Proton -->
+                    <div class="mini-card selected"><svg viewBox="0 0 24 24" fill="none" style="color:#E11D48"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS — TAP TO PLACE</div>
+                <div class="mini-stacks-grid">
+                    <!-- Stacks become active targets -->
+                    <div class="mini-stack pink-stack" style="box-shadow:0 0 0 2px #E11D48;"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">One card highlighted, stacks become active targets</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 04 — CORRECT MATCH
+        ============================= -->
+        <div class="state-frame" id="state-04">
+            <div class="state-frame-label">04 — <span>Correct Match</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-green" style="width:8%"></div>
+                </div>
+                <span class="status-pill ready">1/12</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner green">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Correct! Proton belongs to Subatomic Particles. +10 coins.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#CBD5E1">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">1<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Correct feedback banner, card moves to stack. +10 coins</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 05 — INCORRECT MATCH
+        ============================= -->
+        <div class="state-frame" id="state-05">
+            <div class="state-frame-label">05 — <span>Incorrect Match</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:0%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner red">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M15 9L9 15M9 9L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Not quite. Try the Subatomic Particles stack — it carries electrons.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink incorrect"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Guidance banner shown, card returns to tableau</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 06 — HINT REVEALED
+        ============================= -->
+        <div class="state-frame" id="state-06">
+            <div class="state-frame-label">06 — <span>Hint Revealed</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:0%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner yellow">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Hint: This card belongs to the Electron Structure category.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card hint-glow"><svg viewBox="0 0 24 24" fill="none" style="color:#F59E0B"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#B45309">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack hint-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Target card highlighted, category shown</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 07 — NO FREE HINTS
+        ============================= -->
+        <div class="state-frame" id="state-07">
+            <div class="state-frame-label">07 — <span>No Free Hints</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:30%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner red">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M15 9L9 15M9 9L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Not enough coins. You need 15 coins to buy a hint.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Prompt to buy a hint for coins</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 08 — BUY HINT
+        ============================= -->
+        <div class="state-frame" id="state-08">
+            <div class="state-frame-label">08 — <span>Buy Hint</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:30%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner yellow">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <div class="mini-buy-row" style="width:100%;display:flex;align-items:center;gap:6px">
+                        <span>Buy a hint for 15 coins?</span>
+                        <button class="mini-buy-btn">Buy</button>
+                    </div>
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Confirmation: spend 15 coins for a hint</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 09 — INSUFFICIENT COINS
+        ============================= -->
+        <div class="state-frame" id="state-09">
+            <div class="state-frame-label">09 — <span>Insufficient Coins</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:30%"></div>
+                </div>
+                <span class="status-pill ready">Ready</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner red">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8V12M12 16H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Not enough coins. You need 15 coins to buy a hint.
+                </div>
+                <!-- Buy hint row disabled -->
+                <div style="display:flex;align-items:center;gap:6px;padding:6px 0;margin-bottom:8px;">
+                    <span style="font-size:9px;color:#94A3B8;font-weight:700;">Buy a hint for 15 coins?</span>
+                    <button class="mini-buy-btn" style="background:#CBD5E1;cursor:not-allowed;">Buy</button>
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">IDENTITY</div><div class="mini-stack-count">0<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">Error state: not enough coins to purchase</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 10 — PARTIALLY COMPLETE
+        ============================= -->
+        <div class="state-frame" id="state-10">
+            <div class="state-frame-label">10 — <span>Partially Complete</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-blue" style="width:58%"></div>
+                </div>
+                <span style="font-size:9px;font-weight:700;color:#2563FF">7/12</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner blue">
+                    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                    Select a card from the deck, then tap a foundation stack.
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS — 5 REMAINING</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <!-- Remaining active cards -->
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card pink"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#E11D48">SUBATOMIC</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card blue"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#2563FF">ELECTRON</div></div>
+                    <div class="mini-card green"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#059669">IDENTITY</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack pink-stack"><div class="mini-stack-title">SUBATOMIC</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                    <div class="mini-stack blue-stack"><div class="mini-stack-title">ELECTRON</div><div class="mini-stack-count">3<span class="grey">/4</span></div></div>
+                    <div class="mini-stack green-stack"><div class="mini-stack-title">IDENTITY</div><div class="mini-stack-count">2<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">5 of 12 cards matched, game in progress</div>
+        </div>
+
+
+        <!-- ============================
+             STATE 11 — ALL CARDS SOLVED
+        ============================= -->
+        <div class="state-frame" id="state-11">
+            <div class="state-frame-label">11 — <span>All Cards Solved</span></div>
+
+            <div class="mini-topbar">
+                <div class="mini-traffic-lights">
+                    <div class="traffic-dot red"></div>
+                    <div class="traffic-dot yellow"></div>
+                    <div class="traffic-dot green"></div>
+                </div>
+                <div class="mini-deck-label">Atomic Structure</div>
+                <div class="mini-progress-track">
+                    <div class="mini-progress-fill fill-green" style="width:100%"></div>
+                </div>
+                <span style="font-size:9px;font-weight:700;color:#059669">12/12 ✓</span>
+            </div>
+
+            <div class="mini-board">
+                <div class="mini-banner green">
+                    <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    🎉 All cards matched! Well done — Level complete!
+                </div>
+                <div class="mini-section-title">CHEMISTRY CARDS — ALL SOLVED</div>
+                <div class="mini-cards-grid">
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Proton</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Neutron</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Electron</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/></svg><div class="mini-card-name">Nucleus</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Shell</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Arrangement</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Energy Lvl</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Orbit</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Atomic No.</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Proton No.</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Element</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                    <div class="mini-card solved"><svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5L11.8787 10.136" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><div class="mini-card-name">Per. Table</div><div class="mini-card-cat" style="color:#CBD5E1">—</div></div>
+                </div>
+                <div class="mini-section-title">FOUNDATION STACKS — COMPLETE</div>
+                <div class="mini-stacks-grid">
+                    <div class="mini-stack solved-stack"><div class="mini-stack-title">SUBATOMIC<br>PARTICLES</div><div class="mini-stack-count">4<span class="grey">/4</span></div></div>
+                    <div class="mini-stack solved-stack"><div class="mini-stack-title">ELECTRON<br>STRUCTURE</div><div class="mini-stack-count">4<span class="grey">/4</span></div></div>
+                    <div class="mini-stack solved-stack"><div class="mini-stack-title">ATOMIC<br>IDENTITY</div><div class="mini-stack-count">4<span class="grey">/4</span></div></div>
+                </div>
+            </div>
+            <div class="state-frame-caption">All three stacks complete — level solved!</div>
+        </div>
+
+    </div><!-- /states-grid -->
+
+    <!-- Reusable Footer -->
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+
+    <script>
+        // Tab active state on click
+        document.querySelectorAll('.states-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                document.querySelectorAll('.states-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+            });
+        });
+    </script>
+</body>
+
+</html>

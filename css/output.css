@@ -939,6 +939,10 @@ body {
 .login-page {
   width: 100%;
   min-height: 716px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 64px;
   background: linear-gradient( 135deg, #F4F8FF 0%, #FFFFFF 55%, #F7FBFF 100% );
 }
 .login-intro {
@@ -1013,10 +1017,11 @@ body {
   }
 }
 .login-form-area {
-  position: absolute;
-  top: 84px;
-  right: 7%;
+  position: static;
+  margin-top: 84px;
+  margin-right: 7%;
   z-index: 2;
+  flex-shrink: 0;
 }
 .login-form-card {
   width: 357.33px;
