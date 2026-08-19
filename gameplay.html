@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay | Chemistry Solitaire</title>
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body class="bg-[#F8FAFC]">
+
+    <!-- Reusable Header -->
+    <div id="header"></div>
+
+    <!-- Gameplay Top Bar -->
+    <div class="gameplay-top-bar">
+        <div class="gameplay-top-inner">
+            <!-- Left: Level Info -->
+            <div class="gameplay-level-info">
+                <button class="gameplay-close-btn">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="gameplay-level-text">
+                    <span class="level-label">LEVEL 1</span>
+                    <span class="level-title">Atomic Structure</span>
+                </div>
+            </div>
+
+            <!-- Middle: Progress Bar -->
+            <div class="gameplay-progress-container">
+                <div class="gameplay-progress-track">
+                    <div class="gameplay-progress-fill" style="width: 58%;"></div>
+                </div>
+                <span class="gameplay-progress-text">7/12</span>
+            </div>
+
+            <!-- Right: Stats & Actions -->
+            <div class="gameplay-stats-actions">
+                <div class="gameplay-stats">
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 4V20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">70</span>
+                            <span class="stat-label">score</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M9 5L5 9M5 9L9 13M5 9H13C16.866 9 20 12.134 20 16V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">9</span>
+                            <span class="stat-label">moves</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 7H5C3.89543 7 3 7.89543 3 9V11H21V9C21 7.89543 20.1046 7 19 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 3H5C3.89543 3 3 3.89543 3 5V7H21V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">220</span>
+                            <span class="stat-label">cards</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label">stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gameplay-actions">
+                    <button class="btn-action btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M4.06189 13C4.55399 16.9463 7.92038 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15M19.4185 15H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Redeal
+                    </button>
+                    <button class="btn-action btn-yellow">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Hint (free)
+                    </button>
+                    <button class="btn-action btn-outline">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Buy Hint
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Area -->
+    <main class="gameplay-main">
+        <div class="gameplay-board">
+            
+            <!-- Info Banner -->
+            <div class="game-info-banner">
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Select a card from the deck, then tap a foundation stack.
+            </div>
+
+            <!-- Cards Section -->
+            <div class="game-section">
+                <h2 class="section-title">CHEMISTRY CARDS — TAP TO SELECT</h2>
+                <div class="cards-grid">
+                    
+                    <!-- Selected Card -->
+                    <div class="game-card card-selected">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-pink">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-name">Proton</div>
+                        <div class="card-category text-pink">SUBATOMIC</div>
+                    </div>
+
+                    <!-- Pink Cards -->
+                    <div class="game-card card-pink">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-pink">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-name">Neutron</div>
+                        <div class="card-category text-pink">SUBATOMIC</div>
+                    </div>
+                    
+                    <div class="game-card card-pink">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-pink">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-name">Electron</div>
+                        <div class="card-category text-pink">SUBATOMIC</div>
+                    </div>
+                    
+                    <div class="game-card card-pink">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-pink">
+                            <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        </div>
+                        <div class="card-name">Nucleus</div>
+                        <div class="card-category text-pink">SUBATOMIC</div>
+                    </div>
+
+                    <!-- Blue Cards -->
+                    <div class="game-card card-blue">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-blue">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Shell</div>
+                        <div class="card-category text-blue">ELECTRON</div>
+                    </div>
+                    
+                    <div class="game-card card-blue">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-blue">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Arrangement</div>
+                        <div class="card-category text-blue">ELECTRON</div>
+                    </div>
+
+                    <div class="game-card card-blue">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-blue">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Energy Lvl</div>
+                        <div class="card-category text-blue">ELECTRON</div>
+                    </div>
+                    
+                    <div class="game-card card-blue">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-blue">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Orbit</div>
+                        <div class="card-category text-blue">ELECTRON</div>
+                    </div>
+
+                    <!-- Green Cards -->
+                    <div class="game-card card-green">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-green">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Atomic No.</div>
+                        <div class="card-category text-green">IDENTITY</div>
+                    </div>
+
+                    <div class="game-card card-green">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-green">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Proton No.</div>
+                        <div class="card-category text-green">IDENTITY</div>
+                    </div>
+                    
+                    <div class="game-card card-green">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-green">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Element</div>
+                        <div class="card-category text-green">IDENTITY</div>
+                    </div>
+                    
+                    <div class="game-card card-green">
+                        <div class="card-icon-top">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-icon-center icon-green">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="card-name">Per. Table</div>
+                        <div class="card-category text-green">IDENTITY</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stacks Section -->
+            <div class="game-section">
+                <h2 class="section-title">FOUNDATION STACKS — TAP TO PLACE SELECTED CARD</h2>
+                <div class="stacks-grid">
+                    <div class="foundation-stack">
+                        <div class="stack-title">SUBATOMIC<br>PARTICLES</div>
+                        <div class="stack-count text-pink"><span>0</span><span class="count-total">/4</span></div>
+                    </div>
+                    
+                    <div class="foundation-stack">
+                        <div class="stack-title">ELECTRON<br>STRUCTURE</div>
+                        <div class="stack-count text-blue"><span>0</span><span class="count-total">/4</span></div>
+                    </div>
+                    
+                    <div class="foundation-stack">
+                        <div class="stack-title">ATOMIC IDENTITY</div>
+                        <div class="stack-count text-green"><span>0</span><span class="count-total">/4</span></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Reusable Footer -->
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>

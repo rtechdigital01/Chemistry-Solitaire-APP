@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results | Chemistry Solitaire</title>
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body class="bg-[#F8FAFC]">
+
+    <!-- Reusable Header -->
+    <div id="header"></div>
+
+    <!-- Results Main Content -->
+    <main class="results-main">
+        <div class="results-card">
+            
+            <!-- Trophy Header -->
+            <div class="results-header">
+                <div class="trophy-icon-wrapper">
+                    <div class="trophy-circle">
+                        <svg viewBox="0 0 24 24" fill="none" class="trophy-svg"><path d="M8 21H16M12 17V21M7 4H17M5 4H19C20.1046 4 21 4.89543 21 6V8C21 10.2091 19.2091 12 17 12H16.26C15.5348 14.8691 13.9859 17 12 17C10.0141 17 8.46517 14.8691 7.73997 12H7C4.79086 12 3 10.2091 3 8V6C3 4.89543 3.89543 4 5 4Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                    <div class="trophy-badge">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M5 13L9 17L19 7" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    </div>
+                </div>
+                <h1 class="results-title">Solitaire Victory!</h1>
+                <p class="results-subtitle">Awesome Work, Alex! You completed Level 1 — Atomic Structure.</p>
+                
+                <div class="results-pills">
+                    <span class="result-pill pill-pink">
+                        <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/><ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/><ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/></svg>
+                        Subatomic <span class="check-mark">✓</span>
+                    </span>
+                    <span class="result-pill pill-blue">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M13 3L4 14H12L11 21L20 10H12L13 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Electron <span class="check-mark">✓</span>
+                    </span>
+                    <span class="result-pill pill-green">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M10 3H14M12 3V7M8 21H16C17.1046 21 18 20.1046 18 19V17.5C18 16.7044 17.6839 15.9413 17.1213 15.3787L11.8787 10.136C11.3161 9.5734 11 8.81033 11 8.01472V7M8 21V19.5C8 18.7044 8.31607 17.9413 8.87868 17.3787L12 14.25" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Identity <span class="check-mark">✓</span>
+                    </span>
+                </div>
+            </div>
+
+            <div class="results-layout">
+                <!-- Left Column: Coins and Stats -->
+                <div class="results-left">
+                    <div class="coins-collected-card">
+                        <h3 class="coins-title">COINS COLLECTED THIS ROUND</h3>
+                        <div class="coins-amount">+190</div>
+                        
+                        <div class="coins-breakdown">
+                            <div class="breakdown-row">
+                                <span>Correct matches (12 × 10)</span>
+                                <span class="breakdown-value">+120</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Level completion bonus</span>
+                                <span class="breakdown-value">+50</span>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Time bonus (under 5 min)</span>
+                                <span class="breakdown-value">+20</span>
+                            </div>
+                        </div>
+
+                        <div class="coins-divider"></div>
+                        
+                        <div class="new-balance-row">
+                            <span class="new-balance-label">New Coin Balance</span>
+                            <div class="new-balance-value">
+                                <svg class="coin-icon" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 8V16M10 10H14M10 14H14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+                                1,440
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stats Boxes -->
+                    <div class="stats-boxes">
+                        <div class="stat-box">
+                            <div class="stat-box-icon">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="stat-box-text">
+                                <div class="stat-box-label">Total Solitaire Score</div>
+                                <div class="stat-box-value">120 pts</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-box-icon icon-blue">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="stat-box-text">
+                                <div class="stat-box-label">Correct Matches</div>
+                                <div class="stat-box-value">12 / 12</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-box-icon icon-blue">
+                                <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/><path d="M12 6V12L16 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="stat-box-text">
+                                <div class="stat-box-label">Completion Time</div>
+                                <div class="stat-box-value">4m 22s</div>
+                            </div>
+                        </div>
+
+                        <div class="stat-box">
+                            <div class="stat-box-icon icon-blue">
+                                <svg viewBox="0 0 24 24" fill="none"><path d="M9.663 17H14.337M12 22C12.828 22 13.5 21.328 13.5 20.5H10.5C10.5 21.328 11.172 22 12 22ZM12 2C9.239 2 7 4.239 7 7C7 9.176 8.391 11.021 10.25 11.706V14.5C10.25 15.328 10.922 16 11.75 16H12.25C13.078 16 13.75 15.328 13.75 14.5V11.706C15.609 11.021 17 9.176 17 7C17 4.239 14.761 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <div class="stat-box-text">
+                                <div class="stat-box-label">Hints Used</div>
+                                <div class="stat-box-value">2 hints</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Actions -->
+                <div class="results-right">
+                    <h3 class="actions-title">What would you like to do next?</h3>
+                    
+                    <a href="dashboard.html" class="action-card action-primary">
+                        <div class="action-icon bg-blue">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M3 9L12 2L21 9V20C21 20.5304 20.7893 21.0391 20.4142 21.4142C20.0391 21.7893 19.5304 22 19 22H5C4.46957 22 3.96086 21.7893 3.58579 21.4142C3.21071 21.0391 3 20.5304 3 20V9Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M9 22V12H15V22" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="action-text">
+                            <div class="action-heading">Return to Deck Selection</div>
+                            <div class="action-subheading">Back to your student portal</div>
+                        </div>
+                        <div class="action-arrow">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </a>
+
+                    <a href="gameplay.html" class="action-card">
+                        <div class="action-icon bg-gray">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10M20.49 9V3M20.49 9H14.49M3.51 15A9 9 0 0 0 18.36 18.36L23 14M3.51 15V21M3.51 15H9.51" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="action-text">
+                            <div class="action-heading">Deal Level 1 Again</div>
+                            <div class="action-subheading">Practise the same deck for a better score</div>
+                        </div>
+                        <div class="action-arrow">
+                            <svg viewBox="0 0 24 24" fill="none"><path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                    </a>
+
+                    <div class="action-card action-locked">
+                        <div class="action-icon bg-gray-locked">
+                            <svg viewBox="0 0 24 24" fill="none"><rect x="5" y="11" width="14" height="10" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8 11V7C8 5.93913 8.42143 4.92172 9.17157 4.17157C9.92172 3.42143 10.9391 3 12 3C13.0609 3 14.0783 3.42143 14.8284 4.17157C15.5786 4.92172 16 5.93913 16 7V11" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </div>
+                        <div class="action-text">
+                            <div class="action-heading">Level 2 — Coming Soon</div>
+                            <div class="action-subheading">Additional levels are in development</div>
+                        </div>
+                        <div class="action-badge">Coming Soon</div>
+                    </div>
+
+                    <!-- Level Complete Summary -->
+                    <div class="level-complete-summary">
+                        <div class="summary-title">Level 1 Complete</div>
+                        <div class="summary-grid">
+                            <div class="summary-box">
+                                <div class="summary-val">12/12</div>
+                                <div class="summary-lbl">CARDS MATCHED</div>
+                            </div>
+                            <div class="summary-box">
+                                <div class="summary-val">100%</div>
+                                <div class="summary-lbl">ACCURACY</div>
+                            </div>
+                            <div class="summary-box">
+                                <div class="summary-val">+190</div>
+                                <div class="summary-lbl">COINS EARNED</div>
+                            </div>
+                            <div class="summary-box">
+                                <div class="summary-val">1,440</div>
+                                <div class="summary-lbl">TOTAL BALANCE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reusable Footer -->
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+</body>
+</html>
