@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | Chemistry Solitaire</title>
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+
+</head>
+
+
+<body>
+
+    <!-- Reusable Header -->
+    <div id="header"></div>
+
+
+    <!-- Dashboard Content -->
+    <main class="dashboard-page">
+
+        <!-- ========================================
+     DASHBOARD PROFILE SECTION
+========================================= -->
+
+        <section class="dashboard-profile-card reveal" data-delay="0">
+
+            <!-- LEFT: USER PROFILE -->
+            <div class="dashboard-user">
+
+                <!-- Avatar -->
+                <div class="dashboard-avatar">
+                    <span class="dashboard-avatar-content">🧪</span>
+
+                    <span class="dashboard-avatar-status" aria-label="Profile active">
+                        ✓
+                    </span>
+                </div>
+
+
+                <!-- User Information -->
+                <div class="dashboard-user-info">
+
+                    <p class="dashboard-greeting">
+                        Good morning 👋
+                    </p>
+
+                    <h1 class="dashboard-user-name">
+                        Alex
+                    </h1>
+
+                    <p class="dashboard-user-course">
+                        Year 10 · GCSE Chemistry
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Right side will be added next -->
+            <!-- RIGHT SIDE -->
+            <div class="dashboard-profile-actions">
+
+                <!-- Coin Vault -->
+                <div class="dashboard-coin-area">
+
+                    <div class="coin-vault">
+
+                        <div class="coin-vault-icon">
+                            $
+                        </div>
+
+                        <div>
+                            <p class="coin-vault-amount">1,250</p>
+                            <p class="coin-vault-label">COIN VAULT</p>
+                        </div>
+
+                    </div>
+
+                    <p class="coin-vault-note">
+                        Spend on hints in-game
+                    </p>
+
+                </div>
+
+
+                <!-- Profile Actions -->
+                <div class="dashboard-account-area">
+
+                    <a href="./profile-setup.html" class="dashboard-edit-button">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5 4V20M12 4V20M19 4V20" stroke="currentColor" stroke-width="1.7"
+                                stroke-linecap="round" />
+
+                            <circle cx="5" cy="9" r="2" fill="currentColor" />
+                            <circle cx="12" cy="15" r="2" fill="currentColor" />
+                            <circle cx="19" cy="8" r="2" fill="currentColor" />
+                        </svg>
+
+                        <span>Edit Profile</span>
+                    </a>
+
+
+                    <button type="button" class="dashboard-logout-button">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 8L18 12L14 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                                stroke-linejoin="round" />
+
+                            <path d="M18 12H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+
+                            <path d="M10 5H6C5.45 5 5 5.45 5 6V18C5 18.55 5.45 19 6 19H10" stroke="currentColor"
+                                stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                        <span>Log Out</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+                CHEMISTRY DECKS HEADING SECTION
+            ========================================= -->
+            <section class="decks-heading-section reveal" data-delay="120">
+
+                <!-- Left Side -->
+                <div class="decks-heading-content">
+
+                    <h2 class="decks-heading">
+                        Your Chemistry Decks
+                    </h2>
+
+                    <p class="decks-subtitle">
+                        Select a deck to start a revision session
+                    </p>
+
+                </div>
+
+
+                <!-- Available Decks Pill -->
+                <div class="decks-available-pill">
+
+                    <svg
+                        class="decks-available-icon"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M4 5.5C4 4.67 4.67 4 5.5 4H10C11.1 4 12 4.9 12 6V20C12 18.9 11.1 18 10 18H4V5.5Z"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M20 5.5C20 4.67 19.33 4 18.5 4H14C12.9 4 12 4.9 12 6V20C12 18.9 12.9 18 14 18H20V5.5Z"
+                            stroke="currentColor"
+                            stroke-width="1.7"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+                    <span>1 deck available</span>
+                </div>
+            </section>
+
+
+<!-- ========================================
+     CHEMISTRY DECK CARDS
+========================================= -->
+<section class="deck-cards-section">
+
+    <div class="deck-cards-grid">
+
+        <!-- ========================================
+             CARD 1 — FULLY PLAYABLE
+        ========================================= -->
+
+        <article
+            class="deck-card deck-card-playable reveal"
+            data-delay="160"
+        >
+
+            <!-- Top -->
+            <div class="deck-card-top">
+
+                <div class="deck-card-heading-row">
+
+                    <!-- Icon -->
+                    <div class="deck-icon deck-icon-playable">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="2.5"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                            />
+
+                            <ellipse
+                                cx="12"
+                                cy="12"
+                                rx="8"
+                                ry="3.5"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+
+                            <ellipse
+                                cx="12"
+                                cy="12"
+                                rx="8"
+                                ry="3.5"
+                                transform="rotate(60 12 12)"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+
+                            <ellipse
+                                cx="12"
+                                cy="12"
+                                rx="8"
+                                ry="3.5"
+                                transform="rotate(120 12 12)"
+                                stroke="currentColor"
+                                stroke-width="1.5"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="deck-heading-text">
+
+                        <h3 class="deck-title">
+                            Atomic Structure &amp;<br>
+                            Isotopes
+                        </h3>
+
+                        <p class="deck-level">
+                            KS3 · GCSE Foundation &amp; Higher
+                        </p>
+
+                        <span class="deck-status deck-status-playable">
+                            Fully Playable
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Learning Outcomes -->
+            <div class="deck-card-body">
+
+                <p class="deck-outcomes-heading">
+                    LEARNING OUTCOMES
+                </p>
+
+                <ul class="deck-outcomes">
+
+                    <li>
+                        Identify subatomic particles
+                    </li>
+
+                    <li>
+                        Describe electron arrangement
+                    </li>
+
+                    <li>
+                        Interpret the atomic number
+                    </li>
+
+                </ul>
+
+
+                <!-- Play Button -->
+                <button
+                    type="button"
+                    class="deck-play-button"
+                    onclick="window.location.href='gameplay.html'"
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        aria-hidden="true"
+                    >
+                        <path
+                            d="M8 5L19 12L8 19V5Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linejoin="round"
+                        />
+                    </svg>
+
+                    <span>
+                        Deal Level 1 Cards
+                    </span>
+
+                </button>
+
+            </div>
+        </article>
+
+        <!-- ========================================
+             CARD 2 — LOCKED
+        ========================================= -->
+
+        <article
+            class="deck-card deck-card-locked reveal"
+            data-delay="260"
+        >
+
+            <div class="deck-card-top deck-card-top-locked">
+
+                <div class="deck-card-heading-row">
+
+                    <div class="deck-icon deck-icon-locked">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="10"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="deck-heading-text">
+
+                        <h3 class="deck-title">
+                            Chemical Bonding &amp;<br>
+                            Lattices
+                        </h3>
+
+                        <p class="deck-level">
+                            GCSE Foundation &amp; Higher
+                        </p>
+
+                        <span class="deck-status deck-status-locked">
+                            🔒 Coming Soon
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="deck-card-body">
+
+                <p class="deck-outcomes-heading">
+                    LEARNING OUTCOMES
+                </p>
+
+                <ul class="deck-outcomes">
+
+                    <li>
+                        Ionic bonding structures
+                    </li>
+
+                    <li>
+                        Covalent bonding patterns
+                    </li>
+
+                    <li>
+                        Metallic lattice properties
+                    </li>
+
+                </ul>
+
+
+                <button
+                    type="button"
+                    class="deck-locked-button"
+                    disabled
+                >
+                    🔒
+                    <span>Unlock Coming Soon</span>
+                </button>
+
+            </div>
+
+        </article>
+        <!-- ========================================
+             CARD 3 — LOCKED
+        ========================================= -->
+
+        <article
+            class="deck-card deck-card-locked reveal"
+            data-delay="360"
+        >
+
+            <div class="deck-card-top deck-card-top-locked">
+
+                <div class="deck-card-heading-row">
+
+                    <div class="deck-icon deck-icon-locked">
+
+                        <svg
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+                            <rect
+                                x="5"
+                                y="10"
+                                width="14"
+                                height="10"
+                                rx="2"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                            />
+
+                            <path
+                                d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                            />
+                        </svg>
+
+                    </div>
+
+
+                    <div class="deck-heading-text">
+
+                        <h3 class="deck-title">
+                            The Periodic Table &amp;<br>
+                            Groups
+                        </h3>
+
+                        <p class="deck-level">
+                            GCSE Higher
+                        </p>
+
+                        <span class="deck-status deck-status-locked">
+                            🔒 Coming Soon
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="deck-card-body">
+
+                <p class="deck-outcomes-heading">
+                    LEARNING OUTCOMES
+                </p>
+
+                <ul class="deck-outcomes">
+
+                    <li>
+                        Group 1 alkali metals
+                    </li>
+
+                    <li>
+                        Group 7 halogens
+                    </li>
+
+                    <li>
+                        Transition metal properties
+                    </li>
+
+                </ul>
+
+
+                <button
+                    type="button"
+                    class="deck-locked-button"
+                    disabled
+                >
+                    🔒
+                    <span>Unlock Coming Soon</span>
+                </button>
+            </div>
+        </article>
+    </div>
+</section>
+
+    </main>
+
+
+    <!-- Reusable Footer -->
+    <div id="footer"></div>
+
+
+    <!-- Reusable Header -->
+    <script src="./js/header.js"></script>
+
+    <!-- Reusable Footer -->
+    <script src="./js/footer.js"></script>
+
+    <!-- General JS -->
+    <script src="./js/app.js"></script>
+
+<script src="./js/api.js"></script>
+</body>
+
+</html>

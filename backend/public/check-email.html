@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check Email | Chemistry Solitaire</title>
+    
+    <!-- Nunito Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <!-- Main Custom Styles -->
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+    <!-- REUSABLE HEADER -->
+    <div id="header"></div>
+
+    <main class="profile-setup-page" style="min-height: 80vh; display: flex; align-items: center; justify-content: center;">
+        
+        <section class="profile-stage" style="width: 100%; max-width: 600px;">
+            <!-- Atom Background -->
+            <img src="./images/atom-background.png" alt="" class="profile-atom-background" aria-hidden="true">
+
+            <!-- Check Email Card -->
+            <section class="profile-setup-card reveal" data-delay="0" style="padding: 48px 32px; text-align: center; display: flex; flex-direction: column; align-items: center;">
+                
+                <!-- Icon -->
+                <div class="login-card-logo" style="background-color: #EFF6FF; color: #2563EB; margin: 0 auto 24px; width: 56px; height: 56px;">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="28" height="28">
+                        <path d="M4 7.00005L10.2 11.65C11.2667 12.45 12.7333 12.45 13.8 11.65L20 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <h1 style="font-size: 24px; font-weight: 800; color: #0F172A; margin-bottom: 12px; font-family: 'Nunito', sans-serif;">
+                    Check Your Email
+                </h1>
+
+                <p style="font-size: 15px; font-weight: 600; color: #64748B; margin-bottom: 32px; max-width: 320px; line-height: 1.5; font-family: 'Nunito', sans-serif;">
+                    We've sent a verification link to <strong>alex@school.ac.uk</strong>. Click the link to activate your account.
+                </p>
+
+                <!-- Button (Links to profile-setup for demo purposes) -->
+                <button type="button" class="login-submit-button" style="margin-bottom: 24px; max-width: 320px;" onclick="window.location.href='profile-setup.html'">
+                    Open Email App
+                </button>
+
+                <a href="#" style="font-size: 14px; font-weight: 700; color: #64748B; text-decoration: none; font-family: 'Nunito', sans-serif;" onclick="alert('Verification email resent.'); return false;">
+                    Resend verification email
+                </a>
+            </section>
+
+        </section>
+    </main>
+
+    <!-- REUSABLE FOOTER -->
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+<script src="./js/api.js"></script>
+</body>
+</html>
