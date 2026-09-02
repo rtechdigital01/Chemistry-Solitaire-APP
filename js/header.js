@@ -91,10 +91,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         About
                     </a>
 
-                    <a href="./login.html">
-                        Log In
-                    </a>
-
+                    ${localStorage.getItem('auth_token') ? `
+                        <a href="./dashboard.html">
+                            Dashboard
+                        </a>
+                    ` : `
+                        <a href="./login.html">
+                            Log In
+                        </a>
+                    `}
 
                     <a
                         href="./index.html#demo"
@@ -160,9 +165,15 @@ document.addEventListener("DOMContentLoaded", () => {
                     About
                 </a>
 
-                <a href="./login.html">
-                    Log In
-                </a>
+                ${localStorage.getItem('auth_token') ? `
+                    <a href="./dashboard.html">
+                        Dashboard
+                    </a>
+                ` : `
+                    <a href="./login.html">
+                        Log In
+                    </a>
+                `}
 
                 <a href="./index.html#demo">
                     Play Now
