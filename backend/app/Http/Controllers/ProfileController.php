@@ -16,12 +16,11 @@ class ProfileController extends Controller
             'avatar' => 'required|string',
         ]);
 
-        // Normally, you would update the authenticated user's profile:
-        // $user = $request->user();
-        // $user->update([
-        //     'display_name' => $validated['display_name'],
-        //     'avatar' => $validated['avatar'],
-        // ]);
+        $user = $request->user();
+        $user->update([
+            'display_name' => $validated['display_name'],
+            'avatar' => $validated['avatar'],
+        ]);
 
         return response()->json([
             'message' => 'Profile updated successfully.',

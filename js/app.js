@@ -377,55 +377,92 @@ if (submitProfileBtn) {
                 })
             });
 
-            if (response.ok || response.status === 404 || response.status === 401) {
-                // If the endpoint isn't fully ready (404) or user is not fully authenticated (401), we'll still proceed for the frontend demo
+            if (response.ok) {
+                // If the endpoint is fully ready and successful
                 localStorage.setItem("user_display_name", displayName);
                 localStorage.setItem("user_avatar", avatarValue);
                 
                 // Redirect to dashboard
                 window.location.href = "./dashboard.html";
             } else {
-                alert("Something went wrong saving your profile.");
+                alert("Something went wrong saving your profile. Make sure you are logged in.");
                 submitProfileBtn.innerHTML = originalText;
                 submitProfileBtn.disabled = false;
             }
 
         } catch (error) {
-            // If backend is entirely unreachable, still fallback for demo purposes
-            console.warn("Backend not reachable. Saving to localStorage and proceeding to dashboard.");
-            localStorage.setItem("user_display_name", displayName);
-            localStorage.setItem("user_avatar", avatarValue);
-            window.location.href = "./dashboard.html";
+            console.error(error);
+            alert("Backend not reachable. Ensure the server is running.");
+            submitProfileBtn.innerHTML = originalText;
+            submitProfileBtn.disabled = false;
         }
     });
 }
 
 /* ========================================
-   MOCK LOGIN / SIGNUP HANDLING
+   REAL LOGIN / SIGNUP HANDLING
 ======================================== */
-const loginForm = document.querySelector(".login-form");
-if (loginForm) {
-    loginForm.addEventListener("submit", (e) => {
-        // Prevent default submission to action URL
-        e.preventDefault();
-        
-        // Mock setting an auth token
-        localStorage.setItem("auth_token", "demo-token-12345");
-        
-        // Redirect to dashboard
-        window.location.href = "./dashboard.html";
-    });
-}
+const authForm = document.querySelector(".login-form");
 
-const signupForm = document.querySelector(".signup-form");
-if (signupForm) {
-    signupForm.addEventListener("submit", (e) => {
+if (authForm) {
+    authForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         
-        localStorage.setItem("auth_token", "demo-token-12345");
+        const isSignup = !!document.getElementById('firstName');
+        const email = document.getElementById('email')?.value;
+        const password = document.getElementById('password')?.value;
         
-        // Redirect to profile setup first
-        window.location.href = "./profile-setup.html";
+        const submitBtn = authForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.innerHTML;
+        submitBtn.innerHTML = "<span>Please wait...</span>";
+        submitBtn.disabled = true;
+
+        try {
+            let endpoint = "http://localhost:8000/api/auth/login";
+            let payload = { email, password };
+
+            if (isSignup) {
+                endpoint = "http://localhost:8000/api/auth/register";
+                payload = {
+                    name: document.getElementById('firstName').value,
+                    email: email,
+                    password: password,
+                    password_confirmation: password // Auto-confirm for this UI
+                };
+            }
+
+            const response = await fetch(endpoint, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                // Store the real sanctum token
+                localStorage.setItem("auth_token", data.token || data.data?.token || "");
+                
+                if (isSignup) {
+                    window.location.href = "./profile-setup.html";
+                } else {
+                    window.location.href = "./dashboard.html";
+                }
+            } else {
+                alert(data.message || "Authentication failed. Please check your credentials.");
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }
+
+        } catch (error) {
+            console.error(error);
+            alert("Backend not reachable. Ensure the server is running.");
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        }
     });
 }
 
