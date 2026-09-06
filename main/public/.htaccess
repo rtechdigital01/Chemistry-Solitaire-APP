@@ -1,0 +1,62 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # ==========================================
+    # CLEAN HTML URLS
+    # ==========================================
+
+    # index.html -> /
+    RewriteCond %{THE_REQUEST} \s/+index\.html(?:[\s?]) [NC]
+    RewriteRule ^index\.html$ / [R=301,L]
+
+    # dashboard.html -> /dashboard
+    # login.html -> /login
+    # signup.html -> /signup
+    # gameplay.html -> /gameplay
+    # etc.
+    RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[\s?]) [NC]
+    RewriteRule ^(.+)\.html$ /$1 [R=301,L,NE]
+
+    # Internally load the matching .html file
+    # without showing .html in the browser
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME}.html -f
+    RewriteRule ^(.+)$ $1.html [L]
+
+
+    # ==========================================
+    # LARAVEL
+    # ==========================================
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Handle X-XSRF-Token Header
+    RewriteCond %{HTTP:x-xsrf-token} .
+    RewriteRule .* - [E=HTTP_X_XSRF_TOKEN:%{HTTP:X-XSRF-Token}]
+
+    # Redirect trailing slashes if not a folder
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Send remaining requests to Laravel
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+</IfModule>
+
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# Set the “ea-php84” package as the default “PHP” programming language.
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php84___lsphp .php .php8 .phtml
+</IfModule>
+# php -- END cPanel-generated handler, do not edit

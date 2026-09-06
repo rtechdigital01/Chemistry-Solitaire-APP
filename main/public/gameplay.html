@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay | Chemistry Solitaire</title>
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    
+    
+    <style>
+    /* Larger, cleaner foundation stack titles */
+    .foundation-stack {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        padding: 24px 18px;
+    }
+
+    .foundation-stack .stack-title {
+        flex: 1;
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        font-family: 'Nunito', sans-serif;
+        font-size: clamp(22px, 2vw, 30px);
+        font-weight: 900;
+        line-height: 1.15;
+
+        color: #1E3A8A;
+
+        text-align: center;
+        word-break: normal;
+        overflow-wrap: break-word;
+
+        padding: 15px 5px;
+    }
+
+    .foundation-stack .stack-count {
+        font-size: 25px;
+        font-weight: 900;
+        margin-top: 12px;
+    }
+
+    .foundation-stack .count-total {
+        font-size: 20px;
+        font-weight: 800;
+        opacity: 0.7;
+    }
+</style>
+</head>
+
+<body class="bg-[#F8FAFC]">
+
+    <!-- Reusable Header -->
+    <div id="header"></div>
+
+    <!-- Gameplay Top Bar -->
+    <div class="gameplay-top-bar">
+        <div class="gameplay-top-inner">
+            <!-- Left: Level Info -->
+            <div class="gameplay-level-info">
+                <button class="gameplay-close-btn" onclick="window.location.href='dashboard.html'">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+                <div class="gameplay-level-text">
+                    <span class="level-label">LEVEL 1</span>
+                    <span class="level-title">Atomic Structure</span>
+                </div>
+            </div>
+
+            <!-- Middle: Progress Bar -->
+            <div class="gameplay-progress-container">
+                <div class="gameplay-progress-track">
+                    <div class="gameplay-progress-fill" style="width: 58%;"></div>
+                </div>
+                <span class="gameplay-progress-text">7/12</span>
+            </div>
+
+            <!-- Right: Stats & Actions -->
+            <div class="gameplay-stats-actions">
+                <div class="gameplay-stats">
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 4V20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">70</span>
+                            <span class="stat-label">score</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M9 5L5 9M5 9L9 13M5 9H13C16.866 9 20 12.134 20 16V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">9</span>
+                            <span class="stat-label">moves</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 7H5C3.89543 7 3 7.89543 3 9V11H21V9C21 7.89543 20.1046 7 19 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 3H5C3.89543 3 3 3.89543 3 5V7H21V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">220</span>
+                            <span class="stat-label">cards</span>
+                        </div>
+                    </div>
+                    <div class="stat-item">
+                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        <div class="stat-text">
+                            <span class="stat-value">2</span>
+                            <span class="stat-label">stars</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gameplay-actions">
+                    <button class="btn-action btn-outline" id="redealBtn">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M4.06189 13C4.55399 16.9463 7.92038 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15M19.4185 15H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Redeal
+                    </button>
+                    <button class="btn-action btn-yellow" id="hintBtn">
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Hint (free)
+                    </button>
+                    <button class="btn-action btn-outline" id="finishLevelBtn" disable>
+                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Finish Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Game Area -->
+    <main class="gameplay-main">
+        <div class="gameplay-board">
+            
+            <!-- Info Banner -->
+            <div class="game-info-banner">
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+                Select a card from the deck, then tap a foundation stack.
+            </div>
+
+            <!-- Cards Section -->
+        <!-- Cards Section -->
+<div class="game-section">
+    <h2 class="section-title">
+        CHEMISTRY CARDS — TAP TO SELECT
+    </h2>
+
+    <div class="cards-grid" id="cardsGrid">
+        <!-- Cards are generated automatically from the dataset -->
+    </div>
+</div>
+
+
+<!-- Stacks Section -->
+<div class="game-section">
+    <h2 class="section-title">
+        FOUNDATION STACKS — TAP TO PLACE SELECTED CARD
+    </h2>
+
+    <div class="stacks-grid" id="stacksGrid">
+        <!-- Foundation stacks are generated automatically from the dataset -->
+    </div>
+</div>    
+            
+</div>
+    </main>
+
+    <!-- Reusable Footer -->
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/gameplay.js"></script>
+</body>
+</html>
