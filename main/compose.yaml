@@ -19,6 +19,7 @@ services:
             IGNITION_LOCAL_SITES_PATH: '${PWD}'
         volumes:
             - '.:/var/www/html'
+            - '../:/var/www/html/storage/app/frontend-templates'
         networks:
             - sail
         depends_on:

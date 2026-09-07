@@ -1,14 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const headerContainer =
-        document.getElementById("header");
+    const headerContainer = document.getElementById("header");
 
     if (!headerContainer) {
         return;
     }
-
-    const isLoggedIn =
-        !!localStorage.getItem("auth_token");
 
 
     /* ========================================
@@ -21,7 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="header-inner">
 
                 <!-- Logo -->
-                <a href="/" class="brand">
+                <a href="./index.html" class="brand">
 
                     <div class="brand-icon">
 
@@ -71,7 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </div>
 
-                    <span>Science Solitaire</span>
+                    <span>Chemistry Solitaire</span>
 
                 </a>
 
@@ -79,34 +75,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- Desktop Navigation -->
                 <nav class="header-nav">
 
-                    <a href="/why-solitaire">
-                        Why SciSolitaire?
+                    <a href="./index.html#why-solitaire">
+                        Why Solitaire?
                     </a>
 
-                    <a href="/gameplay">
+                    <a href="./index.html#gameplay">
                         Gameplay Preview
                     </a>
 
-                    <a href="/curriculum">
-                        Science Curriculum
+                    <a href="./index.html#send-access">
+                        SEND &amp; Access
                     </a>
 
-                    <a href="/about">
+                    <a href="./index.html#about">
                         About
                     </a>
 
-                    ${
-                        !isLoggedIn
-                            ? `
-                                <a href="/login">
-                                    Log In
-                                </a>
-                            `
-                            : ""
-                    }
+                    <a href="./login.html">
+                        Log In
+                    </a>
+
 
                     <a
-                        href="${isLoggedIn ? "/dashboard" : "/login"}"
+                        href="./dashboard.html"
                         class="header-play-button"
                     >
 
@@ -124,9 +115,7 @@ document.addEventListener("DOMContentLoaded", () => {
                             />
                         </svg>
 
-                        <span>
-                            ${isLoggedIn ? "Dashboard" : "Play Now"}
-                        </span>
+                        <span>Play Now</span>
 
                     </a>
 
@@ -155,34 +144,28 @@ document.addEventListener("DOMContentLoaded", () => {
                 id="mobileNav"
             >
 
-                <a href="/why-solitaire">
-                    Why SciSolitaire?
+                <a href="./index.html#why-solitaire">
+                    Why Solitaire?
                 </a>
 
-                <a href="/gameplay">
+                <a href="./index.html#gameplay">
                     Gameplay Preview
                 </a>
 
-                <a href="/curriculum">
-                    Science Curriculum
+                <a href="./index.html#send-access">
+                    SEND &amp; Access
                 </a>
 
-                <a href="/about">
+                <a href="./index.html#about">
                     About
                 </a>
 
-                ${
-                    !isLoggedIn
-                        ? `
-                            <a href="/login">
-                                Log In
-                            </a>
-                        `
-                        : ""
-                }
+                <a href="./login.html">
+                    Log In
+                </a>
 
-                <a href="${isLoggedIn ? "/dashboard" : "/login"}">
-                    ${isLoggedIn ? "Dashboard" : "Play Now"}
+                <a href="./dashboard.html">
+                    Play Now
                 </a>
 
             </nav>
@@ -196,14 +179,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ======================================== */
 
     const mobileMenuButton =
-        headerContainer.querySelector(
-            "#mobileMenuButton"
-        );
+        headerContainer.querySelector("#mobileMenuButton");
 
     const mobileNav =
-        headerContainer.querySelector(
-            "#mobileNav"
-        );
+        headerContainer.querySelector("#mobileNav");
 
 
     if (!mobileMenuButton || !mobileNav) {
@@ -211,44 +190,34 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    mobileMenuButton.addEventListener(
-        "click",
-        () => {
+    mobileMenuButton.addEventListener("click", () => {
 
-            const isOpen =
-                mobileNav.classList.toggle(
-                    "active"
-                );
+        const isOpen =
+            mobileNav.classList.toggle("active");
+
+        mobileMenuButton.setAttribute(
+            "aria-expanded",
+            isOpen ? "true" : "false"
+        );
+
+    });
+
+
+    /* Close after selecting a link */
+
+    mobileNav.querySelectorAll("a").forEach((link) => {
+
+        link.addEventListener("click", () => {
+
+            mobileNav.classList.remove("active");
 
             mobileMenuButton.setAttribute(
                 "aria-expanded",
-                isOpen ? "true" : "false"
-            );
-
-        }
-    );
-
-
-    mobileNav
-        .querySelectorAll("a")
-        .forEach((link) => {
-
-            link.addEventListener(
-                "click",
-                () => {
-
-                    mobileNav.classList.remove(
-                        "active"
-                    );
-
-                    mobileMenuButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
+                "false"
             );
 
         });
+
+    });
 
 });

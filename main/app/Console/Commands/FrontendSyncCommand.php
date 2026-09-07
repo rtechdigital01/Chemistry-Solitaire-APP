@@ -29,7 +29,7 @@ class FrontendSyncCommand extends Command
         $rootPath = storage_path('app/frontend-templates/');
         $publicPath = public_path();
 
-        if (!File::exists($rootPath . 'index.html')) {
+        if (!File::exists($rootPath . 'components/header.html')) {
             $this->error("Cannot find the internal frontend templates directory (expected at {$rootPath}).");
             return Command::FAILURE;
         }

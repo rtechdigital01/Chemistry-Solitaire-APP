@@ -422,7 +422,7 @@ body {
 ======================================== */
 
 .revision-badge {
-    width: 380px;
+    width: 260px;
     height: 32px;
 
     display: flex;
@@ -875,24 +875,19 @@ body {
    Background: #FFFFFF
    Border: #DDE5F1
 ======================================== */
+
 .hero-pills {
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: center !important;
+    width: 520px;
+    max-width: 100%;
 
-    width: max-content !important;
-    max-width: none !important;
+    display: flex;
+    flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 16px;
+
     margin-top: 48px;
 }
 
-.hero-pills .feature-pill {
-    flex: 0 0 auto !important;
-    width: auto !important;
-    margin: 0 !important;
-}
 
 .feature-pill {
     min-height: 36px;
@@ -927,6 +922,22 @@ body {
     flex-shrink: 0;
 
     color: #2563FF;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .hero-pills {
+        margin-top: 36px;
+
+        gap: 12px;
+    }
+
+    .feature-pill {
+        font-size: 13px;
+    }
 }
 
 
@@ -1511,7 +1522,7 @@ body {
 
 .login-page {
     width: 100%;
-    min-height: 716px;
+    min-height: 100vh;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -1686,11 +1697,10 @@ body {
 /* ========================================
    RIGHT LOGIN FORM AREA
 ======================================== */
-
 .login-form-area {
-    position: static;
+    position: relative;
     margin-top: 84px;
-    margin-right: 7%;
+    margin-right: 0;
     z-index: 2;
     flex-shrink: 0;
 }
@@ -1730,49 +1740,51 @@ body {
 
 @media (max-width: 900px) {
     .login-page {
-        flex-direction: column;
-        align-items: center;
-        padding-bottom: 40px;
+        flex-direction: column !important;
+        align-items: center !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 24px 16px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
     }
 
-}
+    .login-intro {
+        width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+    }
 
+    .login-heading {
+        width: 100% !important;
+        font-size: 36px !important;
+        line-height: 44px !important;
+    }
 
-/* ========================================
-   RESPONSIVE
-======================================== */
-
-@media (max-width: 900px) {
+    .login-cards {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 20px auto 0 !important;
+    }
 
     .login-form-area {
-        position: relative;
-
-        top: auto;
-        right: auto;
-
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-
-        padding: 40px 20px 60px;
+        position: relative !important;
+        width: 100% !important;
+        margin: 32px 0 0 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
     }
-
-}
-
-
-@media (max-width: 450px) {
 
     .login-form-card {
-        width: 100%;
-        min-height: auto;
-
-        padding: 32px 24px;
-        border-radius: 14px;
+        width: 100% !important;
+        max-width: 400px !important;
+        min-height: auto !important;
+        padding: 28px 20px !important;
+        box-sizing: border-box !important;
     }
-
 }
-
 
 
 /* ========================================
@@ -2040,6 +2052,78 @@ body {
 .login-submit-button:hover {
     transform: translateY(-1px);
     background-color: #1D4ED8;
+}
+
+
+/* ========================================
+   FINAL MOBILE OVERRIDE FIX
+======================================== */
+
+@media (max-width: 1024px) {
+    .login-page {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: flex-start !important;
+        width: 100% !important;
+        min-height: auto !important;
+        padding: 24px 16px 40px !important;
+        box-sizing: border-box !important;
+        overflow-x: hidden !important;
+    }
+
+    .login-intro {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 0 !important;
+        text-align: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .login-pill {
+        margin: 0 auto !important;
+    }
+
+    .login-heading {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: 36px !important;
+        line-height: 44px !important;
+        letter-spacing: -1px !important;
+    }
+
+    .login-description {
+        max-width: 100% !important;
+        font-size: 15px !important;
+        line-height: 24px !important;
+    }
+
+    .login-cards {
+        width: 100% !important;
+        max-width: 320px !important;
+        margin: 24px auto 0 !important;
+    }
+
+    .login-form-area {
+        position: relative !important;
+        top: auto !important;
+        right: auto !important;
+        left: auto !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        margin: 32px 0 0 0 !important;
+        padding: 0 !important;
+        display: flex !important;
+        justify-content: center !important;
+        box-sizing: border-box !important;
+    }
+
+    .login-form-card {
+        width: 100% !important;
+        max-width: 420px !important;
+        min-height: auto !important;
+        padding: 32px 24px !important;
+        box-sizing: border-box !important;
+    }
 }
 
 
@@ -5008,24 +5092,3 @@ body {
         grid-template-columns: 1fr;
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

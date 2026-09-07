@@ -11,10 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
     <!-- Tailwind compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
@@ -39,30 +36,24 @@
         <section class="login-intro">
 
             <!-- Sign Up Pill -->
-            <div
-                class="login-pill reveal"
-                data-delay="0"
-                style="background-color: #E0E7FF; color: #4338CA;"
-            >
+            <div class="login-pill reveal" data-delay="0" style="background-color: #E0E7FF; color: #4338CA;">
                 Sign Up
             </div>
 
             <!-- Heading -->
             <h1 class="login-heading reveal" data-delay="120">
-                Authentication
+                Science Learning Starts Here.
             </h1>
 
             <!-- Description -->
             <p class="login-description reveal" data-delay="240">
-                Login, account creation, and learner profile setup.
+                Create your account, choose your learning stage and start exploring science through play.
             </p>
 
             <!-- Chemistry Cards -->
             <div class="login-cards reveal" data-delay="360">
-                <img
-                    src="./images/login-cards.png"
-                    alt="Chemistry revision cards showing Proton, Shell and Atomic Number"
-                >
+                <img src="./images/login-cards.png"
+                    alt="Chemistry revision cards showing Proton, Shell and Atomic Number">
             </div>
 
         </section>
@@ -73,36 +64,22 @@
         ========================================= -->
         <section class="login-form-area reveal" data-delay="300">
 
-            <div
-                class="login-form-card"
-                style="padding-top: 32px; padding-bottom: 32px;"
-            >
+            <div class="login-form-card" style="padding-top: 32px; padding-bottom: 32px;">
 
                 <!-- Card Header -->
                 <div class="login-card-header">
 
                     <!-- Icon -->
-                    <div
-                        class="login-card-logo"
-                        style="background-color: #EFF6FF; color: #2563EB;"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                            width="24"
-                            height="24"
-                        >
+                    <div class="login-card-logo" style="background-color: #EFF6FF; color: #2563EB;">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
+                            width="24" height="24">
                             <path
                                 d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                fill="currentColor"
-                            />
+                                fill="currentColor" />
 
                             <path
                                 d="M12.0002 14.5C6.99023 14.5 2.91023 17.86 2.91023 22C2.91023 22.28 3.13023 22.5 3.41023 22.5H20.5902C20.8702 22.5 21.0902 22.28 21.0902 22C21.0902 17.86 17.0102 14.5 12.0002 14.5Z"
-                                fill="currentColor"
-                            />
+                                fill="currentColor" />
                         </svg>
                     </div>
 
@@ -120,11 +97,7 @@
                 <!-- ========================================
                      SIGNUP FORM
                 ========================================= -->
-                <form
-                    class="login-form"
-                    id="registerForm"
-                    action="check-email.html"
-                >
+                <form class="login-form" id="registerForm" action="check-email.html">
 
                     <!-- First Name -->
                     <div class="login-field">
@@ -132,14 +105,8 @@
                             First Name
                         </label>
 
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="Alex"
-                            autocomplete="given-name"
-                            required
-                        >
+                        <input type="text" id="firstName" name="firstName" placeholder="Alex" autocomplete="given-name"
+                            required>
                     </div>
 
 
@@ -149,30 +116,22 @@
                             Email Address
                         </label>
 
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="alex@school.ac.uk"
-                            autocomplete="email"
-                            required
-                        >
+                        <input type="email" id="email" name="email" placeholder="alex@school.ac.uk" autocomplete="email"
+                            required>
                     </div>
 
 
                     <!-- Country -->
-<!-- Country -->
-<div class="login-field">
+                    <!-- Country -->
+                    <div class="login-field">
 
-    <label for="country">
-        Country / Education System
-    </label>
+                        <label for="country">
+                            Country / Education System
+                        </label>
 
-    <div style="position: relative;">
+                        <div style="position: relative;">
 
-        <span
-            id="countryFlag"
-            style="
+                            <span id="countryFlag" style="
                 position: absolute;
                 left: 16px;
                 top: 50%;
@@ -180,17 +139,11 @@
                 font-size: 20px;
                 z-index: 2;
                 pointer-events: none;
-            "
-        >
-            🌍
-        </span>
+            ">
+                                🌍
+                            </span>
 
-        <select
-            id="country"
-            name="country"
-            required
-            class="form-select"
-            style="
+                            <select id="country" name="country" required class="form-select" style="
                 width: 100%;
                 padding: 12px 48px;
                 border-radius: 8px;
@@ -202,40 +155,30 @@
                 font-family: 'Nunito', sans-serif;
                 outline: none;
                 appearance: none;
-            "
-        >
-            <option value="" disabled selected>
-                Select your country
-            </option>
+            ">
+                                <option value="" disabled selected>
+                                    Select your country
+                                </option>
 
-            <option value="UK">
-                United Kingdom
-            </option>
+                                <option value="UK">
+                                    United Kingdom
+                                </option>
 
-            <option value="Nigeria">
-                Nigeria
-            </option>
-        </select>
-    </div>
-</div>
+                                <option value="Nigeria">
+                                    Nigeria
+                                </option>
+                            </select>
+                        </div>
+                    </div>
 
                     <!-- Education Level -->
                     <div class="login-field">
 
-                        <label
-                            for="educationLevel"
-                            id="educationLevelLabel"
-                        >
+                        <label for="educationLevel" id="educationLevelLabel">
                             Education Level
                         </label>
 
-                        <select
-                            id="educationLevel"
-                            name="educationLevel"
-                            required
-                            disabled
-                            class="form-select"
-                            style="
+                        <select id="educationLevel" name="educationLevel" required disabled class="form-select" style="
                                 width: 100%;
                                 padding: 12px 16px;
                                 border-radius: 8px;
@@ -251,8 +194,7 @@
                                 background-repeat: no-repeat;
                                 background-position: right 16px center;
                                 background-size: 16px;
-                            "
-                        >
+                            ">
                             <option value="" selected>
                                 Select your country first
                             </option>
@@ -270,39 +212,17 @@
 
                         <div class="password-input-wrapper">
 
-                            <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Create a strong password"
-                                autocomplete="new-password"
-                                required
-                            >
+                            <input type="password" id="password" name="password" placeholder="Create a strong password"
+                                autocomplete="new-password" required>
 
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                >
+                            <button type="button" class="password-toggle" aria-label="Show password">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
                                     <path
                                         d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                    />
+                                        stroke="currentColor" stroke-width="1.7" />
 
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="2.5"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                    />
+                                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
                                 </svg>
                             </button>
 
@@ -313,46 +233,24 @@
                     <!-- Confirm Password -->
                     <!-- Confirm Password -->
                     <div class="login-field">
-                    
+
                         <label for="passwordConfirmation">
                             Confirm Password
                         </label>
-                    
+
                         <div class="password-input-wrapper">
-                    
-                            <input
-                                type="password"
-                                id="passwordConfirmation"
-                                name="passwordConfirmation"
-                                placeholder="Enter your password again"
-                                autocomplete="new-password"
-                                required
-                            >
-                    
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
-                                <svg
-                                    viewBox="0 0 24 24"
-                                    fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
-                                >
+
+                            <input type="password" id="passwordConfirmation" name="passwordConfirmation"
+                                placeholder="Enter your password again" autocomplete="new-password" required>
+
+                            <button type="button" class="password-toggle" aria-label="Show password">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                                    aria-hidden="true">
                                     <path
                                         d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                    />
-                    
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="2.5"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                    />
+                                        stroke="currentColor" stroke-width="1.7" />
+
+                                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
                                 </svg>
                             </button>
                         </div>
@@ -360,14 +258,9 @@
 
 
                     <!-- Terms Checkbox -->
-                    <div
-                        class="login-field"
-                        style="margin-bottom: 24px;"
-                    >
+                    <div class="login-field" style="margin-bottom: 24px;">
 
-                        <label
-                            class="terms-checkbox"
-                            style="
+                        <label class="terms-checkbox" style="
                                 display: flex;
                                 align-items: flex-start;
                                 gap: 12px;
@@ -375,19 +268,14 @@
                                 font-size: 13px;
                                 font-weight: 600;
                                 color: #64748B;
-                            "
-                        >
+                            ">
 
-                            <input
-                                type="checkbox"
-                                required
-                                style="
+                            <input type="checkbox" required style="
                                     margin-top: 4px;
                                     width: 16px;
                                     height: 16px;
                                     accent-color: #2563EB;
-                                "
-                            >
+                                ">
 
                             <span>
                                 I agree to the Terms of Use,
@@ -400,19 +288,13 @@
 
 
                     <!-- Submit Button -->
-                    <button
-                        type="submit"
-                        class="login-submit-button"
-                    >
+                    <button type="submit" class="login-submit-button">
                         Create Account
                     </button>
 
 
                     <!-- Login Link -->
-                    <p
-                        class="login-create-account"
-                        style="margin-top: 24px;"
-                    >
+                    <p class="login-create-account" style="margin-top: 24px;">
                         Already have an account?
                         <a href="login.html">
                             Log In
@@ -454,7 +336,7 @@
 
             const educationLevelLabel =
                 document.getElementById("educationLevelLabel");
-                
+
             const countryFlag =
                 document.getElementById("countryFlag");
 
@@ -484,11 +366,11 @@
             countrySelect.addEventListener("change", function () {
 
                 const country = this.value;
-                
+
                 if (this.value === "UK") {
                     countryFlag.textContent = "🇬🇧";
                 }
-                
+
                 if (this.value === "Nigeria") {
                     countryFlag.textContent = "🇳🇬";
                 }
