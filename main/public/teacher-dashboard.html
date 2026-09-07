@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard | Science Solitaire</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/output.css">
+</head>
+
+<body>
+
+    <div id="header"></div>
+
+    <main class="dashboard-page">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+            <h1 style="font-size: 24px; font-weight: 800; color: #1E293B; margin: 0;">Teacher Dashboard</h1>
+            <a href="dashboard.html" style="padding: 8px 16px; border-radius: 8px; background: #EEF2FF; color: #4F46E5; font-weight: 700; text-decoration: none;">Switch to Student View</a>
+        </div>
+
+        <section class="dashboard-profile-card reveal" data-delay="0">
+            <div class="dashboard-user">
+                <div class="dashboard-avatar">
+                    <span class="dashboard-avatar-content">👨‍🏫</span>
+                </div>
+                <div class="dashboard-user-info">
+                    <p class="dashboard-greeting">Good morning 👋</p>
+                    <h1 class="dashboard-user-name">Mr. Educator</h1>
+                    <p class="dashboard-user-course">Head of Science</p>
+                </div>
+            </div>
+
+            <div class="dashboard-profile-actions">
+                <div class="dashboard-account-area">
+                    <a href="./profile-setup.html" class="dashboard-edit-button">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M5 4V20M12 4V20M19 4V20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
+                            <circle cx="5" cy="9" r="2" fill="currentColor" />
+                            <circle cx="12" cy="15" r="2" fill="currentColor" />
+                            <circle cx="19" cy="8" r="2" fill="currentColor" />
+                        </svg>
+                        <span>Settings</span>
+                    </a>
+                    <button type="button" class="dashboard-logout-button">
+                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                            <path d="M14 8L18 12L14 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+                            <path d="M18 12H8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                            <path d="M10 5H6C5.45 5 5 5.45 5 6V18C5 18.55 5.45 19 6 19H10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+                        </svg>
+                        <span>Log Out</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teacher KPIs -->
+        <section style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-top: 32px;" class="reveal" data-delay="100">
+            <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
+                <p style="color: #64748B; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Total Students</p>
+                <h3 style="color: #1E293B; font-size: 36px; font-weight: 900; margin: 0; line-height: 1;">142</h3>
+            </div>
+            <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
+                <p style="color: #64748B; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Classes Assigned</p>
+                <h3 style="color: #1E293B; font-size: 36px; font-weight: 900; margin: 0; line-height: 1;">6</h3>
+            </div>
+            <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);">
+                <p style="color: #64748B; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Avg Class Score</p>
+                <h3 style="color: #10B981; font-size: 36px; font-weight: 900; margin: 0; line-height: 1;">78%</h3>
+            </div>
+            <div style="background: white; padding: 24px; border-radius: 16px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); position: relative; overflow: hidden;">
+                <div style="position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: #EF4444;"></div>
+                <p style="color: #64748B; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">Needs Attention</p>
+                <h3 style="color: #EF4444; font-size: 36px; font-weight: 900; margin: 0; line-height: 1;">12</h3>
+                <p style="color: #94A3B8; font-size: 13px; margin-top: 8px; margin-bottom: 0; font-weight: 600;">Students struggling</p>
+            </div>
+        </section>
+
+        <!-- Manage Classes -->
+        <section style="margin-top: 32px; background: white; border-radius: 16px; padding: 24px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);" class="reveal" data-delay="200">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
+                <h3 style="font-size: 20px; font-weight: 800; color: #1E293B; margin: 0;">Class Performance Overview</h3>
+                <button style="padding: 10px 20px; background: #4F46E5; color: white; border-radius: 8px; font-weight: 700; border: none; cursor: pointer; transition: all 0.2s; box-shadow: 0 2px 4px rgba(79, 70, 229, 0.2);">+ Assign New Deck</button>
+            </div>
+            
+            <div style="overflow-x: auto;">
+                <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 600px;">
+                    <thead>
+                        <tr style="border-bottom: 2px solid #E2E8F0;">
+                            <th style="padding: 16px 12px; color: #64748B; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Class</th>
+                            <th style="padding: 16px 12px; color: #64748B; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Subject</th>
+                            <th style="padding: 16px 12px; color: #64748B; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Completion</th>
+                            <th style="padding: 16px 12px; color: #64748B; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Avg Score</th>
+                            <th style="padding: 16px 12px; color: #64748B; font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em;">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr style="border-bottom: 1px solid #F1F5F9; transition: background 0.2s;">
+                            <td style="padding: 16px 12px; font-weight: 700; color: #1E293B; font-size: 15px;">Year 10 - Group A</td>
+                            <td style="padding: 16px 12px; font-weight: 600; color: #475569;">Chemistry</td>
+                            <td style="padding: 16px 12px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 700; color: #334155; font-size: 14px;">85%</span>
+                                    <div style="width: 60px; height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                                        <div style="width: 85%; height: 100%; background: #4F46E5;"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 16px 12px; font-weight: 800; color: #10B981;">82%</td>
+                            <td style="padding: 16px 12px;"><a href="#" style="color: #2563EB; font-weight: 700; text-decoration: none; font-size: 14px;">View Details &rarr;</a></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #F1F5F9;">
+                            <td style="padding: 16px 12px; font-weight: 700; color: #1E293B; font-size: 15px;">Year 11 - Triple Science</td>
+                            <td style="padding: 16px 12px; font-weight: 600; color: #475569;">Physics</td>
+                            <td style="padding: 16px 12px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 700; color: #334155; font-size: 14px;">92%</span>
+                                    <div style="width: 60px; height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                                        <div style="width: 92%; height: 100%; background: #10B981;"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 16px 12px; font-weight: 800; color: #10B981;">88%</td>
+                            <td style="padding: 16px 12px;"><a href="#" style="color: #2563EB; font-weight: 700; text-decoration: none; font-size: 14px;">View Details &rarr;</a></td>
+                        </tr>
+                        <tr style="border-bottom: 1px solid #F1F5F9;">
+                            <td style="padding: 16px 12px; font-weight: 700; color: #1E293B; font-size: 15px;">Year 9 - Intro Science</td>
+                            <td style="padding: 16px 12px; font-weight: 600; color: #475569;">Biology</td>
+                            <td style="padding: 16px 12px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <span style="font-weight: 700; color: #334155; font-size: 14px;">45%</span>
+                                    <div style="width: 60px; height: 6px; background: #E2E8F0; border-radius: 3px; overflow: hidden;">
+                                        <div style="width: 45%; height: 100%; background: #F59E0B;"></div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td style="padding: 16px 12px; font-weight: 800; color: #F59E0B;">65%</td>
+                            <td style="padding: 16px 12px;"><a href="#" style="color: #2563EB; font-weight: 700; text-decoration: none; font-size: 14px;">View Details &rarr;</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+    <script src="./js/api.js"></script>
+
+</body>
+</html>

@@ -5,17 +5,43 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Create Account | Chemistry Solitaire</title>
+    <title>Create Account | Science Solitaire</title>
 
     <!-- Nunito Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Choices.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css" />
 
     <!-- Tailwind compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .choices__inner {
+            background-color: #F8FAFC !important;
+            border: 1px solid #E2E8F0 !important;
+            border-radius: 8px !important;
+            padding: 6px 16px !important;
+            font-size: 15px !important;
+            font-family: 'Nunito', sans-serif !important;
+            color: #475569 !important;
+            min-height: 48px !important;
+            display: flex;
+            align-items: center;
+        }
+        .choices__list--dropdown {
+            border-radius: 8px !important;
+            border: 1px solid #E2E8F0 !important;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1) !important;
+            z-index: 10 !important;
+        }
+        .choices[data-type*=select-one]:after {
+            right: 16px !important;
+        }
+    </style>
 </head>
 
 
@@ -101,226 +127,143 @@
 
 
                 <!-- ========================================
-                     SIGNUP FORM
+                     SIGNUP FORM (MULTI-STEP)
                 ========================================= -->
-                <form class="login-form" id="registerForm" action="check-email.html">
+                <form class="login-form" id="registerForm" action="dashboard.html">
 
-                    <!-- Role Selection -->
-                    <div class="login-field" style="margin-bottom: 24px;">
-                        <label style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a...</label>
-                        <div style="display: flex; gap: 16px;">
-                            <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                <input type="radio" name="role" value="student" checked style="accent-color: #2563EB;">
-                                <span style="font-weight: 600; color: #475569;">Student</span>
-                            </label>
-                            <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                <input type="radio" name="role" value="teacher" style="accent-color: #2563EB;">
-                                <span style="font-weight: 600; color: #475569;">Teacher</span>
-                            </label>
+                    <!-- Progress Indicator -->
+                    <div class="signup-progress" style="display: flex; justify-content: center; margin-bottom: 24px; gap: 8px;">
+                        <div id="step1-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #4338CA; transition: background 0.3s ease;"></div>
+                        <div id="step2-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #E2E8F0; transition: background 0.3s ease;"></div>
+                        <div id="step3-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #E2E8F0; transition: background 0.3s ease;"></div>
+                    </div>
+
+                    <!-- STEP 1: Account Basics -->
+                    <div id="step1">
+                        <!-- Role Selection -->
+                        <div class="login-field" style="margin-bottom: 24px;">
+                            <label style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a...</label>
+                            <div style="display: flex; gap: 16px;">
+                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
+                                    <input type="radio" name="role" value="student" checked style="accent-color: #2563EB;">
+                                    <span style="font-weight: 600; color: #475569;">Student</span>
+                                </label>
+                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
+                                    <input type="radio" name="role" value="teacher" style="accent-color: #2563EB;">
+                                    <span style="font-weight: 600; color: #475569;">Teacher</span>
+                                </label>
+                            </div>
                         </div>
+
+                        <!-- First Name -->
+                        <div class="login-field">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" placeholder="Alex" autocomplete="given-name" required>
+                        </div>
+
+                        <!-- Email -->
+                        <div class="login-field">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" placeholder="alex@school.ac.uk" autocomplete="email" required>
+                        </div>
+
+                        <button type="button" class="login-submit-button" onclick="nextStep(2)">Continue</button>
+                        
+                        <p class="login-create-account" style="margin-top: 24px;">
+                            Already have an account? <a href="login.html">Log In</a>
+                        </p>
                     </div>
 
-                    <!-- First Name -->
-                    <div class="login-field">
-                        <label for="firstName">
-                            First Name
-                        </label>
-
-                        <input type="text" id="firstName" name="firstName" placeholder="Alex" autocomplete="given-name"
-                            required>
-                    </div>
-
-
-                    <!-- Email -->
-                    <div class="login-field">
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <input type="email" id="email" name="email" placeholder="alex@school.ac.uk" autocomplete="email"
-                            required>
-                    </div>
-
-
-                    <!-- Country -->
-                    <!-- Country -->
-                    <div class="login-field">
-
-                        <label for="country">
-                            Country / Education System
-                        </label>
-
-                        <div style="position: relative;">
-
-                            <span id="countryFlag" style="
-                position: absolute;
-                left: 16px;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 20px;
-                z-index: 2;
-                pointer-events: none;
-            ">
-                                🌍
-                            </span>
-
-                            <select id="country" name="country" required class="form-select" style="
-                width: 100%;
-                padding: 12px 48px;
-                border-radius: 8px;
-                border: 1px solid #E2E8F0;
-                background-color: #F8FAFC;
-                color: #475569;
-                font-size: 15px;
-                font-weight: 500;
-                font-family: 'Nunito', sans-serif;
-                outline: none;
-                appearance: none;
-            ">
-                                <option value="" disabled selected>
-                                    Select your country
-                                </option>
-
-                                <option value="UK">
-                                    United Kingdom
-                                </option>
-
-                                <option value="Nigeria">
-                                    Nigeria
-                                </option>
+                    <!-- STEP 2: Education Details -->
+                    <div id="step2" style="display: none;">
+                        
+                        <!-- Country -->
+                        <div class="login-field">
+                            <label for="country">Country / Education System</label>
+                            <select id="country" name="country" required>
+                                <option value="" disabled selected>Select your country</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="Nigeria">Nigeria</option>
+                                <option value="US">United States</option>
+                                <option value="India">India</option>
+                                <option value="Australia">Australia</option>
+                                <option value="Canada">Canada</option>
                             </select>
                         </div>
-                    </div>
 
-                    <!-- Education Level -->
-                    <div class="login-field">
-
-                        <label for="educationLevel" id="educationLevelLabel">
-                            Education Level
-                        </label>
-
-                        <select id="educationLevel" name="educationLevel" required disabled class="form-select" style="
-                                width: 100%;
-                                padding: 12px 16px;
-                                border-radius: 8px;
-                                border: 1px solid #E2E8F0;
-                                background-color: #F8FAFC;
-                                color: #475569;
-                                font-size: 15px;
-                                font-weight: 500;
-                                font-family: 'Nunito', sans-serif;
-                                outline: none;
-                                appearance: none;
-                                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
-                                background-repeat: no-repeat;
-                                background-position: right 16px center;
-                                background-size: 16px;
-                            ">
-                            <option value="" selected>
-                                Select your country first
-                            </option>
-                        </select>
-
-                    </div>
-
-
-                    <!-- Password -->
-                    <div class="login-field">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                        <div class="password-input-wrapper">
-
-                            <input type="password" id="password" name="password" placeholder="Create a strong password"
-                                autocomplete="new-password" required>
-
-                            <button type="button" class="password-toggle" aria-label="Show password">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path
-                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                        stroke="currentColor" stroke-width="1.7" />
-
-                                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
-                                </svg>
-                            </button>
-
-                        </div>
-                    </div>
-
-
-                    <!-- Confirm Password -->
-                    <!-- Confirm Password -->
-                    <div class="login-field">
-
-                        <label for="passwordConfirmation">
-                            Confirm Password
-                        </label>
-
-                        <div class="password-input-wrapper">
-
-                            <input type="password" id="passwordConfirmation" name="passwordConfirmation"
-                                placeholder="Enter your password again" autocomplete="new-password" required>
-
-                            <button type="button" class="password-toggle" aria-label="Show password">
-                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true">
-                                    <path
-                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                        stroke="currentColor" stroke-width="1.7" />
-
-                                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
-                                </svg>
-                            </button>
-                        </div>
-                    </div>
-
-
-                    <!-- Terms Checkbox -->
-                    <div class="login-field" style="margin-bottom: 24px;">
-
-                        <label class="terms-checkbox" style="
-                                display: flex;
-                                align-items: flex-start;
-                                gap: 12px;
-                                cursor: pointer;
-                                font-size: 13px;
-                                font-weight: 600;
-                                color: #64748B;
-                            ">
-
-                            <input type="checkbox" required style="
-                                    margin-top: 4px;
-                                    width: 16px;
-                                    height: 16px;
-                                    accent-color: #2563EB;
+                        <!-- Education Level -->
+                        <div class="login-field" style="margin-top: 16px;">
+                            <label for="educationLevel" id="educationLevelLabel">Education Level</label>
+                            <select id="educationLevel" name="educationLevel" required disabled class="form-select" style="
+                                    width: 100%;
+                                    padding: 12px 16px;
+                                    border-radius: 8px;
+                                    border: 1px solid #E2E8F0;
+                                    background-color: #F8FAFC;
+                                    color: #475569;
+                                    font-size: 15px;
+                                    font-weight: 500;
+                                    font-family: 'Nunito', sans-serif;
+                                    outline: none;
+                                    appearance: none;
+                                    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
+                                    background-repeat: no-repeat;
+                                    background-position: right 16px center;
+                                    background-size: 16px;
                                 ">
+                                <option value="" selected>Select your country first</option>
+                            </select>
+                        </div>
 
-                            <span>
-                                I agree to the Terms of Use,
-                                Student Info Policy, and Privacy Policy.
-                            </span>
-
-                        </label>
-
+                        <div style="display: flex; gap: 16px; margin-top: 24px;">
+                            <button type="button" class="login-submit-button" style="background: white; color: #475569; border: 1px solid #CBD5E1;" onclick="nextStep(1)">Back</button>
+                            <button type="button" class="login-submit-button" onclick="nextStep(3)">Continue</button>
+                        </div>
                     </div>
 
+                    <!-- STEP 3: Security -->
+                    <div id="step3" style="display: none;">
+                        <!-- Password -->
+                        <div class="login-field">
+                            <label for="password">Password</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="password" name="password" placeholder="Create a strong password" autocomplete="new-password" required>
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z" stroke="currentColor" stroke-width="1.7" />
+                                        <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
 
-                    <!-- Submit Button -->
-                    <button type="submit" class="login-submit-button">
-                        Create Account
-                    </button>
+                        <!-- Confirm Password -->
+                        <div class="login-field">
+                            <label for="passwordConfirmation">Confirm Password</label>
+                            <div class="password-input-wrapper">
+                                <input type="password" id="passwordConfirmation" name="passwordConfirmation" placeholder="Enter your password again" autocomplete="new-password" required>
+                                <button type="button" class="password-toggle" aria-label="Show password">
+                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z" stroke="currentColor" stroke-width="1.7" />
+                                        <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
 
+                        <!-- Terms Checkbox -->
+                        <div class="login-field" style="margin-bottom: 24px;">
+                            <label class="terms-checkbox" style="display: flex; align-items: flex-start; gap: 12px; cursor: pointer; font-size: 13px; font-weight: 600; color: #64748B;">
+                                <input type="checkbox" required style="margin-top: 4px; width: 16px; height: 16px; accent-color: #2563EB;">
+                                <span>I agree to the Terms of Use, Student Info Policy, and Privacy Policy.</span>
+                            </label>
+                        </div>
 
-                    <!-- Login Link -->
-                    <p class="login-create-account" style="margin-top: 24px;">
-                        Already have an account?
-                        <a href="login.html">
-                            Log In
-                        </a>
-                    </p>
+                        <div style="display: flex; gap: 16px; margin-top: 24px;">
+                            <button type="button" class="login-submit-button" style="background: white; color: #475569; border: 1px solid #CBD5E1;" onclick="nextStep(2)">Back</button>
+                            <button type="submit" class="login-submit-button" id="finalSubmitBtn">Create Account</button>
+                        </div>
+                    </div>
 
                 </form>
 
@@ -343,122 +286,111 @@
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     <script src="./js/app.js"></script>
+    
+    <!-- Choices.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
-
-    <!-- Country → Education Level -->
+    <!-- Multi-Step Logic & Country Selection -->
     <script>
+        // Multi-Step Navigation
+        function nextStep(step) {
+            // Very simple validation check before advancing
+            if(step === 2) {
+                const fname = document.getElementById('firstName').value;
+                const email = document.getElementById('email').value;
+                if(!fname || !email) {
+                    alert('Please enter your first name and email.');
+                    return;
+                }
+            }
+            if(step === 3) {
+                const country = document.getElementById('country').value;
+                const edu = document.getElementById('educationLevel').value;
+                if(!country || !edu) {
+                    alert('Please select your country and education level.');
+                    return;
+                }
+            }
+
+            document.getElementById('step1').style.display = 'none';
+            document.getElementById('step2').style.display = 'none';
+            document.getElementById('step3').style.display = 'none';
+            
+            document.getElementById('step' + step).style.display = 'block';
+
+            // Update progress bar
+            document.getElementById('step1-dot').style.background = (step >= 1) ? '#4338CA' : '#E2E8F0';
+            document.getElementById('step2-dot').style.background = (step >= 2) ? '#4338CA' : '#E2E8F0';
+            document.getElementById('step3-dot').style.background = (step >= 3) ? '#4338CA' : '#E2E8F0';
+        }
+
         document.addEventListener("DOMContentLoaded", function () {
 
-            const countrySelect =
-                document.getElementById("country");
+            // Initialize Choices.js
+            const countryElement = document.getElementById('country');
+            const choices = new Choices(countryElement, {
+                searchEnabled: true,
+                itemSelectText: '',
+                placeholderValue: 'Select your country',
+            });
 
-            const educationLevelSelect =
-                document.getElementById("educationLevel");
-
-            const educationLevelLabel =
-                document.getElementById("educationLevelLabel");
-
-            const countryFlag =
-                document.getElementById("countryFlag");
-
+            const educationLevelSelect = document.getElementById("educationLevel");
+            const educationLevelLabel = document.getElementById("educationLevelLabel");
 
             const educationLevels = {
-
-                UK: [
-                    "Year 7",
-                    "Year 8",
-                    "Year 9",
-                    "Year 10",
-                    "Year 11",
-                    "Year 12",
-                    "Year 13"
-                ],
-
-                Nigeria: [
-                    "SS1",
-                    "SS2",
-                    "SS3",
-                    "UTME/Post secondary"
-                ]
-
+                UK: ["Year 7", "Year 8", "Year 9", "Year 10", "Year 11", "Year 12", "Year 13"],
+                Nigeria: ["SS1", "SS2", "SS3", "UTME/Post secondary"],
+                US: ["Middle School (Grades 6-8)", "High School (Grades 9-12)", "College"],
+                India: ["Class 8", "Class 9", "Class 10", "Class 11", "Class 12"],
+                Australia: ["Year 7", "Year 8", "Year 9", "Year 10", "Year 11", "Year 12"],
+                Canada: ["Grade 7", "Grade 8", "Grade 9", "Grade 10", "Grade 11", "Grade 12"]
             };
 
-
-            countrySelect.addEventListener("change", function () {
-
+            countryElement.addEventListener("change", function () {
                 const country = this.value;
-
-                if (this.value === "UK") {
-                    countryFlag.textContent = "🇬🇧";
-                }
-
-                if (this.value === "Nigeria") {
-                    countryFlag.textContent = "🇳🇬";
-                }
-
                 educationLevelSelect.innerHTML = "";
-
                 educationLevelSelect.disabled = false;
 
-
-                const placeholder =
-                    document.createElement("option");
-
+                const placeholder = document.createElement("option");
                 placeholder.value = "";
                 placeholder.disabled = true;
                 placeholder.selected = true;
 
-
-                if (country === "UK") {
-
-                    educationLevelLabel.textContent =
-                        "Year Group";
-
-                    placeholder.textContent =
-                        "Select your year group";
-
+                if (country === "UK" || country === "Australia") {
+                    educationLevelLabel.textContent = "Year Group";
+                    placeholder.textContent = "Select your year group";
+                } else if (country === "Nigeria") {
+                    educationLevelLabel.textContent = "School Level";
+                    placeholder.textContent = "Select your school level";
+                } else {
+                    educationLevelLabel.textContent = "Grade / Level";
+                    placeholder.textContent = "Select your grade";
                 }
 
-                else if (country === "Nigeria") {
+                educationLevelSelect.appendChild(placeholder);
 
-                    educationLevelLabel.textContent =
-                        "School Level";
-
-                    placeholder.textContent =
-                        "Select your school level";
-
-                }
-
-
-                educationLevelSelect.appendChild(
-                    placeholder
-                );
-
-
-                educationLevels[country].forEach(
-                    function (level) {
-
-                        const option =
-                            document.createElement("option");
-
+                if (educationLevels[country]) {
+                    educationLevels[country].forEach(function (level) {
+                        const option = document.createElement("option");
                         option.value = level;
                         option.textContent = level;
-
-                        educationLevelSelect.appendChild(
-                            option
-                        );
-
-                    }
-                );
-
+                        educationLevelSelect.appendChild(option);
+                    });
+                }
             });
 
+            // Store role on submit for dashboard simulation
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                // e.preventDefault();
+                const role = document.querySelector('input[name="role"]:checked').value;
+                localStorage.setItem('userRole', role);
+                // The form action will redirect to dashboard.html automatically since we aren't preventing default on successful validation
+                // Though api.js intercepts this for the actual backend, we ensure it saves locally too.
+            });
         });
     </script>
-
 
     <script src="./js/api.js"></script>
 
 </body>
-
 </html>

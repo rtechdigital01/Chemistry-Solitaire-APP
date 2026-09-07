@@ -74,53 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <!-- Desktop Navigation -->
                 <nav class="header-nav">
-
-                    <a href="./index.html#why-solitaire">
-                        Why Solitaire?
-                    </a>
-
-                    <a href="./index.html#gameplay">
-                        Gameplay Preview
-                    </a>
-
-                    <a href="./index.html#send-access">
-                        SEND &amp; Access
-                    </a>
-
-                    <a href="./index.html#about">
-                        About
-                    </a>
-
-                    <a href="./login.html">
-                        Log In
-                    </a>
-
-
-                    <a
-                        href="./dashboard.html"
-                        class="header-play-button"
-                    >
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M8 5L19 12L8 19V5Z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linejoin="round"
-                            />
+                    <a href="./index.html#why-solitaire">Why Solitaire?</a>
+                    <a href="./index.html#gameplay">Gameplay Preview</a>
+                    <a href="./index.html#send-access">SEND &amp; Access</a>
+                    <a href="./games.html">Games</a>
+                    <a href="./login.html">Log In</a>
+                    <a href="./dashboard.html" class="header-play-button">
+                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                            <path d="M8 5L19 12L8 19V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
                         </svg>
-
-                        <span>Play Now</span>
-
+                        <span>Dashboard</span>
                     </a>
-
                 </nav>
-
 
                 <!-- Hamburger -->
                 <button
@@ -134,40 +99,16 @@ document.addEventListener("DOMContentLoaded", () => {
                     <span></span>
                     <span></span>
                 </button>
-
             </div>
 
-
             <!-- Mobile Navigation -->
-            <nav
-                class="mobile-nav"
-                id="mobileNav"
-            >
-
-                <a href="./index.html#why-solitaire">
-                    Why Solitaire?
-                </a>
-
-                <a href="./index.html#gameplay">
-                    Gameplay Preview
-                </a>
-
-                <a href="./index.html#send-access">
-                    SEND &amp; Access
-                </a>
-
-                <a href="./index.html#about">
-                    About
-                </a>
-
-                <a href="./login.html">
-                    Log In
-                </a>
-
-                <a href="./dashboard.html">
-                    Play Now
-                </a>
-
+            <nav class="mobile-nav" id="mobileNav">
+                <a href="./index.html#why-solitaire">Why Solitaire?</a>
+                <a href="./index.html#gameplay">Gameplay Preview</a>
+                <a href="./index.html#send-access">SEND &amp; Access</a>
+                <a href="./games.html">Games</a>
+                <a href="./login.html">Log In</a>
+                <a href="./dashboard.html">Dashboard</a>
             </nav>
 
         </header>

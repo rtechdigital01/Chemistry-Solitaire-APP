@@ -322,48 +322,64 @@ function attachStackEvents() {
                     }
 
 
-                    selectedCard.remove();
-
+                    // === FLYING ANIMATION ===
+                    // 1. Get positions
+                    const cardRect = selectedCard.getBoundingClientRect();
+                    const stackRect = stack.getBoundingClientRect();
+                    
+                    // 2. Clone the card for animation
+                    const flyingCard = selectedCard.cloneNode(true);
+                    
+                    // 3. Set starting position
+                    flyingCard.style.position = 'fixed';
+                    flyingCard.style.left = cardRect.left + 'px';
+                    flyingCard.style.top = cardRect.top + 'px';
+                    flyingCard.style.width = cardRect.width + 'px';
+                    flyingCard.style.height = cardRect.height + 'px';
+                    flyingCard.style.margin = '0';
+                    flyingCard.style.zIndex = '9999';
+                    flyingCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+                    flyingCard.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(flyingCard);
+                    
+                    // 4. Hide original card immediately so it doesn't leave a gap
+                    selectedCard.style.visibility = 'hidden';
+                    const cardToRemove = selectedCard;
                     selectedCard = null;
 
-                    updateProgress();
+                    // 5. Trigger animation
+                    requestAnimationFrame(() => {
+                        flyingCard.style.left = (stackRect.left + (stackRect.width / 2) - (cardRect.width / 2)) + 'px';
+                        flyingCard.style.top = (stackRect.top + (stackRect.height / 2) - (cardRect.height / 2)) + 'px';
+                        flyingCard.style.transform = 'scale(0.3)';
+                        flyingCard.style.opacity = '0';
+                    });
+                    
+                    // 6. Cleanup after animation
+                    setTimeout(() => {
+                        flyingCard.remove();
+                        cardToRemove.remove();
+                        
+                        updateProgress();
 
-
-                    /* LEVEL COMPLETE */
-
-                    if (
-                        cardsPlaced === totalCards
-                    ) {
-
-                        if (banner) {
-
-                            banner.className =
-                                "game-info-banner";
-
-                            banner.textContent =
-                                "Excellent! Board completed 🎉";
+                        /* LEVEL COMPLETE */
+                        if (cardsPlaced === totalCards) {
+                            if (banner) {
+                                banner.className = "game-info-banner";
+                                banner.textContent = "Excellent! Board completed 🎉";
+                            }
+                            if (finishLevelBtn) {
+                                finishLevelBtn.disabled = false;
+                            }
+                        } else {
+                            if (banner) {
+                                banner.className = "game-info-banner";
+                                banner.textContent = `Correct! ${cardName} has been placed successfully.`;
+                            }
                         }
-
-                        if (finishLevelBtn) {
-                            finishLevelBtn.disabled =
-                                false;
-                        }
-
-                    } else {
-
-                        if (banner) {
-
-                            banner.className =
-                                "game-info-banner";
-
-                            banner.textContent =
-                                `Correct! ${cardName} has been placed successfully.`;
-                        }
-
-                    }
-
+                    }, 500);
                 }
-
 
                 /* ============================
                    INCORRECT MATCH
@@ -592,12 +608,14 @@ function renderBoard(board) {
 
         try {
 
+            const urlParamsLocal = new URLSearchParams(window.location.search);
+            const subject = urlParamsLocal.get('subject') || 'chemistry';
+
             const url =
-                `/api/chemistry/board` +
+                `/api/${encodeURIComponent(subject)}/board` +
                 `?deck=${encodeURIComponent(deck)}` +
                 `&key_stage=${encodeURIComponent(keyStage)}` +
                 `&difficulty=${encodeURIComponent(difficulty)}`;
-
 
             const response =
                 await fetch(url, {

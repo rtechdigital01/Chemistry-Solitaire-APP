@@ -4387,10 +4387,47 @@ body {
     text-transform: uppercase;
 }
 
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    gap: 20px;
+.cards-hand {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Overlap handled by negative margins */
+    margin-top: 20px;
+    padding: 20px 0;
+    min-height: 220px;
+    overflow-x: auto;
+}
+
+.cards-hand .game-card {
+    flex-shrink: 0;
+    width: 140px; /* fixed width for hand */
+    margin-left: -40px; /* negative margin for overlap */
+    transition: transform 0.3s ease, margin 0.3s ease, z-index 0s;
+    position: relative;
+    z-index: 1;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+}
+
+.cards-hand .game-card:first-child {
+    margin-left: 0;
+}
+
+.cards-hand .game-card:hover, .cards-hand .card-selected {
+    transform: translateY(-20px);
+    z-index: 10;
+    margin-right: 20px; /* push next card over slightly */
+}
+
+/* Flying animation class */
+.card-flying {
+    position: fixed !important;
+    z-index: 9999 !important;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    pointer-events: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    transform: scale(0.7) !important;
+    margin: 0 !important;
 }
 
 .game-card {

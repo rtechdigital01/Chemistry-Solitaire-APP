@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Category extends Model
 {
     protected $fillable = [
+        'subject',
         'serial_number',
         'deck',
         'key_stage',

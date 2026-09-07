@@ -1,0 +1,505 @@
+SCISOLITAIRE
+Project Requirements Document
+Version 2.0
+An international, curriculum-aware science card-matching learning platform
+
+Project Name
+SciSolitaire
+Version
+2.0
+Primary Format
+Responsive Web Platform
+Initial Country Markets 
+United Kingdom, Nigeria and Others
+Science Subjects
+Chemistry, Biology and Physics
+Initial Playable Content
+Chemistry first; platform architecture supports all three sciences
+User Roles
+Student and Teacher
+Accessibility Position
+SEND-inclusive and designed for varied learning needs
+Core Team
+Product Lead / Lead Researcher & Data Engineer, UI/UX Designer, Full-Stack Developers, Application Support
+
+Product position: Interactive science learning through play, matching and meaningful connections.
+Prepared for team review • September 2026
+
+Revision Summary
+This version updates the original Chemistry-focused MVP requirements to reflect the current SciSolitaire product direction. The most important changes are:
+Area
+Previous Direction
+Updated Requirement
+Brand
+Chemistry Solitaire
+SciSolitaire as the international parent science brand
+Subjects
+Chemistry only
+Chemistry, Biology and Physics subject structure; Chemistry remains the first populated/playable content
+Curriculum
+UK-specific KS3 / GCSE / A-Level labels
+Country-aware learning-stage mapping, beginning with the UK, Nigeria and others
+Authentication
+Learner registration and login
+Role-based Student and Teacher sign-up/login, with Google authentication planned/supported
+Dashboard
+Student progress only; teacher dashboard future
+Student Dashboard and a basic Teacher Dashboard are now in scope
+Teacher access
+Teacher feedback mainly collected outside the platform
+Teachers can securely view linked students, progress, topic performance and feedback/learning insights
+Navigation
+Chemistry-oriented public navigation
+International science brand; Dashboard routes users to the correct role-based experience
+Gameplay
+Fixed Chemistry levels
+Topic/deck-based science matching sessions with configurable difficulty and reusable content banks
+Working baseline: This document should be treated as the current product requirements baseline. Individual technical choices may still change, but the user roles, international curriculum logic, science-wide brand and dashboard model should remain consistent unless the team formally revises them.
+1. Project Overview
+SciSolitaire is a responsive web-based science learning platform built around a category-card matching game. Learners make connections between scientific terms, properties, processes, examples, symbols, formulae and diagrams by grouping related cards. The product is designed to feel like a puzzle rather than a conventional test, while still generating useful learning and progress data.
+The public-facing brand is intentionally science-wide and internationally neutral. Chemistry, Biology and Physics sit under the SciSolitaire brand, while a learner's country, learning stage and curriculum choices determine which content is shown after sign-in.
+1.1 Problem Statement 
+Many learners struggle to engage with science when learning is mainly text-heavy (Gulzar & Ahmad, 2023), abstract (Oladejo et al., 2023), memorisation-led or repeatedly presented through conventional questions (Chengere et al., 2025; Arsyad et al., 2025). This can be particularly challenging for learners who benefit from visual, interactive, bite-sized or lower-pressure approaches, including some learners with SEND, disrupted education or barriers to sustained classroom engagement.
+1.2 Product Goal
+To create an accessible, engaging and curriculum-aware science platform that helps learners practise scientific concepts through matching, active recall and pattern recognition, while giving students and teachers useful information about progress and learning gaps.
+1.3 Product Positioning
+One international parent brand: SciSolitaire.
+Three core science subjects: Chemistry, Biology and Physics.
+Public pages use curriculum-neutral language such as secondary science, science learning and curriculum-aligned content rather than repeatedly displaying KS3/GCSE terminology.
+Country- and curriculum-specific labels appear after profile setup, where they are useful to the learner and teacher.
+The same core game engine should support multiple countries without requiring separate applications.
+Accessibility is part of the core design rather than a later add-on.
+1.4 MVP Content Decision
+The application architecture should support all three sciences from the start, but content can be released in stages. Chemistry remains the first fully populated and tested subject for the initial playable MVP. Biology and Physics may appear as available or coming-soon subject areas until their content banks have been validated.
+Within a subject, gameplay is topic/deck-based. The system should not depend on a single fixed UK curriculum structure or on a rigid five-level sequence. Difficulty and content selection should be determined by the learner's profile, topic, curriculum mapping and configurable game rules.
+2. Scope of Version 2.0
+2.1 In Scope
+Responsive web platform for desktop, laptop, Chromebook, tablet and mobile browser use.
+SciSolitaire science-wide public branding and navigation.
+Role-based sign-up and login for Students and Teachers.
+Email/password authentication and support for Google sign-in; Microsoft sign-in may follow later.
+Three country selection: United Kingdom, Nigeria and others.
+Dynamic education-stage selection based on country.
+Student profile setup and profile editing.
+Teacher profile setup and secure teacher account access.
+Student Dashboard for subject selection, topic/deck selection, progress tracking, gameplay history and continuation of learning.
+Basic Teacher Dashboard for class/student overview, individual performance, topic/category performance, recurring errors and learning feedback.
+A secure mechanism for teachers to add or link students to their class/account (for example, class code, invite or approved school linking flow).
+Chemistry, Biology and Physics subject selector.
+Topic/deck cards that change according to the selected subject and the learner's mapped curriculum/stage.
+At least one fully playable Chemistry topic for MVP validation.
+Category-card matching gameplay using reusable content banks.
+Scoring/rewards, hints, supportive feedback and saved progress.
+Basic teacher-visible learning-gap indicators derived from gameplay data.
+Basic usage and learning data for product improvement, school pilots and research evaluation.
+SEND-inclusive design and accessibility testing.
+Role-based permissions so teachers can only access learners/classes they are authorised to view.
+2.2 Out of Scope for the Initial MVP
+Native Android or iOS applications.
+Payment collection or school subscription billing inside the product.
+Parent/carer portal.
+Artificial-intelligence or machine-learning adaptation.
+Predictive or high-stakes learner analytics.
+Full management information system (MIS), LMS or school information-system integration.
+Real-time messaging or chat between students and teachers.
+Full curriculum coverage for every country at launch.
+Advanced institution-level administration across multiple schools.
+Automated teacher verification beyond the agreed pilot process.
+Advanced report exports and custom school reports beyond a simple MVP summary.
+3. User Roles and Access Model
+Role
+Primary Purpose
+Key Permissions
+Restrictions
+Visitor
+Understand the product and access public information/demo
+View public pages, accessibility information and demo content
+No personal progress or student data
+Student
+Learn, play and track personal progress
+Edit own profile, choose subject/topic, play games, view own progress/history/rewards
+Cannot view other learners or teacher-only analytics
+Teacher
+Monitor linked learners and use data to support learning
+View assigned classes/students, filter progress by subject/topic, review recurring misconceptions and feedback
+Can only access authorised/linked learners; no access to unrelated student accounts
+3.1 Role Selection at Authentication
+Both the login and sign-up experience should clearly distinguish between Student and Teacher users. The selected role determines the fields shown, the dashboard destination and the permissions attached to the account.
+Student sign-up: first name, last name, email, country, school/organization information, education stage/year group, password, required consent/terms fields.
+Teacher sign-up: name, email, country, school/organisation information, password and required terms/privacy fields.
+Google sign-in should still require first-time users to complete the missing role/profile fields before entering the application.
+A user should not be able to switch from Student to Teacher simply by editing a profile field; role changes should be controlled.
+4. International Curriculum and Profile Logic
+The curriculum model should be data-driven. Public-facing pages should not be hard-coded around UK qualification labels. After sign-up, the application uses country and education-stage information to determine the most relevant content labels and topic mappings.
+Country
+Initial Stage Labels
+Possible Curriculum / Exam Mapping
+Display Principle
+United Kingdom
+Year 7–Year 13
+General science; AQA, Edexcel, OCR or other supported pathways later
+Use year group/stage in the learner interface; avoid repeating GCSE/KS3 across public pages
+Nigeria
+SS1–SS3
+General Nigerian curriculum; WAEC/NECO mapping where relevant
+Use Nigerian school-stage labels after country selection
+Others
+None
+Play the Year 10 UK designed
+None
+Future countries
+Configured per country
+Country-specific curriculum/exam pathways
+Add through configuration/content mapping without rebuilding the game engine
+4.1 Curriculum Mapping Rules
+The same scientific concept may map to multiple countries, curricula and year groups without duplicating the core card content unnecessarily.
+Country/stage mappings should control what the learner sees, not the public brand.
+Content that is not appropriate for a learner's selected stage should not be prioritised in their default dashboard.
+Teachers may need a broader preview mode so they can inspect content across stages when planning lessons.
+The data model should allow new countries and curricula to be added without changing the core gameplay logic.
+5. User Journeys
+5.1 Student Journey
+1. Student opens SciSolitaire from the website or a school-provided link.
+2. Student chooses Log In or Sign Up and selects the Student role.
+3. On first registration, the student completes profile details.
+4. The student enters the Student Dashboard.
+5. The student selects Chemistry, Biology or Physics.
+6. The dashboard displays topics/decks appropriate to the selected subject and mapped learning stage.
+7. The student selects a topic and starts or continues a game session.
+8. During gameplay, the student receives supportive feedback, explanations, hints and rewards.
+9. Progress, accuracy, attempts, topic performance and session history are saved.
+10. At the next login, the dashboard highlights where the student stopped and what may need further practice.
+5.2 Teacher Journey
+1. Teacher clicks Dashboard or Log In from the public site.
+2. If not authenticated, the teacher chooses the Teacher role and logs in or creates a teacher account.
+3. The teacher completes required profile/school information on first use.
+4. The teacher creates a class or uses the agreed linking method to add/associate students.
+5. The Teacher Dashboard shows linked classes/students and a summary of activity.
+6. The teacher can select a class, student, subject or topic to inspect performance.
+7. The teacher can review accuracy, attempts, frequently missed concepts, completion patterns, hints used and recent activity.
+8. The teacher uses these insights to decide what to revisit, explain or recommend in class or intervention sessions.
+9. Teacher feedback on the platform/pilot can be captured for product improvement.
+5.3 Dashboard Navigation Behaviour
+If Dashboard is clicked by a user who is not logged in, route to role-based authentication.
+If the authenticated user is a Student, Dashboard opens the Student Dashboard.
+If the authenticated user is a Teacher, Dashboard opens the Teacher Dashboard.
+The application should not expose teacher-only screens through public URLs without permission checks.
+6. Main Interfaces
+Interface
+Purpose
+Core Requirements
+Public Website / Navigation
+Explain SciSolitaire and move users into the product
+Science-wide brand; Why SciSolitaire?; Gameplay Preview; Dashboard; About; Play Now
+Login
+Authenticate returning users
+Student/Teacher role selection; email/password; Google sign-in; forgot password; role-aware redirect
+Sign-Up
+Create new accounts
+Student/Teacher role selection; minimal fields; country; stage for students; organisation fields; terms/privacy
+Student Profile Setup
+Personalise curriculum and content
+Country; school/organization; learning stage/year group; optional curriculum/pathway; profile edit
+Teacher Profile Setup
+Establish teacher identity and school context
+Name; email; country; school/organisation; class creation/linking readiness
+Student Dashboard
+Main learner home
+Subject selector; topic/deck cards; progress; recent activity; continue session; rewards
+Teacher Dashboard
+Main teacher home
+Class/student overview; filters; topic/category insight; recurring misconceptions; feedback; recent activity
+Game Screen
+Play matching session
+Card board; category/theme areas; score/rewards; hint; progress; accessibility controls
+Results / Feedback
+Close the learning loop
+Correct group explanation; mistakes/hints summary; score/accuracy; suggested next action; save session
+7. Dashboard Requirements
+7.1 Student Dashboard
+Display learner name and relevant profile context (for example: Science Learner • Year 9 • United Kingdom, or Science Learner • SS1 • Nigeria).
+Provide a visible subject selector for Chemistry, Biology and Physics on desktop; a compact selector/dropdown may be used on smaller screens.
+Show topic/deck cards underneath the selected subject.
+Show only appropriate/available content for the learner's stage by default.
+Allow Start Game or Continue Playing actions from each available topic/deck.
+Display topic progress, accuracy, completion status and recent activity in a simple form.
+Support a Resume/Continue area so the learner can quickly return to the previous topic or session.
+Show earned rewards such as coins/badges where implemented, without making rewards the main learning objective.
+Provide access to gameplay history and areas needing more practice.
+Keep student-facing analytics understandable and encouraging rather than comparative or ranking-based.
+7.2 Teacher Dashboard
+Provide class and linked-student overview.
+Allow filtering by class, student, subject, topic/deck and relevant time period.
+Show individual learner performance including attempts, accuracy, completion and recent activity.
+Show topic/category performance so a teacher can identify which scientific relationships are repeatedly misunderstood.
+Highlight frequently missed concepts or repeated incorrect matches.
+Show hints used and repeat attempts as indicators of where additional support may be helpful.
+Allow teachers to open an individual student view without exposing data for students outside the teacher's authorised class/account.
+Provide a simple feedback or notes area for pilot/product feedback where appropriate.
+Support a simple downloadable or printable progress summary later if this can be implemented without delaying the core MVP.
+Product principle: The distinguishing value of the Teacher Dashboard is not analytics alone. It should translate gameplay into practical concept-level insight that helps a teacher decide what to revisit or support next.
+8. Subject, Topic and Content Architecture
+SciSolitaire content should be organised in a reusable hierarchy so the same game engine can serve different subjects, countries and curricula.
+Subject → Country/Curriculum Mapping → Learning Stage → Topic/Deck → Category/Theme → Cards
+8.1 Subject Structure
+Subject
+Example Topics
+MVP Status Principle
+Chemistry
+Atomic structure, periodic table, particles, bonding, reactions, acids/alkalis, chemical energy
+First fully populated and validated subject
+Biology
+Cells, organisation, life processes, genetics, ecosystems, photosynthesis/respiration
+Architecture ready; content released after validation
+Physics
+Forces, energy, waves, electricity, magnetism, particles
+Architecture ready; content released after validation
+8.2 Suggested Content Data Fields
+Subject
+Topic/deck
+Category/theme
+Card text or content reference
+Card type (keyword, formula/equation, symbol/unit, definition, image/diagram, process/relationship)
+Correct category identifier
+Explanation/feedback text
+Difficulty/stage tag
+Country/curriculum mapping tags
+Accessibility/alternative text where an image is used
+Content status (draft, reviewed, live)
+9. Gameplay Specification
+9.1 Game Concept
+SciSolitaire is a category-card matching game. A session presents a shuffled set of science cards and asks the learner to identify which cards belong together. Each correct group represents a scientific relationship or concept. The game should encourage retrieval, pattern recognition and conceptual connections rather than passive reading.
+9.2 Core Gameplay
+The learner selects a subject and topic/deck.
+The game engine draws a configurable set of categories/themes from the selected topic bank.
+Each category can contain a configurable number of matching cards; a typical bank may provide 4–7 suitable cards per category.
+Cards are shuffled before the session begins.
+The learner selects, drags or groups cards into the correct category/theme.
+Correct groups lock or are clearly confirmed and award points/rewards.
+Correct completion should provide a short explanation of the scientific connection where appropriate.
+Incorrect selections should receive supportive feedback rather than a harsh failure screen.
+After repeated errors, the game may offer a hint or reduce complexity according to rule-based support.
+A session is completed when all required groups are correctly matched.
+The result is saved to the learner's history and contributes to progress data.
+9.3 Card Types
+Card Type
+Cross-Science Examples
+Purpose
+Keyword
+Mitochondrion; proton; force
+Build and retrieve scientific vocabulary
+Formula / Equation
+H₂O; F = ma; word equations
+Connect representations and concepts
+Symbol / Unit
+Na; N; V; °C
+Support scientific notation and recognition
+Definition
+A short definition of a process, property or quantity
+Strengthen conceptual understanding
+Image / Diagram
+Cell structure; circuit symbol; particle diagram
+Support visual learning and interpretation
+Process / Relationship
+Diffusion; energy transfer; reactivity trend
+Recognise scientific relationships and sequences
+9.4 Difficulty and Rule-Based Support
+Difficulty should be configurable by learning stage, topic complexity, number of categories, number of cards, similarity of distractors and number of allowed hints/moves.
+If a learner performs strongly, later sessions may use closer distractors or more complex relationships.
+If a learner makes repeated incorrect matches, the system may offer a hint, explanation or simpler retry.
+The initial MVP should use transparent rules rather than machine learning.
+The wording 'Level 1', 'Level 2' etc. is optional and should not be required by the game engine; topic/deck progress can be used instead.
+10. Accessibility and SEND Design Requirements
+Simple layouts with limited visual clutter and predictable navigation.
+Large cards, adequate spacing and clear clickable/touch targets.
+Readable fonts, strong contrast and no reliance on colour alone to communicate meaning.
+Clear keyboard navigation and visible focus indicators.
+Screen-reader compatible labels for controls and meaningful alternative text for images.
+Short, plain-language instructions with consistent wording.
+Reduced-motion support and gentle animations.
+Immediate, positive feedback after actions.
+Optional hints that reduce frustration without giving away the entire answer immediately.
+No harsh failure screens or punitive wording.
+Learner-controlled pace and the ability to repeat topics.
+Accessible error messages on login, forms and gameplay.
+Mobile and tablet layouts should remain usable with the same core functionality.
+Accessibility should be tested with learners and SEND practitioners, not assumed from design alone.
+11. Data, Privacy, Safeguarding and Role Security
+Because SciSolitaire may be used by children and young people, data collection and account access should be intentionally limited to what is needed for learning, product operation and approved evaluation.
+Collect only necessary account/profile and gameplay data.
+Use secure authentication and password handling appropriate to the chosen framework.
+Apply role-based access controls at both interface and server/database level.
+Teachers must only see students/classes they are authorised to access.
+Student accounts must not expose other students' personal details or performance.
+Teacher-student linking should use a controlled mechanism such as class code, invitation, school setup or approved association.
+Sensitive or clinical information should not be collected as part of ordinary gameplay.
+Privacy Policy, Terms of Use and student-information wording should be clear and accessible.
+Age eligibility and consent requirements must be finalised before school pilots. If under-13 learners are permitted, an appropriate school/parent/guardian consent route should be implemented for the relevant jurisdiction.
+Google authentication must not bypass role, consent or profile-completion requirements.
+Research/evaluation datasets should be anonymised or pseudonymised where possible and handled separately from ordinary user-facing analytics.
+12. Data and Research Requirements
+SciSolitaire has a product-improvement and evaluation purpose in addition to gameplay. The platform should collect non-sensitive learning-event data that supports progress tracking, teacher insight and later pilot/research analysis.
+Data Area
+Examples
+Profile context
+User role; country; learning stage/year group; school/organization; curriculum/pathway tag where selected
+Session context
+Subject; topic/deck; date/time; session duration; session completed/not completed
+Gameplay
+Categories attempted; correct matches; incorrect matches; hints used; retries; score/reward
+Progress
+Topic progress; accuracy over time; return/repeat activity; last played topic
+Teacher insight
+Aggregated class/student topic patterns; frequently missed categories; recent activity
+Pilot feedback
+Teacher comments; learner feedback; usability/accessibility observations where consented
+Any formal research involving students must follow applicable school safeguarding expectations, consent procedures, data-protection requirements and ethical approval processes where required.
+13. Team Roles and Responsibilities
+Role
+Lead / Owner
+Responsibilities
+Product Lead, Lead Researcher & Data Engineer
+E.C. Henry
+Product direction, curriculum architecture, science content standards, research/evaluation design, data requirements, pilot planning, school engagement, coordination and quality decisions.
+UI/UX Designer
+O.T. Kayode
+Science-wide visual identity, accessible interface design, responsive layouts, dashboard/game flows, interaction patterns, usability improvements and design handover.
+Full-Stack Developers
+E. K. Austin & A. John
+Authentication, role permissions, frontend/backend implementation, database, dashboards, gameplay engine, progress saving, deployment and technical maintenance.
+Application Support Engineer
+O. Abisola
+Testing support, issue tracking, deployment/application support, user-reported issue triage, documentation and operational readiness.
+14. Technical and Architecture Requirements
+The exact implementation stack may continue to evolve, but the architecture should support international content mapping, role-based dashboards and a reusable game engine.
+Responsive web application with reusable components.
+Server-side or backend-enforced authentication and role authorisation.
+Student and Teacher role fields stored securely in the user model.
+Google OAuth/sign-in integration where implemented, with profile-completion flow for first-time users.
+Database schema that separates users, classes/teacher-student relationships, content, curriculum mappings, game sessions and analytics events.
+Content architecture should be subject-neutral and data-driven.
+Country/curriculum mappings should be configuration/data rather than hard-coded interface logic wherever practical.
+Progress and gameplay events should persist across sessions.
+Error logging and basic monitoring should be enabled for pilot reliability.
+Version control through GitHub and documented deployment process.
+Separate development/testing and production configuration where practical.
+Backups and restore procedures for core database/content data.
+Security/privacy review before school pilot.
+14.1 Suggested Core Data Entities
+Entity
+Purpose
+User
+Student or Teacher account, authentication role and basic profile
+Student Profile
+Country, School/organization, learning stage/year group, curriculum/pathway and learner preferences
+Teacher Profile
+School/organisation and teacher-specific fields
+Class / Student Link
+Secure relationship between teacher and authorised students
+Subject
+Chemistry, Biology or Physics
+Topic / Deck
+Playable curriculum topic within a subject
+Category / Theme
+Concept group used by the matching engine
+Card
+Individual playable content item and its metadata
+Curriculum Mapping
+Links content to country, stage/year and optional exam/curriculum pathway
+Game Session
+One learner attempt/session and its results
+Progress Summary
+Aggregated learner progress used by dashboards
+Feedback / Pilot Note
+Optional structured feedback collected from teachers/learners
+15. Development Milestones
+Phase
+Focus
+Main Tasks
+Deliverable
+Phase 1
+Brand & information architecture
+Complete SciSolitaire rebrand; remove unnecessary UK-only wording; confirm subject/curriculum hierarchy
+Consistent public site and content architecture
+Phase 2
+Role-based authentication
+Student/Teacher login and sign-up; country/stage profile logic; Google sign-in; role redirects
+Working authentication and profile setup
+Phase 3
+Student experience
+Student Dashboard; subject selector; topic/deck display; resume/progress; playable Chemistry topic
+End-to-end learner journey
+Phase 4
+Teacher experience
+Teacher Dashboard; class/student linking; student/topic views; basic learning-gap insight
+Pilot-ready teacher journey
+Phase 5
+Quality & accessibility
+Cross-device testing; keyboard/screen-reader checks; safeguarding/privacy review; bug fixing
+Stable accessible pilot build
+Phase 6
+Pilot & evidence
+Use with learners/teachers; gather usage data and qualitative feedback; refine content and dashboards
+Pilot report and prioritised improvement backlog
+16. Requirements Priority
+Priority
+Meaning
+Current Requirements
+MUST
+Required for the pilot-ready core product
+Science-wide brand; role-based auth; UK/Nigeria profile logic; Student Dashboard; basic Teacher Dashboard; subject/topic selection; playable Chemistry topic; progress saving; teacher-student permission controls; accessibility basics; privacy/safeguarding
+SHOULD
+Strongly preferred for MVP if it does not delay core delivery
+Google sign-in; class codes/invite flow; rewards/coins; teacher filters; simple progress summary/export; enhanced accessibility controls
+COULD
+Useful future enhancement
+Microsoft SSO; teacher assignments; advanced analytics; payments/subscriptions; parent portal; native apps; AI adaptation; MIS/LMS integrations; wider country packs
+17. MVP Success Criteria
+A Student can create an account, log in and complete the required country/learning-stage profile.
+A Teacher can create an account, log in and reach a Teacher Dashboard.
+The same authentication area clearly distinguishes Student and Teacher roles.
+A learner in the UK sees UK-appropriate stage labels, while a learner in Nigeria sees Nigerian school-stage labels.
+A Student can select Chemistry, Biology or Physics and see the appropriate available/coming-soon topic/deck state.
+At least one Chemistry topic is fully playable end to end.
+A Student can complete a matching session and receive clear supportive feedback/explanation.
+Progress and gameplay history persist across sessions.
+A Student Dashboard shows current progress and a clear next/continue action.
+A Teacher can securely link or access at least one authorised student and view that student's recent activity and topic performance.
+Teacher views identify at least basic recurring errors or learning gaps from gameplay.
+The application works reliably on desktop, laptop, tablet and mobile browser.
+Core flows can be completed with keyboard navigation and without inaccessible colour-only cues.
+The platform records the agreed basic usage data for pilot evaluation.
+Student and teacher feedback can be collected during pilot use.
+18. Future Expansion
+Populate and validate full Biology and Physics topic libraries.
+Expand Chemistry coverage beyond the first validated topic.
+Add additional countries and curriculum mappings.
+Add optional exam-board/pathway mappings such as AQA, Edexcel, OCR, WAEC and NECO where content is validated.
+Teacher assignment/recommendation workflow for specific decks or topics.
+Downloadable class and learner progress reports.
+Microsoft school-account sign-in.
+School subscription and licensing features after willingness-to-pay testing.
+Institution/admin dashboard for multi-class or multi-school management.
+Parent/carer access if a clear safeguarding and product need is established.
+Native mobile application if evidence shows that web access is insufficient.
+LMS/MIS integrations for schools.
+Rule-based personalisation enhancements and, only later, carefully evaluated AI/ML adaptation using sufficient real gameplay data.
+Additional science or interdisciplinary subject packs if the core model proves effective.
+19. Immediate Next Actions
+1. Update all remaining public and authenticated pages from Chemistry Solitaire to SciSolitaire where appropriate.
+2. Complete Student/Teacher role selection on both login and sign-up.
+3. Implement/confirm Google sign-in and first-time profile completion.
+4. Finalise the Teacher Dashboard wireframe and the student/class linking method.
+5. Update the database schema for user roles, country/stage profiles, teacher-student relationships and curriculum mappings.
+6. Complete the Student Dashboard subject selector and topic/deck switching behaviour.
+7. Confirm the first Chemistry topic/content bank to be used for the pilot-ready game.
+8. Prepare Biology and Physics placeholder/content structures without delaying Chemistry MVP validation.
+9. Test the UK and Nigeria profile flows end to end.
+10. Run accessibility, privacy and role-permission checks before external school testing.
+11. Agree the pilot feedback fields that teachers and learners will be asked to provide.
+
+References
+Arsyad, M., Khan, R., & Sothy, C. (2025). The use Problem Based Learning Methods in Science Education. Journal Neosantara Hybrid Learning. https://doi.org/10.70177/jnhl.v2i3.2072 
+Chengere, A. M., Bono, B., Zinabu, S., & Jilo, K. W. (2025). Enhancing secondary school students’ science process skills through guided inquiry-based laboratory activities in biology. PLOS One, 20, e0320692 - e0320692. https://doi.org/10.1371/journal.pone.0320692
+Gulzar, A. A., & Ahmad, I. (2025). Identification of Problems Faced By Science Group Students at Secondary Level In District Gujranwala. JSE. https://doi.org/10.30971/jse.v6i2.3292
+Oladejo, A., Okebukola, P., Akinola, V. O., Amusa, J., Akintoye, H., Owolabi, T., Shabani, J., & Olateju, T. T. (2023). Changing the Narratives of Physics-Learning in Secondary Schools: The Role of Culture, Technology, and Locational Context. Education Sciences. https://doi.org/10.3390/educsci13020146

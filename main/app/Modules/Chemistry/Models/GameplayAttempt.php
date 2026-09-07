@@ -8,6 +8,7 @@ class GameplayAttempt extends Model
 {
     protected $fillable = [
         'user_id',
+        'subject',
         'topic',
         'level',
         'score',

@@ -98,39 +98,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* ========================================
+/* ========================================
    PASSWORD VISIBILITY
 ======================================== */
 
-const passwordInput =
-    document.getElementById("password");
+const passwordToggles = document.querySelectorAll(".password-toggle");
 
-const passwordToggle =
-    document.getElementById("passwordToggle");
+passwordToggles.forEach(toggle => {
+    toggle.addEventListener("click", () => {
+        const wrapper = toggle.closest(".password-input-wrapper");
+        if (!wrapper) return;
+        
+        const passwordInput = wrapper.querySelector("input");
+        if (!passwordInput) return;
 
+        const passwordIsHidden = passwordInput.type === "password";
 
-if (passwordInput && passwordToggle) {
+        passwordInput.type = passwordIsHidden ? "text" : "password";
 
-    passwordToggle.addEventListener("click", () => {
-
-        const passwordIsHidden =
-            passwordInput.type === "password";
-
-
-        passwordInput.type =
-            passwordIsHidden ? "text" : "password";
-
-
-        passwordToggle.setAttribute(
+        toggle.setAttribute(
             "aria-label",
-            passwordIsHidden
-                ? "Hide password"
-                : "Show password"
+            passwordIsHidden ? "Hide password" : "Show password"
         );
-
     });
-
-}
+});
 
 
 /* ========================================
