@@ -21,6 +21,7 @@ class AuthService
         'country' => $data['country'],
         'education_level' => $data['education_level'],
         'key_stage' => $data['key_stage'],
+        'role' => $data['role'],
     ]);
 
     $token = $user->createToken('auth_token')->plainTextToken;

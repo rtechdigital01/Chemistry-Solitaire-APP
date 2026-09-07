@@ -107,10 +107,14 @@ document.addEventListener("DOMContentLoaded", () => {
             submitBtn.textContent = "Creating Account...";
             submitBtn.disabled = true;
 
-            // Map frontend fields to backend DTO
             const firstName = signupForm.querySelector('#firstName').value;
             const email = signupForm.querySelector('#email').value;
+            const country = signupForm.querySelector('#country').value;
+            const educationLevel = signupForm.querySelector('#educationLevel').value;
             const password = signupForm.querySelector('#password').value;
+            const passwordConfirmation = signupForm.querySelector('#passwordConfirmation').value;
+            const roleEl = signupForm.querySelector('input[name="role"]:checked');
+            const role = roleEl ? roleEl.value : 'student';
 
             try {
                 const response = await fetch(`${API_BASE_URL}/auth/register`, {
@@ -121,9 +125,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     },
                     body: JSON.stringify({ 
                         name: firstName, 
-                        email: email, 
+                        email: email,
+                        country: country,
+                        education_level: educationLevel,
                         password: password,
-                        password_confirmation: password // Auto-confirm since UI only has one field
+                        password_confirmation: passwordConfirmation,
+                        role: role
                     })
                 });
 

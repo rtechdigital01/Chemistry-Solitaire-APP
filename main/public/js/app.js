@@ -334,4 +334,38 @@ if (displayNameInput && previewName) {
 
 }
 
+/* ========================================
+   FETCH REVIEWS
+======================================== */
+const reviewsContainer = document.getElementById('reviewsContainer');
+if (reviewsContainer) {
+    fetch('/api/reviews')
+        .then(response => response.json())
+        .then(result => {
+            if (result.status === 'Success' && result.data && result.data.length > 0) {
+                reviewsContainer.innerHTML = '';
+                result.data.forEach(review => {
+                    const stars = '⭐'.repeat(review.rating);
+                    const reviewCard = `
+                        <div style="flex: 1; min-width: 280px; max-width: 350px; background: white; border: 1px solid #E2E8F0; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); text-align: left;">
+                            <div style="font-size: 20px; margin-bottom: 12px;">${stars}</div>
+                            <p style="color: #334155; font-size: 16px; margin-bottom: 24px; line-height: 1.5; font-style: italic;">"${review.comment}"</p>
+                            <div>
+                                <strong style="display: block; color: #1E293B; font-size: 15px;">${review.user_name}</strong>
+                                <span style="color: #64748B; font-size: 14px;">${review.role}</span>
+                            </div>
+                        </div>
+                    `;
+                    reviewsContainer.innerHTML += reviewCard;
+                });
+            } else {
+                reviewsContainer.innerHTML = '<p style="color: #64748B;">No reviews available at this time.</p>';
+            }
+        })
+        .catch(err => {
+            console.error('Error fetching reviews:', err);
+            reviewsContainer.innerHTML = '<p style="color: #ef4444;">Failed to load reviews.</p>';
+        });
+}
+
 });

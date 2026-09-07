@@ -28,6 +28,7 @@ public function register(Request $request): JsonResponse
         'password' => 'required|string|min:8|confirmed',
         'country' => 'required|string|in:UK,Nigeria',
         'education_level' => 'required|string|max:20',
+        'role' => 'required|string|in:student,teacher',
     ]);
 
     $levelMap = [

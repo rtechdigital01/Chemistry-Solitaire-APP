@@ -50,10 +50,20 @@
                 Create your account, choose your learning stage and start exploring science through play.
             </p>
 
-            <!-- Chemistry Cards -->
-            <div class="login-cards reveal" data-delay="360">
-                <img src="./images/login-cards.png"
-                    alt="Chemistry revision cards showing Proton, Shell and Atomic Number">
+            <!-- Subject Cards -->
+            <div class="login-cards reveal" data-delay="360" style="display: flex; gap: 16px; margin-top: 32px; justify-content: center; flex-wrap: wrap;">
+                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🧬</div>
+                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Biology</div>
+                </div>
+                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center; transform: translateY(-12px);">
+                    <div style="font-size: 32px; margin-bottom: 8px;">🧪</div>
+                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Chemistry</div>
+                </div>
+                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
+                    <div style="font-size: 32px; margin-bottom: 8px;">⚛️</div>
+                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Physics</div>
+                </div>
             </div>
 
         </section>
@@ -87,10 +97,6 @@
                         Create Account
                     </h2>
 
-                    <p class="login-card-subtitle">
-                        Age 13 plus. No payment required.
-                    </p>
-
                 </div>
 
 
@@ -98,6 +104,21 @@
                      SIGNUP FORM
                 ========================================= -->
                 <form class="login-form" id="registerForm" action="check-email.html">
+
+                    <!-- Role Selection -->
+                    <div class="login-field" style="margin-bottom: 24px;">
+                        <label style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a...</label>
+                        <div style="display: flex; gap: 16px;">
+                            <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
+                                <input type="radio" name="role" value="student" checked style="accent-color: #2563EB;">
+                                <span style="font-weight: 600; color: #475569;">Student</span>
+                            </label>
+                            <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
+                                <input type="radio" name="role" value="teacher" style="accent-color: #2563EB;">
+                                <span style="font-weight: 600; color: #475569;">Teacher</span>
+                            </label>
+                        </div>
+                    </div>
 
                     <!-- First Name -->
                     <div class="login-field">
@@ -357,7 +378,7 @@
                     "SS1",
                     "SS2",
                     "SS3",
-                    "A Level"
+                    "UTME/Post secondary"
                 ]
 
             };
