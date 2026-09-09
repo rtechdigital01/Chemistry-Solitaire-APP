@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Create Account | Science Solitaire</title>
+    <title>Create Account | SciSolitaire</title>
 
     <!-- Nunito Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -68,28 +68,65 @@
 
             <!-- Heading -->
             <h1 class="login-heading reveal" data-delay="120">
-                Science Learning Starts Here.
+                Authentication
             </h1>
 
             <!-- Description -->
             <p class="login-description reveal" data-delay="240">
-                Create your account, choose your learning stage and start exploring science through play.
+                Sign up to continue your science journey and track progress.
             </p>
 
-            <!-- Subject Cards -->
-            <div class="login-cards reveal" data-delay="360" style="display: flex; gap: 16px; margin-top: 32px; justify-content: center; flex-wrap: wrap;">
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🧬</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Biology</div>
+            <!-- Subject Solitaire Cards -->
+            <div class="login-cards reveal" data-delay="360">
+
+                <!-- Biology — green / club ♣ -->
+                <div class="intro-solitaire-card intro-solitaire-card--biology">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">B</span>
+                        <span class="intro-card-corner-suit">♣</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">🧬</span>
+                    </div>
+                    <span class="intro-card-label">Biology</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">B</span>
+                        <span class="intro-card-corner-suit">♣</span>
+                    </div>
                 </div>
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center; transform: translateY(-12px);">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🧪</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Chemistry</div>
+
+                <!-- Chemistry — blue / diamond ♦ (lifted centre card) -->
+                <div class="intro-solitaire-card intro-solitaire-card--chemistry intro-solitaire-card--lifted">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">Ch</span>
+                        <span class="intro-card-corner-suit">♦</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">🧪</span>
+                    </div>
+                    <span class="intro-card-label">Chemistry</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">Ch</span>
+                        <span class="intro-card-corner-suit">♦</span>
+                    </div>
                 </div>
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">⚛️</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Physics</div>
+
+                <!-- Physics — pink / heart ♥ -->
+                <div class="intro-solitaire-card intro-solitaire-card--physics">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">Ph</span>
+                        <span class="intro-card-corner-suit">♥</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">⚛️</span>
+                    </div>
+                    <span class="intro-card-label">Physics</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">Ph</span>
+                        <span class="intro-card-corner-suit">♥</span>
+                    </div>
                 </div>
+
             </div>
 
         </section>
@@ -129,28 +166,40 @@
                 <!-- ========================================
                      SIGNUP FORM (MULTI-STEP)
                 ========================================= -->
-                <form class="login-form" id="registerForm" action="dashboard.html">
+                <form class="login-form" id="registerForm" action="/check-email">
 
                     <!-- Progress Indicator -->
-                    <div class="signup-progress" style="display: flex; justify-content: center; margin-bottom: 24px; gap: 8px;">
-                        <div id="step1-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #4338CA; transition: background 0.3s ease;"></div>
-                        <div id="step2-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #E2E8F0; transition: background 0.3s ease;"></div>
-                        <div id="step3-dot" style="width: 32px; height: 8px; border-radius: 4px; background: #E2E8F0; transition: background 0.3s ease;"></div>
+                    <div class="signup-progress">
+                        <div id="step1-dot" class="signup-progress-step active"></div>
+                        <div id="step2-dot" class="signup-progress-step"></div>
+                        <div id="step3-dot" class="signup-progress-step"></div>
                     </div>
 
                     <!-- STEP 1: Account Basics -->
                     <div id="step1">
                         <!-- Role Selection -->
                         <div class="login-field" style="margin-bottom: 24px;">
-                            <label style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a...</label>
-                            <div style="display: flex; gap: 16px;">
-                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                    <input type="radio" name="role" value="student" checked style="accent-color: #2563EB;">
-                                    <span style="font-weight: 600; color: #475569;">Student</span>
+                            <label class="login-field" style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a…</label>
+                            <div class="role-card-group">
+                                <label class="role-card-label">
+                                    <input type="radio" name="role" value="student" id="roleStudent" checked>
+                                    <span class="role-card-inner">
+                                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M12 12C14.76 12 17 9.76 17 7C17 4.24 14.76 2 12 2C9.24 2 7 4.24 7 7C7 9.76 9.24 12 12 12Z" fill="currentColor"/>
+                                            <path d="M12 14.5C6.99 14.5 2.91 17.86 2.91 22C2.91 22.28 3.13 22.5 3.41 22.5H20.59C20.87 22.5 21.09 22.28 21.09 22C21.09 17.86 17.01 14.5 12 14.5Z" fill="currentColor"/>
+                                        </svg>
+                                        Student
+                                    </span>
                                 </label>
-                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                    <input type="radio" name="role" value="teacher" style="accent-color: #2563EB;">
-                                    <span style="font-weight: 600; color: #475569;">Teacher</span>
+                                <label class="role-card-label">
+                                    <input type="radio" name="role" value="teacher" id="roleTeacher">
+                                    <span class="role-card-inner">
+                                        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                            <path d="M3 9L12 5L21 9L12 13L3 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                            <path d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        </svg>
+                                        Teacher
+                                    </span>
                                 </label>
                             </div>
                         </div>
@@ -170,7 +219,7 @@
                         <button type="button" class="login-submit-button" onclick="nextStep(2)">Continue</button>
                         
                         <p class="login-create-account" style="margin-top: 24px;">
-                            Already have an account? <a href="login.html">Log In</a>
+                            Already have an account? <a href="/login">Log In</a>
                         </p>
                     </div>
 
@@ -215,8 +264,8 @@
                             </select>
                         </div>
 
-                        <div style="display: flex; gap: 16px; margin-top: 24px;">
-                            <button type="button" class="login-submit-button" style="background: white; color: #475569; border: 1px solid #CBD5E1;" onclick="nextStep(1)">Back</button>
+                        <div style="display: flex; gap: 12px; margin-top: 24px;">
+                            <button type="button" class="login-submit-button--ghost" onclick="nextStep(1)">Back</button>
                             <button type="button" class="login-submit-button" onclick="nextStep(3)">Continue</button>
                         </div>
                     </div>
@@ -259,8 +308,8 @@
                             </label>
                         </div>
 
-                        <div style="display: flex; gap: 16px; margin-top: 24px;">
-                            <button type="button" class="login-submit-button" style="background: white; color: #475569; border: 1px solid #CBD5E1;" onclick="nextStep(2)">Back</button>
+                        <div style="display: flex; gap: 12px; margin-top: 24px;">
+                            <button type="button" class="login-submit-button--ghost" onclick="nextStep(2)">Back</button>
                             <button type="submit" class="login-submit-button" id="finalSubmitBtn">Create Account</button>
                         </div>
                     </div>
@@ -319,9 +368,12 @@
             document.getElementById('step' + step).style.display = 'block';
 
             // Update progress bar
-            document.getElementById('step1-dot').style.background = (step >= 1) ? '#4338CA' : '#E2E8F0';
-            document.getElementById('step2-dot').style.background = (step >= 2) ? '#4338CA' : '#E2E8F0';
-            document.getElementById('step3-dot').style.background = (step >= 3) ? '#4338CA' : '#E2E8F0';
+            ['step1-dot','step2-dot','step3-dot'].forEach(function(id, i) {
+                const el = document.getElementById(id);
+                el.classList.remove('active', 'done');
+                if (i + 1 === step) el.classList.add('active');
+                else if (i + 1 < step) el.classList.add('done');
+            });
         }
 
         document.addEventListener("DOMContentLoaded", function () {

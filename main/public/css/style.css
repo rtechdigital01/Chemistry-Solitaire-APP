@@ -1,6 +1,3 @@
-@import "tailwindcss";
-
-
 /* ========================================
    FIGMA COLOURS
 ======================================== */
@@ -31,6 +28,7 @@ html {
 body {
     margin: 0;
     background: #FFFFFF;
+    overflow-x: hidden;
 
     font-family: "Nunito", sans-serif;
 
@@ -950,7 +948,7 @@ body {
 
 .why-section {
     width: 100%;
-    padding: 80px 16px 40px;
+    padding: 40px 16px 20px;
     background-color: #FFFFFF;
 }
 
@@ -1057,7 +1055,7 @@ body {
     width: 100%;
     max-width: 1280px;
 
-    margin: 56px auto 0;
+    margin: 32px auto 0;
 
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -1252,8 +1250,8 @@ body {
     max-width: none;
     min-height: 394px;
 
-    margin: 80px 0 0;
-    padding: 80px;
+    margin: 40px 0 0;
+    padding: 40px 80px;
 
     background-color: #14213D;
     border-radius: 28px 28px 0 0;
@@ -1660,38 +1658,198 @@ body {
 
 
 /* ========================================
-   LOGIN CHEMISTRY CARDS IMAGE
-
-   Figma:
-   Width: 620.11px
-   Height: 349px
+   SUBJECT SOLITAIRE CARDS
+   Used on the login/signup/forgot-password
+   intro panel. Styled like the in-game
+   playing cards (Proton / Shell / Atomic No.)
 ======================================== */
 
 .login-cards {
-    width: 620.11px;
     max-width: 100%;
+    margin-top: 32px;
 
-    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: flex-end; /* fan: middle card lifted via translateY */
 }
 
-.login-cards img {
-    display: block;
+/* Individual solitaire card */
+.intro-solitaire-card {
+    position: relative;
 
+    width: 210px;
+    min-height: 285px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 15px 15px 18px;
+
+    border-radius: 20px;
+    border: 2px solid transparent;
+
+    cursor: default;
+    user-select: none;
+
+    transition: transform 240ms ease, box-shadow 240ms ease;
+}
+
+/* Hover lift */
+.intro-solitaire-card:hover {
+    transform: translateY(-6px) scale(1.03);
+}
+
+/* Middle card lifted by default for the fan effect */
+.intro-solitaire-card--lifted {
+    transform: translateY(-16px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.12) !important;
+}
+
+.intro-solitaire-card--lifted:hover {
+    transform: translateY(-22px) scale(1.03);
+}
+
+/* Suit corners */
+.intro-card-corner {
+    position: absolute;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1;
+    font-family: "Nunito", sans-serif;
+}
+
+.intro-card-corner--tl {
+    top: 9px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+}
+
+.intro-card-corner--br {
+    bottom: 9px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1px;
+    transform: rotate(180deg);
+}
+
+.intro-card-corner-index {
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.intro-card-corner-suit {
+    font-size: 18px;
+    line-height: 1;
+}
+
+/* Big centre symbol */
+.intro-card-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
     width: 100%;
-    height: auto;
+    padding: 4px 0;
 }
 
+.intro-card-symbol {
+    font-size: 81px;
+    line-height: 1;
+}
+
+/* Subject label at the bottom */
+.intro-card-label {
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: 0.3px;
+    text-align: center;
+    margin-top: 4px;
+}
+
+/* ── BIOLOGY (green / club ♣) ── */
+.intro-solitaire-card--biology {
+    background-color: #ECFDF5;
+    border-color: #A7F3D0;
+    box-shadow: 0 6px 18px rgba(10, 185, 129, 0.12);
+}
+
+.intro-solitaire-card--biology .intro-card-corner,
+.intro-solitaire-card--biology .intro-card-label {
+    color: #059669;
+}
+
+.intro-solitaire-card--biology .intro-card-symbol {
+    color: #059669;
+}
+
+/* ── CHEMISTRY (blue / diamond ♦) ── */
+.intro-solitaire-card--chemistry {
+    background-color: #EFF6FF;
+    border-color: #BFDBFE;
+    box-shadow: 0 6px 18px rgba(37, 99, 255, 0.12);
+}
+
+.intro-solitaire-card--chemistry .intro-card-corner,
+.intro-solitaire-card--chemistry .intro-card-label {
+    color: #2563FF;
+}
+
+.intro-solitaire-card--chemistry .intro-card-symbol {
+    color: #2563FF;
+}
+
+/* ── PHYSICS (pink / heart ♥) ── */
+.intro-solitaire-card--physics {
+    background-color: #FFF1F2;
+    border-color: #FECDD3;
+    box-shadow: 0 6px 18px rgba(225, 29, 72, 0.10);
+}
+
+.intro-solitaire-card--physics .intro-card-corner,
+.intro-solitaire-card--physics .intro-card-label {
+    color: #E11D48;
+}
+
+.intro-solitaire-card--physics .intro-card-symbol {
+    color: #E11D48;
+}
 
 /* Mobile */
-
 @media (max-width: 700px) {
-
     .login-cards {
-        width: 100%;
-        margin-top: 40px;
+        margin-top: 32px;
+        gap: 10px;
+    }
+
+    .intro-solitaire-card {
+        width: 110px;
+        min-height: 150px;
+        padding: 8px 8px 10px;
+        border-radius: 12px;
+    }
+
+    .intro-card-symbol {
+        font-size: 30px;
+    }
+
+    .intro-card-label {
+        font-size: 11px;
+    }
+
+    .intro-solitaire-card--lifted {
+        transform: translateY(-12px);
     }
 }
-
 
 
 /* ========================================
@@ -1699,8 +1857,8 @@ body {
 ======================================== */
 .login-form-area {
     position: relative;
-    margin-top: 84px;
-    margin-right: 0;
+    margin-top: 32px;
+    margin-right: max(5.5vw, 32px);
     z-index: 2;
     flex-shrink: 0;
 }
@@ -1708,16 +1866,11 @@ body {
 
 /* ========================================
    LOGIN FORM CARD
-
-   FIGMA:
-   Width: 357.33px
-   Height: 558px Hug
-   Background: #FFFFFF
-   Border: #DDE5F1
 ======================================== */
 
 .login-form-card {
-    width: 357.33px;
+    width: 100%;
+    max-width: 400px;
     min-height: 558px;
 
     padding: 40px;
@@ -1726,6 +1879,7 @@ body {
 
     border: 1px solid #DDE5F1;
     border-radius: 14px;
+    box-sizing: border-box;
 }
 
 
@@ -1988,7 +2142,117 @@ body {
 
 
 /* ========================================
-   FORGOT PASSWORD
+   ROLE TOGGLE (Student / Teacher)
+======================================== */
+
+.role-toggle {
+    display: flex;
+    gap: 12px;
+}
+
+.role-toggle-option {
+    flex: 1;
+    cursor: pointer;
+}
+
+.role-toggle-option input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.role-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    height: 48px;
+    border: 1px solid #DDE5F1;
+    border-radius: 10px;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #5F6F88;
+    background-color: #FFFFFF;
+    transition: all 180ms ease;
+}
+
+.role-toggle-option input:checked + .role-toggle-btn {
+    background-color: #EFF6FF;
+    border-color: #2563FF;
+    color: #2563FF;
+}
+
+.role-toggle-option:hover .role-toggle-btn {
+    border-color: #2563FF;
+}
+
+
+/* ========================================
+   AUTH DIVIDER
+======================================== */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 24px 0;
+}
+
+.auth-divider-line {
+    flex: 1;
+    height: 1px;
+    background-color: #E2E8F0;
+}
+
+.auth-divider-text {
+    padding: 0 16px;
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   SOCIAL LOGIN
+======================================== */
+
+.social-login-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.social-login-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    height: 48px;
+    background-color: #FFFFFF;
+    border: 1px solid #DDE5F1;
+    border-radius: 10px;
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #14213D;
+    cursor: pointer;
+    transition: all 180ms ease;
+}
+
+.social-login-btn:hover {
+    background-color: #F8FAFC;
+    border-color: #CBD5E1;
+}
+
+
+/* ========================================
 ======================================== */
 
 .forgot-password-row {
@@ -2052,6 +2316,145 @@ body {
 .login-submit-button:hover {
     transform: translateY(-1px);
     background-color: #1D4ED8;
+}
+
+
+/* ========================================
+   LOGIN BUTTON — GHOST / SECONDARY VARIANT
+
+   Used for: Back button in multi-step forms,
+   secondary actions alongside the primary CTA.
+   Matches pill radius + height of primary button.
+======================================== */
+
+.login-submit-button--ghost {
+    width: 100%;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: transparent;
+
+    border: 1.5px solid #CBD5E1;
+    border-radius: 999px;
+
+    color: #475569;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        border-color 180ms ease,
+        color 180ms ease,
+        transform 180ms ease;
+}
+
+.login-submit-button--ghost:hover {
+    border-color: #94A3B8;
+    color: #1E293B;
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   STEP PROGRESS INDICATOR
+
+   Used on the signup multi-step form.
+======================================== */
+
+.signup-progress {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 28px;
+}
+
+.signup-progress-step {
+    width: 32px;
+    height: 8px;
+    border-radius: 4px;
+    background: #E2E8F0;
+    transition: background 300ms ease, width 300ms ease;
+}
+
+.signup-progress-step.active {
+    background: #2563FF;
+    width: 40px;
+}
+
+.signup-progress-step.done {
+    background: #93C5FD;
+}
+
+
+/* ========================================
+   ROLE SELECTION CARDS
+
+   Used on signup to choose Student / Teacher.
+   Replaces raw radio + inline style hacks.
+======================================== */
+
+.role-card-group {
+    display: flex;
+    gap: 12px;
+}
+
+.role-card-label {
+    flex: 1;
+    cursor: pointer;
+}
+
+.role-card-label input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.role-card-inner {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 12px 14px;
+
+    background-color: #F8FAFC;
+
+    border: 1.5px solid #E2E8F0;
+    border-radius: 10px;
+
+    color: #475569;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        color 180ms ease;
+}
+
+.role-card-label input[type="radio"]:checked + .role-card-inner {
+    border-color: #2563FF;
+    background-color: #EFF5FF;
+    color: #1D4ED8;
+}
+
+.role-card-label:hover .role-card-inner {
+    border-color: #93C5FD;
+}
+
+.role-card-inner svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
 }
 
 
@@ -4378,6 +4781,11 @@ body {
     margin-bottom: 40px;
 }
 
+/* Give subsequent game sections breathing room */
+.game-section + .game-section {
+    margin-top: 40px;
+}
+
 .section-title {
     font-size: 11px;
     font-weight: 800;
@@ -4492,11 +4900,19 @@ body {
     }
 }
 
-/* Stack State */
+/* Stack State: Hint highlight */
 .foundation-stack.stack-hint {
     border-color: #F59E0B;
     background-color: #FFFBEB;
     box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Stack State: Correct card accepted — brief green flash */
+.foundation-stack.stack-accepted {
+    border-color: #10B981;
+    background-color: #ECFDF5;
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .card-icon-top {
@@ -5128,4 +5544,405 @@ body {
     .summary-grid {
         grid-template-columns: 1fr;
     }
+}
+
+
+/* ========================================
+   DASHBOARD — STATS STRIP
+
+   Replaces the inline-styled Decks / Accuracy /
+   Coin Vault row in the profile card.
+======================================== */
+
+.dashboard-stats-strip {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 14px;
+
+    padding: 14px 24px;
+}
+
+.dashboard-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.dashboard-stat-value {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+
+    color: #14213D;
+}
+
+.dashboard-stat-value--green {
+    color: #10B981;
+}
+
+.dashboard-stat-label {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+
+    color: #64748B;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-stat-divider {
+    width: 1px;
+    height: 32px;
+
+    background-color: #EDF1F7;
+
+    flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+    .dashboard-stats-strip {
+        gap: 14px;
+        padding: 12px 16px;
+    }
+
+    .dashboard-stat-value {
+        font-size: 18px;
+    }
+}
+
+
+/* ========================================
+   DASHBOARD — SWITCH VIEW BUTTON
+
+   Small pill link: "Switch to Teacher View"
+======================================== */
+
+.dashboard-switch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px 16px;
+
+    background-color: #EEF2FF;
+
+    border: 1px solid #C7D2FE;
+    border-radius: 999px;
+
+    color: #4338CA;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+.dashboard-switch-btn:hover {
+    background-color: #E0E7FF;
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   DASHBOARD — SECTION CARD
+
+   Reusable white card used for Recent Activity,
+   Overall Progress, and the CTA banner.
+======================================== */
+
+.dashboard-section {
+    margin-top: 32px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.dashboard-card {
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 20px;
+
+    padding: 28px;
+
+    box-shadow: 0 2px 12px rgba(14, 30, 62, 0.04);
+}
+
+.dashboard-card-title {
+    margin: 0 0 20px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 24px;
+
+    color: #14213D;
+}
+
+/* Recent activity row */
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px;
+
+    background-color: #F8FAFD;
+
+    border: 1px solid #EDF1F7;
+    border-radius: 14px;
+}
+
+.activity-row-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.activity-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EEF2FF;
+    border-radius: 14px;
+
+    color: #4338CA;
+}
+
+.activity-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.activity-title {
+    margin: 0 0 4px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #14213D;
+}
+
+.activity-meta {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    color: #5F6F88;
+}
+
+.activity-row-right {
+    text-align: right;
+}
+
+.activity-score {
+    margin: 0 0 4px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: #10B981;
+}
+
+.activity-link {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563FF;
+    text-decoration: none;
+}
+
+.activity-link:hover {
+    text-decoration: underline;
+}
+
+/* CTA Banner */
+
+.dashboard-cta-banner {
+    background: linear-gradient(135deg, #2563FF 0%, #4F46E5 100%);
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin-top: 24px;
+
+    box-shadow: 0 12px 28px rgba(37, 99, 255, 0.22);
+}
+
+.dashboard-cta-text {
+    color: #FFFFFF;
+}
+
+.dashboard-cta-heading {
+    margin: 0 0 8px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.dashboard-cta-desc {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+
+    opacity: 0.88;
+
+    max-width: 380px;
+}
+
+.dashboard-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    height: 48px;
+
+    padding: 0 28px;
+
+    background-color: #FFFFFF;
+
+    border: none;
+    border-radius: 999px;
+
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: transform 180ms ease;
+}
+
+.dashboard-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Progress bars */
+
+.progress-item {
+    margin-bottom: 20px;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.progress-label {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.progress-pct {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 600ms ease;
+}
+
+/* Subject colour tokens */
+.progress-fill--chemistry { background-color: #2563FF; }
+.progress-fill--biology   { background-color: #10B981; }
+.progress-fill--physics   { background-color: #F59E0B; }
+
+.progress-track--chemistry { background-color: #EEF2FF; }
+.progress-track--biology   { background-color: #D1FAE5; }
+.progress-track--physics   { background-color: #FEF3C7; }
+
+.progress-pct--chemistry { color: #2563FF; }
+.progress-pct--biology   { color: #10B981; }
+.progress-pct--physics   { color: #F59E0B; }
+
+@media (max-width: 768px) {
+    .dashboard-section {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-cta-btn {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   GAMEPLAY — PROGRESS BAR TRANSITION
+======================================== */
+
+.gameplay-progress-fill {
+    transition: width 400ms ease;
 }

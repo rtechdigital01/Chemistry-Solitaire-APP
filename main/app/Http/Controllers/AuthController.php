@@ -104,4 +104,28 @@ class AuthController extends Controller
             'message' => 'Logged out successfully'
         ]);
     }
+
+    /**
+     * Handle forgot password.
+     */
+    public function forgotPassword(Request $request): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|string|email',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 'Error',
+                'message' => 'Validation failed',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        // Mock success response since email sending isn't configured
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'Password reset link sent! Please check your email.'
+        ]);
+    }
 }

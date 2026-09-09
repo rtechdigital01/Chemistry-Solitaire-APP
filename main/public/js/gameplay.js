@@ -323,59 +323,76 @@ function attachStackEvents() {
 
 
                     // === FLYING ANIMATION ===
-                    // 1. Get positions
+                    // 1. Capture rects before any DOM change
                     const cardRect = selectedCard.getBoundingClientRect();
                     const stackRect = stack.getBoundingClientRect();
-                    
+
                     // 2. Clone the card for animation
                     const flyingCard = selectedCard.cloneNode(true);
-                    
-                    // 3. Set starting position
-                    flyingCard.style.position = 'fixed';
-                    flyingCard.style.left = cardRect.left + 'px';
-                    flyingCard.style.top = cardRect.top + 'px';
-                    flyingCard.style.width = cardRect.width + 'px';
-                    flyingCard.style.height = cardRect.height + 'px';
-                    flyingCard.style.margin = '0';
-                    flyingCard.style.zIndex = '9999';
-                    flyingCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-                    flyingCard.style.pointerEvents = 'none';
-                    
+
+                    // 3. Set FULL starting state synchronously (no transition yet)
+                    //    so the browser never sees a jump from default→start.
+                    flyingCard.style.cssText = [
+                        'position: fixed',
+                        `left: ${cardRect.left}px`,
+                        `top: ${cardRect.top}px`,
+                        `width: ${cardRect.width}px`,
+                        `height: ${cardRect.height}px`,
+                        'margin: 0',
+                        'z-index: 9999',
+                        'pointer-events: none',
+                        'transform: scale(1)',
+                        'opacity: 1',
+                        'transition: none',           // no transition on first paint
+                    ].join(';');
+
                     document.body.appendChild(flyingCard);
-                    
-                    // 4. Hide original card immediately so it doesn't leave a gap
+
+                    // 4. Hide original card so layout doesn't gap
                     selectedCard.style.visibility = 'hidden';
                     const cardToRemove = selectedCard;
                     selectedCard = null;
 
-                    // 5. Trigger animation
+                    // 5. Force a reflow so the browser registers starting state,
+                    //    THEN switch on transition and animate to target
+                    flyingCard.getBoundingClientRect(); // reflow
+
                     requestAnimationFrame(() => {
-                        flyingCard.style.left = (stackRect.left + (stackRect.width / 2) - (cardRect.width / 2)) + 'px';
-                        flyingCard.style.top = (stackRect.top + (stackRect.height / 2) - (cardRect.height / 2)) + 'px';
-                        flyingCard.style.transform = 'scale(0.3)';
-                        flyingCard.style.opacity = '0';
+                        requestAnimationFrame(() => {
+                            flyingCard.style.transition = 'left 0.45s cubic-bezier(0.25,1,0.5,1), top 0.45s cubic-bezier(0.25,1,0.5,1), transform 0.45s cubic-bezier(0.25,1,0.5,1), opacity 0.45s ease';
+                            const targetLeft = stackRect.left + (stackRect.width / 2) - (cardRect.width / 2);
+                            const targetTop  = stackRect.top  + (stackRect.height / 2) - (cardRect.height / 2);
+                            flyingCard.style.left      = `${targetLeft}px`;
+                            flyingCard.style.top       = `${targetTop}px`;
+                            flyingCard.style.transform = 'scale(0.28)';
+                            flyingCard.style.opacity   = '0';
+                        });
                     });
-                    
-                    // 6. Cleanup after animation
+
+                    // 6. Flash the stack to confirm placement
+                    stack.classList.add('stack-accepted');
+                    setTimeout(() => stack.classList.remove('stack-accepted'), 600);
+
+                    // 7. Cleanup after animation completes
                     setTimeout(() => {
                         flyingCard.remove();
                         cardToRemove.remove();
-                        
+
                         updateProgress();
 
                         /* LEVEL COMPLETE */
                         if (cardsPlaced === totalCards) {
                             if (banner) {
-                                banner.className = "game-info-banner";
-                                banner.textContent = "Excellent! Board completed 🎉";
+                                banner.className = 'game-info-banner banner-correct';
+                                banner.textContent = '🎉 Excellent! All cards placed correctly!';
                             }
                             if (finishLevelBtn) {
                                 finishLevelBtn.disabled = false;
                             }
                         } else {
                             if (banner) {
-                                banner.className = "game-info-banner";
-                                banner.textContent = `Correct! ${cardName} has been placed successfully.`;
+                                banner.className = 'game-info-banner banner-correct';
+                                banner.textContent = `✓ Correct! ${cardName} placed successfully.`;
                             }
                         }
                     }, 500);
@@ -389,13 +406,19 @@ function attachStackEvents() {
 
                     incorrectMatches++;
 
+                    // Shake the selected card visually
+                    if (selectedCard) {
+                        selectedCard.classList.add('card-incorrect');
+                        setTimeout(() => {
+                            if (selectedCard) {
+                                selectedCard.classList.remove('card-incorrect');
+                            }
+                        }, 600);
+                    }
+
                     if (banner) {
-
-                        banner.className =
-                            "game-info-banner";
-
-                        banner.textContent =
-                            "Not quite. Try another foundation stack.";
+                        banner.className = 'game-info-banner banner-incorrect';
+                        banner.textContent = '✗ Not quite — try a different foundation stack.';
                     }
 
                 }

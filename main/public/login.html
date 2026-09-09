@@ -3,227 +3,247 @@
 
 <head>
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Login | Chemistry Solitaire</title>
-
+    <title>Log In | SciSolitaire</title>
+    <meta name="description" content="Log in to SciSolitaire — the interactive science card-matching platform for students and teachers.">
 
     <!-- Nunito Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-
-    <!-- Tailwind compiled CSS -->
+    <!-- Compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
 
 </head>
-
 
 <body>
 
     <!-- ========================================
          REUSABLE HEADER
     ========================================= -->
-
     <div id="header"></div>
-
 
 
     <!-- ========================================
          LOGIN PAGE CONTENT
-         We will build this next
     ========================================= -->
-
     <main class="login-page">
 
-        <!-- ========================================
-     LOGIN INTRO
-========================================= -->
-
+        <!-- LOGIN INTRO (left column) -->
         <section class="login-intro">
 
-            <!-- Log In Pill -->
+            <!-- Pill -->
             <div class="login-pill reveal" data-delay="0">
                 Log In
             </div>
 
-
             <!-- Heading -->
             <h1 class="login-heading reveal" data-delay="120">
-                Science Learning Starts Here.
+                Authentication
             </h1>
-
 
             <!-- Description -->
             <p class="login-description reveal" data-delay="240">
-                Create your account, choose your learning stage and start exploring science through play.
+                Sign in/up to continue your science journey and track progress.
             </p>
 
-            <!-- Login Chemistry Cards -->
-            <!-- Subject Cards -->
-            <div class="login-cards reveal" data-delay="360" style="display: flex; gap: 16px; margin-top: 32px; justify-content: center; flex-wrap: wrap;">
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🧬</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Biology</div>
+            <!-- Subject Solitaire Cards -->
+            <div class="login-cards reveal" data-delay="360">
+
+                <!-- Biology — green / club ♣ -->
+                <div class="intro-solitaire-card intro-solitaire-card--biology">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">B</span>
+                        <span class="intro-card-corner-suit">♣</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">🧬</span>
+                    </div>
+                    <span class="intro-card-label">Biology</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">B</span>
+                        <span class="intro-card-corner-suit">♣</span>
+                    </div>
                 </div>
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center; transform: translateY(-12px);">
-                    <div style="font-size: 32px; margin-bottom: 8px;">🧪</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Chemistry</div>
+
+                <!-- Chemistry — blue / diamond ♦ (lifted centre card) -->
+                <div class="intro-solitaire-card intro-solitaire-card--chemistry intro-solitaire-card--lifted">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">Ch</span>
+                        <span class="intro-card-corner-suit">♦</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">🧪</span>
+                    </div>
+                    <span class="intro-card-label">Chemistry</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">Ch</span>
+                        <span class="intro-card-corner-suit">♦</span>
+                    </div>
                 </div>
-                <div style="background: white; padding: 16px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1); width: 120px; text-align: center;">
-                    <div style="font-size: 32px; margin-bottom: 8px;">⚛️</div>
-                    <div style="font-weight: 700; color: #1E293B; font-size: 14px;">Physics</div>
+
+                <!-- Physics — pink / heart ♥ -->
+                <div class="intro-solitaire-card intro-solitaire-card--physics">
+                    <div class="intro-card-corner intro-card-corner--tl">
+                        <span class="intro-card-corner-index">Ph</span>
+                        <span class="intro-card-corner-suit">♥</span>
+                    </div>
+                    <div class="intro-card-center">
+                        <span class="intro-card-symbol">⚛️</span>
+                    </div>
+                    <span class="intro-card-label">Physics</span>
+                    <div class="intro-card-corner intro-card-corner--br" aria-hidden="true">
+                        <span class="intro-card-corner-index">Ph</span>
+                        <span class="intro-card-corner-suit">♥</span>
+                    </div>
                 </div>
+
             </div>
+
         </section>
 
 
         <!-- ========================================
-     LOGIN FORM CARD
-========================================= -->
-
+             LOGIN FORM CARD (right column)
+        ========================================= -->
         <section class="login-form-area reveal" data-delay="300">
 
             <div class="login-form-card">
 
-                <!-- Login Card Header -->
+                <!-- Card Header -->
                 <div class="login-card-header">
 
-                    <!-- Logo -->
+                    <!-- Atom Icon -->
                     <div class="login-card-logo">
                         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                             <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
-
                             <ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5" />
-
-                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor"
-                                stroke-width="1.5" />
-
-                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor"
-                                stroke-width="1.5" />
+                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5" />
+                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5" />
                         </svg>
                     </div>
 
+                    <h2 class="login-card-title">Welcome Back</h2>
+                    <p class="login-card-subtitle">Log in to continue your learning</p>
 
-                    <h2 class="login-card-title">
-                        Welcome Back
-                    </h2>
+                </div>
 
 
-                    <p class="login-card-subtitle">
-                        Log in to continue your science revision
+                <!-- ========================================
+                     LOGIN FORM
+                ========================================= -->
+                <form class="login-form" id="loginForm" action="/dashboard" novalidate>
+
+                    <!-- Role Toggle -->
+                    <div class="login-field" style="margin-bottom: 20px;">
+                        <label class="auth-field-label">I am a…</label>
+                        <div class="role-toggle" role="group" aria-label="Select your role">
+                            <label class="role-toggle-option">
+                                <input type="radio" name="role" value="student" id="roleStudent" checked>
+                                <span class="role-toggle-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z" fill="currentColor"/>
+                                        <path d="M12 14.5C6.99 14.5 2.91 17.86 2.91 22C2.91 22.28 3.13 22.5 3.41 22.5H20.59C20.87 22.5 21.09 22.28 21.09 22C21.09 17.86 17.01 14.5 12 14.5Z" fill="currentColor"/>
+                                    </svg>
+                                    Student
+                                </span>
+                            </label>
+                            <label class="role-toggle-option">
+                                <input type="radio" name="role" value="teacher" id="roleTeacher">
+                                <span class="role-toggle-btn">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                                        <path d="M3 9L12 5L21 9L12 13L3 9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                                        <path d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                        <path d="M21 9V15" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                    </svg>
+                                    Teacher
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Email -->
+                    <div class="login-field">
+                        <label for="loginEmail">Email Address</label>
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            name="email"
+                            placeholder="you@school.ac.uk"
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                    <!-- Password -->
+                    <div class="login-field">
+                        <label for="loginPassword">Password</label>
+                        <div class="password-input-wrapper">
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                name="password"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                                required
+                            >
+                            <button type="button" class="password-toggle" id="loginPasswordToggle" aria-label="Show password">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                    <path d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z" stroke="currentColor" stroke-width="1.7" />
+                                    <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div class="forgot-password-row">
+                        <a href="/forgot-password">Forgot password?</a>
+                    </div>
+
+                    <!-- Primary CTA -->
+                    <button type="submit" class="login-submit-button" id="loginSubmitBtn">
+                        Log In
+                    </button>
+
+                    <!-- Divider -->
+                    <div class="auth-divider">
+                        <span class="auth-divider-line"></span>
+                        <span class="auth-divider-text">or continue with</span>
+                        <span class="auth-divider-line"></span>
+                    </div>
+
+                    <!-- Social Login Buttons -->
+                    <div class="social-login-group">
+                        <button type="button" class="social-login-btn" id="googleLoginBtn" aria-label="Continue with Google">
+                            <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true">
+                                <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"/>
+                                <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+                                <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+                                <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+                            </svg>
+                            <span>Google</span>
+                        </button>
+                        <button type="button" class="social-login-btn" id="microsoftLoginBtn" aria-label="Continue with Microsoft">
+                            <svg width="20" height="20" viewBox="0 0 21 21" aria-hidden="true">
+                                <path fill="#f25022" d="M0 0h10v10H0z"/>
+                                <path fill="#7fba00" d="M11 0h10v10H11z"/>
+                                <path fill="#00a4ef" d="M0 11h10v10H0z"/>
+                                <path fill="#ffb900" d="M11 11h10v10H11z"/>
+                            </svg>
+                            <span>Microsoft</span>
+                        </button>
+                    </div>
+
+                    <!-- Create Account Link -->
+                    <p class="login-create-account">
+                        Don't have an account?
+                        <a href="/signup">Create one free</a>
                     </p>
 
-                    <!-- ========================================
-     LOGIN FORM
-========================================= -->
-
-                    <form class="login-form" action="dashboard.html">
-
-                        <!-- Role Selection -->
-                        <div class="login-field" style="margin-bottom: 24px;">
-                            <label style="display: block; font-weight: 700; color: #1E293B; margin-bottom: 8px;">I am a...</label>
-                            <div style="display: flex; gap: 16px;">
-                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                    <input type="radio" name="role" value="student" checked style="accent-color: #2563EB;">
-                                    <span style="font-weight: 600; color: #475569;">Student</span>
-                                </label>
-                                <label style="flex: 1; border: 1px solid #E2E8F0; border-radius: 8px; padding: 12px; cursor: pointer; display: flex; align-items: center; gap: 8px; background-color: #F8FAFC;">
-                                    <input type="radio" name="role" value="teacher" style="accent-color: #2563EB;">
-                                    <span style="font-weight: 600; color: #475569;">Teacher</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <!-- Email -->
-                        <div class="login-field">
-
-                            <label for="email">
-                                Email Address
-                            </label>
-
-                            <input type="email" id="email" name="email" placeholder="you@example.com"
-                                autocomplete="email" required>
-
-                        </div>
-
-
-                        <!-- Password -->
-                        <div class="login-field">
-
-                            <label for="password">
-                                Password
-                            </label>
-
-                            <div class="password-input-wrapper">
-
-                                <input type="password" id="password" name="password" placeholder="Enter your password"
-                                    autocomplete="current-password" required>
-
-                                <button type="button" class="password-toggle" id="passwordToggle"
-                                    aria-label="Show password">
-                                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                                        aria-hidden="true">
-                                        <path
-                                            d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                            stroke="currentColor" stroke-width="1.7" />
-
-                                        <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
-                                    </svg>
-                                </button>
-
-                            </div>
-
-                        </div>
-
-
-                        <!-- Forgot Password -->
-                        <div class="forgot-password-row">
-
-                            <a href="forgot-password.html">
-                                Forgot password?
-                            </a>
-
-                        </div>
-
-
-                        <!-- Login Button -->
-                        <button type="submit" class="login-submit-button">
-                            Log In
-                        </button>
-
-                        <div style="display: flex; align-items: center; margin: 24px 0;">
-                            <hr style="flex-grow: 1; border: none; border-top: 1px solid #E2E8F0;">
-                            <span style="padding: 0 12px; color: #94A3B8; font-size: 14px;">or continue with</span>
-                            <hr style="flex-grow: 1; border: none; border-top: 1px solid #E2E8F0;">
-                        </div>
-
-                        <div style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 24px;">
-                            <button type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #E2E8F0; background: white; font-weight: 600; color: #475569; cursor: pointer;">
-                                <svg width="20" height="20" viewBox="0 0 48 48" aria-hidden="true"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.7 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-                                Google
-                            </button>
-                            <button type="button" style="display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #E2E8F0; background: white; font-weight: 600; color: #475569; cursor: pointer;">
-                                <svg width="20" height="20" viewBox="0 0 21 21" aria-hidden="true"><path fill="#f25022" d="M0 0h10v10H0z"/><path fill="#7fba00" d="M11 0h10v10H11z"/><path fill="#00a4ef" d="M0 11h10v10H0z"/><path fill="#ffb900" d="M11 11h10v10H11z"/></svg>
-                                Microsoft
-                            </button>
-                        </div>
-
-
-                        <!-- Create Account -->
-                        <p class="login-create-account">
-                            Don’t have an account?
-                            <a href="signup.html">
-                                Create one free
-                            </a>
-                        </p>
-
-                    </form>
-                </div>
+                </form>
 
             </div>
 
@@ -232,26 +252,55 @@
     </main>
 
 
-
     <!-- ========================================
          REUSABLE FOOTER
-         We can keep/remove this later
     ========================================= -->
-
     <div id="footer"></div>
 
 
-
-    <!-- Reusable Header -->
+    <!-- ========================================
+         SCRIPTS
+    ========================================= -->
     <script src="./js/header.js"></script>
-
-    <!-- Reusable Footer -->
     <script src="./js/footer.js"></script>
-
-    <!-- General JavaScript -->
     <script src="./js/app.js"></script>
 
+    <script>
+        // Password toggle
+        document.getElementById('loginPasswordToggle').addEventListener('click', function () {
+            const input = document.getElementById('loginPassword');
+            const isPassword = input.type === 'password';
+            input.type = isPassword ? 'text' : 'password';
+            this.setAttribute('aria-label', isPassword ? 'Hide password' : 'Show password');
+        });
+
+        // Role toggle visual state
+        document.querySelectorAll('input[name="role"]').forEach(function (radio) {
+            radio.addEventListener('change', function () {
+                document.querySelectorAll('.role-toggle-option').forEach(function (opt) {
+                    opt.classList.remove('role-toggle-option--active');
+                });
+                if (this.checked) {
+                    this.closest('.role-toggle-option').classList.add('role-toggle-option--active');
+                }
+                // Update route on change (teacher → teacher-dashboard)
+                const form = document.getElementById('loginForm');
+                form.action = this.value === 'teacher' ? 'teacher-dashboard.html' : 'dashboard.html';
+            });
+        });
+
+        // Set initial active state
+        document.querySelector('input[name="role"]:checked').closest('.role-toggle-option').classList.add('role-toggle-option--active');
+
+        // Save role on submit
+        document.getElementById('loginForm').addEventListener('submit', function () {
+            const role = document.querySelector('input[name="role"]:checked').value;
+            localStorage.setItem('userRole', role);
+        });
+    </script>
+
     <script src="./js/api.js"></script>
+
 </body>
 
 </html>

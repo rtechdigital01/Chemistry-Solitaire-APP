@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================================
        LOGIN FORM HANDLER
     ======================================== */
-    const loginForm = document.querySelector('form[action="dashboard.html"]');
+    const loginForm = document.querySelector('form[action="/dashboard"]');
     if (loginForm && window.location.pathname.includes('login.html')) {
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Stop standard redirect
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================================
        SIGNUP FORM HANDLER
     ======================================== */
-    const signupForm = document.querySelector('form[action="check-email.html"]');
+    const signupForm = document.querySelector('form[action="/check-email"]');
     if (signupForm && window.location.pathname.includes('signup.html')) {
         signupForm.addEventListener('submit', async (e) => {
             e.preventDefault(); // Stop standard redirect
@@ -190,7 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ========================================
        FORGOT PASSWORD FORM HANDLER
     ======================================== */
-    const forgotPasswordForm = document.querySelector('form[action="login.html"]');
+    const forgotPasswordForm = document.querySelector('form[action="/login"]');
     if (forgotPasswordForm && window.location.pathname.includes('forgot-password.html')) {
         // Remove the inline onclick alert first to prevent double firing
         const submitBtn = forgotPasswordForm.querySelector('button[type="submit"]');

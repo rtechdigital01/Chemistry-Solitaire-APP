@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gameplay | Chemistry Solitaire</title>
+    <title>Gameplay | SciSolitaire</title>
 
     <!-- Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -64,7 +64,7 @@
 </style>
 </head>
 
-<body class="bg-[#F8FAFC]">
+<body style="background-color: #F8FAFC; font-family: 'Nunito', sans-serif;">
 
     <!-- Reusable Header -->
     <div id="header"></div>
@@ -74,7 +74,7 @@
         <div class="gameplay-top-inner">
             <!-- Left: Level Info -->
             <div class="gameplay-level-info">
-                <button class="gameplay-close-btn" onclick="window.location.href='dashboard.html'">
+                <button class="gameplay-close-btn" onclick="window.location.href='/dashboard'">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
@@ -135,7 +135,7 @@
                         <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Hint (free)
                     </button>
-                    <button class="btn-action btn-outline" id="finishLevelBtn" disable>
+                    <button class="btn-action btn-outline" id="finishLevelBtn" disabled>
                         <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         Finish Demo
                     </button>
@@ -171,7 +171,7 @@
 
         <!-- Cards Section -->
         <div class="game-section">
-            <h2 class="section-title" style="margin-top: 40px;">
+            <h2 class="section-title">
                 CHEMISTRY CARDS — TAP TO SELECT
             </h2>
 

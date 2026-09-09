@@ -11,13 +11,41 @@ document.addEventListener("DOMContentLoaded", () => {
        INSERT REUSABLE HEADER
     ======================================== */
 
+    const isAuthenticated = !!localStorage.getItem('auth_token');
+
+    let authLinksDesktop = '';
+    let authLinksMobile = '';
+
+    if (isAuthenticated) {
+        authLinksDesktop = `
+            <a href="/dashboard" class="header-play-button">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                    <path d="M8 5L19 12L8 19V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                </svg>
+                <span>Dashboard</span>
+            </a>
+        `;
+        authLinksMobile = `<a href="/dashboard">Dashboard</a>`;
+    } else {
+        authLinksDesktop = `
+            <a href="/login">Log In</a>
+            <a href="/signup" class="header-play-button" style="padding-left: 20px; padding-right: 20px;">
+                <span>Sign Up</span>
+            </a>
+        `;
+        authLinksMobile = `
+            <a href="/login">Log In</a>
+            <a href="/signup">Sign Up</a>
+        `;
+    }
+
     headerContainer.innerHTML = `
         <header class="site-header">
 
             <div class="header-inner">
 
                 <!-- Logo -->
-                <a href="./index.html" class="brand">
+                <a href="/index" class="brand">
 
                     <div class="brand-icon">
 
@@ -67,24 +95,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
                     </div>
 
-                    <span>Chemistry Solitaire</span>
+                    <span>Science Solitaire</span>
 
                 </a>
 
 
                 <!-- Desktop Navigation -->
                 <nav class="header-nav">
-                    <a href="./index.html#why-solitaire">Why Solitaire?</a>
-                    <a href="./index.html#gameplay">Gameplay Preview</a>
-                    <a href="./index.html#send-access">SEND &amp; Access</a>
-                    <a href="./games.html">Games</a>
-                    <a href="./login.html">Log In</a>
-                    <a href="./dashboard.html" class="header-play-button">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <path d="M8 5L19 12L8 19V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                        </svg>
-                        <span>Dashboard</span>
-                    </a>
+                    <a href="/index#why-solitaire">Why SciSolitaire?</a>
+                    <a href="/index#gameplay">Gameplay Preview</a>
+                    <a href="/index#send-access">Progress &amp; Feedback</a>
+                    <a href="/games">Games</a>
+                    ${authLinksDesktop}
                 </nav>
 
                 <!-- Hamburger -->
@@ -103,12 +125,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <!-- Mobile Navigation -->
             <nav class="mobile-nav" id="mobileNav">
-                <a href="./index.html#why-solitaire">Why Solitaire?</a>
-                <a href="./index.html#gameplay">Gameplay Preview</a>
-                <a href="./index.html#send-access">SEND &amp; Access</a>
-                <a href="./games.html">Games</a>
-                <a href="./login.html">Log In</a>
-                <a href="./dashboard.html">Dashboard</a>
+                <a href="/index#why-solitaire">Why SciSolitaire?</a>
+                <a href="/index#gameplay">Gameplay Preview</a>
+                <a href="/index#send-access">Progress &amp; Feedback</a>
+                <a href="/games">Games</a>
+                ${authLinksMobile}
             </nav>
 
         </header>
