@@ -42,6 +42,17 @@ document.addEventListener("DOMContentLoaded", async () => {
             el.textContent = user.role === 'teacher' ? 'Science Teacher' : 'Student Level';
         });
 
+        // Update stats
+        const statDecksPlayed = document.getElementById('statDecksPlayed');
+        if (statDecksPlayed && user.decks_played !== undefined) {
+            statDecksPlayed.textContent = user.decks_played;
+        }
+
+        const statAccuracy = document.getElementById('statAccuracy');
+        if (statAccuracy && user.average_accuracy !== undefined) {
+            statAccuracy.textContent = `${user.average_accuracy}%`;
+        }
+
     } catch (e) {
         console.error("Error fetching user from backend", e);
     }

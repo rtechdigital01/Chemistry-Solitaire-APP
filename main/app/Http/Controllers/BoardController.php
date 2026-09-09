@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use App\Models\GameAttempt;
 
 class BoardController extends Controller
 {
@@ -133,6 +134,43 @@ class BoardController extends Controller
             'data' => [
                 'categories' => $categories
             ]
+        ]);
+    }
+
+    /**
+     * Save the user's game attempt when they finish a level.
+     */
+    public function saveAttempt(Request $request): JsonResponse
+    {
+        $validated = $request->validate([
+            'topic' => 'nullable|string',
+            'level' => 'nullable|integer',
+            'score' => 'required|integer',
+            'moves' => 'required|integer',
+            'correct_matches' => 'required|integer',
+            'incorrect_matches' => 'required|integer',
+            'hints_used' => 'nullable|integer',
+            'time_spent' => 'required|integer',
+            'completed' => 'nullable|boolean'
+        ]);
+
+        $totalAttempts = $validated['correct_matches'] + $validated['incorrect_matches'];
+        $accuracy = $totalAttempts > 0 ? round(($validated['correct_matches'] / $totalAttempts) * 100) : 0;
+
+        $attempt = GameAttempt::create([
+            'user_id' => $request->user()->id,
+            'subject' => 'chemistry', // Defaulting since we only support chemistry ATM
+            'deck' => $validated['topic'] ?? 'atomic-structure',
+            'score' => $validated['score'],
+            'moves' => $validated['moves'],
+            'accuracy' => (int) $accuracy,
+            'time_spent' => $validated['time_spent'],
+        ]);
+
+        return response()->json([
+            'status' => 'Success',
+            'message' => 'Game attempt saved successfully.',
+            'data' => $attempt
         ]);
     }
 }
