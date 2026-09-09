@@ -14,6 +14,8 @@ Route::post('/auth/logout', [\App\Http\Controllers\AuthController::class, 'logou
 
 Route::get('/reviews', [\App\Http\Controllers\ReviewController::class, 'index']);
 
-Route::get('/chemistry/board', [\App\Http\Controllers\BoardController::class, 'getChemistryBoard']);
-Route::get('/biology/board', [\App\Http\Controllers\BoardController::class, 'getBiologyBoard']);
-Route::get('/physics/board', [\App\Http\Controllers\BoardController::class, 'getPhysicsBoard']);
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/chemistry/board', [\App\Http\Controllers\BoardController::class, 'getChemistryBoard']);
+    Route::get('/biology/board', [\App\Http\Controllers\BoardController::class, 'getBiologyBoard']);
+    Route::get('/physics/board', [\App\Http\Controllers\BoardController::class, 'getPhysicsBoard']);
+});

@@ -82,7 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Save token and redirect
                 localStorage.setItem('auth_token', result.data.token);
                 localStorage.setItem('user', JSON.stringify(result.data.user));
-                window.location.href = 'dashboard.html';
+                
+                if (result.data.user.role === 'teacher') {
+                    window.location.href = '/teacher-dashboard';
+                } else {
+                    window.location.href = '/dashboard';
+                }
 
             } catch (error) {
                 showFormError(loginForm, error.message);
@@ -149,7 +154,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Save token and redirect
                 localStorage.setItem('auth_token', result.data.token);
                 localStorage.setItem('user', JSON.stringify(result.data.user));
-                window.location.href = 'check-email.html';
+                
+                if (result.data.user.role === 'teacher') {
+                    window.location.href = '/teacher-dashboard';
+                } else {
+                    window.location.href = '/check-email';
+                }
 
             } catch (error) {
                 showFormError(signupForm, error.message);

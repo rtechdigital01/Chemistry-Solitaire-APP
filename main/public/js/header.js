@@ -13,6 +13,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isAuthenticated = !!localStorage.getItem('auth_token');
 
+    // --- ROUTE GUARDING ---
+    const currentPath = window.location.pathname;
+    const isAuthPage = currentPath.includes('/login') || currentPath.includes('/signup') || currentPath.includes('/forgot-password');
+    const isProtectedPage = currentPath.includes('/dashboard') || currentPath.includes('/teacher-dashboard') || currentPath.includes('/games') || currentPath.includes('/gameplay');
+
+    if (isProtectedPage && !isAuthenticated) {
+        window.location.href = '/login';
+        return;
+    }
+
+    if (isAuthenticated) {
+        let user = null;
+        try {
+            user = JSON.parse(localStorage.getItem('user'));
+        } catch (e) {}
+
+        if (user) {
+            // Prevent authenticated users from going back to login/signup
+            if (isAuthPage) {
+                window.location.href = user.role === 'teacher' ? '/teacher-dashboard' : '/dashboard';
+                return;
+            }
+
+            // Enforce Student Dashboard Access
+            if (currentPath.includes('/dashboard') && !currentPath.includes('/teacher-dashboard') && user.role === 'teacher') {
+                window.location.href = '/teacher-dashboard';
+                return;
+            }
+
+            // Enforce Teacher Dashboard Access
+            if (currentPath.includes('/teacher-dashboard') && user.role !== 'teacher') {
+                window.location.href = '/dashboard';
+                return;
+            }
+        }
+    }
+    // --- END ROUTE GUARDING ---
     let authLinksDesktop = '';
     let authLinksMobile = '';
 

@@ -640,11 +640,12 @@ function renderBoard(board) {
                 `&key_stage=${encodeURIComponent(keyStage)}` +
                 `&difficulty=${encodeURIComponent(difficulty)}`;
 
+            const token = localStorage.getItem('auth_token');
             const response =
                 await fetch(url, {
                     headers: {
-                        "Accept":
-                            "application/json"
+                        "Accept": "application/json",
+                        ...(token ? { "Authorization": `Bearer ${token}` } : {})
                     }
                 });
 
