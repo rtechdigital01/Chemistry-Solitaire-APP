@@ -24,30 +24,37 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (isAuthenticated) {
-        let user = null;
-        try {
-            user = JSON.parse(localStorage.getItem('user'));
-        } catch (e) {}
-
-        if (user) {
-            // Prevent authenticated users from going back to login/signup
-            if (isAuthPage) {
-                window.location.href = user.role === 'teacher' ? '/teacher-dashboard' : '/dashboard';
-                return;
+        // Fetch user from backend for source of truth
+        fetch('/api/user', {
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('auth_token')}`,
+                'Accept': 'application/json'
             }
+        }).then(res => res.json()).then(user => {
+            if (user && user.role) {
+                // Prevent authenticated users from going back to login/signup
+                if (isAuthPage) {
+                    window.location.href = user.role === 'teacher' ? '/teacher-dashboard' : '/dashboard';
+                    return;
+                }
 
-            // Enforce Student Dashboard Access
-            if (currentPath.includes('/dashboard') && !currentPath.includes('/teacher-dashboard') && user.role === 'teacher') {
-                window.location.href = '/teacher-dashboard';
-                return;
-            }
+                // Enforce Student Dashboard Access
+                if (currentPath.includes('/dashboard') && !currentPath.includes('/teacher-dashboard') && user.role === 'teacher') {
+                    window.location.href = '/teacher-dashboard';
+                    return;
+                }
 
-            // Enforce Teacher Dashboard Access
-            if (currentPath.includes('/teacher-dashboard') && user.role !== 'teacher') {
-                window.location.href = '/dashboard';
-                return;
+                // Enforce Teacher Dashboard Access
+                if (currentPath.includes('/teacher-dashboard') && user.role !== 'teacher') {
+                    window.location.href = '/dashboard';
+                    return;
+                }
             }
-        }
+        }).catch(() => {
+            // If token is invalid, clear it
+            localStorage.removeItem('auth_token');
+            if (isProtectedPage) window.location.href = '/login';
+        });
     }
     // --- END ROUTE GUARDING ---
     let authLinksDesktop = '';

@@ -1,13 +1,22 @@
-document.addEventListener("DOMContentLoaded", () => {
-    // Attempt to read the user from localStorage
-    let user = null;
-    try {
-        user = JSON.parse(localStorage.getItem('user'));
-    } catch (e) {
-        console.error("Error parsing user data", e);
-    }
+document.addEventListener("DOMContentLoaded", async () => {
+    const token = localStorage.getItem('auth_token');
+    
+    if (!token) return;
 
-    if (user) {
+    try {
+        const response = await fetch('/api/user', {
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Accept': 'application/json'
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error('Failed to fetch user data');
+        }
+
+        const user = await response.json();
+
         // Update user name
         const userNameElements = document.querySelectorAll('.dashboard-user-name, #dashboardUserName');
         userNameElements.forEach(el => {
@@ -32,5 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
         userCourseElements.forEach(el => {
             el.textContent = user.role === 'teacher' ? 'Science Teacher' : 'Student Level';
         });
+
+    } catch (e) {
+        console.error("Error fetching user from backend", e);
     }
 });

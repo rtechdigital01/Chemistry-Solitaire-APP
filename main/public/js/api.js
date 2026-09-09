@@ -81,7 +81,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Save token and redirect
                 localStorage.setItem('auth_token', result.data.token);
-                localStorage.setItem('user', JSON.stringify(result.data.user));
                 
                 if (result.data.user.role === 'teacher') {
                     window.location.href = '/teacher-dashboard';
@@ -153,7 +152,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 // Save token and redirect
                 localStorage.setItem('auth_token', result.data.token);
-                localStorage.setItem('user', JSON.stringify(result.data.user));
                 
                 if (result.data.user.role === 'teacher') {
                     window.location.href = '/teacher-dashboard';
@@ -192,8 +190,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
             localStorage.removeItem('auth_token');
-            localStorage.removeItem('user');
-            window.location.href = 'index.html';
+            window.location.href = '/login';
         });
     }
 
