@@ -64,133 +64,1591 @@
 </style>
 </head>
 
-<body class="bg-[#F8FAFC]">
+<body>
 
-    <!-- Reusable Header -->
-    <div id="header"></div>
+<!-- ==========================================
+     PAGE-SPECIFIC FIGMA STYLING
+========================================== -->
 
-    <!-- Gameplay Top Bar -->
-    <div class="gameplay-top-bar">
-        <div class="gameplay-top-inner">
-            <!-- Left: Level Info -->
-            <div class="gameplay-level-info">
-                <button class="gameplay-close-btn" onclick="window.location.href='dashboard.html'">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                </button>
-                <div class="gameplay-level-text">
-                    <span class="level-label">LEVEL 1</span>
-                    <span class="level-title">Atomic Structure</span>
-                </div>
-            </div>
+<style>
 
-            <!-- Middle: Progress Bar -->
-            <div class="gameplay-progress-container">
-                <div class="gameplay-progress-track">
-                    <div class="gameplay-progress-fill" style="width: 58%;"></div>
-                </div>
-                <span class="gameplay-progress-text">7/12</span>
-            </div>
+    * {
+        box-sizing: border-box;
+    }
 
-            <!-- Right: Stats & Actions -->
-            <div class="gameplay-stats-actions">
-                <div class="gameplay-stats">
-                    <div class="stat-item">
-                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 4V20M12 4L6 10M12 4L18 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <div class="stat-text">
-                            <span class="stat-value">70</span>
-                            <span class="stat-label">score</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M9 5L5 9M5 9L9 13M5 9H13C16.866 9 20 12.134 20 16V19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <div class="stat-text">
-                            <span class="stat-value">9</span>
-                            <span class="stat-label">moves</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M19 11H5C3.89543 11 3 11.8954 3 13V20C3 21.1046 3.89543 22 5 22H19C20.1046 22 21 21.1046 21 20V13C21 11.8954 20.1046 11 19 11Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 7H5C3.89543 7 3 7.89543 3 9V11H21V9C21 7.89543 20.1046 7 19 7Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M19 3H5C3.89543 3 3 3.89543 3 5V7H21V5C21 3.89543 20.1046 3 19 3Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
-                        <div class="stat-text">
-                            <span class="stat-value">220</span>
-                            <span class="stat-label">cards</span>
-                        </div>
-                    </div>
-                    <div class="stat-item">
-                        <svg viewBox="0 0 24 24" fill="none" class="stat-icon"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        <div class="stat-text">
-                            <span class="stat-value">2</span>
-                            <span class="stat-label">stars</span>
-                        </div>
-                    </div>
-                </div>
+    body {
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        background: #F5F9FF;
+        color: #14213D;
+    }
 
-                <div class="gameplay-actions">
-                    <button class="btn-action btn-outline" id="redealBtn">
-                        <svg viewBox="0 0 24 24" fill="none"><path d="M4 4V9H4.58152M19.9381 11C19.446 7.05369 16.0796 4 12 4C8.64262 4 5.76829 6.06817 4.58152 9M4.58152 9H9M20 20V15H19.4185M4.06189 13C4.55399 16.9463 7.92038 20 12 20C15.3574 20 18.2317 17.9318 19.4185 15M19.4185 15H15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Redeal
-                    </button>
-                    <button class="btn-action btn-yellow" id="hintBtn">
-                        <svg viewBox="0 0 24 24" fill="none"><path d="M9.66316 17H14.3368M12 22C12.8284 22 13.5 21.3284 13.5 20.5H10.5C10.5 21.3284 11.1716 22 12 22ZM12 2C9.23858 2 7 4.23858 7 7C7 9.17646 8.39053 11.0211 10.25 11.706V14.5C10.25 15.3284 10.9216 16 11.75 16H12.25C13.0784 16 13.75 15.3284 13.75 14.5V11.706C15.6095 11.0211 17 9.17646 17 7C17 4.23858 14.7614 2 12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Hint (free)
-                    </button>
-                    <button class="btn-action btn-outline" id="finishLevelBtn" disable>
-                        <svg viewBox="0 0 24 24" fill="none"><path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        Finish Demo
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <!-- Main Game Area -->
-    <main class="gameplay-main">
-        <div class="gameplay-board">
-            
-            <!-- Info Banner -->
-            <div class="game-info-banner">
-                <svg class="info-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-                    <path d="M12 16V12M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    /* ==========================================
+       GAMEPLAY TOP BAR
+    ========================================== */
+
+    .gameplay-top-bar {
+        position: relative;
+        z-index: 20;
+
+        width: 100%;
+        min-height: 72px;
+
+        background: #FFFFFF;
+        border-bottom: 1px solid #E8EEF6;
+
+        box-shadow:
+            0 4px 12px rgba(20, 33, 61, 0.04);
+    }
+
+    .gameplay-top-inner {
+        width: 100%;
+        max-width: 1440px;
+
+        min-height: 72px;
+
+        margin: 0 auto;
+        padding: 10px 55px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 28px;
+    }
+
+
+    /* LEFT */
+
+    .gameplay-level-info {
+        display: flex;
+        align-items: center;
+
+        gap: 14px;
+
+        flex-shrink: 0;
+    }
+
+    .gameplay-close-btn {
+        width: 38px;
+        height: 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border: 1px solid #E2E8F0;
+        border-radius: 9px;
+
+        background: #FFFFFF;
+
+        color: #64748B;
+
+        cursor: pointer;
+    }
+
+    .gameplay-close-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .gameplay-level-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .level-label {
+        color: #94A3B8;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 1px;
+    }
+
+    .level-title {
+        color: #14213D;
+
+        font-size: 12px;
+        font-weight: 900;
+    }
+
+
+    /* PROGRESS */
+
+    .gameplay-progress-container {
+        min-width: 280px;
+
+        flex: 1;
+
+        display: flex;
+        align-items: center;
+
+        gap: 13px;
+    }
+
+    .gameplay-progress-track {
+        position: relative;
+
+        width: 100%;
+        height: 6px;
+
+        overflow: hidden;
+
+        border-radius: 999px;
+
+        background: #E8EDF5;
+    }
+
+    .gameplay-progress-fill {
+        height: 100%;
+
+        border-radius: 999px;
+
+        background: #2563FF;
+    }
+
+    .gameplay-progress-text {
+        color: #64748B;
+
+        font-size: 10px;
+        font-weight: 800;
+
+        white-space: nowrap;
+    }
+
+
+    /* STATS */
+
+    .gameplay-stats-actions {
+        display: flex;
+        align-items: center;
+
+        gap: 16px;
+    }
+
+    .gameplay-stats {
+        display: flex;
+        align-items: center;
+
+        gap: 3px;
+    }
+
+    .stat-item {
+        min-width: 48px;
+
+        padding: 4px 6px;
+
+        text-align: center;
+
+        border-right: 1px solid #EDF1F7;
+    }
+
+    .stat-icon {
+        width: 13px;
+        height: 13px;
+
+        margin: 0 auto 2px;
+
+        color: #64748B;
+    }
+
+    .stat-text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .stat-value {
+        color: #14213D;
+
+        font-size: 10px;
+        font-weight: 900;
+    }
+
+    .stat-label {
+        color: #94A3B8;
+
+        font-size: 7px;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+
+    /* TOP ACTIONS */
+
+    .gameplay-actions {
+        display: flex;
+        align-items: center;
+
+        gap: 8px;
+    }
+
+    .btn-action {
+        min-height: 34px;
+
+        padding: 0 14px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 6px;
+
+        border-radius: 999px;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 10px;
+        font-weight: 800;
+
+        cursor: pointer;
+    }
+
+    .btn-action svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .btn-outline {
+        border: 1px solid #C7DBFF;
+
+        background: #FFFFFF;
+
+        color: #2563FF;
+    }
+
+    .btn-yellow {
+        border: 1px solid #FFC83D;
+
+        background: #FFC83D;
+
+        color: #7C5600;
+    }
+
+    .buy-hint-btn {
+        border: 1px solid #C7DBFF;
+
+        background: #FFFFFF;
+
+        color: #2563FF;
+    }
+
+
+    /* ==========================================
+       MAIN
+    ========================================== */
+
+    .gameplay-main {
+        position: relative;
+
+        min-height: 100vh;
+
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                120deg,
+                #F3F8FF 0%,
+                #FBFDFF 70%,
+                #F5F9FF 100%
+            );
+    }
+
+    .gameplay-board {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 1260px;
+
+        margin: 0 auto;
+
+        padding: 45px 40px 90px;
+    }
+
+
+    /* ==========================================
+       MOLECULE BACKGROUND
+    ========================================== */
+
+    .game-molecule {
+        position: absolute;
+
+        z-index: 0;
+
+        opacity: 0.20;
+
+        pointer-events: none;
+    }
+
+    .game-molecule.top {
+        width: 310px;
+
+        top: 0;
+        left: -70px;
+    }
+
+    .game-molecule.bottom {
+        width: 340px;
+
+        right: -60px;
+        bottom: -50px;
+    }
+
+    .game-molecule svg {
+        width: 100%;
+        height: auto;
+    }
+
+
+    /* ==========================================
+       INFO BANNER
+    ========================================== */
+
+    .game-info-banner {
+        width: 100%;
+
+        min-height: 62px;
+
+        padding: 15px 22px;
+
+        display: flex;
+        align-items: center;
+
+        gap: 13px;
+
+        margin-bottom: 62px;
+
+        border-radius: 12px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #FFD261 0%,
+                #FFD66B 100%
+            );
+
+        color: #14213D;
+
+        font-size: 15px;
+        font-weight: 700;
+
+        box-shadow:
+            0 7px 18px rgba(250, 190, 45, 0.10);
+    }
+
+    .info-icon-wrap {
+        width: 34px;
+        height: 34px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex-shrink: 0;
+
+        border-radius: 9px;
+
+        background: rgba(255,255,255,0.34);
+    }
+
+    .info-icon {
+        width: 19px;
+        height: 19px;
+    }
+
+
+    /* ==========================================
+       SECTION TITLES
+    ========================================== */
+
+    .figma-section-heading {
+        display: flex;
+        align-items: stretch;
+
+        gap: 14px;
+
+        margin-bottom: 38px;
+    }
+
+    .heading-accent {
+        width: 5px;
+
+        flex-shrink: 0;
+
+        border-radius: 999px;
+
+        background: #F5B82E;
+    }
+
+    .heading-copy h2 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 31px;
+        line-height: 1;
+
+        font-weight: 900;
+
+        letter-spacing: -0.7px;
+    }
+
+    .heading-copy p {
+        margin: 8px 0 0;
+
+        color: #5F6F88;
+
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+
+    /* ==========================================
+       CATEGORY SECTION
+    ========================================== */
+
+    .category-section {
+        max-width: 1030px;
+
+        margin: 0 auto;
+    }
+
+    .category-grid {
+        display: grid;
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+
+        gap: 18px;
+
+        align-items: stretch;
+    }
+
+
+    /*
+       gameplay.js continues generating the
+       foundation stacks inside #stacksGrid.
+
+       display:contents means those generated cards
+       participate directly in our Figma grid.
+    */
+
+    #stacksGrid {
+        display: contents;
+    }
+
+
+    /* LIVE / UNLOCKED CATEGORY */
+
+    #stacksGrid > * {
+        position: relative;
+
+        min-height: 230px;
+
+        padding: 18px 14px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+
+        overflow: hidden;
+
+        border: 2px solid #F1C345;
+        border-radius: 17px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #FFF9E7 0%,
+                #FFF6DC 100%
+            );
+
+        color: #14213D;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 9px 20px rgba(20,33,61,0.08);
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    #stacksGrid > *:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 14px 25px rgba(20,33,61,0.12);
+    }
+
+
+    /* Existing gameplay.js stack content */
+
+    #stacksGrid .foundation-stack {
+        padding: 17px 14px;
+    }
+
+    #stacksGrid .stack-title {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        flex: 1;
+
+        padding: 15px 4px;
+
+        color: #14213D;
+
+        font-size: 15px;
+        line-height: 1.2;
+
+        font-weight: 900;
+
+        text-align: center;
+    }
+
+    #stacksGrid .stack-count {
+        margin-top: 10px;
+
+        color: #14213D;
+
+        font-size: 13px;
+        font-weight: 900;
+    }
+
+    #stacksGrid .count-total {
+        font-size: 11px;
+        font-weight: 700;
+
+        opacity: 0.65;
+    }
+
+    
+     /* ==========================================
+       LOCKED CATEGORY PLACEHOLDERS
+    ========================================== */
+
+    #lockedCategorySlots {
+        display: contents;
+    }
+
+    .locked-category-card {
+        position: relative;
+
+        min-height: 230px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        overflow: hidden;
+
+        border: 1px solid #D7DEE8;
+        border-radius: 17px;
+
+        background:
+            linear-gradient(
+                145deg,
+                #F2F4F7,
+                #E8ECF1
+            );
+
+        box-shadow:
+            inset 0 5px 12px rgba(20,33,61,0.06),
+            0 8px 18px rgba(20,33,61,0.08);
+    }
+
+    .locked-category-card span {
+        color: #D3D9E1;
+
+        font-size: 57px;
+
+        transform: translateY(-4px);
+    }
+
+
+    /* ==========================================
+       DIVIDER
+    ========================================== */
+
+    .game-section-divider {
+        width: 88%;
+
+        height: 1px;
+
+        margin: 60px auto 52px;
+
+        background: #DCE8F5;
+    }
+
+
+    /* ==========================================
+       GAME CARDS SECTION
+    ========================================== */
+
+    .game-cards-section {
+        max-width: 720px;
+
+        margin: 0 auto;
+    }
+
+    .game-cards-section .figma-section-heading {
+        margin-bottom: 35px;
+    }
+
+    #cardsGrid {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+
+        gap: 22px;
+    }
+
+
+    /* Dynamic cards generated by gameplay.js */
+
+    #cardsGrid > * {
+        position: relative;
+
+        min-height: 230px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 24px 15px;
+
+        border: 1px solid #F1E1AD;
+        border-radius: 13px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #FFF7DB 0%,
+                #FFF5D4 100%
+            );
+
+        color: #14213D;
+
+        font-family: "Nunito", sans-serif;
+
+        font-size: 20px;
+        line-height: 1.2;
+
+        font-weight: 900;
+
+        text-align: center;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 9px 20px rgba(20,33,61,0.10);
+
+        transition:
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+
+    /* blue stacked card tops */
+
+    #cardsGrid > *::before {
+        content: "";
+
+        position: absolute;
+
+        left: 4px;
+        right: 4px;
+
+        top: -14px;
+
+        height: 16px;
+
+        z-index: -1;
+
+        border-radius: 11px 11px 3px 3px;
+
+        background: #78C7EA;
+    }
+
+    #cardsGrid > *::after {
+        content: "";
+
+        position: absolute;
+
+        left: 2px;
+        right: 2px;
+
+        top: -7px;
+
+        height: 12px;
+
+        z-index: -1;
+
+        border-radius: 10px 10px 3px 3px;
+
+        background: #9DDBF3;
+    }
+
+
+    #cardsGrid > *:hover {
+        transform: translateY(-5px);
+
+        box-shadow:
+            0 14px 25px rgba(20,33,61,0.13);
+    }
+
+
+    /* Preserve selected-card indication */
+
+    #cardsGrid > *.selected,
+    #cardsGrid > *.active {
+        outline: 3px solid #2563FF;
+        outline-offset: 3px;
+    }
+
+
+    /* ==========================================
+       BOTTOM CONTROLS
+    ========================================== */
+
+    .game-bottom-actions {
+        margin-top: 45px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 18px;
+    }
+
+    .bottom-game-btn {
+        min-width: 170px;
+        height: 58px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+
+        border: 0;
+        border-radius: 999px;
+
+        font-family: "Nunito", sans-serif;
+
+        font-size: 16px;
+        font-weight: 800;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 10px 20px rgba(20,33,61,0.15);
+    }
+
+    .shuffle-btn {
+        background: #164D99;
+
+        color: #FFFFFF;
+    }
+
+    .hint-btn {
+        background: #FFC32B;
+
+        color: #FFFFFF;
+    }
+
+    .bottom-game-btn svg {
+        width: 21px;
+        height: 21px;
+    }
+
+
+    /* Keep gameplay.js finish button available
+       without adding an unwanted Figma element */
+
+    #finishLevelBtn {
+        display: none;
+    }
+
+
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
+
+    @media (max-width: 1150px) {
+
+        .gameplay-top-inner {
+            padding: 10px 25px;
+        }
+
+        .gameplay-stats {
+            display: none;
+        }
+
+        .category-grid {
+            grid-template-columns:
+                repeat(3, minmax(0, 1fr));
+        }
+    }
+
+
+    @media (max-width: 850px) {
+
+        .gameplay-top-inner {
+            flex-wrap: wrap;
+
+            padding: 12px 18px;
+        }
+
+        .gameplay-progress-container {
+            order: 3;
+
+            width: 100%;
+        }
+
+        .gameplay-stats-actions {
+            margin-left: auto;
+        }
+
+        .gameplay-board {
+            padding: 30px 20px 70px;
+        }
+
+        .game-info-banner {
+            margin-bottom: 45px;
+        }
+
+        .category-grid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+
+        #cardsGrid {
+            grid-template-columns:
+                repeat(2, minmax(0, 1fr));
+        }
+    }
+
+
+    @media (max-width: 550px) {
+
+        .gameplay-actions {
+            display: none;
+        }
+
+        .gameplay-level-info {
+            width: 100%;
+        }
+
+        .gameplay-progress-container {
+            min-width: 100%;
+        }
+
+        .figma-section-heading {
+            margin-bottom: 28px;
+        }
+
+        .heading-copy h2 {
+            font-size: 27px;
+        }
+
+        .category-grid {
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+        #stacksGrid > *,
+        .locked-category-card {
+            min-height: 200px;
+        }
+
+        #cardsGrid {
+            gap: 14px;
+        }
+
+        #cardsGrid > * {
+            min-height: 190px;
+
+            font-size: 17px;
+        }
+
+        .game-bottom-actions {
+            gap: 10px;
+        }
+
+        .bottom-game-btn {
+            min-width: 0;
+
+            flex: 1;
+
+            height: 53px;
+        }
+    }
+
+
+/* ==========================================
+   CATEGORY CARD INNER DESIGN
+========================================== */
+
+.category-card-top {
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-crown {
+    color: #F3B51D;
+
+    font-size: 25px;
+    line-height: 1;
+}
+
+.category-progress {
+    color: #6B7280;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.category-icon-circle {
+    width: 68px;
+    height: 68px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 12px auto;
+
+    border-radius: 50%;
+
+    background: #DDF3E5;
+
+    color: #2E9D62;
+}
+
+.category-icon-circle svg {
+    width: 34px;
+    height: 34px;
+}
+
+.category-card-divider {
+    width: 100%;
+    height: 1px;
+
+    margin: 8px 0 12px;
+
+    background: #F1E4B8;
+}
+
+.category-bottom-badge {
+    min-width: 28px;
+    height: 28px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 8px;
+
+    border-radius: 999px;
+
+    background: #FFF0B8;
+
+    color: #A87500;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+</style>
+
+
+
+<!-- ==========================================
+     REUSABLE HEADER
+========================================== -->
+
+<div id="header"></div>
+
+
+
+<!-- ==========================================
+     GAMEPLAY TOP BAR
+========================================== -->
+
+<div class="gameplay-top-bar">
+
+    <div class="gameplay-top-inner">
+
+
+        <!-- LEVEL -->
+
+        <div class="gameplay-level-info">
+
+            <button
+                class="gameplay-close-btn"
+                type="button"
+                onclick="window.location.href='dashboard.html'"
+                aria-label="Close gameplay"
+            >
+
+                <svg viewBox="0 0 24 24" fill="none">
+
+                    <path
+                        d="M18 6L6 18M6 6L18 18"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    />
+
                 </svg>
-                Select a card from the deck, then tap a foundation stack.
+
+            </button>
+
+
+            <div class="gameplay-level-text">
+
+                <span class="level-label">
+                    LEVEL 1
+                </span>
+
+                <span class="level-title">
+                    Atomic Structure
+                </span>
+
             </div>
 
-            <!-- Cards Section -->
-        <!-- Cards Section -->
-<div class="game-section">
-    <h2 class="section-title">
-        CHEMISTRY CARDS — TAP TO SELECT
-    </h2>
+        </div>
 
-    <div class="cards-grid" id="cardsGrid">
-        <!-- Cards are generated automatically from the dataset -->
+
+
+        <!-- PROGRESS -->
+
+        <div class="gameplay-progress-container">
+
+            <div class="gameplay-progress-track">
+
+                <div
+                    class="gameplay-progress-fill"
+                    style="width:58%;"
+                ></div>
+
+            </div>
+
+            <span class="gameplay-progress-text">
+                7/12
+            </span>
+
+        </div>
+
+
+
+        <!-- STATS / ACTIONS -->
+
+        <div class="gameplay-stats-actions">
+
+
+            <div class="gameplay-stats">
+
+                <div class="stat-item">
+
+                    <div class="stat-text">
+                        <span class="stat-value">70</span>
+                        <span class="stat-label">score</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-text">
+                        <span class="stat-value">9</span>
+                        <span class="stat-label">moves</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-text">
+                        <span class="stat-value">220</span>
+                        <span class="stat-label">cards</span>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-item">
+
+                    <div class="stat-text">
+                        <span class="stat-value">2</span>
+                        <span class="stat-label">stars</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="gameplay-actions">
+
+
+                <button
+                    class="btn-action btn-outline"
+                    id="topRedealBtn"
+                    type="button"
+                >
+                    ↻ Redeal
+                </button>
+                
+                 <button
+                    class="btn-action btn-yellow"
+                    id="topHintBtn"
+                    type="button"
+                >
+                    ♧ Hint (free)
+                </button>
+
+
+                <button
+                    class="btn-action buy-hint-btn"
+                    id="buyHintBtn"
+                    type="button"
+                    disabled
+                    title="Buy Hint will be connected later"
+                >
+                    ◉ Buy Hint
+                </button>
+
+            </div>
+
+        </div>
+
     </div>
+
 </div>
 
 
-<!-- Stacks Section -->
-<div class="game-section">
-    <h2 class="section-title">
-        FOUNDATION STACKS — TAP TO PLACE SELECTED CARD
-    </h2>
 
-    <div class="stacks-grid" id="stacksGrid">
-        <!-- Foundation stacks are generated automatically from the dataset -->
+<!-- ==========================================
+     MAIN GAMEPLAY
+========================================== -->
+
+<main class="gameplay-main">
+
+
+    <!-- DECORATIVE MOLECULE TOP -->
+
+    <div class="game-molecule top">
+
+        <svg viewBox="0 0 320 260" fill="none">
+
+            <circle cx="70" cy="60" r="45" stroke="#99C5ED" stroke-width="4"/>
+            <circle cx="180" cy="130" r="36" stroke="#99C5ED" stroke-width="4"/>
+            <circle cx="70" cy="205" r="29" stroke="#99C5ED" stroke-width="4"/>
+
+            <path d="M105 87L150 112" stroke="#99C5ED" stroke-width="4"/>
+            <path d="M149 150L95 188" stroke="#99C5ED" stroke-width="4"/>
+
+        </svg>
+
     </div>
-</div>    
-            
-</div>
-    </main>
 
-    <!-- Reusable Footer -->
-    <div id="footer"></div>
 
-    <script src="./js/header.js"></script>
-    <script src="./js/footer.js"></script>
-    <script src="./js/app.js"></script>
+
+    <!-- DECORATIVE MOLECULE BOTTOM -->
+
+    <div class="game-molecule bottom">
+
+        <svg viewBox="0 0 340 300" fill="none">
+
+            <circle cx="70" cy="165" r="48" stroke="#99C5ED" stroke-width="4"/>
+            <circle cx="175" cy="85" r="42" stroke="#99C5ED" stroke-width="4"/>
+            <circle cx="185" cy="235" r="42" stroke="#99C5ED" stroke-width="4"/>
+            <circle cx="290" cy="145" r="38" stroke="#99C5ED" stroke-width="4"/>
+
+            <path d="M106 136L143 108" stroke="#99C5ED" stroke-width="4"/>
+            <path d="M111 192L150 218" stroke="#99C5ED" stroke-width="4"/>
+            <path d="M213 105L260 132" stroke="#99C5ED" stroke-width="4"/>
+
+        </svg>
+
+    </div>
+
+
+
+    <div class="gameplay-board">
+
+
+        <!-- ======================================
+             INFO
+        ======================================= -->
+
+        <div class="game-info-banner">
+
+            <span class="info-icon-wrap">
+
+                <svg
+                    class="info-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                >
+
+                    <circle
+                        cx="12"
+                        cy="12"
+                        r="9"
+                        stroke="currentColor"
+                        stroke-width="2"
+                    />
+
+                    <path
+                        d="M12 11V16M12 8H12.01"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                    />
+
+                </svg>
+
+            </span>
+
+            Select a card from the deck, then tap a foundation stack.
+
+        </div>
+
+
+
+        <!-- ======================================
+             CATEGORY
+        ======================================= -->
+
+        <section class="category-section">
+
+
+            <div class="figma-section-heading">
+
+                <span class="heading-accent"></span>
+
+                <div class="heading-copy">
+
+                    <h2>
+                        Category
+                    </h2>
+
+                    <p>
+                        Choose a category to start playing
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="category-grid">
+
+
+                <!--
+                    IMPORTANT:
+                    gameplay.js still generates the
+                    real category / foundation cards here.
+                -->
+
+                <div id="stacksGrid"></div>
+
+
+                <!-- Locked cards added dynamically -->
+
+                <div id="lockedCategorySlots"></div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <div class="game-section-divider"></div>
+
+
+
+        <!-- ======================================
+             GAME CARDS
+        ======================================= -->
+
+        <section class="game-cards-section">
+
+
+            <div class="figma-section-heading">
+
+                <span class="heading-accent"></span>
+
+
+                <div class="heading-copy">
+
+                    <h2>
+                        Game Cards
+                    </h2>
+
+                    <p>
+                        Build knowledge, one match at a time
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!--
+                gameplay.js continues generating
+                the actual playable cards here.
+            -->
+
+            <div id="cardsGrid"></div>
+
+
+
+            <!-- CONTROLS -->
+
+            <div class="game-bottom-actions">
+
+
+                <button
+                    type="button"
+                    class="bottom-game-btn shuffle-btn"
+                    id="redealBtn"
+                >
+
+                    <svg viewBox="0 0 24 24" fill="none">
+
+                        <path
+                            d="M4 4V9H9M20 20V15H15"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                        <path
+                            d="M5 9C6.5 5.7 9 4 12 4C16 4 19.2 7 20 11M19 15C17.5 18.3 15 20 12 20C8 20 4.8 17 4 13"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                        />
+
+                    </svg>
+
+                    Shuffle
+
+                </button>
+
+
+
+                <button
+                    type="button"
+                    class="bottom-game-btn hint-btn"
+                    id="hintBtn"
+                >
+
+                    <svg viewBox="0 0 24 24" fill="none">
+
+                        <path
+                            d="M9 18H15M10 21H14M8 13C6.8 12 6 10.5 6 8.8C6 5.6 8.7 3 12 3C15.3 3 18 5.6 18 8.8C18 10.5 17.2 12 16 13C15 13.8 14.5 14.6 14.5 16H9.5C9.5 14.6 9 13.8 8 13Z"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                        />
+
+                    </svg>
+
+                    Hint
+
+                </button>
+
+
+                <!-- Existing gameplay.js may still require this ID -->
+
+                <button
+                    type="button"
+                    id="finishLevelBtn"
+                    disabled
+                >
+                    Finish Level
+                </button>
+
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+
+<!-- ==========================================
+     FOOTER
+========================================== -->
+
+<div id="footer"></div>
+
+
+
+<!-- ==========================================
+     EXISTING PROJECT JS
+========================================== -->
+
+<script src="./js/header.js"></script>
+<script src="./js/footer.js"></script>
+<script src="./js/app.js"></script>
 <script src="./js/api.js"></script>
 <script src="./js/gameplay.js"></script>
+
+
+
+<!-- ==========================================
+     FIGMA UI HELPERS
+========================================== -->
+
+<script>
+
+    /*
+     * Keep a total of five category positions.
+     *
+     * Example:
+     * 1 generated category = 4 grey cards
+     * 5 generated categories = 0 grey cards
+     *
+     * This gives us the two Figma states automatically.
+     */
+
+    const stacksGrid =
+        document.getElementById("stacksGrid");
+
+    const lockedCategorySlots =
+        document.getElementById(
+            "lockedCategorySlots"
+        );
+
+
+    function updateLockedCategorySlots() {
+
+        const categoryCount =
+            stacksGrid.children.length;
+
+
+        const lockedCount =
+            Math.max(
+                0,
+                5 - categoryCount
+            );
+
+
+        lockedCategorySlots.innerHTML = "";
+
+
+        for (
+            let i = 0;
+            i < lockedCount;
+            i++
+        ) {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "locked-category-card";
+
+
+            card.innerHTML =
+                "<span>♛</span>";
+
+
+            lockedCategorySlots
+                .appendChild(card);
+
+        }
+
+    }
+
+
+
+    /*
+     * gameplay.js loads the categories asynchronously,
+     * so watch #stacksGrid and refresh the grey cards
+     * whenever gameplay.js changes it.
+     */
+
+    const categoryObserver =
+        new MutationObserver(
+            updateLockedCategorySlots
+        );
+
+
+    categoryObserver.observe(
+        stacksGrid,
+        {
+            childList: true
+        }
+    );
+
+
+    updateLockedCategorySlots();
+
+
+
+    /*
+     * The Figma has Redeal/Hint controls in the
+     * top bar as well as Shuffle/Hint underneath.
+     *
+     * These top controls simply trigger your
+     * existing gameplay.js controls.
+     */
+
+    document
+        .getElementById("topRedealBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                document
+                    .getElementById("redealBtn")
+                    ?.click();
+
+            }
+        );
+
+
+    document
+        .getElementById("topHintBtn")
+        .addEventListener(
+            "click",
+            function () {
+
+                document
+                    .getElementById("hintBtn")
+                    ?.click();
+
+            }
+        );
+
+</script>
+
+
 </body>
+
+
 </html>

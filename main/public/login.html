@@ -4,244 +4,1481 @@
 <head>
     <meta charset="UTF-8">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <title>Login | Chemistry Solitaire</title>
+    <title>Log In | Science Solitaire</title>
 
 
-    <!-- Nunito Font -->
+    <!-- Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
 
 
-    <!-- Tailwind compiled CSS -->
+    <!-- Existing project CSS -->
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+
+
+    <!-- PAGE-SPECIFIC CSS -->
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+        font-family: "Nunito", sans-serif;
+        background: #ffffff;
+        color: #14213D;
+    }
+
+    /* ==========================================
+       AUTH PAGE
+    ========================================== */
+
+    .figma-auth-page {
+        position: relative;
+        min-height: 100vh;
+        overflow: hidden;
+
+        background:
+            linear-gradient(
+                120deg,
+                #F2F6FF 0%,
+                #FFFFFF 68%
+            );
+
+        padding: 60px 70px;
+    }
+
+    .figma-auth-container {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+        max-width: 1380px;
+        min-height: calc(100vh - 120px);
+
+        margin: 0 auto;
+
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+
+        align-items: center;
+        gap: 80px;
+    }
+
+
+    /* ==========================================
+       LEFT SIDE
+    ========================================== */
+
+    .auth-left {
+        position: relative;
+        z-index: 2;
+    }
+
+    .auth-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        min-width: 150px;
+        height: 66px;
+
+        padding: 0 34px;
+
+        margin-bottom: 38px;
+
+        border-radius: 999px;
+
+        background: #2563FF;
+
+        color: #ffffff;
+
+        font-size: 15px;
+        font-weight: 700;
+
+        box-shadow:
+            0 10px 25px rgba(37, 99, 255, 0.14);
+    }
+
+    .auth-left h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: clamp(48px, 5vw, 66px);
+        line-height: 1.05;
+
+        font-weight: 900;
+        letter-spacing: -2px;
+    }
+
+    .auth-left-description {
+        margin: 34px 0 30px;
+
+        color: #5F6F88;
+
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+
+    /* ==========================================
+       SUBJECT CARDS
+    ========================================== */
+
+    .subject-card-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 22px;
+
+        width: 100%;
+        max-width: 690px;
+    }
+
+    .subject-card-image {
+        width: 100%;
+        display: block;
+        object-fit: contain;
+    }
+
+
+    /* ==========================================
+       DECORATIVE ORBIT
+    ========================================== */
+
+    .orbit-decoration {
+        position: absolute;
+
+        width: 500px;
+        height: 500px;
+
+        left: 56%;
+        top: 50%;
+
+        transform: translate(-50%, -50%);
+
+        z-index: 1;
+
+        pointer-events: none;
+
+        opacity: 0.72;
+    }
+
+    .orbit-decoration svg {
+        width: 100%;
+        height: 100%;
+    }
+
+
+    /* ==========================================
+       LOGIN CARD
+    ========================================== */
+
+    .login-card-wrapper {
+        position: relative;
+        z-index: 3;
+
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .login-card {
+        width: 100%;
+        max-width: 485px;
+
+        padding: 44px 40px 38px;
+
+        border: 1px solid #EDF1F7;
+        border-radius: 28px;
+
+        background: #FFFFFF;
+
+        box-shadow:
+            0 20px 55px rgba(20, 33, 61, 0.10);
+    }
+
+    .login-heading {
+        text-align: center;
+
+        margin-bottom: 34px;
+    }
+
+    .login-heading h2 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 32px;
+        font-weight: 900;
+        line-height: 1.2;
+    }
+
+    .login-heading p {
+        margin: 8px 0 0;
+
+        color: #97A3B6;
+
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+
+    /* ==========================================
+       ROLE SWITCHER
+    ========================================== */
+
+    .role-title {
+        display: block;
+
+        margin-bottom: 10px;
+
+        color: #14213D;
+
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+    .role-switcher {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        padding: 5px;
+
+        margin-bottom: 26px;
+
+        border-radius: 12px;
+
+        background: #F3F6FA;
+    }
+
+    .role-option {
+        position: relative;
+
+        cursor: pointer;
+    }
+
+    .role-option input {
+        position: absolute;
+
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .role-option-content {
+        width: 100%;
+        height: 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        border-radius: 10px;
+
+        color: #69768C;
+
+        font-size: 14px;
+        font-weight: 700;
+
+        transition: 0.2s ease;
+    }
+
+    .role-option-content svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .role-option input:checked + .role-option-content {
+        background: #FFFFFF;
+
+        color: #2563FF;
+
+        box-shadow:
+            0 4px 12px rgba(20, 33, 61, 0.08);
+    }
+
+
+    /* ==========================================
+       FORM
+    ========================================== */
+    .login-field {
+        margin-bottom: 21px;
+    }
+
+    .login-field label {
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: #14213D;
+
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+    .login-field input {
+        width: 100%;
+        height: 54px;
+
+        padding: 0 16px;
+
+        border: 1px solid #E4EAF2;
+        border-radius: 10px;
+
+        outline: none;
+
+        background: #F8FAFD;
+
+        color: #14213D;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 14px;
+
+        transition: 0.2s ease;
+    }
+
+    .login-field input::placeholder {
+        color: #A6B0C0;
+    }
+
+    .login-field input:focus {
+        border-color: #2563FF;
+
+        background: #FFFFFF;
+
+        box-shadow:
+            0 0 0 3px rgba(37, 99, 255, 0.09);
+    }
+
+
+    /* PASSWORD */
+
+    .password-wrapper {
+        position: relative;
+    }
+
+    .password-wrapper input {
+        padding-right: 52px;
+    }
+
+    .password-toggle {
+        position: absolute;
+
+        right: 14px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        width: 32px;
+        height: 32px;
+
+        padding: 0;
+
+        border: 0;
+
+        background: transparent;
+
+        color: #98A4B5;
+
+        cursor: pointer;
+    }
+
+    .password-toggle svg {
+        width: 19px;
+        height: 19px;
+    }
+
+
+    /* FORGOT PASSWORD */
+
+    .forgot-row {
+        display: flex;
+        justify-content: flex-end;
+
+        margin-top: -8px;
+        margin-bottom: 27px;
+    }
+
+    .forgot-row a {
+        color: #2563FF;
+
+        text-decoration: none;
+
+        font-size: 13px;
+        font-weight: 800;
+    }
+
+
+    /* ==========================================
+       ERROR
+    ========================================== */
+
+    .login-error {
+        display: none;
+
+        margin-bottom: 18px;
+
+        padding: 12px 14px;
+
+        border: 1px solid #FECACA;
+        border-radius: 9px;
+
+        background: #FEF2F2;
+
+        color: #DC2626;
+
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 19px;
+    }
+
+    .login-error.active {
+        display: block;
+    }
+
+
+    /* ==========================================
+       LOGIN BUTTON
+    ========================================== */
+
+    .login-button {
+        width: 100%;
+        height: 56px;
+
+        border: 0;
+        border-radius: 11px;
+
+        background:
+            linear-gradient(
+                90deg,
+                #2563FF 0%,
+                #4B5BF7 100%
+            );
+
+        color: #FFFFFF;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        font-weight: 800;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 10px 24px rgba(37, 99, 255, 0.24);
+
+        transition: 0.2s ease;
+    }
+
+    .login-button:hover {
+        transform: translateY(-1px);
+
+        box-shadow:
+            0 13px 28px rgba(37, 99, 255, 0.28);
+    }
+
+    .login-button:disabled {
+        opacity: 0.65;
+        cursor: not-allowed;
+        transform: none;
+    }
+
+
+    /* ==========================================
+       SOCIAL DIVIDER
+    ========================================== */
+
+    .social-divider {
+        display: flex;
+        align-items: center;
+
+        gap: 15px;
+
+        margin: 27px 0 20px;
+
+        color: #A1ACBA;
+
+        font-size: 11px;
+        font-weight: 800;
+
+        letter-spacing: 0.6px;
+    }
+
+    .social-divider::before,
+    .social-divider::after {
+        content: "";
+
+        flex: 1;
+
+        height: 1px;
+
+        background: #E9EDF3;
+    }
+
+    .social-divider span {
+        white-space: nowrap;
+    }
+
+
+    /* ==========================================
+       SOCIAL BUTTONS
+    ========================================== */
+
+    .social-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        gap: 12px;
+    }
+
+    .social-login-button {
+        height: 51px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+
+        border: 1px solid #E2E8F0;
+        border-radius: 10px;
+
+        background: #FFFFFF;
+
+        color: #14213D;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 14px;
+        font-weight: 800;
+
+        cursor: pointer;
+
+        transition: 0.2s ease;
+    }
+
+    .social-login-button:hover {
+        border-color: #C7DBFF;
+
+        background: #F9FBFF;
+    }
+
+    .google-icon {
+        width: 20px;
+        height: 20px;
+
+        flex-shrink: 0;
+    }
+
+    .microsoft-icon {
+        width: 19px;
+        height: 19px;
+
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+
+        gap: 2px;
+
+        flex-shrink: 0;
+    }
+
+    .microsoft-icon span:nth-child(1) {
+        background: #F25022;
+    }
+
+    .microsoft-icon span:nth-child(2) {
+        background: #7FBA00;
+    }
+
+    .microsoft-icon span:nth-child(3) {
+        background: #00A4EF;
+    }
+
+    .microsoft-icon span:nth-child(4) {
+        background: #FFB900;
+    }
+
+
+    /* ==========================================
+       SIGNUP LINK
+    ========================================== */
+
+    .create-account-text {
+        margin: 28px 0 0;
+
+        text-align: center;
+
+        color: #9AA5B5;
+
+        font-size: 13px;
+    }
+
+    .create-account-text a {
+        color: #2563FF;
+
+        text-decoration: none;
+
+        font-weight: 800;
+    }
+
+
+    /* ==========================================
+       RESPONSIVE
+    ========================================== */
+
+    @media (max-width: 1050px) {
+
+        .figma-auth-page {
+            padding: 50px 35px;
+        }
+
+        .figma-auth-container {
+            gap: 45px;
+        }
+
+        .orbit-decoration {
+            opacity: 0.35;
+        }
+    }
+
+    @media (max-width: 850px) {
+
+        .figma-auth-page {
+            padding: 40px 20px 60px;
+        }
+
+        .figma-auth-container {
+            min-height: auto;
+
+            grid-template-columns: 1fr;
+
+            gap: 45px;
+        }
+
+        .auth-left {
+            text-align: center;
+        }
+
+        .auth-left-description {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .subject-card-row {
+            margin: 0 auto;
+        }
+
+        .login-card-wrapper {
+            justify-content: center;
+        }
+
+        .orbit-decoration {
+            display: none;
+        }
+    }
+
+    @media (max-width: 550px) {
+
+        .figma-auth-page {
+            padding: 30px 15px 45px;
+        }
+
+        .auth-pill {
+            min-width: 120px;
+            height: 50px;
+
+            margin-bottom: 25px;
+        }
+
+        .auth-left h1 {
+            font-size: 42px;
+        }
+
+        .auth-left-description {
+            margin-top: 20px;
+
+            font-size: 15px;
+        }
+
+        .subject-card-row {
+            gap: 8px;
+        }
+
+        .login-card {
+            padding: 32px 20px;
+
+            border-radius: 22px;
+        }
+
+        .login-heading h2 {
+            font-size: 27px;
+        }
+
+        .social-buttons {
+            grid-template-columns: 1fr;
+        }
+    }
+</style>
 
 </head>
 
-
 <body>
-
-    <!-- ========================================
-         REUSABLE HEADER
-    ========================================= -->
-
+    <!-- HEADER -->
     <div id="header"></div>
+    
+    <main class="figma-auth-page">
+
+    <!-- DECORATIVE ATOM ORBITS -->
+    <div class="orbit-decoration">
+
+        <svg
+            viewBox="0 0 500 500"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+
+            <ellipse
+                cx="250"
+                cy="250"
+                rx="220"
+                ry="75"
+                stroke="#AFCFEF"
+                stroke-width="2"
+            />
+
+            <ellipse
+                cx="250"
+                cy="250"
+                rx="220"
+                ry="75"
+                transform="rotate(58 250 250)"
+                stroke="#AFCFEF"
+                stroke-width="2"
+            />
+
+            <ellipse
+                cx="250"
+                cy="250"
+                rx="220"
+                ry="75"
+                transform="rotate(118 250 250)"
+                stroke="#AFCFEF"
+                stroke-width="2"
+            />
+
+            <circle
+                cx="80"
+                cy="248"
+                r="11"
+                fill="#5C8EDC"
+            />
+
+        </svg>
+
+    </div>
 
 
+    <div class="figma-auth-container">
 
-    <!-- ========================================
-         LOGIN PAGE CONTENT
-         We will build this next
-    ========================================= -->
 
-    <main class="login-page">
+        <!-- ======================================
+             LEFT SIDE
+        ======================================= -->
 
-        <!-- ========================================
-     LOGIN INTRO
-========================================= -->
+        <section class="auth-left">
 
-        <section class="login-intro">
-
-            <!-- Log In Pill -->
-            <div class="login-pill reveal" data-delay="0">
+            <div class="auth-pill">
                 Log In
             </div>
 
 
-            <!-- Heading -->
-            <h1 class="login-heading reveal" data-delay="120">
+            <h1>
                 Authentication
             </h1>
 
 
-            <!-- Description -->
-            <p class="login-description reveal" data-delay="240">
+            <p class="auth-left-description">
                 Login, account creation, and learner profile setup.
             </p>
 
-            <!-- Login Chemistry Cards -->
-            <div class="login-cards reveal" data-delay="360">
 
-                <img src="./images/login-cards.png"
-                    alt="Chemistry revision cards showing Proton, Shell and Atomic Number">
+            <div class="subject-card-row">
+
+                <img
+                    src="./images/login-biology.png"
+                    alt="Biology"
+                    class="subject-card-image"
+                >
+
+                <img
+                    src="./images/login-chemistry.png"
+                    alt="Chemistry"
+                    class="subject-card-image"
+                >
+
+                <img
+                    src="./images/login-physics.png"
+                    alt="Physics"
+                    class="subject-card-image"
+                >
 
             </div>
+
         </section>
 
 
-        <!-- ========================================
-     LOGIN FORM CARD
-========================================= -->
 
-        <section class="login-form-area reveal" data-delay="300">
+        <!-- ======================================
+             RIGHT SIDE
+        ======================================= -->
 
-            <div class="login-form-card">
+        <section class="login-card-wrapper">
 
-                <!-- Login Card Header -->
-                <div class="login-card-header">
-
-                    <!-- Logo -->
-                    <div class="login-card-logo">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8" />
-
-                            <ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5" />
-
-                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor"
-                                stroke-width="1.5" />
-
-                            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor"
-                                stroke-width="1.5" />
-                        </svg>
-                    </div>
+            <div class="login-card">
 
 
-                    <h2 class="login-card-title">
+                <div class="login-heading">
+
+                    <h2>
                         Welcome Back
                     </h2>
 
-
-                    <p class="login-card-subtitle">
-                        Log in to continue your chemistry revision
+                    <p>
+                        Log in to continue your learning
                     </p>
 
-<!-- ========================================
-     LOGIN FORM
-========================================= -->
-
-<form class="login-form" action="dashboard.html">
-
-    <!-- Email -->
-    <div class="login-field">
-
-        <label for="email">
-            Email Address
-        </label>
-
-        <input
-            type="email"
-            id="email"
-            name="email"
-            placeholder="you@example.com"
-            autocomplete="email"
-            required
-        >
-
-    </div>
-
-
-    <!-- Password -->
-    <div class="login-field">
-
-        <label for="password">
-            Password
-        </label>
-
-        <div class="password-input-wrapper">
-
-            <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="Enter your password"
-                autocomplete="current-password"
-                required
-            >
-
-            <button
-                type="button"
-                class="password-toggle"
-                id="passwordToggle"
-                aria-label="Show password"
-            >
-                <svg
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true"
-                >
-                    <path
-                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                        stroke="currentColor"
-                        stroke-width="1.7"
-                    />
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="2.5"
-                        stroke="currentColor"
-                        stroke-width="1.7"
-                    />
-                </svg>
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- Forgot Password -->
-    <div class="forgot-password-row">
-
-        <a href="forgot-password.html">
-            Forgot password?
-        </a>
-
-    </div>
-
-
-    <!-- Login Button -->
-    <button
-        type="submit"
-        class="login-submit-button"
-    >
-        Log In
-    </button>
-
-
-    <!-- Create Account -->
-    <p class="login-create-account">
-        Don’t have an account?
-        <a href="signup.html">
-            Create one free
-        </a>
-    </p>
-
-</form>
                 </div>
+
+
+
+                <form
+                    id="loginForm"
+                    novalidate
+                >
+
+
+                    <!-- ROLE -->
+
+                    <span class="role-title">
+                        I am a...
+                    </span>
+
+
+                    <div class="role-switcher">
+
+
+                        <!-- STUDENT -->
+
+                        <label class="role-option">
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="student"
+                                checked
+                            >
+
+                            <span class="role-option-content">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M3 9L12 4L21 9L12 14L3 9Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M7 12V16C10 18 14 18 17 16V12"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+                                </svg>
+
+                                Student
+
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- TEACHER -->
+
+                        <label class="role-option">
+
+                            <input
+                                type="radio"
+                                name="role"
+                                value="teacher"
+                            >
+
+                            <span class="role-option-content">
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M4 5.5H10.5C12 5.5 13 6.4 13 7.8V19C13 17.6 12 16.7 10.5 16.7H4V5.5Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <path
+                                        d="M20 5.5H13.5C12 5.5 11 6.4 11 7.8V19C11 17.6 12 16.7 13.5 16.7H20V5.5Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+                                </svg>
+
+                                Teacher
+
+                            </span>
+
+                        </label>
+
+                    </div>
+
+
+
+                    <!-- EMAIL -->
+
+                    <div class="login-field">
+
+                        <label for="loginEmail">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="loginEmail"
+                            placeholder="you@school.ac.uk"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="login-field">
+
+                        <label for="loginPassword">
+                            Password
+                        </label>
+
+
+                        <div class="password-wrapper">
+
+                            <input
+                                type="password"
+                                id="loginPassword"
+                                placeholder="Enter your password"
+                                autocomplete="current-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="passwordToggle"
+                                aria-label="Show password"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+                                    <path
+                                        d="M2.5 12C4.5 8.5 7.8 6.5 12 6.5C16.2 6.5 19.5 8.5 21.5 12C19.5 15.5 16.2 17.5 12 17.5C7.8 17.5 4.5 15.5 2.5 12Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.7"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="forgot-row">
+
+                        <a href="/forgot-password">
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+
+                    <!-- ERROR -->
+
+                    <div
+                        class="login-error"
+                        id="loginError"
+                    ></div>
+
+
+
+                    <!-- LOGIN -->
+
+                    <button
+                        type="submit"
+                        class="login-button"
+                        id="loginButton"
+                    >
+                        Log In
+                    </button>
+
+
+
+                    <!-- SOCIAL -->
+
+                    <div class="social-divider">
+                        <span>OR CONTINUE WITH</span>
+                    </div>
+
+
+
+                    <div class="social-buttons">
+
+
+                        <!-- GOOGLE -->
+
+                        <button
+                            type="button"
+                            class="social-login-button"
+                            id="googleLoginButton"
+                        >
+
+                            <svg
+                                class="google-icon"
+                                viewBox="0 0 18 18"
+                                xmlns="http://www.w3.org/2000/svg"
+                            >
+
+                                <path
+                                    fill="#4285F4"
+                                    d="M17.64 9.205c0-.638-.057-1.252-.164-1.841H9v3.482h4.844a4.14 4.14 0 0 1-1.797 2.716v2.258h2.909c1.702-1.567 2.684-3.874 2.684-6.615Z"
+                                />
+
+                                <path
+                                    fill="#34A853"
+                                    d="M9 18c2.43 0 4.468-.806 5.956-2.18l-2.909-2.258c-.806.54-1.835.859-3.047.859-2.344 0-4.328-1.585-5.037-3.714H.956v2.332A9 9 0 0 0 9 18Z"
+                                />
+
+                                <path
+                                    fill="#FBBC05"
+                                    d="M3.963 10.707A5.41 5.41 0 0 1 3.682 9c0-.592.102-1.167.281-1.707V4.961H.956A9 9 0 0 0 0 9c0 1.452.347 2.827.956 4.039l3.007-2.332Z"
+                                />
+
+                                <path
+                                    fill="#EA4335"
+                                    d="M9 3.579c1.321 0 2.507.454 3.441 1.346l2.581-2.581C13.464.892 11.426 0 9 0A9 9 0 0 0 .956 4.961l3.007 2.332C4.672 5.164 6.656 3.579 9 3.579Z"
+                                />
+
+                            </svg>
+
+                            Google
+
+                        </button>
+
+
+
+                        <!-- MICROSOFT -->
+
+                        <button
+                            type="button"
+                            class="social-login-button"
+                            id="microsoftLoginButton"
+                        >
+
+                            <span class="microsoft-icon">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </span>
+
+                            Microsoft
+
+                        </button>
+
+                    </div>
+
+
+
+                    <!-- CREATE ACCOUNT -->
+
+                    <p class="create-account-text">
+
+                        Don't have an account?
+
+                        <a href="/signup">
+                            Create one free
+                        </a>
+
+                    </p>
+
+
+                </form>
 
             </div>
 
         </section>
+    </div>
+</main>
 
-    </main>
-
-
-
-    <!-- ========================================
-         REUSABLE FOOTER
-         We can keep/remove this later
-    ========================================= -->
-
-    <div id="footer"></div>
+<!-- FOOTER -->
+<div id="footer"></div>
 
 
+<script src="./js/header.js"></script>
+<script src="./js/footer.js"></script>
+<script src="./js/app.js"></script>
 
-    <!-- Reusable Header -->
-    <script src="./js/header.js"></script>
+<script>
 
-    <!-- Reusable Footer -->
-    <script src="./js/footer.js"></script>
+    /* ==========================================
+       PASSWORD VISIBILITY
+    ========================================== */
 
-    <!-- General JavaScript -->
-    <script src="./js/app.js"></script>
+    const passwordToggle =
+        document.getElementById("passwordToggle");
 
-<script src="./js/api.js"></script>
+    const passwordInput =
+        document.getElementById("loginPassword");
+
+
+    passwordToggle.addEventListener(
+        "click",
+        function () {
+
+            if (passwordInput.type === "password") {
+
+                passwordInput.type = "text";
+
+            } else {
+
+                passwordInput.type = "password";
+
+            }
+
+        }
+    );
+
+
+
+    /* ==========================================
+       LOGIN
+    ========================================== */
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+
+    loginForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const email =
+                document
+                    .getElementById("loginEmail")
+                    .value
+                    .trim();
+
+
+            const password =
+                document
+                    .getElementById("loginPassword")
+                    .value;
+
+
+            const role =
+                document.querySelector(
+                    'input[name="role"]:checked'
+                )?.value;
+
+
+            const button =
+                document.getElementById(
+                    "loginButton"
+                );
+
+
+            const errorBox =
+                document.getElementById(
+                    "loginError"
+                );
+
+
+            errorBox.textContent = "";
+
+            errorBox.classList.remove(
+                "active"
+            );
+
+
+
+            if (!email || !password) {
+
+                showLoginError(
+                    "Please enter your email and password."
+                );
+
+                return;
+
+            }
+
+
+            if (!role) {
+
+                showLoginError(
+                    "Please select Student or Teacher."
+                );
+
+                return;
+
+            }
+
+
+
+            const originalText =
+                button.textContent;
+
+
+            button.disabled = true;
+
+            button.textContent =
+                "Logging in...";
+
+
+
+            try {
+
+
+                const response =
+                    await fetch(
+                        "/api/auth/login",
+                        {
+
+                            method: "POST",
+
+                            headers: {
+
+                                "Content-Type":
+                                    "application/json",
+
+                                "Accept":
+                                    "application/json"
+
+                            },
+
+
+                            body: JSON.stringify({
+
+                                email: email,
+
+                                password: password,
+
+                                role: role
+
+                            })
+
+                        }
+                    );
+
+
+
+                let result;
+
+
+                try {
+
+                    result =
+                        await response.json();
+
+                } catch {
+
+                    throw new Error(
+                        "Unable to connect to the login service."
+                    );
+
+                }
+
+
+
+                if (!response.ok) {
+
+
+                    let message =
+                        result.message ||
+                        "Login failed. Please check your details.";
+
+
+                    if (result.errors) {
+
+                        const firstError =
+                            Object
+                                .values(result.errors)
+                                .flat()[0];
+
+
+                        if (firstError) {
+
+                            message =
+                                firstError;
+
+                        }
+
+                    }
+
+
+                    throw new Error(
+                        message
+                    );
+
+                }
+
+
+
+                if (
+                    !result.data ||
+                    !result.data.token
+                ) {
+
+                    throw new Error(
+                        "No authentication token was returned."
+                    );
+
+                }
+
+
+
+                const user =
+                    result.data.user;
+
+
+
+                /* SAVE AUTH */
+
+                localStorage.setItem(
+                    "auth_token",
+                    result.data.token
+                );
+
+
+                localStorage.setItem(
+                    "user",
+                    JSON.stringify(user)
+                );
+
+
+                localStorage.setItem(
+                    "userRole",
+                    user.role
+                );
+
+
+
+                /* ROLE REDIRECT */
+
+                if (user.role === "teacher") {
+
+                    window.location.href =
+                        "teacher-dashboard.html";
+
+                } else {
+
+                    window.location.href =
+                        "dashboard.html";
+
+                }
+
+
+            } catch (error) {
+
+
+                showLoginError(
+                    error.message
+                );
+
+
+                button.disabled = false;
+
+                button.textContent =
+                    originalText;
+
+            }
+
+        }
+    );
+
+
+
+    function showLoginError(message) {
+
+        const errorBox =
+            document.getElementById(
+                "loginError"
+            );
+
+
+        errorBox.textContent =
+            message;
+
+
+        errorBox.classList.add(
+            "active"
+        );
+
+    }
+
+</script>
+
+
 </body>
+
+
+
 
 </html>

@@ -3,395 +3,907 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Create Account | Chemistry Solitaire</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-    <!-- Nunito Font -->
+    <title>Create Account | Science Solitaire</title>
+
+
+    <!-- Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
 
     <link
         href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
         rel="stylesheet"
     >
 
-    <!-- Tailwind compiled CSS -->
+
+    <!-- Existing CSS -->
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/style.css">
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* ========================================
+           SIGNUP PAGE
+        ======================================== */
+
+        .signup-page {
+            width: 100%;
+            min-height: calc(100vh - 94px);
+
+            padding: 55px 24px 75px;
+
+            background:
+                linear-gradient(
+                    120deg,
+                    #F4F7FF 0%,
+                    #FFFFFF 72%
+                );
+
+            font-family: "Nunito", sans-serif;
+        }
+
+
+        .signup-container {
+            width: 100%;
+            max-width: 1240px;
+
+            margin: 0 auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            align-items: start;
+
+            gap: 75px;
+        }
+
+
+        /* ========================================
+           LEFT SIDE
+        ======================================== */
+
+        .signup-intro {
+            padding-top: 10px;
+        }
+
+
+        .signup-pill {
+            width: max-content;
+
+            padding: 11px 34px;
+
+            margin-bottom: 24px;
+
+            border-radius: 999px;
+
+            background: #2563FF;
+
+            color: #FFFFFF;
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+
+        .signup-intro h1 {
+            margin: 0;
+
+            color: #14213D;
+
+            font-size: clamp(46px, 5vw, 64px);
+            font-weight: 900;
+
+            line-height: 1.05;
+
+            letter-spacing: -1.6px;
+        }
+
+
+        .signup-intro > p {
+            max-width: 530px;
+
+            margin: 19px 0 0;
+
+            color: #5F6F88;
+
+            font-size: 17px;
+
+            line-height: 28px;
+        }
+
+
+        /* ========================================
+           SCIENCE CARDS
+        ======================================== */
+
+        .signup-subject-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 15px;
+
+            max-width: 560px;
+
+            margin-top: 30px;
+        }
+
+
+        .signup-subject-card {
+            overflow: hidden;
+
+            border-radius: 18px;
+
+            background: #FFFFFF;
+
+            box-shadow:
+                0 15px 35px rgba(20, 33, 61, 0.08);
+        }
+
+
+        .signup-subject-card img {
+            width: 100%;
+            height: auto;
+
+            display: block;
+        }
+
+
+        /* ========================================
+           ACCOUNT CARD
+        ======================================== */
+
+        .signup-card {
+            width: 100%;
+            max-width: 500px;
+
+            margin-left: auto;
+
+            padding: 34px 34px 28px;
+
+            border: 1px solid #EDF1F7;
+            border-radius: 26px;
+
+            background: #FFFFFF;
+
+            box-shadow:
+                0 22px 65px rgba(20, 33, 61, 0.10);
+        }
+
+
+        .signup-card-icon {
+            width: 58px;
+            height: 58px;
+
+            margin: 0 auto 18px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 16px;
+
+            background: #2563FF;
+
+            color: #FFFFFF;
+        }
+
+
+        .signup-card-icon svg {
+            width: 29px;
+            height: 29px;
+        }
+
+
+        .signup-card-heading {
+            margin-bottom: 25px;
+
+            text-align: center;
+        }
+
+
+        .signup-card-heading h2 {
+            margin: 0;
+
+            color: #14213D;
+
+            font-size: 29px;
+            font-weight: 900;
+        }
+
+
+        .signup-card-heading p {
+            margin: 5px 0 0;
+
+            color: #5F6F88;
+
+            font-size: 13px;
+        }
+
+
+        /* ========================================
+           ROLE
+        ======================================== */
+
+        .signup-role-label {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color: #14213D;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+
+        .signup-role-switch {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 5px;
+
+            padding: 5px;
+
+            margin-bottom: 22px;
+
+            border-radius: 12px;
+
+            background: #F1F5F9;
+        }
+
+
+        .signup-role-option {
+            position: relative;
+
+            cursor: pointer;
+        }
+
+
+        .signup-role-option input {
+            position: absolute;
+
+            opacity: 0;
+
+            pointer-events: none;
+        }
+
+
+        .signup-role-content {
+            min-height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            border-radius: 9px;
+
+            color: #64748B;
+
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+
+        .signup-role-content svg {
+            width: 18px;
+            height: 18px;
+        }
+
+
+        .signup-role-option input:checked + .signup-role-content {
+            background: #FFFFFF;
+
+            color: #2563FF;
+
+            box-shadow:
+                0 3px 12px rgba(20, 33, 61, 0.08);
+        }
+
+
+        /* ========================================
+           DIVIDERS
+        ======================================== */
+
+        .signup-divider {
+            display: flex;
+            align-items: center;
+
+            gap: 12px;
+
+            margin: 22px 0 17px;
+
+            color: #B1BBCB;
+
+            font-size: 10px;
+            font-weight: 800;
+
+            letter-spacing: 1px;
+        }
+
+
+        .signup-divider::before,
+        .signup-divider::after {
+            content: "";
+
+            flex: 1;
+
+            height: 1px;
+
+            background: #EDF1F7;
+        }
+
+
+        /* ========================================
+           FIELDS
+        ======================================== */
+
+        .signup-name-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+        }
+
+
+        .signup-field {
+            margin-bottom: 15px;
+        }
+
+
+        .signup-field label {
+            display: block;
+
+            margin-bottom: 6px;
+
+            color: #14213D;
+
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+
+        .signup-field input,
+        .signup-field select {
+            width: 100%;
+            height: 48px;
+
+            padding: 0 14px;
+
+            border: 1px solid #E2E8F0;
+            border-radius: 9px;
+
+            outline: none;
+
+            background: #F8FAFC;
+
+            color: #14213D;
+
+            font-family: "Nunito", sans-serif;
+            font-size: 13px;
+        }
+
+
+        .signup-field input:focus,
+        .signup-field select:focus {
+            border-color: #2563FF;
+
+            box-shadow:
+                0 0 0 3px rgba(37, 99, 255, 0.10);
+        }
+
+
+        .signup-field select:disabled {
+            opacity: 0.7;
+        }
+
+
+        /* Password */
+
+        .signup-password-wrapper {
+            position: relative;
+        }
+
+
+        .signup-password-wrapper input {
+            padding-right: 46px;
+        }
+        
+         .signup-password-toggle {
+            position: absolute;
+
+            top: 50%;
+            right: 12px;
+
+            transform: translateY(-50%);
+
+            width: 30px;
+            height: 30px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 0;
+
+            background: transparent;
+
+            color: #94A3B8;
+
+            cursor: pointer;
+        }
+
+
+        .signup-password-toggle svg {
+            width: 18px;
+            height: 18px;
+        }
+
+
+        /* ========================================
+           TERMS
+        ======================================== */
+
+        .signup-terms {
+            display: flex;
+            align-items: flex-start;
+
+            gap: 9px;
+
+            margin: 4px 0 20px;
+
+            color: #5F6F88;
+
+            font-size: 11px;
+            line-height: 17px;
+        }
+
+
+        .signup-terms input {
+            margin-top: 2px;
+
+            accent-color: #2563FF;
+        }
+
+
+        .signup-terms a {
+            color: #2563FF;
+
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+
+        /* ========================================
+           ERROR
+        ======================================== */
+
+        .signup-error {
+            display: none;
+
+            margin-bottom: 15px;
+
+            padding: 10px 12px;
+
+            border: 1px solid #FECACA;
+            border-radius: 8px;
+
+            background: #FEF2F2;
+
+            color: #DC2626;
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .signup-error.active {
+            display: block;
+        }
+
+
+        /* ========================================
+           BUTTON
+        ======================================== */
+
+        .signup-submit-button {
+            width: 100%;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 0;
+            border-radius: 10px;
+
+            background: #2563FF;
+
+            color: #FFFFFF;
+
+            font-family: "Nunito", sans-serif;
+            font-size: 14px;
+            font-weight: 800;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 10px 25px rgba(37, 99, 255, 0.23);
+        }
+
+
+        .signup-submit-button:disabled {
+            opacity: 0.65;
+
+            cursor: not-allowed;
+        }
+
+
+        .signup-login-link {
+            margin: 18px 0 0;
+
+            color: #94A3B8;
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+
+        .signup-login-link a {
+            color: #2563FF;
+
+            font-weight: 800;
+
+            text-decoration: none;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media screen and (max-width: 900px) {
+
+            .signup-page {
+                padding: 45px 20px 65px;
+            }
+
+            .signup-container {
+                grid-template-columns: 1fr;
+
+                gap: 45px;
+            }
+
+            .signup-intro {
+                text-align: center;
+            }
+
+            .signup-pill {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .signup-intro > p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .signup-subject-cards {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .signup-card {
+                margin: 0 auto;
+            }
+        }
+
+
+        @media screen and (max-width: 600px) {
+
+            .signup-page {
+                padding: 32px 16px 50px;
+            }
+
+            .signup-container {
+                gap: 32px;
+            }
+
+            .signup-intro h1 {
+                font-size: 40px;
+            }
+
+            .signup-intro > p {
+                font-size: 15px;
+                line-height: 24px;
+            }
+
+            .signup-subject-cards {
+                gap: 8px;
+            }
+
+            .signup-card {
+                padding: 27px 20px 25px;
+
+                border-radius: 21px;
+            }
+
+            .signup-name-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
 </head>
 
 
 <body>
 
-    <!-- ========================================
-         REUSABLE HEADER
-    ========================================= -->
+
+    <!-- SHARED HEADER -->
     <div id="header"></div>
 
 
-    <!-- ========================================
-         SIGNUP PAGE CONTENT
-    ========================================= -->
-    <main class="login-page">
 
-        <!-- SIGNUP INTRO -->
-        <section class="login-intro">
+    <main class="signup-page">
 
-            <!-- Sign Up Pill -->
-            <div
-                class="login-pill reveal"
-                data-delay="0"
-                style="background-color: #E0E7FF; color: #4338CA;"
-            >
-                Sign Up
-            </div>
+        <div class="signup-container">
 
-            <!-- Heading -->
-            <h1 class="login-heading reveal" data-delay="120">
-                Authentication
-            </h1>
 
-            <!-- Description -->
-            <p class="login-description reveal" data-delay="240">
-                Login, account creation, and learner profile setup.
-            </p>
+            <!-- ========================================
+                 LEFT SIDE
+            ========================================= -->
 
-            <!-- Chemistry Cards -->
-            <div class="login-cards reveal" data-delay="360">
-                <img
-                    src="./images/login-cards.png"
-                    alt="Chemistry revision cards showing Proton, Shell and Atomic Number"
+            <section class="signup-intro">
+
+
+                <div
+                    class="signup-pill reveal"
+                    data-delay="0"
                 >
-            </div>
+                    Sign Up
+                </div>
 
-        </section>
+
+                <h1
+                    class="reveal"
+                    data-delay="100"
+                >
+                    Authentication
+                </h1>
 
 
-        <!-- ========================================
-             SIGNUP FORM CARD
-        ========================================= -->
-        <section class="login-form-area reveal" data-delay="300">
+                <p
+                    class="reveal"
+                    data-delay="180"
+                >
+                    Login, account creation, and learner profile setup.
+                </p>
 
-            <div
-                class="login-form-card"
-                style="padding-top: 32px; padding-bottom: 32px;"
-            >
 
-                <!-- Card Header -->
-                <div class="login-card-header">
 
-                    <!-- Icon -->
-                    <div
-                        class="login-card-logo"
-                        style="background-color: #EFF6FF; color: #2563EB;"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                            width="24"
-                            height="24"
+                <!-- CARD PNGs -->
+
+                <div
+                    class="signup-subject-cards reveal"
+                    data-delay="260"
+                >
+
+                    <div class="signup-subject-card">
+
+                        <img
+                            src="./images/login-biology.png"
+                            alt="Biology"
                         >
-                            <path
-                                d="M12 12C14.7614 12 17 9.76142 17 7C17 4.23858 14.7614 2 12 2C9.23858 2 7 4.23858 7 7C7 9.76142 9.23858 12 12 12Z"
-                                fill="currentColor"
-                            />
 
-                            <path
-                                d="M12.0002 14.5C6.99023 14.5 2.91023 17.86 2.91023 22C2.91023 22.28 3.13023 22.5 3.41023 22.5H20.5902C20.8702 22.5 21.0902 22.28 21.0902 22C21.0902 17.86 17.0102 14.5 12.0002 14.5Z"
-                                fill="currentColor"
-                            />
-                        </svg>
                     </div>
 
-                    <h2 class="login-card-title">
+
+                    <div class="signup-subject-card">
+
+                        <img
+                            src="./images/login-chemistry.png"
+                            alt="Chemistry"
+                        >
+
+                    </div>
+
+
+                    <div class="signup-subject-card">
+
+                        <img
+                            src="./images/login-physics.png"
+                            alt="Physics"
+                        >
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- ========================================
+                 ACCOUNT CARD
+            ========================================= -->
+
+            <section class="signup-card reveal-scale">
+
+
+                <div class="signup-card-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                    >
+
+                        <circle
+                            cx="12"
+                            cy="12"
+                            r="2.5"
+                            stroke="currentColor"
+                            stroke-width="1.6"
+                        />
+
+                        <ellipse
+                            cx="12"
+                            cy="12"
+                            rx="9"
+                            ry="4"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+
+                        <ellipse
+                            cx="12"
+                            cy="12"
+                            rx="9"
+                            ry="4"
+                            transform="rotate(60 12 12)"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+
+                        <ellipse
+                            cx="12"
+                            cy="12"
+                            rx="9"
+                            ry="4"
+                            transform="rotate(120 12 12)"
+                            stroke="currentColor"
+                            stroke-width="1.5"
+                        />
+
+                    </svg>
+
+                </div>
+
+
+
+                <div class="signup-card-heading">
+
+                    <h2>
                         Create Account
                     </h2>
 
-                    <p class="login-card-subtitle">
-                        Age 13 plus. No payment required.
+                    <p>
+                        Join as a learner � it's free
                     </p>
 
                 </div>
 
 
-                <!-- ========================================
-                     SIGNUP FORM
-                ========================================= -->
+
                 <form
-                    class="login-form"
                     id="registerForm"
-                    action="check-email.html"
+                    novalidate
                 >
 
-                    <!-- First Name -->
-                    <div class="login-field">
-                        <label for="firstName">
-                            First Name
-                        </label>
 
-                        <input
-                            type="text"
-                            id="firstName"
-                            name="firstName"
-                            placeholder="Alex"
-                            autocomplete="given-name"
-                            required
-                        >
-                    </div>
+                    <!-- ROLE -->
+
+                    <span class="signup-role-label">
+                        I am a...
+                    </span>
 
 
-                    <!-- Email -->
-                    <div class="login-field">
-                        <label for="email">
-                            Email Address
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="email"
-                            placeholder="alex@school.ac.uk"
-                            autocomplete="email"
-                            required
-                        >
-                    </div>
+                    <div class="signup-role-switch">
 
 
-                    <!-- Country -->
-<!-- Country -->
-<div class="login-field">
-
-    <label for="country">
-        Country / Education System
-    </label>
-
-    <div style="position: relative;">
-
-        <span
-            id="countryFlag"
-            style="
-                position: absolute;
-                left: 16px;
-                top: 50%;
-                transform: translateY(-50%);
-                font-size: 20px;
-                z-index: 2;
-                pointer-events: none;
-            "
-        >
-            🌍
-        </span>
-
-        <select
-            id="country"
-            name="country"
-            required
-            class="form-select"
-            style="
-                width: 100%;
-                padding: 12px 48px;
-                border-radius: 8px;
-                border: 1px solid #E2E8F0;
-                background-color: #F8FAFC;
-                color: #475569;
-                font-size: 15px;
-                font-weight: 500;
-                font-family: 'Nunito', sans-serif;
-                outline: none;
-                appearance: none;
-            "
-        >
-            <option value="" disabled selected>
-                Select your country
-            </option>
-
-            <option value="UK">
-                United Kingdom
-            </option>
-
-            <option value="Nigeria">
-                Nigeria
-            </option>
-        </select>
-    </div>
-</div>
-
-                    <!-- Education Level -->
-                    <div class="login-field">
-
-                        <label
-                            for="educationLevel"
-                            id="educationLevelLabel"
-                        >
-                            Education Level
-                        </label>
-
-                        <select
-                            id="educationLevel"
-                            name="educationLevel"
-                            required
-                            disabled
-                            class="form-select"
-                            style="
-                                width: 100%;
-                                padding: 12px 16px;
-                                border-radius: 8px;
-                                border: 1px solid #E2E8F0;
-                                background-color: #F8FAFC;
-                                color: #475569;
-                                font-size: 15px;
-                                font-weight: 500;
-                                font-family: 'Nunito', sans-serif;
-                                outline: none;
-                                appearance: none;
-                                background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2394A3B8%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E');
-                                background-repeat: no-repeat;
-                                background-position: right 16px center;
-                                background-size: 16px;
-                            "
-                        >
-                            <option value="" selected>
-                                Select your country first
-                            </option>
-                        </select>
-
-                    </div>
-
-
-                    <!-- Password -->
-                    <div class="login-field">
-
-                        <label for="password">
-                            Password
-                        </label>
-
-                        <div class="password-input-wrapper">
+                        <label class="signup-role-option">
 
                             <input
-                                type="password"
-                                id="password"
-                                name="password"
-                                placeholder="Create a strong password"
-                                autocomplete="new-password"
-                                required
+                                type="radio"
+                                name="role"
+                                value="student"
+                                checked
                             >
 
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
+                            <span class="signup-role-content">
+
                                 <svg
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
                                 >
+
                                     <path
-                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
+                                        d="M3 9L12 4L21 9L12 14L3 9Z"
                                         stroke="currentColor"
                                         stroke-width="1.7"
                                     />
 
-                                    <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="2.5"
+                                    <path
+                                        d="M7 12V16C10 18 14 18 17 16V12"
                                         stroke="currentColor"
                                         stroke-width="1.7"
                                     />
+
                                 </svg>
-                            </button>
 
-                        </div>
-                    </div>
+                                Student
 
+                            </span>
 
-                    <!-- Confirm Password -->
-                    <!-- Confirm Password -->
-                    <div class="login-field">
-                    
-                        <label for="passwordConfirmation">
-                            Confirm Password
                         </label>
-                    
-                        <div class="password-input-wrapper">
-                    
+
+
+
+                        <label class="signup-role-option">
+
                             <input
-                                type="password"
-                                id="passwordConfirmation"
-                                name="passwordConfirmation"
-                                placeholder="Enter your password again"
-                                autocomplete="new-password"
-                                required
+                                type="radio"
+                                name="role"
+                                value="teacher"
                             >
-                    
-                            <button
-                                type="button"
-                                class="password-toggle"
-                                aria-label="Show password"
-                            >
+
+                            <span class="signup-role-content">
+
                                 <svg
                                     viewBox="0 0 24 24"
                                     fill="none"
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    aria-hidden="true"
                                 >
-                                    <path
-                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
-                                        stroke="currentColor"
-                                        stroke-width="1.7"
-                                    />
-                    
+
                                     <circle
-                                        cx="12"
-                                        cy="12"
-                                        r="2.5"
+                                        cx="9"
+                                        cy="8"
+                                        r="3"
                                         stroke="currentColor"
                                         stroke-width="1.7"
                                     />
+
+                                    <path
+                                        d="M3 19V17C3 14.5 5.5 13 9 13C12.5 13 15 14.5 15 17V19"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
                                 </svg>
-                            </button>
-                        </div>
-                    </div>
 
+                                Teacher
 
-                    <!-- Terms Checkbox -->
-                    <div
-                        class="login-field"
-                        style="margin-bottom: 24px;"
-                    >
-
-                        <label
-                            class="terms-checkbox"
-                            style="
-                                display: flex;
-                                align-items: flex-start;
-                                gap: 12px;
-                                cursor: pointer;
-                                font-size: 13px;
-                                font-weight: 600;
-                                color: #64748B;
-                            "
-                        >
-
-                            <input
-                                type="checkbox"
-                                required
-                                style="
-                                    margin-top: 4px;
-                                    width: 16px;
-                                    height: 16px;
-                                    accent-color: #2563EB;
-                                "
-                            >
-
-                            <span>
-                                I agree to the Terms of Use,
-                                Student Info Policy, and Privacy Policy.
                             </span>
 
                         </label>
@@ -399,162 +911,902 @@
                     </div>
 
 
-                    <!-- Submit Button -->
+
+
+<!-- PERSONAL INFO -->
+                    <div class="signup-divider">
+                        PERSONAL INFO
+                    </div>
+
+
+                    <div class="signup-name-grid">
+
+
+                        <div class="signup-field">
+
+                            <label for="firstName">
+                                First Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="firstName"
+                                placeholder="Alex"
+                                autocomplete="given-name"
+                            >
+
+                        </div>
+
+
+                        <div class="signup-field">
+
+                            <label for="lastName">
+                                Last Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="lastName"
+                                placeholder="Smith"
+                                autocomplete="family-name"
+                            >
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="signup-field">
+
+                        <label for="email">
+                            Email Address
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="alex@school.ac.uk"
+                            autocomplete="email"
+                        >
+
+                    </div>
+
+
+
+                    <!-- ACADEMIC BACKGROUND -->
+
+                    <div class="signup-divider">
+                        ACADEMIC BACKGROUND
+                    </div>
+
+
+
+                    <div class="signup-field">
+
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <select id="country">
+
+                            <option value="">
+                                Select your country
+                            </option>
+
+                            <option value="UK">
+                                United Kingdom
+                            </option>
+
+                            <option value="Nigeria">
+                                Nigeria
+                            </option>
+
+                            <option value="US">
+                                United States
+                            </option>
+
+                            <option value="India">
+                                India
+                            </option>
+
+                            <option value="Australia">
+                                Australia
+                            </option>
+
+                            <option value="Canada">
+                                Canada
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+
+                    <div class="signup-field">
+
+                        <label for="school">
+                            School
+                        </label>
+
+                        <input
+                            type="text"
+                            id="school"
+                            placeholder="Select / Type your institution"
+                        >
+
+                    </div>
+
+
+
+                    <div class="signup-field" id="educationLevelField">
+                        <label for="educationLevel">
+                            Education Level
+                        </label>
+                    
+                        <select
+                            id="educationLevel"
+                            disabled
+                        >
+                            <option value="">
+                                Select country first
+                            </option>
+                        </select>
+                    </div>
+
+
+
+                    <!-- SECURITY -->
+
+                    <div class="signup-divider">
+                        SECURITY
+                    </div>
+
+
+
+                    <div class="signup-field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+
+                        <div class="signup-password-wrapper">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Create a strong password"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="signup-password-toggle"
+                                data-target="password"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+
+                                    <path
+                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="signup-field">
+
+                        <label for="passwordConfirmation">
+                            Confirm Password
+                        </label>
+
+
+                        <div class="signup-password-wrapper">
+
+                            <input
+                                type="password"
+                                id="passwordConfirmation"
+                                placeholder="Enter your password again"
+                                autocomplete="new-password"
+                            >
+
+
+                            <button
+                                type="button"
+                                class="signup-password-toggle"
+                                data-target="passwordConfirmation"
+                            >
+
+                                <svg
+                                    viewBox="0 0 24 24"
+                                    fill="none"
+                                >
+
+                                    <path
+                                        d="M2.5 12C4.4 8.5 7.8 6.5 12 6.5C16.2 6.5 19.6 8.5 21.5 12C19.6 15.5 16.2 17.5 12 17.5C7.8 17.5 4.4 15.5 2.5 12Z"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                    <circle
+                                        cx="12"
+                                        cy="12"
+                                        r="2.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.7"
+                                    />
+
+                                </svg>
+
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- TERMS -->
+
+                    <label class="signup-terms">
+
+                        <input
+                            type="checkbox"
+                            id="termsAccepted"
+                        >
+
+                        <span>
+                            I agree to the
+                            <a href="#">Terms of Use</a>,
+                            Student Info Policy, and
+                            <a href="#">Privacy Policy</a>.
+                        </span>
+
+                    </label>
+
+
+
+                    <!-- ERROR -->
+
+                    <div
+                        class="signup-error"
+                        id="signupError"
+                    ></div>
+                    
+                    
+                     <!-- BUTTON -->
+
                     <button
-                        type="submit"
-                        class="login-submit-button"
+                        type="button"
+                        class="signup-submit-button"
+                        id="finalSubmitBtn"
+                        onclick="createAccount()"
                     >
                         Create Account
                     </button>
 
 
-                    <!-- Login Link -->
-                    <p
-                        class="login-create-account"
-                        style="margin-top: 24px;"
-                    >
+
+                    <p class="signup-login-link">
+
                         Already have an account?
-                        <a href="login.html">
+
+                        <a href="/login">
                             Log In
                         </a>
+
                     </p>
+
 
                 </form>
 
-            </div>
+            </section>
 
-        </section>
+        </div>
 
     </main>
 
 
-    <!-- ========================================
-         REUSABLE FOOTER
-    ========================================= -->
+
+    <!-- SHARED FOOTER -->
     <div id="footer"></div>
 
 
-    <!-- ========================================
-         SCRIPTS
-    ========================================= -->
+
+    <!-- EXISTING SHARED JS -->
+
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     <script src="./js/app.js"></script>
 
 
-    <!-- Country → Education Level -->
+
+    <!-- ========================================
+         SIGNUP LOGIC
+    ========================================= -->
+
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-            const countrySelect =
-                document.getElementById("country");
-
-            const educationLevelSelect =
-                document.getElementById("educationLevel");
-
-            const educationLevelLabel =
-                document.getElementById("educationLevelLabel");
-                
-            const countryFlag =
-                document.getElementById("countryFlag");
 
 
-            const educationLevels = {
+        /* ========================================
+           EDUCATION LEVELS
+        ======================================== */
 
-                UK: [
-                    "Year 7",
-                    "Year 8",
-                    "Year 9",
-                    "Year 10",
-                    "Year 11",
-                    "Year 12",
-                    "Year 13"
-                ],
+        const educationLevels = {
 
-                Nigeria: [
-                    "SS1",
-                    "SS2",
-                    "SS3",
-                    "A Level"
-                ]
+            UK: [
+                "Year 7",
+                "Year 8",
+                "Year 9",
+                "Year 10",
+                "Year 11",
+                "Year 12",
+                "Year 13"
+            ],
 
-            };
+            Nigeria: [
+                "SS1",
+                "SS2",
+                "SS3",
+                "UTME/Post secondary"
+            ],
+
+            US: [
+                "Middle School (Grades 6-8)",
+                "High School (Grades 9-12)",
+                "College"
+            ],
+
+            India: [
+                "Class 8",
+                "Class 9",
+                "Class 10",
+                "Class 11",
+                "Class 12"
+            ],
+
+            Australia: [
+                "Year 7",
+                "Year 8",
+                "Year 9",
+                "Year 10",
+                "Year 11",
+                "Year 12"
+            ],
+
+            Canada: [
+                "Grade 7",
+                "Grade 8",
+                "Grade 9",
+                "Grade 10",
+                "Grade 11",
+                "Grade 12"
+            ]
+
+        };
 
 
-            countrySelect.addEventListener("change", function () {
 
-                const country = this.value;
-                
-                if (this.value === "UK") {
-                    countryFlag.textContent = "🇬🇧";
+        const countrySelect =
+            document.getElementById("country");
+
+
+        const educationLevelSelect =
+            document.getElementById(
+                "educationLevel"
+            );
+
+
+
+        countrySelect.addEventListener(
+            "change",
+            function () {
+
+
+                const country =
+                    this.value;
+
+
+                educationLevelSelect.innerHTML =
+                    `<option value="">Select your education level</option>`;
+
+
+                if (
+                    !country ||
+                    !educationLevels[country]
+                ) {
+
+                    educationLevelSelect.disabled =
+                        true;
+
+                    return;
+
                 }
-                
-                if (this.value === "Nigeria") {
-                    countryFlag.textContent = "🇳🇬";
-                }
-
-                educationLevelSelect.innerHTML = "";
-
-                educationLevelSelect.disabled = false;
 
 
-                const placeholder =
-                    document.createElement("option");
-
-                placeholder.value = "";
-                placeholder.disabled = true;
-                placeholder.selected = true;
+                educationLevelSelect.disabled =
+                    false;
 
 
-                if (country === "UK") {
+                educationLevels[country]
+                    .forEach((level) => {
 
-                    educationLevelLabel.textContent =
-                        "Year Group";
-
-                    placeholder.textContent =
-                        "Select your year group";
-
-                }
-
-                else if (country === "Nigeria") {
-
-                    educationLevelLabel.textContent =
-                        "School Level";
-
-                    placeholder.textContent =
-                        "Select your school level";
-
-                }
-
-
-                educationLevelSelect.appendChild(
-                    placeholder
-                );
-
-
-                educationLevels[country].forEach(
-                    function (level) {
 
                         const option =
-                            document.createElement("option");
+                            document.createElement(
+                                "option"
+                            );
 
-                        option.value = level;
-                        option.textContent = level;
 
-                        educationLevelSelect.appendChild(
-                            option
-                        );
+                        option.value =
+                            level;
+
+
+                        option.textContent =
+                            level;
+
+
+                        educationLevelSelect
+                            .appendChild(option);
+
+                    });
+
+
+            }
+        );
+
+
+
+        /* ========================================
+           PASSWORD TOGGLE
+        ======================================== */
+
+        document
+            .querySelectorAll(
+                ".signup-password-toggle"
+            )
+            .forEach((button) => {
+
+
+                button.addEventListener(
+                    "click",
+                    function () {
+
+
+                        const target =
+                            document.getElementById(
+                                this.dataset.target
+                            );
+
+
+                        if (!target) return;
+
+
+                        target.type =
+                            target.type === "password"
+                                ? "text"
+                                : "password";
+
 
                     }
                 );
 
+
             });
 
-        });
+
+
+
+
+/* ========================================
+   STUDENT / TEACHER FORM SWITCHER
+======================================== */
+
+const roleInputs =
+    document.querySelectorAll(
+        'input[name="role"]'
+    );
+
+const educationLevelField =
+    document.getElementById(
+        "educationLevelField"
+    );
+
+
+function updateSignupForm() {
+
+    const role =
+        document.querySelector(
+            'input[name="role"]:checked'
+        )?.value;
+
+
+    if (role === "teacher") {
+
+        /* Hide education level for teachers */
+
+        educationLevelField.style.display =
+            "none";
+
+        educationLevelSelect.value = "";
+
+        educationLevelSelect.disabled =
+            true;
+
+    } else {
+
+        /* Show education level for students */
+
+        educationLevelField.style.display =
+            "block";
+
+
+       if (countrySelect.value) {
+
+    countrySelect.dispatchEvent(
+        new Event("change")
+    );
+
+        } else {
+
+            educationLevelSelect.disabled =
+                true;
+
+        }
+
+    }
+
+}
+
+
+roleInputs.forEach((input) => {
+
+    input.addEventListener(
+        "change",
+        updateSignupForm
+    );
+
+});
+
+
+updateSignupForm();
+
+
+
+        /* ========================================
+           CREATE ACCOUNT
+        ======================================== */
+
+        window.createAccount =
+            async function () {
+
+
+                const button =
+                    document.getElementById(
+                        "finalSubmitBtn"
+                    );
+
+
+                const errorBox =
+                    document.getElementById(
+                        "signupError"
+                    );
+
+
+                errorBox.classList.remove(
+                    "active"
+                );
+
+
+                errorBox.textContent = "";
+
+
+
+                const firstName =
+                    document
+                        .getElementById("firstName")
+                        .value
+                        .trim();
+
+
+                const lastName =
+                    document
+                        .getElementById("lastName")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                const country =
+                    document
+                        .getElementById("country")
+                        .value;
+
+
+                const educationLevel =
+                    document
+                        .getElementById(
+                            "educationLevel"
+                        )
+                        .value;
+
+
+                const school =
+                    document
+                        .getElementById("school")
+                        .value
+                        .trim();
+
+
+                const password =
+                    document
+                        .getElementById("password")
+                        .value;
+
+
+                const passwordConfirmation =
+                    document
+                        .getElementById(
+                            "passwordConfirmation"
+                        )
+                        .value;
+
+
+                const role =
+                    document.querySelector(
+                        'input[name="role"]:checked'
+                    )?.value;
+
+
+                const terms =
+                    document.getElementById(
+                        "termsAccepted"
+                    ).checked;
+
+
+
+                /* VALIDATION */
+
+                if (
+                    !firstName ||
+                    !lastName ||
+                    !email ||
+                    !country ||
+                    !password ||
+                    !passwordConfirmation ||
+                    (role === "student" && !educationLevel)
+                ) {
+
+                    showSignupError(
+                        "Please complete all required fields."
+                    );
+
+                    return;
+
+                }
+
+
+                if (
+                    password !==
+                    passwordConfirmation
+                ) {
+
+                    showSignupError(
+                        "Passwords do not match."
+                    );
+
+                    return;
+
+                }
+
+
+                if (!terms) {
+
+                    showSignupError(
+                        "Please accept the terms and privacy policy."
+                    );
+
+                    return;
+
+                }
+
+
+
+                const originalText =
+                    button.textContent;
+
+
+                button.disabled = true;
+
+                button.textContent =
+                    "Creating Account...";
+
+
+
+                try {
+
+
+                    const response =
+                        await fetch(
+                            "/api/auth/register",
+                            {
+
+                                method: "POST",
+
+                                headers: {
+
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Accept":
+                                        "application/json"
+
+                                },
+
+
+                                body: JSON.stringify({
+
+                                    name:
+                                        `${firstName} ${lastName}`,
+
+                                    email: email,
+
+                                    password: password,
+
+                                    password_confirmation:
+                                        passwordConfirmation,
+
+                                    country: country,
+
+                                    education_level:
+                                        educationLevel,
+
+                                    role: role,
+
+                                    school: school
+
+                                })
+
+                            }
+                        );
+
+
+
+                    const result =
+                        await response.json();
+
+
+
+                    if (!response.ok) {
+
+
+                        let message =
+                            result.message ||
+                            "Unable to create your account.";
+
+
+                        if (result.errors) {
+
+
+                            const firstKey =
+                                Object.keys(
+                                    result.errors
+                                )[0];
+
+
+                            message =
+                                result.errors[firstKey][0];
+
+                        }
+
+
+                        throw new Error(message);
+
+                    }
+
+
+
+                    /* SAVE AUTH */
+
+                    localStorage.setItem(
+                        "auth_token",
+                        result.data.token
+                    );
+
+
+                    localStorage.setItem(
+                        "user",
+                        JSON.stringify(
+                            result.data.user
+                        )
+                    );
+
+
+                    localStorage.setItem(
+                        "userRole",
+                        role
+                    );
+
+
+
+                    /* NEXT PAGE */
+
+                    window.location.href =
+                        "/check-email";
+
+
+                } catch (error) {
+
+
+                    showSignupError(
+                        error.message
+                    );
+
+
+                    button.disabled =
+                        false;
+
+
+                    button.textContent =
+                        originalText;
+
+                }
+
+
+            };
+
+
+
+        function showSignupError(message) {
+
+            const errorBox =
+                document.getElementById(
+                    "signupError"
+                );
+
+
+            errorBox.textContent =
+                message;
+
+
+            errorBox.classList.add(
+                "active"
+            );
+
+        }
+
+
     </script>
 
-
-    <script src="./js/api.js"></script>
 
 </body>
 

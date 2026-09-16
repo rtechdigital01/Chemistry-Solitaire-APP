@@ -1,18 +1,16 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const headerContainer =
-        document.getElementById("header");
+    const headerContainer = document.getElementById("header");
 
     if (!headerContainer) {
         return;
     }
 
-    const isLoggedIn =
-        !!localStorage.getItem("auth_token");
+    const isLoggedIn = !!localStorage.getItem("auth_token");
 
 
     /* ========================================
-       INSERT REUSABLE HEADER
+       INSERT HEADER
     ======================================== */
 
     headerContainer.innerHTML = `
@@ -20,75 +18,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="header-inner">
 
-                <!-- Logo -->
+                <!-- LOGO -->
                 <a href="/" class="brand">
-
-                    <div class="brand-icon">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="3"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="9"
-                                ry="4"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="9"
-                                ry="4"
-                                transform="rotate(60 12 12)"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="9"
-                                ry="4"
-                                transform="rotate(120 12 12)"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                        </svg>
-
-                    </div>
-
-                    <span>Science Solitaire</span>
-
+                    <img
+                        src="/images/logo.png"
+                        alt="Science Solitaire"
+                        class="brand-logo"
+                        style="
+                            width:120px;
+                            max-width:120px;
+                            height:auto;
+                            display:block;
+                            object-fit:contain;
+                        "
+                    >
                 </a>
 
 
-                <!-- Desktop Navigation -->
+                <!-- DESKTOP NAVIGATION -->
                 <nav class="header-nav">
 
                     <a href="/why-solitaire">
                         Why SciSolitaire?
                     </a>
 
-                    <a href="/gameplay">
-                        Gameplay Preview
-                    </a>
+                    <span
+                        style="
+                            opacity:0.55;
+                            cursor:not-allowed;
+                            white-space:nowrap;
+                        "
+                    >
+                        Gameplay Preview &#128274;
+                    </span>
 
                     <a href="/curriculum">
-                        Science Curriculum
+                        Progress & Feedback
                     </a>
 
                     <a href="/about">
@@ -133,13 +98,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 </nav>
 
 
-                <!-- Hamburger -->
+                <!-- MOBILE HAMBURGER -->
                 <button
                     class="mobile-menu-button"
                     id="mobileMenuButton"
                     type="button"
                     aria-label="Open navigation"
                     aria-expanded="false"
+                    onclick="
+                        const nav = document.getElementById('mobileNav');
+                        const open = nav.classList.toggle('active');
+                        this.setAttribute('aria-expanded', open ? 'true' : 'false');
+                    "
                 >
                     <span></span>
                     <span></span>
@@ -149,7 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
             </div>
 
 
-            <!-- Mobile Navigation -->
+            <!-- MOBILE NAVIGATION -->
             <nav
                 class="mobile-nav"
                 id="mobileNav"
@@ -159,12 +129,17 @@ document.addEventListener("DOMContentLoaded", () => {
                     Why SciSolitaire?
                 </a>
 
-                <a href="/gameplay">
-                    Gameplay Preview
-                </a>
+                <span
+                    style="
+                        opacity:0.55;
+                        cursor:not-allowed;
+                    "
+                >
+                    Gameplay Preview &#128274;
+                </span>
 
                 <a href="/curriculum">
-                    Science Curriculum
+                    Progress & Feedback
                 </a>
 
                 <a href="/about">
@@ -196,59 +171,44 @@ document.addEventListener("DOMContentLoaded", () => {
     ======================================== */
 
     const mobileMenuButton =
-        headerContainer.querySelector(
-            "#mobileMenuButton"
-        );
+        headerContainer.querySelector("#mobileMenuButton");
 
     const mobileNav =
-        headerContainer.querySelector(
-            "#mobileNav"
-        );
+        headerContainer.querySelector("#mobileNav");
 
 
-    if (!mobileMenuButton || !mobileNav) {
-        return;
-    }
+    if (mobileMenuButton && mobileNav) {
 
-
-    mobileMenuButton.addEventListener(
-        "click",
-        () => {
+        mobileMenuButton.addEventListener("click", () => {
 
             const isOpen =
-                mobileNav.classList.toggle(
-                    "active"
-                );
+                mobileNav.classList.toggle("active");
 
             mobileMenuButton.setAttribute(
                 "aria-expanded",
                 isOpen ? "true" : "false"
             );
 
-        }
-    );
+        });
 
 
-    mobileNav
-        .querySelectorAll("a")
-        .forEach((link) => {
+        mobileNav
+            .querySelectorAll("a")
+            .forEach((link) => {
 
-            link.addEventListener(
-                "click",
-                () => {
+                link.addEventListener("click", () => {
 
-                    mobileNav.classList.remove(
-                        "active"
-                    );
+                    mobileNav.classList.remove("active");
 
                     mobileMenuButton.setAttribute(
                         "aria-expanded",
                         "false"
                     );
 
-                }
-            );
+                });
 
-        });
+            });
+
+    }
 
 });

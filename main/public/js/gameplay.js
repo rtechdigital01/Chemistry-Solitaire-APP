@@ -64,6 +64,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let incorrectMatches = 0;
     let hintsUsed = 0;
     let totalCards = 0;
+    let allCategories = [];
+    let unlockedCategoryCount = 2;
 
 
     /* ========================================
@@ -322,66 +324,132 @@ function attachStackEvents() {
                     }
 
 
-                    selectedCard.remove();
-
+                    // === FLYING ANIMATION ===
+                    // 1. Get positions
+                    const cardRect = selectedCard.getBoundingClientRect();
+                    const stackRect = stack.getBoundingClientRect();
+                    
+                    // 2. Clone the card for animation
+                    const flyingCard = selectedCard.cloneNode(true);
+                    
+                    // 3. Set starting position
+                    flyingCard.style.position = 'fixed';
+                    flyingCard.style.left = cardRect.left + 'px';
+                    flyingCard.style.top = cardRect.top + 'px';
+                    flyingCard.style.width = cardRect.width + 'px';
+                    flyingCard.style.height = cardRect.height + 'px';
+                    flyingCard.style.margin = '0';
+                    flyingCard.style.zIndex = '9999';
+                    flyingCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
+                    flyingCard.style.pointerEvents = 'none';
+                    
+                    document.body.appendChild(flyingCard);
+                    
+                    // 4. Hide original card immediately so it doesn't leave a gap
+                    selectedCard.style.visibility = 'hidden';
+                    const cardToRemove = selectedCard;
                     selectedCard = null;
 
-                    updateProgress();
+                    // 5. Trigger animation
+                    requestAnimationFrame(() => {
+                        flyingCard.style.left = (stackRect.left + (stackRect.width / 2) - (cardRect.width / 2)) + 'px';
+                        flyingCard.style.top = (stackRect.top + (stackRect.height / 2) - (cardRect.height / 2)) + 'px';
+                        flyingCard.style.transform = 'scale(0.3)';
+                        flyingCard.style.opacity = '0';
+                    });
+                    
+                    // 6. Cleanup after animation
+                    setTimeout(() => {
+                        flyingCard.remove();
+                        cardToRemove.remove();
+                        
+                        updateProgress();
 
-
-                    /* LEVEL COMPLETE */
-
-                    if (
-                        cardsPlaced === totalCards
-                    ) {
-
-                        if (banner) {
-
-                            banner.className =
-                                "game-info-banner";
-
-                            banner.textContent =
-                                "Excellent! Board completed 🎉";
+                        /* LEVEL COMPLETE */
+                        /* ROUND COMPLETE */
+                        if (cardsPlaced === totalCards) {
+                        
+                            if (unlockedCategoryCount < allCategories.length) {
+                        
+                                unlockedCategoryCount++;
+                        
+                                if (banner) {
+                                    banner.className = "game-info-banner";
+                                    banner.textContent =
+                                        `Great work! Category ${unlockedCategoryCount} unlocked.`;
+                                }
+                        
+                                setTimeout(() => {
+                        
+                                    renderBoard(
+                                        { categories: allCategories },
+                                        false
+                                    );
+                        
+                                }, 900);
+                        
+                            } else {
+                        
+                                if (banner) {
+                                    banner.className = "game-info-banner";
+                                    banner.textContent =
+                                        "Excellent! All categories completed 🎉";
+                                        
+                                        showGamePopup(
+                                        "Congratulations! You completed all categories in this level. View your scores to see your progress.",
+                                        "success"
+                                    );
+                                }
+                        
+                                    if (finishLevelBtn) {
+                                    
+                                        finishLevelBtn.disabled = false;
+                                    
+                                        finishLevelBtn.textContent = "View Scores";
+                                    
+                                        finishLevelBtn.style.display = "flex";
+                                    
+                                        finishLevelBtn.className =
+                                            "bottom-game-btn shuffle-btn";
+                                    }
+                                    
+                                    if (redealBtn) {
+                                        redealBtn.style.display = "none";
+                                    }
+                                    
+                                    if (hintBtn) {
+                                        hintBtn.style.display = "none";
+                                    }
+                            }
+                        
+                        } else {
+                            if (banner) {
+                                banner.className = "game-info-banner";
+                                banner.textContent = `Correct! ${cardName} has been placed successfully.`;
+                            }
                         }
-
-                        if (finishLevelBtn) {
-                            finishLevelBtn.disabled =
-                                false;
-                        }
-
-                    } else {
-
-                        if (banner) {
-
-                            banner.className =
-                                "game-info-banner";
-
-                            banner.textContent =
-                                `Correct! ${cardName} has been placed successfully.`;
-                        }
-
-                    }
-
+                    }, 500);
                 }
-
 
                 /* ============================
                    INCORRECT MATCH
                 ============================ */
 
                 else {
-
                     incorrectMatches++;
-
+                    showGamePopup(
+                        "Oops! That card does not belong to this category. Try again.",
+                        "error"
+                    );
+                
                     if (banner) {
-
+                
                         banner.className =
                             "game-info-banner";
-
+                
                         banner.textContent =
                             "Not quite. Try another foundation stack.";
                     }
-
                 }
 
             });
@@ -394,23 +462,27 @@ function attachStackEvents() {
     /* ========================================
        RENDER BOARD
     ======================================== */
-function renderBoard(board) {
+function renderBoard(board, resetGame = true) {
 
         cardsGrid.innerHTML = "";
         stacksGrid.innerHTML = "";
 
         selectedCard = null;
-
-        score = 0;
-        moves = 0;
         cardsPlaced = 0;
-        incorrectMatches = 0;
-
         totalCards = 0;
+        if (resetGame) {
+            score = 0;
+            moves = 0;
+            incorrectMatches = 0;
+            hintsUsed = 0;
+        }
 
 
-        board.categories.forEach(
-            (category, index) => {
+       allCategories = board.categories;
+        allCategories
+            .slice(0, unlockedCategoryCount)
+            .forEach(
+                (category, index) => {
 
                 const style =
                     categoryStyles[
@@ -431,20 +503,36 @@ function renderBoard(board) {
 
                 stack.dataset.categoryId =
                     String(category.id);
+                    
+                    
 
-                stack.innerHTML = `
+               stack.innerHTML = `
+                    <div class="category-card-top">
+                
+                        <span class="category-crown">
+                            ♛
+                        </span>
+                
+                        <div class="category-progress">
+                            <span class="stack-current-count">0</span>/<span>${category.cards.length}</span>
+                        </div>
+                
+                    </div>
+                
+                    <div class="category-icon-circle">
+                
+                        ${chemistryIcon()}
+                
+                    </div>
+                
                     <div class="stack-title">
                         ${category.name}
                     </div>
-
-                    <div class="stack-count ${style.text}">
-                        <span class="stack-current-count">
-                            0
-                        </span>
-
-                        <span class="count-total">
-                            /${category.cards.length}
-                        </span>
+                
+                    <div class="category-card-divider"></div>
+                
+                    <div class="category-bottom-badge">
+                        ${category.name.charAt(0).toUpperCase()}
                     </div>
                 `;
 
@@ -475,22 +563,10 @@ function renderBoard(board) {
                             category.name;
 
                         card.innerHTML = `
-                            <div class="card-icon-top">
-                                ${chemistryIcon()}
-                            </div>
-
-                            <div class="card-icon-center ${style.icon}">
-                                ${chemistryIcon()}
-                            </div>
-
-                            <div class="card-name">
-                                ${cardText}
-                            </div>
-
-                            <div class="card-category ${style.text}">
-                                ${category.name.toUpperCase()}
-                            </div>
-                        `;
+                                <div class="card-name">
+                                    ${cardText}
+                                </div>
+                            `;
 
                         cardsGrid.appendChild(card);
                     }
@@ -515,11 +591,11 @@ function renderBoard(board) {
 
 
         if (scoreElement) {
-            scoreElement.textContent = "0";
+            scoreElement.textContent = score;
         }
 
         if (movesElement) {
-            movesElement.textContent = "0";
+            movesElement.textContent = moves;
         }
 
         if (cardsElement) {
@@ -592,12 +668,14 @@ function renderBoard(board) {
 
         try {
 
+            const urlParamsLocal = new URLSearchParams(window.location.search);
+            const subject = urlParamsLocal.get('subject') || 'chemistry';
+
             const url =
-                `/api/chemistry/board` +
+                `/api/${encodeURIComponent(subject)}/board` +
                 `?deck=${encodeURIComponent(deck)}` +
                 `&key_stage=${encodeURIComponent(keyStage)}` +
                 `&difficulty=${encodeURIComponent(difficulty)}`;
-
 
             const response =
                 await fetch(url, {
@@ -919,6 +997,102 @@ if (redealBtn) {
 
     }
 
+
+
+
+
+function showGamePopup(message, type = "success") {
+
+    const oldPopup =
+        document.getElementById("gamePopup");
+
+    if (oldPopup) {
+        oldPopup.remove();
+    }
+
+    const popup =
+        document.createElement("div");
+
+    popup.id = "gamePopup";
+
+    popup.innerHTML = `
+        <div style="
+            position:fixed;
+            inset:0;
+            background:rgba(20,33,61,0.35);
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            z-index:99999;
+            padding:20px;
+        ">
+
+            <div style="
+                width:100%;
+                max-width:380px;
+                background:#FFFFFF;
+                border-radius:22px;
+                padding:32px 28px;
+                text-align:center;
+                box-shadow:0 20px 60px rgba(20,33,61,0.18);
+                font-family:Nunito,sans-serif;
+            ">
+
+                <div style="
+                    width:62px;
+                    height:62px;
+                    margin:0 auto 18px;
+                    border-radius:50%;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:30px;
+                    background:${type === "error" ? "#FEECEC" : "#FFF3C4"};
+                ">
+                    ${type === "error" ? "✕" : "🎉"}
+                </div>
+
+                <div style="
+                    color:#14213D;
+                    font-size:20px;
+                    font-weight:900;
+                    line-height:1.3;
+                ">
+                    ${message}
+                </div>
+
+                <button
+                    type="button"
+                    id="gamePopupClose"
+                    style="
+                        margin-top:24px;
+                        min-width:130px;
+                        height:46px;
+                        border:0;
+                        border-radius:999px;
+                        background:#2563FF;
+                        color:white;
+                        font-family:Nunito,sans-serif;
+                        font-size:14px;
+                        font-weight:800;
+                        cursor:pointer;
+                    "
+                >
+                    Continue
+                </button>
+
+            </div>
+        </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    document
+        .getElementById("gamePopupClose")
+        .addEventListener("click", () => {
+            popup.remove();
+        });
+}
 
     /* ========================================
        START

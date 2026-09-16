@@ -15,13 +15,14 @@ class AuthService
    public function register(array $data): array
 {
     $user = User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-        'country' => $data['country'],
-        'education_level' => $data['education_level'],
-        'key_stage' => $data['key_stage'],
-    ]);
+    'name' => $data['name'],
+    'email' => $data['email'],
+    'password' => Hash::make($data['password']),
+    'country' => $data['country'],
+    'education_level' => $data['education_level'],
+    'key_stage' => $data['key_stage'],
+    'role' => $data['role'],
+]);
 
     $token = $user->createToken('auth_token')->plainTextToken;
 
@@ -33,23 +34,35 @@ class AuthService
     /**
      * Authenticate user and return the token.
      */
-    public function login(array $data): array
-    {
-        $user = User::where('email', $data['email'])->first();
+public function login(array $data): array
+{
+    $user = User::where('email', $data['email'])->first();
 
-        if (!$user || !Hash::check($data['password'], $user->password)) {
-            throw ValidationException::withMessages([
-                'email' => ['The provided credentials are incorrect.'],
-            ]);
-        }
-
-        $token = $user->createToken('auth_token')->plainTextToken;
-
-        return [
-            'user' => $user,
-            'token' => $token,
-        ];
+    if (!$user || !Hash::check($data['password'], $user->password)) {
+        throw ValidationException::withMessages([
+            'email' => ['The provided credentials are incorrect.'],
+        ]);
     }
+
+    if ($user->role !== $data['role']) {
+        throw ValidationException::withMessages([
+            'role' => [
+                'This account is registered as a '
+                . ucfirst($user->role)
+                . '. Please select '
+                . ucfirst($user->role)
+                . ' to continue.'
+            ],
+        ]);
+    }
+
+    $token = $user->createToken('auth_token')->plainTextToken;
+
+    return [
+        'user' => $user,
+        'token' => $token,
+    ];
+}
 
     /**
      * Update user's profile.

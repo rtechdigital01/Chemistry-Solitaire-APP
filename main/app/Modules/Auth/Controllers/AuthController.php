@@ -23,12 +23,13 @@ class AuthController extends Controller
 public function register(Request $request): JsonResponse
 {
     $data = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|string|email|max:255|unique:users',
-        'password' => 'required|string|min:8|confirmed',
-        'country' => 'required|string|in:UK,Nigeria',
-        'education_level' => 'required|string|max:20',
-    ]);
+    'name' => 'required|string|max:255',
+    'email' => 'required|string|email|max:255|unique:users',
+    'password' => 'required|string|min:8|confirmed',
+    'country' => 'required|string|in:UK,Nigeria',
+    'education_level' => 'nullable|required_if:role,student|string|max:20',
+    'role' => 'required|string|in:student,teacher',
+]);
 
     $levelMap = [
         'UK' => [
@@ -48,6 +49,8 @@ public function register(Request $request): JsonResponse
         ],
     ];
 
+if ($data['role'] === 'student') {
+
     if (!isset($levelMap[$data['country']][$data['education_level']])) {
         return response()->json([
             'status' => 'Error',
@@ -57,6 +60,12 @@ public function register(Request $request): JsonResponse
 
     $data['key_stage'] =
         $levelMap[$data['country']][$data['education_level']];
+
+} else {
+
+    $data['education_level'] = null;
+    $data['key_stage'] = null;
+}
 
     $result = $this->authService->register($data);
 
@@ -69,20 +78,21 @@ public function register(Request $request): JsonResponse
 
 
 
-    public function login(Request $request): JsonResponse
-    {
-        $data = $request->validate([
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
+public function login(Request $request): JsonResponse
+{
+    $data = $request->validate([
+        'email' => 'required|string|email',
+        'password' => 'required|string',
+        'role' => 'required|string|in:student,teacher',
+    ]);
 
-        $result = $this->authService->login($data);
+    $result = $this->authService->login($data);
 
-        return $this->successResponse(
-            $result,
-            'User logged in successfully'
-        );
-    }
+    return $this->successResponse(
+        $result,
+        'User logged in successfully'
+    );
+}
 
     public function logout(Request $request): JsonResponse
     {

@@ -1,0 +1,708 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | Science Solitaire</title>
+
+
+    <!-- Nunito Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+     <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body>
+
+    <!-- ========================================
+         REUSABLE HEADER
+    ========================================= -->
+
+    <div id="header"></div>
+    
+    
+    
+    
+    
+<!-- =========================================
+     ABOUT HERO
+========================================= -->
+
+    <main class="about-page">
+
+    <!-- =========================================
+         ABOUT HERO
+    ========================================== -->
+    <section class="about-switcher-section">
+
+        <div class="about-switcher-container">
+
+            <div class="about-main-intro reveal">
+
+                <div class="about-main-badge">
+                    <span class="about-main-badge-dot"></span>
+                    ABOUT SCISOLITAIRE
+                </div>
+
+                <h1>
+                    Built for Curiosity,
+                    <span>Designed for Mastery</span>
+                </h1>
+
+                <p>
+                    Discover how SciSolitaire transforms science learning into
+                    an interactive, accessible and rewarding experience through
+                    meaningful connections and play.
+                </p>
+
+            </div>
+
+
+            <!-- TAB PILLS -->
+            <div class="about-tabs reveal" role="tablist">
+
+                <button
+                    class="about-tab active"
+                    id="gameTab"
+                    type="button"
+                    role="tab"
+                    aria-selected="true"
+                    aria-controls="aboutGame"
+                    data-target="aboutGame"
+                >
+                    <span class="about-tab-icon">♟</span>
+                    About the Game
+                </button>
+
+                <button
+                    class="about-tab"
+                    id="websiteTab"
+                    type="button"
+                    role="tab"
+                    aria-selected="false"
+                    aria-controls="aboutWebsite"
+                    data-target="aboutWebsite"
+                >
+                    <span class="about-tab-icon">◉</span>
+                    About the Platform
+                </button>
+
+            </div>
+
+
+            <!-- =========================================
+                 ABOUT THE GAME
+            ========================================== -->
+            <div
+                class="about-tab-panel active"
+                id="aboutGame"
+                role="tabpanel"
+                aria-labelledby="gameTab"
+            >
+
+                <article class="about-feature-card reveal-scale">
+
+                    <div class="about-feature-header">
+
+                        <div class="about-feature-heading">
+
+                            <div class="about-feature-icon">
+                                <span>◉</span>
+                            </div>
+
+                            <div>
+                                <span class="about-eyebrow">
+                                    GAME ARCHITECTURE
+                                </span>
+
+                                <h2>About the Game</h2>
+                            </div>
+
+                        </div>
+
+                        <span class="about-status-pill">
+                            Interactive Science Puzzle
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-feature-description">
+
+                        <p>
+                            SciSolitaire turns science concepts into
+                            category-based card challenges. Instead of simply
+                            memorising isolated facts, learners identify
+                            relationships between terms, properties, processes,
+                            diagrams, examples and scientific ideas. 
+                            Each challenge asks learners to sort cards into the correct scientific categories, helping strenghten recall while developing an understanding of how scientific ideas connect.
+                        </p>
+
+                    </div>
+
+
+                    <div class="about-feature-divider"></div>
+
+
+                    <div class="about-subheading">CORE GAME MECHANICS:</div>
+
+<div class="game-mechanics-grid">
+
+    <!-- 1 -->
+    <div class="game-mechanic-card blue-card reveal-scale">
+        <div class="mechanic-top">
+            <div class="mechanic-icon-box blue-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 4 4 8l8 4 8-4-8-4Z"></path>
+                    <path d="m4 12 8 4 8-4"></path>
+                    <path d="m4 16 8 4 8-4"></path>
+                </svg>
+            </div>
+            <h3 class="mechanic-title blue-text">Supportive Learning</h3>
+        </div>
+
+        <p class="mechanic-description">
+            Mistakes lead to hints, explanations and opportunities to retry rather than harsh failure screens.
+        </p>
+    </div>
+
+    <!-- 2 -->
+    <div class="game-mechanic-card gold-card reveal-scale">
+        <div class="mechanic-top">
+            <div class="mechanic-icon-box gold-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="8"></circle>
+                    <circle cx="12" cy="12" r="4.5"></circle>
+                    <path d="M12 9.2v5.6"></path>
+                    <path d="M10.2 10.8c.35-.9 1.2-1.4 2.2-1.4 1.2 0 2 .6 2 1.55 0 .9-.64 1.35-1.84 1.63l-.72.16c-1.06.24-1.66.72-1.66 1.66 0 .98.84 1.66 2.12 1.66 1.07 0 1.92-.45 2.35-1.34"></path>
+                </svg>
+            </div>
+            <h3 class="mechanic-title gold-text">Connection-Based Matching</h3>
+        </div>
+
+        <p class="mechanic-description">
+            Match science cards with the category they belong to and learn through meaningful scientific relationships.
+        </p>
+    </div>
+
+    <!-- 3 -->
+    <div class="game-mechanic-card green-card reveal-scale">
+        <div class="mechanic-top">
+            <div class="mechanic-icon-box green-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 12a9 9 0 1 0 3-6.7"></path>
+                    <path d="M3 4v5h5"></path>
+                </svg>
+            </div>
+            <h3 class="mechanic-title green-text">Immediate Feedback</h3>
+        </div>
+
+        <p class="mechanic-description">
+            Recieve clear feedback on matches, helping learners recognize errors and strengthen scientific understanding.
+        </p>
+    </div>
+
+    <!-- 4 -->
+    <div class="game-mechanic-card purple-card reveal-scale">
+        <div class="mechanic-top">
+            <div class="mechanic-icon-box purple-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M4 16l6-6 4 4 6-6"></path>
+                    <path d="M15 8h5v5"></path>
+                </svg>
+            </div>
+            <h3 class="mechanic-title purple-text">Progressive Challenge</h3>
+        </div>
+
+        <p class="mechanic-description">
+            Move through increasingly challenging science content as knowledge, accuracy and confidence develop.
+        </p>
+    </div>
+
+</div>
+
+                    <div class="about-card-footer">
+
+                        <p>
+                            Ready to start making science connections?
+                        </p>
+
+                        <a href="/signup" class="about-primary-btn">
+                            Start Learning Free
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            <!-- =========================================
+                 ABOUT THE WEBSITE
+            ========================================== -->
+            <div
+                class="about-tab-panel"
+                id="aboutWebsite"
+                role="tabpanel"
+                aria-labelledby="websiteTab"
+                hidden
+            >
+
+                <article class="about-feature-card reveal-scale">
+
+                    <div class="about-feature-header">
+
+                        <div class="about-feature-heading">
+
+                            <div class="about-feature-icon website-icon">
+                                ◉
+                            </div>
+
+                            <div>
+                                <span class="about-eyebrow">
+                                    EDUCATIONAL MISSION
+                                </span>
+
+                                <h2>About the Platform</h2>
+                            </div>
+
+                        </div>
+
+                        <span class="about-status-pill safe-pill">
+                            Learner-Focused
+                        </span>
+
+                    </div>
+
+
+                    <div class="about-feature-description">
+
+                        <p>
+                            SciSolitaire is an interactive science learning
+                            platform created to make Biology, Chemistry and
+                            Physics more approachable, engaging and easier to
+                            understand. The platform combines science education, accessibilty and game-based learning to provide learners with short, visual and rewarding learning experiences across different educational pathways.
+                        </p>
+                    </div>
+
+
+                    <div class="about-feature-divider"></div>
+
+
+                    <div class="about-subheading">
+                        PLATFORM COMMITMENTS:
+                    </div>
+
+
+                    <div class="platform-commitments">
+
+                        <!-- 1 -->
+                        <div class="platform-commitment-card">
+
+                            <div class="commitment-icon blue">
+                                ⬡
+                            </div>
+
+                            <div>
+                                <h3>Learning Insights for Teachers</h3>
+
+                                <p>
+                                    Gameplay can generate useful progress and concept-level information for authorised teachers, helping them identify recurring difficulties and decide what learners may need to revisit.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- 2 -->
+                        <div class="platform-commitment-card">
+
+                            <div class="commitment-icon pink">
+                                ♡
+                            </div>
+
+                            <div>
+                                <h3>Accessible by Design</h3>
+
+                                <p>
+                                    Clear layouts, concise text, visual support,
+                                    optional hints and supportive feedback help
+                                    create a comfortable experience for
+                                    different learners.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- 3 -->
+                        <div class="platform-commitment-card">
+
+                            <div class="commitment-icon purple">
+                                ◎
+                            </div>
+
+                            <div>
+                                <h3>Learning across Borders</h3>
+
+                                <p>
+                                    SciSolitaire is designed to support different education systems through country and learning-stage selection, rather than assuming a single national pathway.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- 4 -->
+                        <div class="platform-commitment-card">
+
+                            <div class="commitment-icon mint">
+                                ♢
+                            </div>
+
+                            <div>
+                                <h3>Ad-Free Learning</h3>
+
+                                <p>
+                                    The learning experience is designed without
+                                    distracting advertisements, helping learners
+                                    focus on science, gameplay and progress.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="about-card-footer">
+
+                        <p>
+                            Join the SciSolitaire learning community.
+                        </p>
+
+                        <a href="/signup" class="about-secondary-btn">
+                            Start Learning Free
+                            <span>→</span>
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </div>
+    </section>
+    
+    
+    
+    
+    <!-- =========================================
+     MEET THE TEAM
+========================================= -->
+<section class="about-team-section">
+
+    <div class="about-team-container">
+
+        <!-- Heading -->
+        <div class="about-team-heading reveal">
+
+            <div class="about-team-badge">
+                <span>✦</span>
+                THE PEOPLE BEHIND IT
+            </div>
+
+            <h2>Meet The Team</h2>
+
+            <p>
+                A multidisciplinary team bringing together science education,
+                design and technology — one connection at a time.
+            </p>
+
+        </div>
+
+
+        <!-- Team Cards -->
+        <div class="about-team-grid">
+
+            <!-- PRODUCT LEAD -->
+            <article class="about-team-card reveal-scale">
+
+                <div class="about-team-photo">
+                    <img
+                        src="images/team/henry.jpeg"
+                        alt="Product Lead"
+                    >
+                </div>
+
+                <div class="about-team-info">
+                    <h3>Chiemeka H. Ezechinyere</h3>
+                    <p>Product Lead & Data Engineer</p>
+
+                    <div class="about-team-links">
+                        <a href="https://www.linkedin.com/in/henrymessi?utm_source=share_via&utm_content=profile&utm_medium=member_ios" aria-label="LinkedIn">
+                            <span class="social-icon"></span>
+                            LinkedIn
+                        </a>
+                    
+                        <a href="https://x.com/henrymessitutor?s=11" aria-label="X">
+                            <span class="social-icon">𝕏</span>
+                            
+                        </a>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- UI/UX -->
+            <article class="about-team-card reveal-scale">
+
+                <div class="about-team-photo">
+                    <img
+                        src="images/team/kay.jpeg"
+                        alt="UI UX Designer"
+                    >
+                </div>
+
+                <div class="about-team-info">
+                    <h3>Kayode T. Oyerinde</h3>
+                    <p>UI/UX Designer</p>
+
+                    <div class="about-team-links">
+                        <a href="https://www.linkedin.com/in/oyerinde-kayode-ab0584156?utm_source=share_via&utm_content=profile&utm_medium=member_android" aria-label="LinkedIn">
+                            <span class="social-icon"></span>
+                            LinkedIn
+                        </a>
+                    
+                        <a href="https://x.com/OyerindeKayode1" aria-label="X">
+                            <span class="social-icon">𝕏</span>
+                            
+                        </a>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- FRONTEND -->
+            <article class="about-team-card reveal-scale">
+
+                <div class="about-team-photo">
+                    <img
+                        src="images/team/john.jpg"
+                        alt="Frontend Developer"
+                    >
+                </div>
+
+                <div class="about-team-info">
+                    <h3>John</h3>
+                    <p>Frontend Developer</p>
+
+                    <div class="about-team-links">
+                        <a href="#" aria-label="LinkedIn">
+                            <span class="social-icon"></span>
+                            LinkedIn
+                        </a>
+                    
+                        <a href="#" aria-label="X">
+                            <span class="social-icon">𝕏</span>
+                            
+                        </a>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- BACKEND -->
+            <article class="about-team-card reveal-scale">
+
+                <div class="about-team-photo">
+                    <img
+                        src="images/team/kaycee.jpg"
+                        alt="Backend Developer"
+                    >
+                </div>
+
+                <div class="about-team-info">
+                    <h3>Kelech A. Ezechinyere</h3>
+                    <p>Backend Developer</p>
+
+                    <div class="about-team-links">
+                        <a href="https://www.linkedin.com/in/ezechinyere-kaycee-a62481418" aria-label="LinkedIn">
+                            <span class="social-icon"></span>
+                            LinkedIn
+                        </a>
+                    
+                        <a href="https://x.com/Kaycee36520300" aria-label="X">
+                            <span class="social-icon">𝕏</span>
+                            
+                        </a>
+                    </div>
+                </div>
+
+            </article>
+
+
+            <!-- APPLICATION MANAGER -->
+            <article class="about-team-card reveal-scale">
+
+                <div class="about-team-photo">
+                    <img
+                        src="images/team/fiyin.jpg"
+                        alt="Application Manager"
+                    >
+                </div>
+
+                <div class="about-team-info">
+                    <h3>Abisola E. Olatunji</h3>
+                    <p>Application Manager</p>
+
+<div class="about-team-links">
+    <a href="#" aria-label="LinkedIn">
+        <span class="social-icon"></span>
+        LinkedIn
+    </a>
+
+    <a href="#" aria-label="X">
+        <span class="social-icon">𝕏</span>
+        
+    </a>
+</div>
+                </div>
+
+            </article>
+
+        </div>
+
+
+        <!-- Join Team -->
+        <div class="about-team-cta reveal">
+
+            <a href="#" class="about-team-join">
+                <span>⌁</span>
+                Join our team
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+</main>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+     <!-- ========================================
+         REUSABLE FOOTER
+         We can keep/remove this later
+    ========================================= -->
+
+    <div id="footer"></div>
+
+
+
+    <!-- Reusable Header -->
+    <script src="./js/header.js"></script>
+
+    <!-- Reusable Footer -->
+    <script src="./js/footer.js"></script>
+
+    <!-- General JavaScript -->
+    <script src="./js/app.js"></script>
+
+<script src="./js/api.js"></script>
+
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const tabs = document.querySelectorAll(".about-tab");
+    const panels = document.querySelectorAll(".about-tab-panel");
+
+    tabs.forEach((tab) => {
+
+        tab.addEventListener("click", function () {
+
+            const targetId = this.dataset.target;
+            const targetPanel = document.getElementById(targetId);
+
+            tabs.forEach((item) => {
+                item.classList.remove("active");
+                item.setAttribute("aria-selected", "false");
+            });
+
+            panels.forEach((panel) => {
+                panel.classList.remove("active");
+                panel.hidden = true;
+            });
+
+            this.classList.add("active");
+            this.setAttribute("aria-selected", "true");
+
+            targetPanel.hidden = false;
+
+            requestAnimationFrame(() => {
+                targetPanel.classList.add("active");
+            });
+        });
+
+    });
+
+});
+</script>
+
+
+
+
+</body>
+
+</html>
