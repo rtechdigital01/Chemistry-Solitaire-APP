@@ -570,67 +570,103 @@ body {
    4 columns max; scrolls horizontally on narrow screens.
 */
 
+/* ============================================================
+   CARDS GRID — piles + stock/shuffle
+============================================================ */
+
 #cardsGrid {
     display: flex;
-    gap: 18px;
+    gap: 14px;
     align-items: flex-start;
     justify-content: center;
 }
 
+/* Each of the 4 playable piles */
 .card-pile {
     position: relative;
-    width: 25%;
-    max-width: 200px;
-    min-width: 140px;
-    min-height: 280px; /* Accounts for stacked offset */
+    /* portrait: narrower width, tall enough for offset stack */
+    width: 160px;
+    flex-shrink: 0;
+    /* height grows with stack offset; at least 2 visible card heights */
+    min-height: 290px;
 }
 
+/* The stock/shuffle pile column */
+.stock-pile {
+    position: relative;
+    width: 160px;
+    flex-shrink: 0;
+    min-height: 290px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.stock-pile-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748B;
+    margin-bottom: 6px;
+}
+
+/* The generic game card — portrait rectangle */
 .game-card {
     position: absolute;
     width: 100%;
-    min-height: 195px;
+
+    /* Portrait aspect: ~160 × 220 px */
+    height: 220px;
 
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 
-    padding: 20px 14px 14px;
+    padding: 22px 14px 16px;
 
+    /* Neutral cream — NO category colour here */
     border: 2px solid #F1C345;
-    border-radius: 14px;
-
-    background: linear-gradient(180deg, #FFF9E5 0%, #FFF5D0 100%);
+    border-radius: 16px;
+    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
     color: #14213D;
 
     font-family: "Nunito", sans-serif;
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 900;
     text-align: center;
     line-height: 1.3;
 
     cursor: pointer;
+    user-select: none;
 
-    box-shadow: 0 4px 10px rgba(20,33,61,0.15);
+    box-shadow:
+        0 3px 0 0 #E5B800,
+        0 6px 14px rgba(20,33,61,0.14);
 
     transition:
         transform 0.18s ease,
         box-shadow 0.18s ease,
         border-color 0.18s ease,
-        top 0.3s ease;
+        top 0.25s ease;
 }
 
 .game-card:not(.card-face-down):hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 18px rgba(20,33,61,0.2);
+    transform: translateY(-5px);
+    box-shadow:
+        0 3px 0 0 #E5B800,
+        0 12px 22px rgba(20,33,61,0.18);
 }
 
 .game-card.card-selected {
     border-color: #2563EB;
     box-shadow:
-        0 0 0 3px rgba(37,99,255,0.3),
-        0 8px 18px rgba(20,33,61,0.2);
-    transform: translateY(-4px);
+        0 0 0 4px rgba(37,99,255,0.28),
+        0 10px 22px rgba(20,33,61,0.18);
+    transform: translateY(-5px);
 }
 
 .game-card.card-shake {
@@ -640,59 +676,53 @@ body {
 .game-card.card-hint {
     border-color: #16A34A;
     box-shadow:
-        0 0 0 3px rgba(22,163,74,0.3),
-        0 8px 18px rgba(20,33,61,0.2);
+        0 0 0 4px rgba(22,163,74,0.3),
+        0 10px 22px rgba(20,33,61,0.18);
 }
 
+/* Face-down card — blue back, atom watermark */
 .card-face-down {
-    background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%) !important;
-    border-color: #1E3A8A !important;
-    color: transparent !important;
+    background: linear-gradient(140deg, #1e3a8a 0%, #2563eb 100%) !important;
+    border-color: #1d4ed8 !important;
     cursor: default !important;
     pointer-events: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    box-shadow: 0 3px 0 0 #1e3a8a, 0 6px 14px rgba(0,0,0,0.22) !important;
 }
-.card-face-down * {
-    display: none !important;
-}
+.card-face-down * { display: none !important; }
 .card-face-down::after {
-    content: "⚛️";
+    content: "⚛";
     display: flex;
     align-items: center;
     justify-content: center;
     position: absolute;
     inset: 0;
-    font-size: 48px;
-    opacity: 0.3;
+    font-size: 52px;
+    color: rgba(255,255,255,0.18);
+    pointer-events: none;
 }
 
-/* Corner icon (small) */
-.card-corner-icon {
+/* Crown icon top-left */
+.card-crown {
     position: absolute;
-    top: 8px; left: 10px;
-    width: 18px; height: 18px;
-    opacity: 0.65;
+    top: 10px; left: 12px;
+    font-size: 16px;
+    color: #F5B82E;
+    line-height: 1;
 }
-.card-corner-icon svg { width: 100%; height: 100%; }
 
+/* Card text */
 .card-name {
     font-size: 15px;
     font-weight: 900;
     line-height: 1.3;
     text-align: center;
     word-break: break-word;
+    color: #14213D;
+    padding: 0 4px;
 }
 
-.card-category-tag {
-    margin-top: 8px;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-size: 9px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    opacity: 0.9;
-}
+/* NO category tag on the card — remove hint */
+.card-category-tag { display: none !important; }
 
 
 /* ============================================================

@@ -54,15 +54,34 @@ if (
     
     // Hide Login links everywhere when user is logged in
 function updateAuthNavigation() {
-    if (!localStorage.getItem('auth_token')) {
-        return;
+    const token = localStorage.getItem('auth_token');
+    const userJson = localStorage.getItem('user');
+    let role = 'student';
+    if (userJson) {
+        try {
+            role = JSON.parse(userJson).role || 'student';
+        } catch(e) {}
     }
 
-    const loginLinks = document.querySelectorAll('a[href$="login.html"]');
+    if (token) {
+        const loginLinks = document.querySelectorAll('a[href$="login.html"]');
+        loginLinks.forEach(link => {
+            link.style.display = 'none';
+        });
+    }
 
-    loginLinks.forEach(link => {
-        link.style.display = 'none';
-    });
+    // Role-specific UI adjustments
+    if (role !== 'teacher' && role !== 'admin') {
+        const switchTeacherBtns = Array.from(document.querySelectorAll('a[href="teacher-dashboard.html"]'));
+        switchTeacherBtns.forEach(btn => {
+            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+        });
+
+        const switchStudentBtns = Array.from(document.querySelectorAll('a[href="dashboard.html"]'));
+        switchStudentBtns.forEach(btn => {
+            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+        });
+    }
 }
 
 // Run immediately for pages where the header already exists
@@ -143,7 +162,12 @@ authNavObserver.observe(document.body, {
                 // Save token and redirect
                 localStorage.setItem('auth_token', result.data.token);
                 localStorage.setItem('user', JSON.stringify(result.data.user));
-                window.location.href = 'dashboard.html';
+                
+                if (result.data.user.role === 'teacher' || result.data.user.role === 'admin') {
+                    window.location.href = 'teacher-dashboard.html';
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
 
             } catch (error) {
                 showFormError(loginForm, error.message);

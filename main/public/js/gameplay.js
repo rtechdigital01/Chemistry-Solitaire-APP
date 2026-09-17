@@ -250,11 +250,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function attachCardEvents() {
         cardsGrid.querySelectorAll(".game-card").forEach(card => {
+            // Skip if already wired or face-down
+            if (card.dataset.eventsAttached) return;
+            card.dataset.eventsAttached = "1";
 
-            card.draggable = true;
-
-            // — drag start —
+            // — drag start (only face-up cards are draggable) —
             card.addEventListener("dragstart", e => {
+                if (card.classList.contains("card-face-down")) { e.preventDefault(); return; }
                 resetHintStates();
                 deselectAll();
                 card.classList.add("card-selected");
@@ -264,7 +266,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const name = card.querySelector(".card-name")?.textContent.trim();
                 setBanner(`"${name}" selected — drop it on a matching category.`);
 
-                // Fade original slightly for drag ghost visibility
                 setTimeout(() => card.style.opacity = "0.45", 0);
             });
 
@@ -274,6 +275,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // — click —
             card.addEventListener("click", () => {
+                if (card.classList.contains("card-face-down")) return;
                 resetHintStates();
                 const wasSelected = card.classList.contains("card-selected");
                 deselectAll();
@@ -295,13 +297,39 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
-       REVEAL TOP CARDS
+       POSITION CARDS IN A PILE (shared helper)
+       idx 0 = bottom, last = top (face-up)
+    ============================================================ */
+
+    function positionPileCards(container) {
+        const cards = Array.from(container.querySelectorAll(".game-card"));
+        const OFFSET = 14; // px each card peeks below the next
+        cards.forEach((c, idx) => {
+            c.style.top = `${idx * OFFSET}px`;
+            c.style.zIndex = String(idx + 1);
+            if (idx < cards.length - 1) {
+                c.classList.add("card-face-down");
+                c.draggable = false;
+            } else {
+                c.classList.remove("card-face-down");
+                c.draggable = true;
+            }
+        });
+        // Give the container enough height to show the whole top card
+        if (cards.length > 0) {
+            container.style.minHeight = `${(cards.length - 1) * OFFSET + 220}px`;
+        }
+        attachCardEvents();
+    }
+
+    /* ============================================================
+       REVEAL TOP CARDS (after a card is played)
     ============================================================ */
 
     function revealTopCards() {
-        const piles = cardsGrid.querySelectorAll(".card-pile");
-        piles.forEach(pile => {
-            const cards = pile.querySelectorAll(".game-card");
+        // Cover all pile types: card-pile and stock-pile
+        cardsGrid.querySelectorAll(".card-pile, .stock-pile").forEach(container => {
+            const cards = container.querySelectorAll(".game-card");
             if (cards.length > 0) {
                 const topCard = cards[cards.length - 1];
                 if (topCard.classList.contains("card-face-down")) {
@@ -365,45 +393,166 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
+       SUBMIT SCORE + NAVIGATE TO RESULTS
+    ============================================================ */
+
+    async function submitAndGoToResults() {
+        const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
+        const token = localStorage.getItem("auth_token");
+
+        // Always store result locally so results.html can read it even without auth
+        const localResult = {
+            topic:             deck,
+            level,
+            score,
+            moves,
+            correct_matches:   cardsPlaced,
+            incorrect_matches: incorrectMatches,
+            hints_used:        hintsUsed,
+            time_spent:        timeSpent,
+            completed:         true,
+            difficulty,
+            key_stage:         keyStage,
+        };
+        localStorage.setItem("latest_game_result", JSON.stringify(localResult));
+
+        // Try to persist to the API if logged in
+        if (token) {
+            try {
+                const res = await fetch("/api/gameplay/attempt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":  "application/json",
+                        "Accept":        "application/json",
+                        "Authorization": `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(localResult),
+                });
+                if (res.ok) {
+                    const result = await res.json();
+                    if (result.data) {
+                        localStorage.setItem("latest_game_result", JSON.stringify({ ...localResult, ...result.data }));
+                    }
+                }
+            } catch (_) {
+                // Silently ignore — we navigate regardless
+            }
+        }
+
+        window.location.href = "results.html";
+    }
+
+    /* ============================================================
+       FULL-SCREEN CONGRATULATIONS OVERLAY
+    ============================================================ */
+
+    function showCongratsAndRedirect() {
+        // Freeze the board
+        document.querySelectorAll(".game-card").forEach(c => {
+            c.style.pointerEvents = "none";
+        });
+
+        const overlay = document.createElement("div");
+        overlay.id = "congratsOverlay";
+        overlay.style.cssText = `
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(14, 30, 65, 0.82);
+            backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            animation: popupFadeIn 0.35s ease;
+        `;
+
+        overlay.innerHTML = `
+            <div style="
+                background: #FFF;
+                border-radius: 28px;
+                padding: 44px 36px 36px;
+                max-width: 420px; width: 92%;
+                text-align: center;
+                box-shadow: 0 32px 80px rgba(14,30,65,0.28);
+                font-family: Nunito, sans-serif;
+                animation: popupSlideUp 0.3s ease;
+            ">
+                <div style="font-size: 64px; margin-bottom: 16px; line-height: 1;">🎉</div>
+                <h2 style="margin: 0 0 10px; color: #14213D; font-size: 26px; font-weight: 900;">
+                    Level Complete!
+                </h2>
+                <p style="margin: 0 0 6px; color: #4B5563; font-size: 15px; font-weight: 600; line-height: 1.5;">
+                    You matched all <strong>${cardsPlaced}</strong> cards correctly in <strong>${moves}</strong> moves.
+                </p>
+                <div style="
+                    display: flex; justify-content: center; gap: 28px;
+                    margin: 22px 0 28px;
+                    padding: 16px 20px;
+                    background: #F8FAFF;
+                    border-radius: 16px;
+                    border: 1px solid #E2EEFF;
+                ">
+                    <div style="text-align:center;">
+                        <div style="font-size: 26px; font-weight: 900; color: #F89E19;">${score}</div>
+                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Points</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size: 26px; font-weight: 900; color: #2563EB;">${moves}</div>
+                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Moves</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size: 26px; font-weight: 900; color: #16A34A;">${cardsPlaced}</div>
+                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Cards</div>
+                    </div>
+                </div>
+                <button id="congratsGoBtn" style="
+                    width: 100%; height: 52px;
+                    border: none; border-radius: 999px;
+                    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+                    color: #FFF;
+                    font-family: Nunito, sans-serif;
+                    font-size: 16px; font-weight: 900;
+                    cursor: pointer;
+                    box-shadow: 0 8px 20px rgba(37,99,255,0.3);
+                    transition: opacity 0.15s;
+                ">View My Results →</button>
+                <p id="congratsCountdown" style="
+                    margin: 12px 0 0;
+                    font-size: 12px; font-weight: 700;
+                    color: #94A3B8;
+                ">Redirecting in 5s…</p>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        // Countdown redirect
+        let secs = 5;
+        const countdownEl = overlay.querySelector("#congratsCountdown");
+        const timer = setInterval(() => {
+            secs--;
+            if (countdownEl) countdownEl.textContent = `Redirecting in ${secs}s…`;
+            if (secs <= 0) {
+                clearInterval(timer);
+                submitAndGoToResults();
+            }
+        }, 1000);
+
+        overlay.querySelector("#congratsGoBtn").addEventListener("click", () => {
+            clearInterval(timer);
+            submitAndGoToResults();
+        });
+    }
+
+    /* ============================================================
        AFTER A CARD IS PLACED
     ============================================================ */
 
     function onCardPlaced(cardName) {
-        // Check if current round is complete
         const remaining = cardsGrid.querySelectorAll(".game-card").length;
 
         if (remaining === 0) {
-            // Round done
-            if (unlockedCategoryCount < allCategories.length) {
-                unlockedCategoryCount++;
-                setBanner(`Great work! Category ${unlockedCategoryCount} unlocked! 🎉`, "success");
-
-                setTimeout(() => {
-                    renderBoard({ categories: allCategories }, false);
-                }, 900);
-
-            } else {
-                setBanner("Excellent — all categories completed! 🎊", "success");
-
-                // Enable next level / finish
-                if (nextLevelBtn) {
-                    nextLevelBtn.disabled = false;
-                }
-
-                showGamePopup(
-                    "Congratulations! You placed every card correctly. View your scores to see how you did!",
-                    "success"
-                );
-
-                if (finishLevelBtn) {
-                    finishLevelBtn.disabled = false;
-                    finishLevelBtn.textContent = "View Scores";
-                    finishLevelBtn.style.display = "flex";
-                }
-            }
-
+            // All cards placed — go to results immediately
+            setBanner("🎊 All cards matched! Taking you to results…", "success");
+            setTimeout(() => showCongratsAndRedirect(), 600);
         } else {
-            setBanner(`✓ "${cardName}" placed correctly! ${remaining} card${remaining !== 1 ? "s" : ""} remaining.`, "success");
+            setBanner(`✓ "${cardName}" placed! ${remaining} card${remaining !== 1 ? "s" : ""} left.`, "success");
         }
     }
 
@@ -465,22 +614,16 @@ document.addEventListener("DOMContentLoaded", () => {
        BUILD GAME CARD
     ============================================================ */
 
-    function buildGameCard(cardText, category, theme) {
+    function buildGameCard(cardText, category) {
         const card = document.createElement("div");
         card.className           = "game-card";
         card.dataset.categoryId  = String(category.id);
         card.dataset.categoryName= category.name;
 
-        card.style.borderColor = theme.border;
-
+        // Neutral cream — NO category colour (avoid giving the student a hint)
         card.innerHTML = `
-            <span class="card-corner-icon" style="color:${theme.icon};">
-                ${iconSVG[category.icon_type] || iconSVG.element}
-            </span>
+            <span class="card-crown">♥</span>
             <div class="card-name">${cardText}</div>
-            <span class="card-category-tag" style="background:${theme.iconBg}; color:${theme.icon};">
-                ${category.name}
-            </span>
         `;
 
         return card;
@@ -509,59 +652,62 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const visibleCategories = allCategories.slice(0, unlockedCategoryCount);
 
-        // Collect all cards to shuffle together
+        // Collect all cards (no theme colours on cards)
         const allCardEls = [];
 
         visibleCategories.forEach((category, idx) => {
             const theme = categoryThemes[idx % categoryThemes.length];
 
-            // Foundation stack
+            // Foundation stack still uses theme colours — correct placement reveals colours
             const stack = buildStackCard(category, theme);
             stacksGrid.appendChild(stack);
 
-            // Cards for this category
+            // Build neutral cards
             category.cards.forEach(cardText => {
                 totalCards++;
-                const card = buildGameCard(cardText, category, theme);
+                const card = buildGameCard(cardText, category);
                 allCardEls.push(card);
             });
         });
 
-        // Shuffle cards
+        // Shuffle all cards
         for (let i = allCardEls.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             [allCardEls[i], allCardEls[j]] = [allCardEls[j], allCardEls[i]];
         }
 
-        // Create exactly 4 piles
-        const numPiles = 4;
-        const piles = Array.from({ length: numPiles }, () => {
+        // Split: first 4 × CARDS_PER_PILE go into the 4 main piles
+        // remaining cards go into the stock pile
+        const CARDS_PER_PILE = Math.max(1, Math.ceil(allCardEls.length / 5)); // keep some for stock
+        const pileCards  = allCardEls.slice(0, CARDS_PER_PILE * 4);
+        const stockCards = allCardEls.slice(CARDS_PER_PILE * 4);
+
+        // Create 4 main piles
+        const piles = Array.from({ length: 4 }, () => {
             const p = document.createElement("div");
             p.className = "card-pile";
             cardsGrid.appendChild(p);
             return p;
         });
 
-        // Distribute cards evenly across piles
-        allCardEls.forEach((card, idx) => {
-            const pile = piles[idx % numPiles];
-            pile.appendChild(card);
+        // Distribute pile cards evenly
+        pileCards.forEach((card, idx) => {
+            piles[idx % 4].appendChild(card);
         });
 
-        // Setup offsets and face-down status
-        piles.forEach(pile => {
-            const cardsInPile = Array.from(pile.children);
-            cardsInPile.forEach((c, idx) => {
-                c.style.top = `${idx * 12}px`;
-                if (idx < cardsInPile.length - 1) {
-                    c.classList.add("card-face-down");
-                    c.draggable = false;
-                } else {
-                    c.classList.remove("card-face-down");
-                    c.draggable = true;
-                }
-            });
-        });
+        // Apply offsets and face-down to main piles
+        piles.forEach(pile => positionPileCards(pile));
+
+        // Create the stock pile (with face-up top card)
+        if (stockCards.length > 0) {
+            const stockCol = document.createElement("div");
+            stockCol.className = "stock-pile";
+            stockCol.id = "stockPileEl";
+            cardsGrid.appendChild(stockCol);
+
+            stockCards.forEach(card => stockCol.appendChild(card));
+            positionPileCards(stockCol);
+        }
 
         // Update stat elements
         updateScore();
@@ -644,7 +790,12 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function shuffleHand() {
-        const remainingCards = Array.from(cardsGrid.querySelectorAll(".game-card"));
+        // Collect all remaining cards from piles AND stock
+        const allContainers = Array.from(cardsGrid.querySelectorAll(".card-pile, .stock-pile"));
+        const remainingCards = [];
+        allContainers.forEach(c => {
+            Array.from(c.querySelectorAll(".game-card")).forEach(card => remainingCards.push(card));
+        });
         if (remainingCards.length === 0) return;
 
         // Animate out
@@ -655,39 +806,45 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         setTimeout(() => {
-            // Shuffle
+            // Fisher-Yates shuffle
             for (let i = remainingCards.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
                 [remainingCards[i], remainingCards[j]] = [remainingCards[j], remainingCards[i]];
             }
-            
+
             const piles = Array.from(cardsGrid.querySelectorAll(".card-pile"));
-            
-            // Re-distribute
-            remainingCards.forEach((c, idx) => {
-                const pile = piles[idx % piles.length];
-                pile.appendChild(c);
-            });
-            
-            // Adjust visual stack and face-down state
-            piles.forEach(pile => {
-                const cardsInPile = Array.from(pile.children);
-                cardsInPile.forEach((c, idx) => {
-                    c.style.top = `${idx * 12}px`;
-                    if (idx < cardsInPile.length - 1) {
-                        c.classList.add("card-face-down");
-                        c.draggable = false;
-                    } else {
-                        c.classList.remove("card-face-down");
-                        c.draggable = true;
-                    }
-                });
-            });
+            let   stock = cardsGrid.querySelector(".stock-pile");
+
+            // Split: most cards go to main piles, overflow to stock
+            const CARDS_PER_PILE = Math.max(1, Math.ceil(remainingCards.length / 5));
+            const pileCards  = remainingCards.slice(0, CARDS_PER_PILE * piles.length);
+            const stockCards = remainingCards.slice(CARDS_PER_PILE * piles.length);
+
+            // Distribute to piles
+            piles.forEach(p => { while (p.firstChild) p.removeChild(p.firstChild); });
+            pileCards.forEach((c, idx) => piles[idx % piles.length].appendChild(c));
+            piles.forEach(p => positionPileCards(p));
+
+            // Handle stock
+            if (stockCards.length > 0) {
+                if (!stock) {
+                    stock = document.createElement("div");
+                    stock.className = "stock-pile";
+                    stock.id = "stockPileEl";
+                    cardsGrid.appendChild(stock);
+                } else {
+                    while (stock.firstChild) stock.removeChild(stock.firstChild);
+                }
+                stockCards.forEach(c => stock.appendChild(c));
+                positionPileCards(stock);
+            } else if (stock) {
+                stock.remove();
+            }
 
             // Animate in
             remainingCards.forEach((c, i) => {
                 setTimeout(() => {
-                    c.style.transition = "opacity 0.3s, transform 0.3s, top 0.3s ease";
+                    c.style.transition = "opacity 0.3s, transform 0.3s ease";
                     c.style.opacity    = "1";
                     c.style.transform  = "scale(1)";
                 }, i * 30);
