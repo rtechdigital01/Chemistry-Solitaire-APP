@@ -78,6 +78,9 @@ class CategoryController extends Controller
 
 
         if ($categories->count() < 4) {
+            \Illuminate\Support\Facades\Log::info('Categories count: ' . $categories->count() . ' Deck: ' . $deck . ' KS: ' . $keyStage);
+            \Illuminate\Support\Facades\Log::info('Raw count: ' . $query->count());
+            
             return response()->json([
                 'status' => 'Error',
                 'message' => 'Not enough categories available to generate this board.'

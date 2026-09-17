@@ -1,0 +1,187 @@
+S/N,Category,Difficulty,Card Pool,Icon Type
+1,Group 1 Elements,Easy,"Lithium, Sodium, Potassium, Rubidium, Caesium, Francium",Element
+2,Group 1 Chemical Symbols,Easy,"Li, Na, K, Rb, Cs, Fr",Chemical
+3,Group 1 Atomic Numbers,Medium,"3, 11, 19, 37, 55, 87",Element
+4,Group 1 Physical Properties,Medium,"Soft, Silvery, Shiny, Low density, Good conductor of electricity, Low melting point, Stored under oil",Physical
+5,Group 1 Chemical Properties,Hard,"Reacts with water, Produces hydrogen gas, Forms alkaline solution, Forms +1 ions, Loses one electron, Reactivity increases down the group, Reacts with oxygen",Chemical
+6,Group 1 Uses,Medium,"Lithium batteries, Sodium street lamps, Potassium fertilisers, Caesium atomic clocks, Sodium coolant, Lithium alloys",Uses
+7,Periodic Trends,Easy,"Atomic Radius, Ionisation Energy, Electronegativity, Electron Affinity, Shielding, Nuclear Charge",Trends
+8,Hydrogen,Hard,"Reactivity increases down the group, Atomic radius increases down the group, Melting point decreases down the group, Boiling point generally decreases down the group, First ionisation energy decreases down the group",Element
+9,Group 1 Reactions with Water,Medium,"Fizzing, Floating, Moving on water, Hydrogen gas, Heat released, Alkaline solution",Chemical
+10,Group 1,Easy,"Alkali metal, Group, Period, Reactivity, Ion, Electron, Metal",Element
+11,Group 7 Elements,Easy,"Fluorine, Chlorine, Bromine, Iodine, Astatine",Element
+12,Group 7 Chemical Symbols,Easy,"F, Cl, Br, I, At, Ts",Element
+13,Group 7 Atomic Numbers,Medium,"9, 17, 35, 53, 85, 117",Element
+14,Group 7 Physical Properties,Medium,"Coloured, Non-metals, Diatomic molecules, Low melting point, Low boiling point, Poor conductors",Physical
+15,Group 7 Chemical Properties,Hard,"Forms -1 ions, Reactivity decreases down the group, Reacts with metals, Forms salts, Gains one electron, Strong oxidising agents",Chemical
+16,Group 7 Uses,Medium,"Toothpaste (fluoride), Water treatment (chlorine), Flame retardants (bromine), Antiseptics (iodine)",Uses
+17,Group 7 Trend Statements,Hard,"Reactivity decreases down the group, Melting point increases down the group, Boiling point increases down the group, Colour darkens down the group, Atomic radius increases down the group",Trends
+18,Group 7,Easy,"Halogen, Diatomic, Reactivity, Oxidation, Displacement, Non-metal",Element
+19,Group 0 Elements,Easy,"Helium, Neon, Argon, Krypton, Xenon, Radon, Oganesson",Element
+20,Group 0 Chemical Symbols,Easy,"He, Ne, Ar, Kr, Xe, Rn, Og",Element
+21,Group 0 Atomic Numbers,Medium,"2, 10, 18, 36, 54, 86, 118",Element
+22,Group 0 Physical Properties,Medium,"Colourless, Odourless, Monatomic, Low density, Low boiling point, Gases at room temperature",Physical
+23,Group 0 Chemical Properties,Hard,"Very unreactive, Full outer electron shell, Stable, Non-flammable, Rarely form compounds",Chemical
+24,Group 0 Uses,Medium,"Helium balloons, Neon signs, Argon light bulbs, Krypton lasers, Xenon flash lamps, Radon radiotherapy",Uses
+25,Group 0 Trend Statements,Hard,"Boiling point increases down the group, Density increases down the group, Atoms become larger down the group, Remain very unreactive",Trends
+26,Group 0,Easy,"Noble gas, Inert, Monatomic, Stable, Electron shell, Group, Period",Element
+27,Hydrogen,Easy,"H, Atomic number 1, Relative atomic mass 1.008, Period 1, Non-metal",Element
+28,Hydrogen Physical Properties,Medium,"Colourless, Odourless, Gas at room temperature, Very low density, Diatomic, Low boiling point",Physical
+29,Hydrogen Chemical Properties,Hard,"Flammable, Burns in oxygen, Forms water, Reacts with some metals, Forms covalent bonds, Can form H? ions",Chemical
+30,Hydrogen Gas Test,Hard,"Lighted splint, Squeaky pop, Combustible gas, Small gas sample",Chemical
+31,Hydrogen Uses,Medium,"Fuel cells, Rocket fuel, Ammonia production, Hydrogenation of oils, Clean-energy research, Weather balloons",Uses
+32,Hydrogen Isotopes,Hard,"Protium, Deuterium, Tritium, 1H, 2H, 3H",Element
+33,Hydrogen-Containing Compounds,Medium,"Water, Hydrogen chloride, Ammonia, Methane, Hydrogen peroxide, Sulfuric acid",Chemical
+34,Hydrogen Reactions,Hard,"Metal + acid, Combustion, Water formation, Hydrogen gas production",Reactions
+35,Hydrogen Classification,Medium,"Non-metal, Period 1, Above Group 1, One outer electron, Not an alkali metal",Element
+36,Hydrogen,Easy,"Element, Atom, Molecule, Gas, Isotope, Proton, Electron",Element
+37,Lithium,Easy,"Li, Atomic number 3, Period 2, Group 1, Alkali metal",Element
+38,Lithium Physical Properties,Medium,"Soft, Silvery, Solid, Low density, Shiny when cut, Good conductor",Physical
+39,Lithium Chemical Properties,Hard,"Forms Li? ions, Loses one electron, Reactive metal, Reacts with oxygen, Reacts with water, Forms ionic compounds",Chemical
+40,Lithium and Water,Medium,"Floats, Fizzes gently, Moves slowly, Produces hydrogen, Forms lithium hydroxide, Alkaline solution",Reactions
+41,Lithium Uses,Medium,"Rechargeable batteries, Mobile phones, Electric vehicles, Lightweight alloys, Heat-resistant glass, Medicines",Uses
+42,Lithium Compounds,Hard,"(-)oxide, (-)chloride, (-)hydroxide, (-)carbonate, (-)fluoride",Element
+43,Lithium Flame Colour,Hard,"Crimson red, Flame test, Lithium ion, Coloured flame",Element
+44,Sodium Identity,Easy,"Na, Atomic number 11, Period 3, Group 1, Alkali metal",Element
+45,Sodium Physical Properties,Medium,"Soft, Silvery, Solid, Low density, Shiny when cut, Good conductor",Physical
+46,Sodium Chemical Properties,hard,"Forms Na? ions, Loses one electron, Reactive metal, Reacts with oxygen, Reacts with water, Forms ionic compounds",Chemical
+47,Sodium and Water,Hard,"Floats, Fizzes rapidly, Melts into a ball, Moves across water, Produces hydrogen, Forms sodium hydroxide",Reactions
+48,Sodium Uses,Medium,"Sodium-vapour lamps, Chemical manufacture, Coolant, Table salt compounds, Soap production",Uses
+49,Sodium compounds,Hard,"(-)chloride, (-)hydroxide, (-)carbonate, (-)nitrate, (-)hydrogen carbonate",Element
+50,Sodium Flame Colour,Hard,"Yellow, Orange-yellow, Flame test, Sodium ion",Element
+51,Potassium,Easy,"K, Atomic number 19, Period 4, Group 1, Alkali metal",Element
+52,Potassium Physical Properties,Medium,"Soft, Silvery, Solid, Low density, Shiny when cut, Good conductor",Physical
+53,Potassium Chemical Properties,Hard,"Forms K? ions, Loses one electron, Very reactive, Reacts with oxygen, Reacts violently with water, Forms ionic compounds",Chemical
+54,Potassium and Water,Hard,"Floats, Fizzes violently, Moves rapidly, Produces hydrogen, Forms potassium hydroxide, Lilac flame",Reactions
+55,Potassium Uses,Medium,"Fertilisers, Soaps, Glass manufacture, Gunpowder compounds, Food salts",Element
+56,Potassium compounds,Hard,"(-)chloride, (-)hydroxide, (-)nitrate, (-)carbonate, (-)permanganate",Element
+57,Potassium Flame Colour,Hard,"Lilac, Pale purple, Flame test, Potassium ion",Element
+58,Rubidium,Easy,"Rb, Atomic number 37, Period 5, Group 1, Alkali metal",Element
+59,Rubidium Physical Properties,Medium,"Soft, Silvery-white, Solid, Low melting point, Good conductor, Easily cut",Physical
+60,Rubidium Chemical Properties,Hard,"Forms Rb? ions, Loses one electron, Highly reactive, Reacts with oxygen, Reacts violently with water, Stored under oil",Chemical
+61,Rubidium and Water,Hard,"Violent reaction, Produces hydrogen, Forms rubidium hydroxide, Releases heat, May ignite, Alkaline solution",Reactions
+62,Rubidium Uses,Hard,"Scientific research, Atomic clocks, Photocells, Vacuum tubes, Special glass",Uses
+63,Rubidium Compounds,Hard,"(-)chloride, (-)hydroxide, (-)carbonate, (-)nitrate",Element
+64,Rubidium Flame Colour,Hard,"Red-violet, Reddish purple, Flame test, Rubidium ion",Element
+65,Caesium,Easy,"Cs, Atomic number 55, Period 6, Group 1, Alkali metal",Element
+66,Caesium Physical Properties,Medium,"Soft, Pale gold, Very low melting point, Dense, Good conductor, Solid near room temperature",Physical
+67,Caesium Chemical Properties,Hard,"Forms Cs? ions, Loses one electron, Extremely reactive, Reacts with oxygen, Reacts explosively with water, Stored under oil",Chemical
+68,Caesium and Water,Hard,"Explosive reaction, Produces hydrogen, Forms caesium hydroxide, Releases intense heat, May ignite, Strongly alkaline solution",Reactions
+69,Caesium Uses,Hard,"Atomic clocks, GPS timing, Scientific instruments, Drilling fluids, Photoelectric cells",Uses
+70,Caesium Compounds,Hard,"(-)chloride, (-)hydroxide, (-)carbonate, (-)nitrate",Element
+71,Caesium Flame Colour,Hard,"Blue-violet, Violet-blue, Flame test, Caesium ion",Element
+72,Francium,Medium,"Fr, Atomic number 87, Period 7, Group 1, Alkali metal",Element
+73,Francium Physical Properties,Hard,"Radioactive, Extremely rare, Predicted soft metal, Predicted silvery appearance, Short-lived, Naturally occurring in traces",Physical
+74,Francium Chemical Properties,Hard,"Forms Fr? ions, Loses one electron, Extremely reactive, Radioactive, Expected to react with water, Expected to form ionic compounds",Chemical
+75,Francium Occurrence,Hard,"Uranium decay, Trace quantities, Earth’s crust, Radioactive decay, Short half-life",Occurrence
+76,Francium Uses,Hard,"Scientific research, Atomic structure studies, Radioactivity research, No commercial use",Uses
+77,Francium Compounds,Hard,"(-)chloride, (-)hydroxide, (-)salts",Element
+78,Francium Position and Trends,Hard,"Bottom of Group 1, Largest atomic radius, Very low ionisation energy, Highly reactive, Period 7",Trends
+79,Fluorine,Easy,"F, Atomic number 9, Period 2, Group 7, Halogen",Element
+80,Fluorine Physical Properties,Medium,"Pale yellow, Gas at room temperature, Diatomic, Low boiling point, Non-metal, Toxic",Physical
+81,Fluorine Chemical Properties,Medium,"Forms F? ions, Gains one electron, Most reactive halogen, Strong oxidising agent, Reacts with metals, Forms fluorides",Chemical
+82,Fluorine Uses,Medium,"Toothpaste, Water fluoridation, Non-stick coatings, Refrigerants, Uranium processing",Element
+83,Fluorine Compounds,Hard,"(-)fluoride, (-)fluoride, (-)fluoride, (-)fluoride, Sulfur hexafluoride",Element
+84,Fluorine Position and Trends,Hard,"Top of Group 7, Smallest halogen atom, Highest reactivity, Lowest boiling point, Strongest oxidising halogen",Trends
+85,Chlorine,Easy,"Cl, Atomic number 17, Period 3, Group 7, Halogen",Element
+86,Chlorine Physical Properties,Medium,"Greenish-yellow, Gas at room temperature, Diatomic, Toxic, Strong smell, Non-metal",Physical
+87,Chlorine Chemical Properties,Hard,"Forms Cl? ions, Gains one electron, Reactive non-metal, Strong oxidising agent, Reacts with metals, Forms chlorides",Chemical
+88,Chlorine Uses,Medium,"Drinking-water treatment, Swimming pools, Bleach, PVC manufacture, Disinfectants",Element
+89,Chlorine Compounds,Easy,"Hydrogen chloride, Sodium chloride, Potassium chloride, Calcium chloride, Sodium chlorate(I)",Compounds
+90,Chlorine Displacement Reactions,Medium,"Displaces bromide, Displaces iodide, More reactive than bromine, More reactive than iodine, Forms bromine, Forms iodine",Reactions
+91,Chlorine Position and Trends,Medium,"Below fluorine, Above bromine, Gas at room temperature, Less reactive than fluorine, More reactive than bromine",Trends
+92,Bromine,Easy,"Br, Atomic number 35, Period 4, Group 7, Halogen",Element
+93,Bromine Physical Properties,Medium,"Red-brown, Liquid at room temperature, Diatomic, Volatile, Toxic, Non-metal",Physical
+94,Bromine Chemical Properties,hard,"Forms Br? ions, Gains one electron, Reacts with metals, Forms bromides, Oxidising agent, Less reactive than chlorine",Chemical
+95,Bromine Uses,Medium,"Flame retardants, Photography, Water treatment, Medicines, Drilling fluids",Element
+96,Bromine Compounds,Easy,"Hydrogen bromide, Sodium bromide, Potassium bromide, Silver bromide, Calcium bromide",Compounds
+97,Bromine Displacement Reactions,Medium,"Displaces iodide, Cannot displace chloride, Less reactive than chlorine, More reactive than iodine, Produces iodine",Reactions
+98,Bromine Position and Trends,Medium,"Below chlorine, Above iodine, Liquid at room temperature, Darker colour, Higher boiling point",Trends
+99,Iodine,Easy,"I, Atomic number 53, Period 5, Group 7, Halogen",Element
+100,Iodine Physical Properties,Medium,"Grey-black solid, Purple vapour, Diatomic, Shiny crystals, Non-metal, Sublimes when heated",Physical
+101,Iodine Chemical Properties,Hard,"Forms I? ions, Gains one electron, Reacts with metals, Forms iodides, Weak oxidising agent, Less reactive than bromine",Chemical
+102,Iodine Uses,Medium,"Antiseptics, Iodised salt, Thyroid medicine, Medical imaging, Starch testing",Uses
+103,Iodine Compounds,Easy,"Hydrogen iodide, Potassium iodide, Sodium iodide, Silver iodide, Lead iodide",Compounds
+104,Iodine Displacement Reactions,Medium,"Cannot displace chloride, Cannot displace bromide, Displaced by chlorine, Displaced by bromine, Least reactive common halogen",Reactions
+105,Iodine Position and Trends,Hard,"Below bromine, Solid at room temperature, Darker colour, Higher boiling point, Lower reactivity",Trends
+106,Astatine,Medium,"At, Atomic number 85, Period 6, Group 7, Halogen",Element
+107,Astatine Physical Properties,Hard,"Radioactive, Extremely rare, Solid, Dark appearance, Short-lived, Naturally occurs in traces",Physical
+108,Astatine Chemical Properties,Hard,"Can form At? ions, Less reactive than iodine, Forms astatides, Radioactive, More metallic character, Reacts with some metals",Chemical
+109,Astatine Occurrence,Hard,"Uranium decay, Thorium decay, Trace quantities, Earth’s crust, Radioactive decay, Short half-life",Occurrence
+110,Astatine Uses,Hard,"Scientific research, Cancer-treatment research, Targeted alpha therapy, Nuclear chemistry research",Uses
+111,Astatine Compounds,Hard,"Hydrogen astatide, Sodium astatide, Silver astatide, Astatine salts",Element
+112,Astatine Position and Trends,Hard,"Below iodine, Larger atomic radius, Lower reactivity, Higher metallic character, Higher boiling point",Trends
+113,Helium,Easy,"He, Atomic number 2, Period 1, Group 0, Noble gas",Element
+114,Helium Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Very low density, Monatomic, Very low boiling point",Physical
+115,Helium Chemical Properties,Medium,"Very unreactive, Non-flammable, Full first electron shell, Chemically inert, Rarely forms compounds, Does not readily form ions",Chemical
+116,Helium Uses,Medium,"Balloons, MRI scanners, NMR instruments, Leak detection, Deep-sea diving mixtures, Welding atmosphere",Uses
+117,Helium Occurrence,Medium,"Stars, Natural gas deposits, Radioactive decay, Earth’s atmosphere, Second-most abundant element in the universe",Occurrence
+118,Helium Position and Trends,Hard,"Top of Group 0, Lowest density in the group, Lowest boiling point, Smallest noble-gas atom, Two electrons in outer shell",Trends
+119,Neon,Easy,"Ne, Atomic number 10, Period 2, Group 0, Noble gas",Element
+120,Neon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low density, Low boiling point",Physical
+121,Neon Chemical Properties,Medium,"Very unreactive, Non-flammable, Full outer shell, Chemically inert, Does not readily form ions, No common compounds",Chemical
+122,Neon Uses,Medium,"Advertising signs, High-voltage indicators, Switching equipment, Lightning arresters, Lasers, Cryogenic refrigeration",Uses
+123,Neon Lighting,Easy,"Red-orange glow, Discharge tube, Advertising sign, Electric current, Low-pressure gas",Uses
+124,Neon Occurrence,Hard,"Earth’s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Abundant in the universe",Occurrence
+125,Argon,Easy,"Ar, Atomic number 18, Period 3, Group 0, Noble ga",Element
+126,Argon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low boiling point, Denser than air",Physical
+127,Argon Chemical Properties,Medium,"Very unreactive, Non-flammable, Full outer shell, Chemically inert, Rarely forms compounds, Protective atmosphere",Chemical
+128,Argon Uses,Medium,"Welding, Light bulbs, Fluorescent tubes, Double-glazed windows, Titanium production, Low-energy lamps",Uses
+129,Argon Occurrence,Medium,"Earth’s atmosphere, Liquid air, Fractional distillation, Potassium-40 decay, Third-most abundant atmospheric gas",Occurrence
+130,Argon Position and Trends,Hard,"Below neon, Above krypton, Larger atomic radius than neon, Higher boiling point than neon, Period 3 noble gas",Trends
+131,Krypton,Easy,"Kr, Atomic number 36, Period 4, Group 0, Noble gas",Element
+132,Krypton Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low boiling point, Dense noble gas",Physical
+133,Krypton Chemical Properties,Medium,"Mostly unreactive, Full outer shell, Reacts with fluorine, Forms limited compounds, Non-flammable, Chemically stable",Chemical
+134,Krypton Uses,Hard,"Energy-saving lights, Flash lamps, High-speed photography, Krypton-fluoride lasers, Scientific research, Nuclear monitoring",Uses
+135,Krypton Compounds,Medium,"Krypton difluoride, KrF?, Fluorine compound, Strong oxidising compound",Element
+136,Krypton Occurrence,Hard,"Earth’s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Nuclear reactors",Occurrence
+137,Krypton Position and Trends,Hard,"Below argon, Above xenon, Higher density than argon, Higher boiling point than argon, Larger atomic radius",Trends
+138,Xenon,Easy,"Xe, Atomic number 54, Period 5, Group 0, Noble gas",Element
+139,Xenon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Dense gas, Low boiling point",Physical
+140,Xenon Chemical Properties,Medium,"Very unreactive, Full outer shell, Forms some compounds, Reacts with fluorine, Strong oxidising compounds, Non-flammable",Chemical
+141,Xenon Uses,Hard,"Camera flash lamps, Bactericidal lamps, Ruby lasers, Satellite propulsion, Spacecraft engines, Silicon etching",Uses
+142,Xenon Compounds,Hard,"Xenon difluoride, Xenon tetrafluoride, Xenon hexafluoride, Xenon oxides, Xenon fluorides",Compounds
+143,Xenon Occurrence,Hard,"Earth’s atmosphere, Mineral springs, Liquid air, Fractional distillation, Rare atmospheric gas",Occurrence
+144,Xenon Position and Trends,Hard,"Below krypton, Above radon, Higher density than krypton, Higher boiling point than krypton, Larger atomic radius",Trends
+145,Radon,Easy,"Rn, Atomic number 86, Period 6, Group 0, Noble gas",Element
+146,Radon Physical Properties,Medium,"Colourless, Odourless, Gas at room temperature, Monatomic, Very dense gas, Low boiling point",Physical
+147,Radon Chemical Properties,Hard,"Chemically unreactive, Radioactive, Full outer shell, Decays naturally, Emits alpha radiation, Forms few compounds",Chemical
+148,Radon Occurrence and Risks,Medium,"Rocks, Soil, Granite buildings, Indoor air, Radium-226 decay, Home radon testing",Occurrence
+149,Historical Radon Uses,Hard,"Cancer therapy, Sealed radioactive tubes, Tumour treatment, Radiation source",Uses
+150,Radon Position and Trends,Hard,"Below xenon, Above oganesson, Higher density than xenon, Higher boiling point than xenon, Radioactive noble gas",Trends
+151,Oganesson,Easy,"Og, Atomic number 118, Period 7, Group 0, Superheavy element",Element
+152,Oganesson Physical Properties,Hard,"Synthetic, Highly radioactive, Extremely unstable, Predicted solid, Very heavy, Produced atom by atom",Physical
+153,Oganesson Chemical Information,Hard,"Full outer electron shell, Limited experimental evidence, Properties mainly predicted, No common compounds, Very short-lived atoms",Chemical
+154,Oganesson Production,Hard,"Particle accelerator, Nuclear fusion, Heavy nuclei, Laboratory synthesis, Few atoms produced",Production
+155,Oganesson Uses,Hard,"Scientific research, Nuclear research, Superheavy-element studies, Atomic-structure research, No commercial use",Uses
+156,Oganesson Isotopes,Hard,"Oganesson-294, Radioactive isotope, Very short half-life, Rapid decay, Unstable nucleus",Isotopes
+157,Oganesson Position and Trends,Hard,"Bottom of Group 0, Period 7, Highest atomic number, Heaviest Group 0 element, Largest noble-gas atom",Trends
+158,Periodic Table Structure,Easy,"Rows, Columns, Groups, Periods, Elements, Left side, Right side",Information
+159,Periodic Information,Easy,"Element name, Chemical symbol, Atomic number, Relative atomic mass, Group, Period",Information
+160,Groups,Easy,"Vertical columns, Similar properties, Similar reactions, Same outer electrons, Chemical families",Information
+161,Periods,Easy,"Horizontal rows, Read across, Electron shells, Increasing atomic number, Changing properties",Information
+162,Periodic Table Regions,Easy,"Left side, Centre, Right side, Top, Bottom, Staircase boundary",Information
+163,Element Classifications,Easy,"Metal, Non-metal, Metalloid, Alkali metal, Halogen, Noble gas, Transition metal",Information
+164,Physical Properties,Easy,"Colour, State, Density, Melting point, Boiling point, Conductivity, Hardness",Physical
+165,Chemical Properties,Easy,"Reactivity, Ion formation, Oxidation, Reaction with water, Reaction with oxygen, Reaction with acids",Chemical
+166,Metal Properties,Easy,"Shiny, Malleable, Ductile, Conducts heat, Conducts electricity, Usually solid, High density",Information
+167,Non-metal Properties,Easy,"Dull, Brittle, Poor conductor, Low density, Low melting point, Solid or gas, Not malleable",Information
+168,Position of Metals,Easy,"Left side, Centre, Below staircase, Most elements, Transition region",Information
+169,Position of Non-metals,Easy,"Right side, Above staircase, Upper-right region, Fewer elements",Information
+170,State-Related Terms,Easy,"Solid, Liquid, Gas, Room temperature, Melting point, Boiling point",Information
+171,Periodic Table,Easy,"Element, Symbol, Group, Period, Property, Pattern, Reactivity",Information
+172,Trend Direction Words,Easy,"Across, Down, Increase, Decrease, Pattern, Similarity, Anomaly",Information
+173,Comparing Elements,Medium,"Similarity, Difference, Higher, Lower, More reactive, Less reactive, Anomaly",Information
+174,Pattern Recognition,Medium,"Trend, Sequence, Repeating pattern, Similar properties, Missing value, Anomaly, Prediction",Information
+175,Data Interpretation Skills,Medium,"Compare, Sort, Classify, Estimate, Identify, Predict, Justify",Information
+176,Predicting Element Position,Medium,"Physical properties, Chemical properties, Group, Period, Metal, Non-metal, Reactivity",Information
+177,Predicting Element Properties,Medium,"Position, Group pattern, Period pattern, Similar reactions, Physical data, Chemical data",Information
+178,Patterns Down a Group,Medium,"Similar reactions, Same outer electrons, Increasing atomic size, Changing reactivity, Changing boiling point, Changing melting point",Information
+179,Patterns Across a Period,Medium,"Increasing atomic number, Increasing proton number, Changing properties, Metals to non-metals, Same number of shells",Information
+180,Atomic Structure Links,Medium,"Proton number, Electron arrangement, Outer electrons, Electron shells, Ion formation, Reactivity",Information
+181,Choosing Elements for Uses,Medium,"Good conductor, Low density, Strong, Unreactive, Corrosion-resistant, High melting point, Flexible",Information
+182,Property Data,Medium,"Density, Melting point, Boiling point, Electrical conductivity, Thermal conductivity, Reactivity, State",Information
+183,Factors Affecting Atomic Size,Hard,"Number of shells, Nuclear charge, Shielding, Distance from nucleus, Attraction, Electron repulsion",Information
+184,Factors Affecting Reactivity,Hard,"Outer electrons, Electron loss, Electron gain, Atomic radius, Shielding, Nuclear attraction",Information
+185,Factors Affecting Ionisation Energy,Hard,"Nuclear charge, Shielding, Atomic radius, Electron attraction, Distance from nucleus, Outer electron",Information
+186,Advanced Periodic Vocabulary,Hard,"Ionisation energy, Electronegativity, Electron affinity, Shielding, Nuclear charge, Atomic radius",Information

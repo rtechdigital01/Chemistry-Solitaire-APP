@@ -4,7 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Modules\Auth\Controllers\AuthController;
-use App\Http\Controllers\ReviewController;
+// use App\Http\Controllers\ReviewController;
 
 
 
@@ -38,7 +38,7 @@ Route::post('/auth/logout', [AuthController::class, 'logout']);
 |--------------------------------------------------------------------------
 */
 
-Route::get('/reviews', [ReviewController::class, 'index']);
+// Route::get('/reviews', [ReviewController::class, 'index']);
 
 
 /*
@@ -53,11 +53,11 @@ Route::get('/chemistry/board', [
 ]);
 
 Route::get('/biology/board', [
-    BoardController::class,
-    'getBiologyBoard'
+    \App\Modules\Chemistry\Controllers\CategoryController::class,
+    'board'
 ]);
 
 Route::get('/physics/board', [
-    BoardController::class,
-    'getPhysicsBoard'
+    \App\Modules\Chemistry\Controllers\CategoryController::class,
+    'board'
 ]);

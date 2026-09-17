@@ -574,144 +574,210 @@
 
 
 
-<!-- Dataset Availability Modal -->
+<!-- ============================================================
+     DIFFICULTY PICKER MODAL
+============================================================ -->
+
 <div
-    id="datasetModal"
+    id="difficultyModal"
     style="
         display: none;
         position: fixed;
         inset: 0;
-        background: rgba(15, 23, 42, 0.55);
-        backdrop-filter: blur(4px);
+        background: rgba(15,23,42,0.55);
+        backdrop-filter: blur(6px);
         z-index: 9999;
         align-items: center;
         justify-content: center;
         padding: 20px;
     "
 >
-    <div
-        style="
-            width: 100%;
-            max-width: 440px;
-            background: #FFFFFF;
+    <div style="
+        width: 100%;
+        max-width: 460px;
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 36px 32px 32px;
+        box-shadow: 0 28px 70px rgba(15,23,42,0.22);
+        text-align: center;
+        font-family: 'Nunito', sans-serif;
+        animation: diffModalIn 0.25s ease;
+    ">
+
+        <div style="
+            width: 68px; height: 68px;
+            margin: 0 auto 20px;
             border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
-            text-align: center;
-            font-family: 'Nunito', sans-serif;
-        "
-    >
+            background: linear-gradient(135deg, #EEF2FF, #E0EAFF);
+            color: #4F46E5;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 32px;
+        ">⚛️</div>
 
-        <div
-            style="
-                width: 64px;
-                height: 64px;
-                margin: 0 auto 20px;
-                border-radius: 18px;
-                background: #EEF2FF;
-                color: #4F46E5;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 30px;
-            "
-        >
-            ⚛️
-        </div>
-
-        <h3
-            style="
-                margin: 0 0 12px;
-                color: #0F172A;
-                font-size: 22px;
-                font-weight: 800;
-            "
-        >
-            Dataset Coming Soon
+        <h3 style="margin:0 0 6px; color:#0F172A; font-size:22px; font-weight:900;">
+            Choose Difficulty
         </h3>
-
-        <p
-            style="
-                margin: 0 0 24px;
-                color: #64748B;
-                font-size: 15px;
-                line-height: 1.6;
-            "
-        >
-            The Atomic Structure &amp; Isotopes gameplay dataset
-            is currently being prepared. This deck will become
-            playable once the content is available.
+        <p style="margin:0 0 28px; color:#64748B; font-size:14px; line-height:1.6;">
+            Select a level that suits you — harder modes include more complex cards
+            from the KS3 chemistry dataset.
         </p>
+
+        <!-- DIFFICULTY OPTIONS -->
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;" id="difficultyOptions">
+
+            <button type="button"
+                class="diff-btn"
+                data-difficulty="easy"
+                style="
+                    width:100%; padding:16px 20px;
+                    border:2px solid #BBF7D0; border-radius:14px;
+                    background:#F0FDF4; cursor:pointer;
+                    display:flex; align-items:center; gap:14px;
+                    font-family:'Nunito',sans-serif;
+                    transition:border-color 0.15s,box-shadow 0.15s;
+                "
+            >
+                <span style="font-size:24px;">🌱</span>
+                <div style="text-align:left;">
+                    <div style="font-size:15px; font-weight:900; color:#14532D;">Easy</div>
+                    <div style="font-size:12px; color:#4B7562; font-weight:600;">KS3 Easy rows only — great for beginners</div>
+                </div>
+            </button>
+
+            <button type="button"
+                class="diff-btn"
+                data-difficulty="medium"
+                style="
+                    width:100%; padding:16px 20px;
+                    border:2px solid #FDE68A; border-radius:14px;
+                    background:#FFFBEB; cursor:pointer;
+                    display:flex; align-items:center; gap:14px;
+                    font-family:'Nunito',sans-serif;
+                    transition:border-color 0.15s,box-shadow 0.15s;
+                "
+            >
+                <span style="font-size:24px;">🔬</span>
+                <div style="text-align:left;">
+                    <div style="font-size:15px; font-weight:900; color:#78350F;">Medium</div>
+                    <div style="font-size:12px; color:#92400E; font-weight:600;">Easy + Medium cards — for developing chemists</div>
+                </div>
+            </button>
+
+            <button type="button"
+                class="diff-btn"
+                data-difficulty="hard"
+                style="
+                    width:100%; padding:16px 20px;
+                    border:2px solid #FECACA; border-radius:14px;
+                    background:#FFF5F5; cursor:pointer;
+                    display:flex; align-items:center; gap:14px;
+                    font-family:'Nunito',sans-serif;
+                    transition:border-color 0.15s,box-shadow 0.15s;
+                "
+            >
+                <span style="font-size:24px;">🔥</span>
+                <div style="text-align:left;">
+                    <div style="font-size:15px; font-weight:900; color:#7F1D1D;">Hard</div>
+                    <div style="font-size:12px; color:#991B1B; font-weight:600;">All KS3 cards — for chemistry experts</div>
+                </div>
+            </button>
+        </div>
 
         <button
             type="button"
-            id="closeDatasetModal"
+            id="closeDiffModal"
             style="
-                width: 100%;
-                border: none;
-                border-radius: 12px;
-                background: #2563EB;
-                color: #FFFFFF;
-                padding: 13px 20px;
-                font-family: 'Nunito', sans-serif;
-                font-size: 15px;
-                font-weight: 800;
-                cursor: pointer;
+                width:100%; border:1px solid #E2E8F0; border-radius:12px;
+                background:#F8FAFC; color:#64748B;
+                padding:12px 20px;
+                font-family:'Nunito',sans-serif; font-size:14px; font-weight:700;
+                cursor:pointer;
             "
-        >
-            Got it
-        </button>
+        >Cancel</button>
 
     </div>
 </div>
 
+<style>
+@keyframes diffModalIn {
+    from { opacity:0; transform: scale(0.92) translateY(16px); }
+    to   { opacity:1; transform: scale(1)    translateY(0); }
+}
+.diff-btn:hover {
+    box-shadow: 0 4px 16px rgba(20,33,61,0.10);
+}
+</style>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
 
-        const atomicDatasetBtn =
-            document.getElementById("atomicDatasetBtn");
+    const modal      = document.getElementById("difficultyModal");
+    const closeBtn   = document.getElementById("closeDiffModal");
+    const startBtn   = document.getElementById("atomicDatasetBtn");
+    const diffBtns   = document.querySelectorAll(".diff-btn");
 
-        const datasetModal =
-            document.getElementById("datasetModal");
+    // Determine subject from active tab
+    function getSubject() {
+        const active = document.querySelector(".subject-tab.active");
+        if (!active) return "chemistry";
+        const t = active.textContent.trim().toLowerCase();
+        if (t.includes("biology")) return "biology";
+        if (t.includes("physics")) return "physics";
+        return "chemistry";
+    }
 
-        const closeDatasetModal =
-            document.getElementById("closeDatasetModal");
-
-        if (atomicDatasetBtn) {
-            atomicDatasetBtn.addEventListener("click", function () {
-                // Get the active subject tab to determine the subject
-                const activeTab = document.querySelector('.subject-tab.active');
-                let subject = 'chemistry';
-                if (activeTab) {
-                    const text = activeTab.textContent.trim().toLowerCase();
-                    if (text.includes('biology')) subject = 'biology';
-                    if (text.includes('physics')) subject = 'physics';
-                }
-                window.location.href = `gameplay.html?subject=${subject}&deck=atomic-structure&key_stage=gcse`;
-            });
-        }
-
-        if (closeDatasetModal && datasetModal) {
-
-            closeDatasetModal.addEventListener("click", function () {
-
-                datasetModal.style.display = "none";
-
-            });
-
-        }
-
-        datasetModal?.addEventListener("click", function (event) {
-
-            if (event.target === datasetModal) {
-
-                datasetModal.style.display = "none";
-
-            }
-
+    // Open modal
+    if (startBtn) {
+        startBtn.addEventListener("click", function () {
+            modal.style.display = "flex";
         });
+    }
 
+    // Close modal
+    if (closeBtn) {
+        closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
+    }
+    modal?.addEventListener("click", e => {
+        if (e.target === modal) modal.style.display = "none";
     });
+
+    // Difficulty selected → navigate
+    diffBtns.forEach(btn => {
+        btn.addEventListener("click", function () {
+            const diff    = this.dataset.difficulty;
+            const subject = getSubject();
+            modal.style.display = "none";
+            window.location.href =
+                `gameplay.html?subject=${encodeURIComponent(subject)}&deck=periodic-table-groups&key_stage=KS3&difficulty=${encodeURIComponent(diff)}`;
+        });
+    });
+
+    // Subject tab toggle
+    document.querySelectorAll(".subject-tab").forEach(tab => {
+        tab.addEventListener("click", function () {
+            document.querySelectorAll(".subject-tab").forEach(t => {
+                t.style.background = "white";
+                t.style.color      = "#475569";
+                t.style.border     = "1px solid #E2E8F0";
+                t.classList.remove("active");
+            });
+            this.style.background = "#2563EB";
+            this.style.color      = "white";
+            this.style.border     = "none";
+            this.classList.add("active");
+        });
+    });
+
+    // Mark Chemistry as active by default
+    const firstTab = document.querySelector(".subject-tab");
+    if (firstTab) {
+        firstTab.classList.add("active");
+        firstTab.style.background = "#2563EB";
+        firstTab.style.color      = "white";
+        firstTab.style.border     = "none";
+    }
+
+});
 </script>
 
 </body>

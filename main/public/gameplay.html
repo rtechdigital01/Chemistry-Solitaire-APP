@@ -5,1227 +5,874 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gameplay | Chemistry Solitaire</title>
+    <meta name="description" content="Play Chemistry Solitaire – sort cards into the correct chemistry categories to build your knowledge.">
 
     <!-- Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind compiled CSS -->
+    <!-- Compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
-    <!-- Custom CSS -->
     <link rel="stylesheet" href="./css/style.css">
-    
-    
-    <style>
-    /* Larger, cleaner foundation stack titles */
-    .foundation-stack {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: center;
-        text-align: center;
-        padding: 24px 18px;
-    }
 
-    .foundation-stack .stack-title {
-        flex: 1;
-        width: 100%;
+<style>
 
-        display: flex;
-        align-items: center;
-        justify-content: center;
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
 
-        font-family: 'Nunito', sans-serif;
-        font-size: clamp(22px, 2vw, 30px);
-        font-weight: 900;
-        line-height: 1.15;
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    background: #F3F8FF;
+    color: #14213D;
+}
 
-        color: #1E3A8A;
 
-        text-align: center;
-        word-break: normal;
-        overflow-wrap: break-word;
+/* ============================================================
+   KEYFRAMES
+============================================================ */
 
-        padding: 15px 5px;
-    }
+@keyframes popupFadeIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popupSlideUp  { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
 
-    .foundation-stack .stack-count {
-        font-size: 25px;
-        font-weight: 900;
-        margin-top: 12px;
-    }
+@keyframes stackPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,99,255,0.5); }
+    50%  { box-shadow: 0 0 0 12px rgba(37,99,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,99,255,0); }
+}
 
-    .foundation-stack .count-total {
-        font-size: 20px;
-        font-weight: 800;
-        opacity: 0.7;
-    }
+@keyframes cardShake {
+    0%,100% { transform: translateX(0); }
+    20%     { transform: translateX(-8px); }
+    40%     { transform: translateX(8px); }
+    60%     { transform: translateX(-6px); }
+    80%     { transform: translateX(6px); }
+}
+
+@keyframes dealIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+@keyframes progressGrow {
+    from { width: 0%; }
+}
+
+
+/* ============================================================
+   GAMEPLAY TOP BAR
+============================================================ */
+
+.gameplay-top-bar {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+
+    width: 100%;
+    min-height: 68px;
+
+    background: #FFFFFF;
+    border-bottom: 1px solid #E8EEF6;
+    box-shadow: 0 4px 12px rgba(20,33,61,0.05);
+}
+
+.gameplay-top-inner {
+    width: 100%;
+    max-width: 1440px;
+    min-height: 68px;
+    margin: 0 auto;
+    padding: 10px 40px;
+
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* LEFT */
+.gameplay-level-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+.gameplay-close-btn {
+    width: 36px; height: 36px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #E2E8F0;
+    border-radius: 8px;
+    background: #FFF;
+    color: #64748B;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+}
+.gameplay-close-btn:hover { background: #F1F5F9; color: #EF4444; }
+.gameplay-close-btn svg   { width: 16px; height: 16px; }
+
+.gameplay-level-text    { display: flex; flex-direction: column; line-height: 1.2; }
+.level-label            { font-size: 9px; font-weight: 900; letter-spacing: 1.2px; color: #94A3B8; text-transform: uppercase; }
+.level-title            { font-size: 13px; font-weight: 900; color: #14213D; }
+
+
+/* PROGRESS */
+.gameplay-progress-container {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.gameplay-progress-track {
+    width: 100%; height: 7px;
+    border-radius: 999px;
+    background: #E8EDF5;
+    overflow: hidden;
+}
+
+.gameplay-progress-fill {
+    height: 100%;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #2563EB, #60A5FA);
+    transition: width 0.5s cubic-bezier(.25,1,.5,1);
+    width: 0%;
+}
+
+.gameplay-progress-text {
+    font-size: 10px; font-weight: 800;
+    color: #64748B; white-space: nowrap;
+}
+
+
+/* STATS */
+.gameplay-stats-actions { display: flex; align-items: center; gap: 14px; }
+
+.gameplay-stats {
+    display: flex; align-items: center;
+    gap: 2px;
+    border: 1px solid #EDF1F7;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.stat-item {
+    min-width: 52px;
+    padding: 5px 8px;
+    text-align: center;
+    border-right: 1px solid #EDF1F7;
+}
+.stat-item:last-child { border-right: none; }
+
+.stat-icon  { width: 13px; height: 13px; margin: 0 auto 2px; color: #94A3B8; }
+.stat-value { font-size: 11px; font-weight: 900; color: #14213D; display: block; }
+.stat-label { font-size: 7px; font-weight: 700; text-transform: uppercase; color: #94A3B8; display: block; }
+
+
+/* ACTIONS */
+.gameplay-actions { display: flex; align-items: center; gap: 7px; }
+
+.btn-action {
+    min-height: 32px;
+    padding: 0 13px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 5px;
+    border-radius: 999px;
+    font-family: "Nunito", sans-serif;
+    font-size: 10px; font-weight: 800;
+    cursor: pointer;
+    transition: opacity 0.15s, transform 0.15s;
+}
+.btn-action:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-action svg   { width: 13px; height: 13px; }
+
+.btn-outline {
+    border: 1px solid #C7DBFF;
+    background: #FFF;
+    color: #2563EB;
+}
+
+.btn-yellow {
+    border: 1px solid #FFC83D;
+    background: #FFC83D;
+    color: #7C5600;
+}
+
+
+/* ============================================================
+   MAIN
+============================================================ */
+
+.gameplay-main {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #EFF6FF 0%, #F9FAFB 60%, #F0FDF4 100%);
+    overflow: hidden;
+}
+
+.gameplay-board {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 1260px;
+    margin: 0 auto;
+    padding: 40px 36px 100px;
+}
+
+
+/* ============================================================
+   MOLECULE BG
+============================================================ */
+
+.game-molecule {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.18;
+    pointer-events: none;
+}
+.game-molecule.top    { width: 300px; top: 0; left: -60px; }
+.game-molecule.bottom { width: 320px; right: -55px; bottom: -40px; }
+.game-molecule svg    { width: 100%; height: auto; }
+
+
+/* ============================================================
+   INFO BANNER
+============================================================ */
+
+.game-info-banner {
+    width: 100%;
+    min-height: 58px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #FFD261, #FFD66B);
+    color: #14213D;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(250,190,45,0.13);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-icon-wrap {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.35);
+}
+.info-icon { width: 17px; height: 17px; }
+
+
+/* ============================================================
+   MIDDLE — POINTS & SHUFFLE DECK
+============================================================ */
+
+.game-middle-actions {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.points-badge {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    width: 82px; height: 82px;
+    background: linear-gradient(145deg, #F89E19, #F5B700);
+    border-radius: 14px;
+    color: white;
+    box-shadow: 0 6px 16px rgba(248,158,25,0.35);
+    margin-left: 10px;
+}
+
+.points-label {
+    font-size: 11px; font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+    opacity: 0.9;
+}
+
+.points-value {
+    font-size: 28px; font-weight: 900;
+    line-height: 1;
+    transition: transform 0.2s;
+}
+
+.points-value.bump {
+    animation: pointsBump 0.3s ease;
+}
+
+@keyframes pointsBump {
+    0%,100% { transform: scale(1); }
+    40%     { transform: scale(1.3); }
+}
+
+.shuffle-deck {
+    position: relative;
+    width: 108px; height: 136px;
+    background: linear-gradient(145deg, #78C7EA, #5BB8E5);
+    border-radius: 12px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    cursor: pointer;
+    margin-right: 10px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.shuffle-deck:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+
+.shuffle-deck::before {
+    content: "";
+    position: absolute;
+    left: 5px; right: 5px; top: -7px;
+    height: 12px;
+    background: #4DAAEB;
+    border-radius: 8px 8px 0 0;
+    z-index: -1;
+}
+.shuffle-deck::after {
+    content: "";
+    position: absolute;
+    left: 9px; right: 9px; top: -13px;
+    height: 11px;
+    background: #2563FF;
+    border-radius: 7px 7px 0 0;
+    z-index: -2;
+}
+
+.shuffle-deck-inner {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    background-image:
+        radial-gradient(#ffffff22 2px, transparent 2px),
+        radial-gradient(#ffffff22 2px, transparent 2px);
+    background-size: 14px 14px;
+    background-position: 0 0, 7px 7px;
+    border-radius: 12px;
+    text-align: center;
+    padding: 10px;
+}
+
+.shuffle-label {
+    font-size: 16px; font-weight: 900;
+    background: rgba(255,255,255,0.88);
+    color: #14213D;
+    padding: 3px 9px;
+    border-radius: 6px;
+    margin-bottom: 5px;
+}
+
+.shuffle-desc {
+    color: white;
+    font-size: 10px; font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+============================================================ */
+
+.figma-section-heading {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.heading-accent {
+    width: 5px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: #F5B82E;
+}
+
+.heading-copy h2 {
+    margin: 0;
+    color: #14213D;
+    font-size: 28px; line-height: 1;
+    font-weight: 900; letter-spacing: -0.5px;
+}
+
+.heading-copy p {
+    margin: 6px 0 0;
+    color: #5F6F88;
+    font-size: 13px; font-weight: 600;
+}
+
+
+/* ============================================================
+   CATEGORY / FOUNDATION SECTION
+============================================================ */
+
+.category-section {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+#stacksGrid { display: contents; }
+#lockedCategorySlots { display: contents; }
+
+
+/* Foundation stack card */
+
+.foundation-stack {
+    position: relative;
+    min-height: 218px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+    border: 2px solid #F1C345;
+    border-radius: 16px;
+    background: #FFFFFF;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(20,33,61,0.08);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
+    padding: 0;
+}
+
+.foundation-stack:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(20,33,61,0.13);
+    border-color: #F3B51D;
+}
+
+.foundation-stack.stack-drag-over {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37,99,255,0.25), 0 14px 28px rgba(20,33,61,0.13);
+    transform: translateY(-4px);
+}
+
+.foundation-stack.stack-pulse {
+    animation: stackPulse 0.5s ease;
+}
+
+.foundation-stack.stack-hint {
+    border-color: #16A34A;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.3);
+}
+
+/* Card top strip */
+.category-card-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 13px;
+    border-bottom: 1px solid #F1C345;
+}
+
+.category-crown { font-size: 20px; color: #F3B51D; }
+
+.category-progress {
+    font-size: 12px; font-weight: 800;
+    color: #6B7280;
+}
+
+.category-icon-circle {
+    width: 60px; height: 60px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 12px auto 6px;
+    border-radius: 50%;
+    background: #DDF3E5;
+    color: #2E9D62;
+    transition: transform 0.2s;
+}
+.foundation-stack:hover .category-icon-circle { transform: scale(1.08); }
+
+.category-icon-circle svg { width: 30px; height: 30px; }
+
+.stack-title {
+    width: 100%;
+    padding: 8px 13px 14px;
+    text-align: center;
+    font-size: 13px; font-weight: 900;
+    color: #14213D;
+    line-height: 1.3;
+}
+
+.category-card-divider {
+    width: 100%; height: 1px;
+    background: #F1E4B8;
+}
+
+.category-bottom-badge {
+    margin: 10px 0 12px;
+    min-width: 26px; height: 26px;
+    display: flex; align-items: center; justify-content: center;
+    padding: 0 7px;
+    border-radius: 999px;
+    background: #FFF0B8;
+    color: #A87500;
+    font-size: 11px; font-weight: 900;
+    text-transform: uppercase;
+}
+
+
+/* Locked slot */
+.locked-category-card {
+    min-height: 218px;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    border: 2px dashed #E2E8F0;
+    border-radius: 16px;
+    background: #FAFBFC;
+}
+
+.locked-category-card span {
+    color: #CBD5E1;
+    font-size: 48px;
+}
+
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+
+.game-section-divider {
+    width: 88%;
+    height: 1px;
+    margin: 52px auto 44px;
+    background: #DCE8F5;
+}
+
+
+/* ============================================================
+   GAME CARDS (HAND)
+============================================================ */
+
+.game-cards-section {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+/* 
+   The hand is a scrollable wrapping grid of cards.
+   4 columns max; scrolls horizontally on narrow screens.
+*/
+
+#cardsGrid {
+    display: flex;
+    gap: 18px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.card-pile {
+    position: relative;
+    width: 25%;
+    max-width: 200px;
+    min-width: 140px;
+    min-height: 280px; /* Accounts for stacked offset */
+}
+
+.game-card {
+    position: absolute;
+    width: 100%;
+    min-height: 195px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 20px 14px 14px;
+
+    border: 2px solid #F1C345;
+    border-radius: 14px;
+
+    background: linear-gradient(180deg, #FFF9E5 0%, #FFF5D0 100%);
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.3;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 10px rgba(20,33,61,0.15);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        top 0.3s ease;
+}
+
+.game-card:not(.card-face-down):hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 18px rgba(20,33,61,0.2);
+}
+
+.game-card.card-selected {
+    border-color: #2563EB;
+    box-shadow:
+        0 0 0 3px rgba(37,99,255,0.3),
+        0 8px 18px rgba(20,33,61,0.2);
+    transform: translateY(-4px);
+}
+
+.game-card.card-shake {
+    animation: cardShake 0.55s ease;
+}
+
+.game-card.card-hint {
+    border-color: #16A34A;
+    box-shadow:
+        0 0 0 3px rgba(22,163,74,0.3),
+        0 8px 18px rgba(20,33,61,0.2);
+}
+
+.card-face-down {
+    background: linear-gradient(135deg, #1E3A8A 0%, #1D4ED8 100%) !important;
+    border-color: #1E3A8A !important;
+    color: transparent !important;
+    cursor: default !important;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.card-face-down * {
+    display: none !important;
+}
+.card-face-down::after {
+    content: "⚛️";
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    font-size: 48px;
+    opacity: 0.3;
+}
+
+/* Corner icon (small) */
+.card-corner-icon {
+    position: absolute;
+    top: 8px; left: 10px;
+    width: 18px; height: 18px;
+    opacity: 0.65;
+}
+.card-corner-icon svg { width: 100%; height: 100%; }
+
+.card-name {
+    font-size: 15px;
+    font-weight: 900;
+    line-height: 1.3;
+    text-align: center;
+    word-break: break-word;
+}
+
+.card-category-tag {
+    margin-top: 8px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.9;
+}
+
+
+/* ============================================================
+   BOTTOM CONTROLS
+============================================================ */
+
+.game-bottom-actions {
+    margin-top: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.bottom-game-btn {
+    min-width: 160px;
+    height: 54px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 9px;
+    border: 0; border-radius: 999px;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px; font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(20,33,61,0.14);
+    transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+}
+.bottom-game-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(20,33,61,0.18); }
+
+.restart-btn   { background: #14213D; color: #FFF; }
+.next-level-btn { background: #E2E8F0; color: #94A3B8; box-shadow: none; }
+.next-level-btn:not([disabled]) {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    color: white;
+    box-shadow: 0 8px 18px rgba(37,99,255,0.25);
+}
+.next-level-btn[disabled]       { cursor: not-allowed; }
+
+.bottom-game-btn svg { width: 19px; height: 19px; }
+
+#finishLevelBtn { display: none; }
+
+
+/* ============================================================
+   RESPONSIVE
+============================================================ */
+
+@media (max-width: 1150px) {
+    .gameplay-top-inner { padding: 10px 22px; }
+    .gameplay-stats      { display: none; }
+    .category-grid       { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 880px) {
+    .gameplay-top-inner        { flex-wrap: wrap; padding: 12px 16px; }
+    .gameplay-progress-container { order: 3; width: 100%; }
+    .gameplay-stats-actions    { margin-left: auto; }
+    .gameplay-board            { padding: 28px 18px 70px; }
+    .category-grid             { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .game-card                 { width: calc(50% - 9px); }
+}
+
+@media (max-width: 560px) {
+    .gameplay-actions     { display: none; }
+    .gameplay-board       { padding: 22px 14px 60px; }
+    .heading-copy h2      { font-size: 23px; }
+    .category-grid        { grid-template-columns: 1fr 1fr; gap: 10px; }
+    .game-card            { min-width: 120px; min-height: 170px; font-size: 14px; }
+    .game-bottom-actions  { gap: 10px; }
+    .bottom-game-btn      { min-width: 0; flex: 1; height: 50px; }
+}
+
 </style>
 </head>
 
 <body>
 
-<!-- ==========================================
-     PAGE-SPECIFIC FIGMA STYLING
-========================================== -->
-
-<style>
-
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        margin: 0;
-        font-family: "Nunito", sans-serif;
-        background: #F5F9FF;
-        color: #14213D;
-    }
-
-
-    /* ==========================================
-       GAMEPLAY TOP BAR
-    ========================================== */
-
-    .gameplay-top-bar {
-        position: relative;
-        z-index: 20;
-
-        width: 100%;
-        min-height: 72px;
-
-        background: #FFFFFF;
-        border-bottom: 1px solid #E8EEF6;
-
-        box-shadow:
-            0 4px 12px rgba(20, 33, 61, 0.04);
-    }
-
-    .gameplay-top-inner {
-        width: 100%;
-        max-width: 1440px;
-
-        min-height: 72px;
-
-        margin: 0 auto;
-        padding: 10px 55px;
-
-        display: flex;
-        align-items: center;
-
-        gap: 28px;
-    }
-
-
-    /* LEFT */
-
-    .gameplay-level-info {
-        display: flex;
-        align-items: center;
-
-        gap: 14px;
-
-        flex-shrink: 0;
-    }
-
-    .gameplay-close-btn {
-        width: 38px;
-        height: 38px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border: 1px solid #E2E8F0;
-        border-radius: 9px;
-
-        background: #FFFFFF;
-
-        color: #64748B;
-
-        cursor: pointer;
-    }
-
-    .gameplay-close-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .gameplay-level-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .level-label {
-        color: #94A3B8;
-
-        font-size: 9px;
-        font-weight: 900;
-
-        letter-spacing: 1px;
-    }
-
-    .level-title {
-        color: #14213D;
-
-        font-size: 12px;
-        font-weight: 900;
-    }
-
-
-    /* PROGRESS */
-
-    .gameplay-progress-container {
-        min-width: 280px;
-
-        flex: 1;
-
-        display: flex;
-        align-items: center;
-
-        gap: 13px;
-    }
-
-    .gameplay-progress-track {
-        position: relative;
-
-        width: 100%;
-        height: 6px;
-
-        overflow: hidden;
-
-        border-radius: 999px;
-
-        background: #E8EDF5;
-    }
-
-    .gameplay-progress-fill {
-        height: 100%;
-
-        border-radius: 999px;
-
-        background: #2563FF;
-    }
-
-    .gameplay-progress-text {
-        color: #64748B;
-
-        font-size: 10px;
-        font-weight: 800;
-
-        white-space: nowrap;
-    }
-
-
-    /* STATS */
-
-    .gameplay-stats-actions {
-        display: flex;
-        align-items: center;
-
-        gap: 16px;
-    }
-
-    .gameplay-stats {
-        display: flex;
-        align-items: center;
-
-        gap: 3px;
-    }
-
-    .stat-item {
-        min-width: 48px;
-
-        padding: 4px 6px;
-
-        text-align: center;
-
-        border-right: 1px solid #EDF1F7;
-    }
-
-    .stat-icon {
-        width: 13px;
-        height: 13px;
-
-        margin: 0 auto 2px;
-
-        color: #64748B;
-    }
-
-    .stat-text {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .stat-value {
-        color: #14213D;
-
-        font-size: 10px;
-        font-weight: 900;
-    }
-
-    .stat-label {
-        color: #94A3B8;
-
-        font-size: 7px;
-        font-weight: 700;
-        text-transform: uppercase;
-    }
-
-
-    /* TOP ACTIONS */
-
-    .gameplay-actions {
-        display: flex;
-        align-items: center;
-
-        gap: 8px;
-    }
-
-    .btn-action {
-        min-height: 34px;
-
-        padding: 0 14px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 6px;
-
-        border-radius: 999px;
-
-        font-family: "Nunito", sans-serif;
-        font-size: 10px;
-        font-weight: 800;
-
-        cursor: pointer;
-    }
-
-    .btn-action svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    .btn-outline {
-        border: 1px solid #C7DBFF;
-
-        background: #FFFFFF;
-
-        color: #2563FF;
-    }
-
-    .btn-yellow {
-        border: 1px solid #FFC83D;
-
-        background: #FFC83D;
-
-        color: #7C5600;
-    }
-
-    .buy-hint-btn {
-        border: 1px solid #C7DBFF;
-
-        background: #FFFFFF;
-
-        color: #2563FF;
-    }
-
-
-    /* ==========================================
-       MAIN
-    ========================================== */
-
-    .gameplay-main {
-        position: relative;
-
-        min-height: 100vh;
-
-        overflow: hidden;
-
-        background:
-            linear-gradient(
-                120deg,
-                #F3F8FF 0%,
-                #FBFDFF 70%,
-                #F5F9FF 100%
-            );
-    }
-
-    .gameplay-board {
-        position: relative;
-        z-index: 2;
-
-        width: 100%;
-        max-width: 1260px;
-
-        margin: 0 auto;
-
-        padding: 45px 40px 90px;
-    }
-
-
-    /* ==========================================
-       MOLECULE BACKGROUND
-    ========================================== */
-
-    .game-molecule {
-        position: absolute;
-
-        z-index: 0;
-
-        opacity: 0.20;
-
-        pointer-events: none;
-    }
-
-    .game-molecule.top {
-        width: 310px;
-
-        top: 0;
-        left: -70px;
-    }
-
-    .game-molecule.bottom {
-        width: 340px;
-
-        right: -60px;
-        bottom: -50px;
-    }
-
-    .game-molecule svg {
-        width: 100%;
-        height: auto;
-    }
-
-
-    /* ==========================================
-       INFO BANNER
-    ========================================== */
-
-    .game-info-banner {
-        width: 100%;
-
-        min-height: 62px;
-
-        padding: 15px 22px;
-
-        display: flex;
-        align-items: center;
-
-        gap: 13px;
-
-        margin-bottom: 62px;
-
-        border-radius: 12px;
-
-        background:
-            linear-gradient(
-                90deg,
-                #FFD261 0%,
-                #FFD66B 100%
-            );
-
-        color: #14213D;
-
-        font-size: 15px;
-        font-weight: 700;
-
-        box-shadow:
-            0 7px 18px rgba(250, 190, 45, 0.10);
-    }
-
-    .info-icon-wrap {
-        width: 34px;
-        height: 34px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        flex-shrink: 0;
-
-        border-radius: 9px;
-
-        background: rgba(255,255,255,0.34);
-    }
-
-    .info-icon {
-        width: 19px;
-        height: 19px;
-    }
-
-
-    /* ==========================================
-       SECTION TITLES
-    ========================================== */
-
-    .figma-section-heading {
-        display: flex;
-        align-items: stretch;
-
-        gap: 14px;
-
-        margin-bottom: 38px;
-    }
-
-    .heading-accent {
-        width: 5px;
-
-        flex-shrink: 0;
-
-        border-radius: 999px;
-
-        background: #F5B82E;
-    }
-
-    .heading-copy h2 {
-        margin: 0;
-
-        color: #14213D;
-
-        font-size: 31px;
-        line-height: 1;
-
-        font-weight: 900;
-
-        letter-spacing: -0.7px;
-    }
-
-    .heading-copy p {
-        margin: 8px 0 0;
-
-        color: #5F6F88;
-
-        font-size: 14px;
-        font-weight: 600;
-    }
-
-
-    /* ==========================================
-       CATEGORY SECTION
-    ========================================== */
-
-    .category-section {
-        max-width: 1030px;
-
-        margin: 0 auto;
-    }
-
-    .category-grid {
-        display: grid;
-        grid-template-columns: repeat(5, minmax(0, 1fr));
-
-        gap: 18px;
-
-        align-items: stretch;
-    }
-
-
-    /*
-       gameplay.js continues generating the
-       foundation stacks inside #stacksGrid.
-
-       display:contents means those generated cards
-       participate directly in our Figma grid.
-    */
-
-    #stacksGrid {
-        display: contents;
-    }
-
-
-    /* LIVE / UNLOCKED CATEGORY */
-
-    #stacksGrid > * {
-        position: relative;
-
-        min-height: 230px;
-
-        padding: 18px 14px;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-between;
-
-        overflow: hidden;
-
-        border: 2px solid #F1C345;
-        border-radius: 17px;
-
-        background:
-            linear-gradient(
-                180deg,
-                #FFF9E7 0%,
-                #FFF6DC 100%
-            );
-
-        color: #14213D;
-
-        cursor: pointer;
-
-        box-shadow:
-            0 9px 20px rgba(20,33,61,0.08);
-
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    #stacksGrid > *:hover {
-        transform: translateY(-4px);
-
-        box-shadow:
-            0 14px 25px rgba(20,33,61,0.12);
-    }
-
-
-    /* Existing gameplay.js stack content */
-
-    #stacksGrid .foundation-stack {
-        padding: 17px 14px;
-    }
-
-    #stacksGrid .stack-title {
-        width: 100%;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        flex: 1;
-
-        padding: 15px 4px;
-
-        color: #14213D;
-
-        font-size: 15px;
-        line-height: 1.2;
-
-        font-weight: 900;
-
-        text-align: center;
-    }
-
-    #stacksGrid .stack-count {
-        margin-top: 10px;
-
-        color: #14213D;
-
-        font-size: 13px;
-        font-weight: 900;
-    }
-
-    #stacksGrid .count-total {
-        font-size: 11px;
-        font-weight: 700;
-
-        opacity: 0.65;
-    }
-
-    
-     /* ==========================================
-       LOCKED CATEGORY PLACEHOLDERS
-    ========================================== */
-
-    #lockedCategorySlots {
-        display: contents;
-    }
-
-    .locked-category-card {
-        position: relative;
-
-        min-height: 230px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        overflow: hidden;
-
-        border: 1px solid #D7DEE8;
-        border-radius: 17px;
-
-        background:
-            linear-gradient(
-                145deg,
-                #F2F4F7,
-                #E8ECF1
-            );
-
-        box-shadow:
-            inset 0 5px 12px rgba(20,33,61,0.06),
-            0 8px 18px rgba(20,33,61,0.08);
-    }
-
-    .locked-category-card span {
-        color: #D3D9E1;
-
-        font-size: 57px;
-
-        transform: translateY(-4px);
-    }
-
-
-    /* ==========================================
-       DIVIDER
-    ========================================== */
-
-    .game-section-divider {
-        width: 88%;
-
-        height: 1px;
-
-        margin: 60px auto 52px;
-
-        background: #DCE8F5;
-    }
-
-
-    /* ==========================================
-       GAME CARDS SECTION
-    ========================================== */
-
-    .game-cards-section {
-        max-width: 720px;
-
-        margin: 0 auto;
-    }
-
-    .game-cards-section .figma-section-heading {
-        margin-bottom: 35px;
-    }
-
-    #cardsGrid {
-        display: grid;
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-
-        gap: 22px;
-    }
-
-
-    /* Dynamic cards generated by gameplay.js */
-
-    #cardsGrid > * {
-        position: relative;
-
-        min-height: 230px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        padding: 24px 15px;
-
-        border: 1px solid #F1E1AD;
-        border-radius: 13px;
-
-        background:
-            linear-gradient(
-                180deg,
-                #FFF7DB 0%,
-                #FFF5D4 100%
-            );
-
-        color: #14213D;
-
-        font-family: "Nunito", sans-serif;
-
-        font-size: 20px;
-        line-height: 1.2;
-
-        font-weight: 900;
-
-        text-align: center;
-
-        cursor: pointer;
-
-        box-shadow:
-            0 9px 20px rgba(20,33,61,0.10);
-
-        transition:
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-
-    /* blue stacked card tops */
-
-    #cardsGrid > *::before {
-        content: "";
-
-        position: absolute;
-
-        left: 4px;
-        right: 4px;
-
-        top: -14px;
-
-        height: 16px;
-
-        z-index: -1;
-
-        border-radius: 11px 11px 3px 3px;
-
-        background: #78C7EA;
-    }
-
-    #cardsGrid > *::after {
-        content: "";
-
-        position: absolute;
-
-        left: 2px;
-        right: 2px;
-
-        top: -7px;
-
-        height: 12px;
-
-        z-index: -1;
-
-        border-radius: 10px 10px 3px 3px;
-
-        background: #9DDBF3;
-    }
-
-
-    #cardsGrid > *:hover {
-        transform: translateY(-5px);
-
-        box-shadow:
-            0 14px 25px rgba(20,33,61,0.13);
-    }
-
-
-    /* Preserve selected-card indication */
-
-    #cardsGrid > *.selected,
-    #cardsGrid > *.active {
-        outline: 3px solid #2563FF;
-        outline-offset: 3px;
-    }
-
-
-    /* ==========================================
-       BOTTOM CONTROLS
-    ========================================== */
-
-    .game-bottom-actions {
-        margin-top: 45px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 18px;
-    }
-
-    .bottom-game-btn {
-        min-width: 170px;
-        height: 58px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        gap: 10px;
-
-        border: 0;
-        border-radius: 999px;
-
-        font-family: "Nunito", sans-serif;
-
-        font-size: 16px;
-        font-weight: 800;
-
-        cursor: pointer;
-
-        box-shadow:
-            0 10px 20px rgba(20,33,61,0.15);
-    }
-
-    .shuffle-btn {
-        background: #164D99;
-
-        color: #FFFFFF;
-    }
-
-    .hint-btn {
-        background: #FFC32B;
-
-        color: #FFFFFF;
-    }
-
-    .bottom-game-btn svg {
-        width: 21px;
-        height: 21px;
-    }
-
-
-    /* Keep gameplay.js finish button available
-       without adding an unwanted Figma element */
-
-    #finishLevelBtn {
-        display: none;
-    }
-
-
-    /* ==========================================
-       RESPONSIVE
-    ========================================== */
-
-    @media (max-width: 1150px) {
-
-        .gameplay-top-inner {
-            padding: 10px 25px;
-        }
-
-        .gameplay-stats {
-            display: none;
-        }
-
-        .category-grid {
-            grid-template-columns:
-                repeat(3, minmax(0, 1fr));
-        }
-    }
-
-
-    @media (max-width: 850px) {
-
-        .gameplay-top-inner {
-            flex-wrap: wrap;
-
-            padding: 12px 18px;
-        }
-
-        .gameplay-progress-container {
-            order: 3;
-
-            width: 100%;
-        }
-
-        .gameplay-stats-actions {
-            margin-left: auto;
-        }
-
-        .gameplay-board {
-            padding: 30px 20px 70px;
-        }
-
-        .game-info-banner {
-            margin-bottom: 45px;
-        }
-
-        .category-grid {
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-        }
-
-        #cardsGrid {
-            grid-template-columns:
-                repeat(2, minmax(0, 1fr));
-        }
-    }
-
-
-    @media (max-width: 550px) {
-
-        .gameplay-actions {
-            display: none;
-        }
-
-        .gameplay-level-info {
-            width: 100%;
-        }
-
-        .gameplay-progress-container {
-            min-width: 100%;
-        }
-
-        .figma-section-heading {
-            margin-bottom: 28px;
-        }
-
-        .heading-copy h2 {
-            font-size: 27px;
-        }
-
-        .category-grid {
-            grid-template-columns: 1fr 1fr;
-
-            gap: 12px;
-        }
-
-        #stacksGrid > *,
-        .locked-category-card {
-            min-height: 200px;
-        }
-
-        #cardsGrid {
-            gap: 14px;
-        }
-
-        #cardsGrid > * {
-            min-height: 190px;
-
-            font-size: 17px;
-        }
-
-        .game-bottom-actions {
-            gap: 10px;
-        }
-
-        .bottom-game-btn {
-            min-width: 0;
-
-            flex: 1;
-
-            height: 53px;
-        }
-    }
-
-
-/* ==========================================
-   CATEGORY CARD INNER DESIGN
-========================================== */
-
-.category-card-top {
-    width: 100%;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.category-crown {
-    color: #F3B51D;
-
-    font-size: 25px;
-    line-height: 1;
-}
-
-.category-progress {
-    color: #6B7280;
-
-    font-size: 12px;
-    font-weight: 800;
-}
-
-.category-icon-circle {
-    width: 68px;
-    height: 68px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    margin: 12px auto;
-
-    border-radius: 50%;
-
-    background: #DDF3E5;
-
-    color: #2E9D62;
-}
-
-.category-icon-circle svg {
-    width: 34px;
-    height: 34px;
-}
-
-.category-card-divider {
-    width: 100%;
-    height: 1px;
-
-    margin: 8px 0 12px;
-
-    background: #F1E4B8;
-}
-
-.category-bottom-badge {
-    min-width: 28px;
-    height: 28px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    padding: 0 8px;
-
-    border-radius: 999px;
-
-    background: #FFF0B8;
-
-    color: #A87500;
-
-    font-size: 12px;
-    font-weight: 900;
-}
-</style>
-
-
-
-<!-- ==========================================
-     REUSABLE HEADER
-========================================== -->
-
+<!-- Shared header -->
 <div id="header"></div>
 
 
-
-<!-- ==========================================
+<!-- ============================================================
      GAMEPLAY TOP BAR
-========================================== -->
+============================================================ -->
 
 <div class="gameplay-top-bar">
-
     <div class="gameplay-top-inner">
 
-
         <!-- LEVEL -->
-
         <div class="gameplay-level-info">
 
             <button
                 class="gameplay-close-btn"
                 type="button"
-                onclick="window.location.href='dashboard.html'"
-                aria-label="Close gameplay"
+                onclick="window.location.href='games.html'"
+                aria-label="Exit game"
             >
-
                 <svg viewBox="0 0 24 24" fill="none">
-
-                    <path
-                        d="M18 6L6 18M6 6L18 18"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-
             </button>
 
-
             <div class="gameplay-level-text">
-
-                <span class="level-label">
-                    LEVEL 1
-                </span>
-
-                <span class="level-title">
-                    Atomic Structure
-                </span>
-
+                <span class="level-label">KS3 · Easy</span>
+                <span class="level-title">Periodic Table &amp; Groups</span>
             </div>
 
         </div>
-
 
 
         <!-- PROGRESS -->
-
         <div class="gameplay-progress-container">
-
             <div class="gameplay-progress-track">
-
-                <div
-                    class="gameplay-progress-fill"
-                    style="width:58%;"
-                ></div>
-
+                <div class="gameplay-progress-fill" style="width:0%;"></div>
             </div>
-
-            <span class="gameplay-progress-text">
-                7/12
-            </span>
-
+            <span class="gameplay-progress-text">0/0</span>
         </div>
 
 
-
-        <!-- STATS / ACTIONS -->
-
+        <!-- STATS -->
         <div class="gameplay-stats-actions">
-
 
             <div class="gameplay-stats">
 
                 <div class="stat-item">
-
-                    <div class="stat-text">
-                        <span class="stat-value">70</span>
-                        <span class="stat-label">score</span>
-                    </div>
-
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"
+                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Score</span>
                 </div>
 
-
                 <div class="stat-item">
-
-                    <div class="stat-text">
-                        <span class="stat-value">9</span>
-                        <span class="stat-label">moves</span>
-                    </div>
-
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Moves</span>
                 </div>
 
-
                 <div class="stat-item">
-
-                    <div class="stat-text">
-                        <span class="stat-value">220</span>
-                        <span class="stat-label">cards</span>
-                    </div>
-
-                </div>
-
-
-                <div class="stat-item">
-
-                    <div class="stat-text">
-                        <span class="stat-value">2</span>
-                        <span class="stat-label">stars</span>
-                    </div>
-
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M2 10h20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Cards</span>
                 </div>
 
             </div>
 
 
-
+            <!-- ACTION BUTTONS -->
             <div class="gameplay-actions">
 
-
                 <button
-                    class="btn-action btn-outline"
+                    type="button"
                     id="topRedealBtn"
-                    type="button"
+                    class="btn-action btn-outline"
+                    aria-label="Shuffle cards"
                 >
-                    ↻ Redeal
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M16 3l4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Shuffle
                 </button>
-                
-                 <button
-                    class="btn-action btn-yellow"
-                    id="topHintBtn"
-                    type="button"
-                >
-                    ♧ Hint (free)
-                </button>
-
 
                 <button
-                    class="btn-action buy-hint-btn"
-                    id="buyHintBtn"
                     type="button"
-                    disabled
-                    title="Buy Hint will be connected later"
+                    id="topHintBtn"
+                    class="btn-action btn-yellow"
+                    aria-label="Get a hint"
                 >
-                    ◉ Buy Hint
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M12 16v6M9 19h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                    Hint
                 </button>
 
             </div>
@@ -1233,144 +880,90 @@
         </div>
 
     </div>
-
 </div>
 
 
-
-<!-- ==========================================
+<!-- ============================================================
      MAIN GAMEPLAY
-========================================== -->
+============================================================ -->
 
 <main class="gameplay-main">
 
-
-    <!-- DECORATIVE MOLECULE TOP -->
-
+    <!-- Decorative molecules -->
     <div class="game-molecule top">
-
         <svg viewBox="0 0 320 260" fill="none">
-
-            <circle cx="70" cy="60" r="45" stroke="#99C5ED" stroke-width="4"/>
-            <circle cx="180" cy="130" r="36" stroke="#99C5ED" stroke-width="4"/>
-            <circle cx="70" cy="205" r="29" stroke="#99C5ED" stroke-width="4"/>
-
-            <path d="M105 87L150 112" stroke="#99C5ED" stroke-width="4"/>
-            <path d="M149 150L95 188" stroke="#99C5ED" stroke-width="4"/>
-
+            <circle cx="70" cy="60" r="45" stroke="#93C5FD" stroke-width="4"/>
+            <circle cx="180" cy="130" r="36" stroke="#93C5FD" stroke-width="4"/>
+            <circle cx="70" cy="205" r="29" stroke="#93C5FD" stroke-width="4"/>
+            <path d="M105 87L150 112" stroke="#93C5FD" stroke-width="4"/>
+            <path d="M149 150L95 188" stroke="#93C5FD" stroke-width="4"/>
         </svg>
-
     </div>
-
-
-
-    <!-- DECORATIVE MOLECULE BOTTOM -->
 
     <div class="game-molecule bottom">
-
         <svg viewBox="0 0 340 300" fill="none">
-
-            <circle cx="70" cy="165" r="48" stroke="#99C5ED" stroke-width="4"/>
-            <circle cx="175" cy="85" r="42" stroke="#99C5ED" stroke-width="4"/>
-            <circle cx="185" cy="235" r="42" stroke="#99C5ED" stroke-width="4"/>
-            <circle cx="290" cy="145" r="38" stroke="#99C5ED" stroke-width="4"/>
-
-            <path d="M106 136L143 108" stroke="#99C5ED" stroke-width="4"/>
-            <path d="M111 192L150 218" stroke="#99C5ED" stroke-width="4"/>
-            <path d="M213 105L260 132" stroke="#99C5ED" stroke-width="4"/>
-
+            <circle cx="70"  cy="165" r="48" stroke="#86EFAC" stroke-width="4"/>
+            <circle cx="175" cy="85"  r="42" stroke="#86EFAC" stroke-width="4"/>
+            <circle cx="185" cy="235" r="42" stroke="#86EFAC" stroke-width="4"/>
+            <circle cx="290" cy="145" r="38" stroke="#86EFAC" stroke-width="4"/>
+            <path d="M106 136L143 108" stroke="#86EFAC" stroke-width="4"/>
+            <path d="M111 192L150 218" stroke="#86EFAC" stroke-width="4"/>
+            <path d="M213 105L260 132" stroke="#86EFAC" stroke-width="4"/>
         </svg>
-
     </div>
-
 
 
     <div class="gameplay-board">
 
-
-        <!-- ======================================
-             INFO
-        ======================================= -->
-
+        <!-- INFO BANNER -->
         <div class="game-info-banner">
-
             <span class="info-icon-wrap">
-
-                <svg
-                    class="info-icon"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                >
-
-                    <circle
-                        cx="12"
-                        cy="12"
-                        r="9"
-                        stroke="currentColor"
-                        stroke-width="2"
-                    />
-
-                    <path
-                        d="M12 11V16M12 8H12.01"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                    />
-
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 11V16M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-
             </span>
+            Select a card from the hand below, then tap a category above.
+        </div>
 
-            Select a card from the deck, then tap a foundation stack.
+
+
+        <!-- POINTS & SHUFFLE DECK -->
+        <div class="game-middle-actions">
+
+            <div class="points-badge">
+                <span class="points-label">Points</span>
+                <span class="points-value" id="pointsValueBadge">0</span>
+            </div>
+
+            <div class="shuffle-deck" id="shuffleDeckBtn" role="button" aria-label="Shuffle hand">
+                <div class="shuffle-deck-inner">
+                    <span class="shuffle-label">Shuffle</span>
+                    <span class="shuffle-desc">remaining cards</span>
+                </div>
+            </div>
 
         </div>
 
 
 
-        <!-- ======================================
-             CATEGORY
-        ======================================= -->
+        <!-- ==============================
+             CATEGORY SECTION
+        ============================== -->
 
-        <section class="category-section">
-
+        <section class="category-section" aria-label="Category foundation stacks">
 
             <div class="figma-section-heading">
-
                 <span class="heading-accent"></span>
-
                 <div class="heading-copy">
-
-                    <h2>
-                        Category
-                    </h2>
-
-                    <p>
-                        Choose a category to start playing
-                    </p>
-
+                    <h2>Category</h2>
+                    <p>Choose a category to match your card</p>
                 </div>
-
             </div>
 
-
-
             <div class="category-grid">
-
-
-                <!--
-                    IMPORTANT:
-                    gameplay.js still generates the
-                    real category / foundation cards here.
-                -->
-
                 <div id="stacksGrid"></div>
-
-
-                <!-- Locked cards added dynamically -->
-
                 <div id="lockedCategorySlots"></div>
-
-
             </div>
 
         </section>
@@ -1381,112 +974,48 @@
 
 
 
-        <!-- ======================================
-             GAME CARDS
-        ======================================= -->
+        <!-- ==============================
+             GAME CARDS (HAND)
+        ============================== -->
 
-        <section class="game-cards-section">
-
+        <section class="game-cards-section" aria-label="Card hand">
 
             <div class="figma-section-heading">
-
                 <span class="heading-accent"></span>
-
-
                 <div class="heading-copy">
-
-                    <h2>
-                        Game Cards
-                    </h2>
-
-                    <p>
-                        Build knowledge, one match at a time
-                    </p>
-
+                    <h2>Game Cards</h2>
+                    <p>Build knowledge, one match at a time</p>
                 </div>
-
             </div>
 
-
-
-            <!--
-                gameplay.js continues generating
-                the actual playable cards here.
-            -->
-
-            <div id="cardsGrid"></div>
-
-
+            <div id="cardsGrid" role="list" aria-label="Playable cards"></div>
 
             <!-- CONTROLS -->
-
             <div class="game-bottom-actions">
 
-
                 <button
                     type="button"
-                    class="bottom-game-btn shuffle-btn"
-                    id="redealBtn"
+                    class="bottom-game-btn restart-btn"
+                    id="restartBtn"
                 >
-
                     <svg viewBox="0 0 24 24" fill="none">
-
-                        <path
-                            d="M4 4V9H9M20 20V15H15"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-
-                        <path
-                            d="M5 9C6.5 5.7 9 4 12 4C16 4 19.2 7 20 11M19 15C17.5 18.3 15 20 12 20C8 20 4.8 17 4 13"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                        />
-
+                        <path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>
-
-                    Shuffle
-
+                    Restart
                 </button>
 
-
-
                 <button
                     type="button"
-                    class="bottom-game-btn hint-btn"
-                    id="hintBtn"
-                >
-
-                    <svg viewBox="0 0 24 24" fill="none">
-
-                        <path
-                            d="M9 18H15M10 21H14M8 13C6.8 12 6 10.5 6 8.8C6 5.6 8.7 3 12 3C15.3 3 18 5.6 18 8.8C18 10.5 17.2 12 16 13C15 13.8 14.5 14.6 14.5 16H9.5C9.5 14.6 9 13.8 8 13Z"
-                            stroke="currentColor"
-                            stroke-width="2"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                        />
-
-                    </svg>
-
-                    Hint
-
-                </button>
-
-
-                <!-- Existing gameplay.js may still require this ID -->
-
-                <button
-                    type="button"
-                    id="finishLevelBtn"
+                    class="bottom-game-btn next-level-btn"
+                    id="nextLevelBtn"
                     disabled
                 >
-                    Finish Level
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Next Level
                 </button>
-
 
             </div>
 
@@ -1497,18 +1026,21 @@
 </main>
 
 
-
-<!-- ==========================================
-     FOOTER
-========================================== -->
-
+<!-- Shared footer -->
 <div id="footer"></div>
 
 
+<!-- Hidden finish button used by gameplay.js -->
+<button type="button" id="finishLevelBtn" style="display:none;"></button>
 
-<!-- ==========================================
-     EXISTING PROJECT JS
-========================================== -->
+<!-- Hidden hint / redeal refs used by gameplay.js -->
+<button type="button" id="hintBtn"   style="display:none;"></button>
+<button type="button" id="redealBtn" style="display:none;"></button>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
 
 <script src="./js/header.js"></script>
 <script src="./js/footer.js"></script>
@@ -1517,138 +1049,47 @@
 <script src="./js/gameplay.js"></script>
 
 
-
-<!-- ==========================================
-     FIGMA UI HELPERS
-========================================== -->
-
 <script>
+/* ============================================================
+   LOCKED CATEGORY SLOTS
+   Fills empty category grid positions with dashed placeholder cards.
+============================================================ */
 
-    /*
-     * Keep a total of five category positions.
-     *
-     * Example:
-     * 1 generated category = 4 grey cards
-     * 5 generated categories = 0 grey cards
-     *
-     * This gives us the two Figma states automatically.
-     */
+const stacksGridEl       = document.getElementById("stacksGrid");
+const lockedSlotsEl      = document.getElementById("lockedCategorySlots");
+const TOTAL_CAT_SLOTS    = 5;
 
-    const stacksGrid =
-        document.getElementById("stacksGrid");
+function refreshLockedSlots() {
+    const filled  = stacksGridEl.children.length;
+    const needed  = Math.max(0, TOTAL_CAT_SLOTS - filled);
 
-    const lockedCategorySlots =
-        document.getElementById(
-            "lockedCategorySlots"
-        );
-
-
-    function updateLockedCategorySlots() {
-
-        const categoryCount =
-            stacksGrid.children.length;
-
-
-        const lockedCount =
-            Math.max(
-                0,
-                5 - categoryCount
-            );
-
-
-        lockedCategorySlots.innerHTML = "";
-
-
-        for (
-            let i = 0;
-            i < lockedCount;
-            i++
-        ) {
-
-            const card =
-                document.createElement("div");
-
-
-            card.className =
-                "locked-category-card";
-
-
-            card.innerHTML =
-                "<span>♛</span>";
-
-
-            lockedCategorySlots
-                .appendChild(card);
-
-        }
-
+    lockedSlotsEl.innerHTML = "";
+    for (let i = 0; i < needed; i++) {
+        const card = document.createElement("div");
+        card.className = "locked-category-card";
+        card.innerHTML = "<span>♛</span>";
+        lockedSlotsEl.appendChild(card);
     }
+}
+
+new MutationObserver(refreshLockedSlots).observe(stacksGridEl, { childList: true });
+refreshLockedSlots();
 
 
+/* ============================================================
+   TOP-BAR BRIDGE BUTTONS
+   (Wire Shuffle / Hint top-bar buttons → gameplay.js helpers)
+============================================================ */
 
-    /*
-     * gameplay.js loads the categories asynchronously,
-     * so watch #stacksGrid and refresh the grey cards
-     * whenever gameplay.js changes it.
-     */
+document.getElementById("topRedealBtn")?.addEventListener("click", () => {
+    window._gameShuffleHand?.();
+});
 
-    const categoryObserver =
-        new MutationObserver(
-            updateLockedCategorySlots
-        );
-
-
-    categoryObserver.observe(
-        stacksGrid,
-        {
-            childList: true
-        }
-    );
-
-
-    updateLockedCategorySlots();
-
-
-
-    /*
-     * The Figma has Redeal/Hint controls in the
-     * top bar as well as Shuffle/Hint underneath.
-     *
-     * These top controls simply trigger your
-     * existing gameplay.js controls.
-     */
-
-    document
-        .getElementById("topRedealBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                document
-                    .getElementById("redealBtn")
-                    ?.click();
-
-            }
-        );
-
-
-    document
-        .getElementById("topHintBtn")
-        .addEventListener(
-            "click",
-            function () {
-
-                document
-                    .getElementById("hintBtn")
-                    ?.click();
-
-            }
-        );
-
+document.getElementById("topHintBtn")?.addEventListener("click", () => {
+    window._gameHintClick?.();
+});
 </script>
 
 
 </body>
-
-
 </html>

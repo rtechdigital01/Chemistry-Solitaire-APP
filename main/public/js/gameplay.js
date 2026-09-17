@@ -1,475 +1,503 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const cardsGrid =
-        document.getElementById("cardsGrid");
+    /* ============================================================
+       DOM REFS
+    ============================================================ */
 
-    const stacksGrid =
-        document.getElementById("stacksGrid");
+    const cardsGrid   = document.getElementById("cardsGrid");
+    const stacksGrid  = document.getElementById("stacksGrid");
+    const banner      = document.querySelector(".game-info-banner");
+    const progressFill= document.querySelector(".gameplay-progress-fill");
+    const progressText= document.querySelector(".gameplay-progress-text");
+    const finishLevelBtn = document.getElementById("finishLevelBtn");
+    const hintBtn     = document.getElementById("hintBtn");
+    const redealBtn   = document.getElementById("redealBtn");
+    const nextLevelBtn= document.getElementById("nextLevelBtn");
+    const restartBtn  = document.getElementById("restartBtn");
+    const shuffleDeckBtn = document.getElementById("shuffleDeckBtn");
+    const pointsBadge    = document.getElementById("pointsValueBadge");
 
-    const banner =
-        document.querySelector(".game-info-banner");
-
-    const progressFill =
-        document.querySelector(".gameplay-progress-fill");
-
-    const progressText =
-        document.querySelector(".gameplay-progress-text");
-
-    const finishLevelBtn =
-        document.getElementById("finishLevelBtn");
-
-    const hintBtn =
-        document.getElementById("hintBtn");
-
-    const redealBtn =
-        document.getElementById("redealBtn");
-
-    const statValues =
-        document.querySelectorAll(
-            ".gameplay-stats .stat-value"
-        );
-
+    const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
     const movesElement = statValues[1];
     const cardsElement = statValues[2];
 
-    const params =
-        new URLSearchParams(window.location.search);
+    /* ============================================================
+       URL PARAMS
+    ============================================================ */
 
+    const params     = new URLSearchParams(window.location.search);
+    const subject    = params.get("subject")    || "chemistry";
+    const deck       = params.get("deck")       || "periodic-table-groups";
+    const keyStage   = params.get("key_stage")  || "KS3";
+    const difficulty = params.get("difficulty") || "easy";
+    const level      = parseInt(params.get("level")) || 1;
 
-    /* ========================================
-       CURRENT DATASET
-    ======================================== */
+    /* ============================================================
+       GAME STATE
+    ============================================================ */
 
-    const deck = "periodic-table-groups";
-
-    // Current Periodic Table dataset is KS3 only
-    const keyStage =
-        params.get("key_stage") || "KS3";
-
-    const difficulty =
-        params.get("difficulty") || "easy";
-
-    const level =
-        parseInt(params.get("level")) || 1;
-
-
-    const startedAt = Date.now();
-
-    let selectedCard = null;
-
-    let score = 0;
-    let moves = 0;
-    let cardsPlaced = 0;
+    const startedAt   = Date.now();
+    let selectedCard  = null;
+    let score         = 0;
+    let moves         = 0;
+    let cardsPlaced   = 0;
     let incorrectMatches = 0;
-    let hintsUsed = 0;
-    let totalCards = 0;
+    let hintsUsed     = 0;
+    let totalCards    = 0;
     let allCategories = [];
     let unlockedCategoryCount = 2;
 
+    /* ============================================================
+       ICON TYPE → SVG MAP
+    ============================================================ */
 
-    /* ========================================
-       CATEGORY COLOURS
-    ======================================== */
+    const iconSVG = {
+        element: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+            <ellipse cx="12" cy="12" rx="9" ry="4" stroke="currentColor" stroke-width="1.5"/>
+            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5"/>
+            <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5"/>
+        </svg>`,
 
-    const categoryStyles = [
-        {
-            card: "card-pink",
-            icon: "icon-pink",
-            text: "text-pink"
-        },
-        {
-            card: "card-blue",
-            icon: "icon-blue",
-            text: "text-blue"
-        },
-        {
-            card: "card-green",
-            icon: "icon-green",
-            text: "text-green"
-        },
-        {
-            card: "card-pink",
-            icon: "icon-pink",
-            text: "text-pink"
-        }
+        chemical: `<svg viewBox="0 0 24 24" fill="none">
+            <path d="M9 3v8L5 18a2 2 0 001.8 2.9h10.4A2 2 0 0019 18l-4-7V3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M9 3h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <circle cx="9" cy="16" r="1" fill="currentColor"/>
+            <circle cx="14" cy="14" r="1" fill="currentColor"/>
+        </svg>`,
+
+        physical: `<svg viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
+        </svg>`,
+
+        information: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 11v5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="8" r="1" fill="currentColor"/>
+        </svg>`,
+
+        trends: `<svg viewBox="0 0 24 24" fill="none">
+            <path d="M4 18L9 13l4 3 7-8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 8h4v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+
+        uses: `<svg viewBox="0 0 24 24" fill="none">
+            <path d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 16v6M9 19h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>`,
+
+        compounds: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="8" cy="8" r="4" stroke="currentColor" stroke-width="1.7"/>
+            <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="1.7"/>
+            <path d="M11.5 11.5l1 1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+        </svg>`,
+
+        isotopes: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <circle cx="12" cy="3" r="1.5" fill="currentColor"/>
+            <circle cx="21" cy="12" r="1.5" fill="currentColor"/>
+        </svg>`,
+
+        production: `<svg viewBox="0 0 24 24" fill="none">
+            <rect x="3" y="11" width="4" height="10" rx="1" stroke="currentColor" stroke-width="1.7"/>
+            <rect x="10" y="7" width="4" height="14" rx="1" stroke="currentColor" stroke-width="1.7"/>
+            <rect x="17" y="3" width="4" height="18" rx="1" stroke="currentColor" stroke-width="1.7"/>
+        </svg>`,
+
+        occurrence: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="10" r="6" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 16v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+            <path d="M4 20c0-3 3.6-4 8-4s8 1 8 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>`,
+    };
+
+    /* ============================================================
+       CATEGORY COLOUR THEMES
+    ============================================================ */
+
+    const categoryThemes = [
+        { bg: "#FFF3F3", border: "#FFC5C5", icon: "#FF6B6B", iconBg: "#FFE8E8" },
+        { bg: "#EFF6FF", border: "#BFDBFE", icon: "#2563EB", iconBg: "#DBEAFE" },
+        { bg: "#F0FDF4", border: "#BBF7D0", icon: "#16A34A", iconBg: "#DCFCE7" },
+        { bg: "#FFF8E7", border: "#FDE68A", icon: "#D97706", iconBg: "#FEF3C7" },
     ];
 
+    /* ============================================================
+       HELPERS
+    ============================================================ */
 
-    /* ========================================
-       GENERIC CHEMISTRY ICON
-    ======================================== */
-
-    function chemistryIcon() {
-
-        return `
-            <svg viewBox="0 0 24 24" fill="none">
-                <circle
-                    cx="12"
-                    cy="12"
-                    r="3"
-                    stroke="currentColor"
-                    stroke-width="1.8"
-                />
-
-                <ellipse
-                    cx="12"
-                    cy="12"
-                    rx="9"
-                    ry="4"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                />
-
-                <ellipse
-                    cx="12"
-                    cy="12"
-                    rx="9"
-                    ry="4"
-                    transform="rotate(60 12 12)"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                />
-
-                <ellipse
-                    cx="12"
-                    cy="12"
-                    rx="9"
-                    ry="4"
-                    transform="rotate(120 12 12)"
-                    stroke="currentColor"
-                    stroke-width="1.5"
-                />
-            </svg>
-        `;
+    function setBanner(text, type = "info") {
+        if (!banner) return;
+        banner.className = "game-info-banner";
+        if (type === "error") banner.style.background = "linear-gradient(90deg,#FFECEC,#FFE0E0)";
+        else if (type === "success") banner.style.background = "linear-gradient(90deg,#ECFFF3,#D9FFE8)";
+        else banner.style.background = "";
+        banner.textContent = text;
     }
 
-
-    /* ========================================
-       UPDATE PROGRESS
-    ======================================== */
-function updateProgress() {
-
-        const percentage =
-            totalCards > 0
-                ? (cardsPlaced / totalCards) * 100
-                : 0;
-
-        if (progressFill) {
-            progressFill.style.width =
-                `${percentage}%`;
-        }
-
-        if (progressText) {
-            progressText.textContent =
-                `${cardsPlaced}/${totalCards}`;
-        }
-
-        if (cardsElement) {
-            cardsElement.textContent =
-                totalCards - cardsPlaced;
-        }
+    function updateScore() {
+        if (scoreElement) scoreElement.textContent = score;
+        if (pointsBadge)  pointsBadge.textContent  = score;
     }
 
-
-    /* ========================================
-       RESET HINT
-    ======================================== */
+    function updateProgress() {
+        const pct = totalCards > 0 ? (cardsPlaced / totalCards) * 100 : 0;
+        if (progressFill) progressFill.style.width = `${pct}%`;
+        if (progressText) progressText.textContent = `${cardsPlaced}/${totalCards}`;
+        if (cardsElement) cardsElement.textContent = totalCards - cardsPlaced;
+    }
 
     function resetHintStates() {
-
-        document
-            .querySelectorAll(".card-hint")
-            .forEach(card => {
-                card.classList.remove("card-hint");
-            });
-
-        document
-            .querySelectorAll(".stack-hint")
-            .forEach(stack => {
-                stack.classList.remove("stack-hint");
-            });
+        document.querySelectorAll(".card-hint").forEach(c => c.classList.remove("card-hint"));
+        document.querySelectorAll(".stack-hint").forEach(s => s.classList.remove("stack-hint"));
     }
 
+    /* ============================================================
+       DIFFICULTY LABEL
+    ============================================================ */
 
-    /* ========================================
-       CARD SELECTION
-    ======================================== */
+    const difficultyLabels = { easy: "Easy", medium: "Medium", hard: "Hard" };
+
+    function updateTopBar() {
+        const levelLabel = document.querySelector(".level-label");
+        const levelTitle = document.querySelector(".level-title");
+        if (levelLabel) levelLabel.textContent = `${keyStage} · ${difficultyLabels[difficulty] || difficulty.toUpperCase()}`;
+        if (levelTitle) levelTitle.textContent = "Periodic Table & Groups";
+    }
+
+    /* ============================================================
+       CARD FLYING ANIMATION
+    ============================================================ */
+
+    function flyCardToStack(cardEl, stackEl, onDone) {
+        const cardRect  = cardEl.getBoundingClientRect();
+        const stackRect = stackEl.getBoundingClientRect();
+
+        const flyEl = cardEl.cloneNode(true);
+        flyEl.style.cssText = `
+            position: fixed;
+            left: ${cardRect.left}px;
+            top:  ${cardRect.top}px;
+            width: ${cardRect.width}px;
+            height: ${cardRect.height}px;
+            margin: 0;
+            z-index: 9999;
+            pointer-events: none;
+            transition: left 0.45s cubic-bezier(.25,1,.5,1),
+                        top  0.45s cubic-bezier(.25,1,.5,1),
+                        transform 0.45s ease,
+                        opacity 0.45s ease;
+        `;
+        document.body.appendChild(flyEl);
+
+        // Make original invisible (but keep space)
+        cardEl.style.opacity = "0";
+        cardEl.style.pointerEvents = "none";
+
+        requestAnimationFrame(() => {
+            requestAnimationFrame(() => {
+                const tx = stackRect.left + stackRect.width  / 2 - cardRect.width  / 2;
+                const ty = stackRect.top  + stackRect.height / 2 - cardRect.height / 2;
+                flyEl.style.left      = tx + "px";
+                flyEl.style.top       = ty + "px";
+                flyEl.style.transform = "scale(0.25) rotate(10deg)";
+                flyEl.style.opacity   = "0";
+            });
+        });
+
+        setTimeout(() => {
+            flyEl.remove();
+            cardEl.remove();
+            if (onDone) onDone();
+        }, 480);
+    }
+
+    /* ============================================================
+       STACK PULSE (on correct match)
+    ============================================================ */
+
+    function pulseStack(stackEl) {
+        stackEl.classList.add("stack-pulse");
+        setTimeout(() => stackEl.classList.remove("stack-pulse"), 500);
+    }
+
+    /* ============================================================
+       CARD DEAL ANIMATION
+    ============================================================ */
+
+    function animateDealCards() {
+        const cards = cardsGrid.querySelectorAll(".game-card");
+        cards.forEach((card, i) => {
+            card.style.opacity   = "0";
+            card.style.transform = "translateY(30px) scale(0.92)";
+            card.style.transition = "none";
+            setTimeout(() => {
+                card.style.transition = "opacity 0.35s ease, transform 0.35s ease";
+                card.style.opacity    = "1";
+                card.style.transform  = "translateY(0) scale(1)";
+            }, i * 60);
+        });
+    }
+
+    /* ============================================================
+       ATTACH CARD EVENTS
+    ============================================================ */
 
     function attachCardEvents() {
+        cardsGrid.querySelectorAll(".game-card").forEach(card => {
 
-        const cards =
-            document.querySelectorAll(".game-card");
+            card.draggable = true;
 
-        cards.forEach(card => {
-
-            card.addEventListener("click", () => {
-
+            // — drag start —
+            card.addEventListener("dragstart", e => {
                 resetHintStates();
+                deselectAll();
+                card.classList.add("card-selected");
+                selectedCard = card;
+                e.dataTransfer.setData("text/plain", card.dataset.categoryId);
 
-                document
-                    .querySelectorAll(".game-card")
-                    .forEach(item => {
-                        item.classList.remove(
-                            "card-selected"
-                        );
-                    });
+                const name = card.querySelector(".card-name")?.textContent.trim();
+                setBanner(`"${name}" selected — drop it on a matching category.`);
 
-                card.classList.add(
-                    "card-selected"
-                );
+                // Fade original slightly for drag ghost visibility
+                setTimeout(() => card.style.opacity = "0.45", 0);
+            });
 
+            card.addEventListener("dragend", () => {
+                card.style.opacity = "1";
+            });
+
+            // — click —
+            card.addEventListener("click", () => {
+                resetHintStates();
+                const wasSelected = card.classList.contains("card-selected");
+                deselectAll();
+
+                if (wasSelected) return; // toggle off
+
+                card.classList.add("card-selected");
                 selectedCard = card;
 
-                const cardName =
-                    card.querySelector(".card-name")
-                        ?.textContent
-                        .trim();
-
-                if (banner) {
-
-                    banner.className =
-                        "game-info-banner";
-
-                    banner.textContent =
-                        `${cardName} selected. Now choose a foundation stack.`;
-                }
-
+                const name = card.querySelector(".card-name")?.textContent.trim();
+                setBanner(`"${name}" selected — now tap a category above.`);
             });
-
         });
     }
 
-
-    /* ========================================
-       STACK EVENTS
-    ======================================== */
-function attachStackEvents() {
-
-        const stacks =
-            document.querySelectorAll(
-                ".foundation-stack"
-            );
-
-        stacks.forEach(stack => {
-
-            stack.addEventListener("click", () => {
-
-                resetHintStates();
-
-                if (!selectedCard) {
-
-                    if (banner) {
-                        banner.textContent =
-                            "Select a chemistry card first.";
-                    }
-
-                    return;
-                }
-
-
-                moves++;
-
-                if (movesElement) {
-                    movesElement.textContent = moves;
-                }
-
-
-                const cardCategory =
-                    selectedCard.dataset.categoryId;
-
-                const stackCategory =
-                    stack.dataset.categoryId;
-
-
-                /* ============================
-                   CORRECT MATCH
-                ============================ */
-
-                if (
-                    cardCategory ===
-                    stackCategory
-                ) {
-
-                    const cardName =
-                        selectedCard
-                            .querySelector(".card-name")
-                            ?.textContent
-                            .trim();
-
-                    score += 10;
-                    cardsPlaced++;
-
-
-                    if (scoreElement) {
-                        scoreElement.textContent =
-                            score;
-                    }
-
-
-                    const countElement =
-                        stack.querySelector(
-                            ".stack-current-count"
-                        );
-
-                    if (countElement) {
-
-                        const currentCount =
-                            parseInt(
-                                countElement.textContent
-                            ) || 0;
-
-                        countElement.textContent =
-                            currentCount + 1;
-                    }
-
-
-                    // === FLYING ANIMATION ===
-                    // 1. Get positions
-                    const cardRect = selectedCard.getBoundingClientRect();
-                    const stackRect = stack.getBoundingClientRect();
-                    
-                    // 2. Clone the card for animation
-                    const flyingCard = selectedCard.cloneNode(true);
-                    
-                    // 3. Set starting position
-                    flyingCard.style.position = 'fixed';
-                    flyingCard.style.left = cardRect.left + 'px';
-                    flyingCard.style.top = cardRect.top + 'px';
-                    flyingCard.style.width = cardRect.width + 'px';
-                    flyingCard.style.height = cardRect.height + 'px';
-                    flyingCard.style.margin = '0';
-                    flyingCard.style.zIndex = '9999';
-                    flyingCard.style.transition = 'all 0.5s cubic-bezier(0.25, 1, 0.5, 1)';
-                    flyingCard.style.pointerEvents = 'none';
-                    
-                    document.body.appendChild(flyingCard);
-                    
-                    // 4. Hide original card immediately so it doesn't leave a gap
-                    selectedCard.style.visibility = 'hidden';
-                    const cardToRemove = selectedCard;
-                    selectedCard = null;
-
-                    // 5. Trigger animation
-                    requestAnimationFrame(() => {
-                        flyingCard.style.left = (stackRect.left + (stackRect.width / 2) - (cardRect.width / 2)) + 'px';
-                        flyingCard.style.top = (stackRect.top + (stackRect.height / 2) - (cardRect.height / 2)) + 'px';
-                        flyingCard.style.transform = 'scale(0.3)';
-                        flyingCard.style.opacity = '0';
-                    });
-                    
-                    // 6. Cleanup after animation
-                    setTimeout(() => {
-                        flyingCard.remove();
-                        cardToRemove.remove();
-                        
-                        updateProgress();
-
-                        /* LEVEL COMPLETE */
-                        /* ROUND COMPLETE */
-                        if (cardsPlaced === totalCards) {
-                        
-                            if (unlockedCategoryCount < allCategories.length) {
-                        
-                                unlockedCategoryCount++;
-                        
-                                if (banner) {
-                                    banner.className = "game-info-banner";
-                                    banner.textContent =
-                                        `Great work! Category ${unlockedCategoryCount} unlocked.`;
-                                }
-                        
-                                setTimeout(() => {
-                        
-                                    renderBoard(
-                                        { categories: allCategories },
-                                        false
-                                    );
-                        
-                                }, 900);
-                        
-                            } else {
-                        
-                                if (banner) {
-                                    banner.className = "game-info-banner";
-                                    banner.textContent =
-                                        "Excellent! All categories completed 🎉";
-                                        
-                                        showGamePopup(
-                                        "Congratulations! You completed all categories in this level. View your scores to see your progress.",
-                                        "success"
-                                    );
-                                }
-                        
-                                    if (finishLevelBtn) {
-                                    
-                                        finishLevelBtn.disabled = false;
-                                    
-                                        finishLevelBtn.textContent = "View Scores";
-                                    
-                                        finishLevelBtn.style.display = "flex";
-                                    
-                                        finishLevelBtn.className =
-                                            "bottom-game-btn shuffle-btn";
-                                    }
-                                    
-                                    if (redealBtn) {
-                                        redealBtn.style.display = "none";
-                                    }
-                                    
-                                    if (hintBtn) {
-                                        hintBtn.style.display = "none";
-                                    }
-                            }
-                        
-                        } else {
-                            if (banner) {
-                                banner.className = "game-info-banner";
-                                banner.textContent = `Correct! ${cardName} has been placed successfully.`;
-                            }
-                        }
-                    }, 500);
-                }
-
-                /* ============================
-                   INCORRECT MATCH
-                ============================ */
-
-                else {
-                    incorrectMatches++;
-                    showGamePopup(
-                        "Oops! That card does not belong to this category. Try again.",
-                        "error"
-                    );
-                
-                    if (banner) {
-                
-                        banner.className =
-                            "game-info-banner";
-                
-                        banner.textContent =
-                            "Not quite. Try another foundation stack.";
-                    }
-                }
-
-            });
-
-        });
-
+    function deselectAll() {
+        selectedCard = null;
+        document.querySelectorAll(".game-card").forEach(c => c.classList.remove("card-selected"));
     }
 
+    /* ============================================================
+       REVEAL TOP CARDS
+    ============================================================ */
 
-    /* ========================================
+    function revealTopCards() {
+        const piles = cardsGrid.querySelectorAll(".card-pile");
+        piles.forEach(pile => {
+            const cards = pile.querySelectorAll(".game-card");
+            if (cards.length > 0) {
+                const topCard = cards[cards.length - 1];
+                if (topCard.classList.contains("card-face-down")) {
+                    topCard.classList.remove("card-face-down");
+                    topCard.draggable = true;
+                }
+            }
+        });
+    }
+
+    /* ============================================================
+       ATTEMPT MATCH
+    ============================================================ */
+
+    function attemptMatch(stackEl) {
+        resetHintStates();
+
+        if (!selectedCard) {
+            setBanner("Pick a card from the hand below first.", "error");
+            return;
+        }
+
+        moves++;
+        if (movesElement) movesElement.textContent = moves;
+
+        const cardCat  = selectedCard.dataset.categoryId;
+        const stackCat = stackEl.dataset.categoryId;
+
+        if (cardCat === stackCat) {
+            // ✅ CORRECT
+            score += 10;
+            cardsPlaced++;
+            updateScore();
+
+            // Update stack count
+            const countEl = stackEl.querySelector(".stack-current-count");
+            if (countEl) countEl.textContent = parseInt(countEl.textContent || "0") + 1;
+
+            const cardName = selectedCard.querySelector(".card-name")?.textContent.trim();
+            const cardToRemove = selectedCard;
+            selectedCard = null;
+
+            pulseStack(stackEl);
+
+            flyCardToStack(cardToRemove, stackEl, () => {
+                updateProgress();
+                revealTopCards();
+                onCardPlaced(cardName);
+            });
+
+        } else {
+            // ❌ WRONG
+            incorrectMatches++;
+            selectedCard.classList.remove("card-selected");
+            selectedCard.classList.add("card-shake");
+            setTimeout(() => selectedCard?.classList.remove("card-shake"), 600);
+
+            setBanner("Not quite — try a different category.", "error");
+            showGamePopup("That card doesn't belong in this category. Give it another try!", "error");
+        }
+    }
+
+    /* ============================================================
+       AFTER A CARD IS PLACED
+    ============================================================ */
+
+    function onCardPlaced(cardName) {
+        // Check if current round is complete
+        const remaining = cardsGrid.querySelectorAll(".game-card").length;
+
+        if (remaining === 0) {
+            // Round done
+            if (unlockedCategoryCount < allCategories.length) {
+                unlockedCategoryCount++;
+                setBanner(`Great work! Category ${unlockedCategoryCount} unlocked! 🎉`, "success");
+
+                setTimeout(() => {
+                    renderBoard({ categories: allCategories }, false);
+                }, 900);
+
+            } else {
+                setBanner("Excellent — all categories completed! 🎊", "success");
+
+                // Enable next level / finish
+                if (nextLevelBtn) {
+                    nextLevelBtn.disabled = false;
+                }
+
+                showGamePopup(
+                    "Congratulations! You placed every card correctly. View your scores to see how you did!",
+                    "success"
+                );
+
+                if (finishLevelBtn) {
+                    finishLevelBtn.disabled = false;
+                    finishLevelBtn.textContent = "View Scores";
+                    finishLevelBtn.style.display = "flex";
+                }
+            }
+
+        } else {
+            setBanner(`✓ "${cardName}" placed correctly! ${remaining} card${remaining !== 1 ? "s" : ""} remaining.`, "success");
+        }
+    }
+
+    /* ============================================================
+       ATTACH STACK EVENTS
+    ============================================================ */
+
+    function attachStackEvents() {
+        stacksGrid.querySelectorAll(".foundation-stack").forEach(stack => {
+
+            stack.addEventListener("dragover",  e => { e.preventDefault(); stack.classList.add("stack-drag-over"); });
+            stack.addEventListener("dragleave", ()  => stack.classList.remove("stack-drag-over"));
+            stack.addEventListener("drop", e => {
+                e.preventDefault();
+                stack.classList.remove("stack-drag-over");
+                attemptMatch(stack);
+            });
+
+            stack.addEventListener("click", () => attemptMatch(stack));
+        });
+    }
+
+    /* ============================================================
+       BUILD FOUNDATION STACK CARD
+    ============================================================ */
+
+    function buildStackCard(category, theme) {
+        const icon = iconSVG[category.icon_type] || iconSVG.element;
+
+        const stack = document.createElement("div");
+        stack.className           = "foundation-stack";
+        stack.dataset.categoryId  = String(category.id);
+
+        stack.innerHTML = `
+            <div class="category-card-top" style="background: ${theme.iconBg}; border-bottom-color: ${theme.border};">
+                <span class="category-crown">♛</span>
+                <div class="category-progress">
+                    <span class="stack-current-count">0</span>/${category.cards.length}
+                </div>
+            </div>
+
+            <div class="category-icon-circle" style="background: ${theme.iconBg}; color: ${theme.icon};">
+                ${icon}
+            </div>
+
+            <div class="stack-title">${category.name}</div>
+
+            <div class="category-card-divider"></div>
+
+            <div class="category-bottom-badge" style="background: ${theme.iconBg}; color: ${theme.icon};">
+                ${category.icon_type.charAt(0).toUpperCase()}
+            </div>
+        `;
+
+        return stack;
+    }
+
+    /* ============================================================
+       BUILD GAME CARD
+    ============================================================ */
+
+    function buildGameCard(cardText, category, theme) {
+        const card = document.createElement("div");
+        card.className           = "game-card";
+        card.dataset.categoryId  = String(category.id);
+        card.dataset.categoryName= category.name;
+
+        card.style.borderColor = theme.border;
+
+        card.innerHTML = `
+            <span class="card-corner-icon" style="color:${theme.icon};">
+                ${iconSVG[category.icon_type] || iconSVG.element}
+            </span>
+            <div class="card-name">${cardText}</div>
+            <span class="card-category-tag" style="background:${theme.iconBg}; color:${theme.icon};">
+                ${category.name}
+            </span>
+        `;
+
+        return card;
+    }
+
+    /* ============================================================
        RENDER BOARD
-    ======================================== */
-function renderBoard(board, resetGame = true) {
+    ============================================================ */
 
-        cardsGrid.innerHTML = "";
+    function renderBoard(board, resetGame = true) {
+        cardsGrid.innerHTML  = "";
         stacksGrid.innerHTML = "";
 
-        selectedCard = null;
-        cardsPlaced = 0;
-        totalCards = 0;
+        selectedCard  = null;
+        cardsPlaced   = 0;
+        totalCards    = 0;
+
         if (resetGame) {
             score = 0;
             moves = 0;
@@ -477,626 +505,372 @@ function renderBoard(board, resetGame = true) {
             hintsUsed = 0;
         }
 
+        allCategories = board.categories;
 
-       allCategories = board.categories;
-        allCategories
-            .slice(0, unlockedCategoryCount)
-            .forEach(
-                (category, index) => {
+        const visibleCategories = allCategories.slice(0, unlockedCategoryCount);
 
-                const style =
-                    categoryStyles[
-                        index %
-                        categoryStyles.length
-                    ];
+        // Collect all cards to shuffle together
+        const allCardEls = [];
 
+        visibleCategories.forEach((category, idx) => {
+            const theme = categoryThemes[idx % categoryThemes.length];
 
-                /* ============================
-                   FOUNDATION STACK
-                ============================ */
+            // Foundation stack
+            const stack = buildStackCard(category, theme);
+            stacksGrid.appendChild(stack);
 
-                const stack =
-                    document.createElement("div");
-
-                stack.className =
-                    "foundation-stack";
-
-                stack.dataset.categoryId =
-                    String(category.id);
-                    
-                    
-
-               stack.innerHTML = `
-                    <div class="category-card-top">
-                
-                        <span class="category-crown">
-                            ♛
-                        </span>
-                
-                        <div class="category-progress">
-                            <span class="stack-current-count">0</span>/<span>${category.cards.length}</span>
-                        </div>
-                
-                    </div>
-                
-                    <div class="category-icon-circle">
-                
-                        ${chemistryIcon()}
-                
-                    </div>
-                
-                    <div class="stack-title">
-                        ${category.name}
-                    </div>
-                
-                    <div class="category-card-divider"></div>
-                
-                    <div class="category-bottom-badge">
-                        ${category.name.charAt(0).toUpperCase()}
-                    </div>
-                `;
-
-                stacksGrid.appendChild(stack);
-
-
-                /* ============================
-                   CARDS
-                ============================ */
-
-                category.cards.forEach(
-                    cardText => {
-
-                        totalCards++;
-
-                        const card =
-                            document.createElement(
-                                "div"
-                            );
-
-                        card.className =
-                            `game-card ${style.card}`;
-
-                        card.dataset.categoryId =
-                            String(category.id);
-
-                        card.dataset.categoryName =
-                            category.name;
-
-                        card.innerHTML = `
-                                <div class="card-name">
-                                    ${cardText}
-                                </div>
-                            `;
-
-                        cardsGrid.appendChild(card);
-                    }
-                );
-
-            }
-        );
-
-
-        /* Shuffle all cards together */
-
-        const cards =
-            Array.from(cardsGrid.children);
-
-        cards.sort(
-            () => Math.random() - 0.5
-        );
-
-        cards.forEach(card => {
-            cardsGrid.appendChild(card);
+            // Cards for this category
+            category.cards.forEach(cardText => {
+                totalCards++;
+                const card = buildGameCard(cardText, category, theme);
+                allCardEls.push(card);
+            });
         });
 
-
-        if (scoreElement) {
-            scoreElement.textContent = score;
+        // Shuffle cards
+        for (let i = allCardEls.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [allCardEls[i], allCardEls[j]] = [allCardEls[j], allCardEls[i]];
         }
 
-        if (movesElement) {
-            movesElement.textContent = moves;
-        }
+        // Create exactly 4 piles
+        const numPiles = 4;
+        const piles = Array.from({ length: numPiles }, () => {
+            const p = document.createElement("div");
+            p.className = "card-pile";
+            cardsGrid.appendChild(p);
+            return p;
+        });
 
-        if (cardsElement) {
-            cardsElement.textContent =
-                totalCards;
-        }
+        // Distribute cards evenly across piles
+        allCardEls.forEach((card, idx) => {
+            const pile = piles[idx % numPiles];
+            pile.appendChild(card);
+        });
 
-        if (finishLevelBtn) {
-            finishLevelBtn.disabled = true;
-        }
+        // Setup offsets and face-down status
+        piles.forEach(pile => {
+            const cardsInPile = Array.from(pile.children);
+            cardsInPile.forEach((c, idx) => {
+                c.style.top = `${idx * 12}px`;
+                if (idx < cardsInPile.length - 1) {
+                    c.classList.add("card-face-down");
+                    c.draggable = false;
+                } else {
+                    c.classList.remove("card-face-down");
+                    c.draggable = true;
+                }
+            });
+        });
 
+        // Update stat elements
+        updateScore();
+        if (movesElement) movesElement.textContent = moves;
+        if (finishLevelBtn) finishLevelBtn.disabled = true;
+        if (nextLevelBtn)   nextLevelBtn.disabled = true;
 
         updateProgress();
-
+        updateTopBar();
         attachCardEvents();
         attachStackEvents();
 
+        setBanner("Select a card from the hand below, then tap a category above.");
 
-        if (banner) {
-
-            banner.className =
-                "game-info-banner";
-
-            banner.textContent =
-                "Select a card from the deck, then tap a foundation stack.";
-        }
-
-
-        /* Update top title */
-
-        const levelLabel =
-            document.querySelector(
-                ".level-label"
-            );
-
-        const levelTitle =
-            document.querySelector(
-                ".level-title"
-            );
-
-        if (levelLabel) {
-            levelLabel.textContent =
-                `LEVEL ${level}`;
-        }
-
-        if (levelTitle) {
-            levelTitle.textContent =
-                "Periodic Table & Groups";
-        }
-
+        // Deal animation
+        animateDealCards();
     }
 
-
-    /* ========================================
-       LOAD BOARD FROM DATABASE
-    ======================================== */
+    /* ============================================================
+       LOAD BOARD FROM API
+    ============================================================ */
 
     async function loadBoard() {
+        if (!cardsGrid || !stacksGrid) return;
 
-        if (!cardsGrid || !stacksGrid) {
-            return;
-        }
-
-
-        if (banner) {
-            banner.textContent =
-                "Loading chemistry cards...";
-        }
-
+        setBanner("Loading chemistry cards…");
 
         try {
+            const url = `/api/${encodeURIComponent(subject)}/board`
+                + `?deck=${encodeURIComponent(deck)}`
+                + `&key_stage=${encodeURIComponent(keyStage)}`
+                + `&difficulty=${encodeURIComponent(difficulty)}`;
 
-            const urlParamsLocal = new URLSearchParams(window.location.search);
-            const subject = urlParamsLocal.get('subject') || 'chemistry';
+            const res    = await fetch(url, { headers: { Accept: "application/json" } });
+            const result = await res.json();
 
-            const url =
-                `/api/${encodeURIComponent(subject)}/board` +
-                `?deck=${encodeURIComponent(deck)}` +
-                `&key_stage=${encodeURIComponent(keyStage)}` +
-                `&difficulty=${encodeURIComponent(difficulty)}`;
-
-            const response =
-                await fetch(url, {
-                    headers: {
-                        "Accept":
-                            "application/json"
-                    }
-                });
-
-
-            const result =
-                await response.json();
-
-
-            if (!response.ok) {
-
-                throw new Error(
-                    result.message ||
-                    "Unable to load the chemistry board."
-                );
-            }
-
+            if (!res.ok) throw new Error(result.message || "Unable to load the chemistry board.");
 
             renderBoard(result.data);
 
+        } catch (err) {
+            console.error("Board loading error:", err);
+            setBanner(err.message || "Failed to load cards. Please try again.", "error");
 
-        } catch (error) {
-
-            console.error(
-                "Board loading error:",
-                error
-            );
-
-            if (banner) {
-
-                banner.className =
-                    "game-info-banner";
-
-                banner.textContent =
-                    error.message;
-            }
-
+            // Offline / dev fallback — build from hardcoded KS3 data
+            renderBoard(fallbackBoard(difficulty));
         }
-
     }
 
+    /* ============================================================
+       FALLBACK BOARD (offline / dev)
+    ============================================================ */
 
-    /* ========================================
-       REDEAL
-    ======================================== */
-if (redealBtn) {
+    function fallbackBoard(diff) {
+        const easy = [
+            { id: "1", name: "Group 1 Elements",  icon_type: "element",     cards: ["Lithium", "Sodium", "Potassium", "Francium"] },
+            { id: "2", name: "Group 7 Elements",  icon_type: "element",     cards: ["Fluorine", "Chlorine", "Bromine", "Iodine"] },
+            { id: "3", name: "Group 0 Elements",  icon_type: "element",     cards: ["Helium", "Neon", "Argon", "Krypton"] },
+            { id: "4", name: "Periodic Table",    icon_type: "information", cards: ["Groups", "Periods", "Elements", "Metals"] },
+        ];
+        const medium = [
+            { id: "1", name: "Group 1 Physical Props", icon_type: "physical", cards: ["Soft", "Silvery", "Low density", "Low melting point"] },
+            { id: "2", name: "Group 7 Physical Props", icon_type: "physical", cards: ["Coloured", "Diatomic", "Non-metal", "Low boiling point"] },
+            { id: "3", name: "Group 0 Physical Props", icon_type: "physical", cards: ["Colourless", "Monatomic", "Odourless", "Gases"] },
+            { id: "4", name: "Periodic Trends",        icon_type: "trends",   cards: ["Atomic Radius", "Ionisation Energy", "Electronegativity", "Shielding"] },
+        ];
+        const hard = [
+            { id: "1", name: "Group 1 Chem Props",  icon_type: "chemical",  cards: ["Reacts with water", "Produces hydrogen", "Forms +1 ions", "Loses one electron"] },
+            { id: "2", name: "Group 7 Chem Props",  icon_type: "chemical",  cards: ["Forms -1 ions", "Gains one electron", "Strong oxidising agents", "Forms salts"] },
+            { id: "3", name: "Group 0 Chem Props",  icon_type: "chemical",  cards: ["Very unreactive", "Full outer shell", "Stable", "Non-flammable"] },
+            { id: "4", name: "Advanced Vocabulary", icon_type: "information", cards: ["Ionisation energy", "Electronegativity", "Shielding", "Nuclear charge"] },
+        ];
 
-        redealBtn.addEventListener(
-            "click",
-            () => {
+        const poolMap = { easy, medium, hard };
+        return { difficulty: diff, key_stage: "KS3", categories: poolMap[diff] || easy };
+    }
 
-                resetHintStates();
+    /* ============================================================
+       SHUFFLE (REDEAL) HAND
+    ============================================================ */
 
-                const remainingCards =
-                    Array.from(
-                        cardsGrid.children
-                    );
+    function shuffleHand() {
+        const remainingCards = Array.from(cardsGrid.querySelectorAll(".game-card"));
+        if (remainingCards.length === 0) return;
 
-                for (
-                    let i =
-                        remainingCards.length - 1;
-                    i > 0;
-                    i--
-                ) {
+        // Animate out
+        remainingCards.forEach(c => {
+            c.style.transition = "opacity 0.2s, transform 0.2s";
+            c.style.opacity    = "0";
+            c.style.transform  = "scale(0.85)";
+        });
 
-                    const j =
-                        Math.floor(
-                            Math.random() *
-                            (i + 1)
-                        );
-
-                    [
-                        remainingCards[i],
-                        remainingCards[j]
-                    ] = [
-                        remainingCards[j],
-                        remainingCards[i]
-                    ];
-                }
-
-
-                remainingCards.forEach(
-                    card => {
-                        cardsGrid.appendChild(card);
+        setTimeout(() => {
+            // Shuffle
+            for (let i = remainingCards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [remainingCards[i], remainingCards[j]] = [remainingCards[j], remainingCards[i]];
+            }
+            
+            const piles = Array.from(cardsGrid.querySelectorAll(".card-pile"));
+            
+            // Re-distribute
+            remainingCards.forEach((c, idx) => {
+                const pile = piles[idx % piles.length];
+                pile.appendChild(c);
+            });
+            
+            // Adjust visual stack and face-down state
+            piles.forEach(pile => {
+                const cardsInPile = Array.from(pile.children);
+                cardsInPile.forEach((c, idx) => {
+                    c.style.top = `${idx * 12}px`;
+                    if (idx < cardsInPile.length - 1) {
+                        c.classList.add("card-face-down");
+                        c.draggable = false;
+                    } else {
+                        c.classList.remove("card-face-down");
+                        c.draggable = true;
                     }
-                );
+                });
+            });
 
+            // Animate in
+            remainingCards.forEach((c, i) => {
+                setTimeout(() => {
+                    c.style.transition = "opacity 0.3s, transform 0.3s, top 0.3s ease";
+                    c.style.opacity    = "1";
+                    c.style.transform  = "scale(1)";
+                }, i * 30);
+            });
 
-                if (banner) {
-
-                    banner.className =
-                        "game-info-banner";
-
-                    banner.textContent =
-                        "Cards redealt. Select a card to continue.";
-                }
-
-            }
-        );
-
+        }, 220);
     }
 
+    /* ============================================================
+       CONTROLS
+    ============================================================ */
 
-    /* ========================================
-       HINT
-    ======================================== */
-
-    if (hintBtn) {
-
-        hintBtn.addEventListener(
-            "click",
-            () => {
-
-                resetHintStates();
-
-                const availableCards =
-                    Array.from(
-                        document.querySelectorAll(
-                            ".game-card"
-                        )
-                    );
-
-                if (
-                    availableCards.length === 0
-                ) {
-                    return;
-                }
-
-
-                hintsUsed++;
-
-
-                const targetCard =
-                    selectedCard ||
-                    availableCards[0];
-
-                const categoryId =
-                    targetCard.dataset.categoryId;
-
-                const categoryName =
-                    targetCard.dataset.categoryName;
-
-
-                const targetStack =
-                    document.querySelector(
-                        `.foundation-stack[data-category-id="${categoryId}"]`
-                    );
-
-
-                targetCard.classList.add(
-                    "card-hint"
-                );
-
-                if (targetStack) {
-                    targetStack.classList.add(
-                        "stack-hint"
-                    );
-                }
-
-
-                if (banner) {
-
-                    banner.className =
-                        "game-info-banner banner-hint";
-
-                    banner.textContent =
-                        `Hint: This card belongs to the ${categoryName} category.`;
-                }
-
-            }
-        );
-
+    if (restartBtn) {
+        restartBtn.addEventListener("click", () => window.location.reload());
     }
 
+    if (redealBtn) {
+        redealBtn.addEventListener("click", shuffleHand);
+    }
 
-    /* ========================================
-       SAVE COMPLETED BOARD
-    ======================================== */
+    if (shuffleDeckBtn) {
+        shuffleDeckBtn.addEventListener("click", shuffleHand);
+    }
+
+    if (nextLevelBtn) {
+        nextLevelBtn.addEventListener("click", () => {
+            const next = level + 1;
+            window.location.href =
+                `gameplay.html?subject=${subject}&deck=${deck}&key_stage=${keyStage}&difficulty=${difficulty}&level=${next}`;
+        });
+    }
 
     if (finishLevelBtn) {
+        finishLevelBtn.addEventListener("click", async () => {
+            if (cardsPlaced !== totalCards) return;
 
-        finishLevelBtn.addEventListener(
-            "click",
-            async () => {
+            const token = localStorage.getItem("auth_token");
+            if (!token) { window.location.href = "login.html"; return; }
 
-                if (
-                    cardsPlaced !== totalCards
-                ) {
-                    return;
-                }
+            const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
+            finishLevelBtn.disabled = true;
 
+            try {
+                const res = await fetch("/api/gameplay/attempt", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type":  "application/json",
+                        "Accept":        "application/json",
+                        "Authorization": `Bearer ${token}`,
+                    },
+                    body: JSON.stringify({
+                        topic:             deck,
+                        level,
+                        score,
+                        moves,
+                        correct_matches:   cardsPlaced,
+                        incorrect_matches: incorrectMatches,
+                        hints_used:        hintsUsed,
+                        time_spent:        timeSpent,
+                        completed:         true,
+                    }),
+                });
 
-                const token =
-                    localStorage.getItem(
-                        "auth_token"
-                    );
+                const result = await res.json();
+                if (!res.ok) throw new Error(result.message || "Unable to save your result.");
 
+                localStorage.setItem("latest_game_result", JSON.stringify(result.data));
+                window.location.href = "results.html";
 
-                if (!token) {
-
-                    window.location.href =
-                        "login.html";
-
-                    return;
-                }
-
-
-                const timeSpent =
-                    Math.floor(
-                        (
-                            Date.now() -
-                            startedAt
-                        ) / 1000
-                    );
-
-
-                finishLevelBtn.disabled =
-                    true;
-
-
-                try {
-
-                    const response =
-                        await fetch(
-                            "/api/gameplay/attempt",
-                            {
-                                method:
-                                    "POST",
-
-                                headers: {
-
-                                    "Content-Type":
-                                        "application/json",
-
-                                    "Accept":
-                                        "application/json",
-
-                                    "Authorization":
-                                        `Bearer ${token}`
-                                },
-
-                                body:
-                                    JSON.stringify({
-
-                                        topic:
-                                            deck,
-
-                                        level:
-                                            level,
-
-                                        score:
-                                            score,
-
-                                        moves:
-                                            moves,
-
-                                        correct_matches:
-                                            cardsPlaced,
-
-                                        incorrect_matches:
-                                            incorrectMatches,
-
-                                        hints_used:
-                                            hintsUsed,
-
-                                        time_spent:
-                                            timeSpent,
-
-                                        retries:
-                                            0,
-
-                                        completed:
-                                            true
-                                    })
-                            }
-                        );
-
-
-                    const result =
-                        await response.json();
-
-
-                    if (!response.ok) {
-
-                        throw new Error(
-                            result.message ||
-                            "Unable to save your result."
-                        );
-                    }
-
-
-                    localStorage.setItem(
-                        "latest_game_result",
-                        JSON.stringify(
-                            result.data
-                        )
-                    );
-
-
-                    window.location.href =
-                        "results.html";
-
-
-                } catch (error) {
-
-                    alert(error.message);
-
-                    finishLevelBtn.disabled =
-                        false;
-                }
-
+            } catch (err) {
+                alert(err.message);
+                finishLevelBtn.disabled = false;
             }
-        );
-
-    }
-
-
-
-
-
-function showGamePopup(message, type = "success") {
-
-    const oldPopup =
-        document.getElementById("gamePopup");
-
-    if (oldPopup) {
-        oldPopup.remove();
-    }
-
-    const popup =
-        document.createElement("div");
-
-    popup.id = "gamePopup";
-
-    popup.innerHTML = `
-        <div style="
-            position:fixed;
-            inset:0;
-            background:rgba(20,33,61,0.35);
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            z-index:99999;
-            padding:20px;
-        ">
-
-            <div style="
-                width:100%;
-                max-width:380px;
-                background:#FFFFFF;
-                border-radius:22px;
-                padding:32px 28px;
-                text-align:center;
-                box-shadow:0 20px 60px rgba(20,33,61,0.18);
-                font-family:Nunito,sans-serif;
-            ">
-
-                <div style="
-                    width:62px;
-                    height:62px;
-                    margin:0 auto 18px;
-                    border-radius:50%;
-                    display:flex;
-                    align-items:center;
-                    justify-content:center;
-                    font-size:30px;
-                    background:${type === "error" ? "#FEECEC" : "#FFF3C4"};
-                ">
-                    ${type === "error" ? "✕" : "🎉"}
-                </div>
-
-                <div style="
-                    color:#14213D;
-                    font-size:20px;
-                    font-weight:900;
-                    line-height:1.3;
-                ">
-                    ${message}
-                </div>
-
-                <button
-                    type="button"
-                    id="gamePopupClose"
-                    style="
-                        margin-top:24px;
-                        min-width:130px;
-                        height:46px;
-                        border:0;
-                        border-radius:999px;
-                        background:#2563FF;
-                        color:white;
-                        font-family:Nunito,sans-serif;
-                        font-size:14px;
-                        font-weight:800;
-                        cursor:pointer;
-                    "
-                >
-                    Continue
-                </button>
-
-            </div>
-        </div>
-    `;
-
-    document.body.appendChild(popup);
-
-    document
-        .getElementById("gamePopupClose")
-        .addEventListener("click", () => {
-            popup.remove();
         });
-}
+    }
 
-    /* ========================================
+    /* ============================================================
+       HINT BUTTON
+    ============================================================ */
+
+    if (hintBtn) {
+        hintBtn.addEventListener("click", () => {
+            resetHintStates();
+            const cards  = Array.from(cardsGrid.querySelectorAll(".game-card"));
+            const stacks = Array.from(stacksGrid.querySelectorAll(".foundation-stack"));
+
+            if (cards.length === 0) return;
+
+            const card  = cards[Math.floor(Math.random() * cards.length)];
+            const stack = stacks.find(s => s.dataset.categoryId === card.dataset.categoryId);
+
+            if (card && stack) {
+                card.classList.add("card-hint");
+                stack.classList.add("stack-hint");
+                hintsUsed++;
+                setBanner(`Hint: Try matching "${card.querySelector(".card-name")?.textContent.trim()}" to the highlighted category.`);
+            }
+        });
+    }
+
+    /* ============================================================
+       GAME POPUP
+    ============================================================ */
+
+    function showGamePopup(message, type = "success") {
+        document.getElementById("gamePopup")?.remove();
+
+        const popup = document.createElement("div");
+        popup.id = "gamePopup";
+
+        const isError = type === "error";
+        const iconBg  = isError ? "#FEECEC" : "#ECFEF5";
+        const iconEmoji = isError ? "✕" : "🎉";
+        const btnColor  = isError ? "#EF4444" : "#16A34A";
+
+        popup.innerHTML = `
+            <div style="
+                position:fixed; inset:0;
+                background:rgba(20,33,61,0.40);
+                backdrop-filter:blur(4px);
+                display:flex; align-items:center; justify-content:center;
+                z-index:99999; padding:20px;
+                animation: popupFadeIn 0.2s ease;
+            ">
+                <div style="
+                    width:100%; max-width:380px;
+                    background:#FFF;
+                    border-radius:22px;
+                    padding:32px 28px;
+                    text-align:center;
+                    box-shadow:0 20px 60px rgba(20,33,61,0.18);
+                    font-family:Nunito,sans-serif;
+                    animation: popupSlideUp 0.25s ease;
+                ">
+                    <div style="
+                        width:62px; height:62px;
+                        margin:0 auto 18px;
+                        border-radius:50%;
+                        display:flex; align-items:center; justify-content:center;
+                        font-size:30px;
+                        background:${iconBg};
+                    ">${iconEmoji}</div>
+
+                    <div style="color:#14213D; font-size:18px; font-weight:900; line-height:1.4;">
+                        ${message}
+                    </div>
+
+                    <button
+                        type="button"
+                        id="gamePopupClose"
+                        style="
+                            margin-top:24px;
+                            min-width:130px; height:46px;
+                            border:0; border-radius:999px;
+                            background:${btnColor};
+                            color:white;
+                            font-family:Nunito,sans-serif;
+                            font-size:14px; font-weight:800;
+                            cursor:pointer;
+                            transition:opacity 0.15s;
+                        "
+                    >Continue</button>
+                </div>
+            </div>
+        `;
+
+        document.body.appendChild(popup);
+        document.getElementById("gamePopupClose").addEventListener("click", () => popup.remove());
+        popup.addEventListener("click", e => { if (e.target === popup.firstElementChild) popup.remove(); });
+    }
+
+    /* ============================================================
+       TOP-BAR BRIDGE BUTTONS
+       (topRedealBtn / topHintBtn wired up in gameplay.html)
+    ============================================================ */
+
+    // Expose globally for gameplay.html inline script
+    window._gameShuffleHand = shuffleHand;
+    window._gameHintClick   = () => hintBtn?.click();
+
+    /* ============================================================
        START
-    ======================================== */
+    ============================================================ */
 
     loadBoard();
 
