@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const shuffleDeckCount = document.getElementById("shuffleDeckCount");
     const shuffleRevealPile= document.getElementById("shuffleRevealPile");
     const movesBadge  = document.getElementById("movesValueBadge");
+    const topHintBtn  = document.getElementById("topHintBtn");
+    const topHintLabel= document.getElementById("topHintLabel");
 
     const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
@@ -59,6 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const INITIAL_PILE_SIZE = 3;
     const REVEAL_QUEUE_SIZE = 3;
     const PILE_OFFSET_PX    = 16;
+    const MAX_HINTS_PER_LEVEL       = 3;
+    const MAX_LEVELS_PER_DIFFICULTY = 10;
+
+    /*
+     * Retries: how many times this exact level (same subject/deck/
+     * key stage/difficulty/level number) has been restarted. Kept in
+     * sessionStorage because a Restart reloads the page, wiping all
+     * in-memory state — the counter needs to survive that reload.
+     */
+    const retryStorageKey = `retries:${subject}:${deck}:${keyStage}:${difficulty}:${level}`;
+    const retries = parseInt(sessionStorage.getItem(retryStorageKey) || "0", 10);
 
     const startedAt   = Date.now();
     let selectedCard  = null;
@@ -200,6 +213,15 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateShuffleDeckBadge() {
         if (shuffleDeckCount) shuffleDeckCount.textContent = shuffleDeckCards.length;
         if (shuffleDeckBtn) shuffleDeckBtn.classList.toggle("deck-empty", shuffleDeckCards.length === 0);
+    }
+
+    function updateHintUI() {
+        const remaining = Math.max(0, MAX_HINTS_PER_LEVEL - hintsUsed);
+        const exhausted = remaining === 0;
+
+        if (hintBtn) hintBtn.disabled = exhausted;
+        if (topHintBtn) topHintBtn.disabled = exhausted;
+        if (topHintLabel) topHintLabel.textContent = exhausted ? "No Hints" : `Hint (${remaining})`;
     }
 
     function updateProgress() {
@@ -517,18 +539,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const localResult = {
             topic:             deck,
+            subject,
+            deck,
             level,
             score,
             moves,
             correct_matches:   cardsPlaced,
             incorrect_matches: incorrectMatches,
             hints_used:        hintsUsed,
+            total_cards:       totalCards,
+            retries,
             time_spent:        timeSpent,
             completed:         true,
             difficulty,
             key_stage:         keyStage,
+            max_levels_per_difficulty: MAX_LEVELS_PER_DIFFICULTY,
         };
         localStorage.setItem("latest_game_result", JSON.stringify(localResult));
+
+        // This attempt is settled — a future replay of this same level
+        // number starts its retry count fresh.
+        sessionStorage.removeItem(retryStorageKey);
 
         if (token) {
             try {
@@ -827,6 +858,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         updateScore();
         updateMovesBadge();
+        updateHintUI();
         if (finishLevelBtn) finishLevelBtn.disabled = true;
         if (nextLevelBtn)   nextLevelBtn.disabled = true;
 
@@ -963,7 +995,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     if (restartBtn) {
-        restartBtn.addEventListener("click", () => window.location.reload());
+        restartBtn.addEventListener("click", () => {
+            sessionStorage.setItem(retryStorageKey, String(retries + 1));
+            window.location.reload();
+        });
     }
 
     if (redealBtn) {
@@ -1032,6 +1067,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hintBtn) {
         hintBtn.addEventListener("click", () => {
+            if (hintsUsed >= MAX_HINTS_PER_LEVEL) {
+                setBanner(`No hints left for this level (max ${MAX_HINTS_PER_LEVEL}).`, "error");
+                return;
+            }
+
             resetHintStates();
             const cards  = Array.from(document.querySelectorAll("#cardsGrid .game-card, #shuffleRevealPile .game-card"))
                 .filter(c => !c.classList.contains("card-face-down"));
@@ -1046,6 +1086,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.classList.add("card-hint");
                 stack.classList.add("stack-hint");
                 hintsUsed++;
+                updateHintUI();
                 setBanner(`Hint: Try matching "${card.querySelector(".card-name")?.textContent.trim()}" to the highlighted category.`);
             }
         });

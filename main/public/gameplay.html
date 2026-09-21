@@ -186,6 +186,7 @@ body {
     transition: opacity 0.15s, transform 0.15s;
 }
 .btn-action:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-action[disabled] { opacity: 0.45; cursor: not-allowed; pointer-events: none; transform: none; }
 .btn-action svg   { width: 13px; height: 13px; }
 
 .btn-outline {
@@ -973,7 +974,7 @@ body {
                         <path d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z" stroke="currentColor" stroke-width="1.7"/>
                         <path d="M12 16v6M9 19h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
                     </svg>
-                    Hint
+                    <span id="topHintLabel">Hint</span>
                 </button>
 
             </div>
