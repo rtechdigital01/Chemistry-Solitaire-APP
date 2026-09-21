@@ -270,7 +270,7 @@ body {
 
 
 /* ============================================================
-   MIDDLE — POINTS & SHUFFLE DECK
+   MIDDLE — MOVES BADGE & SHUFFLE PANELS
 ============================================================ */
 
 .game-middle-actions {
@@ -279,10 +279,11 @@ body {
     margin: 0 auto 28px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.points-badge {
+.moves-badge {
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
     width: 82px; height: 82px;
@@ -290,24 +291,24 @@ body {
     border-radius: 14px;
     color: white;
     box-shadow: 0 6px 16px rgba(248,158,25,0.35);
-    margin-left: 10px;
+    flex-shrink: 0;
 }
 
-.points-label {
-    font-size: 11px; font-weight: 700;
+.moves-label {
+    font-size: 10px; font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 0.5px;
     margin-bottom: 2px;
     opacity: 0.9;
 }
 
-.points-value {
-    font-size: 28px; font-weight: 900;
+.moves-value {
+    font-size: 26px; font-weight: 900;
     line-height: 1;
     transition: transform 0.2s;
 }
 
-.points-value.bump {
+.moves-value.bump {
     animation: pointsBump 0.3s ease;
 }
 
@@ -316,66 +317,148 @@ body {
     40%     { transform: scale(1.3); }
 }
 
-.shuffle-deck {
+/* — Shuffle panels — */
+
+.shuffle-panels {
+    display: flex;
+    gap: 18px;
+}
+
+.shuffle-panel-heading {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.shuffle-panel-heading .heading-accent {
+    width: 3px;
+}
+
+.shuffle-panel-heading h3 {
+    margin: 0;
+    color: #14213D;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.shuffle-panel-heading p {
+    margin: 1px 0 0;
+    color: #94A3B8;
+    font-size: 9px;
+    font-weight: 700;
+}
+
+/* Reveal pile — the active playable hand (fanned peek of upcoming cards) */
+
+.shuffle-reveal-pile {
     position: relative;
-    width: 108px; height: 136px;
-    background: linear-gradient(145deg, #78C7EA, #5BB8E5);
+    width: 132px;
+    height: 118px;
+}
+
+/* Higher specificity (#id + two classes) is required here because the
+   base `.game-card` rule — full pile-card sizing — is declared later in
+   this stylesheet and would otherwise win the cascade. */
+#shuffleRevealPile .game-card.reveal-main-card {
+    position: absolute;
+    left: 0; top: 0;
+    width: 92px; height: 118px;
+    border: 2px solid #F1C345;
     border-radius: 12px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px;
+    font-size: 12px;
+    font-weight: 900;
+    color: #14213D;
+    box-shadow: 0 3px 0 0 #E5B800, 0 4px 10px rgba(20,33,61,0.12);
     cursor: pointer;
-    margin-right: 10px;
+    gap: 0;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-crown {
+    position: absolute;
+    top: 6px; left: 8px;
+    font-size: 12px;
+    color: #F5B82E;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-name {
+    font-size: 11px;
+    padding: 0 2px;
+}
+
+.reveal-peek-card {
+    position: absolute;
+    top: 0;
+    width: 20px; height: 118px;
+    border: 2px solid #F1C345;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
+    box-shadow: 0 2px 6px rgba(20,33,61,0.10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
+}
+
+.reveal-peek-card span {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 10px;
+    font-weight: 800;
+    color: #7C6425;
+    white-space: nowrap;
+}
+
+.shuffle-reveal-empty {
+    width: 92px; height: 118px;
+    border: 2px dashed #E2E8F0;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    color: #CBD5E1;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Shuffle deck — the remaining logical deck, pattern back + count badge */
+
+.shuffle-deck-pile {
+    position: relative;
+    width: 92px; height: 118px;
+    background:
+        radial-gradient(#ffffff33 2px, transparent 2px),
+        radial-gradient(#ffffff33 2px, transparent 2px),
+        linear-gradient(145deg, #78C7EA, #5BB8E5);
+    background-size: 14px 14px, 14px 14px, 100% 100%;
+    background-position: 0 0, 7px 7px, 0 0;
+    border: 2px solid #4DAAEB;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.14);
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-.shuffle-deck:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+.shuffle-deck-pile:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+.shuffle-deck-pile.deck-empty { cursor: default; opacity: 0.5; }
 
-.shuffle-deck::before {
-    content: "";
+.shuffle-deck-count {
     position: absolute;
-    left: 5px; right: 5px; top: -7px;
-    height: 12px;
-    background: #4DAAEB;
-    border-radius: 8px 8px 0 0;
-    z-index: -1;
-}
-.shuffle-deck::after {
-    content: "";
-    position: absolute;
-    left: 9px; right: 9px; top: -13px;
-    height: 11px;
+    top: -8px; right: -8px;
+    min-width: 24px; height: 24px;
+    padding: 0 5px;
+    display: flex; align-items: center; justify-content: center;
     background: #2563FF;
-    border-radius: 7px 7px 0 0;
-    z-index: -2;
-}
-
-.shuffle-deck-inner {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    background-image:
-        radial-gradient(#ffffff22 2px, transparent 2px),
-        radial-gradient(#ffffff22 2px, transparent 2px);
-    background-size: 14px 14px;
-    background-position: 0 0, 7px 7px;
-    border-radius: 12px;
-    text-align: center;
-    padding: 10px;
-}
-
-.shuffle-label {
-    font-size: 16px; font-weight: 900;
-    background: rgba(255,255,255,0.88);
-    color: #14213D;
-    padding: 3px 9px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-}
-
-.shuffle-desc {
-    color: white;
-    font-size: 10px; font-weight: 700;
-    line-height: 1.2;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    color: #fff;
+    font-size: 11px; font-weight: 900;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(37,99,255,0.4);
 }
 
 
@@ -443,7 +526,7 @@ body {
     overflow: hidden;
     border: 2px solid #F1C345;
     border-radius: 16px;
-    background: #FFFFFF;
+    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
     cursor: pointer;
     box-shadow: 0 6px 16px rgba(20,33,61,0.08);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
@@ -680,26 +763,20 @@ body {
         0 10px 22px rgba(20,33,61,0.18);
 }
 
-/* Face-down card — blue back, atom watermark */
+/* Face-down card — patterned blue back, matching the shuffle deck */
 .card-face-down {
-    background: linear-gradient(140deg, #1e3a8a 0%, #2563eb 100%) !important;
-    border-color: #1d4ed8 !important;
+    background:
+        radial-gradient(#ffffff33 2.5px, transparent 2.5px),
+        radial-gradient(#ffffff33 2.5px, transparent 2.5px),
+        linear-gradient(145deg, #78C7EA, #5BB8E5) !important;
+    background-size: 16px 16px, 16px 16px, 100% 100% !important;
+    background-position: 0 0, 8px 8px, 0 0 !important;
+    border-color: #4DAAEB !important;
     cursor: default !important;
     pointer-events: none;
-    box-shadow: 0 3px 0 0 #1e3a8a, 0 6px 14px rgba(0,0,0,0.22) !important;
+    box-shadow: 0 3px 0 0 #3A8FCB, 0 6px 14px rgba(0,0,0,0.18) !important;
 }
 .card-face-down * { display: none !important; }
-.card-face-down::after {
-    content: "⚛";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    inset: 0;
-    font-size: 52px;
-    color: rgba(255,255,255,0.18);
-    pointer-events: none;
-}
 
 /* Crown icon top-left */
 .card-crown {
@@ -958,19 +1035,42 @@ body {
 
 
 
-        <!-- POINTS & SHUFFLE DECK -->
+        <!-- MOVES & SHUFFLE PANELS -->
         <div class="game-middle-actions">
 
-            <div class="points-badge">
-                <span class="points-label">Points</span>
-                <span class="points-value" id="pointsValueBadge">0</span>
+            <div class="moves-badge">
+                <span class="moves-label">Moves</span>
+                <span class="moves-value" id="movesValueBadge">0</span>
             </div>
 
-            <div class="shuffle-deck" id="shuffleDeckBtn" role="button" aria-label="Shuffle hand">
-                <div class="shuffle-deck-inner">
-                    <span class="shuffle-label">Shuffle</span>
-                    <span class="shuffle-desc">remaining cards</span>
+            <div class="shuffle-panels">
+
+                <!-- Active hand: top playable card + peek of what's next -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-panel-heading">
+                        <span class="heading-accent"></span>
+                        <div>
+                            <h3>Shuffle</h3>
+                            <p>Select shuffled card</p>
+                        </div>
+                    </div>
+                    <div class="shuffle-reveal-pile" id="shuffleRevealPile"></div>
                 </div>
+
+                <!-- Remaining logical deck, not yet dealt into play -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-panel-heading">
+                        <span class="heading-accent"></span>
+                        <div>
+                            <h3>Shuffle</h3>
+                            <p>Shuffle before playing</p>
+                        </div>
+                    </div>
+                    <div class="shuffle-deck-pile" id="shuffleDeckBtn" role="button" aria-label="Shuffle remaining cards into play">
+                        <span class="shuffle-deck-count" id="shuffleDeckCount">0</span>
+                    </div>
+                </div>
+
             </div>
 
         </div>

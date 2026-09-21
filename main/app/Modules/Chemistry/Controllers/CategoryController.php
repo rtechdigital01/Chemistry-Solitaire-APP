@@ -41,6 +41,11 @@ class CategoryController extends Controller
 
     /**
      * Generate a random Solitaire game board.
+     *
+     * A level is a closed universe of selected category definitions: the
+     * level deck contains only the base/crown card and the full matching
+     * card pool belonging to the categories chosen for this board, and
+     * nothing from an unselected category is ever allowed to leak in.
      */
     public function board(Request $request): JsonResponse
     {
@@ -55,76 +60,65 @@ class CategoryController extends Controller
 
         $difficulty = $request->query('difficulty');
 
+        // Number of category definitions to select for this level.
+        // Bounded to keep the board playable — the UI has 5 category slots.
+        $categoryCount = (int) $request->query('categories', 5);
+        $categoryCount = max(3, min(8, $categoryCount));
 
         $query = Category::query()
             ->where('deck', $deck)
             ->where('key_stage', $keyStage);
 
-
         if ($difficulty) {
+            // Difficulty is normalized at import time, but filter
+            // case-insensitively regardless so stale rows can't leak in.
             $query->whereRaw(
                 'LOWER(difficulty) = ?',
                 [strtolower($difficulty)]
             );
         }
 
-
         $categories = $query
             ->get()
             ->filter(function ($category) {
                 return is_array($category->card_pool)
-                    && count($category->card_pool) >= 4;
+                    && count($category->card_pool) >= 3;
             });
 
-
-        if ($categories->count() < 4) {
+        if ($categories->count() < 3) {
             \Illuminate\Support\Facades\Log::info('Categories count: ' . $categories->count() . ' Deck: ' . $deck . ' KS: ' . $keyStage);
             \Illuminate\Support\Facades\Log::info('Raw count: ' . $query->count());
-            
+
             return response()->json([
                 'status' => 'Error',
                 'message' => 'Not enough categories available to generate this board.'
             ], 422);
         }
 
-
-        // Pick 4 random categories
+        // Freeze the selected category set for this level — everything
+        // downstream (cards, shuffle, stacks) is generated only from these.
         $selectedCategories = $categories
             ->shuffle()
-            ->take(4)
+            ->take(min($categoryCount, $categories->count()))
             ->values();
 
-
-        // Pick 4–7 random cards from each category
+        // Every pool card belongs to exactly one category (its parent
+        // row's id). The whole pool travels — no random truncation or
+        // padding — the UI decides how much of it is visible at once.
         $board = $selectedCategories->map(
             function ($category) {
-
-                $pool = collect($category->card_pool)
-                    ->shuffle();
-
-                $maximumCards = min(
-                    7,
-                    $pool->count()
-                );
-
-                $numberOfCards = random_int(
-                    4,
-                    $maximumCards
-                );
-
                 return [
                     'id' => $category->id,
                     'name' => $category->name,
                     'difficulty' => $category->difficulty,
-                    'icon_type' => $category->icon_type,
-                    'cards' => $pool
-                        ->take($numberOfCards)
+                    'icon_type' => strtolower((string) $category->icon_type),
+                    'cards' => collect($category->card_pool)
+                        ->shuffle()
                         ->values()
                         ->all(),
                 ];
             }
         );
-
 
         return $this->successResponse(
             [
