@@ -153,23 +153,22 @@ body {
 
 .gameplay-stats {
     display: flex; align-items: center;
-    gap: 2px;
-    border: 1px solid #EDF1F7;
-    border-radius: 10px;
-    overflow: hidden;
+    gap: 4px;
 }
 
 .stat-item {
-    min-width: 52px;
-    padding: 5px 8px;
+    min-width: 44px;
+    padding: 6px 10px;
     text-align: center;
-    border-right: 1px solid #EDF1F7;
+    background: #FFFFFF;
+    border: 1px solid #DDE5F1;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(20,33,61,0.06);
 }
-.stat-item:last-child { border-right: none; }
 
-.stat-icon  { width: 13px; height: 13px; margin: 0 auto 2px; color: #94A3B8; }
-.stat-value { font-size: 11px; font-weight: 900; color: #14213D; display: block; }
-.stat-label { font-size: 7px; font-weight: 700; text-transform: uppercase; color: #94A3B8; display: block; }
+.stat-icon  { width: 13px; height: 13px; margin: 0 auto 2px; color: #2563FF; }
+.stat-value { font-size: 12px; font-weight: 900; color: #14213D; display: block; font-family: "Inter", "Nunito", sans-serif; }
+.stat-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8290A6; display: block; }
 
 
 /* ACTIONS */
@@ -190,15 +189,15 @@ body {
 .btn-action svg   { width: 13px; height: 13px; }
 
 .btn-outline {
-    border: 1px solid #C7DBFF;
-    background: #FFF;
-    color: #2563EB;
+    border: 1px solid #E3EDFF;
+    background: #EFF5FF;
+    color: #1D4ED8;
 }
 
 .btn-yellow {
-    border: 1px solid #FFC83D;
-    background: #FFC83D;
-    color: #7C5600;
+    border: 1px solid #F4B740;
+    background: #F4B740;
+    color: #14213D;
 }
 
 
@@ -209,7 +208,7 @@ body {
 .gameplay-main {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, #EFF6FF 0%, #F9FAFB 60%, #F0FDF4 100%);
+    background: #EFF5FF;
     overflow: hidden;
 }
 
@@ -286,25 +285,27 @@ body {
 .moves-badge {
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    width: 82px; height: 82px;
-    background: linear-gradient(145deg, #F89E19, #F5B700);
-    border-radius: 14px;
+    width: 100px; height: 76px;
+    background: #F5A81C;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px 12px 0 0;
     color: white;
-    box-shadow: 0 6px 16px rgba(248,158,25,0.35);
+    box-shadow: 0 4px 16px rgba(245,168,28,0.35);
     flex-shrink: 0;
 }
 
 .moves-label {
-    font-size: 10px; font-weight: 800;
+    font-size: 11px; font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     margin-bottom: 2px;
-    opacity: 0.9;
+    color: rgba(255,255,255,0.8);
 }
 
 .moves-value {
-    font-size: 26px; font-weight: 900;
+    font-size: 32px; font-weight: 900;
     line-height: 1;
+    letter-spacing: -0.6px;
     transition: transform 0.2s;
 }
 
@@ -337,24 +338,30 @@ body {
 
 .shuffle-panel-heading h3 {
     margin: 0;
-    color: #14213D;
+    color: #1A3160;
     font-size: 14px;
     font-weight: 900;
+    letter-spacing: -0.3px;
 }
 
 .shuffle-panel-heading p {
-    margin: 1px 0 0;
-    color: #94A3B8;
-    font-size: 9px;
-    font-weight: 700;
+    margin: 2px 0 0;
+    color: #14213D;
+    font-size: 8px;
+    font-weight: 600;
 }
 
 /* Reveal pile — the active playable hand (fanned peek of upcoming cards) */
 
 .shuffle-reveal-pile {
     position: relative;
-    width: 132px;
-    height: 118px;
+    width: 148px;
+    height: 131px;
+    background: #56BEF4;
+    border: 3px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 /* Higher specificity (#id + two classes) is required here because the
@@ -363,43 +370,43 @@ body {
 #shuffleRevealPile .game-card.reveal-main-card {
     position: absolute;
     left: 0; top: 0;
-    width: 92px; height: 118px;
-    border: 2px solid #F1C345;
-    border-radius: 12px;
-    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
+    width: 105px; height: 131px;
+    border: 2px solid #F5A81C;
+    border-radius: 11px;
+    background: #F5EDD7;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 6px;
-    font-size: 12px;
+    font-size: 13px;
     font-weight: 900;
-    color: #14213D;
-    box-shadow: 0 3px 0 0 #E5B800, 0 4px 10px rgba(20,33,61,0.12);
+    color: #1A3160;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
     cursor: pointer;
     gap: 0;
 }
 
 #shuffleRevealPile .game-card.reveal-main-card .card-crown {
     position: absolute;
-    top: 6px; left: 8px;
+    top: 8px; left: 10px;
     font-size: 12px;
-    color: #F5B82E;
+    color: #F5A81C;
 }
 
 #shuffleRevealPile .game-card.reveal-main-card .card-name {
-    font-size: 11px;
+    font-size: 12px;
     padding: 0 2px;
 }
 
 .reveal-peek-card {
     position: absolute;
     top: 0;
-    width: 20px; height: 118px;
-    border: 2px solid #F1C345;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
-    box-shadow: 0 2px 6px rgba(20,33,61,0.10);
+    width: 22px; height: 131px;
+    border: 2px solid #FBBF24;
+    border-radius: 11px;
+    background: #FFF8E6;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -407,20 +414,20 @@ body {
 }
 
 .reveal-peek-card span {
-    writing-mode: vertical-rl;
-    transform: rotate(180deg);
-    font-size: 10px;
-    font-weight: 800;
-    color: #7C6425;
+    display: inline-block;
+    transform: rotate(-90deg);
+    font-size: 11px;
+    font-weight: 900;
+    color: #1A3160;
     white-space: nowrap;
 }
 
 .shuffle-reveal-empty {
-    width: 92px; height: 118px;
-    border: 2px dashed #E2E8F0;
-    border-radius: 12px;
+    width: 105px; height: 131px;
+    border: 2px dashed rgba(255,255,255,0.6);
+    border-radius: 11px;
     display: flex; align-items: center; justify-content: center;
-    color: #CBD5E1;
+    color: #FFFFFF;
     font-size: 11px;
     font-weight: 800;
     text-align: center;
@@ -431,30 +438,25 @@ body {
 
 .shuffle-deck-pile {
     position: relative;
-    width: 92px; height: 118px;
-    background:
-        radial-gradient(#ffffff33 2px, transparent 2px),
-        radial-gradient(#ffffff33 2px, transparent 2px),
-        linear-gradient(145deg, #78C7EA, #5BB8E5);
-    background-size: 14px 14px, 14px 14px, 100% 100%;
-    background-position: 0 0, 7px 7px, 0 0;
-    border: 2px solid #4DAAEB;
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.14);
+    width: 148px; height: 131px;
+    background: #56BEF4;
+    border: 3px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-.shuffle-deck-pile:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+.shuffle-deck-pile:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.18); }
 .shuffle-deck-pile.deck-empty { cursor: default; opacity: 0.5; }
 
 .shuffle-deck-count {
     position: absolute;
-    top: -8px; right: -8px;
+    top: -6px; right: -6px;
     min-width: 24px; height: 24px;
     padding: 0 5px;
     display: flex; align-items: center; justify-content: center;
-    background: #2563FF;
-    color: #fff;
+    background: #FFFFFF;
+    color: #2563FF;
     font-size: 11px; font-weight: 900;
     border-radius: 999px;
     border: 2px solid #fff;
@@ -519,19 +521,19 @@ body {
 
 .foundation-stack {
     position: relative;
-    min-height: 218px;
+    min-height: 194px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    border: 2px solid #F1C345;
-    border-radius: 16px;
-    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
+    border: 2px solid #FBBF24;
+    border-radius: 15px;
+    background: #FAF0D5;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(20,33,61,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
-    padding: 0;
+    padding: 12px 10px 10px;
 }
 
 .foundation-stack:hover {
@@ -561,64 +563,62 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px 13px;
-    border-bottom: 1px solid #F1C345;
 }
 
-.category-crown { font-size: 20px; color: #F3B51D; }
+.category-crown { font-size: 17px; color: #F5A81C; }
 
 .category-progress {
-    font-size: 12px; font-weight: 800;
-    color: #6B7280;
+    font-size: 12px; font-weight: 700;
+    color: #A09880;
 }
 
 .category-icon-circle {
-    width: 60px; height: 60px;
+    width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
-    margin: 12px auto 6px;
+    margin: 14px auto 10px;
     border-radius: 50%;
     background: #DDF3E5;
     color: #2E9D62;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.2s;
 }
 .foundation-stack:hover .category-icon-circle { transform: scale(1.08); }
 
-.category-icon-circle svg { width: 30px; height: 30px; }
+.category-icon-circle svg { width: 20px; height: 20px; }
 
 .stack-title {
     width: 100%;
-    padding: 8px 13px 14px;
+    padding: 0 4px;
     text-align: center;
-    font-size: 13px; font-weight: 900;
-    color: #14213D;
+    font-size: 13px; font-weight: 800;
+    color: #1A3160;
     line-height: 1.3;
 }
 
 .category-card-divider {
     width: 100%; height: 1px;
-    background: #F1E4B8;
+    margin-top: auto;
+    background: #D4C9AF;
 }
 
 .category-bottom-badge {
-    margin: 10px 0 12px;
-    min-width: 26px; height: 26px;
+    margin: 10px 0 0;
+    width: 26px; height: 26px;
     display: flex; align-items: center; justify-content: center;
-    padding: 0 7px;
-    border-radius: 999px;
-    background: #FFF0B8;
-    color: #A87500;
-    font-size: 11px; font-weight: 900;
-    text-transform: uppercase;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    color: #FFFFFF;
+    font-size: 9px; font-weight: 900;
 }
 
 
 /* Locked slot */
 .locked-category-card {
-    min-height: 218px;
+    min-height: 194px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     border: 2px dashed #E2E8F0;
-    border-radius: 16px;
+    border-radius: 15px;
     background: #FAFBFC;
 }
 
@@ -670,18 +670,19 @@ body {
 .card-pile {
     position: relative;
     /* portrait: narrower width, tall enough for offset stack */
-    width: 160px;
+    width: 148px;
     flex-shrink: 0;
     /* height grows with stack offset; at least 2 visible card heights */
-    min-height: 290px;
+    min-height: 264px;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
 }
 
 /* The stock/shuffle pile column */
 .stock-pile {
     position: relative;
-    width: 160px;
+    width: 148px;
     flex-shrink: 0;
-    min-height: 290px;
+    min-height: 264px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -714,13 +715,13 @@ body {
     padding: 22px 14px 16px;
 
     /* Neutral cream — NO category colour here */
-    border: 2px solid #F1C345;
+    border: 2px solid #F5A81C;
     border-radius: 16px;
-    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
-    color: #14213D;
+    background: #F5EDD7;
+    color: #1A3160;
 
     font-family: "Nunito", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     text-align: center;
     line-height: 1.3;
@@ -728,9 +729,7 @@ body {
     cursor: pointer;
     user-select: none;
 
-    box-shadow:
-        0 3px 0 0 #E5B800,
-        0 6px 14px rgba(20,33,61,0.14);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
 
     transition:
         transform 0.18s ease,
@@ -741,9 +740,7 @@ body {
 
 .game-card:not(.card-face-down):hover {
     transform: translateY(-5px);
-    box-shadow:
-        0 3px 0 0 #E5B800,
-        0 12px 22px rgba(20,33,61,0.18);
+    box-shadow: 0 8px 18px rgba(20,33,61,0.22);
 }
 
 .game-card.card-selected {
@@ -765,38 +762,33 @@ body {
         0 10px 22px rgba(20,33,61,0.18);
 }
 
-/* Face-down card — patterned blue back, matching the shuffle deck */
+/* Face-down card — flat blue back, matching the shuffle deck */
 .card-face-down {
-    background:
-        radial-gradient(#ffffff33 2.5px, transparent 2.5px),
-        radial-gradient(#ffffff33 2.5px, transparent 2.5px),
-        linear-gradient(145deg, #78C7EA, #5BB8E5) !important;
-    background-size: 16px 16px, 16px 16px, 100% 100% !important;
-    background-position: 0 0, 8px 8px, 0 0 !important;
-    border-color: #4DAAEB !important;
+    background: #56BEF4 !important;
+    border: 2px solid #FFFFFF !important;
     cursor: default !important;
     pointer-events: none;
-    box-shadow: 0 3px 0 0 #3A8FCB, 0 6px 14px rgba(0,0,0,0.18) !important;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1) !important;
 }
 .card-face-down * { display: none !important; }
 
 /* Crown icon top-left */
 .card-crown {
     position: absolute;
-    top: 10px; left: 12px;
+    top: 12px; left: 15px;
     font-size: 16px;
-    color: #F5B82E;
+    color: #F5A81C;
     line-height: 1;
 }
 
 /* Card text */
 .card-name {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     line-height: 1.3;
     text-align: center;
     word-break: break-word;
-    color: #14213D;
+    color: #1A3160;
     padding: 0 4px;
 }
 
@@ -830,12 +822,12 @@ body {
 }
 .bottom-game-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(20,33,61,0.18); }
 
-.restart-btn   { background: #14213D; color: #FFF; }
-.next-level-btn { background: #E2E8F0; color: #94A3B8; box-shadow: none; }
+.restart-btn   { background: #1B3D7A; color: #FFF; box-shadow: 0 4px 18px rgba(27,61,122,0.38); }
+.next-level-btn { background: #DDE5F1; color: #94A3B8; box-shadow: none; }
 .next-level-btn:not([disabled]) {
     background: linear-gradient(135deg, #2563EB, #1D4ED8);
     color: white;
-    box-shadow: 0 8px 18px rgba(37,99,255,0.25);
+    box-shadow: 0 4px 18px rgba(42,98,190,0.38);
 }
 .next-level-btn[disabled]       { cursor: not-allowed; }
 
@@ -1001,23 +993,23 @@ body {
     <!-- Decorative molecules -->
     <div class="game-molecule top">
         <svg viewBox="0 0 320 260" fill="none">
-            <circle cx="70" cy="60" r="45" stroke="#93C5FD" stroke-width="4"/>
-            <circle cx="180" cy="130" r="36" stroke="#93C5FD" stroke-width="4"/>
-            <circle cx="70" cy="205" r="29" stroke="#93C5FD" stroke-width="4"/>
-            <path d="M105 87L150 112" stroke="#93C5FD" stroke-width="4"/>
-            <path d="M149 150L95 188" stroke="#93C5FD" stroke-width="4"/>
+            <circle cx="70" cy="60" r="45" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="180" cy="130" r="36" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="70" cy="205" r="29" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M105 87L150 112" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M149 150L95 188" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
         </svg>
     </div>
 
     <div class="game-molecule bottom">
         <svg viewBox="0 0 340 300" fill="none">
-            <circle cx="70"  cy="165" r="48" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="175" cy="85"  r="42" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="185" cy="235" r="42" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="290" cy="145" r="38" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M106 136L143 108" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M111 192L150 218" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M213 105L260 132" stroke="#86EFAC" stroke-width="4"/>
+            <circle cx="70"  cy="165" r="48" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="175" cy="85"  r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="185" cy="235" r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="290" cy="145" r="38" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M106 136L143 108" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M111 192L150 218" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M213 105L260 132" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
         </svg>
     </div>
 
@@ -1053,7 +1045,7 @@ body {
                         <span class="heading-accent"></span>
                         <div>
                             <h3>Shuffle</h3>
-                            <p>Select shuffled card</p>
+                            <p>Stacked shuffle cards</p>
                         </div>
                     </div>
                     <div class="shuffle-reveal-pile" id="shuffleRevealPile"></div>
@@ -1065,7 +1057,7 @@ body {
                         <span class="heading-accent"></span>
                         <div>
                             <h3>Shuffle</h3>
-                            <p>Shuffle before playing</p>
+                            <p>Shuffle cards to start playing</p>
                         </div>
                     </div>
                     <div class="shuffle-deck-pile" id="shuffleDeckBtn" role="button" aria-label="Shuffle remaining cards into play">

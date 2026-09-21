@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const GAME_PILE_COUNT   = 4;
     const INITIAL_PILE_SIZE = 3;
     const REVEAL_QUEUE_SIZE = 3;
-    const PILE_OFFSET_PX    = 10;
+    const PILE_OFFSET_PX    = 16;
 
     const startedAt   = Date.now();
     let selectedCard  = null;
@@ -162,11 +162,11 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     const categoryThemes = [
-        { solid: "#2FAE66" }, // green
-        { solid: "#7C5CFC" }, // purple
-        { solid: "#F0883E" }, // orange
-        { solid: "#4C8DF0" }, // blue
-        { solid: "#E25C5C" }, // red
+        { solid: "#22C55E" }, // green
+        { solid: "#8B5CF6" }, // purple
+        { solid: "#F97316" }, // orange
+        { solid: "#3B82F6" }, // blue
+        { solid: "#EF4444" }, // red
     ];
 
     /* ============================================================
@@ -431,7 +431,7 @@ document.addEventListener("DOMContentLoaded", () => {
         revealQueue.slice(1).forEach((cardEl, i) => {
             const peek = document.createElement("div");
             peek.className = "reveal-peek-card";
-            peek.style.left = `${96 + i * 22}px`;
+            peek.style.left = `${112 + i * 24}px`;
             peek.style.zIndex = String(2 - i);
             const span = document.createElement("span");
             span.textContent = cardEl.querySelector(".card-name")?.textContent.trim() || "";
