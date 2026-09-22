@@ -153,23 +153,22 @@ body {
 
 .gameplay-stats {
     display: flex; align-items: center;
-    gap: 2px;
-    border: 1px solid #EDF1F7;
-    border-radius: 10px;
-    overflow: hidden;
+    gap: 4px;
 }
 
 .stat-item {
-    min-width: 52px;
-    padding: 5px 8px;
+    min-width: 44px;
+    padding: 6px 10px;
     text-align: center;
-    border-right: 1px solid #EDF1F7;
+    background: #FFFFFF;
+    border: 1px solid #DDE5F1;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(20,33,61,0.06);
 }
-.stat-item:last-child { border-right: none; }
 
-.stat-icon  { width: 13px; height: 13px; margin: 0 auto 2px; color: #94A3B8; }
-.stat-value { font-size: 11px; font-weight: 900; color: #14213D; display: block; }
-.stat-label { font-size: 7px; font-weight: 700; text-transform: uppercase; color: #94A3B8; display: block; }
+.stat-icon  { width: 13px; height: 13px; margin: 0 auto 2px; color: #2563FF; }
+.stat-value { font-size: 12px; font-weight: 900; color: #14213D; display: block; font-family: "Inter", "Nunito", sans-serif; }
+.stat-label { font-size: 7px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.4px; color: #8290A6; display: block; }
 
 
 /* ACTIONS */
@@ -187,18 +186,19 @@ body {
     transition: opacity 0.15s, transform 0.15s;
 }
 .btn-action:hover { opacity: 0.85; transform: translateY(-1px); }
+.btn-action[disabled] { opacity: 0.45; cursor: not-allowed; pointer-events: none; transform: none; }
 .btn-action svg   { width: 13px; height: 13px; }
 
 .btn-outline {
-    border: 1px solid #C7DBFF;
-    background: #FFF;
-    color: #2563EB;
+    border: 1px solid #E3EDFF;
+    background: #EFF5FF;
+    color: #1D4ED8;
 }
 
 .btn-yellow {
-    border: 1px solid #FFC83D;
-    background: #FFC83D;
-    color: #7C5600;
+    border: 1px solid #F4B740;
+    background: #F4B740;
+    color: #14213D;
 }
 
 
@@ -209,7 +209,7 @@ body {
 .gameplay-main {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, #EFF6FF 0%, #F9FAFB 60%, #F0FDF4 100%);
+    background: #EFF5FF;
     overflow: hidden;
 }
 
@@ -270,7 +270,7 @@ body {
 
 
 /* ============================================================
-   MIDDLE — POINTS & SHUFFLE DECK
+   MIDDLE — MOVES BADGE & SHUFFLE PANELS
 ============================================================ */
 
 .game-middle-actions {
@@ -279,35 +279,38 @@ body {
     margin: 0 auto 28px;
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: flex-start;
+    gap: 20px;
 }
 
-.points-badge {
+.moves-badge {
     display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    width: 82px; height: 82px;
-    background: linear-gradient(145deg, #F89E19, #F5B700);
-    border-radius: 14px;
+    width: 100px; height: 76px;
+    background: #F5A81C;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px 12px 0 0;
     color: white;
-    box-shadow: 0 6px 16px rgba(248,158,25,0.35);
-    margin-left: 10px;
+    box-shadow: 0 4px 16px rgba(245,168,28,0.35);
+    flex-shrink: 0;
 }
 
-.points-label {
-    font-size: 11px; font-weight: 700;
+.moves-label {
+    font-size: 11px; font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.8px;
     margin-bottom: 2px;
-    opacity: 0.9;
+    color: rgba(255,255,255,0.8);
 }
 
-.points-value {
-    font-size: 28px; font-weight: 900;
+.moves-value {
+    font-size: 32px; font-weight: 900;
     line-height: 1;
+    letter-spacing: -0.6px;
     transition: transform 0.2s;
 }
 
-.points-value.bump {
+.moves-value.bump {
     animation: pointsBump 0.3s ease;
 }
 
@@ -316,66 +319,149 @@ body {
     40%     { transform: scale(1.3); }
 }
 
-.shuffle-deck {
+/* — Shuffle panels — */
+
+.shuffle-panels {
+    display: flex;
+    gap: 18px;
+}
+
+.shuffle-panel-heading {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.shuffle-panel-heading .heading-accent {
+    width: 3px;
+}
+
+.shuffle-panel-heading h3 {
+    margin: 0;
+    color: #1A3160;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.shuffle-panel-heading p {
+    margin: 2px 0 0;
+    color: #14213D;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+/* Reveal pile — the active playable hand (fanned peek of upcoming cards) */
+
+.shuffle-reveal-pile {
     position: relative;
-    width: 108px; height: 136px;
-    background: linear-gradient(145deg, #78C7EA, #5BB8E5);
-    border-radius: 12px;
-    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
-    cursor: pointer;
-    margin-right: 10px;
+    width: 148px;
+    height: 131px;
+    background: #56BEF4;
+    border: 3px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     overflow: hidden;
+}
+
+/* Higher specificity (#id + two classes) is required here because the
+   base `.game-card` rule — full pile-card sizing — is declared later in
+   this stylesheet and would otherwise win the cascade. */
+#shuffleRevealPile .game-card.reveal-main-card {
+    position: absolute;
+    left: 0; top: 0;
+    width: 105px; height: 131px;
+    border: 2px solid #F5A81C;
+    border-radius: 11px;
+    background: #F5EDD7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    color: #1A3160;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    gap: 0;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-crown {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 12px;
+    color: #F5A81C;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-name {
+    font-size: 12px;
+    padding: 0 2px;
+}
+
+.reveal-peek-card {
+    position: absolute;
+    top: 0;
+    width: 22px; height: 131px;
+    border: 2px solid #FBBF24;
+    border-radius: 11px;
+    background: #FFF8E6;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.reveal-peek-card span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    font-size: 11px;
+    font-weight: 900;
+    color: #1A3160;
+    white-space: nowrap;
+}
+
+.shuffle-reveal-empty {
+    width: 105px; height: 131px;
+    border: 2px dashed rgba(255,255,255,0.6);
+    border-radius: 11px;
+    display: flex; align-items: center; justify-content: center;
+    color: #FFFFFF;
+    font-size: 11px;
+    font-weight: 800;
+    text-align: center;
+    padding: 8px;
+}
+
+/* Shuffle deck — the remaining logical deck, pattern back + count badge */
+
+.shuffle-deck-pile {
+    position: relative;
+    width: 148px; height: 131px;
+    background: #56BEF4;
+    border: 3px solid #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
 }
-.shuffle-deck:hover { transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.18); }
+.shuffle-deck-pile:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.18); }
+.shuffle-deck-pile.deck-empty { cursor: default; opacity: 0.5; }
 
-.shuffle-deck::before {
-    content: "";
+.shuffle-deck-count {
     position: absolute;
-    left: 5px; right: 5px; top: -7px;
-    height: 12px;
-    background: #4DAAEB;
-    border-radius: 8px 8px 0 0;
-    z-index: -1;
-}
-.shuffle-deck::after {
-    content: "";
-    position: absolute;
-    left: 9px; right: 9px; top: -13px;
-    height: 11px;
-    background: #2563FF;
-    border-radius: 7px 7px 0 0;
-    z-index: -2;
-}
-
-.shuffle-deck-inner {
-    width: 100%; height: 100%;
-    display: flex; flex-direction: column;
-    align-items: center; justify-content: center;
-    background-image:
-        radial-gradient(#ffffff22 2px, transparent 2px),
-        radial-gradient(#ffffff22 2px, transparent 2px);
-    background-size: 14px 14px;
-    background-position: 0 0, 7px 7px;
-    border-radius: 12px;
-    text-align: center;
-    padding: 10px;
-}
-
-.shuffle-label {
-    font-size: 16px; font-weight: 900;
-    background: rgba(255,255,255,0.88);
-    color: #14213D;
-    padding: 3px 9px;
-    border-radius: 6px;
-    margin-bottom: 5px;
-}
-
-.shuffle-desc {
-    color: white;
-    font-size: 10px; font-weight: 700;
-    line-height: 1.2;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.35);
+    top: -6px; right: -6px;
+    min-width: 24px; height: 24px;
+    padding: 0 5px;
+    display: flex; align-items: center; justify-content: center;
+    background: #FFFFFF;
+    color: #2563FF;
+    font-size: 11px; font-weight: 900;
+    border-radius: 999px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 6px rgba(37,99,255,0.4);
 }
 
 
@@ -418,6 +504,7 @@ body {
 .category-section {
     max-width: 1040px;
     margin: 0 auto;
+    padding-top: 6px;
 }
 
 .category-grid {
@@ -435,19 +522,19 @@ body {
 
 .foundation-stack {
     position: relative;
-    min-height: 218px;
+    min-height: 194px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     overflow: hidden;
-    border: 2px solid #F1C345;
-    border-radius: 16px;
-    background: #FFFFFF;
+    border: 2px solid #FBBF24;
+    border-radius: 15px;
+    background: #FAF0D5;
     cursor: pointer;
-    box-shadow: 0 6px 16px rgba(20,33,61,0.08);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
-    padding: 0;
+    padding: 12px 10px 10px;
 }
 
 .foundation-stack:hover {
@@ -477,64 +564,62 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 9px 13px;
-    border-bottom: 1px solid #F1C345;
 }
 
-.category-crown { font-size: 20px; color: #F3B51D; }
+.category-crown { font-size: 17px; color: #F5A81C; }
 
 .category-progress {
-    font-size: 12px; font-weight: 800;
-    color: #6B7280;
+    font-size: 12px; font-weight: 700;
+    color: #A09880;
 }
 
 .category-icon-circle {
-    width: 60px; height: 60px;
+    width: 44px; height: 44px;
     display: flex; align-items: center; justify-content: center;
-    margin: 12px auto 6px;
+    margin: 14px auto 10px;
     border-radius: 50%;
     background: #DDF3E5;
     color: #2E9D62;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.2s;
 }
 .foundation-stack:hover .category-icon-circle { transform: scale(1.08); }
 
-.category-icon-circle svg { width: 30px; height: 30px; }
+.category-icon-circle svg { width: 20px; height: 20px; }
 
 .stack-title {
     width: 100%;
-    padding: 8px 13px 14px;
+    padding: 0 4px;
     text-align: center;
-    font-size: 13px; font-weight: 900;
-    color: #14213D;
+    font-size: 13px; font-weight: 800;
+    color: #1A3160;
     line-height: 1.3;
 }
 
 .category-card-divider {
     width: 100%; height: 1px;
-    background: #F1E4B8;
+    margin-top: auto;
+    background: #D4C9AF;
 }
 
 .category-bottom-badge {
-    margin: 10px 0 12px;
-    min-width: 26px; height: 26px;
+    margin: 10px 0 0;
+    width: 26px; height: 26px;
     display: flex; align-items: center; justify-content: center;
-    padding: 0 7px;
-    border-radius: 999px;
-    background: #FFF0B8;
-    color: #A87500;
-    font-size: 11px; font-weight: 900;
-    text-transform: uppercase;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    color: #FFFFFF;
+    font-size: 9px; font-weight: 900;
 }
 
 
 /* Locked slot */
 .locked-category-card {
-    min-height: 218px;
+    min-height: 194px;
     display: flex; align-items: center; justify-content: center;
     overflow: hidden;
     border: 2px dashed #E2E8F0;
-    border-radius: 16px;
+    border-radius: 15px;
     background: #FAFBFC;
 }
 
@@ -563,6 +648,7 @@ body {
 .game-cards-section {
     max-width: 1040px;
     margin: 0 auto;
+    padding-top: 6px;
 }
 
 /* 
@@ -585,18 +671,19 @@ body {
 .card-pile {
     position: relative;
     /* portrait: narrower width, tall enough for offset stack */
-    width: 160px;
+    width: 148px;
     flex-shrink: 0;
     /* height grows with stack offset; at least 2 visible card heights */
-    min-height: 290px;
+    min-height: 264px;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
 }
 
 /* The stock/shuffle pile column */
 .stock-pile {
     position: relative;
-    width: 160px;
+    width: 148px;
     flex-shrink: 0;
-    min-height: 290px;
+    min-height: 264px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -629,13 +716,13 @@ body {
     padding: 22px 14px 16px;
 
     /* Neutral cream — NO category colour here */
-    border: 2px solid #F1C345;
+    border: 2px solid #F5A81C;
     border-radius: 16px;
-    background: linear-gradient(180deg, #FFFBEA 0%, #FFF5CC 100%);
-    color: #14213D;
+    background: #F5EDD7;
+    color: #1A3160;
 
     font-family: "Nunito", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     text-align: center;
     line-height: 1.3;
@@ -643,9 +730,7 @@ body {
     cursor: pointer;
     user-select: none;
 
-    box-shadow:
-        0 3px 0 0 #E5B800,
-        0 6px 14px rgba(20,33,61,0.14);
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
 
     transition:
         transform 0.18s ease,
@@ -656,9 +741,7 @@ body {
 
 .game-card:not(.card-face-down):hover {
     transform: translateY(-5px);
-    box-shadow:
-        0 3px 0 0 #E5B800,
-        0 12px 22px rgba(20,33,61,0.18);
+    box-shadow: 0 8px 18px rgba(20,33,61,0.22);
 }
 
 .game-card.card-selected {
@@ -680,44 +763,33 @@ body {
         0 10px 22px rgba(20,33,61,0.18);
 }
 
-/* Face-down card — blue back, atom watermark */
+/* Face-down card — flat blue back, matching the shuffle deck */
 .card-face-down {
-    background: linear-gradient(140deg, #1e3a8a 0%, #2563eb 100%) !important;
-    border-color: #1d4ed8 !important;
+    background: #56BEF4 !important;
+    border: 2px solid #FFFFFF !important;
     cursor: default !important;
     pointer-events: none;
-    box-shadow: 0 3px 0 0 #1e3a8a, 0 6px 14px rgba(0,0,0,0.22) !important;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1) !important;
 }
 .card-face-down * { display: none !important; }
-.card-face-down::after {
-    content: "⚛";
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: absolute;
-    inset: 0;
-    font-size: 52px;
-    color: rgba(255,255,255,0.18);
-    pointer-events: none;
-}
 
 /* Crown icon top-left */
 .card-crown {
     position: absolute;
-    top: 10px; left: 12px;
+    top: 12px; left: 15px;
     font-size: 16px;
-    color: #F5B82E;
+    color: #F5A81C;
     line-height: 1;
 }
 
 /* Card text */
 .card-name {
-    font-size: 15px;
+    font-size: 20px;
     font-weight: 900;
     line-height: 1.3;
     text-align: center;
     word-break: break-word;
-    color: #14213D;
+    color: #1A3160;
     padding: 0 4px;
 }
 
@@ -751,12 +823,12 @@ body {
 }
 .bottom-game-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(20,33,61,0.18); }
 
-.restart-btn   { background: #14213D; color: #FFF; }
-.next-level-btn { background: #E2E8F0; color: #94A3B8; box-shadow: none; }
+.restart-btn   { background: #1B3D7A; color: #FFF; box-shadow: 0 4px 18px rgba(27,61,122,0.38); }
+.next-level-btn { background: #DDE5F1; color: #94A3B8; box-shadow: none; }
 .next-level-btn:not([disabled]) {
     background: linear-gradient(135deg, #2563EB, #1D4ED8);
     color: white;
-    box-shadow: 0 8px 18px rgba(37,99,255,0.25);
+    box-shadow: 0 4px 18px rgba(42,98,190,0.38);
 }
 .next-level-btn[disabled]       { cursor: not-allowed; }
 
@@ -902,7 +974,7 @@ body {
                         <path d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z" stroke="currentColor" stroke-width="1.7"/>
                         <path d="M12 16v6M9 19h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
                     </svg>
-                    Hint
+                    <span id="topHintLabel">Hint</span>
                 </button>
 
             </div>
@@ -922,23 +994,23 @@ body {
     <!-- Decorative molecules -->
     <div class="game-molecule top">
         <svg viewBox="0 0 320 260" fill="none">
-            <circle cx="70" cy="60" r="45" stroke="#93C5FD" stroke-width="4"/>
-            <circle cx="180" cy="130" r="36" stroke="#93C5FD" stroke-width="4"/>
-            <circle cx="70" cy="205" r="29" stroke="#93C5FD" stroke-width="4"/>
-            <path d="M105 87L150 112" stroke="#93C5FD" stroke-width="4"/>
-            <path d="M149 150L95 188" stroke="#93C5FD" stroke-width="4"/>
+            <circle cx="70" cy="60" r="45" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="180" cy="130" r="36" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="70" cy="205" r="29" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M105 87L150 112" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M149 150L95 188" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
         </svg>
     </div>
 
     <div class="game-molecule bottom">
         <svg viewBox="0 0 340 300" fill="none">
-            <circle cx="70"  cy="165" r="48" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="175" cy="85"  r="42" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="185" cy="235" r="42" stroke="#86EFAC" stroke-width="4"/>
-            <circle cx="290" cy="145" r="38" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M106 136L143 108" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M111 192L150 218" stroke="#86EFAC" stroke-width="4"/>
-            <path d="M213 105L260 132" stroke="#86EFAC" stroke-width="4"/>
+            <circle cx="70"  cy="165" r="48" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="175" cy="85"  r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="185" cy="235" r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="290" cy="145" r="38" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M106 136L143 108" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M111 192L150 218" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M213 105L260 132" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
         </svg>
     </div>
 
@@ -958,19 +1030,42 @@ body {
 
 
 
-        <!-- POINTS & SHUFFLE DECK -->
+        <!-- MOVES & SHUFFLE PANELS -->
         <div class="game-middle-actions">
 
-            <div class="points-badge">
-                <span class="points-label">Points</span>
-                <span class="points-value" id="pointsValueBadge">0</span>
+            <div class="moves-badge">
+                <span class="moves-label">Moves</span>
+                <span class="moves-value" id="movesValueBadge">0</span>
             </div>
 
-            <div class="shuffle-deck" id="shuffleDeckBtn" role="button" aria-label="Shuffle hand">
-                <div class="shuffle-deck-inner">
-                    <span class="shuffle-label">Shuffle</span>
-                    <span class="shuffle-desc">remaining cards</span>
+            <div class="shuffle-panels">
+
+                <!-- Active hand: top playable card + peek of what's next -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-panel-heading">
+                        <span class="heading-accent"></span>
+                        <div>
+                            <h3>Shuffle</h3>
+                            <p>Stacked shuffle cards</p>
+                        </div>
+                    </div>
+                    <div class="shuffle-reveal-pile" id="shuffleRevealPile"></div>
                 </div>
+
+                <!-- Remaining logical deck, not yet dealt into play -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-panel-heading">
+                        <span class="heading-accent"></span>
+                        <div>
+                            <h3>Shuffle</h3>
+                            <p>Shuffle cards to start playing</p>
+                        </div>
+                    </div>
+                    <div class="shuffle-deck-pile" id="shuffleDeckBtn" role="button" aria-label="Shuffle remaining cards into play">
+                        <span class="shuffle-deck-count" id="shuffleDeckCount">0</span>
+                    </div>
+                </div>
+
             </div>
 
         </div>
@@ -982,14 +1077,6 @@ body {
         ============================== -->
 
         <section class="category-section" aria-label="Category foundation stacks">
-
-            <div class="figma-section-heading">
-                <span class="heading-accent"></span>
-                <div class="heading-copy">
-                    <h2>Category</h2>
-                    <p>Choose a category to match your card</p>
-                </div>
-            </div>
 
             <div class="category-grid">
                 <div id="stacksGrid"></div>
@@ -1009,14 +1096,6 @@ body {
         ============================== -->
 
         <section class="game-cards-section" aria-label="Card hand">
-
-            <div class="figma-section-heading">
-                <span class="heading-accent"></span>
-                <div class="heading-copy">
-                    <h2>Game Cards</h2>
-                    <p>Build knowledge, one match at a time</p>
-                </div>
-            </div>
 
             <div id="cardsGrid" role="list" aria-label="Playable cards"></div>
 

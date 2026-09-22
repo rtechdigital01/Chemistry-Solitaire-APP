@@ -14,8 +14,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const redealBtn   = document.getElementById("redealBtn");
     const nextLevelBtn= document.getElementById("nextLevelBtn");
     const restartBtn  = document.getElementById("restartBtn");
-    const shuffleDeckBtn = document.getElementById("shuffleDeckBtn");
-    const pointsBadge    = document.getElementById("pointsValueBadge");
+    const shuffleDeckBtn   = document.getElementById("shuffleDeckBtn");
+    const shuffleDeckCount = document.getElementById("shuffleDeckCount");
+    const shuffleRevealPile= document.getElementById("shuffleRevealPile");
+    const movesBadge  = document.getElementById("movesValueBadge");
+    const topHintBtn  = document.getElementById("topHintBtn");
+    const topHintLabel= document.getElementById("topHintLabel");
 
     const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
@@ -26,16 +30,57 @@ document.addEventListener("DOMContentLoaded", () => {
        URL PARAMS
     ============================================================ */
 
-    const params     = new URLSearchParams(window.location.search);
-    const subject    = params.get("subject")    || "chemistry";
-    const deck       = params.get("deck")       || "periodic-table-groups";
-    const keyStage   = params.get("key_stage")  || "KS3";
-    const difficulty = params.get("difficulty") || "easy";
-    const level      = parseInt(params.get("level")) || 1;
+    const params      = new URLSearchParams(window.location.search);
+    const subject     = params.get("subject")    || "chemistry";
+    const deck        = params.get("deck")       || "periodic-table-groups";
+    const keyStage    = params.get("key_stage")  || "KS3";
+    const difficulty  = params.get("difficulty") || "easy";
+    const level       = parseInt(params.get("level")) || 1;
+    const categoryCount = parseInt(params.get("categories")) || 5;
 
     /* ============================================================
        GAME STATE
+       ------------------------------------------------------------
+       A level is a closed universe: `allCategories` is the frozen,
+       server-selected set of category definitions for this level.
+       Every playable card is generated only from that set and tagged
+       with its parent category's id — matching is always by id, never
+       by text. Cards live in exactly one zone at a time:
+         pile          - one of the 4 "Game Cards" working piles
+         reveal        - the active, playable card in the Shuffle
+                          "hand" pile (peeked cards behind it are
+                          preview-only, not yet playable)
+         (shuffle deck) - not yet dealt; held only as data in
+                          `shuffleDeckCards`, not attached to the DOM
+       A card is only ever "completed" when it lands in its correct
+       Category stack — being stacked in Game Cards or sitting in the
+       reveal pile never counts as a match.
     ============================================================ */
+
+    const GAME_PILE_COUNT   = 4;
+    const INITIAL_PILE_SIZE = 3;
+    const REVEAL_QUEUE_SIZE = 3;
+    const PILE_OFFSET_PX    = 16;
+    const MAX_HINTS_PER_LEVEL = 3;
+
+    /*
+     * How many levels THIS difficulty tier can actually support, given
+     * how many categories the dataset has for it. Not a guessed
+     * constant — the server computes it from the real category count
+     * (e.g. 52 Easy / 62 Medium / 70 Hard categories ÷ 5 per level),
+     * so Easy, Medium and Hard each get their own real ceiling. Set
+     * once the board loads; 1 is just a safe pre-load default.
+     */
+    let maxLevelsForDifficulty = 1;
+
+    /*
+     * Retries: how many times this exact level (same subject/deck/
+     * key stage/difficulty/level number) has been restarted. Kept in
+     * sessionStorage because a Restart reloads the page, wiping all
+     * in-memory state — the counter needs to survive that reload.
+     */
+    const retryStorageKey = `retries:${subject}:${deck}:${keyStage}:${difficulty}:${level}`;
+    const retries = parseInt(sessionStorage.getItem(retryStorageKey) || "0", 10);
 
     const startedAt   = Date.now();
     let selectedCard  = null;
@@ -46,10 +91,14 @@ document.addEventListener("DOMContentLoaded", () => {
     let hintsUsed     = 0;
     let totalCards    = 0;
     let allCategories = [];
-    let unlockedCategoryCount = 2;
+
+    let revealQueue      = []; // .game-card elements; index 0 = playable
+    let shuffleDeckCards = []; // .game-card elements, not yet dealt
 
     /* ============================================================
        ICON TYPE → SVG MAP
+       Keys are lowercase to match the normalized `icon_type` the API
+       now sends (and the dataset's Icon Type column, case-folded).
     ============================================================ */
 
     const iconSVG = {
@@ -114,17 +163,32 @@ document.addEventListener("DOMContentLoaded", () => {
             <path d="M12 16v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
             <path d="M4 20c0-3 3.6-4 8-4s8 1 8 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/>
         </svg>`,
+
+        reactions: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="7" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="17" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M4 5l3 3-3 3M20 19l-3-3 3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>`,
+    };
+
+    const iconAbbrev = {
+        element: "El", chemical: "Ch", physical: "Ph", information: "In",
+        trends: "Tr", uses: "Us", compounds: "Cm", isotopes: "Is",
+        production: "Pr", occurrence: "Oc", reactions: "Rx",
     };
 
     /* ============================================================
        CATEGORY COLOUR THEMES
+       Solid, saturated circle + badge colours (icon renders white on
+       top), cycling across the selected categories.
     ============================================================ */
 
     const categoryThemes = [
-        { bg: "#FFF3F3", border: "#FFC5C5", icon: "#FF6B6B", iconBg: "#FFE8E8" },
-        { bg: "#EFF6FF", border: "#BFDBFE", icon: "#2563EB", iconBg: "#DBEAFE" },
-        { bg: "#F0FDF4", border: "#BBF7D0", icon: "#16A34A", iconBg: "#DCFCE7" },
-        { bg: "#FFF8E7", border: "#FDE68A", icon: "#D97706", iconBg: "#FEF3C7" },
+        { solid: "#22C55E" }, // green
+        { solid: "#8B5CF6" }, // purple
+        { solid: "#F97316" }, // orange
+        { solid: "#3B82F6" }, // blue
+        { solid: "#EF4444" }, // red
     ];
 
     /* ============================================================
@@ -142,7 +206,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateScore() {
         if (scoreElement) scoreElement.textContent = score;
-        if (pointsBadge)  pointsBadge.textContent  = score;
+    }
+
+    function updateMovesBadge() {
+        if (movesElement) movesElement.textContent = moves;
+        if (movesBadge) {
+            movesBadge.textContent = moves;
+            movesBadge.classList.remove("bump");
+            // eslint-disable-next-line no-unused-expressions
+            void movesBadge.offsetWidth; // restart the animation
+            movesBadge.classList.add("bump");
+        }
+    }
+
+    function updateShuffleDeckBadge() {
+        if (shuffleDeckCount) shuffleDeckCount.textContent = shuffleDeckCards.length;
+        if (shuffleDeckBtn) shuffleDeckBtn.classList.toggle("deck-empty", shuffleDeckCards.length === 0);
+    }
+
+    function updateHintUI() {
+        const remaining = Math.max(0, MAX_HINTS_PER_LEVEL - hintsUsed);
+        const exhausted = remaining === 0;
+
+        if (hintBtn) hintBtn.disabled = exhausted;
+        if (topHintBtn) topHintBtn.disabled = exhausted;
+        if (topHintLabel) topHintLabel.textContent = exhausted ? "No Hints" : `Hint (${remaining})`;
     }
 
     function updateProgress() {
@@ -246,11 +334,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ============================================================
        ATTACH CARD EVENTS
+       Wires drag/click on any `.game-card` inside the given container
+       (defaults to document) that hasn't been wired yet. Cards are
+       reused across zones, so wiring only happens once per element.
     ============================================================ */
 
-    function attachCardEvents() {
-        cardsGrid.querySelectorAll(".game-card").forEach(card => {
-            // Skip if already wired or face-down
+    function attachCardEvents(scope = document) {
+        scope.querySelectorAll(".game-card").forEach(card => {
             if (card.dataset.eventsAttached) return;
             card.dataset.eventsAttached = "1";
 
@@ -297,15 +387,16 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
-       POSITION CARDS IN A PILE (shared helper)
-       idx 0 = bottom, last = top (face-up)
+       POSITION CARDS IN A GAME-CARDS PILE (shared helper)
+       idx 0 = bottom, last = top (face-up). Tags every card with its
+       zone so a completed match knows how to refill its origin.
     ============================================================ */
 
     function positionPileCards(container) {
         const cards = Array.from(container.querySelectorAll(".game-card"));
-        const OFFSET = 14; // px each card peeks below the next
         cards.forEach((c, idx) => {
-            c.style.top = `${idx * OFFSET}px`;
+            c.dataset.zone = "pile";
+            c.style.top = `${idx * PILE_OFFSET_PX}px`;
             c.style.zIndex = String(idx + 1);
             if (idx < cards.length - 1) {
                 c.classList.add("card-face-down");
@@ -316,19 +407,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         });
         // Give the container enough height to show the whole top card
-        if (cards.length > 0) {
-            container.style.minHeight = `${(cards.length - 1) * OFFSET + 220}px`;
-        }
-        attachCardEvents();
+        container.style.minHeight = cards.length > 0
+            ? `${(cards.length - 1) * PILE_OFFSET_PX + 220}px`
+            : "0px";
+        attachCardEvents(container);
     }
 
     /* ============================================================
-       REVEAL TOP CARDS (after a card is played)
+       REVEAL TOP CARD OF A GAME-CARDS PILE (after a card is played)
     ============================================================ */
 
     function revealTopCards() {
-        // Cover all pile types: card-pile and stock-pile
-        cardsGrid.querySelectorAll(".card-pile, .stock-pile").forEach(container => {
+        cardsGrid.querySelectorAll(".card-pile").forEach(container => {
             const cards = container.querySelectorAll(".game-card");
             if (cards.length > 0) {
                 const topCard = cards[cards.length - 1];
@@ -338,6 +428,58 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
         });
+    }
+
+    /* ============================================================
+       SHUFFLE "HAND" — REVEAL PILE
+       revealQueue[0] is the one playable card; the rest are shown as
+       a fanned peek (preview only, not yet playable). Consuming the
+       main card promotes the next queued card and tops the queue back
+       up from the shuffle deck.
+    ============================================================ */
+
+    function renderRevealPile() {
+        if (!shuffleRevealPile) return;
+        shuffleRevealPile.innerHTML = "";
+
+        if (revealQueue.length === 0) {
+            const empty = document.createElement("div");
+            empty.className = "shuffle-reveal-empty";
+            empty.textContent = shuffleDeckCards.length > 0 ? "Shuffle to reveal" : "No cards left";
+            shuffleRevealPile.appendChild(empty);
+            return;
+        }
+
+        const main = revealQueue[0];
+        main.classList.remove("card-face-down");
+        main.classList.add("reveal-main-card");
+        main.draggable = true;
+        main.dataset.zone = "reveal";
+        main.style.top = "0px";
+        main.style.zIndex = "3";
+        shuffleRevealPile.appendChild(main);
+
+        revealQueue.slice(1).forEach((cardEl, i) => {
+            const peek = document.createElement("div");
+            peek.className = "reveal-peek-card";
+            peek.style.left = `${112 + i * 24}px`;
+            peek.style.zIndex = String(2 - i);
+            const span = document.createElement("span");
+            span.textContent = cardEl.querySelector(".card-name")?.textContent.trim() || "";
+            peek.appendChild(span);
+            shuffleRevealPile.appendChild(peek);
+        });
+
+        attachCardEvents(shuffleRevealPile);
+    }
+
+    function advanceRevealQueue() {
+        revealQueue.shift();
+        if (shuffleDeckCards.length > 0) {
+            revealQueue.push(shuffleDeckCards.shift());
+        }
+        renderRevealPile();
+        updateShuffleDeckBadge();
     }
 
     /* ============================================================
@@ -353,30 +495,34 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         moves++;
-        if (movesElement) movesElement.textContent = moves;
+        updateMovesBadge();
 
         const cardCat  = selectedCard.dataset.categoryId;
         const stackCat = stackEl.dataset.categoryId;
 
         if (cardCat === stackCat) {
-            // ✅ CORRECT
+            // ✅ CORRECT — only a category-stack placement ever completes a card
             score += 10;
             cardsPlaced++;
             updateScore();
 
-            // Update stack count
             const countEl = stackEl.querySelector(".stack-current-count");
             if (countEl) countEl.textContent = parseInt(countEl.textContent || "0") + 1;
 
             const cardName = selectedCard.querySelector(".card-name")?.textContent.trim();
             const cardToRemove = selectedCard;
+            const originZone = cardToRemove.dataset.zone;
             selectedCard = null;
 
             pulseStack(stackEl);
 
             flyCardToStack(cardToRemove, stackEl, () => {
                 updateProgress();
-                revealTopCards();
+                if (originZone === "reveal") {
+                    advanceRevealQueue();
+                } else {
+                    revealTopCards();
+                }
                 onCardPlaced(cardName);
             });
 
@@ -400,23 +546,30 @@ document.addEventListener("DOMContentLoaded", () => {
         const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
         const token = localStorage.getItem("auth_token");
 
-        // Always store result locally so results.html can read it even without auth
         const localResult = {
             topic:             deck,
+            subject,
+            deck,
             level,
             score,
             moves,
             correct_matches:   cardsPlaced,
             incorrect_matches: incorrectMatches,
             hints_used:        hintsUsed,
+            total_cards:       totalCards,
+            retries,
             time_spent:        timeSpent,
             completed:         true,
             difficulty,
             key_stage:         keyStage,
+            max_levels_per_difficulty: maxLevelsForDifficulty,
         };
         localStorage.setItem("latest_game_result", JSON.stringify(localResult));
 
-        // Try to persist to the API if logged in
+        // This attempt is settled — a future replay of this same level
+        // number starts its retry count fresh.
+        sessionStorage.removeItem(retryStorageKey);
+
         if (token) {
             try {
                 const res = await fetch("/api/gameplay/attempt", {
@@ -447,7 +600,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function showCongratsAndRedirect() {
-        // Freeze the board
         document.querySelectorAll(".game-card").forEach(c => {
             c.style.pointerEvents = "none";
         });
@@ -522,7 +674,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         document.body.appendChild(overlay);
 
-        // Countdown redirect
         let secs = 5;
         const countdownEl = overlay.querySelector("#congratsCountdown");
         const timer = setInterval(() => {
@@ -545,10 +696,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function onCardPlaced(cardName) {
-        const remaining = cardsGrid.querySelectorAll(".game-card").length;
+        const remaining = totalCards - cardsPlaced;
 
         if (remaining === 0) {
-            // All cards placed — go to results immediately
             setBanner("🎊 All cards matched! Taking you to results…", "success");
             setTimeout(() => showCongratsAndRedirect(), 600);
         } else {
@@ -580,21 +730,23 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function buildStackCard(category, theme) {
-        const icon = iconSVG[category.icon_type] || iconSVG.element;
+        const iconType = String(category.icon_type || "element").toLowerCase();
+        const icon     = iconSVG[iconType] || iconSVG.element;
+        const abbrev   = iconAbbrev[iconType] || iconType.charAt(0).toUpperCase();
 
         const stack = document.createElement("div");
         stack.className           = "foundation-stack";
         stack.dataset.categoryId  = String(category.id);
 
         stack.innerHTML = `
-            <div class="category-card-top" style="background: ${theme.iconBg}; border-bottom-color: ${theme.border};">
+            <div class="category-card-top">
                 <span class="category-crown">♛</span>
                 <div class="category-progress">
                     <span class="stack-current-count">0</span>/${category.cards.length}
                 </div>
             </div>
 
-            <div class="category-icon-circle" style="background: ${theme.iconBg}; color: ${theme.icon};">
+            <div class="category-icon-circle" style="background: ${theme.solid}; color: #FFFFFF;">
                 ${icon}
             </div>
 
@@ -602,8 +754,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             <div class="category-card-divider"></div>
 
-            <div class="category-bottom-badge" style="background: ${theme.iconBg}; color: ${theme.icon};">
-                ${category.icon_type.charAt(0).toUpperCase()}
+            <div class="category-bottom-badge" style="background: ${theme.solid}; color: #FFFFFF;">
+                ${abbrev}
             </div>
         `;
 
@@ -612,6 +764,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ============================================================
        BUILD GAME CARD
+       Cards are neutral (no category colour shown to the player) and
+       carry the category id — matching is always id-based, never
+       inferred from the card's text.
     ============================================================ */
 
     function buildGameCard(cardText, category) {
@@ -620,13 +775,34 @@ document.addEventListener("DOMContentLoaded", () => {
         card.dataset.categoryId  = String(category.id);
         card.dataset.categoryName= category.name;
 
-        // Neutral cream — NO category colour (avoid giving the student a hint)
         card.innerHTML = `
-            <span class="card-crown">♥</span>
+            <span class="card-crown">♛</span>
             <div class="card-name">${cardText}</div>
         `;
 
         return card;
+    }
+
+    /* ============================================================
+       BUILD THE LOGICAL DECK
+       One card per pool item, per selected category. The category
+       base itself is not a playable card — it's the completion
+       target rendered in the Category section.
+    ============================================================ */
+
+    function buildLogicalDeck(categories) {
+        const deck = [];
+        categories.forEach(category => {
+            category.cards.forEach(cardText => {
+                totalCards++;
+                deck.push(buildGameCard(cardText, category));
+            });
+        });
+        for (let i = deck.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [deck[i], deck[j]] = [deck[j], deck[i]];
+        }
+        return deck;
     }
 
     /* ============================================================
@@ -636,10 +812,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function renderBoard(board, resetGame = true) {
         cardsGrid.innerHTML  = "";
         stacksGrid.innerHTML = "";
+        if (shuffleRevealPile) shuffleRevealPile.innerHTML = "";
 
-        selectedCard  = null;
-        cardsPlaced   = 0;
-        totalCards    = 0;
+        selectedCard   = null;
+        cardsPlaced    = 0;
+        totalCards     = 0;
+        revealQueue    = [];
+        shuffleDeckCards = [];
 
         if (resetGame) {
             score = 0;
@@ -648,81 +827,63 @@ document.addEventListener("DOMContentLoaded", () => {
             hintsUsed = 0;
         }
 
+        // Freeze the level's category selection — nothing outside this
+        // set may ever enter the deck, the shuffle pile, or the stacks.
         allCategories = board.categories;
 
-        const visibleCategories = allCategories.slice(0, unlockedCategoryCount);
+        // The dataset-derived cap for this difficulty tier (falls back
+        // to a value computed from what actually got selected, for the
+        // offline/dev fallback board which has no server-computed cap).
+        maxLevelsForDifficulty = board.max_levels
+            || Math.max(1, Math.floor(allCategories.length / categoryCount));
 
-        // Collect all cards (no theme colours on cards)
-        const allCardEls = [];
-
-        visibleCategories.forEach((category, idx) => {
+        // Every selected category is unlocked and visible at once.
+        allCategories.forEach((category, idx) => {
             const theme = categoryThemes[idx % categoryThemes.length];
-
-            // Foundation stack still uses theme colours — correct placement reveals colours
             const stack = buildStackCard(category, theme);
             stacksGrid.appendChild(stack);
-
-            // Build neutral cards
-            category.cards.forEach(cardText => {
-                totalCards++;
-                const card = buildGameCard(cardText, category);
-                allCardEls.push(card);
-            });
         });
 
-        // Shuffle all cards
-        for (let i = allCardEls.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [allCardEls[i], allCardEls[j]] = [allCardEls[j], allCardEls[i]];
-        }
+        let deck = buildLogicalDeck(allCategories);
 
-        // Split: first 4 × CARDS_PER_PILE go into the 4 main piles
-        // remaining cards go into the stock pile
-        const CARDS_PER_PILE = Math.max(1, Math.ceil(allCardEls.length / 5)); // keep some for stock
-        const pileCards  = allCardEls.slice(0, CARDS_PER_PILE * 4);
-        const stockCards = allCardEls.slice(CARDS_PER_PILE * 4);
-
-        // Create 4 main piles
-        const piles = Array.from({ length: 4 }, () => {
+        // Deal the opening hand into the 4 Game Cards piles.
+        const piles = Array.from({ length: GAME_PILE_COUNT }, () => {
             const p = document.createElement("div");
             p.className = "card-pile";
             cardsGrid.appendChild(p);
             return p;
         });
 
-        // Distribute pile cards evenly
-        pileCards.forEach((card, idx) => {
-            piles[idx % 4].appendChild(card);
-        });
-
-        // Apply offsets and face-down to main piles
-        piles.forEach(pile => positionPileCards(pile));
-
-        // Create the stock pile (with face-up top card)
-        if (stockCards.length > 0) {
-            const stockCol = document.createElement("div");
-            stockCol.className = "stock-pile";
-            stockCol.id = "stockPileEl";
-            cardsGrid.appendChild(stockCol);
-
-            stockCards.forEach(card => stockCol.appendChild(card));
-            positionPileCards(stockCol);
+        const pileTarget = Math.min(deck.length, GAME_PILE_COUNT * INITIAL_PILE_SIZE);
+        for (let i = 0; i < pileTarget; i++) {
+            piles[i % GAME_PILE_COUNT].appendChild(deck[i]);
         }
+        piles.forEach(pile => positionPileCards(pile));
+        deck = deck.slice(pileTarget);
 
-        // Update stat elements
+        // Whatever's left: a few cards become the playable/preview
+        // reveal queue, the remainder waits in the shuffle deck.
+        while (revealQueue.length < REVEAL_QUEUE_SIZE && deck.length) {
+            revealQueue.push(deck.shift());
+        }
+        shuffleDeckCards = deck;
+
+        renderRevealPile();
+        updateShuffleDeckBadge();
+
         updateScore();
-        if (movesElement) movesElement.textContent = moves;
+        updateMovesBadge();
+        updateHintUI();
         if (finishLevelBtn) finishLevelBtn.disabled = true;
         if (nextLevelBtn)   nextLevelBtn.disabled = true;
 
         updateProgress();
         updateTopBar();
-        attachCardEvents();
+        attachCardEvents(cardsGrid);
         attachStackEvents();
 
         setBanner("Select a card from the hand below, then tap a category above.");
 
-        // Deal animation
         animateDealCards();
     }
 
@@ -739,7 +900,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const url = `/api/${encodeURIComponent(subject)}/board`
                 + `?deck=${encodeURIComponent(deck)}`
                 + `&key_stage=${encodeURIComponent(keyStage)}`
-                + `&difficulty=${encodeURIComponent(difficulty)}`;
+                + `&difficulty=${encodeURIComponent(difficulty)}`
+                + `&categories=${encodeURIComponent(categoryCount)}`;
 
             const res    = await fetch(url, { headers: { Accept: "application/json" } });
             const result = await res.json();
@@ -763,22 +925,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fallbackBoard(diff) {
         const easy = [
-            { id: "1", name: "Group 1 Elements",  icon_type: "element",     cards: ["Lithium", "Sodium", "Potassium", "Francium"] },
-            { id: "2", name: "Group 7 Elements",  icon_type: "element",     cards: ["Fluorine", "Chlorine", "Bromine", "Iodine"] },
+            { id: "1", name: "Group 1 Elements",  icon_type: "element",     cards: ["Lithium", "Sodium", "Potassium", "Rubidium", "Caesium", "Francium"] },
+            { id: "2", name: "Group 7 Elements",  icon_type: "element",     cards: ["Fluorine", "Chlorine", "Bromine", "Iodine", "Astatine"] },
             { id: "3", name: "Group 0 Elements",  icon_type: "element",     cards: ["Helium", "Neon", "Argon", "Krypton"] },
             { id: "4", name: "Periodic Table",    icon_type: "information", cards: ["Groups", "Periods", "Elements", "Metals"] },
+            { id: "5", name: "Periodic Trends",   icon_type: "trends",      cards: ["Atomic Radius", "Ionisation Energy", "Electronegativity", "Shielding"] },
         ];
         const medium = [
             { id: "1", name: "Group 1 Physical Props", icon_type: "physical", cards: ["Soft", "Silvery", "Low density", "Low melting point"] },
             { id: "2", name: "Group 7 Physical Props", icon_type: "physical", cards: ["Coloured", "Diatomic", "Non-metal", "Low boiling point"] },
             { id: "3", name: "Group 0 Physical Props", icon_type: "physical", cards: ["Colourless", "Monatomic", "Odourless", "Gases"] },
-            { id: "4", name: "Periodic Trends",        icon_type: "trends",   cards: ["Atomic Radius", "Ionisation Energy", "Electronegativity", "Shielding"] },
+            { id: "4", name: "Group 1 Uses",           icon_type: "uses",     cards: ["Lithium batteries", "Sodium street lamps", "Potassium fertilisers", "Caesium atomic clocks"] },
+            { id: "5", name: "Group 1 Reactions",      icon_type: "reactions",cards: ["Fizzing", "Floating", "Hydrogen gas", "Heat released"] },
         ];
         const hard = [
             { id: "1", name: "Group 1 Chem Props",  icon_type: "chemical",  cards: ["Reacts with water", "Produces hydrogen", "Forms +1 ions", "Loses one electron"] },
             { id: "2", name: "Group 7 Chem Props",  icon_type: "chemical",  cards: ["Forms -1 ions", "Gains one electron", "Strong oxidising agents", "Forms salts"] },
             { id: "3", name: "Group 0 Chem Props",  icon_type: "chemical",  cards: ["Very unreactive", "Full outer shell", "Stable", "Non-flammable"] },
             { id: "4", name: "Advanced Vocabulary", icon_type: "information", cards: ["Ionisation energy", "Electronegativity", "Shielding", "Nuclear charge"] },
+            { id: "5", name: "Group 7 Trends",      icon_type: "trends",    cards: ["Reactivity decreases", "Melting point increases", "Boiling point increases", "Atomic radius increases"] },
         ];
 
         const poolMap = { easy, medium, hard };
@@ -786,70 +951,57 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
-       SHUFFLE (REDEAL) HAND
+       SHUFFLE — full reshuffle of every remaining card across every
+       zone (piles, reveal queue, shuffle deck) and a fresh re-deal.
+       Category ownership never changes — only order does.
     ============================================================ */
 
     function shuffleHand() {
-        // Collect all remaining cards from piles AND stock
-        const allContainers = Array.from(cardsGrid.querySelectorAll(".card-pile, .stock-pile"));
-        const remainingCards = [];
-        allContainers.forEach(c => {
-            Array.from(c.querySelectorAll(".game-card")).forEach(card => remainingCards.push(card));
-        });
-        if (remainingCards.length === 0) return;
+        const pileEls  = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
+        const allCards = [...pileEls, ...revealQueue, ...shuffleDeckCards];
+        if (allCards.length === 0) return;
 
-        // Animate out
-        remainingCards.forEach(c => {
+        const visibleCards = [...pileEls, ...(revealQueue.length ? [revealQueue[0]] : [])];
+        visibleCards.forEach(c => {
             c.style.transition = "opacity 0.2s, transform 0.2s";
             c.style.opacity    = "0";
             c.style.transform  = "scale(0.85)";
         });
 
         setTimeout(() => {
-            // Fisher-Yates shuffle
-            for (let i = remainingCards.length - 1; i > 0; i--) {
+            for (let i = allCards.length - 1; i > 0; i--) {
                 const j = Math.floor(Math.random() * (i + 1));
-                [remainingCards[i], remainingCards[j]] = [remainingCards[j], remainingCards[i]];
+                [allCards[i], allCards[j]] = [allCards[j], allCards[i]];
             }
 
             const piles = Array.from(cardsGrid.querySelectorAll(".card-pile"));
-            let   stock = cardsGrid.querySelector(".stock-pile");
-
-            // Split: most cards go to main piles, overflow to stock
-            const CARDS_PER_PILE = Math.max(1, Math.ceil(remainingCards.length / 5));
-            const pileCards  = remainingCards.slice(0, CARDS_PER_PILE * piles.length);
-            const stockCards = remainingCards.slice(CARDS_PER_PILE * piles.length);
-
-            // Distribute to piles
             piles.forEach(p => { while (p.firstChild) p.removeChild(p.firstChild); });
-            pileCards.forEach((c, idx) => piles[idx % piles.length].appendChild(c));
+
+            let idx = 0;
+            const pileTarget = Math.min(allCards.length, GAME_PILE_COUNT * INITIAL_PILE_SIZE);
+            for (; idx < pileTarget; idx++) {
+                piles[idx % GAME_PILE_COUNT].appendChild(allCards[idx]);
+            }
             piles.forEach(p => positionPileCards(p));
 
-            // Handle stock
-            if (stockCards.length > 0) {
-                if (!stock) {
-                    stock = document.createElement("div");
-                    stock.className = "stock-pile";
-                    stock.id = "stockPileEl";
-                    cardsGrid.appendChild(stock);
-                } else {
-                    while (stock.firstChild) stock.removeChild(stock.firstChild);
-                }
-                stockCards.forEach(c => stock.appendChild(c));
-                positionPileCards(stock);
-            } else if (stock) {
-                stock.remove();
+            revealQueue = [];
+            while (revealQueue.length < REVEAL_QUEUE_SIZE && idx < allCards.length) {
+                revealQueue.push(allCards[idx]);
+                idx++;
             }
+            shuffleDeckCards = allCards.slice(idx);
 
-            // Animate in
-            remainingCards.forEach((c, i) => {
+            renderRevealPile();
+            updateShuffleDeckBadge();
+
+            const nowVisible = [...piles.flatMap(p => Array.from(p.querySelectorAll(".game-card"))), ...(revealQueue.length ? [revealQueue[0]] : [])];
+            nowVisible.forEach((c, i) => {
                 setTimeout(() => {
                     c.style.transition = "opacity 0.3s, transform 0.3s ease";
                     c.style.opacity    = "1";
                     c.style.transform  = "scale(1)";
                 }, i * 30);
             });
-
         }, 220);
     }
 
@@ -858,7 +1010,10 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     if (restartBtn) {
-        restartBtn.addEventListener("click", () => window.location.reload());
+        restartBtn.addEventListener("click", () => {
+            sessionStorage.setItem(retryStorageKey, String(retries + 1));
+            window.location.reload();
+        });
     }
 
     if (redealBtn) {
@@ -927,8 +1082,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (hintBtn) {
         hintBtn.addEventListener("click", () => {
+            if (hintsUsed >= MAX_HINTS_PER_LEVEL) {
+                setBanner(`No hints left for this level (max ${MAX_HINTS_PER_LEVEL}).`, "error");
+                return;
+            }
+
             resetHintStates();
-            const cards  = Array.from(cardsGrid.querySelectorAll(".game-card"));
+            const cards  = Array.from(document.querySelectorAll("#cardsGrid .game-card, #shuffleRevealPile .game-card"))
+                .filter(c => !c.classList.contains("card-face-down"));
             const stacks = Array.from(stacksGrid.querySelectorAll(".foundation-stack"));
 
             if (cards.length === 0) return;
@@ -940,6 +1101,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 card.classList.add("card-hint");
                 stack.classList.add("stack-hint");
                 hintsUsed++;
+                updateHintUI();
                 setBanner(`Hint: Try matching "${card.querySelector(".card-name")?.textContent.trim()}" to the highlighted category.`);
             }
         });
@@ -1021,7 +1183,6 @@ document.addEventListener("DOMContentLoaded", () => {
        (topRedealBtn / topHintBtn wired up in gameplay.html)
     ============================================================ */
 
-    // Expose globally for gameplay.html inline script
     window._gameShuffleHand = shuffleHand;
     window._gameHintClick   = () => hintBtn?.click();
 

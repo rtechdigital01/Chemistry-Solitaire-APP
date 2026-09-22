@@ -23,33 +23,58 @@ class CategorySeeder extends Seeder
 
         while (($row = fgetcsv($file)) !== false) {
             $data = array_combine($header, $row);
-            
-            $cards = array_map(function($card) {
+
+            $cards = array_map(function ($card) {
                 return trim(mb_convert_encoding($card, 'UTF-8', 'UTF-8'));
             }, explode(',', $data['Card Pool'] ?? ''));
-            $cards = array_filter($cards);
-            
-            $name = mb_convert_encoding($data['Category'] ?? 'Unknown', 'UTF-8', 'UTF-8');
-            $difficulty = mb_convert_encoding($data['Difficulty'] ?? 'Easy', 'UTF-8', 'UTF-8');
-            $iconType = mb_convert_encoding($data['Icon Type'] ?? 'Element', 'UTF-8', 'UTF-8');
+            $cards = array_values(array_filter($cards, fn ($c) => $c !== ''));
 
-            if (count($cards) >= 4) {
-                Category::updateOrCreate(
-                    [
-                        'deck' => 'periodic-table-groups',
-                        'key_stage' => 'KS3',
-                        'name' => $name,
-                    ],
-                    [
-                        'subject' => 'chemistry',
-                        'serial_number' => (int) ($data['S/N'] ?? rand(100, 999)),
-                        'difficulty' => $difficulty,
-                        'card_pool' => array_values($cards),
-                        'icon_type' => $iconType,
-                    ]
-                );
+            $name = trim(mb_convert_encoding($data['Category'] ?? '', 'UTF-8', 'UTF-8'));
+            $difficulty = $this->normalizeDifficulty($data['Difficulty'] ?? 'Easy');
+            $iconType = strtolower(trim(mb_convert_encoding($data['Icon Type'] ?? 'Element', 'UTF-8', 'UTF-8')));
+            $serialNumber = (int) ($data['S/N'] ?? 0);
+
+            if ($name === '' || count($cards) < 3) {
+                continue;
             }
+
+            /*
+             * The dataset has duplicate Category names (e.g. "Hydrogen"
+             * appears three times under different difficulties). The row's
+             * serial number is the stable identity for a category
+             * definition — never the display name — so each source row
+             * always becomes its own category.
+             */
+            Category::updateOrCreate(
+                [
+                    'deck' => 'periodic-table-groups',
+                    'key_stage' => 'KS3',
+                    'serial_number' => $serialNumber,
+                ],
+                [
+                    'subject' => 'chemistry',
+                    'name' => $name,
+                    'difficulty' => $difficulty,
+                    'card_pool' => $cards,
+                    'icon_type' => $iconType,
+                ]
+            );
         }
         fclose($file);
+    }
+
+    /**
+     * Difficulty belongs to the category definition, not individual cards.
+     * The source CSV mixes casing (e.g. "Hard" and "hard") so it must be
+     * normalized rather than trusted verbatim.
+     */
+    private function normalizeDifficulty(string $raw): string
+    {
+        $value = strtolower(trim($raw));
+
+        return match ($value) {
+            'easy', 'medium', 'hard' => ucfirst($value),
+            default => ucfirst($value) ?: 'Easy',
+        };
     }
 }
