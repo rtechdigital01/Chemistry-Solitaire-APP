@@ -473,14 +473,15 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        if (!selectedCard.classList.contains("reveal-main-card")) {
+        if (selectedCard.dataset.baseCard === "1") {
+            setBanner("Category cards must be placed in the top foundation row.", "error");
             return;
         }
 
         const cards = Array.from(pileEl.querySelectorAll(".game-card"));
         const topCard = cards[cards.length - 1];
 
-        if (!topCard || topCard.dataset.categoryId !== selectedCard.dataset.categoryId) {
+        if (topCard && topCard.dataset.categoryId !== selectedCard.dataset.categoryId) {
             setBanner("That card doesn't match this pile's category.", "error");
             return;
         }
@@ -489,12 +490,23 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedCard = null;
         cardToMove.classList.remove("card-selected");
 
+        const wasFromShuffle = cardToMove.classList.contains("reveal-main-card");
+        
+        if (wasFromShuffle) {
+            cardToMove.classList.remove("reveal-main-card");
+        }
+
         pileEl.appendChild(cardToMove);
         positionPileCards(pileEl);
-        renderShuffleRevealPile();
+
+        if (wasFromShuffle) {
+            renderShuffleRevealPile();
+        }
+        
+        revealTopCards();
 
         const name = cardToMove.querySelector(".card-name")?.textContent.trim();
-        setBanner(`"${name}" moved into the matching pile.`, "success");
+        setBanner(topCard ? `"${name}" moved into the matching pile.` : `"${name}" moved into an empty space.`, "success");
     }
 
     function attachPileDropEvents(pileEl) {
@@ -551,11 +563,13 @@ document.addEventListener("DOMContentLoaded", () => {
             c.style.left = "0px";
             c.style.top  = "0px";
             if (c === main) {
+                c.style.display = "";
                 c.classList.remove("card-face-down");
                 c.classList.add("reveal-main-card");
                 c.draggable = true;
                 c.style.zIndex = "3";
             } else {
+                c.style.display = "none";
                 c.classList.add("card-face-down");
                 c.classList.remove("reveal-main-card");
                 c.draggable = false;
@@ -566,7 +580,7 @@ document.addEventListener("DOMContentLoaded", () => {
         cards.slice(0, -1).slice(-2).reverse().forEach((cardEl, i) => {
             const peek = document.createElement("div");
             peek.className = "reveal-peek-card";
-            peek.style.left = `${105 + i * 38}px`;
+            peek.style.left = `${85 + i * 35}px`;
             peek.style.zIndex = String(2 - i);
             const span = document.createElement("span");
             span.textContent = cardEl.querySelector(".card-name")?.textContent.trim() || "";
