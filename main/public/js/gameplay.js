@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const cardsGrid   = document.getElementById("cardsGrid");
     const stacksGrid  = document.getElementById("stacksGrid");
+    const lockedSlotsEl = document.getElementById("lockedCategorySlots");
     const banner      = document.querySelector(".game-info-banner");
     const progressFill= document.querySelector(".gameplay-progress-fill");
     const progressText= document.querySelector(".gameplay-progress-text");
@@ -64,6 +65,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const MAX_HINTS_PER_LEVEL = 3;
 
     /*
+     * Only this many of the level's categories start as real, playable
+     * stacks. The rest stay hidden — their pool cards are dealt into
+     * the deck like normal, but with no stack to drop them on until
+     * the player finds and plays that category's own "base" card,
+     * which is shuffled into the deck as a special card.
+     */
+    const INITIAL_VISIBLE_CATEGORIES = 2;
+
+    /*
      * How many levels THIS difficulty tier can actually support, given
      * how many categories the dataset has for it. Not a guessed
      * constant — the server computes it from the real category count
@@ -90,7 +100,17 @@ document.addEventListener("DOMContentLoaded", () => {
     let incorrectMatches = 0;
     let hintsUsed     = 0;
     let totalCards    = 0;
+
+    /*
+     * The Moves badge is a countdown, not an open-ended tally — it
+     * starts from a static budget (set once the level's card count
+     * is known) and counts down as moves are made. It floors at 0
+     * and never blocks further play; `moves` itself keeps counting
+     * up in the background for scoring/results.
+     */
+    let movesBudget   = 0;
     let allCategories = [];
+    let pendingCategories = []; // categories not yet unlocked into a stack
 
     let revealQueue      = []; // .game-card elements; index 0 = playable
     let shuffleDeckCards = []; // .game-card elements, not yet dealt
@@ -117,10 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
         </svg>`,
 
         physical: `<svg viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="13" y="3" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="3" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
-            <rect x="13" y="13" width="8" height="8" rx="2" stroke="currentColor" stroke-width="1.8"/>
+            <path d="M12 3c3 4 6 7.5 6 11a6 6 0 11-12 0c0-3.5 3-7 6-11z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>
         </svg>`,
 
         information: `<svg viewBox="0 0 24 24" fill="none">
@@ -169,18 +186,18 @@ document.addEventListener("DOMContentLoaded", () => {
             <circle cx="17" cy="12" r="4" stroke="currentColor" stroke-width="1.8"/>
             <path d="M4 5l3 3-3 3M20 19l-3-3 3-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>`,
-    };
 
-    const iconAbbrev = {
-        element: "El", chemical: "Ch", physical: "Ph", information: "In",
-        trends: "Tr", uses: "Us", compounds: "Cm", isotopes: "Is",
-        production: "Pr", occurrence: "Oc", reactions: "Rx",
+        shell: `<svg viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="1.8"/>
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.4" stroke-dasharray="3 2"/>
+            <circle cx="12" cy="12" r="6" stroke="currentColor" stroke-width="1.4" stroke-dasharray="2 2"/>
+        </svg>`,
     };
 
     /* ============================================================
        CATEGORY COLOUR THEMES
-       Solid, saturated circle + badge colours (icon renders white on
-       top), cycling across the selected categories.
+       Solid, saturated icon-circle colours, cycling across the
+       selected categories.
     ============================================================ */
 
     const categoryThemes = [
@@ -190,6 +207,20 @@ document.addEventListener("DOMContentLoaded", () => {
         { solid: "#3B82F6" }, // blue
         { solid: "#EF4444" }, // red
     ];
+
+    /* ============================================================
+       CROWN ICON
+       A real vector icon (matching the Figma mark) in place of a
+       text glyph — sized via the parent's font-size (1em) and
+       coloured via the parent's `color`, so every existing crown
+       context (card corner, category header, locked slot) keeps
+       working unchanged.
+    ============================================================ */
+
+    const CROWN_SVG = `<svg viewBox="0 0 24 18" fill="none">
+        <path d="M2 6.2L6.6 9.3L12 2L17.4 9.3L22 6.2L19.6 15.4H4.4L2 6.2Z" fill="currentColor"/>
+        <rect x="4" y="15.4" width="16" height="2" rx="1" fill="currentColor"/>
+    </svg>`;
 
     /* ============================================================
        HELPERS
@@ -209,9 +240,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function updateMovesBadge() {
-        if (movesElement) movesElement.textContent = moves;
+        const remaining = Math.max(0, movesBudget - moves);
+        if (movesElement) movesElement.textContent = remaining;
         if (movesBadge) {
-            movesBadge.textContent = moves;
+            movesBadge.textContent = remaining;
             movesBadge.classList.remove("bump");
             // eslint-disable-next-line no-unused-expressions
             void movesBadge.offsetWidth; // restart the animation
@@ -354,7 +386,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 e.dataTransfer.setData("text/plain", card.dataset.categoryId);
 
                 const name = card.querySelector(".card-name")?.textContent.trim();
-                setBanner(`"${name}" selected — drop it on a matching category.`);
+                setBanner(card.dataset.baseCard
+                    ? `"${name}" selected — drop it on an empty locked slot to unlock it.`
+                    : `"${name}" selected — drop it on a matching category.`);
 
                 setTimeout(() => card.style.opacity = "0.45", 0);
             });
@@ -376,7 +410,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 selectedCard = card;
 
                 const name = card.querySelector(".card-name")?.textContent.trim();
-                setBanner(`"${name}" selected — now tap a category above.`);
+                setBanner(card.dataset.baseCard
+                    ? `"${name}" selected — now tap an empty locked slot to unlock it.`
+                    : `"${name}" selected — now tap a category above.`);
             });
         });
     }
@@ -494,6 +530,11 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
+        if (selectedCard.dataset.baseCard) {
+            setBanner("That's a category card — drop it on an empty locked slot below, not here.", "error");
+            return;
+        }
+
         moves++;
         updateMovesBadge();
 
@@ -507,7 +548,8 @@ document.addEventListener("DOMContentLoaded", () => {
             updateScore();
 
             const countEl = stackEl.querySelector(".stack-current-count");
-            if (countEl) countEl.textContent = parseInt(countEl.textContent || "0") + 1;
+            const newCount = countEl ? parseInt(countEl.textContent || "0") + 1 : 0;
+            if (countEl) countEl.textContent = newCount;
 
             const cardName = selectedCard.querySelector(".card-name")?.textContent.trim();
             const cardToRemove = selectedCard;
@@ -523,7 +565,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else {
                     revealTopCards();
                 }
-                onCardPlaced(cardName);
+                onCardPlaced(cardName, stackEl, newCount);
             });
 
         } else {
@@ -695,13 +737,25 @@ document.addEventListener("DOMContentLoaded", () => {
        AFTER A CARD IS PLACED
     ============================================================ */
 
-    function onCardPlaced(cardName) {
+    function onCardPlaced(cardName, stackEl, count) {
         const remaining = totalCards - cardsPlaced;
+
+        const totalForStack = stackEl ? parseInt(stackEl.dataset.totalCount || "0", 10) : 0;
+        const categoryComplete = !!stackEl && totalForStack > 0 && count >= totalForStack;
+
+        if (categoryComplete) {
+            const categoryTitle = stackEl.querySelector(".category-tab")?.textContent.trim() || "This category";
+            setBanner(`🏆 "${categoryTitle}" complete! Great matching.`, "success");
+            setTimeout(() => {
+                stackEl.classList.add("stack-complete-hide");
+                setTimeout(() => stackEl.remove(), 700);
+            }, 700);
+        }
 
         if (remaining === 0) {
             setBanner("🎊 All cards matched! Taking you to results…", "success");
-            setTimeout(() => showCongratsAndRedirect(), 600);
-        } else {
+            setTimeout(() => showCongratsAndRedirect(), categoryComplete ? 1500 : 600);
+        } else if (!categoryComplete) {
             setBanner(`✓ "${cardName}" placed! ${remaining} card${remaining !== 1 ? "s" : ""} left.`, "success");
         }
     }
@@ -712,6 +766,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function attachStackEvents() {
         stacksGrid.querySelectorAll(".foundation-stack").forEach(stack => {
+            if (stack.dataset.eventsAttached) return;
+            stack.dataset.eventsAttached = "1";
 
             stack.addEventListener("dragover",  e => { e.preventDefault(); stack.classList.add("stack-drag-over"); });
             stack.addEventListener("dragleave", ()  => stack.classList.remove("stack-drag-over"));
@@ -732,15 +788,17 @@ document.addEventListener("DOMContentLoaded", () => {
     function buildStackCard(category, theme) {
         const iconType = String(category.icon_type || "element").toLowerCase();
         const icon     = iconSVG[iconType] || iconSVG.element;
-        const abbrev   = iconAbbrev[iconType] || iconType.charAt(0).toUpperCase();
 
         const stack = document.createElement("div");
         stack.className           = "foundation-stack";
         stack.dataset.categoryId  = String(category.id);
+        stack.dataset.totalCount  = String(category.cards.length);
 
         stack.innerHTML = `
+            <div class="category-tab" style="background: ${theme.solid};">${category.name}</div>
+
             <div class="category-card-top">
-                <span class="category-crown">♛</span>
+                <span class="category-crown">${CROWN_SVG}</span>
                 <div class="category-progress">
                     <span class="stack-current-count">0</span>/${category.cards.length}
                 </div>
@@ -749,17 +807,33 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="category-icon-circle" style="background: ${theme.solid}; color: #FFFFFF;">
                 ${icon}
             </div>
-
-            <div class="stack-title">${category.name}</div>
-
-            <div class="category-card-divider"></div>
-
-            <div class="category-bottom-badge" style="background: ${theme.solid}; color: #FFFFFF;">
-                ${abbrev}
-            </div>
         `;
 
         return stack;
+    }
+
+    /* ============================================================
+       BUILD CATEGORY BASE CARD
+       A special playable card representing a still-hidden category.
+       Dealt into the deck exactly like a normal pool card, but it
+       doesn't match any stack — instead it unlocks a fresh, empty
+       locked slot into that category's real stack.
+    ============================================================ */
+
+    function buildCategoryBaseCard(category) {
+        const card = document.createElement("div");
+        card.className            = "game-card category-base-card";
+        card.dataset.categoryId   = String(category.id);
+        card.dataset.categoryName = category.name;
+        card.dataset.baseCard     = "1";
+
+        card.innerHTML = `
+            <span class="card-crown">${CROWN_SVG}</span>
+            <div class="card-category-count">0/${category.cards.length}</div>
+            <div class="card-name">${category.name}</div>
+        `;
+
+        return card;
     }
 
     /* ============================================================
@@ -776,7 +850,7 @@ document.addEventListener("DOMContentLoaded", () => {
         card.dataset.categoryName= category.name;
 
         card.innerHTML = `
-            <span class="card-crown">♛</span>
+            <span class="card-crown">${CROWN_SVG}</span>
             <div class="card-name">${cardText}</div>
         `;
 
@@ -790,13 +864,16 @@ document.addEventListener("DOMContentLoaded", () => {
        target rendered in the Category section.
     ============================================================ */
 
-    function buildLogicalDeck(categories) {
+    function buildLogicalDeck(categories, hiddenIds = new Set()) {
         const deck = [];
         categories.forEach(category => {
             category.cards.forEach(cardText => {
                 totalCards++;
                 deck.push(buildGameCard(cardText, category));
             });
+            if (hiddenIds.has(String(category.id))) {
+                deck.push(buildCategoryBaseCard(category));
+            }
         });
         for (let i = deck.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
@@ -806,12 +883,85 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
+       LOCKED CATEGORY SLOTS
+       One dashed placeholder per still-hidden category. Dropping a
+       matching base card (picked up from the hand) onto any slot
+       unlocks that category into a real, playable stack.
+    ============================================================ */
+
+    function renderLockedSlots() {
+        if (!lockedSlotsEl) return;
+        lockedSlotsEl.innerHTML = "";
+
+        pendingCategories.forEach(() => {
+            const slot = document.createElement("div");
+            slot.className = "locked-category-card";
+            slot.innerHTML = `<span>${CROWN_SVG}</span>`;
+
+            slot.addEventListener("dragover",  e => { e.preventDefault(); slot.classList.add("stack-drag-over"); });
+            slot.addEventListener("dragleave", ()  => slot.classList.remove("stack-drag-over"));
+            slot.addEventListener("drop", e => {
+                e.preventDefault();
+                slot.classList.remove("stack-drag-over");
+                attemptPlaceCategoryBase(slot);
+            });
+            slot.addEventListener("click", () => attemptPlaceCategoryBase(slot));
+
+            lockedSlotsEl.appendChild(slot);
+        });
+    }
+
+    function attemptPlaceCategoryBase(slotEl) {
+        resetHintStates();
+
+        if (!selectedCard) {
+            setBanner("Pick a category card from the hand below first.", "error");
+            return;
+        }
+
+        if (!selectedCard.dataset.baseCard) {
+            setBanner("That's not a category card — drop it on an unlocked category above instead.", "error");
+            return;
+        }
+
+        moves++;
+        updateMovesBadge();
+
+        const categoryId = selectedCard.dataset.categoryId;
+        const category = pendingCategories.find(c => String(c.id) === categoryId);
+        if (!category) return;
+
+        const cardToRemove = selectedCard;
+        const originZone    = cardToRemove.dataset.zone;
+        selectedCard = null;
+
+        flyCardToStack(cardToRemove, slotEl, () => {
+            pendingCategories = pendingCategories.filter(c => String(c.id) !== categoryId);
+
+            const themeIdx = allCategories.findIndex(c => String(c.id) === categoryId);
+            const theme    = categoryThemes[themeIdx % categoryThemes.length];
+            stacksGrid.appendChild(buildStackCard(category, theme));
+            attachStackEvents();
+            renderLockedSlots();
+
+            if (originZone === "reveal") {
+                advanceRevealQueue();
+            } else {
+                revealTopCards();
+            }
+
+            setBanner(`🔓 "${category.name}" unlocked! Start matching its cards.`, "success");
+        });
+    }
+
+    /* ============================================================
        RENDER BOARD
     ============================================================ */
 
     function renderBoard(board, resetGame = true) {
         cardsGrid.innerHTML  = "";
         stacksGrid.innerHTML = "";
+        if (lockedSlotsEl) lockedSlotsEl.innerHTML = "";
         if (shuffleRevealPile) shuffleRevealPile.innerHTML = "";
 
         selectedCard   = null;
@@ -819,6 +969,7 @@ document.addEventListener("DOMContentLoaded", () => {
         totalCards     = 0;
         revealQueue    = [];
         shuffleDeckCards = [];
+        pendingCategories = [];
 
         if (resetGame) {
             score = 0;
@@ -837,14 +988,26 @@ document.addEventListener("DOMContentLoaded", () => {
         maxLevelsForDifficulty = board.max_levels
             || Math.max(1, Math.floor(allCategories.length / categoryCount));
 
-        // Every selected category is unlocked and visible at once.
-        allCategories.forEach((category, idx) => {
+        // Only the first few categories start as real, playable
+        // stacks. The rest stay hidden until their own base card is
+        // drawn and played onto an empty locked slot.
+        const visibleCategories = allCategories.slice(0, INITIAL_VISIBLE_CATEGORIES);
+        pendingCategories        = allCategories.slice(INITIAL_VISIBLE_CATEGORIES);
+        const hiddenIds = new Set(pendingCategories.map(c => String(c.id)));
+
+        visibleCategories.forEach(category => {
+            const idx   = allCategories.findIndex(c => c.id === category.id);
             const theme = categoryThemes[idx % categoryThemes.length];
-            const stack = buildStackCard(category, theme);
-            stacksGrid.appendChild(stack);
+            stacksGrid.appendChild(buildStackCard(category, theme));
         });
 
-        let deck = buildLogicalDeck(allCategories);
+        renderLockedSlots();
+
+        let deck = buildLogicalDeck(allCategories, hiddenIds);
+
+        // A static budget set once per level load, sized to the level's
+        // own card count so it scales fairly across levels.
+        movesBudget = Math.max(20, totalCards * 2);
 
         // Deal the opening hand into the 4 Game Cards piles.
         const piles = Array.from({ length: GAME_PILE_COUNT }, () => {
@@ -1088,11 +1251,18 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             resetHintStates();
-            const cards  = Array.from(document.querySelectorAll("#cardsGrid .game-card, #shuffleRevealPile .game-card"))
-                .filter(c => !c.classList.contains("card-face-down"));
             const stacks = Array.from(stacksGrid.querySelectorAll(".foundation-stack"));
+            const unlockedIds = new Set(stacks.map(s => s.dataset.categoryId));
 
-            if (cards.length === 0) return;
+            const cards = Array.from(document.querySelectorAll("#cardsGrid .game-card, #shuffleRevealPile .game-card"))
+                .filter(c => !c.classList.contains("card-face-down"))
+                .filter(c => !c.dataset.baseCard)
+                .filter(c => unlockedIds.has(c.dataset.categoryId));
+
+            if (cards.length === 0) {
+                setBanner("No hintable cards right now — try unlocking a new category first.", "error");
+                return;
+            }
 
             const card  = cards[Math.floor(Math.random() * cards.length)];
             const stack = stacks.find(s => s.dataset.categoryId === card.dataset.categoryId);
