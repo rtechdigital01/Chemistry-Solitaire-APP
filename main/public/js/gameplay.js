@@ -61,8 +61,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const INITIAL_PILE_SIZE = 3;
     const REVEAL_QUEUE_SIZE = 3;
     const PILE_OFFSET_PX    = 16;
-    const MAX_HINTS_PER_LEVEL       = 3;
-    const MAX_LEVELS_PER_DIFFICULTY = 10;
+    const MAX_HINTS_PER_LEVEL = 3;
+
+    /*
+     * How many levels THIS difficulty tier can actually support, given
+     * how many categories the dataset has for it. Not a guessed
+     * constant — the server computes it from the real category count
+     * (e.g. 52 Easy / 62 Medium / 70 Hard categories ÷ 5 per level),
+     * so Easy, Medium and Hard each get their own real ceiling. Set
+     * once the board loads; 1 is just a safe pre-load default.
+     */
+    let maxLevelsForDifficulty = 1;
 
     /*
      * Retries: how many times this exact level (same subject/deck/
@@ -553,7 +562,7 @@ document.addEventListener("DOMContentLoaded", () => {
             completed:         true,
             difficulty,
             key_stage:         keyStage,
-            max_levels_per_difficulty: MAX_LEVELS_PER_DIFFICULTY,
+            max_levels_per_difficulty: maxLevelsForDifficulty,
         };
         localStorage.setItem("latest_game_result", JSON.stringify(localResult));
 
@@ -821,6 +830,12 @@ document.addEventListener("DOMContentLoaded", () => {
         // Freeze the level's category selection — nothing outside this
         // set may ever enter the deck, the shuffle pile, or the stacks.
         allCategories = board.categories;
+
+        // The dataset-derived cap for this difficulty tier (falls back
+        // to a value computed from what actually got selected, for the
+        // offline/dev fallback board which has no server-computed cap).
+        maxLevelsForDifficulty = board.max_levels
+            || Math.max(1, Math.floor(allCategories.length / categoryCount));
 
         // Every selected category is unlocked and visible at once.
         allCategories.forEach((category, idx) => {

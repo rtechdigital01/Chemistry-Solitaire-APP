@@ -85,8 +85,10 @@ class CategoryController extends Controller
                     && count($category->card_pool) >= 3;
             });
 
-        if ($categories->count() < 3) {
-            \Illuminate\Support\Facades\Log::info('Categories count: ' . $categories->count() . ' Deck: ' . $deck . ' KS: ' . $keyStage);
+        $availableCategories = $categories->count();
+
+        if ($availableCategories < 3) {
+            \Illuminate\Support\Facades\Log::info('Categories count: ' . $availableCategories . ' Deck: ' . $deck . ' KS: ' . $keyStage);
             \Illuminate\Support\Facades\Log::info('Raw count: ' . $query->count());
 
             return response()->json([
@@ -95,11 +97,17 @@ class CategoryController extends Controller
             ], 422);
         }
 
+        // How many distinct levels this difficulty tier can actually
+        // support, derived from the real dataset rather than a guessed
+        // constant: every level consumes $categoryCount categories, so
+        // the tier is exhausted once we've cycled through them all.
+        $maxLevels = max(1, intdiv($availableCategories, $categoryCount));
+
         // Freeze the selected category set for this level — everything
         // downstream (cards, shuffle, stacks) is generated only from these.
         $selectedCategories = $categories
             ->shuffle()
-            ->take(min($categoryCount, $categories->count()))
+            ->take(min($categoryCount, $availableCategories))
             ->values();
 
         // Every pool card belongs to exactly one category (its parent
@@ -125,6 +133,9 @@ class CategoryController extends Controller
                 'deck' => $deck,
                 'key_stage' => $keyStage,
                 'categories' => $board,
+                'categories_per_level' => $categoryCount,
+                'total_categories_available' => $availableCategories,
+                'max_levels' => $maxLevels,
             ],
             'Game board generated successfully'
         );
