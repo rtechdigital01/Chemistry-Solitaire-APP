@@ -722,10 +722,13 @@ const avatarMap = {
 
 if (avatarElement) {
 
-    if (user.profile_photo) {
+    const storedAvatarUserJson = localStorage.getItem('user');
+    const avatarUser = storedAvatarUserJson ? JSON.parse(storedAvatarUserJson) : null;
+
+    if (avatarUser?.profile_photo) {
 
         const photoPath =
-            '/' + user.profile_photo.replace(/^\/+/, '');
+            '/' + avatarUser.profile_photo.replace(/^\/+/, '');
 
         avatarElement.innerHTML = `
             <img
@@ -740,10 +743,10 @@ if (avatarElement) {
             >
         `;
 
-    } else {
+    } else if (avatarUser) {
 
         avatarElement.textContent =
-            avatarMap[user.avatar] || '🧪';
+            avatarMap[avatarUser.avatar] || '🧪';
 
     }
 }
