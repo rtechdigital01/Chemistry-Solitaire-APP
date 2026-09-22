@@ -39,7 +39,7 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         # Read the CSV
         categories = []
         try:
-            with open(DATASET_PATH, newline='', encoding='utf-8') as f:
+            with open(DATASET_PATH, newline='', encoding='utf-8', errors='replace') as f:
                 reader = csv.DictReader(f)
                 for row in reader:
                     # Filter by difficulty if present, else just take them
@@ -95,6 +95,32 @@ class CustomHandler(http.server.SimpleHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         self.wfile.write(json.dumps(response_data).encode('utf-8'))
+
+    def do_POST(self):
+        parsed_path = urllib.parse.urlparse(self.path)
+        
+        if parsed_path.path == '/api/auth/login':
+            content_length = int(self.headers.get('Content-Length', 0))
+            post_data = self.rfile.read(content_length)
+            
+            # Mock a successful login response
+            self.send_response(200)
+            self.send_header('Content-type', 'application/json')
+            self.end_headers()
+            self.wfile.write(json.dumps({
+                "status": "success",
+                "message": "Login successful",
+                "token": "mock-jwt-token-12345",
+                "user": {
+                    "id": 1,
+                    "name": "Test User",
+                    "email": "test@example.com"
+                }
+            }).encode('utf-8'))
+            return
+
+        self.send_response(404)
+        self.end_headers()
 
 
 with socketserver.TCPServer(("", PORT), CustomHandler) as httpd:

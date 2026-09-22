@@ -140,8 +140,14 @@ authNavObserver.observe(document.body, {
             submitBtn.textContent = "Logging in...";
             submitBtn.disabled = true;
 
-            const email = loginForm.querySelector('#email').value;
-            const password = loginForm.querySelector('#password').value;
+            const emailInput = loginForm.querySelector('#email') || loginForm.querySelector('#loginEmail') || loginForm.querySelector('[name="email"]');
+            const passwordInput = loginForm.querySelector('#password') || loginForm.querySelector('#loginPassword') || loginForm.querySelector('[name="password"]');
+            
+            const email = emailInput ? emailInput.value : '';
+            const password = passwordInput ? passwordInput.value : '';
+            
+            const roleInput = loginForm.querySelector('input[name="role"]:checked');
+            const role = roleInput ? roleInput.value : 'student';
 
             try {
                 const response = await fetch(`${API_BASE_URL}/auth/login`, {
@@ -150,7 +156,7 @@ authNavObserver.observe(document.body, {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify({ email, password })
+                    body: JSON.stringify({ email, password, role })
                 });
 
                 const result = await response.json();

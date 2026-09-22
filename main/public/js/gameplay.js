@@ -60,7 +60,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const GAME_PILE_COUNT   = 4;
     const INITIAL_PILE_SIZE = 3;
-    const REVEAL_QUEUE_SIZE = 3;
     const PILE_OFFSET_PX    = 16;
     const MAX_HINTS_PER_LEVEL = 3;
 
@@ -112,7 +111,6 @@ document.addEventListener("DOMContentLoaded", () => {
     let allCategories = [];
     let pendingCategories = []; // categories not yet unlocked into a stack
 
-    let revealQueue      = []; // .game-card elements; index 0 = playable
     let shuffleDeckCards = []; // .game-card elements, not yet dealt
 
     /* ============================================================
@@ -401,6 +399,18 @@ document.addEventListener("DOMContentLoaded", () => {
             card.addEventListener("click", () => {
                 if (card.classList.contains("card-face-down")) return;
                 resetHintStates();
+
+                // A card already selected from the shuffle pile, clicked
+                // onto a different Game Cards pile's top card — try
+                // organizing it there instead of reselecting.
+                if (selectedCard && selectedCard !== card && selectedCard.classList.contains("reveal-main-card")) {
+                    const targetPile = card.closest(".card-pile");
+                    if (targetPile) {
+                        attemptPlaceOnPile(targetPile);
+                        return;
+                    }
+                }
+
                 const wasSelected = card.classList.contains("card-selected");
                 deselectAll();
 
@@ -423,15 +433,14 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
-       POSITION CARDS IN A GAME-CARDS PILE (shared helper)
-       idx 0 = bottom, last = top (face-up). Tags every card with its
-       zone so a completed match knows how to refill its origin.
+       POSITION CARDS IN A PILE (shared helper — Game Cards piles and
+       the shuffle reveal pile alike)
+       idx 0 = bottom, last = top (face-up).
     ============================================================ */
 
     function positionPileCards(container) {
         const cards = Array.from(container.querySelectorAll(".game-card"));
         cards.forEach((c, idx) => {
-            c.dataset.zone = "pile";
             c.style.top = `${idx * PILE_OFFSET_PX}px`;
             c.style.zIndex = String(idx + 1);
             if (idx < cards.length - 1) {
@@ -447,6 +456,58 @@ document.addEventListener("DOMContentLoaded", () => {
             ? `${(cards.length - 1) * PILE_OFFSET_PX + 220}px`
             : "0px";
         attachCardEvents(container);
+    }
+
+    /* ============================================================
+       ORGANIZE — move a card from the shuffle pile onto a Game
+       Cards pile. Not a match: no score/progress change, just
+       reorganizing your hand. Only allowed when the target pile's
+       current top card shares the same category.
+    ============================================================ */
+
+    function attemptPlaceOnPile(pileEl) {
+        resetHintStates();
+
+        if (!selectedCard) {
+            setBanner("Pick a card from the hand below first.", "error");
+            return;
+        }
+
+        if (!selectedCard.classList.contains("reveal-main-card")) {
+            return;
+        }
+
+        const cards = Array.from(pileEl.querySelectorAll(".game-card"));
+        const topCard = cards[cards.length - 1];
+
+        if (!topCard || topCard.dataset.categoryId !== selectedCard.dataset.categoryId) {
+            setBanner("That card doesn't match this pile's category.", "error");
+            return;
+        }
+
+        const cardToMove = selectedCard;
+        selectedCard = null;
+        cardToMove.classList.remove("card-selected");
+
+        pileEl.appendChild(cardToMove);
+        positionPileCards(pileEl);
+        renderShuffleRevealPile();
+
+        const name = cardToMove.querySelector(".card-name")?.textContent.trim();
+        setBanner(`"${name}" moved into the matching pile.`, "success");
+    }
+
+    function attachPileDropEvents(pileEl) {
+        if (pileEl.dataset.dropEventsAttached) return;
+        pileEl.dataset.dropEventsAttached = "1";
+
+        pileEl.addEventListener("dragover",  e => { e.preventDefault(); pileEl.classList.add("stack-drag-over"); });
+        pileEl.addEventListener("dragleave", ()  => pileEl.classList.remove("stack-drag-over"));
+        pileEl.addEventListener("drop", e => {
+            e.preventDefault();
+            pileEl.classList.remove("stack-drag-over");
+            attemptPlaceOnPile(pileEl);
+        });
     }
 
     /* ============================================================
@@ -467,38 +528,45 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
-       SHUFFLE "HAND" — REVEAL PILE
-       revealQueue[0] is the one playable card; the rest are shown as
-       a fanned peek (preview only, not yet playable). Consuming the
-       main card promotes the next queued card and tops the queue back
-       up from the shuffle deck.
+       SHUFFLE REVEAL PILE
+       A real stack — every card dealt into it is a genuine, matchable
+       `.game-card`, in DOM order (last child = top). Only the top
+       card is ever shown full-size and playable; up to 2 of the
+       cards just beneath it are previewed as thin fanned strips to
+       its right (name only), and the rest stay hidden underneath.
+       Matching the top card exposes the one below it, exactly like
+       a Game Cards pile.
     ============================================================ */
 
-    function renderRevealPile() {
+    function renderShuffleRevealPile() {
         if (!shuffleRevealPile) return;
-        shuffleRevealPile.innerHTML = "";
 
-        if (revealQueue.length === 0) {
-            const empty = document.createElement("div");
-            empty.className = "shuffle-reveal-empty";
-            empty.textContent = shuffleDeckCards.length > 0 ? "Shuffle to reveal" : "No cards left";
-            shuffleRevealPile.appendChild(empty);
-            return;
-        }
+        shuffleRevealPile.querySelectorAll(".reveal-peek-card").forEach(p => p.remove());
 
-        const main = revealQueue[0];
-        main.classList.remove("card-face-down");
-        main.classList.add("reveal-main-card");
-        main.draggable = true;
-        main.dataset.zone = "reveal";
-        main.style.top = "0px";
-        main.style.zIndex = "3";
-        shuffleRevealPile.appendChild(main);
+        const cards = Array.from(shuffleRevealPile.querySelectorAll(".game-card"));
+        if (cards.length === 0) return;
 
-        revealQueue.slice(1).forEach((cardEl, i) => {
+        const main = cards[cards.length - 1];
+        cards.forEach(c => {
+            c.style.left = "0px";
+            c.style.top  = "0px";
+            if (c === main) {
+                c.classList.remove("card-face-down");
+                c.classList.add("reveal-main-card");
+                c.draggable = true;
+                c.style.zIndex = "3";
+            } else {
+                c.classList.add("card-face-down");
+                c.classList.remove("reveal-main-card");
+                c.draggable = false;
+                c.style.zIndex = "0";
+            }
+        });
+
+        cards.slice(0, -1).slice(-2).reverse().forEach((cardEl, i) => {
             const peek = document.createElement("div");
             peek.className = "reveal-peek-card";
-            peek.style.left = `${112 + i * 24}px`;
+            peek.style.left = `${105 + i * 38}px`;
             peek.style.zIndex = String(2 - i);
             const span = document.createElement("span");
             span.textContent = cardEl.querySelector(".card-name")?.textContent.trim() || "";
@@ -509,13 +577,43 @@ document.addEventListener("DOMContentLoaded", () => {
         attachCardEvents(shuffleRevealPile);
     }
 
-    function advanceRevealQueue() {
-        revealQueue.shift();
+    /* ============================================================
+       SHUFFLE DECK — draw pile
+       Tapping the deck moves its top card onto the reveal pile,
+       covering whatever was already on top (which stays put,
+       face-down, underneath — same pile mechanic as Game Cards).
+       Once the deck itself runs dry, tapping it again recycles
+       whatever is still stuck in the reveal pile — reshuffled back
+       into the deck — so the player is never permanently stuck
+       behind an unplayable top card.
+    ============================================================ */
+
+    function drawFromShuffleDeck() {
+        if (!shuffleRevealPile) return;
+
         if (shuffleDeckCards.length > 0) {
-            revealQueue.push(shuffleDeckCards.shift());
+            const card = shuffleDeckCards.shift();
+            shuffleRevealPile.appendChild(card);
+            renderShuffleRevealPile();
+            updateShuffleDeckBadge();
+            return;
         }
-        renderRevealPile();
+
+        const stranded = Array.from(shuffleRevealPile.querySelectorAll(".game-card"));
+        if (stranded.length === 0) {
+            setBanner("No cards left to shuffle.", "error");
+            return;
+        }
+
+        for (let i = stranded.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [stranded[i], stranded[j]] = [stranded[j], stranded[i]];
+        }
+
+        while (shuffleRevealPile.firstChild) shuffleRevealPile.removeChild(shuffleRevealPile.firstChild);
+        shuffleDeckCards = stranded;
         updateShuffleDeckBadge();
+        setBanner("Deck reshuffled! Tap Shuffle again to draw a new card.", "success");
     }
 
     /* ============================================================
@@ -553,18 +651,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const cardName = selectedCard.querySelector(".card-name")?.textContent.trim();
             const cardToRemove = selectedCard;
-            const originZone = cardToRemove.dataset.zone;
             selectedCard = null;
 
             pulseStack(stackEl);
 
             flyCardToStack(cardToRemove, stackEl, () => {
                 updateProgress();
-                if (originZone === "reveal") {
-                    advanceRevealQueue();
-                } else {
-                    revealTopCards();
-                }
+                revealTopCards();
+                renderShuffleRevealPile();
                 onCardPlaced(cardName, stackEl, newCount);
             });
 
@@ -795,7 +889,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stack.dataset.totalCount  = String(category.cards.length);
 
         stack.innerHTML = `
-            <div class="category-tab" style="background: ${theme.solid};">${category.name}</div>
+            <div class="category-tab">${category.name}</div>
 
             <div class="category-card-top">
                 <span class="category-crown">${CROWN_SVG}</span>
@@ -807,6 +901,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="category-icon-circle" style="background: ${theme.solid}; color: #FFFFFF;">
                 ${icon}
             </div>
+
+            <div class="stack-title">${category.name}</div>
         `;
 
         return stack;
@@ -932,7 +1028,6 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!category) return;
 
         const cardToRemove = selectedCard;
-        const originZone    = cardToRemove.dataset.zone;
         selectedCard = null;
 
         flyCardToStack(cardToRemove, slotEl, () => {
@@ -943,12 +1038,8 @@ document.addEventListener("DOMContentLoaded", () => {
             stacksGrid.appendChild(buildStackCard(category, theme));
             attachStackEvents();
             renderLockedSlots();
-
-            if (originZone === "reveal") {
-                advanceRevealQueue();
-            } else {
-                revealTopCards();
-            }
+            revealTopCards();
+            renderShuffleRevealPile();
 
             setBanner(`🔓 "${category.name}" unlocked! Start matching its cards.`, "success");
         });
@@ -967,7 +1058,6 @@ document.addEventListener("DOMContentLoaded", () => {
         selectedCard   = null;
         cardsPlaced    = 0;
         totalCards     = 0;
-        revealQueue    = [];
         shuffleDeckCards = [];
         pendingCategories = [];
 
@@ -1021,17 +1111,22 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < pileTarget; i++) {
             piles[i % GAME_PILE_COUNT].appendChild(deck[i]);
         }
-        piles.forEach(pile => positionPileCards(pile));
+        piles.forEach(pile => { positionPileCards(pile); attachPileDropEvents(pile); });
         deck = deck.slice(pileTarget);
 
-        // Whatever's left: a few cards become the playable/preview
-        // reveal queue, the remainder waits in the shuffle deck.
-        while (revealQueue.length < REVEAL_QUEUE_SIZE && deck.length) {
-            revealQueue.push(deck.shift());
+        // Deal a starting stack into the shuffle reveal pile too.
+        // Whatever's left waits in the shuffle deck, drawn one at a
+        // time onto this pile as the player taps it.
+        if (shuffleRevealPile) {
+            const revealTarget = Math.min(deck.length, INITIAL_PILE_SIZE);
+            for (let i = 0; i < revealTarget; i++) {
+                shuffleRevealPile.appendChild(deck[i]);
+            }
+            renderShuffleRevealPile();
+            deck = deck.slice(revealTarget);
         }
         shuffleDeckCards = deck;
 
-        renderRevealPile();
         updateShuffleDeckBadge();
 
         updateScore();
@@ -1115,16 +1210,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* ============================================================
        SHUFFLE — full reshuffle of every remaining card across every
-       zone (piles, reveal queue, shuffle deck) and a fresh re-deal.
-       Category ownership never changes — only order does.
+       pile (Game Cards ×4, the reveal pile, and the shuffle deck)
+       and a fresh re-deal. Category ownership never changes — only
+       order does. This is the top-bar utility button; the shuffle
+       deck itself (bottom-right) is drawn from one card at a time
+       via drawFromShuffleDeck().
     ============================================================ */
 
     function shuffleHand() {
-        const pileEls  = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
-        const allCards = [...pileEls, ...revealQueue, ...shuffleDeckCards];
+        const pileEls   = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
+        const revealEls = shuffleRevealPile ? Array.from(shuffleRevealPile.querySelectorAll(".game-card")) : [];
+        const allCards  = [...pileEls, ...revealEls, ...shuffleDeckCards];
         if (allCards.length === 0) return;
 
-        const visibleCards = [...pileEls, ...(revealQueue.length ? [revealQueue[0]] : [])];
+        const visibleCards = [...pileEls, ...revealEls].filter(c => !c.classList.contains("card-face-down"));
         visibleCards.forEach(c => {
             c.style.transition = "opacity 0.2s, transform 0.2s";
             c.style.opacity    = "0";
@@ -1139,6 +1238,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const piles = Array.from(cardsGrid.querySelectorAll(".card-pile"));
             piles.forEach(p => { while (p.firstChild) p.removeChild(p.firstChild); });
+            if (shuffleRevealPile) { while (shuffleRevealPile.firstChild) shuffleRevealPile.removeChild(shuffleRevealPile.firstChild); }
 
             let idx = 0;
             const pileTarget = Math.min(allCards.length, GAME_PILE_COUNT * INITIAL_PILE_SIZE);
@@ -1147,17 +1247,21 @@ document.addEventListener("DOMContentLoaded", () => {
             }
             piles.forEach(p => positionPileCards(p));
 
-            revealQueue = [];
-            while (revealQueue.length < REVEAL_QUEUE_SIZE && idx < allCards.length) {
-                revealQueue.push(allCards[idx]);
-                idx++;
+            if (shuffleRevealPile) {
+                const revealTarget = Math.min(allCards.length - idx, INITIAL_PILE_SIZE);
+                for (let i = 0; i < revealTarget; i++, idx++) {
+                    shuffleRevealPile.appendChild(allCards[idx]);
+                }
+                renderShuffleRevealPile();
             }
             shuffleDeckCards = allCards.slice(idx);
 
-            renderRevealPile();
             updateShuffleDeckBadge();
 
-            const nowVisible = [...piles.flatMap(p => Array.from(p.querySelectorAll(".game-card"))), ...(revealQueue.length ? [revealQueue[0]] : [])];
+            const nowVisible = [
+                ...piles.flatMap(p => Array.from(p.querySelectorAll(".game-card"))),
+                ...(shuffleRevealPile ? Array.from(shuffleRevealPile.querySelectorAll(".game-card")) : []),
+            ].filter(c => !c.classList.contains("card-face-down"));
             nowVisible.forEach((c, i) => {
                 setTimeout(() => {
                     c.style.transition = "opacity 0.3s, transform 0.3s ease";
@@ -1184,7 +1288,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     if (shuffleDeckBtn) {
-        shuffleDeckBtn.addEventListener("click", shuffleHand);
+        shuffleDeckBtn.addEventListener("click", drawFromShuffleDeck);
     }
 
     if (nextLevelBtn) {
