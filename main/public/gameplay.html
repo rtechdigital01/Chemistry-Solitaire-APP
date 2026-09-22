@@ -435,9 +435,11 @@ body {
 .shuffle-deck-pile {
     position: relative;
     width: 148px; height: 131px;
-    background: #56BEF4;
+    background-color: #56BEF4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='0' cy='0' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='32' cy='0' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='0' cy='32' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-size: 28px 28px;
     border: 2.85px solid #FFFFFF;
-    border-radius: 7.83px;
+    border-radius: 16px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -529,25 +531,25 @@ body {
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
-    padding: 16px 10px 10px;
+    padding: 34px 10px 10px;
 }
 
-/* Category name "tab" — a small flag poking above the card's top
-   edge, instead of plain text inside the card body. */
+/* Category name "tab" — a full-width gold header cap at the top of
+   the card, not a small floating badge. */
 .category-tab {
     position: absolute;
-    top: -13px;
-    left: 10px;
-    max-width: calc(100% - 20px);
-    width: fit-content;
-    padding: 5px 11px;
-    border-radius: 8px 8px 8px 2px;
-    font-size: 11px;
+    top: 0; left: 0; right: 0;
+    padding: 7px 10px;
+    border-radius: 13px 13px 0 0;
+    background: #FBBF24;
+    font-size: 12px;
     font-weight: 900;
-    color: #FFFFFF;
+    color: #1A3160;
     text-align: center;
-    line-height: 1.25;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.18);
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     z-index: 5;
 }
 
@@ -609,6 +611,15 @@ body {
 .foundation-stack:hover .category-icon-circle { transform: scale(1.08); }
 
 .category-icon-circle svg { width: 20px; height: 20px; }
+
+.stack-title {
+    width: 100%;
+    padding: 0 4px;
+    text-align: center;
+    font-size: 13px; font-weight: 800;
+    color: #1A3160;
+    line-height: 1.3;
+}
 
 @keyframes stackCompleteHide {
     0%   { transform: scale(1);    opacity: 1; }
@@ -723,6 +734,12 @@ body {
     /* height grows with stack offset; at least 2 visible card heights */
     min-height: 264px;
     filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+    border-radius: 16px;
+    transition: box-shadow 0.18s ease;
+}
+
+.card-pile.stack-drag-over {
+    box-shadow: 0 0 0 3px rgba(37,99,255,0.35);
 }
 
 /* The stock/shuffle pile column */
@@ -1094,13 +1111,6 @@ body {
 
                 <!-- Remaining logical deck, not yet dealt into play -->
                 <div class="shuffle-panel">
-                    <div class="shuffle-panel-heading">
-                        <span class="heading-accent"></span>
-                        <div>
-                            <h3>Shuffle</h3>
-                            <p>Shuffle cards to start playing</p>
-                        </div>
-                    </div>
                     <div class="shuffle-deck-pile" id="shuffleDeckBtn" role="button" aria-label="Shuffle remaining cards into play">
                         <span class="shuffle-deck-count" id="shuffleDeckCount">0</span>
                     </div>

@@ -399,6 +399,18 @@ document.addEventListener("DOMContentLoaded", () => {
             card.addEventListener("click", () => {
                 if (card.classList.contains("card-face-down")) return;
                 resetHintStates();
+
+                // A card already selected from the shuffle pile, clicked
+                // onto a different Game Cards pile's top card — try
+                // organizing it there instead of reselecting.
+                if (selectedCard && selectedCard !== card && selectedCard.classList.contains("reveal-main-card")) {
+                    const targetPile = card.closest(".card-pile");
+                    if (targetPile) {
+                        attemptPlaceOnPile(targetPile);
+                        return;
+                    }
+                }
+
                 const wasSelected = card.classList.contains("card-selected");
                 deselectAll();
 
@@ -444,6 +456,58 @@ document.addEventListener("DOMContentLoaded", () => {
             ? `${(cards.length - 1) * PILE_OFFSET_PX + 220}px`
             : "0px";
         attachCardEvents(container);
+    }
+
+    /* ============================================================
+       ORGANIZE — move a card from the shuffle pile onto a Game
+       Cards pile. Not a match: no score/progress change, just
+       reorganizing your hand. Only allowed when the target pile's
+       current top card shares the same category.
+    ============================================================ */
+
+    function attemptPlaceOnPile(pileEl) {
+        resetHintStates();
+
+        if (!selectedCard) {
+            setBanner("Pick a card from the hand below first.", "error");
+            return;
+        }
+
+        if (!selectedCard.classList.contains("reveal-main-card")) {
+            return;
+        }
+
+        const cards = Array.from(pileEl.querySelectorAll(".game-card"));
+        const topCard = cards[cards.length - 1];
+
+        if (!topCard || topCard.dataset.categoryId !== selectedCard.dataset.categoryId) {
+            setBanner("That card doesn't match this pile's category.", "error");
+            return;
+        }
+
+        const cardToMove = selectedCard;
+        selectedCard = null;
+        cardToMove.classList.remove("card-selected");
+
+        pileEl.appendChild(cardToMove);
+        positionPileCards(pileEl);
+        renderShuffleRevealPile();
+
+        const name = cardToMove.querySelector(".card-name")?.textContent.trim();
+        setBanner(`"${name}" moved into the matching pile.`, "success");
+    }
+
+    function attachPileDropEvents(pileEl) {
+        if (pileEl.dataset.dropEventsAttached) return;
+        pileEl.dataset.dropEventsAttached = "1";
+
+        pileEl.addEventListener("dragover",  e => { e.preventDefault(); pileEl.classList.add("stack-drag-over"); });
+        pileEl.addEventListener("dragleave", ()  => pileEl.classList.remove("stack-drag-over"));
+        pileEl.addEventListener("drop", e => {
+            e.preventDefault();
+            pileEl.classList.remove("stack-drag-over");
+            attemptPlaceOnPile(pileEl);
+        });
     }
 
     /* ============================================================
@@ -825,7 +889,7 @@ document.addEventListener("DOMContentLoaded", () => {
         stack.dataset.totalCount  = String(category.cards.length);
 
         stack.innerHTML = `
-            <div class="category-tab" style="background: ${theme.solid};">${category.name}</div>
+            <div class="category-tab">${category.name}</div>
 
             <div class="category-card-top">
                 <span class="category-crown">${CROWN_SVG}</span>
@@ -837,6 +901,8 @@ document.addEventListener("DOMContentLoaded", () => {
             <div class="category-icon-circle" style="background: ${theme.solid}; color: #FFFFFF;">
                 ${icon}
             </div>
+
+            <div class="stack-title">${category.name}</div>
         `;
 
         return stack;
@@ -1045,7 +1111,7 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < pileTarget; i++) {
             piles[i % GAME_PILE_COUNT].appendChild(deck[i]);
         }
-        piles.forEach(pile => positionPileCards(pile));
+        piles.forEach(pile => { positionPileCards(pile); attachPileDropEvents(pile); });
         deck = deck.slice(pileTarget);
 
         // Deal a starting stack into the shuffle reveal pile too.
