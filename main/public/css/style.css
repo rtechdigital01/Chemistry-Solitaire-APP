@@ -3654,14 +3654,6 @@ body {
     padding: 40px 80px 80px;
 }
 
-.gameplay-board {
-    background: #FFFFFF;
-    border-radius: 24px;
-    padding: 40px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    border: 1px solid #EDF1F7;
-}
-
 .game-info-banner {
     display: flex;
     align-items: center;

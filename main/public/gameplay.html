@@ -358,11 +358,6 @@ body {
     position: relative;
     width: 148px;
     height: 131px;
-    background: #56BEF4;
-    border: 3px solid #FFFFFF;
-    border-radius: 8px;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
-    overflow: hidden;
 }
 
 /* Higher specificity (#id + two classes) is required here because the
@@ -398,6 +393,11 @@ body {
 #shuffleRevealPile .game-card.reveal-main-card .card-name {
     font-size: 12px;
     padding: 0 2px;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-category-count {
+    top: 8px; right: 10px;
+    font-size: 9px;
 }
 
 .reveal-peek-card {
@@ -441,8 +441,8 @@ body {
     position: relative;
     width: 148px; height: 131px;
     background: #56BEF4;
-    border: 3px solid #FFFFFF;
-    border-radius: 8px;
+    border: 2.85px solid #FFFFFF;
+    border-radius: 7.83px;
     box-shadow: 0 4px 4px rgba(0,0,0,0.1);
     cursor: pointer;
     transition: transform 0.2s, box-shadow 0.2s;
@@ -459,9 +459,9 @@ body {
     background: #FFFFFF;
     color: #2563FF;
     font-size: 11px; font-weight: 900;
-    border-radius: 999px;
-    border: 2px solid #fff;
-    box-shadow: 0 2px 6px rgba(37,99,255,0.4);
+    border-radius: 50%;
+    border: 1.86px solid #FFFFFF;
+    box-shadow: 0 1.86px 5.58px rgba(0,0,0,0.3);
 }
 
 
@@ -527,14 +527,33 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    overflow: hidden;
+    overflow: visible;
     border: 2px solid #FBBF24;
     border-radius: 15px;
     background: #FAF0D5;
     cursor: pointer;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
     transition: transform 0.18s ease, box-shadow 0.18s ease, border-color 0.18s;
-    padding: 12px 10px 10px;
+    padding: 16px 10px 10px;
+}
+
+/* Category name "tab" — a small flag poking above the card's top
+   edge, instead of plain text inside the card body. */
+.category-tab {
+    position: absolute;
+    top: -13px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+    width: fit-content;
+    padding: 5px 11px;
+    border-radius: 8px 8px 8px 2px;
+    font-size: 11px;
+    font-weight: 900;
+    color: #FFFFFF;
+    text-align: center;
+    line-height: 1.25;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.18);
+    z-index: 5;
 }
 
 .foundation-stack:hover {
@@ -568,6 +587,17 @@ body {
 
 .category-crown { font-size: 17px; color: #F5A81C; }
 
+/* Crown icon sizing — the SVG scales with each context's own
+   font-size (1em) so every existing crown context keeps its size
+   without individual overrides. */
+.category-crown svg,
+.card-crown svg,
+.locked-category-card span svg {
+    display: block;
+    width: 1em;
+    height: 0.75em;
+}
+
 .category-progress {
     font-size: 12px; font-weight: 700;
     color: #A09880;
@@ -578,8 +608,6 @@ body {
     display: flex; align-items: center; justify-content: center;
     margin: 14px auto 10px;
     border-radius: 50%;
-    background: #DDF3E5;
-    color: #2E9D62;
     box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     transition: transform 0.2s;
 }
@@ -587,33 +615,19 @@ body {
 
 .category-icon-circle svg { width: 20px; height: 20px; }
 
-.stack-title {
-    width: 100%;
-    padding: 0 4px;
-    text-align: center;
-    font-size: 13px; font-weight: 800;
-    color: #1A3160;
-    line-height: 1.3;
+@keyframes stackCompleteHide {
+    0%   { transform: scale(1);    opacity: 1; }
+    40%  { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(0.5);  opacity: 0; }
 }
 
-.category-card-divider {
-    width: 100%; height: 1px;
-    margin-top: auto;
-    background: #D4C9AF;
+.foundation-stack.stack-complete-hide {
+    animation: stackCompleteHide 0.7s ease forwards;
+    pointer-events: none;
 }
 
-.category-bottom-badge {
-    margin: 10px 0 0;
-    width: 26px; height: 26px;
-    display: flex; align-items: center; justify-content: center;
-    border-radius: 50%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-    color: #FFFFFF;
-    font-size: 9px; font-weight: 900;
-}
-
-
-/* Locked slot */
+/* Locked slot — a category not yet unlocked. Also a drop/click
+   target for the "category base card" that unlocks it. */
 .locked-category-card {
     min-height: 194px;
     display: flex; align-items: center; justify-content: center;
@@ -621,11 +635,49 @@ body {
     border: 2px dashed #E2E8F0;
     border-radius: 15px;
     background: #FAFBFC;
+    cursor: pointer;
+    transition: border-color 0.18s ease, background 0.18s ease, transform 0.18s ease;
 }
 
 .locked-category-card span {
     color: #CBD5E1;
     font-size: 48px;
+    transition: color 0.18s ease;
+}
+
+.locked-category-card.stack-drag-over {
+    border-color: #2563EB;
+    background: #EFF5FF;
+    transform: translateY(-4px);
+}
+
+.locked-category-card.stack-drag-over span {
+    color: #2563EB;
+}
+
+/* Category base card — a special playable card that unlocks a
+   hidden category when placed on an empty slot. Tinted blue so it
+   reads as distinct from the regular cream game cards. */
+.game-card.category-base-card {
+    background: linear-gradient(180deg, #EFF5FF 0%, #DCE8FF 100%);
+    border-color: #2563EB;
+}
+
+.game-card.category-base-card .card-crown {
+    color: #2563EB;
+}
+
+.game-card.category-base-card .card-name {
+    color: #1D4ED8;
+    font-size: 15px;
+}
+
+.card-category-count {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #2563EB;
 }
 
 
@@ -1042,13 +1094,6 @@ body {
 
                 <!-- Active hand: top playable card + peek of what's next -->
                 <div class="shuffle-panel">
-                    <div class="shuffle-panel-heading">
-                        <span class="heading-accent"></span>
-                        <div>
-                            <h3>Shuffle</h3>
-                            <p>Stacked shuffle cards</p>
-                        </div>
-                    </div>
                     <div class="shuffle-reveal-pile" id="shuffleRevealPile"></div>
                 </div>
 
@@ -1159,32 +1204,6 @@ body {
 
 
 <script>
-/* ============================================================
-   LOCKED CATEGORY SLOTS
-   Fills empty category grid positions with dashed placeholder cards.
-============================================================ */
-
-const stacksGridEl       = document.getElementById("stacksGrid");
-const lockedSlotsEl      = document.getElementById("lockedCategorySlots");
-const TOTAL_CAT_SLOTS    = 5;
-
-function refreshLockedSlots() {
-    const filled  = stacksGridEl.children.length;
-    const needed  = Math.max(0, TOTAL_CAT_SLOTS - filled);
-
-    lockedSlotsEl.innerHTML = "";
-    for (let i = 0; i < needed; i++) {
-        const card = document.createElement("div");
-        card.className = "locked-category-card";
-        card.innerHTML = "<span>♛</span>";
-        lockedSlotsEl.appendChild(card);
-    }
-}
-
-new MutationObserver(refreshLockedSlots).observe(stacksGridEl, { childList: true });
-refreshLockedSlots();
-
-
 /* ============================================================
    TOP-BAR BRIDGE BUTTONS
    (Wire Shuffle / Hint top-bar buttons → gameplay.js helpers)
