@@ -352,21 +352,28 @@ body {
     font-weight: 600;
 }
 
-/* Reveal pile — the active playable hand (fanned peek of upcoming cards) */
+/* Reveal pile — a real stack (top card playable, the rest sit
+   face-down beneath it, populated by drawing from the shuffle deck
+   on the right) rendered as: the top card shown full-size, and up
+   to 2 of the cards just beneath it previewed as thin fanned-out
+   strips to its right. */
 
 .shuffle-reveal-pile {
     position: relative;
-    width: 148px;
+    width: 190px;
     height: 131px;
 }
 
-/* Higher specificity (#id + two classes) is required here because the
-   base `.game-card` rule — full pile-card sizing — is declared later in
-   this stylesheet and would otherwise win the cascade. */
-#shuffleRevealPile .game-card.reveal-main-card {
+/* Every card here (including the hidden face-down ones stacked
+   beneath the top card) shares this compact footprint, so a hidden
+   card can never overflow the pile's bounds. */
+#shuffleRevealPile .game-card {
     position: absolute;
     left: 0; top: 0;
     width: 105px; height: 131px;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card {
     border: 2px solid #F5A81C;
     border-radius: 11px;
     background: #F5EDD7;
@@ -403,7 +410,7 @@ body {
 .reveal-peek-card {
     position: absolute;
     top: 0;
-    width: 22px; height: 131px;
+    width: 40px; height: 131px;
     border: 2px solid #FBBF24;
     border-radius: 11px;
     background: #FFF8E6;
@@ -417,22 +424,10 @@ body {
 .reveal-peek-card span {
     display: inline-block;
     transform: rotate(-90deg);
-    font-size: 11px;
+    font-size: 16px;
     font-weight: 900;
     color: #1A3160;
     white-space: nowrap;
-}
-
-.shuffle-reveal-empty {
-    width: 105px; height: 131px;
-    border: 2px dashed rgba(255,255,255,0.6);
-    border-radius: 11px;
-    display: flex; align-items: center; justify-content: center;
-    color: #FFFFFF;
-    font-size: 11px;
-    font-weight: 800;
-    text-align: center;
-    padding: 8px;
 }
 
 /* Shuffle deck — the remaining logical deck, pattern back + count badge */
