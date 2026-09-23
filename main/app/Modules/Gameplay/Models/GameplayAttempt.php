@@ -9,6 +9,9 @@ class GameplayAttempt extends Model
     protected $fillable = [
         'user_id',
         'topic',
+        'deck',
+        'key_stage',
+        'difficulty',
         'level',
         'score',
         'coins_earned',

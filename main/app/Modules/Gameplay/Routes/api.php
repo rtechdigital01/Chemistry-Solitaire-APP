@@ -10,4 +10,9 @@ Route::middleware('auth:sanctum')->group(function () {
         [GameplayController::class, 'saveAttempt']
     );
 
+    Route::get(
+        '/gameplay/progress',
+        [GameplayController::class, 'progress']
+    );
+
 });

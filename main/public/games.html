@@ -203,7 +203,7 @@
                             stroke-linejoin="round"
                         />
                     </svg>
-                    <span>1 deck available</span>
+                    <span id="decksAvailableCount">Loading decks…</span>
                 </div>
             </section>
 
@@ -211,344 +211,75 @@
 <!-- ========================================
      CHEMISTRY DECK CARDS
 ========================================= -->
+
+<!-- ========================================
+     CHEMISTRY DECK CARDS (data-driven)
+========================================= -->
 <section class="deck-cards-section">
 
-    <div class="deck-cards-grid">
-
-        <!-- ========================================
-             CARD 1 â€” FULLY PLAYABLE
-        ========================================= -->
-
-        <article
-            class="deck-card deck-card-playable reveal"
-            data-delay="160"
-        >
-
-            <!-- Top -->
-            <div class="deck-card-top">
-
-                <div class="deck-card-heading-row">
-
-                    <!-- Icon -->
-                    <div class="deck-icon deck-icon-playable">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <circle
-                                cx="12"
-                                cy="12"
-                                r="2.5"
-                                stroke="currentColor"
-                                stroke-width="1.7"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="8"
-                                ry="3.5"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="8"
-                                ry="3.5"
-                                transform="rotate(60 12 12)"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-
-                            <ellipse
-                                cx="12"
-                                cy="12"
-                                rx="8"
-                                ry="3.5"
-                                transform="rotate(120 12 12)"
-                                stroke="currentColor"
-                                stroke-width="1.5"
-                            />
-                        </svg>
-
-                    </div>
-
-
-                    <div class="deck-heading-text">
-
-                        <h3 class="deck-title">
-                            Atomic Structure &amp;<br>
-                            Isotopes
-                        </h3>
-
-                        <p class="deck-level">
-                            KS3 Â· GCSE Foundation &amp; Higher
-                        </p>
-
-                        <span class="deck-status deck-status-playable">
-                            Fully Playable
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- Learning Outcomes -->
-            <div class="deck-card-body">
-
-                <p class="deck-outcomes-heading">
-                    LEARNING OUTCOMES
-                </p>
-
-                <ul class="deck-outcomes">
-
-                    <li>
-                        Identify subatomic particles
-                    </li>
-
-                    <li>
-                        Describe electron arrangement
-                    </li>
-
-                    <li>
-                        Interpret the atomic number
-                    </li>
-
-                </ul>
-
-
-                <!-- Play Button -->
-                    <button
-                        type="button"
-                        class="deck-play-button"
-                        id="atomicDatasetBtn"
-                    >
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <path
-                                d="M8 5L19 12L8 19V5Z"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linejoin="round"
-                            />
-                        </svg>
-                    
-                        <span>Start Game</span>
-                    </button>
-
-            </div>
-        </article>
-
-        <!-- ========================================
-             CARD 2 â€” LOCKED
-        ========================================= -->
-
-        <article
-            class="deck-card deck-card-locked reveal"
-            data-delay="260"
-        >
-
-            <div class="deck-card-top deck-card-top-locked">
-
-                <div class="deck-card-heading-row">
-
-                    <div class="deck-icon deck-icon-locked">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <rect
-                                x="5"
-                                y="10"
-                                width="14"
-                                height="10"
-                                rx="2"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            />
-
-                            <path
-                                d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                            />
-                        </svg>
-
-                    </div>
-
-
-                    <div class="deck-heading-text">
-
-                        <h3 class="deck-title">
-                            Chemical Bonding &amp;<br>
-                            Lattices
-                        </h3>
-
-                        <p class="deck-level">
-                            GCSE Foundation &amp; Higher
-                        </p>
-
-                        <span class="deck-status deck-status-locked">
-                            &#128274; Coming Soon
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="deck-card-body">
-
-                <p class="deck-outcomes-heading">
-                    LEARNING OUTCOMES
-                </p>
-
-                <ul class="deck-outcomes">
-
-                    <li>
-                        Ionic bonding structures
-                    </li>
-
-                    <li>
-                        Covalent bonding patterns
-                    </li>
-
-                    <li>
-                        Metallic lattice properties
-                    </li>
-
-                </ul>
-
-
-                <button
-                    type="button"
-                    class="deck-locked-button"
-                    disabled
-                >
-                    &#128274;
-                    <span>Unlock Coming Soon</span>
-                </button>
-
-            </div>
-
-        </article>
-        <!-- ========================================
-             CARD 3  LOCKED
-        ========================================= -->
-
-        <article
-            class="deck-card deck-card-locked reveal"
-            data-delay="360"
-        >
-
-            <div class="deck-card-top deck-card-top-locked">
-
-                <div class="deck-card-heading-row">
-
-                    <div class="deck-icon deck-icon-locked">
-
-                        <svg
-                            viewBox="0 0 24 24"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                            aria-hidden="true"
-                        >
-                            <rect
-                                x="5"
-                                y="10"
-                                width="14"
-                                height="10"
-                                rx="2"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                            />
-
-                            <path
-                                d="M8 10V7C8 4.8 9.8 3 12 3C14.2 3 16 4.8 16 7V10"
-                                stroke="currentColor"
-                                stroke-width="1.8"
-                                stroke-linecap="round"
-                            />
-                        </svg>
-
-                    </div>
-
-
-                    <div class="deck-heading-text">
-
-                        <h3 class="deck-title">
-                            The Periodic Table &amp;<br>
-                            Groups
-                        </h3>
-
-                        <p class="deck-level">
-                            GCSE Higher
-                        </p>
-
-                        <span class="deck-status deck-status-locked">
-                           &#128274;  Coming Soon
-                        </span>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div class="deck-card-body">
-
-                <p class="deck-outcomes-heading">
-                    LEARNING OUTCOMES
-                </p>
-
-                <ul class="deck-outcomes">
-
-                    <li>
-                        Group 1 alkali metals
-                    </li>
-
-                    <li>
-                        Group 7 halogens
-                    </li>
-
-                    <li>
-                        Transition metal properties
-                    </li>
-
-                </ul>
-
-
-                <button
-                    type="button"
-                    class="deck-locked-button"
-                    disabled
-                >
-                    &#128274;
-                    <span>Unlock Coming Soon</span>
-                </button>
-            </div>
-        </article>
+    <div class="deck-cards-grid" id="deckCardsGrid">
+        <p style="padding: 24px; color: #64748B; font-weight: 700;">Loading decks…</p>
     </div>
+
 </section>
+
+
+<!-- ============================================================
+     LEVEL SELECT MODAL — replaces the old easy/medium/hard picker.
+     Lists every level for the chosen deck, grouped by difficulty,
+     progressively unlocked as earlier levels are completed.
+============================================================ -->
+
+<div
+    id="levelSelectModal"
+    style="
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(15,23,42,0.55);
+        backdrop-filter: blur(6px);
+        z-index: 9999;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+    "
+>
+    <div style="
+        width: 100%;
+        max-width: 560px;
+        max-height: 85vh;
+        overflow-y: auto;
+        background: #FFFFFF;
+        border-radius: 24px;
+        padding: 32px 28px;
+        box-shadow: 0 28px 70px rgba(15,23,42,0.22);
+        font-family: 'Nunito', sans-serif;
+        animation: diffModalIn 0.25s ease;
+    ">
+        <div style="display:flex; align-items:flex-start; justify-content:space-between; margin-bottom: 6px;">
+            <div>
+                <h3 style="margin:0 0 4px; color:#0F172A; font-size:22px; font-weight:900;" id="levelModalTitle">
+                    Choose a Level
+                </h3>
+                <p style="margin:0; color:#64748B; font-size:13px; font-weight:600;">
+                    Complete a level to unlock the next one.
+                </p>
+            </div>
+            <button
+                type="button"
+                id="closeLevelModal"
+                aria-label="Close"
+                style="
+                    flex-shrink:0; width:32px; height:32px; border:none; border-radius:8px;
+                    background:#F1F5F9; color:#64748B; font-size:16px; font-weight:900; cursor:pointer;
+                "
+            >✕</button>
+        </div>
+
+        <div id="levelModalGroups" style="margin-top: 18px; display:flex; flex-direction:column; gap: 22px;"></div>
+    </div>
+</div>
+
 
     </main>
 
@@ -574,149 +305,73 @@
 
 
 
-<!-- ============================================================
-     DIFFICULTY PICKER MODAL
-============================================================ -->
-
-<div
-    id="difficultyModal"
-    style="
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(15,23,42,0.55);
-        backdrop-filter: blur(6px);
-        z-index: 9999;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    "
->
-    <div style="
-        width: 100%;
-        max-width: 460px;
-        background: #FFFFFF;
-        border-radius: 24px;
-        padding: 36px 32px 32px;
-        box-shadow: 0 28px 70px rgba(15,23,42,0.22);
-        text-align: center;
-        font-family: 'Nunito', sans-serif;
-        animation: diffModalIn 0.25s ease;
-    ">
-
-        <div style="
-            width: 68px; height: 68px;
-            margin: 0 auto 20px;
-            border-radius: 20px;
-            background: linear-gradient(135deg, #EEF2FF, #E0EAFF);
-            color: #4F46E5;
-            display: flex; align-items: center; justify-content: center;
-            font-size: 32px;
-        ">⚛️</div>
-
-        <h3 style="margin:0 0 6px; color:#0F172A; font-size:22px; font-weight:900;">
-            Choose Difficulty
-        </h3>
-        <p style="margin:0 0 28px; color:#64748B; font-size:14px; line-height:1.6;">
-            Select a level that suits you — harder modes include more complex cards
-            from the KS3 chemistry dataset.
-        </p>
-
-        <!-- DIFFICULTY OPTIONS -->
-        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:28px;" id="difficultyOptions">
-
-            <button type="button"
-                class="diff-btn"
-                data-difficulty="easy"
-                style="
-                    width:100%; padding:16px 20px;
-                    border:2px solid #BBF7D0; border-radius:14px;
-                    background:#F0FDF4; cursor:pointer;
-                    display:flex; align-items:center; gap:14px;
-                    font-family:'Nunito',sans-serif;
-                    transition:border-color 0.15s,box-shadow 0.15s;
-                "
-            >
-                <span style="font-size:24px;">🌱</span>
-                <div style="text-align:left;">
-                    <div style="font-size:15px; font-weight:900; color:#14532D;">Easy</div>
-                    <div style="font-size:12px; color:#4B7562; font-weight:600;">KS3 Easy rows only — great for beginners</div>
-                </div>
-            </button>
-
-            <button type="button"
-                class="diff-btn"
-                data-difficulty="medium"
-                style="
-                    width:100%; padding:16px 20px;
-                    border:2px solid #FDE68A; border-radius:14px;
-                    background:#FFFBEB; cursor:pointer;
-                    display:flex; align-items:center; gap:14px;
-                    font-family:'Nunito',sans-serif;
-                    transition:border-color 0.15s,box-shadow 0.15s;
-                "
-            >
-                <span style="font-size:24px;">🔬</span>
-                <div style="text-align:left;">
-                    <div style="font-size:15px; font-weight:900; color:#78350F;">Medium</div>
-                    <div style="font-size:12px; color:#92400E; font-weight:600;">Easy + Medium cards — for developing chemists</div>
-                </div>
-            </button>
-
-            <button type="button"
-                class="diff-btn"
-                data-difficulty="hard"
-                style="
-                    width:100%; padding:16px 20px;
-                    border:2px solid #FECACA; border-radius:14px;
-                    background:#FFF5F5; cursor:pointer;
-                    display:flex; align-items:center; gap:14px;
-                    font-family:'Nunito',sans-serif;
-                    transition:border-color 0.15s,box-shadow 0.15s;
-                "
-            >
-                <span style="font-size:24px;">🔥</span>
-                <div style="text-align:left;">
-                    <div style="font-size:15px; font-weight:900; color:#7F1D1D;">Hard</div>
-                    <div style="font-size:12px; color:#991B1B; font-weight:600;">All KS3 cards — for chemistry experts</div>
-                </div>
-            </button>
-        </div>
-
-        <button
-            type="button"
-            id="closeDiffModal"
-            style="
-                width:100%; border:1px solid #E2E8F0; border-radius:12px;
-                background:#F8FAFC; color:#64748B;
-                padding:12px 20px;
-                font-family:'Nunito',sans-serif; font-size:14px; font-weight:700;
-                cursor:pointer;
-            "
-        >Cancel</button>
-
-    </div>
-</div>
 
 <style>
 @keyframes diffModalIn {
     from { opacity:0; transform: scale(0.92) translateY(16px); }
     to   { opacity:1; transform: scale(1)    translateY(0); }
 }
-.diff-btn:hover {
-    box-shadow: 0 4px 16px rgba(20,33,61,0.10);
+
+.level-tile {
+    width: 100%;
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 14px;
+    border-radius: 12px;
+    border: 2px solid #E2E8F0;
+    background: #F8FAFC;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px; font-weight: 800;
+    color: #334155;
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.level-tile:hover:not(:disabled) {
+    border-color: #2563EB;
+    box-shadow: 0 4px 12px rgba(37,99,255,0.15);
+    transform: translateY(-1px);
+}
+.level-tile:disabled {
+    cursor: not-allowed;
+    opacity: 0.55;
+}
+.level-tile.completed {
+    border-color: #86EFAC;
+    background: #F0FDF4;
+    color: #14532D;
+}
+.level-tile .level-tile-icon { font-size: 15px; flex-shrink: 0; }
+
+.difficulty-group-heading {
+    display: flex; align-items: center; gap: 8px;
+    margin-bottom: 10px;
+    font-size: 13px; font-weight: 900;
+    text-transform: uppercase; letter-spacing: 0.5px;
+}
+.level-tile-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 8px;
 }
 </style>
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
-    const modal      = document.getElementById("difficultyModal");
-    const closeBtn   = document.getElementById("closeDiffModal");
-    const startBtn   = document.getElementById("atomicDatasetBtn");
-    const diffBtns   = document.querySelectorAll(".diff-btn");
+    const deckCardsGrid   = document.getElementById("deckCardsGrid");
+    const decksCountEl    = document.getElementById("decksAvailableCount");
+    const levelModal       = document.getElementById("levelSelectModal");
+    const closeLevelModal  = document.getElementById("closeLevelModal");
+    const levelModalTitle  = document.getElementById("levelModalTitle");
+    const levelModalGroups = document.getElementById("levelModalGroups");
 
-    // Determine subject from active tab
+    const DECK_ICON = `
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
+            <ellipse cx="12" cy="12" rx="8" ry="3.5" stroke="currentColor" stroke-width="1.5" />
+            <ellipse cx="12" cy="12" rx="8" ry="3.5" transform="rotate(60 12 12)" stroke="currentColor" stroke-width="1.5" />
+            <ellipse cx="12" cy="12" rx="8" ry="3.5" transform="rotate(120 12 12)" stroke="currentColor" stroke-width="1.5" />
+        </svg>`;
+
     function getSubject() {
         const active = document.querySelector(".subject-tab.active");
         if (!active) return "chemistry";
@@ -726,30 +381,155 @@ document.addEventListener("DOMContentLoaded", function () {
         return "chemistry";
     }
 
-    // Open modal
-    if (startBtn) {
-        startBtn.addEventListener("click", function () {
-            modal.style.display = "flex";
+    // A tier is unlocked only once the tier before it is fully
+    // cleared — Easy level 1 is always open. Levels within a tier
+    // unlock one at a time as the previous one is completed.
+    function computeUnlockState(difficulties, highestCompleted) {
+        let previousTierCleared = true;
+        const state = {};
+        difficulties.forEach(tier => {
+            const diff = tier.difficulty;
+            const maxLevels = tier.max_levels;
+            const highest = highestCompleted[diff] || 0;
+            const unlockedCount = previousTierCleared ? Math.min(maxLevels, highest + 1) : 0;
+            state[diff] = { maxLevels, unlockedCount, highest };
+            previousTierCleared = previousTierCleared && highest >= maxLevels && maxLevels > 0;
         });
+        return state;
+    }
+
+    function openLevelModal(deck) {
+        levelModalTitle.textContent = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+        const token = localStorage.getItem("auth_token");
+        const progressPromise = token
+            ? fetch(`/api/gameplay/progress?deck=${encodeURIComponent(deck.deck)}&key_stage=${encodeURIComponent(deck.key_stage)}`, {
+                headers: { Accept: "application/json", Authorization: `Bearer ${token}` },
+            }).then(r => r.ok ? r.json() : { data: { highest_completed_level: {} } }).catch(() => ({ data: { highest_completed_level: {} } }))
+            : Promise.resolve({ data: { highest_completed_level: {} } });
+
+        levelModalGroups.innerHTML = `<p style="color:#94A3B8; font-weight:700; padding: 12px 0;">Loading your progress…</p>`;
+        levelModal.style.display = "flex";
+
+        progressPromise.then(res => {
+            const highestCompleted = (res.data && res.data.highest_completed_level) || {};
+            const unlockState = computeUnlockState(deck.difficulties, highestCompleted);
+
+            levelModalGroups.innerHTML = "";
+
+            const tierColors = {
+                Easy:   { text: "#14532D", dot: "🌱" },
+                Medium: { text: "#78350F", dot: "🔬" },
+                Hard:   { text: "#7F1D1D", dot: "🔥" },
+            };
+
+            deck.difficulties.forEach(tier => {
+                if (tier.max_levels === 0) return;
+
+                const { unlockedCount, highest } = unlockState[tier.difficulty];
+                const colors = tierColors[tier.difficulty] || { text: "#1E293B", dot: "●" };
+
+                const group = document.createElement("div");
+                group.innerHTML = `
+                    <div class="difficulty-group-heading" style="color:${colors.text};">
+                        <span>${colors.dot}</span>
+                        <span>${tier.difficulty} — ${tier.max_levels} levels</span>
+                    </div>
+                    <div class="level-tile-grid"></div>
+                `;
+                const grid = group.querySelector(".level-tile-grid");
+
+                for (let level = 1; level <= tier.max_levels; level++) {
+                    const isCompleted = level <= highest;
+                    const isUnlocked  = level <= unlockedCount;
+
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.className = "level-tile" + (isCompleted ? " completed" : "");
+                    btn.disabled = !isUnlocked;
+                    btn.innerHTML = `
+                        <span class="level-tile-icon">${isCompleted ? "✓" : (isUnlocked ? "▶" : "🔒")}</span>
+                        <span>Lvl ${level}</span>
+                    `;
+                    if (isUnlocked) {
+                        btn.addEventListener("click", () => {
+                            const subject = getSubject();
+                            window.location.href =
+                                `gameplay.html?subject=${encodeURIComponent(subject)}&deck=${encodeURIComponent(deck.deck)}&key_stage=${encodeURIComponent(deck.key_stage)}&difficulty=${encodeURIComponent(tier.difficulty.toLowerCase())}&level=${level}`;
+                        });
+                    }
+                    grid.appendChild(btn);
+                }
+
+                levelModalGroups.appendChild(group);
+            });
+        });
+    }
+
+    function renderDeckCard(deck) {
+        const card = document.createElement("article");
+        card.className = "deck-card deck-card-playable";
+
+        const title = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+
+        card.innerHTML = `
+            <div class="deck-card-top">
+                <div class="deck-card-heading-row">
+                    <div class="deck-icon deck-icon-playable">${DECK_ICON}</div>
+                    <div class="deck-heading-text">
+                        <h3 class="deck-title">${title}</h3>
+                        <p class="deck-level">${deck.key_stage} · ${deck.total_levels} levels across Easy, Medium &amp; Hard</p>
+                        <span class="deck-status deck-status-playable">Fully Playable</span>
+                    </div>
+                </div>
+            </div>
+            <div class="deck-card-body">
+                <p class="deck-outcomes-heading">DIFFICULTY BREAKDOWN</p>
+                <ul class="deck-outcomes">
+                    ${deck.difficulties.filter(d => d.max_levels > 0).map(d => `<li>${d.difficulty}: ${d.max_levels} levels</li>`).join("")}
+                </ul>
+                <button type="button" class="deck-play-button">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <path d="M8 5L19 12L8 19V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                    </svg>
+                    <span>Choose a Level</span>
+                </button>
+            </div>
+        `;
+
+        card.querySelector(".deck-play-button").addEventListener("click", () => openLevelModal(deck));
+        return card;
+    }
+
+    function loadDecks() {
+        fetch("/api/chemistry/decks", { headers: { Accept: "application/json" } })
+            .then(r => r.json())
+            .then(res => {
+                const decks = (res.data || []).filter(d => d.total_levels > 0);
+
+                deckCardsGrid.innerHTML = "";
+                if (decks.length === 0) {
+                    deckCardsGrid.innerHTML = `<p style="padding:24px; color:#64748B; font-weight:700;">No decks available yet.</p>`;
+                } else {
+                    decks.forEach(deck => deckCardsGrid.appendChild(renderDeckCard(deck)));
+                }
+
+                if (decksCountEl) {
+                    decksCountEl.textContent = `${decks.length} deck${decks.length !== 1 ? "s" : ""} available`;
+                }
+            })
+            .catch(() => {
+                deckCardsGrid.innerHTML = `<p style="padding:24px; color:#EF4444; font-weight:700;">Couldn't load decks. Please refresh.</p>`;
+                if (decksCountEl) decksCountEl.textContent = "0 decks available";
+            });
     }
 
     // Close modal
-    if (closeBtn) {
-        closeBtn.addEventListener("click", () => { modal.style.display = "none"; });
+    if (closeLevelModal) {
+        closeLevelModal.addEventListener("click", () => { levelModal.style.display = "none"; });
     }
-    modal?.addEventListener("click", e => {
-        if (e.target === modal) modal.style.display = "none";
-    });
-
-    // Difficulty selected → navigate
-    diffBtns.forEach(btn => {
-        btn.addEventListener("click", function () {
-            const diff    = this.dataset.difficulty;
-            const subject = getSubject();
-            modal.style.display = "none";
-            window.location.href =
-                `gameplay.html?subject=${encodeURIComponent(subject)}&deck=periodic-table-groups&key_stage=KS3&difficulty=${encodeURIComponent(diff)}`;
-        });
+    levelModal?.addEventListener("click", e => {
+        if (e.target === levelModal) levelModal.style.display = "none";
     });
 
     // Subject tab toggle
@@ -765,6 +545,7 @@ document.addEventListener("DOMContentLoaded", function () {
             this.style.color      = "white";
             this.style.border     = "none";
             this.classList.add("active");
+            loadDecks();
         });
     });
 
@@ -776,6 +557,8 @@ document.addEventListener("DOMContentLoaded", function () {
         firstTab.style.color      = "white";
         firstTab.style.border     = "none";
     }
+
+    loadDecks();
 
 });
 </script>

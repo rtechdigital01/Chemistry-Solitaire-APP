@@ -441,6 +441,8 @@ document.addEventListener("DOMContentLoaded", () => {
     function positionPileCards(container) {
         const cards = Array.from(container.querySelectorAll(".game-card"));
         cards.forEach((c, idx) => {
+            c.style.display = "";
+            c.style.left = "0px";
             c.style.top = `${idx * PILE_OFFSET_PX}px`;
             c.style.zIndex = String(idx + 1);
             if (idx < cards.length - 1) {
@@ -683,8 +685,13 @@ document.addEventListener("DOMContentLoaded", () => {
             selectedCard.classList.add("card-shake");
             setTimeout(() => selectedCard?.classList.remove("card-shake"), 600);
 
-            setBanner("Not quite — try a different category.", "error");
-            showGamePopup("That card doesn't belong in this category. Give it another try!", "error");
+            if (movesBudget - moves <= 0) {
+                setBanner("⏱️ Out of moves!", "error");
+                showGameOverOverlay();
+            } else {
+                setBanner("Not quite — try a different category.", "error");
+                showGamePopup("That card doesn't belong in this category. Give it another try!", "error");
+            }
         }
     }
 
@@ -842,6 +849,86 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     /* ============================================================
+       GAME OVER — moves budget exhausted before the level is done.
+       Locks the board and offers a Restart, same retry-tracking
+       path as the Restart button.
+    ============================================================ */
+
+    function showGameOverOverlay() {
+        if (document.getElementById("gameOverOverlay") || document.getElementById("congratsOverlay")) return;
+
+        document.querySelectorAll(".game-card").forEach(c => {
+            c.style.pointerEvents = "none";
+        });
+
+        const overlay = document.createElement("div");
+        overlay.id = "gameOverOverlay";
+        overlay.style.cssText = `
+            position: fixed; inset: 0; z-index: 99999;
+            background: rgba(14, 30, 65, 0.82);
+            backdrop-filter: blur(8px);
+            display: flex; align-items: center; justify-content: center;
+            animation: popupFadeIn 0.35s ease;
+        `;
+
+        overlay.innerHTML = `
+            <div style="
+                background: #FFF;
+                border-radius: 28px;
+                padding: 44px 36px 36px;
+                max-width: 420px; width: 92%;
+                text-align: center;
+                box-shadow: 0 32px 80px rgba(14,30,65,0.28);
+                font-family: Nunito, sans-serif;
+                animation: popupSlideUp 0.3s ease;
+            ">
+                <div style="font-size: 64px; margin-bottom: 16px; line-height: 1;">⏱️</div>
+                <h2 style="margin: 0 0 10px; color: #14213D; font-size: 26px; font-weight: 900;">
+                    Out of Moves!
+                </h2>
+                <p style="margin: 0 0 6px; color: #4B5563; font-size: 15px; font-weight: 600; line-height: 1.5;">
+                    You matched <strong>${cardsPlaced}</strong> of <strong>${totalCards}</strong> cards before running out of moves.
+                </p>
+                <div style="
+                    display: flex; justify-content: center; gap: 28px;
+                    margin: 22px 0 28px;
+                    padding: 16px 20px;
+                    background: #FFF5F5;
+                    border-radius: 16px;
+                    border: 1px solid #FFE0E0;
+                ">
+                    <div style="text-align:center;">
+                        <div style="font-size: 26px; font-weight: 900; color: #F89E19;">${score}</div>
+                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Points</div>
+                    </div>
+                    <div style="text-align:center;">
+                        <div style="font-size: 26px; font-weight: 900; color: #16A34A;">${cardsPlaced}</div>
+                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Cards</div>
+                    </div>
+                </div>
+                <button id="gameOverRestartBtn" style="
+                    width: 100%; height: 52px;
+                    border: none; border-radius: 999px;
+                    background: linear-gradient(135deg, #EF4444, #DC2626);
+                    color: #FFF;
+                    font-family: Nunito, sans-serif;
+                    font-size: 16px; font-weight: 900;
+                    cursor: pointer;
+                    box-shadow: 0 8px 20px rgba(239,68,68,0.3);
+                    transition: opacity 0.15s;
+                ">↻ Restart Level</button>
+            </div>
+        `;
+
+        document.body.appendChild(overlay);
+
+        overlay.querySelector("#gameOverRestartBtn").addEventListener("click", () => {
+            sessionStorage.setItem(retryStorageKey, String(retries + 1));
+            window.location.reload();
+        });
+    }
+
+    /* ============================================================
        AFTER A CARD IS PLACED
     ============================================================ */
 
@@ -863,6 +950,9 @@ document.addEventListener("DOMContentLoaded", () => {
         if (remaining === 0) {
             setBanner("🎊 All cards matched! Taking you to results…", "success");
             setTimeout(() => showCongratsAndRedirect(), categoryComplete ? 1500 : 600);
+        } else if (movesBudget - moves <= 0) {
+            setBanner("⏱️ Out of moves!", "error");
+            setTimeout(() => showGameOverOverlay(), categoryComplete ? 1500 : 600);
         } else if (!categoryComplete) {
             setBanner(`✓ "${cardName}" placed! ${remaining} card${remaining !== 1 ? "s" : ""} left.`, "success");
         }
@@ -1055,7 +1145,12 @@ document.addEventListener("DOMContentLoaded", () => {
             revealTopCards();
             renderShuffleRevealPile();
 
-            setBanner(`🔓 "${category.name}" unlocked! Start matching its cards.`, "success");
+            if (movesBudget - moves <= 0) {
+                setBanner("⏱️ Out of moves!", "error");
+                showGameOverOverlay();
+            } else {
+                setBanner(`🔓 "${category.name}" unlocked! Start matching its cards.`, "success");
+            }
         });
     }
 
