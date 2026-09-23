@@ -40,6 +40,66 @@ class CategoryController extends Controller
 
 
     /**
+     * List every playable deck, with the real, dataset-derived level
+     * count for each difficulty tier (5 categories per level — the
+     * same rule `board()` uses to compute `max_levels`).
+     */
+    public function decks(Request $request): JsonResponse
+    {
+        $categoryCount = 5;
+
+        $rows = Category::query()
+            ->select('deck', 'key_stage', 'difficulty', 'card_pool')
+            ->get()
+            ->filter(function ($category) {
+                return is_array($category->card_pool)
+                    && count($category->card_pool) >= 3;
+            })
+            ->groupBy(function ($row) {
+                return $row->deck . '|' . $row->key_stage;
+            });
+
+        $decks = $rows->map(function ($rows, $key) use ($categoryCount) {
+            [$deck, $keyStage] = explode('|', $key);
+
+            $byDifficulty = $rows->groupBy(function ($row) {
+                return ucfirst(strtolower($row->difficulty));
+            });
+
+            $levels = [];
+            $totalLevels = 0;
+
+            foreach (['Easy', 'Medium', 'Hard'] as $difficulty) {
+                $count = ($byDifficulty->get($difficulty) ?? collect())->count();
+                $maxLevels = $count >= $categoryCount
+                    ? intdiv($count, $categoryCount)
+                    : 0;
+
+                $levels[] = [
+                    'difficulty' => $difficulty,
+                    'available_categories' => $count,
+                    'max_levels' => $maxLevels,
+                ];
+
+                $totalLevels += $maxLevels;
+            }
+
+            return [
+                'deck' => $deck,
+                'key_stage' => $keyStage,
+                'categories_per_level' => $categoryCount,
+                'total_levels' => $totalLevels,
+                'difficulties' => $levels,
+            ];
+        })->values();
+
+        return $this->successResponse(
+            $decks,
+            'Decks loaded successfully'
+        );
+    }
+
+    /**
      * Generate a random Solitaire game board.
      *
      * A level is a closed universe of selected category definitions: the

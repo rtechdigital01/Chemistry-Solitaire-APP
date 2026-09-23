@@ -12,3 +12,8 @@ Route::get(
     '/chemistry/board',
     [CategoryController::class, 'board']
 );
+
+Route::get(
+    '/chemistry/decks',
+    [CategoryController::class, 'decks']
+);
