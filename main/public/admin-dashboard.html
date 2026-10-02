@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Science Solitaire</title>
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/admin-dashboard.css">
+</head>
+
+<body>
+<script>
+    const adminToken = localStorage.getItem("admin_token");
+    const adminUser = JSON.parse(
+        localStorage.getItem("admin_user") || "null"
+    );
+
+    if (
+        !adminToken ||
+        !adminUser ||
+        adminUser.role !== "admin"
+    ) {
+        window.location.replace("admin-login.html");
+    }
+</script>
+
+<div class="admin-layout">
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <h2>Science Solitaire</h2>
+            <span>ADMIN</span>
+        </div>
+
+        <nav class="admin-nav">
+
+            <button class="admin-nav-btn active" data-tab="overview">
+                Overview
+            </button>
+
+            <button class="admin-nav-btn" data-tab="students">
+                Students
+            </button>
+
+            <button class="admin-nav-btn" data-tab="teachers">
+                Teachers
+            </button>
+
+            <button class="admin-nav-btn" data-tab="gameplay">
+                Gameplay
+            </button>
+
+            <button class="admin-nav-btn" data-tab="feedback">
+                Feedback
+            </button>
+
+            <button class="admin-nav-btn" data-tab="coins">
+                Points & Coins
+            </button>
+
+            <button class="admin-nav-btn" data-tab="payments">
+                Payments
+            </button>
+
+            <button class="admin-nav-btn" data-tab="reports">
+                Reports
+            </button>
+
+            <button class="admin-nav-btn" data-tab="settings">
+                Settings
+            </button>
+        </nav>
+        <button id="adminLogoutBtn" class="admin-logout-btn">
+            Log Out
+        </button>
+    </aside>
+
+
+
+
+    <main class="admin-main">
+        
+        
+
+<section class="admin-tab-panel active" id="overview">
+    <h1>Overview</h1>
+    <p class="admin-section-subtitle">
+        Live platform activity and registration summary.
+    </p>
+    <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+            <span>Total Users</span>
+            <strong id="totalUsers">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Students</span>
+            <strong id="totalStudents">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Teachers</span>
+            <strong id="totalTeachers">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Gameplay Attempts</span>
+            <strong id="totalGameplayAttempts">0</strong>
+        </div>
+    </div>
+</section>
+
+
+<section class="admin-tab-panel" id="students">
+    <h1>Students</h1>
+    <p class="admin-section-subtitle">
+        Registered student accounts on Science Solitaire.
+    </p>
+    <div class="admin-table-card">
+
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Education Level</th>
+                        <th>Key Stage</th>
+                        <th>Coins</th>
+                        <th>Registered</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <tr>
+                        <td colspan="7">Loading students...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+<section class="admin-tab-panel" id="teachers">
+    <h1>Teachers</h1>
+    <p class="admin-section-subtitle">
+        Registered teacher accounts on Science Solitaire. 
+    </p>
+    <div class="admin-table-card">
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Registered</th>
+                    </tr>
+                </thead>
+                <tbody id="teachersTableBody">
+                    <tr>
+                        <td colspan="4">Loading teachers...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <section class="admin-tab-panel" id="gameplay">
+            <h1>Gameplay</h1>
+        </section>
+
+        <section class="admin-tab-panel" id="feedback">
+            <h1>Feedback</h1>
+        </section>
+
+        <section class="admin-tab-panel" id="coins">
+            <h1>Points & Coins</h1>
+        </section>
+
+        <section class="admin-tab-panel" id="payments">
+            <h1>Payments</h1>
+        </section>
+
+        <section class="admin-tab-panel" id="reports">
+            <h1>Reports</h1>
+        </section>
+
+        <section class="admin-tab-panel" id="settings">
+            <h1>Settings</h1>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="./js/admin-dashboard.js"></script>
+
+</body>
+</html>

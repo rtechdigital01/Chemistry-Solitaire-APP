@@ -21,12 +21,33 @@ document.addEventListener("DOMContentLoaded", () => {
     const movesBadge  = document.getElementById("movesValueBadge");
     const topHintBtn  = document.getElementById("topHintBtn");
     const topHintLabel= document.getElementById("topHintLabel");
+    const viewResultsBtn = document.getElementById("viewResultsBtn");
 
     const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
     const movesElement = statValues[1];
     const cardsElement = statValues[2];
 
+
+
+    const correctSound = new Audio("./sounds/correct.wav");
+    function playCorrectSound() {
+        correctSound.currentTime = 0;
+        correctSound.play().catch(() => {});
+    }
+    
+    const wrongSound = new Audio("./sounds/wrong.wav");
+    function playWrongSound() {
+        wrongSound.currentTime = 0;
+        wrongSound.play().catch(() => {});
+    }
+    
+    const shuffleSound = new Audio("./sounds/shuffle.wav");
+    function playShuffleSound() {
+        shuffleSound.currentTime = 0;
+        shuffleSound.play().catch(() => {});
+    }
+    
     /* ============================================================
        URL PARAMS
     ============================================================ */
@@ -37,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const keyStage    = params.get("key_stage")  || "KS3";
     const difficulty  = params.get("difficulty") || "easy";
     const level       = parseInt(params.get("level")) || 1;
-    const categoryCount = parseInt(params.get("categories")) || 5;
+    const categoryCount = parseInt(params.get("categories")) || 6;
 
     /* ============================================================
        GAME STATE
@@ -58,7 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
        reveal pile never counts as a match.
     ============================================================ */
 
-    const GAME_PILE_COUNT   = 4;
+    const GAME_PILE_COUNT   = 6;
     const INITIAL_PILE_SIZE = 3;
     const PILE_OFFSET_PX    = 16;
     const MAX_HINTS_PER_LEVEL = 3;
@@ -248,6 +269,38 @@ document.addEventListener("DOMContentLoaded", () => {
             movesBadge.classList.add("bump");
         }
     }
+    
+    
+    function buyExtraMoves(numberOfMoves) {
+    const costPerMove = 3;
+    const totalCost = numberOfMoves * costPerMove;
+
+    if (score < totalCost) {
+        showGamePopup(
+            `You need ${totalCost} points to buy ${numberOfMoves} move${numberOfMoves > 1 ? "s" : ""}.`,
+            "error"
+        );
+        return;
+    }
+
+    score -= totalCost;
+    movesBudget += numberOfMoves;
+
+    updateScore();
+    updateMovesBadge();
+
+    document.getElementById("gameOverOverlay")?.remove();
+
+    document.querySelectorAll(".game-card").forEach(card => {
+        card.style.pointerEvents = "";
+    });
+
+    setBanner(
+        `You bought ${numberOfMoves} extra move${numberOfMoves > 1 ? "s" : ""} for ${totalCost} points. Keep going!`,
+        "success"
+    );
+}
+    
 
     function updateShuffleDeckBadge() {
         if (shuffleDeckCount) shuffleDeckCount.textContent = shuffleDeckCards.length;
@@ -656,6 +709,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const stackCat = stackEl.dataset.categoryId;
 
         if (cardCat === stackCat) {
+            playCorrectSound();
             // ✅ CORRECT — only a category-stack placement ever completes a card
             score += 10;
             cardsPlaced++;
@@ -681,6 +735,7 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
             // ❌ WRONG
             incorrectMatches++;
+            playWrongSound();
             selectedCard.classList.remove("card-selected");
             selectedCard.classList.add("card-shake");
             setTimeout(() => selectedCard?.classList.remove("card-shake"), 600);
@@ -698,6 +753,74 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ============================================================
        SUBMIT SCORE + NAVIGATE TO RESULTS
     ============================================================ */
+    async function saveCompletedAttempt() {
+    const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
+    const token = localStorage.getItem("auth_token");
+
+    const localResult = {
+        topic: deck,
+        subject,
+        deck,
+        level,
+        score,
+        moves,
+        correct_matches: cardsPlaced,
+        incorrect_matches: incorrectMatches,
+        hints_used: hintsUsed,
+        total_cards: totalCards,
+        retries,
+        time_spent: timeSpent,
+        completed: true,
+        difficulty,
+        key_stage: keyStage,
+        max_levels_per_difficulty: maxLevelsForDifficulty,
+    };
+
+    localStorage.setItem(
+        "latest_game_result",
+        JSON.stringify(localResult)
+    );
+
+    if (!token) return false;
+
+    try {
+        const res = await fetch("/api/gameplay/attempt", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json",
+                "Authorization": `Bearer ${token}`,
+            },
+            body: JSON.stringify(localResult),
+        });
+
+        const result = await res.json();
+
+        if (!res.ok) {
+            throw new Error(
+                result.message || "Unable to save completed level."
+            );
+        }
+
+        if (result.data) {
+            localStorage.setItem(
+                "latest_game_result",
+                JSON.stringify({
+                    ...localResult,
+                    ...result.data
+                })
+            );
+        }
+
+        sessionStorage.removeItem(retryStorageKey);
+
+        return true;
+
+    } catch (error) {
+        console.error("Save completed level error:", error);
+        return false;
+    }
+}
 
     async function submitAndGoToResults() {
         const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
@@ -820,7 +943,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     cursor: pointer;
                     box-shadow: 0 8px 20px rgba(37,99,255,0.3);
                     transition: opacity 0.15s;
-                ">View My Results →</button>
+                ">Continue →</button>
                 <p id="congratsCountdown" style="
                     margin: 12px 0 0;
                     font-size: 12px; font-weight: 700;
@@ -838,13 +961,41 @@ document.addEventListener("DOMContentLoaded", () => {
             if (countdownEl) countdownEl.textContent = `Redirecting in ${secs}s…`;
             if (secs <= 0) {
                 clearInterval(timer);
-                submitAndGoToResults();
+            
+                saveCompletedAttempt().then(saved => {
+                    if (!saved) return;
+            
+                    overlay.remove();
+            
+                    if (nextLevelBtn) {
+                        nextLevelBtn.disabled = false;
+                    }
+            
+                    setBanner(
+                        "🎉 Level complete! Click Next Level to continue.",
+                        "success"
+                    );
+                });
             }
         }, 1000);
 
-        overlay.querySelector("#congratsGoBtn").addEventListener("click", () => {
+        overlay.querySelector("#congratsGoBtn").addEventListener("click", async () => {
             clearInterval(timer);
-            submitAndGoToResults();
+        
+            const saved = await saveCompletedAttempt();
+        
+            if (!saved) return;
+        
+            overlay.remove();
+        
+            if (nextLevelBtn) {
+                nextLevelBtn.disabled = false;
+            }
+        
+            setBanner(
+                "🎉 Level complete! Click Next Level to continue.",
+                "success"
+            );
         });
     }
 
@@ -906,27 +1057,75 @@ document.addEventListener("DOMContentLoaded", () => {
                         <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Cards</div>
                     </div>
                 </div>
-                <button id="gameOverRestartBtn" style="
-                    width: 100%; height: 52px;
-                    border: none; border-radius: 999px;
-                    background: linear-gradient(135deg, #EF4444, #DC2626);
-                    color: #FFF;
-                    font-family: Nunito, sans-serif;
-                    font-size: 16px; font-weight: 900;
-                    cursor: pointer;
-                    box-shadow: 0 8px 20px rgba(239,68,68,0.3);
-                    transition: opacity 0.15s;
-                ">↻ Restart Level</button>
+                    <div style="
+                        display:flex;
+                        gap:10px;
+                        margin-top:24px;
+                    ">
+                        <button id="buyOneMoveBtn" style="
+                            flex:1;
+                            height:48px;
+                            border:none;
+                            border-radius:999px;
+                            background:#2563EB;
+                            color:#FFF;
+                            font-family:Nunito,sans-serif;
+                            font-size:14px;
+                            font-weight:900;
+                            cursor:pointer;
+                        ">
+                            +1 Move · 3 pts
+                        </button>
+                    
+                        <button id="buyFiveMovesBtn" style="
+                            flex:1;
+                            height:48px;
+                            border:none;
+                            border-radius:999px;
+                            background:#16A34A;
+                            color:#FFF;
+                            font-family:Nunito,sans-serif;
+                            font-size:14px;
+                            font-weight:900;
+                            cursor:pointer;
+                        ">
+                            +5 Moves · 15 pts
+                        </button>
+                    </div>
+                    
+                    <button id="gameOverRestartBtn" style="
+                        width:100%;
+                        height:46px;
+                        margin-top:10px;
+                        border:none;
+                        border-radius:999px;
+                        background:#E5E7EB;
+                        color:#374151;
+                        font-family:Nunito,sans-serif;
+                        font-size:14px;
+                        font-weight:800;
+                        cursor:pointer;
+                    ">
+                        ↻ Restart Level
+                    </button>
             </div>
         `;
 
         document.body.appendChild(overlay);
+        
+        overlay.querySelector("#buyOneMoveBtn").addEventListener("click", () => {
+                buyExtraMoves(1);
+            });
+            
+            overlay.querySelector("#buyFiveMovesBtn").addEventListener("click", () => {
+                buyExtraMoves(5);
+            });
 
-        overlay.querySelector("#gameOverRestartBtn").addEventListener("click", () => {
-            sessionStorage.setItem(retryStorageKey, String(retries + 1));
-            window.location.reload();
-        });
-    }
+            overlay.querySelector("#gameOverRestartBtn").addEventListener("click", () => {
+                sessionStorage.setItem(retryStorageKey, String(retries + 1));
+                window.location.reload();
+            });
+        }
 
     /* ============================================================
        AFTER A CARD IS PLACED
@@ -1157,6 +1356,46 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ============================================================
        RENDER BOARD
     ============================================================ */
+    async function checkIfNextLevelUnlocked() {
+    if (!nextLevelBtn) return;
+
+    nextLevelBtn.disabled = true;
+
+    const token = localStorage.getItem("auth_token");
+    if (!token) return;
+
+    try {
+        const res = await fetch(
+            `/api/gameplay/progress?deck=${encodeURIComponent(deck)}&key_stage=${encodeURIComponent(keyStage)}`,
+            {
+                headers: {
+                    Accept: "application/json",
+                    Authorization: `Bearer ${token}`,
+                },
+            }
+        );
+
+        if (!res.ok) return;
+
+        const result = await res.json();
+
+        const highestCompleted =
+            result.data?.highest_completed_level || {};
+
+        const completedForDifficulty =
+            highestCompleted[
+                difficulty.charAt(0).toUpperCase() +
+                difficulty.slice(1).toLowerCase()
+            ] || 0;
+
+        if (completedForDifficulty >= level) {
+            nextLevelBtn.disabled = false;
+        }
+
+    } catch (error) {
+        console.error("Unable to check next level progress:", error);
+    }
+}
 
     function renderBoard(board, resetGame = true) {
         cardsGrid.innerHTML  = "";
@@ -1242,7 +1481,9 @@ document.addEventListener("DOMContentLoaded", () => {
         updateMovesBadge();
         updateHintUI();
         if (finishLevelBtn) finishLevelBtn.disabled = true;
-        if (nextLevelBtn)   nextLevelBtn.disabled = true;
+        if (nextLevelBtn) {
+            checkIfNextLevelUnlocked();
+        }
 
         updateProgress();
         updateTopBar();
@@ -1327,6 +1568,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function shuffleHand() {
+        PlayShuffleSound();
         const pileEls   = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
         const revealEls = shuffleRevealPile ? Array.from(shuffleRevealPile.querySelectorAll(".game-card")) : [];
         const allCards  = [...pileEls, ...revealEls, ...shuffleDeckCards];
@@ -1391,6 +1633,13 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.reload();
         });
     }
+    
+    if (viewResultsBtn) {
+    viewResultsBtn.addEventListener("click", () => {
+        window.location.href = "results.html";
+    });
+    }
+    
 
     if (redealBtn) {
         redealBtn.addEventListener("click", shuffleHand);

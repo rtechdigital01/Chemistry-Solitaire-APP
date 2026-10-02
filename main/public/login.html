@@ -10,6 +10,8 @@
     >
 
     <title>Log In | Science Solitaire</title>
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
 
 
     <!-- Nunito -->
@@ -1421,35 +1423,20 @@
 
 
                 /* ROLE REDIRECT */
-
                 if (user.role === "teacher") {
-
-                    window.location.href =
-                        "teacher-dashboard.html";
-
+                    window.location.href = "teacher-dashboard.html";
                 } else {
-
-                    window.location.href =
-                        "dashboard.html";
-
+                    window.location.href = "dashboard.html";
                 }
 
-
             } catch (error) {
-
-
                 showLoginError(
                     error.message
                 );
-
-
                 button.disabled = false;
-
                 button.textContent =
                     originalText;
-
             }
-
         }
     );
 

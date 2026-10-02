@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Games | Science Solitaire</title>
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
 
     <!-- Nunito -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,7 +31,10 @@
     <!-- Dashboard Content -->
     <main class="dashboard-page">
 
-        <!-- ========================================
+<!-- ========================================
+     DASHBOARD PROFILE SECTION
+========================================= -->
+<!-- ========================================
      DASHBOARD PROFILE SECTION
 ========================================= -->
 
@@ -87,10 +92,6 @@
 
             </div>
 
-            <!-- Dashboard Toggle for Mockup -->
-            <div style="text-align: right; margin-bottom: -16px; padding: 0 20px;">
-                <a href="teacher-dashboard.html" style="font-size: 14px; font-weight: 700; color: #4F46E5; text-decoration: none; padding: 8px 16px; border-radius: 8px; background: #EEF2FF;">Switch to Teacher View</a>
-            </div>
 
             <!-- Right side will be added next -->
             <!-- RIGHT SIDE -->
@@ -153,6 +154,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- ========================================
                 CHEMISTRY DECKS HEADING SECTION
@@ -501,28 +504,117 @@ document.addEventListener("DOMContentLoaded", function () {
         return card;
     }
 
-    function loadDecks() {
-        fetch("/api/chemistry/decks", { headers: { Accept: "application/json" } })
-            .then(r => r.json())
-            .then(res => {
-                const decks = (res.data || []).filter(d => d.total_levels > 0);
+function loadDecks() {
+    const subject = getSubject();
+    if (subject === "biology") {
 
-                deckCardsGrid.innerHTML = "";
-                if (decks.length === 0) {
-                    deckCardsGrid.innerHTML = `<p style="padding:24px; color:#64748B; font-weight:700;">No decks available yet.</p>`;
-                } else {
-                    decks.forEach(deck => deckCardsGrid.appendChild(renderDeckCard(deck)));
-                }
+        deckCardsGrid.innerHTML = `
+            <p style="padding:24px; color:#64748B; font-weight:700;">
+                Biology decks coming soon.
+            </p>
+        `;
 
-                if (decksCountEl) {
-                    decksCountEl.textContent = `${decks.length} deck${decks.length !== 1 ? "s" : ""} available`;
-                }
-            })
-            .catch(() => {
-                deckCardsGrid.innerHTML = `<p style="padding:24px; color:#EF4444; font-weight:700;">Couldn't load decks. Please refresh.</p>`;
-                if (decksCountEl) decksCountEl.textContent = "0 decks available";
-            });
+        if (decksCountEl) {
+            decksCountEl.textContent = "0 decks available";
+        }
+
+        return;
     }
+
+    if (subject === "physics") {
+
+        deckCardsGrid.innerHTML = `
+            <p style="padding:24px; color:#64748B; font-weight:700;">
+                Physics decks coming soon.
+            </p>
+        `;
+
+        if (decksCountEl) {
+            decksCountEl.textContent = "0 decks available";
+        }
+
+        return;
+    }
+
+    deckCardsGrid.innerHTML = `
+        <p style="padding:24px; color:#64748B; font-weight:700;">
+            Loading ${subject} decks…
+        </p>
+    `;
+
+    fetch(`/api/${subject}/decks`, {
+        headers: {
+            Accept: "application/json"
+        }
+    })
+    .then(async response => {
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(
+                result.message ||
+                `Unable to load ${subject} decks.`
+            );
+        }
+
+        return result;
+    })
+    .then(res => {
+
+        const decks =
+            Array.isArray(res.data)
+                ? res.data.filter(
+                    deck => Number(deck.total_levels) > 0
+                )
+                : [];
+
+        deckCardsGrid.innerHTML = "";
+
+        if (decks.length === 0) {
+
+            deckCardsGrid.innerHTML = `
+                <p style="padding:24px; color:#64748B; font-weight:700;">
+                    No ${subject} decks available yet.
+                </p>
+            `;
+
+        } else {
+
+            decks.forEach(deck => {
+                deckCardsGrid.appendChild(
+                    renderDeckCard(deck)
+                );
+            });
+
+        }
+
+        if (decksCountEl) {
+            decksCountEl.textContent =
+                `${decks.length} deck${decks.length !== 1 ? "s" : ""} available`;
+        }
+
+    })
+    .catch(error => {
+
+        console.error(
+            `${subject} deck loading error:`,
+            error
+        );
+
+        deckCardsGrid.innerHTML = `
+            <p style="padding:24px; color:#EF4444; font-weight:700;">
+                ${error.message}
+            </p>
+        `;
+
+        if (decksCountEl) {
+            decksCountEl.textContent =
+                "Unable to load decks";
+        }
+
+    });
+}
 
     // Close modal
     if (closeLevelModal) {

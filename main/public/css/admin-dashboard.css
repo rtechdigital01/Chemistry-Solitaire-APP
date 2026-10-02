@@ -1,0 +1,351 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    font-family: "Nunito", sans-serif;
+    background: #F4F7FB;
+    color: #14213D;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.admin-layout {
+    min-height: 100vh;
+    display: flex;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+.admin-sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 230px;
+    height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 24px 16px;
+
+    background: #14213D;
+    color: #FFFFFF;
+
+    z-index: 100;
+}
+
+.admin-brand {
+    margin-bottom: 30px;
+}
+
+.admin-brand h2 {
+    margin: 0;
+
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.admin-brand span {
+    display: inline-block;
+
+    margin-top: 5px;
+
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 2px;
+
+    color: #93C5FD;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.admin-nav {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    flex: 1;
+}
+
+.admin-nav-btn {
+    width: 100%;
+
+    padding: 11px 13px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: transparent;
+    color: #CBD5E1;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        color 0.15s ease;
+}
+
+.admin-nav-btn:hover {
+    background: rgba(255, 255, 255, 0.08);
+    color: #FFFFFF;
+}
+
+.admin-nav-btn.active {
+    background: #2563FF;
+    color: #FFFFFF;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.admin-logout-btn {
+    width: 100%;
+
+    min-height: 42px;
+
+    border: 1px solid rgba(255,255,255,0.16);
+    border-radius: 8px;
+
+    background: rgba(255,255,255,0.06);
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+}
+
+.admin-logout-btn:hover {
+    background: rgba(255,255,255,0.12);
+}
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
+
+.admin-main {
+    width: calc(100% - 230px);
+    min-height: 100vh;
+
+    margin-left: 230px;
+
+    padding: 32px;
+
+    background: #F4F7FB;
+}
+
+.admin-tab-panel {
+    display: none;
+}
+
+.admin-tab-panel.active {
+    display: block;
+}
+
+.admin-tab-panel h1 {
+    margin: 0 0 8px;
+
+    font-size: 28px;
+    font-weight: 900;
+
+    color: #14213D;
+}
+
+.admin-tab-panel p {
+    margin: 0;
+
+    color: #64748B;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   OVERVIEW STATS
+========================= */
+
+.admin-section-subtitle {
+    margin-bottom: 24px !important;
+}
+
+.admin-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.admin-stat-card {
+    background: #FFFFFF;
+    border: 1px solid #EDF1F7;
+    border-radius: 12px;
+
+    padding: 22px;
+
+    box-shadow: 0 6px 18px rgba(20, 33, 61, 0.05);
+}
+
+.admin-stat-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    color: #64748B;
+}
+
+.admin-stat-card strong {
+    display: block;
+
+    font-size: 30px;
+    font-weight: 900;
+
+    color: #14213D;
+}
+
+
+/* =========================
+   ADMIN TABLES
+========================= */
+
+.admin-table-card {
+    margin-top: 24px;
+
+    background: #FFFFFF;
+    border: 1px solid #EDF1F7;
+    border-radius: 12px;
+
+    box-shadow: 0 6px 18px rgba(20, 33, 61, 0.05);
+
+    overflow: hidden;
+}
+
+.admin-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    min-width: 850px;
+}
+
+.admin-table th {
+    padding: 14px 16px;
+
+    background: #F8FAFC;
+    color: #475569;
+
+    font-size: 12px;
+    font-weight: 900;
+
+    text-align: left;
+    white-space: nowrap;
+
+    border-bottom: 1px solid #EDF1F7;
+}
+
+.admin-table td {
+    padding: 14px 16px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    color: #334155;
+
+    border-bottom: 1px solid #F1F5F9;
+}
+
+.admin-table tbody tr:hover {
+    background: #F8FAFC;
+}
+
+.admin-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .admin-sidebar {
+        width: 180px;
+    }
+
+    .admin-main {
+        width: calc(100% - 180px);
+        margin-left: 180px;
+
+        padding: 20px 14px;
+    }
+
+    .admin-brand h2 {
+        font-size: 16px;
+    }
+
+    .admin-nav-btn {
+        font-size: 11px;
+        padding: 9px 10px;
+    }
+    
+    .admin-stats-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    }
+    
+    .admin-stat-card {
+        padding: 16px;
+    }
+    
+    .admin-stat-card strong {
+        font-size: 24px;
+    }
+}

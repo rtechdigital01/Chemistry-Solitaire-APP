@@ -1,0 +1,2419 @@
+.view-results-btn {
+    background: #1B3D7A;
+    color: #FFFFFF;
+    border: none;
+}
+/* ============================================================
+   RESET
+============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: "Nunito", sans-serif;
+    background: #F3F8FF;
+    color: #14213D;
+}
+
+
+/* ============================================================
+   KEYFRAMES
+============================================================ */
+
+@keyframes popupFadeIn   { from { opacity: 0; } to { opacity: 1; } }
+@keyframes popupSlideUp  { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+@keyframes stackPulse {
+    0%   { box-shadow: 0 0 0 0 rgba(37,99,255,0.5); }
+    50%  { box-shadow: 0 0 0 12px rgba(37,99,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,99,255,0); }
+}
+
+@keyframes cardShake {
+    0%,100% { transform: translateX(0); }
+    20%     { transform: translateX(-8px); }
+    40%     { transform: translateX(8px); }
+    60%     { transform: translateX(-6px); }
+    80%     { transform: translateX(6px); }
+}
+
+@keyframes dealIn {
+    from { opacity: 0; transform: translateY(24px) scale(0.92); }
+    to   { opacity: 1; transform: translateY(0)  scale(1); }
+}
+
+@keyframes progressGrow {
+    from { width: 0%; }
+}
+
+
+/* ==========================================
+   GAMEPLAY SIDEBAR
+========================================== */
+
+body {
+    overflow: hidden;
+}
+
+/* Turn top bar into left sidebar */
+.gameplay-top-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 230px;
+    height: 100vh;
+    min-height: 100vh;
+
+    border-right: 1px solid #E8EEF6;
+    border-bottom: none;
+
+    background: #FFFFFF;
+
+    z-index: 100;
+}
+
+.gameplay-top-inner {
+    width: 100%;
+    height: 100%;
+
+    padding: 24px 18px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 24px;
+}
+
+
+/* LEVEL / DECK */
+
+.gameplay-level-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+}
+
+.gameplay-level-text {
+    width: 100%;
+}
+
+.level-label {
+    font-size: 10px;
+}
+
+.level-title {
+    margin-top: 4px;
+
+    font-size: 15px;
+    line-height: 1.3;
+}
+
+
+/* PROGRESS */
+
+.gameplay-progress-container {
+    width: 100%;
+    min-width: 0;
+
+    flex: none;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 8px;
+}
+
+.gameplay-progress-track {
+    width: 100%;
+}
+
+.gameplay-progress-text {
+    text-align: right;
+
+    font-size: 11px;
+}
+
+
+/* SCORE / MOVES / CARDS / STARS */
+
+.gameplay-stats-actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+
+    gap: 18px;
+}
+
+.gameplay-stats {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+}
+
+.stat-item {
+    min-width: 0;
+
+    padding: 12px 8px;
+
+    border: 1px solid #EDF1F7;
+    border-radius: 10px;
+
+    background: #F8FAFC;
+
+    text-align: center;
+}
+
+.stat-value {
+    font-size: 18px;
+}
+
+.stat-label {
+    margin-top: 3px;
+
+    font-size: 8px;
+}
+
+
+/* SIDEBAR BUTTONS */
+
+.gameplay-actions {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 9px;
+}
+
+.btn-action {
+    width: 100%;
+    min-height: 38px;
+}
+
+
+/* ==========================================
+   MAIN GAME AREA BESIDE SIDEBAR
+========================================== */
+
+.gameplay-main {
+    width: calc(100% - 230px);
+    height: 100vh;
+    min-height: 100vh;
+
+    margin-left: 230px;
+
+    overflow: hidden;
+}
+
+.gameplay-board {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    margin: 0;
+
+    padding: 20px 28px;
+
+    overflow: hidden;
+}
+
+/* ============================================================
+   MOLECULE BG
+============================================================ */
+
+.game-molecule {
+    position: absolute;
+    z-index: 0;
+    opacity: 0.18;
+    pointer-events: none;
+}
+.game-molecule.top    { width: 300px; top: 0; left: -60px; }
+.game-molecule.bottom { width: 320px; right: -55px; bottom: -40px; }
+.game-molecule svg    { width: 100%; height: auto; }
+
+
+/* ============================================================
+   INFO BANNER
+============================================================ */
+
+.game-info-banner {
+    width: 100%;
+    min-height: 58px;
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 48px;
+    border-radius: 14px;
+    background: linear-gradient(90deg, #FFD261, #FFD66B);
+    color: #14213D;
+    font-size: 14px;
+    font-weight: 700;
+    box-shadow: 0 7px 18px rgba(250,190,45,0.13);
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.info-icon-wrap {
+    width: 32px; height: 32px;
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.35);
+}
+.info-icon { width: 17px; height: 17px; }
+
+
+/* ============================================================
+   MIDDLE — MOVES BADGE & SHUFFLE PANELS
+============================================================ */
+
+.game-middle-actions {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.moves-badge {
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    width: 100px; height: 76px;
+    background: #F5A81C;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 12px 12px 0 0;
+    color: white;
+    box-shadow: 0 4px 16px rgba(245,168,28,0.35);
+    flex-shrink: 0;
+}
+
+.moves-label {
+    font-size: 11px; font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 2px;
+    color: rgba(255,255,255,0.8);
+}
+
+.moves-value {
+    font-size: 32px; font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.6px;
+    transition: transform 0.2s;
+}
+
+.moves-value.bump {
+    animation: pointsBump 0.3s ease;
+}
+
+@keyframes pointsBump {
+    0%,100% { transform: scale(1); }
+    40%     { transform: scale(1.3); }
+}
+
+/* — Shuffle panels — */
+
+.shuffle-panels {
+    display: flex;
+    gap: 18px;
+}
+
+.shuffle-panel-heading {
+    display: flex;
+    align-items: stretch;
+    gap: 8px;
+    margin-bottom: 8px;
+}
+
+.shuffle-panel-heading .heading-accent {
+    width: 3px;
+}
+
+.shuffle-panel-heading h3 {
+    margin: 0;
+    color: #1A3160;
+    font-size: 14px;
+    font-weight: 900;
+    letter-spacing: -0.3px;
+}
+
+.shuffle-panel-heading p {
+    margin: 2px 0 0;
+    color: #14213D;
+    font-size: 8px;
+    font-weight: 600;
+}
+
+/* Reveal pile — a real stack (top card playable, the rest sit
+   face-down beneath it, populated by drawing from the shuffle deck
+   on the right) rendered as: the top card shown full-size, and up
+   to 2 of the cards just beneath it previewed as thin fanned-out
+   strips to its right. */
+
+.shuffle-reveal-pile {
+    position: relative;
+    width: 190px;
+    height: 131px;
+}
+
+/* Every card here (including the hidden face-down ones stacked
+   beneath the top card) shares this compact footprint, so a hidden
+   card can never overflow the pile's bounds. */
+#shuffleRevealPile .game-card {
+    position: absolute;
+    left: 0; top: 0;
+    width: 105px; height: 145px;
+    min-height: 145px; /* Overrides .game-card min-height: 160px */
+}
+
+#shuffleRevealPile .game-card.reveal-main-card {
+    border: 2px solid #F5A81C;
+    border-radius: 11px;
+    background: #F5EDD7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 6px;
+    font-size: 13px;
+    font-weight: 900;
+    color: #1A3160;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+    cursor: pointer;
+    gap: 0;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-crown {
+    position: absolute;
+    top: 8px; left: 10px;
+    font-size: 12px;
+    color: #F5A81C;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-name {
+    font-size: 12px;
+    padding: 0 2px;
+}
+
+#shuffleRevealPile .game-card.reveal-main-card .card-category-count {
+    top: 8px; right: 10px;
+    font-size: 10px;
+    color: #8C8A84;
+}
+
+.reveal-peek-card {
+    position: absolute;
+    top: 0;
+    width: 55px; height: 145px;
+    border: 2px solid #F5A81C;
+    border-left: none;
+    border-radius: 0 11px 11px 0;
+    background: #F5EDD7;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.reveal-peek-card span {
+    display: inline-block;
+    transform: rotate(-90deg);
+    font-size: 14px;
+    font-weight: 900;
+    color: #1A3160;
+    white-space: nowrap;
+}
+
+/* Shuffle deck — the remaining logical deck, pattern back + count badge */
+
+.shuffle-deck-pile {
+    position: relative;
+    width: 110px; height: 145px;
+    background-color: #56BEF4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32'%3E%3Ccircle cx='0' cy='0' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='32' cy='0' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='0' cy='32' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='32' cy='32' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3Ccircle cx='16' cy='16' r='16' fill='none' stroke='rgba(255,255,255,0.4)' stroke-width='1.4'/%3E%3C/svg%3E");
+    background-size: 28px 28px;
+    border: 2.85px solid #FFFFFF;
+    border-radius: 16px;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.1);
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.shuffle-deck-pile:hover { transform: translateY(-3px); box-shadow: 0 8px 16px rgba(0,0,0,0.18); }
+.shuffle-deck-pile.deck-empty { cursor: default; opacity: 0.5; }
+
+.shuffle-deck-count {
+    position: absolute;
+    top: -10px; right: -10px;
+    width: 32px; height: 32px;
+    display: flex; align-items: center; justify-content: center;
+    background: #FFFFFF;
+    color: #2563FF;
+    font-size: 14px; font-weight: 900;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+
+/* ============================================================
+   SECTION HEADINGS
+============================================================ */
+
+.figma-section-heading {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 30px;
+}
+
+.heading-accent {
+    width: 5px;
+    flex-shrink: 0;
+    border-radius: 999px;
+    background: #F5B82E;
+}
+
+.heading-copy h2 {
+    margin: 0;
+    color: #14213D;
+    font-size: 28px; line-height: 1;
+    font-weight: 900; letter-spacing: -0.5px;
+}
+
+.heading-copy p {
+    margin: 6px 0 0;
+    color: #5F6F88;
+    font-size: 13px; font-weight: 600;
+}
+
+
+/* ============================================================
+   CATEGORY / FOUNDATION SECTION
+============================================================ */
+
+.category-section {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 6px;
+}
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+#stacksGrid { display: contents; }
+#lockedCategorySlots { display: contents; }
+
+
+/* Foundation stack card */
+.foundation-stack {
+    position: relative;
+
+    min-height: 155px;
+
+    padding: 12px 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    overflow: hidden;
+
+    border: 2px solid #F1C345;
+    border-radius: 14px;
+
+    background: #FAF0D5;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 14px rgba(20,33,61,0.07);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease;
+}
+
+/* Category name "tab" — a full-width gold header cap at the top of
+   the card, not a small floating badge. */
+.category-tab {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    padding: 7px 10px;
+    border-radius: 13px 13px 0 0;
+    background: #FBBF24;
+    font-size: 12px;
+    font-weight: 900;
+    color: #1A3160;
+    text-align: center;
+    line-height: 1.3;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 5;
+}
+
+.foundation-stack:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 28px rgba(20,33,61,0.13);
+    border-color: #F3B51D;
+}
+
+.foundation-stack.stack-drag-over {
+    border-color: #2563EB;
+    box-shadow: 0 0 0 3px rgba(37,99,255,0.25), 0 14px 28px rgba(20,33,61,0.13);
+    transform: translateY(-4px);
+}
+
+.foundation-stack.stack-pulse {
+    animation: stackPulse 0.5s ease;
+}
+
+.foundation-stack.stack-hint {
+    border-color: #16A34A;
+    box-shadow: 0 0 0 3px rgba(22,163,74,0.3);
+}
+
+/* Card top strip */
+.category-card-top {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.category-crown { font-size: 17px; color: #F5A81C; }
+
+/* Crown icon sizing — the SVG scales with each context's own
+   font-size (1em) so every existing crown context keeps its size
+   without individual overrides. */
+.category-crown svg,
+.card-crown svg,
+.locked-category-card span svg {
+    display: block;
+    width: 1em;
+    height: 0.75em;
+}
+
+.category-progress {
+    font-size: 12px; font-weight: 700;
+    color: #A09880;
+}
+
+.category-icon-circle {
+    width: 44px; height: 44px;
+    display: flex; align-items: center; justify-content: center;
+    margin: 14px auto 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+.foundation-stack:hover .category-icon-circle { transform: scale(1.08); }
+
+.category-icon-circle svg { width: 20px; height: 20px; }
+
+.stack-title {
+    width: 100%;
+    padding: 0 4px;
+    text-align: center;
+    font-size: 13px; font-weight: 800;
+    color: #1A3160;
+    line-height: 1.3;
+}
+
+@keyframes stackCompleteHide {
+    0%   { transform: scale(1);    opacity: 1; }
+    40%  { transform: scale(1.08); opacity: 1; }
+    100% { transform: scale(0.5);  opacity: 0; }
+}
+
+.foundation-stack.stack-complete-hide {
+    animation: stackCompleteHide 0.7s ease forwards;
+    pointer-events: none;
+}
+
+/* Locked slot — a category not yet unlocked. Also a drop/click
+   target for the "category base card" that unlocks it. */
+.locked-category-card {
+    position: relative;
+    min-height: 155px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid #D7DEE8;
+    border-radius: 14px;
+    background:
+        linear-gradient(
+            145deg,
+            #F2F4F7,
+            #E8ECF1
+        );
+    box-shadow:
+        inset 0 4px 9px rgba(20,33,61,0.05),
+        0 5px 12px rgba(20,33,61,0.06);
+}
+
+.locked-category-card span {
+    color: #CBD5E1;
+    font-size: 48px;
+    transition: color 0.18s ease;
+}
+
+.locked-category-card.stack-drag-over {
+    border-color: #2563EB;
+    background: #EFF5FF;
+    transform: translateY(-4px);
+}
+
+.locked-category-card.stack-drag-over span {
+    color: #2563EB;
+}
+
+/* Category base card — a special playable card that unlocks a
+   hidden category when placed on an empty slot. Tinted blue so it
+   reads as distinct from the regular cream game cards. */
+.game-card.category-base-card {
+    background: linear-gradient(180deg, #EFF5FF 0%, #DCE8FF 100%);
+    border-color: #2563EB;
+}
+
+.game-card.category-base-card .card-crown {
+    color: #2563EB;
+}
+
+.game-card.category-base-card .card-name {
+    color: #1D4ED8;
+    font-size: 15px;
+}
+
+.card-category-count {
+    position: absolute;
+    top: 12px; right: 14px;
+    font-size: 11px;
+    font-weight: 800;
+    color: #2563EB;
+}
+
+
+/* ============================================================
+   DIVIDER
+============================================================ */
+
+.game-section-divider {
+    width: 88%;
+    height: 1px;
+    margin: 52px auto 44px;
+    background: #DCE8F5;
+}
+
+
+/* ============================================================
+   GAME CARDS (HAND)
+============================================================ */
+
+.game-cards-section {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-top: 6px;
+}
+
+/* 
+   The hand is a scrollable wrapping grid of cards.
+   4 columns max; scrolls horizontally on narrow screens.
+*/
+
+/* ============================================================
+   CARDS GRID — piles + stock/shuffle
+============================================================ */
+
+#cardsGrid {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+/* Each of the 4 playable piles */
+.card-pile {
+    position: relative;
+    /* portrait: narrower width, tall enough for offset stack */
+    width: 118px;
+    flex-shrink: 0;
+    /* height grows with stack offset; at least 2 visible card heights */
+    min-height: 205px;
+    filter: drop-shadow(0 4px 4px rgba(0,0,0,0.1));
+    border-radius: 16px;
+    transition: box-shadow 0.18s ease;
+}
+
+.card-pile.stack-drag-over {
+    box-shadow: 0 0 0 3px rgba(37,99,255,0.35);
+}
+
+/* The stock/shuffle pile column */
+.stock-pile {
+    position: relative;
+    width: 148px;
+    flex-shrink: 0;
+    min-height: 264px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+}
+
+.stock-pile-label {
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #64748B;
+    margin-bottom: 6px;
+}
+
+/* The generic game card — portrait rectangle */
+.game-card {
+    position: absolute;
+    width: 100%;
+
+    /* Portrait aspect: ~160 × 220 px */
+    height: 220px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 22px 14px 16px;
+
+    /* Neutral cream — NO category colour here */
+    border: 2px solid #F5A81C;
+    border-radius: 16px;
+    background: #F5EDD7;
+    color: #1A3160;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    text-align: center;
+    line-height: 1.3;
+
+    cursor: pointer;
+    user-select: none;
+
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1);
+
+    transition:
+        transform 0.18s ease,
+        box-shadow 0.18s ease,
+        border-color 0.18s ease,
+        top 0.25s ease;
+}
+
+.game-card:not(.card-face-down):hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 18px rgba(20,33,61,0.22);
+}
+
+.game-card.card-selected {
+    border-color: #2563EB;
+    box-shadow:
+        0 0 0 4px rgba(37,99,255,0.28),
+        0 10px 22px rgba(20,33,61,0.18);
+    transform: translateY(-5px);
+}
+
+.game-card.card-shake {
+    animation: cardShake 0.55s ease;
+}
+
+.game-card.card-hint {
+    border-color: #16A34A;
+    box-shadow:
+        0 0 0 4px rgba(22,163,74,0.3),
+        0 10px 22px rgba(20,33,61,0.18);
+}
+
+/* Face-down card — flat blue back, matching the shuffle deck */
+.card-face-down {
+    background: #56BEF4 !important;
+    border: 2px solid #FFFFFF !important;
+    cursor: default !important;
+    pointer-events: none;
+    box-shadow: 0 3px 3px rgba(0,0,0,0.1) !important;
+}
+.card-face-down * { display: none !important; }
+
+/* Crown icon top-left */
+.card-crown {
+    position: absolute;
+    top: 12px; left: 15px;
+    font-size: 16px;
+    color: #F5A81C;
+    line-height: 1;
+}
+
+/* Card text */
+.card-name {
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 1.3;
+    text-align: center;
+    word-break: break-word;
+    color: #1A3160;
+    padding: 0 4px;
+}
+
+/* NO category tag on the card — remove hint */
+.card-category-tag { display: none !important; }
+
+
+/* ============================================================
+   BOTTOM CONTROLS
+============================================================ */
+
+.game-bottom-actions {
+    margin-top: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+}
+
+.bottom-game-btn {
+    min-width: 160px;
+    height: 54px;
+    display: flex; align-items: center; justify-content: center;
+    gap: 9px;
+    border: 0; border-radius: 999px;
+    font-family: "Nunito", sans-serif;
+    font-size: 15px; font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 8px 18px rgba(20,33,61,0.14);
+    transition: transform 0.18s, box-shadow 0.18s, opacity 0.18s;
+}
+.bottom-game-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(20,33,61,0.18); }
+
+.restart-btn   { background: #1B3D7A; color: #FFF; box-shadow: 0 4px 18px rgba(27,61,122,0.38); }
+.next-level-btn { background: #DDE5F1; color: #94A3B8; box-shadow: none; }
+.next-level-btn:not([disabled]) {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    color: white;
+    box-shadow: 0 4px 18px rgba(42,98,190,0.38);
+}
+.next-level-btn[disabled]       { cursor: not-allowed; }
+.bottom-game-btn svg { width: 19px; height: 19px; }
+#finishLevelBtn { display: none; }
+
+/* ============================================================
+   FINAL RESPONSIVE GAMEPLAY LAYOUT
+   Desktop + Mobile — NO PAGE SCROLL
+============================================================ */
+
+
+
+
+
+
+
+
+/* ============================================================
+   DESKTOP / TABLET LANDSCAPE
+============================================================ */
+/* ============================================================
+   DESKTOP GAMEPLAY — FIXED ONE-SCREEN VIEW
+============================================================ */
+/* ============================================================
+   DESKTOP GAMEPLAY — FIXED ONE-SCREEN VIEW
+============================================================ */
+
+@media (min-width: 769px) {
+
+    :root {
+        --desktop-card-width: 96px;
+        --desktop-card-height: 116px;
+        --desktop-card-radius: 5px;
+    }
+
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden !important;
+    }
+
+
+    /* =========================
+       SIDEBAR
+    ========================= */
+
+    .gameplay-top-bar {
+        width: 180px;
+        height: 100vh;
+        min-height: 100vh;
+    }
+
+    .gameplay-top-inner {
+        height: 100%;
+
+        padding: 16px 12px;
+
+        gap: 14px;
+
+        overflow: hidden;
+    }
+
+    .level-title {
+        font-size: 13px;
+    }
+
+    .gameplay-stats {
+        gap: 6px;
+    }
+
+    .stat-item {
+        padding: 9px 5px;
+    }
+
+    .stat-value {
+        font-size: 16px;
+    }
+
+    .gameplay-actions {
+        gap: 7px;
+    }
+
+    .btn-action {
+        min-height: 34px;
+    }
+
+
+    /* =========================
+       MAIN SCREEN
+    ========================= */
+
+    .gameplay-main {
+        position: fixed;
+
+        top: 0;
+        left: 180px;
+
+        width: calc(100% - 180px);
+        height: 100vh;
+        min-height: 0;
+
+        margin: 0;
+
+        overflow: hidden;
+    }
+
+    .gameplay-board {
+    width: 100%;
+    height: 100%;
+
+    max-width: none;
+
+    padding: 10px 18px 12px;
+
+    display: grid;
+
+    grid-template-rows:
+        auto
+        120px
+        116px
+        1px
+        auto;
+
+    gap: 7px;
+
+    align-content: start;
+
+    overflow: hidden;
+}
+
+
+    /* =========================
+       INFO BANNER
+    ========================= */
+
+    .game-info-banner {
+        min-height: 38px;
+
+        margin: 0;
+
+        padding: 7px 12px;
+
+        border-radius: 8px;
+
+        font-size: 11px;
+    }
+
+    .info-icon-wrap {
+        width: 26px;
+        height: 26px;
+    }
+
+    .info-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+
+    /* =========================
+       REMOVE LARGE MOVES BLOCK
+    ========================= */
+
+    .moves-badge {
+        display: none !important;
+    }
+
+
+    /* =========================
+       SHUFFLE AREA
+       SAME CARD SIZE
+    ========================= */
+
+    .game-middle-actions {
+        width: 100%;
+        max-width: none;
+        height: 120px;
+
+        margin: 0;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: flex-end;
+
+        overflow: visible;
+    }
+
+    .shuffle-panels {
+        height: 120px;
+
+        display: flex;
+        align-items: flex-start;
+
+        gap: 10px;
+    }
+
+    .shuffle-reveal-pile {
+        position: relative;
+
+        width: 205px;
+        height: var(--desktop-card-height);
+
+        overflow: visible;
+    }
+
+    #shuffleRevealPile .game-card {
+        width: var(--desktop-card-width) !important;
+        min-width: var(--desktop-card-width) !important;
+        max-width: var(--desktop-card-width) !important;
+
+        height: var(--desktop-card-height) !important;
+        min-height: var(--desktop-card-height) !important;
+
+        padding: 12px 6px 8px;
+
+        border-radius: var(--desktop-card-radius) !important;
+    }
+
+    #shuffleRevealPile .game-card.reveal-main-card {
+        border-radius: var(--desktop-card-radius) !important;
+    }
+
+    #shuffleRevealPile .game-card.reveal-main-card .card-name {
+        font-size: 11px;
+        line-height: 1.1;
+    }
+
+    #shuffleRevealPile .game-card.reveal-main-card .card-crown {
+        top: 6px;
+        left: 7px;
+
+        font-size: 10px;
+    }
+
+    .reveal-peek-card {
+        width: 34px;
+        height: var(--desktop-card-height);
+
+        border-radius:
+            0 var(--desktop-card-radius)
+            var(--desktop-card-radius) 0;
+    }
+
+    .reveal-peek-card span {
+        font-size: 9px;
+    }
+
+    .shuffle-deck-pile {
+        width: var(--desktop-card-width);
+        height: var(--desktop-card-height);
+
+        border-radius: var(--desktop-card-radius);
+
+        background-size: 19px 19px;
+    }
+
+    .shuffle-deck-count {
+        width: 24px;
+        height: 24px;
+
+        top: -6px;
+        right: -6px;
+
+        font-size: 10px;
+    }
+
+
+    /* =========================
+       CATEGORY CARDS
+       SAME EXACT SIZE
+    ========================= */
+
+    .category-section {
+        width: 100%;
+        max-width: none;
+
+        height: var(--desktop-card-height);
+
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .category-grid {
+        width: 100%;
+        height: var(--desktop-card-height);
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        gap: 12px;
+    }
+
+    #stacksGrid,
+    #lockedCategorySlots {
+        display: contents;
+    }
+
+    .foundation-stack,
+    .locked-category-card {
+        width: var(--desktop-card-width) !important;
+        min-width: var(--desktop-card-width) !important;
+        max-width: var(--desktop-card-width) !important;
+
+        height: var(--desktop-card-height) !important;
+        min-height: var(--desktop-card-height) !important;
+
+        flex: 0 0 var(--desktop-card-width);
+
+        border-radius: var(--desktop-card-radius) !important;
+    }
+
+    .foundation-stack {
+        padding: 24px 6px 6px;
+    }
+
+    .category-tab {
+        padding: 4px 3px;
+
+        border-radius:
+            var(--desktop-card-radius)
+            var(--desktop-card-radius)
+            0 0 !important;
+
+        font-size: 8px;
+    }
+
+    .category-crown {
+        font-size: 11px;
+    }
+
+    .category-progress {
+        font-size: 8px;
+    }
+
+    .category-icon-circle {
+        width: 28px;
+        height: 28px;
+
+        margin: 4px auto 3px;
+    }
+
+    .category-icon-circle svg {
+        width: 14px;
+        height: 14px;
+    }
+
+    .stack-title {
+        width: 100%;
+
+        padding: 0 2px;
+
+        font-size: 9px;
+        line-height: 1.1;
+    }
+
+    .locked-category-card span {
+        font-size: 28px;
+    }
+
+
+    /* =========================
+       DIVIDER
+    ========================= */
+
+    .game-section-divider {
+        width: 90%;
+        height: 1px;
+
+        margin: 0 auto;
+    }
+
+
+    /* =========================
+       GAME CARDS
+       SAME EXACT SIZE
+    ========================= */
+    .game-cards-section {
+    width: 100%;
+    max-width: 760px;
+    height: 185px;
+    min-height: 185px;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+
+    #cardsGrid {
+        width: 100%;
+
+        height: 140px;
+        min-height: 140px;
+
+        flex: 0 0 140px;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: center;
+
+        gap: 12px;
+
+        overflow: visible;
+    }
+
+    .card-pile {
+        width: var(--desktop-card-width) !important;
+        min-width: var(--desktop-card-width) !important;
+        max-width: var(--desktop-card-width) !important;
+
+        height: 140px;
+        min-height: 140px;
+
+        flex: 0 0 var(--desktop-card-width);
+    }
+
+    .game-card {
+        width: var(--desktop-card-width) !important;
+        min-width: var(--desktop-card-width) !important;
+        max-width: var(--desktop-card-width) !important;
+
+        height: var(--desktop-card-height) !important;
+        min-height: var(--desktop-card-height) !important;
+
+        padding: 14px 6px 8px;
+
+        gap: 4px;
+
+        border-radius: var(--desktop-card-radius) !important;
+
+        font-size: 11px;
+        line-height: 1.1;
+    }
+
+    .card-name {
+        width: 100%;
+
+        padding: 0 2px;
+
+        font-size: 11px;
+        line-height: 1.1;
+
+        word-break: normal;
+        overflow-wrap: break-word;
+    }
+
+    .card-crown {
+        top: 6px;
+        left: 7px;
+
+        font-size: 10px;
+    }
+
+
+    /* =========================
+       LESS OBVIOUS ROUNDING
+    ========================= */
+
+    .foundation-stack,
+    .locked-category-card,
+    .game-card,
+    .shuffle-deck-pile,
+    #shuffleRevealPile .game-card {
+        border-radius: var(--desktop-card-radius) !important;
+    }
+
+
+    /* =========================
+       RESTART / NEXT LEVEL
+    ========================= */
+    .game-bottom-actions {
+    position: fixed;
+
+    left: 180px;
+    bottom: 14px;
+
+    width: calc(100% - 180px);
+
+    margin: 0;
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    z-index: 200;
+}
+
+.game-cards-section {
+    overflow: visible !important;
+}
+
+.gameplay-main {
+    padding-bottom: 55px;
+}
+
+    .bottom-game-btn {
+        min-width: 125px;
+        height: 36px;
+
+        font-size: 10px;
+    }
+
+    .bottom-game-btn svg {
+        width: 14px;
+        height: 14px;
+    }
+
+}
+
+
+
+
+
+
+
+    
+/* ============================================================
+   MOBILE GAMEPLAY — FIXED ONE-SCREEN VIEW
+============================================================ */
+
+@media (max-width: 768px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100dvh;
+        margin: 0;
+        overflow: hidden !important;
+    }
+
+
+    /* ========================================================
+       LEFT SIDEBAR
+    ======================================================== */
+
+    .gameplay-top-bar {
+        position: fixed !important;
+        top: 0;
+        left: 0;
+
+        width: 62px !important;
+        height: 100dvh !important;
+        min-height: 100dvh !important;
+
+        background: #FFFFFF;
+        border-right: 1px solid #E2E8F0;
+        border-bottom: 0;
+
+        z-index: 100;
+    }
+
+    .gameplay-top-inner {
+        width: 100%;
+        height: 100%;
+
+        padding: 7px 4px !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 6px !important;
+
+        overflow: hidden !important;
+    }
+
+
+    /* EXIT / LEVEL */
+
+    .gameplay-level-info {
+        width: 100%;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+
+        gap: 3px !important;
+
+        text-align: center;
+    }
+
+    .gameplay-close-btn {
+        width: 25px !important;
+        height: 25px !important;
+        padding: 0 !important;
+    }
+
+    .gameplay-close-btn svg {
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    .gameplay-level-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .level-label {
+        font-size: 5.5px !important;
+        line-height: 1.1 !important;
+        letter-spacing: 0 !important;
+    }
+
+    .level-title {
+        margin-top: 2px !important;
+        padding: 0 1px;
+
+        font-size: 7px !important;
+        line-height: 1.1 !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+
+    /* ========================================================
+       PROGRESS
+    ======================================================== */
+
+    .gameplay-progress-container {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 2px !important;
+    }
+
+    .gameplay-progress-track {
+        width: 100% !important;
+        height: 4px !important;
+    }
+
+    .gameplay-progress-text {
+        width: 100%;
+
+        text-align: center !important;
+
+        font-size: 6px !important;
+    }
+
+
+    /* ========================================================
+       SCORE / MOVES / CARDS
+    ======================================================== */
+
+    .gameplay-stats-actions {
+        width: 100%;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 6px !important;
+    }
+
+    .gameplay-stats {
+        width: 100%;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 3px !important;
+    }
+
+    .stat-item {
+        width: 100%;
+        min-width: 0 !important;
+
+        padding: 4px 1px !important;
+
+        border-radius: 6px !important;
+
+        text-align: center;
+    }
+
+    .stat-icon {
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    .stat-value {
+        display: block;
+
+        font-size: 10px !important;
+        line-height: 1 !important;
+    }
+
+    .stat-label {
+        display: block;
+
+        margin-top: 2px !important;
+
+        font-size: 5px !important;
+        line-height: 1 !important;
+    }
+
+
+    /* ========================================================
+       SHUFFLE / HINT SIDEBAR BUTTONS
+    ======================================================== */
+
+    .gameplay-actions {
+        width: 100%;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        gap: 4px !important;
+    }
+
+    .btn-action {
+        width: 100% !important;
+        min-height: 27px !important;
+
+        padding: 0 2px !important;
+
+        gap: 2px !important;
+
+        border-radius: 6px !important;
+
+        font-size: 5.5px !important;
+        line-height: 1 !important;
+    }
+
+    .btn-action svg {
+        width: 8px !important;
+        height: 8px !important;
+    }
+
+
+    /* ========================================================
+       MAIN GAME AREA
+    ======================================================== */
+
+    .gameplay-main {
+        position: fixed !important;
+
+        top: 0;
+        left: 62px !important;
+
+        width: calc(100% - 62px) !important;
+        height: 100dvh !important;
+        min-height: 0 !important;
+
+        margin: 0 !important;
+
+        overflow: hidden !important;
+    }
+
+    .gameplay-board {
+        width: 100% !important;
+        height: 100% !important;
+
+        margin: 0 !important;
+        padding: 5px !important;
+
+        display: grid !important;
+
+        grid-template-rows:
+            auto
+            72px
+            124px
+            1px
+            minmax(0, 1fr);
+
+        gap: 4px !important;
+
+        overflow: hidden !important;
+    }
+
+    .game-molecule {
+        display: none !important;
+    }
+
+
+    /* ========================================================
+       INFO BANNER
+    ======================================================== */
+
+    .game-info-banner {
+        width: 100%;
+
+        min-height: 27px !important;
+
+        margin: 0 !important;
+        padding: 4px 5px !important;
+
+        gap: 4px !important;
+
+        border-radius: 6px !important;
+
+        font-size: 7px !important;
+        line-height: 1.15 !important;
+
+        box-shadow: none !important;
+    }
+
+    .info-icon-wrap {
+        width: 17px !important;
+        height: 17px !important;
+
+        border-radius: 4px !important;
+    }
+
+    .info-icon {
+        width: 9px !important;
+        height: 9px !important;
+    }
+
+
+    /* ========================================================
+       REMOVE DUPLICATE LARGE MOVES BADGE
+    ======================================================== */
+
+    .moves-badge {
+        display: none !important;
+    }
+
+
+    /* ========================================================
+       SHUFFLE / REVEAL AREA
+    ======================================================== */
+
+    .game-middle-actions {
+        width: 100% !important;
+        max-width: none !important;
+        height: 72px !important;
+
+        margin: 0 !important;
+
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+
+        overflow: visible !important;
+    }
+
+    .shuffle-panels {
+        height: 70px !important;
+
+        display: flex !important;
+        align-items: flex-start !important;
+
+        gap: 6px !important;
+    }
+
+    .shuffle-reveal-pile {
+        position: relative;
+
+        width: 108px !important;
+        height: 68px !important;
+
+        overflow: visible !important;
+    }
+
+    #shuffleRevealPile .game-card {
+        width: 55px !important;
+
+        height: 66px !important;
+        min-height: 66px !important;
+
+        padding: 8px 3px 3px !important;
+
+        border-width: 1.5px !important;
+        border-radius: 6px !important;
+    }
+
+    #shuffleRevealPile .game-card.reveal-main-card {
+        font-size: 6px !important;
+    }
+
+    #shuffleRevealPile
+    .game-card.reveal-main-card
+    .card-name {
+        font-size: 6.5px !important;
+        line-height: 1.05 !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+    #shuffleRevealPile
+    .game-card.reveal-main-card
+    .card-crown {
+        top: 3px !important;
+        left: 4px !important;
+
+        font-size: 7px !important;
+    }
+
+    #shuffleRevealPile
+    .game-card.reveal-main-card
+    .card-category-count {
+        top: 3px !important;
+        right: 4px !important;
+
+        font-size: 5px !important;
+    }
+
+    .reveal-peek-card {
+        width: 25px !important;
+        height: 66px !important;
+
+        border-width: 1.5px !important;
+
+        border-radius: 0 6px 6px 0 !important;
+    }
+
+    .reveal-peek-card span {
+        display: none !important;
+    }
+
+    .shuffle-deck-pile {
+        width: 49px !important;
+        height: 66px !important;
+
+        border-width: 1.5px !important;
+        border-radius: 7px !important;
+
+        background-size: 16px 16px !important;
+    }
+
+    .shuffle-deck-count {
+        top: -4px !important;
+        right: -4px !important;
+
+        width: 18px !important;
+        height: 18px !important;
+
+        font-size: 7px !important;
+    }
+
+
+    /* ========================================================
+       CATEGORY AREA — 3 ON TOP, 2 BELOW
+    ======================================================== */
+
+    .category-section {
+        width: 100% !important;
+        max-width: none !important;
+        height: 124px !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        overflow: hidden !important;
+    }
+
+    .category-grid {
+        width: 100% !important;
+        height: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(3, minmax(0, 1fr)) !important;
+
+        grid-auto-rows: 60px !important;
+
+        gap: 4px !important;
+
+        align-content: start !important;
+    }
+
+    #stacksGrid,
+    #lockedCategorySlots {
+        display: contents !important;
+    }
+
+    .foundation-stack,
+    .locked-category-card {
+        width: 100% !important;
+
+        min-width: 0 !important;
+        max-width: none !important;
+
+        height: 60px !important;
+        min-height: 60px !important;
+
+        border-radius: 6px !important;
+
+        overflow: hidden !important;
+    }
+
+    .foundation-stack {
+        padding: 17px 2px 2px !important;
+    }
+
+    .category-tab {
+        padding: 2px 2px !important;
+
+        border-radius: 5px 5px 0 0 !important;
+
+        font-size: 6px !important;
+        line-height: 1.05 !important;
+
+        white-space: nowrap !important;
+
+        overflow: hidden !important;
+        text-overflow: ellipsis !important;
+    }
+
+    .category-card-top {
+        width: 100%;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+    }
+
+    .category-crown {
+        font-size: 7px !important;
+    }
+
+    .category-progress {
+        font-size: 5px !important;
+    }
+
+    .category-icon-circle {
+        width: 18px !important;
+        height: 18px !important;
+
+        margin: 1px auto !important;
+    }
+
+    .category-icon-circle svg {
+        width: 9px !important;
+        height: 9px !important;
+    }
+
+    .stack-title {
+        width: 100% !important;
+
+        padding: 0 1px !important;
+
+        font-size: 5.5px !important;
+        line-height: 1.05 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: break-word !important;
+    }
+
+    .locked-category-card span {
+        font-size: 17px !important;
+    }
+
+
+    /* ========================================================
+       DIVIDER
+    ======================================================== */
+
+    .game-section-divider {
+        width: 100% !important;
+        height: 1px !important;
+
+        margin: 0 !important;
+    }
+
+
+    /* ========================================================
+       GAME CARDS AREA
+    ======================================================== */
+
+    .game-cards-section {
+        width: 100% !important;
+        max-width: none !important;
+
+        min-height: 0 !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+
+        overflow: hidden !important;
+    }
+
+    #cardsGrid {
+        width: 100% !important;
+
+        height: 112px !important;
+        min-height: 112px !important;
+
+        flex: 0 0 112px !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr)) !important;
+
+        gap: 4px !important;
+
+        align-items: start !important;
+
+        padding: 3px 0 !important;
+
+        overflow: visible !important;
+    }
+
+    .card-pile {
+        position: relative;
+
+        width: 100% !important;
+        min-width: 0 !important;
+
+        height: 108px !important;
+        min-height: 108px !important;
+
+        margin: 0 !important;
+
+        filter: none !important;
+
+        border-radius: 6px !important;
+    }
+
+    #cardsGrid .game-card,
+    .card-pile .game-card {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        height: 75px !important;
+        min-height: 75px !important;
+
+        padding: 9px 2px 3px !important;
+
+        gap: 1px !important;
+
+        border-width: 1.5px !important;
+        border-radius: 6px !important;
+
+        font-size: 7px !important;
+        line-height: 1.05 !important;
+
+        writing-mode: horizontal-tb !important;
+
+        white-space: normal !important;
+
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+
+        text-align: center !important;
+    }
+
+    #cardsGrid .card-name,
+    .card-pile .card-name {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        min-width: 0 !important;
+
+        padding: 0 1px !important;
+
+        font-size: 7px !important;
+        line-height: 1.05 !important;
+
+        writing-mode: horizontal-tb !important;
+
+        white-space: normal !important;
+
+        word-break: normal !important;
+        overflow-wrap: break-word !important;
+
+        text-align: center !important;
+    }
+
+    #cardsGrid .card-crown,
+    .card-pile .card-crown {
+        top: 3px !important;
+        left: 3px !important;
+
+        font-size: 7px !important;
+    }
+
+    .card-category-count {
+        top: 3px !important;
+        right: 3px !important;
+
+        font-size: 5px !important;
+    }
+
+
+    /* ========================================================
+       RESTART / NEXT LEVEL
+    ======================================================== */
+
+    .game-bottom-actions {
+        width: 100%;
+
+        margin-top: auto !important;
+        padding-top: 4px !important;
+
+        display: flex !important;
+
+        gap: 4px !important;
+
+        flex-shrink: 0 !important;
+    }
+
+    .bottom-game-btn {
+        flex: 1;
+
+        min-width: 0 !important;
+
+        height: 29px !important;
+
+        padding: 0 3px !important;
+
+        border-radius: 999px !important;
+
+        font-size: 7px !important;
+    }
+
+    .bottom-game-btn svg {
+        width: 9px !important;
+        height: 9px !important;
+    }
+}
+
+/* Hide crown on gameplay cards and shuffle cards only */
+#cardsGrid .card-crown,
+#shuffleRevealPile .card-crown {
+    display: none !important;
+}
+/* ============================================================
+   SHORT MOBILE SCREENS
+============================================================ */
+
+@media (max-width: 768px) and (max-height: 700px) {
+
+    .gameplay-top-bar {
+        width: 58px !important;
+    }
+
+    .gameplay-main {
+        left: 58px !important;
+        width: calc(100% - 58px) !important;
+    }
+
+    .gameplay-top-inner {
+        padding: 5px 3px !important;
+        gap: 4px !important;
+    }
+
+    .stat-item {
+        padding: 3px 1px !important;
+    }
+
+    .gameplay-board {
+        grid-template-rows:
+            auto
+            62px
+            108px
+            1px
+            minmax(0, 1fr);
+    }
+
+    .game-middle-actions {
+        height: 62px !important;
+    }
+
+    .shuffle-panels {
+        height: 60px !important;
+    }
+
+    .shuffle-reveal-pile {
+        height: 58px !important;
+    }
+
+    #shuffleRevealPile .game-card {
+        height: 57px !important;
+        min-height: 57px !important;
+    }
+
+    .reveal-peek-card {
+        height: 57px !important;
+    }
+
+    .shuffle-deck-pile {
+        height: 57px !important;
+    }
+
+    .category-section {
+        height: 108px !important;
+    }
+
+    .category-grid {
+        grid-auto-rows: 52px !important;
+    }
+
+    .foundation-stack,
+    .locked-category-card {
+        height: 52px !important;
+        min-height: 52px !important;
+    }
+
+    .foundation-stack {
+        padding-top: 15px !important;
+    }
+
+    .category-icon-circle {
+        width: 15px !important;
+        height: 15px !important;
+    }
+
+    #cardsGrid {
+        height: 96px !important;
+        min-height: 96px !important;
+        flex-basis: 96px !important;
+    }
+
+    .card-pile {
+        height: 92px !important;
+        min-height: 92px !important;
+    }
+
+    #cardsGrid .game-card,
+    .card-pile .game-card {
+        height: 65px !important;
+        min-height: 65px !important;
+    }
+
+    .bottom-game-btn {
+        height: 26px !important;
+    }
+
+}
+
+
+
+/* ============================================================
+   MOBILE FINAL TWEAKS — PROGRESS + SHUFFLE STACK
+============================================================ */
+
+@media (max-width: 768px) {
+
+    /* --------------------------------------------------------
+       KEEP PROGRESS DIRECTLY UNDER LEVEL TITLE
+    -------------------------------------------------------- */
+
+    .gameplay-progress-container {
+        position: static !important;
+
+        width: 100% !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        flex: 0 0 auto !important;
+
+        margin: 2px 0 3px !important;
+        padding: 0 !important;
+
+        order: 2 !important;
+    }
+
+    .gameplay-progress-track {
+        position: relative !important;
+
+        width: 100% !important;
+        height: 4px !important;
+
+        margin: 0 !important;
+    }
+
+    .gameplay-progress-text {
+        position: static !important;
+
+        width: 100% !important;
+
+        margin: 2px 0 0 !important;
+        padding: 0 !important;
+
+        text-align: center !important;
+
+        font-size: 6px !important;
+        line-height: 1 !important;
+    }
+
+    .gameplay-level-info {
+        order: 1 !important;
+    }
+
+    .gameplay-stats-actions {
+        order: 3 !important;
+
+        flex: 0 0 auto !important;
+    }
+
+
+    /* --------------------------------------------------------
+       COMPACT SHUFFLE CARD STACK
+    -------------------------------------------------------- */
+
+    .game-middle-actions {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: flex-start !important;
+    }
+
+    .shuffle-panels {
+        width: auto !important;
+
+        display: flex !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+
+        gap: 8px !important;
+    }
+
+
+    /* Reveal stack container */
+
+    .shuffle-reveal-pile {
+        position: relative !important;
+
+        width: 90px !important;
+        height: 66px !important;
+
+        overflow: visible !important;
+    }
+
+
+    /* Main visible card */
+
+    #shuffleRevealPile .game-card {
+        position: absolute !important;
+
+        top: 0 !important;
+        left: 0 !important;
+
+        width: 55px !important;
+        height: 66px !important;
+        min-height: 66px !important;
+
+        z-index: 3;
+    }
+
+
+    /* First preview card */
+
+    #shuffleRevealPile
+    .reveal-main-card + .reveal-peek-card {
+        position: absolute !important;
+
+        top: 0 !important;
+        left: 48px !important;
+
+        width: 23px !important;
+        height: 66px !important;
+
+        z-index: 2;
+    }
+
+
+    /* Second preview card */
+
+    #shuffleRevealPile
+    .reveal-main-card
+    + .reveal-peek-card
+    + .reveal-peek-card {
+        position: absolute !important;
+
+        top: 0 !important;
+        left: 65px !important;
+
+        width: 23px !important;
+        height: 66px !important;
+
+        z-index: 1;
+    }
+
+
+    .reveal-peek-card span {
+        display: none !important;
+    }
+
+
+    /* Blue shuffle deck */
+
+    .shuffle-deck-pile {
+        position: relative !important;
+
+        width: 49px !important;
+        height: 66px !important;
+
+        flex-shrink: 0 !important;
+
+        margin: 0 !important;
+    }
+
+}
