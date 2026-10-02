@@ -1,0 +1,48 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Autotrophs,Easy,"Green plants, Food producers, Photosynthesis, Producers",Organism,These organisms manufacture their own food.
+2,Heterotrophs,Easy,"Consumers, Animals, Depend on producers, Ready-made food",Organism,These organisms obtain food from other organisms.
+3,Herbivores,Easy,"Plant eaters, Primary consumers, Cattle, Grasshopper",Organism,These consumers feed mainly on plants.
+4,Carnivores,Easy,"Meat eaters, Predators, Secondary consumers",Organism,These consumers feed on other animals.
+5,Omnivores,Easy,"Plants and animals, Mixed diet, Human",Organism,These consumers feed on both plant and animal material.
+6,Decomposers,Easy,"Bacteria, Fungi, Dead matter, Nutrient recycling",Organism,These organisms decompose dead remains and wastes.
+7,Trophic Level,Medium,"Feeding position, Producer level, Consumer level",Environment,This describes an organism's position in a feeding pathway.
+8,Primary Producer,Easy,"Green plant, First trophic level, Photosynthesis",Organism,This organism captures energy and manufactures food.
+9,Primary Consumer,Easy,"Herbivore, Second trophic level, Feeds on producer",Organism,This consumer feeds directly on a producer.
+10,Secondary Consumer,Easy,"Feeds on herbivore, Third trophic level, Carnivore",Organism,This consumer eats a primary consumer.
+11,Tertiary Consumer,Medium,"Higher consumer, Feeds on secondary consumer, Top predator",Organism,This consumer feeds at a higher trophic level.
+12,Food Chain,Easy,"Feeding sequence, Producer to consumer, Energy pathway",Environment,This is a single pathway showing who eats whom.
+13,Food Web,Easy,"Linked food chains, Feeding network, Multiple pathways",Environment,This shows several interconnected food chains.
+14,Energy Flow,Easy,"Sun, Producer, Consumer, Heat loss",Energy,Energy passes through an ecosystem in one direction.
+15,Sun as Energy Source,Easy,"Solar energy, Photosynthesis, Primary source",Energy,Most ecosystem energy originates from this source.
+16,Energy Loss,Medium,"Respiration, Heat, Movement, Waste",Energy,Energy decreases between trophic levels because much is lost in these ways.
+17,Short Food Chain,Medium,"Fewer trophic levels, Less energy loss, More energy available",Energy,A shorter chain transfers energy through fewer steps.
+18,Pyramid of Numbers,Medium,"Number of organisms, Trophic levels, Population count",Measurement,This pyramid compares the number of organisms at each trophic level.
+19,Pyramid of Biomass,Medium,"Dry mass, Trophic levels, Living material",Measurement,This pyramid compares total living mass at trophic levels.
+20,Pyramid of Energy,Medium,"Energy transfer, Per unit area, Per unit time, Always upright",Energy,This pyramid shows energy available at successive trophic levels.
+21,Biomass,Easy,"Dry mass, Living material, Organic matter",Matter,This is the mass of living material in organisms.
+22,Energy Conversion,Medium,"Light to chemical, Chemical to movement, Chemical to heat",Energy,Energy changes form but is not created or destroyed.
+23,First Law of Thermodynamics,Medium,"Energy conserved, Not created, Not destroyed, Converted",Energy,This law states that energy changes form but total energy is conserved.
+24,Second Law of Thermodynamics,Medium,"Energy degradation, Heat loss, Less useful energy",Energy,Energy transformations are not completely efficient.
+25,Carbon Cycle,Medium,"Photosynthesis, Respiration, Decay, Combustion, Fossilisation",Process,These processes move carbon through organisms and the environment.
+26,Carbon Dioxide Removal,Easy,"Photosynthesis, Green plants, Carbon fixation",Process,This process removes carbon dioxide from air.
+27,Carbon Dioxide Release,Easy,"Respiration, Decay, Combustion",Process,These processes return carbon dioxide to the environment.
+28,Fossil Fuels,Easy,"Coal, Petroleum, Natural gas, Ancient organic matter",Matter,These fuels contain carbon stored from ancient organisms.
+29,Combustion,Easy,"Burning, Oxygen, Carbon dioxide, Energy release",Energy,Burning carbon-containing fuels returns carbon dioxide to the atmosphere.
+30,Oxygen Cycle,Medium,"Photosynthesis, Respiration, Combustion, Decay",Process,These processes recycle oxygen in nature.
+31,Nitrogen Cycle,Medium,"Fixation, Nitrification, Assimilation, Ammonification, Denitrification",Process,These processes recycle nitrogen.
+32,Nitrogen Fixation,Medium,"Rhizobium, Azotobacter, Atmospheric nitrogen, Nitrogen compounds",Process,This makes atmospheric nitrogen available in usable compounds.
+33,Nitrification,Medium,"Ammonium, Nitrites, Nitrates, Bacteria",Process,This bacterial process produces nitrates in soil.
+34,Assimilation,Medium,"Plant uptake, Nitrates, Plant proteins",Process,Plants absorb nitrogen compounds and build them into organic molecules.
+35,Ammonification,Medium,"Decay, Ammonium compounds, Decomposers",Process,Decomposition converts organic nitrogen to ammonium compounds.
+36,Denitrification,Medium,"Nitrates, Nitrogen gas, Denitrifying bacteria",Process,This process returns nitrogen gas to the atmosphere.
+37,Water Cycle,Easy,"Evaporation, Condensation, Precipitation, Runoff, Transpiration",Process,These processes recycle water between Earth and atmosphere.
+38,Evaporation,Easy,"Liquid to vapour, Water bodies, Heat",Process,This changes liquid water into water vapour.
+39,Condensation,Easy,"Vapour to liquid, Cloud formation, Cooling",Process,This turns water vapour into liquid droplets.
+40,Precipitation,Easy,"Rain, Snow, Hail, Water returns",Process,This returns water from clouds to Earth's surface.
+41,Transpiration,Easy,"Plant leaves, Water vapour, Stomata",Process,Plants release water vapour mainly through stomata.
+42,Nutrient Cycling,Easy,"Decomposition, Mineral salts, Producers, Consumers",Process,Mineral nutrients are repeatedly reused within ecosystems.
+43,Detritus Food Chain,Medium,"Dead organic matter, Detritivores, Decomposers, Nutrient release",Environment,This feeding pathway begins with dead organic matter.
+44,Saprophytes,Easy,"Fungi, Bacteria, External digestion, Dead matter",Organism,These decomposers feed on dead organic materials.
+45,Decomposition,Easy,"Dead organisms, Microorganisms, Mineral release, Decay",Process,This breaks down organic remains and returns nutrients.
+46,Carbon-Oxygen Balance,Medium,"Photosynthesis, Respiration, Atmospheric gases, Ecosystem balance",Environment,These linked processes help regulate carbon dioxide and oxygen.
+47,Human Effects on Carbon Cycle,Medium,"Deforestation, Fossil fuels, Combustion, Carbon dioxide increase",Environment,These activities can increase atmospheric carbon dioxide.
