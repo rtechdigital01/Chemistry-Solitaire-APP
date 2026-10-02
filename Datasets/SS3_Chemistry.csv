@@ -1,0 +1,36 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemical Bonding,Easy,"Ionic, Covalent, Coordinate, Metallic, Intermolecular forces",Structure,Chemical bonding explains how atoms and ions are held together.
+2,Periodic Trends and Bonding,Medium,"Atomic size, Ionisation energy, Electronegativity, Valence electrons, Bond type",Structure,Periodic properties help predict bonding behaviour.
+3,Electronegativity,Medium,"Electron-pair attraction, Bond polarity, Periodic trend, Pauling idea, Covalent bond",Measurement,Electronegativity describes an atom's attraction for shared electrons.
+4,Electronegativity Across Period,Medium,"Generally increases, Higher nuclear charge, Smaller atomic radius, Stronger electron attraction",Measurement,Electronegativity generally rises across a period.
+5,Electronegativity Down Group,Medium,"Generally decreases, More shells, Greater shielding, Larger atomic radius",Measurement,Electronegativity generally falls down a group.
+6,Bond Polarity,Medium,"Unequal electron sharing, Electronegativity difference, Partial charges, Polar covalent bond, Dipole",Structure,Bond polarity arises when bonded atoms attract electrons unequally.
+7,Non-polar Covalent Bond,Easy,"Equal sharing, Similar electronegativity, No permanent dipole, H?, Cl?",Structure,Electrons are shared approximately equally in this bond.
+8,Polar Covalent Bond,Medium,"Unequal sharing, Partial charges, Electronegativity difference, HCl, Dipole",Structure,This covalent bond has unequal electron sharing.
+9,Ionic Bond,Easy,"Electron transfer, Cation, Anion, Electrostatic attraction, Metal + non-metal",Structure,This bond is the attraction between oppositely charged ions.
+10,Covalent Bond,Easy,"Shared electron pair, Non-metals, Molecule, Orbital overlap, Single or multiple",Structure,Atoms form this bond by sharing electron pairs.
+11,Coordinate Bond,Medium,"Both electrons from one atom, Donor, Acceptor, Lone pair, Dative bond",Structure,One atom supplies both electrons in the shared pair.
+12,Metallic Bond,Easy,"Positive ions, Delocalised electrons, Metal lattice, Conductivity, Malleability",Structure,Metals are held together by attraction between ions and mobile electrons.
+13,Hybridisation,Hard,"Orbital mixing, sp, sp², sp³, Molecular shape",Structure,Hybridisation describes mixing of atomic orbitals to form equivalent bonding orbitals.
+14,sp³ Hybridisation,Hard,"Four hybrid orbitals, Tetrahedral, Methane, 109.5°, Single bonds",Structure,This hybridisation gives four equivalent orbitals.
+15,sp² Hybridisation,Hard,"Three hybrid orbitals, Trigonal planar, Ethene, 120°, One p orbital remains",Structure,This hybridisation is associated with many double-bonded carbon atoms.
+16,sp Hybridisation,Hard,"Two hybrid orbitals, Linear, Ethyne, 180°, Two p orbitals remain",Structure,This hybridisation is associated with many triple-bonded carbon atoms.
+17,Sigma Bond,Medium,"Head-on overlap, Strong bond, Single bond component, ? bond, Internuclear axis",Structure,A sigma bond forms by direct orbital overlap along the internuclear axis.
+18,Pi Bond,Medium,"Sideways overlap, p orbitals, Double and triple bonds, ? bond, Restricted rotation",Structure,A pi bond forms by sideways overlap of parallel p orbitals.
+19,Single Bond,Easy,"One sigma bond, Electron pair, C-C, Free rotation often possible",Structure,A single covalent bond contains one sigma bond.
+20,Double Bond,Easy,"One sigma, One pi, C=C, Restricted rotation",Structure,A double bond contains one sigma and one pi bond.
+21,Triple Bond,Easy,"One sigma, Two pi, C?C, Strong multiple bond",Structure,A triple bond contains one sigma and two pi bonds.
+22,Molecular Shape,Medium,"Electron pairs, Repulsion, Bond angle, Geometry, VSEPR",Structure,Electron-pair repulsion influences molecular geometry.
+23,VSEPR Theory,Medium,"Electron pair repulsion, Bond pairs, Lone pairs, Molecular geometry, Bond angles",Structure,Electron pairs arrange to minimise repulsion.
+24,Linear Molecule,Easy,"180°, Two electron regions, CO?, BeCl?, Straight shape",Structure,A linear molecule has atoms arranged along a straight line.
+25,Trigonal Planar Molecule,Medium,"120°, Three electron regions, BF?, Planar",Structure,Three bonding regions around a centre can form a trigonal planar shape.
+26,Tetrahedral Molecule,Easy,"109.5°, Four bonding regions, CH?, 3D shape",Structure,Four equivalent bonding regions form a tetrahedral arrangement.
+27,Pyramidal Molecule,Medium,"NH?, One lone pair, About 107°, Trigonal pyramidal",Structure,Ammonia has a pyramidal shape because of a lone pair.
+28,Bent Molecule,Medium,"H?O, Two lone pairs, V-shape, About 104.5°",Structure,Water is bent because oxygen has two lone pairs.
+29,Intermolecular Forces,Easy,"London forces, Dipole-dipole, Hydrogen bonding, Between molecules, Boiling point",Structure,These attractions act between molecules.
+30,London Dispersion Forces,Medium,"Temporary dipoles, All particles, Weak force, Larger molecules stronger, Non-polar substances",Structure,These temporary attractions arise from fluctuating electron distributions.
+31,Dipole-Dipole Forces,Medium,"Polar molecules, Permanent dipoles, Opposite partial charges, Intermolecular attraction",Structure,Polar molecules attract through permanent dipoles.
+32,Hydrogen Bonding,Easy,"H bonded to N O or F, Strong intermolecular force, Water, NH?, HF",Structure,Hydrogen bonding is unusually strong intermolecular attraction.
+33,Bonding and Boiling Point,Medium,"Stronger attraction, Higher boiling point, Intermolecular forces, Ionic lattice, Hydrogen bonding",Measurement,Boiling points reflect the strength of attractions between particles.
+34,Bonding and Solubility,Medium,"Like dissolves like, Polar solvent, Non-polar solvent, Ionic compounds, Hydrogen bonding",Measurement,Solubility depends on interactions between solute and solvent.
+35,Bonding and Conductivity,Medium,"Mobile ions, Delocalised electrons, Ionic melt, Metal, Molecular compounds",Measurement,Electrical conductivity requires mobile charged particles.
