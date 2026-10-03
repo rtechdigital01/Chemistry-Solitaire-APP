@@ -1,0 +1,88 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Gaseous Exchange,Easy,"Oxygen uptake, Carbon dioxide loss, Diffusion, Respiratory surface, Oxygen diffusion, Carbon dioxide diffusion",Process,This is the exchange of respiratory gases.
+2,Respiratory Surface,Easy,"Thin, Moist, Large area, Good blood supply, Rich blood supply, Short diffusion distance",Structure,These features make gas exchange efficient.
+3,Diffusion in Gas Exchange,Easy,"Concentration gradient, High to low, Thin membrane",Process,Respiratory gases cross surfaces mainly by this process.
+4,Gas Exchange in Amoeba,Easy,"Cell membrane, Diffusion, Body surface",Process,Amoeba exchanges gases directly across its membrane.
+5,Gas Exchange in Earthworm,Medium,"Moist skin, Capillaries, Diffusion",Structure,Earthworms exchange gases through their skin.
+6,Gas Exchange in Fish,Easy,"Gills, Gill filaments, Lamellae, Water, Operculum, Gill arch, Gill rakers, Countercurrent flow",Structure,Fish use these structures for gas exchange.
+7,Gill Filaments,Easy,"Large surface area, Many lamellae, Blood capillaries",Structure,These structures increase gill exchange area.
+8,Gill Lamellae,Medium,"Thin surface, Capillaries, Diffusion",Structure,These tiny plates are major gas exchange sites.
+9,Countercurrent Exchange,Hard,"Opposite flow, Water and blood, Maintains gradient",Process,This arrangement maintains a steep oxygen gradient across gills.
+10,Gas Exchange in Insects,Medium,"Spiracles, Tracheae, Tracheoles, Air tubes, Air sacs, Direct delivery to cells, No blood oxygen transport",Structure,Insects use a branching air-tube system.
+11,Spiracle,Easy,"Body opening, Air entry, Air exit, Insect",Structure,This opening connects the tracheal system to the outside.
+12,Trachea in Insects,Medium,"Air tube, Chitin rings, Branches",Structure,These tubes carry air through an insect.
+13,Tracheole,Medium,"Tiny air tube, Near cells, Gas diffusion",Structure,These fine tubes deliver gases directly to tissues.
+14,Gas Exchange in Plants,Easy,"Stomata, Lenticels, Intercellular spaces",Structure,Plants exchange gases through these pathways.
+15,Stomata,Easy,"Leaf pores, Guard cells, Gas diffusion, Intercellular air spaces, Transpiration",Structure,These pores allow gases to move into and out of leaves.
+16,Lenticels,Easy,"Woody stems, Gas exchange, Raised pores",Structure,These openings allow gaseous exchange in woody stems.
+17,Human Respiratory System,Easy,"Nose, Trachea, Bronchi, Lungs, Alveoli",Structure,These are major parts of the human respiratory system.
+18,Nasal Cavity,Easy,"Filters air, Warms air, Moistens air",Structure,Incoming air is conditioned here.
+19,Trachea,Easy,"Windpipe, Cartilage rings, Cilia",Structure,This tube carries air toward the lungs.
+20,Bronchus,Easy,"Tracheal branch, Enters lung, Air passage",Structure,Each lung receives air through one of these.
+21,Bronchioles,Easy,"Small airways, Branching tubes, Lead to alveoli",Structure,These small airways lead to the alveoli.
+22,Alveoli,Easy,"Air sacs, Thin walls, Large area, Capillaries, Moist lining, One-cell-thick wall, Steep diffusion gradient",Structure,These structures are the main sites of lung gas exchange.
+23,Alveolar Adaptations,Medium,"One-cell thick, Moist lining, Large surface, Good blood supply",Structure,These features make alveoli efficient.
+24,Pleural Membranes,Medium,"Surround lungs, Pleural fluid, Reduce friction",Structure,These membranes allow smooth lung movement.
+25,Diaphragm,Easy,"Muscle sheet, Below lungs, Changes chest volume",Structure,This muscle drives much of breathing.
+26,Intercostal Muscles,Easy,"Between ribs, Move rib cage, Breathing",Structure,These muscles move the ribs during ventilation.
+27,Inhalation,Easy,"Diaphragm contracts, Ribs move up, Volume increases, Pressure falls, External intercostals contract",Process,These changes draw air into the lungs.
+28,Exhalation,Easy,"Diaphragm relaxes, Ribs move down, Volume decreases, Pressure rises, External intercostals relax",Process,These changes force air out of the lungs.
+29,Ventilation,Easy,"Breathing in, Breathing out, Air movement",Process,This is the movement of air into and out of lungs.
+30,Breathing Rate,Easy,"Breaths per minute, Exercise increases, Ventilation rate",Measurement,This measures how often a person breathes.
+31,Tidal Volume,Medium,"Normal breath, Air volume, Per breath",Measurement,This is the amount of air moved in one normal breath.
+32,Vital Capacity,Medium,"Maximum exhaled volume, Deep inhalation, Lung volume",Measurement,This is the greatest volume exhaled after a deep breath.
+33,Residual Volume,Medium,"Air remains, After forceful exhalation, Prevents collapse",Measurement,This air remains in the lungs after maximum exhalation.
+34,Spirometer,Medium,"Lung volumes, Breathing trace, Measures ventilation",Measurement,This instrument measures changes in lung volume.
+35,Oxygen Transport,Easy,"Haemoglobin, Oxyhaemoglobin, Red blood cells",Process,Oxygen is transported mainly attached to haemoglobin.
+36,Carbon Dioxide Transport,Medium,"Plasma, Bicarbonate ions, Blood",Process,Most carbon dioxide is carried in blood in converted form.
+37,Exercise and Breathing,Easy,"Higher breathing rate, Higher heart rate, More oxygen demand",Energy,Exercise increases demand for oxygen and energy.
+38,Smoking Effects,Medium,"Tar, Cilia damage, Lung cancer, Bronchitis",Environment,Smoking damages respiratory structures and increases disease risk.
+39,Carbon Monoxide Effect,Medium,"Binds haemoglobin, Less oxygen transport, Toxic gas",Matter,This gas reduces the oxygen-carrying capacity of blood.
+40,Emphysema,Medium,"Alveoli damaged, Reduced surface area, Breathlessness",Organism,This disease reduces the surface available for gas exchange.
+41,Respiration,Easy,"Cellular process, Energy release, ATP, Occurs in cells, Food oxidation",Energy,This metabolic process releases usable energy in living cells.
+42,Breathing,Easy,"Muscular movement, Ventilation, Inhalation, Exhalation, Moves air",Process,This mechanical process moves air into and out of lungs.
+43,Gas Exchange vs Respiration,Medium,"Gas exchange at surface, Respiration in cells, Oxygen and carbon dioxide, Different processes",Process,One exchanges gases; the other releases energy chemically.
+44,Respiratory Structures,Easy,"Body surface, Gills, Tracheae, Lungs",Structure,These are major gaseous-exchange structures in animals.
+45,Respiratory Surface Features,Easy,"Large surface area, Moist, Thin, Good oxygen supply, Highly vascularised",Structure,Efficient gaseous-exchange surfaces share these features.
+46,Flatworm Gas Exchange,Medium,"Flattened body, High SA:V, Short diffusion distance, Body surface, Well-aerated water",Process,Flatworms exchange gases directly because of their thin body form.
+47,Cutaneous Respiration,Medium,"Moist skin, Blood capillaries, Frog, Earthworm, Diffusion",Process,This is gaseous exchange across the skin.
+48,External Gills,Medium,"Skin outgrowths, Aquatic larvae, Large area, Rich capillaries, Exposed to water",Structure,These simple gills project directly into water.
+49,Gill Chamber,Medium,"Enclosed gills, Water circulation, Opercular cavity, More efficient exchange",Structure,This chamber allows controlled water flow over gills.
+50,Operculum,Easy,"Gill cover, Bony fish, Protects gills, Controls water outflow",Structure,This bony plate covers the gill chamber.
+51,Gill Arch,Medium,"Supports gill, Gill filaments, Gill rakers, Bony structure",Structure,This structure supports the main components of a fish gill.
+52,Gill Rakers,Easy,"Food strainers, Inner side of gill arch, Protect gill filaments, Not gas exchange",Structure,These structures prevent food particles entering the gill chamber.
+53,Gill Ventilation,Medium,"Mouth opens, Operculum movement, One-way water flow, Pressure changes, Water over gills",Process,Fish maintain a continuous flow of water over the gills.
+54,Fish Inspiration,Medium,"Mouth opens, Buccal cavity expands, Pressure falls, Water enters",Process,These events draw water into a fish's mouth.
+55,Fish Expiration,Medium,"Mouth closes, Buccal floor rises, Pressure increases, Operculum opens, Water exits",Process,These events force water out across the gills.
+56,Tracheal System,Easy,"Spiracles, Tracheae, Tracheoles, Air sacs, Insects",Structure,This air-tube system supplies insect tissues directly.
+57,Insect Air Sacs,Medium,"Expanded tracheae, Ventilation, Flying insects, Air reservoir",Structure,These thin-walled expansions aid insect ventilation.
+58,Insect Ventilation,Medium,"Dorso-ventral muscles, Body compression, Spiracle control, One-way airflow, Active insects",Process,Body movements can actively pump air through insect tracheae.
+59,Nasal Cavity Functions,Easy,"Warms air, Moistens air, Filters dust, Mucus, Cilia",Structure,The nose conditions incoming air.
+60,Turbinal Bones,Medium,"Nasal cavity, Increase surface area, Warm air, Moisten air",Structure,These thin bones increase the internal surface of the nose.
+61,Cilia in Airways,Easy,"Move mucus, Trap particles, Bronchi, Trachea, Protect lungs",Structure,These microscopic hairs move contaminated mucus toward the throat.
+62,Pharynx,Easy,"Shared passage, Nose and mouth, Leads to larynx, Air pathway",Structure,This short passage connects the nasal and oral cavities to deeper passages.
+63,Larynx,Easy,"Voice box, Vocal cords, Air passage, Above trachea",Structure,This organ contains the vocal cords.
+64,Vocal Cords,Easy,"Larynx, Vibrate, Sound production, Airflow",Structure,These folds vibrate when air passes them.
+65,Pleural Cavity,Medium,"Between pleural membranes, Pleural fluid, Airtight, Lung movement",Structure,This narrow space surrounds each lung.
+66,Pleural Fluid,Easy,"Lubrication, Reduces friction, Helps lungs follow rib cage, Pleural cavity",Matter,This fluid permits smooth lung movement.
+67,Thoracic Cavity,Easy,"Lungs, Heart, Rib cage, Diaphragm, Chest",Structure,This body cavity contains the lungs and heart.
+68,External Intercostal Muscles,Medium,"Contract in inhalation, Ribs up, Ribs out, Increase chest volume",Structure,These muscles help expand the thorax during inspiration.
+69,Internal Intercostal Muscles,Medium,"Forced exhalation, Ribs down, Ribs inward, Reduce chest volume",Structure,These muscles assist forceful expiration.
+70,Pressure Change in Inhalation,Medium,"Thoracic volume increases, Lung pressure falls, Atmospheric air enters, Partial vacuum",Force,Air enters when pressure inside the lungs becomes lower than outside.
+71,Pressure Change in Exhalation,Medium,"Thoracic volume decreases, Lung pressure rises, Air leaves, Diaphragm relaxes",Force,Air leaves when lung pressure becomes higher than outside.
+72,Alveolar Gas Exchange,Medium,"Oxygen into blood, Carbon dioxide into alveoli, Diffusion gradient, Thin walls, Moist surface",Process,Respiratory gases diffuse in opposite directions across alveolar walls.
+73,Oxyhaemoglobin Formation,Medium,"Oxygen binds haemoglobin, Red blood cells, High oxygen, Reversible, Lungs",Process,This reaction helps maintain oxygen uptake at the alveoli.
+74,Hydrogencarbonate Transport,Hard,"Carbon dioxide transport, Plasma, Hydrogencarbonate ions, From tissues to lungs",Process,Most carbon dioxide is carried in this ionic form.
+75,Inhaled Air,Easy,"About 21% oxygen, Less carbon dioxide, Less water vapour, Cooler",Matter,These features broadly describe atmospheric air entering the lungs.
+76,Exhaled Air,Easy,"Less oxygen, More carbon dioxide, More water vapour, Warmer",Matter,Air leaving the lungs differs from inhaled air in these ways.
+77,Total Lung Capacity,Medium,"Maximum lung volume, Tidal air, Reserve volumes, Residual air",Measurement,This is the total amount of air the lungs can contain.
+78,Residual Air,Medium,"Remains after forced exhalation, Lungs never empty, About 1500 cm³ in text example",Measurement,This air cannot be expelled naturally from the lungs.
+79,Tidal Air,Easy,"Normal breath, About 500 cm³ in text example, Inhalation, Exhalation",Measurement,This is the air moved during a normal breath.
+80,Smoking Chemicals,Easy,"Nicotine, Tar, Carbon monoxide",Matter,These are major harmful components of cigarette smoke described in the text.
+81,Nicotine,Easy,"Addictive, Stimulant, Poisonous, Affects brain",Matter,This substance contributes strongly to tobacco dependence.
+82,Tar,Easy,"Damages airway cells, Cancer risk, Deposits in lungs, Bronchi damage",Matter,This sticky smoke component damages respiratory tissue.
+83,Carbon Monoxide and Haemoglobin,Medium,"Binds haemoglobin, Reduces oxygen transport, Less oxyhaemoglobin, Toxic",Process,This gas reduces the blood's capacity to carry oxygen.
+84,Plant Gas Exchange Openings,Easy,"Stomata, Lenticels, Root hairs",Structure,Plants exchange gases through these structures.
+85,Guard Cell Turgor,Medium,"Water enters, Guard cells curve, Stoma opens, Osmosis, High solute concentration",Process,Increasing guard-cell turgor opens the stomatal pore.
+86,Guard Cell Flaccidity,Medium,"Water leaves, Guard cells straighten, Stoma closes, Reduced turgor",Process,Loss of guard-cell water closes the stomatal pore.
+87,Potassium Ion Uptake in Guard Cells,Hard,"Active transport, Higher solute concentration, Water enters, Stomatal opening, ATP required",Process,Ion uptake can trigger stomatal opening.

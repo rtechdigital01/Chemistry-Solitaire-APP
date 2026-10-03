@@ -1,0 +1,44 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electrical Circuit,Easy,"Closed circuit, Circuit path, Complete loop, Component",Circuit,A working circuit needs a complete path from the power supply and back again.
+2,Electric Current,Easy,"Flow of charge, Moving electrons, Charge flow, Complete circuit, Circuit current",Circuit,Current is the rate of flow of electric charge around a circuit.
+3,Electrons,Easy,"Negative charge, Moving charges, Current carriers, Charge particles, Tiny particles, Flow through wire",Circuit,These negatively charged particles move through metal wires to form current.
+4,Complete Circuit,Easy,"Working circuit, No gaps, Closed loop, Current flows, Connected wires, Components joined",Circuit,Current can only flow when the circuit forms an unbroken loop.
+5,Potential Difference,Easy,"Driving force, Pushes charge, Battery supply, Voltage, Energy per charge",Circuit,This quantity provides the push that drives charge around a circuit.
+6,Ammeter,Easy,"Measures current, Series connection, Current meter",Measurement,This meter is used to measure electric current.
+7,Voltmeter,Easy,"Measures p.d., Parallel connection, Across component",Measurement,This meter measures potential difference between two points.
+8,Current Units,Easy,"Unit = A, Ampere, Amperes",Measurement,Electric current is measured in amperes.
+9,Potential Difference Units,Easy,"Unit = V, Volt, Volts",Measurement,Potential difference is measured in volts.
+10,Battery Rating,Easy,"Battery voltage, Cell rating, Supply p.d, Maximum supply, Power source, 1.5 V",Measurement,This number tells you the potential difference supplied by a battery.
+11,Bulb Rating,Easy,"Lamp rating, Bulb voltage, Component rating, Maximum p.d, Safe voltage, Do not exceed",Measurement,This tells you the maximum potential difference that can safely be placed across a bulb.
+12,Resistance,Easy,"Opposes current, Slows current, High resistance, Low resistance, Current control",Circuit,Resistance describes how difficult it is for current to flow through a component.
+13,Resistance Formula,Medium,"Resistance = p.d. ÷ current, Potential difference, Current, R = V ÷ I",Measurement,Calculate resistance by dividing potential difference by current.
+14,Conductors,Easy,"Current passes, Metal strip, Conduct electricity, Good conductor, Copper, Easy charge flow",Circuit,These materials allow electric current to pass through easily.
+15,Insulators,Easy,"Current blocked, Poor conductor, Cable coating, Electrical insulator, Charge blocked, Plastic",Circuit,These materials resist the flow of electric current.
+16,Circuit Diagrams,Easy,"Simplified circuit, Cell symbol, Bulb symbol, Switch symbol, Meter symbols, Symbols",Measurement,These drawings use standard symbols instead of pictures of real components.
+17,Circuit Symbols,Easy,"Standard symbols, Cell, Battery, Ammeter, Voltmeter, Switch",Circuit,These standard drawings represent common electrical components.
+18,Series Circuits,Easy,"One route, Single path, No branches, One loop, Components in line",Circuit,"In this circuit, charge has only one route around the circuit."
+19,Parallel Circuits,Easy,"Current rejoins, Multiple paths, Independent branches, Branch current, Branches, More than one route",Circuit,"In this circuit, current can take different routes through branches."
+20,Series Current,Medium,"Series rule, Same everywhere, One path, Ammeter same, No splitting, Single route",Circuit,The current is the same at all points in a simple series circuit.
+21,Parallel Current,Medium,"Total current, Branch currents, Add together, Different routes, Branch rule, Rejoins",Circuit,"At a junction, current divides between branches and later adds back together."
+22,Static Electricity,Easy,"Static charge, Plastic rod, Insulators, Cloth",Circuit,Static charge can build up when insulating materials are rubbed together.
+23,Electron Transfer,Medium,"Static electricity, Negative charge gained, Positive charge left, Plastic gains electrons, Cloth loses electrons",Circuit,Only electrons move between objects during charging by rubbing.
+24,Negative Charge,Easy,"Negative object, Extra electrons, Gains electrons, Negatively charged, More electrons, Electron excess",Circuit,An object becomes negatively charged when it gains electrons.
+25,Positive Charge,Easy,"Charge imbalance, Positive object, Loses electrons, Electron shortage, Positively charged, Fewer electrons",Circuit,An object becomes positively charged when it loses electrons.
+26,Electric Field,Medium,"Field region, Around charge, Charged object, Attraction, Repulsion, Force at distance",Circuit,A charged object creates a region where other charges can experience a force.
+27,Charge Attraction,Easy,"Static attraction, Positive negative, Unlike charges, Opposite charges attract",Circuit,Unlike electric charges pull towards each other.
+28,Charge Repulsion,Easy,"Static repulsion, Positive positive, Negative negative, Like charges, Same charges repel",Circuit,Like electric charges push away from each other.
+29,Bar Magnets,Easy,"Bar shape, Permanent magnet, Attract magnetic material",Force,These permanent magnets have north and south poles.
+30,Magnetic Field,Easy,"Field lines, Compass direction, Bar magnet, Force region",Force,This region around a magnet is where magnetic forces can act.
+31,Magnetic Field Lines,Medium,"Curved lines, Field pattern, Magnetic map, Direction arrows, Pole direction, Closer means stronger",Force,These lines show the direction and pattern of a magnetic field.
+32,Magnetic Materials,Easy,"Magnetic material, Attracted magnet, Magnet response, Iron, Nickel, Cobalt",Circuit,These materials can be strongly attracted to magnets.
+33,Magnetic Poles,Easy,"Opposite poles, Matching poles, Pole labels, North, South",Force,Every bar magnet has two named ends.
+34,Opposite Poles,Easy,"Unlike poles, North south, Magnet attraction, Pole pair, N-S",Force,Unlike magnetic poles attract each other.
+35,Matching Poles,Easy,"Like poles, North north, South south, N-N, S-S",Force,Like magnetic poles repel each other.
+36,Earth Magnetic Field,Medium,"Earth magnet, Planetary field, Magnetic north, Compass",Force,Earth behaves like a giant magnet and has its own magnetic field.
+37,Compass,Easy,"Points north-south, Magnetic needle, Earth's field, Pivoted magnet, Direction finding, North seeking",Force,This instrument uses a small magnet to align with Earth's magnetic field.
+38,Electromagnet,Easy,"Switchable magnet, Current on, Current off, Temporary magnet, Coil of wire",Circuit,This magnet is produced by electric current flowing through a coil.
+39,Electromagnet Core,Easy,"Magnetic core, Soft iron, Inside coil, Coil centre, Temporary magnetism, Field booster",Circuit,Adding this material inside a coil strengthens an electromagnet.
+40,Electromagnet Strength,Medium,"Stronger electromagnet, More current, More turns, Coil design, More coil turns",Circuit,Increasing current or the number of turns makes an electromagnet stronger.
+41,Current Magnetic Field,Medium,"Wire current, Circular field, Magnetic effect, Current creates field, Around wire, Electromagnetism",Force,An electric current produces a magnetic field around the wire.
+42,Electric Motor,Medium,"Motor effect, Coil turns, Electromagnet, Electrical to kinetic",Circuit,A current-carrying wire in a magnetic field feels a force that can make a motor turn.
+43,Motor Effect,Medium,"Motor principle, Current-carrying conductor, Directional force, Current plus field",Circuit,This effect is the force on a current-carrying conductor in a magnetic field.
