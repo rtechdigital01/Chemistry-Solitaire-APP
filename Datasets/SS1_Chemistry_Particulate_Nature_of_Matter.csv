@@ -1,0 +1,41 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Particulate Nature of Matter,Easy,"Atoms, Molecules, Ions, Tiny particles, Continuous motion",Particle,Matter is described as being made of tiny particles.
+2,Atom,Easy,"Smallest reacting particle, Element, Nucleus, Electrons, Chemical reaction",Particle,This is the smallest particle of an element that takes part in chemical reactions.
+3,Molecule,Easy,"Two or more atoms, Chemically joined, Independent existence, Substance properties, Formula",Particle,This is the smallest independent particle of many substances.
+4,Ion,Easy,"Charged particle, Cation, Anion, Electron loss, Electron gain",Particle,This particle carries a positive or negative electrical charge.
+5,Cation,Easy,"Positive ion, Electron loss, Na?, Ca²?, Metal ion",Particle,This ion has a positive charge.
+6,Anion,Easy,"Negative ion, Electron gain, Cl?, O²?, Non-metal ion",Particle,This ion has a negative charge.
+7,Atomicity,Medium,"Atoms per molecule, Monatomic, Diatomic, Triatomic, Polyatomic",Measurement,This is the number of atoms in one molecule of an element.
+8,Monatomic Element,Easy,"He, Ne, Ar, Single atoms, Noble gases",Particle,This element exists naturally as individual atoms.
+9,Diatomic Element,Easy,"H?, N?, O?, Cl?, Two atoms",Particle,These elemental molecules contain two atoms.
+10,Triatomic Element,Easy,"O?, Three atoms, Ozone, Molecular element",Particle,This elemental molecule contains three atoms.
+11,Dalton's Atomic Theory,Medium,"Atoms, Whole-number ratios, Chemical combination, Rearrangement, Early atomic model",Particle,This theory proposed basic ideas about atoms and chemical combination.
+12,Modern Atomic Theory,Medium,"Subatomic particles, Isotopes, Atoms divisible, Nuclear reactions, Electron arrangement",Particle,Modern evidence modified parts of Dalton's original theory.
+13,Proton,Easy,"Positive charge, Nucleus, Relative mass 1, Atomic number, Subatomic particle",Particle,This positively charged particle is found in the nucleus.
+14,Neutron,Easy,"No charge, Nucleus, Relative mass 1, Mass number, Subatomic particle",Particle,This neutral particle is found in the nucleus.
+15,Electron,Easy,"Negative charge, Shells, Very small mass, Outside nucleus, Subatomic particle",Particle,This negatively charged particle occupies shells around the nucleus.
+16,Nucleus,Easy,"Protons, Neutrons, Positive centre, Most atomic mass, Very small region",Structure,This central region contains protons and neutrons.
+17,Electron Shell,Easy,"Energy level, K shell, L shell, M shell, Electron arrangement",Structure,Electrons are arranged in these energy levels around the nucleus.
+18,First Shell Capacity,Easy,"K shell, 2 electrons, Nearest nucleus, Lowest energy",Measurement,The first electron shell can hold up to two electrons.
+19,Second Shell Capacity,Easy,"L shell, 8 electrons, Second energy level, Electron configuration",Measurement,For the first twenty elements this shell commonly holds up to eight electrons.
+20,Third Shell Capacity in First 20 Elements,Medium,"M shell, Up to 8 used, Third energy level, First twenty elements",Measurement,For the first twenty elements the third shell is filled to eight before the fourth begins.
+21,Atomic Number,Easy,"Number of protons, Z, Element identity, Equals electrons in neutral atom, Whole number",Measurement,This number identifies an element by its proton count.
+22,Mass Number,Easy,"Protons plus neutrons, A, Nucleons, Whole number, Isotope notation",Measurement,This is the total number of protons and neutrons in a nucleus.
+23,Nucleons,Easy,"Protons, Neutrons, Nucleus particles, Mass number",Particle,These particles make up the nucleus.
+24,Neutral Atom,Easy,"Protons equal electrons, Zero net charge, Atom, Balanced charges",Particle,This atom has equal positive and negative charge.
+25,Electronic Configuration,Easy,"Shell arrangement, 2,8,1, Valence electrons, Atomic number, Electron distribution",Structure,This describes how electrons are distributed among shells.
+26,Valence Electrons,Easy,"Outermost shell, Chemical behaviour, Bonding, Group similarity, Reactivity",Particle,These outer-shell electrons are especially important in chemical combination.
+27,Isotope,Medium,"Same atomic number, Different mass number, Same element, Different neutrons, Similar chemistry",Particle,These atoms have the same proton number but different neutron numbers.
+28,Chlorine Isotopes,Medium,"³?Cl, ³?Cl, 17 protons, Different neutrons, Natural abundance",Particle,These common isotopes explain chlorine's relative atomic mass.
+29,Carbon Isotopes,Medium,"¹²C, ¹?C, 6 protons, Different neutrons, Same element",Particle,These atoms of carbon differ in neutron number.
+30,Oxygen Isotopes,Medium,"¹?O, ¹?O, ¹?O, 8 protons, Different mass numbers",Particle,These forms of oxygen have the same atomic number.
+31,Isobar,Hard,"Same mass number, Different atomic numbers, Different elements, Different chemistry",Particle,These atoms of different elements have the same mass number.
+32,Relative Atomic Mass,Medium,"Weighted average, Isotopic abundance, Carbon-12 standard, No unit, Ar",Measurement,This is the weighted mean mass of an atom relative to carbon-12.
+33,Relative Molecular Mass,Medium,"Sum of relative atomic masses, Molecule, Mr, No unit, Formula",Measurement,This is obtained by adding the relative atomic masses in a molecular formula.
+34,Relative Formula Mass,Medium,"Ionic compound, Formula unit, Sum of Ar values, No unit, Mr-style calculation",Measurement,This is used for compounds that do not exist as discrete molecules.
+35,Mole,Easy,"Amount of substance, 6.02 × 10²³ particles, Molar mass, Particles, Chemical counting unit",Measurement,This amount contains Avogadro's number of specified particles.
+36,Avogadro Constant,Easy,"6.02 × 10²³ mol?¹, Particles per mole, Atoms, Molecules, Ions",Measurement,This constant gives the number of particles in one mole.
+37,Molar Mass,Easy,"g mol?¹, Mass of one mole, Relative mass in grams, Mole calculation, Formula mass",Measurement,This is the mass of one mole of a substance.
+38,Moles from Mass,Medium,"Mass ÷ molar mass, n = m/M, grams, moles, Stoichiometry",Measurement,This relationship converts mass into amount in moles.
+39,Particles from Moles,Medium,"n × Avogadro constant, Atoms, Molecules, Ions, 6.02 × 10²³",Measurement,This converts amount in moles to number of particles.
+40,Percentage Composition,Medium,"Element mass, Formula mass, Mass percent, Chemical formula, 100%",Measurement,This gives the percentage by mass of each element in a compound.

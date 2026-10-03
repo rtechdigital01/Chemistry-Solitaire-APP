@@ -1,0 +1,33 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemical Industry,Easy,"Raw materials, Manufacturing, Chemical products, Processes, Large-scale production",Industry,This sector converts raw materials into useful chemical products.
+2,Industrial Chemistry,Easy,"Production, Process control, Raw materials, Energy use, Quality control",Industry,This applies chemistry to large-scale manufacturing.
+3,Raw Material,Easy,"Natural resource, Starting material, Feedstock, Mineral, Agricultural source",Industry,This is a starting substance used in industrial production.
+4,Chemical Product,Easy,"Fertilizer, Soap, Paint, Plastic, Drug, Fuel",Industry,These are examples of materials produced by chemical industries.
+5,Sources of Industrial Raw Materials,Easy,"Minerals, Air, Water, Petroleum, Coal, Agricultural materials",Environment,Industrial chemicals are made from these major resource groups.
+6,Mineral Raw Materials,Easy,"Limestone, Salt, Clay, Metal ores, Phosphate rock",Industry,These naturally occurring solids provide materials for many industries.
+7,Air as Raw Material,Easy,"Nitrogen, Oxygen, Argon, Industrial gases, Fractional distillation",Industry,The atmosphere supplies important gases for chemical production.
+8,Water as Raw Material,Easy,"Solvent, Cooling, Steam, Reactant, Cleaning",Industry,Water is widely used in chemical manufacturing.
+9,Petroleum as Raw Material,Easy,"Hydrocarbons, Fuels, Petrochemicals, Plastics, Organic chemicals",Industry,Crude oil provides feedstocks for many industrial products.
+10,Coal as Raw Material,Easy,"Coke, Fuel gas, Carbon chemicals, Energy, Industrial carbon",Industry,Coal supplies carbon-rich materials and fuels.
+11,Agricultural Raw Materials,Easy,"Oils, Starch, Sugar, Plant fibres, Fermentation feedstocks",Industry,Agricultural products can serve as chemical feedstocks.
+12,Heavy Chemical Industry,Medium,"Large tonnage, Acids, Alkalis, Fertilizers, Basic chemicals",Industry,This division produces large quantities of basic industrial chemicals.
+13,Fine Chemical Industry,Medium,"Small tonnage, High purity, Drugs, Dyes, Specialty chemicals",Industry,This division produces smaller quantities of higher-value chemicals.
+14,Petrochemical Industry,Medium,"Crude oil, Natural gas, Hydrocarbons, Plastics, Organic feedstocks",Industry,This industry converts petroleum resources into chemical products.
+15,Fertilizer Industry,Easy,"Nitrogen fertilizers, Phosphate fertilizers, Crop production, Plant nutrients, Agriculture",Industry,This industry manufactures chemicals that supply plant nutrients.
+16,Soap and Detergent Industry,Easy,"Cleaning agents, Surfactants, Fats and oils, Alkalis, Domestic chemicals",Industry,This industry produces common cleaning chemicals.
+17,Paint Industry,Easy,"Pigments, Solvents, Binders, Coatings, Surface protection",Industry,This industry produces decorative and protective coatings.
+18,Pharmaceutical Industry,Easy,"Medicines, Active ingredients, Formulation, Quality control, Health products",Industry,This industry produces medicinal chemical products.
+19,Food Processing Industry,Easy,"Preservatives, Flavouring, Packaging, Quality control, Chemical processing",Industry,Chemistry is used to process and preserve foods.
+20,Industrial Process,Medium,"Raw material input, Reaction stage, Separation, Purification, Product output",Process,Industrial manufacture often follows these broad stages.
+21,Process Control,Medium,"Temperature, Pressure, Flow rate, Concentration, Safety",Measurement,Industrial conditions must be monitored and controlled.
+22,Industrial Separation,Medium,"Filtration, Distillation, Crystallisation, Extraction, Drying",Equipment,Large-scale production relies on separation and purification methods.
+23,Quality Control,Easy,"Purity, Composition, Standards, Testing, Product consistency",Measurement,This ensures industrial products meet required specifications.
+24,Industrial Safety,Easy,"Protective equipment, Chemical labels, Ventilation, Fire control, Spill response",Safety,These measures reduce risks in chemical workplaces.
+25,Chemical Waste,Easy,"Effluent, Waste gas, Solid waste, Hazardous material, Disposal",Environment,Industrial chemical production can generate wastes requiring control.
+26,Waste Treatment,Medium,"Neutralisation, Filtration, Biological treatment, Recycling, Safe disposal",Environment,These methods reduce the environmental impact of industrial waste.
+27,Air Pollution from Industry,Easy,"Smoke, SO?, NO?, Particulates, Industrial emissions",Environment,Industrial gases and particles can degrade air quality.
+28,Water Pollution from Industry,Easy,"Effluent, Acids, Alkalis, Oil, Heavy metals",Environment,Untreated industrial liquids can contaminate water.
+29,Pollution Control,Medium,"Emission reduction, Waste treatment, Recycling, Cleaner production, Monitoring",Environment,These strategies reduce industrial environmental damage.
+30,Recycling in Industry,Easy,"Material recovery, Waste reduction, Reuse, Energy saving, Resource conservation",Environment,Recycling returns useful materials to production.
+31,Industrial Laboratory,Easy,"Sampling, Analysis, Quality tests, Process monitoring, Safety",Equipment,Laboratory analysis supports industrial production and quality assurance.
+32,Scale-up,Hard,"Laboratory process, Pilot plant, Industrial production, Heat transfer, Mixing, Safety",Industry,This is the transition from small-scale experiments to larger production.

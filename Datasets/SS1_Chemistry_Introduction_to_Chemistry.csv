@@ -1,0 +1,30 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemistry,Easy,"Matter, Composition, Structure, Properties, Chemical change, Energy",Matter,Chemistry studies matter and the changes it undergoes.
+2,Matter,Easy,"Has mass, Occupies space, Atoms, Molecules, Ions",Matter,This term describes the material substance studied in chemistry.
+3,Branches of Chemistry,Easy,"Physical chemistry, Inorganic chemistry, Organic chemistry, Biochemistry, Industrial chemistry, Environmental chemistry",Matter,These are major areas in which chemistry is studied.
+4,Physical Chemistry,Medium,"Energy changes, Reaction rates, Equilibrium, Matter properties, Chemical processes",Process,This branch relates chemical behaviour to physical principles.
+5,Inorganic Chemistry,Medium,"Metals, Minerals, Salts, Non-carbon compounds, Acids and bases",Matter,This branch deals mainly with inorganic substances.
+6,Organic Chemistry,Medium,"Carbon compounds, Hydrocarbons, Functional groups, Fuels, Polymers",Matter,This branch focuses mainly on carbon compounds.
+7,Biochemistry,Medium,"Living cells, Proteins, Carbohydrates, Enzymes, Biological molecules",Organism,This branch applies chemistry to living systems.
+8,Industrial Chemistry,Medium,"Manufacturing, Raw materials, Chemical products, Large-scale processes, Quality control",Industry,This branch applies chemistry to chemical manufacturing.
+9,Environmental Chemistry,Medium,"Air pollution, Water pollution, Soil contamination, Chemical wastes, Environmental monitoring",Environment,This branch studies chemicals in the environment.
+10,Chemistry in Daily Life,Easy,"Cooking, Lighting, Rusting, Rotten leaves, Palm wine, Detergents",Process,These everyday activities involve chemical processes.
+11,Uses of Chemistry,Easy,"Food production, Clothing, Housing, Medicine, Transportation, Space science",Industry,Chemistry contributes to many areas of human life.
+12,Chemistry in Food,Easy,"Fertilizers, Insecticides, Pesticides, Food processing, Preservation",Industry,Chemistry supports food production and preservation.
+13,Chemistry in Clothing,Easy,"Synthetic fibres, Dyes, Textiles, Polymers, Fabric treatment",Industry,Chemical research has produced many modern clothing materials.
+14,Chemistry in Housing,Easy,"Cement, Concrete, Steel, Bricks, Paints, Glass",Industry,These materials depend strongly on chemical knowledge.
+15,Chemistry in Medicine,Easy,"Drugs, Vaccines, Antiseptics, Diagnosis chemicals, Pharmaceuticals",Industry,Chemistry contributes to prevention and treatment of disease.
+16,Chemistry in Transportation,Easy,"Fuels, Lubricants, Batteries, Alloys, Tyres",Industry,Chemical products are essential to modern transport.
+17,Scientific Method,Easy,"Observation, Problem, Hypothesis, Experiment, Results, Conclusion",Process,This is the systematic approach used to investigate scientific questions.
+18,Observation,Easy,"Careful watching, Measurement, Pattern, Evidence, Record",Measurement,Scientific investigations usually begin with careful observation.
+19,Hypothesis,Easy,"Testable explanation, Prediction, Proposed idea, Evidence check, Experiment",Process,This is a tentative explanation that can be tested.
+20,Experiment,Easy,"Procedure, Variables, Apparatus, Measurements, Results",Equipment,This is a controlled test of a scientific idea.
+21,Scientific Theory,Medium,"Repeated evidence, Tested explanation, Broad support, Predictive power, Scientific model",Process,A well-supported explanation may develop from repeated investigation.
+22,Corrosion,Medium,"Rusting, Iron, Oxygen, Water, Metal deterioration",Reaction,This is gradual chemical deterioration of a metal.
+23,Rusting of Iron,Medium,"Iron, Oxygen, Water, Hydrated iron oxide, Corrosion",Reaction,This corrosion process affects iron in the presence of oxygen and water.
+24,Rust Prevention,Easy,"Protective coating, Sacrificial metal, Cathodic protection, Galvanising, Oiling, Greasing",Safety,These methods reduce or prevent corrosion of iron.
+25,Chemical Pollution,Easy,"Factory waste, Oil spill, Vehicle exhaust, Radioactive waste, Pesticides, Acid rain",Environment,These are examples of harmful chemical effects on the environment.
+26,Drug Abuse,Medium,"Addiction, Misuse, Cocaine, Heroin, Morphine, Health risk",Safety,This is a harmful misuse of chemical substances intended as drugs.
+27,Chemistry Careers,Easy,"Chemist, Pharmacist, Biochemist, Chemical engineer, Food scientist, Materials scientist",Industry,These occupations apply chemical knowledge.
+28,Laboratory Technician,Easy,"Apparatus, Samples, Measurements, Laboratory safety, Experimental support",Equipment,This chemistry-related career supports practical laboratory work.
+29,Environmental Health Officer,Easy,"Pollution control, Public health, Environmental monitoring, Waste management, Chemical safety",Environment,This career applies chemical knowledge to environmental and health protection.

@@ -1,0 +1,46 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Acid,Easy,"Produces H? in water, Sour, Turns blue litmus red, Reacts with bases, Forms salts",Matter,This substance produces hydrogen ions in aqueous solution in the textbook definition.
+2,Hydronium Ion,Medium,"H?O?, Protonated water, Acidic solution, H? + H?O, Oxonium ion",Particle,A proton in water is represented more realistically by this ion.
+3,Ionisation of Acids,Medium,"H? formation, Aqueous solution, Strong or weak, Acid particles form ions, Electrical conductivity",Process,Acids produce ions when dissolved in water.
+4,Strong Acid,Easy,"High ionisation, HCl, HNO?, H?SO?, High H? concentration",Matter,This acid ionises extensively in water.
+5,Weak Acid,Easy,"Partial ionisation, Ethanoic acid, H?CO?, Equilibrium, Lower H? concentration",Matter,This acid ionises only partly in water.
+6,Organic Acid,Easy,"Ethanoic acid, Citric acid, Lactic acid, Amino acid, Fatty acid",Matter,These acids occur in or are associated with organic compounds.
+7,Mineral Acid,Easy,"Hydrochloric acid, Nitric acid, Sulphuric acid, Laboratory acid, Inorganic acid",Matter,These common inorganic acids are widely used in chemistry.
+8,Basicity of an Acid,Medium,"Replaceable H?, Monobasic, Dibasic, Tribasic, Acid molecule",Measurement,This is the number of ionisable hydrogen ions supplied per acid molecule.
+9,Monobasic Acid,Easy,"One ionisable H?, HCl, HNO?, One replaceable hydrogen",Matter,This acid provides one replaceable hydrogen ion per molecule.
+10,Dibasic Acid,Easy,"Two ionisable H?, H?SO?, Two replaceable hydrogens, Acid salt possible",Matter,This acid can provide two replaceable hydrogen ions.
+11,Tribasic Acid,Easy,"Three ionisable H?, H?PO?, Three replaceable hydrogens, Acid salts possible",Matter,This acid can provide three replaceable hydrogen ions.
+12,Acid + Metal Reaction,Easy,"Salt, Hydrogen gas, Reactive metal, Dilute acid, Effervescence",Reaction,Many reactive metals liberate hydrogen from dilute acids.
+13,Acid + Base Reaction,Easy,"Salt, Water, Neutralisation, Metal oxide, Metal hydroxide",Reaction,Acids react with bases to form salt and water.
+14,Acid + Carbonate Reaction,Easy,"Salt, Water, CO?, Effervescence, Carbonate",Reaction,Acids react with carbonates to release carbon dioxide.
+15,Acid + Hydrogencarbonate Reaction,Medium,"Salt, Water, CO?, Hydrogencarbonate, Effervescence",Reaction,Acids react with hydrogencarbonates to release carbon dioxide.
+16,Uses of Acids,Easy,"Fertilizers, Dyes, Explosives, Batteries, Food processing, Metal treatment",Industry,Acids have many industrial and domestic applications.
+17,Base,Easy,"Neutralises acid, Metal oxide, Metal hydroxide, Produces salt, Proton acceptor idea",Matter,A base reacts with an acid to form salt and water.
+18,Alkali,Easy,"Soluble base, Produces OH? in water, NaOH, KOH, Aqueous base",Matter,This base dissolves in water to produce hydroxide ions.
+19,Strong Alkali,Easy,"NaOH, KOH, Extensive ionisation, High OH? concentration, Caustic",Matter,This alkali produces a high concentration of hydroxide ions in water.
+20,Weak Alkali,Easy,"Aqueous ammonia, Partial ionisation, Low OH? concentration, NH?(aq)",Matter,This alkali ionises only slightly in water.
+21,Hydroxide Ion,Easy,"OH?, Alkaline solution, Base reaction, Neutralisation, Negative ion",Particle,This ion is responsible for alkaline behaviour in aqueous solution.
+22,Neutralisation,Easy,"Acid + base, Salt + water, H? + OH?, Heat released, pH moves toward 7",Reaction,This reaction removes acidic and basic ions to form water.
+23,Net Ionic Neutralisation,Medium,"H?, OH?, H?O, Spectator ions omitted, Ionic equation",Reaction,The essential neutralisation step combines hydrogen and hydroxide ions.
+24,Properties of Alkalis,Easy,"Bitter taste, Turn red litmus blue, Soapy feel, pH above 7, Neutralise acids",Matter,These are characteristic properties of alkaline solutions.
+25,Base + Ammonium Salt,Medium,"Ammonia gas, Salt, Water, Warm mixture, Test for ammonium ion",Reaction,Alkalis release ammonia from ammonium salts.
+26,Uses of Bases,Easy,"Soap making, Bleach, Paper, Neutralisation, Antacid, Cleaning",Industry,Bases are widely used in industry and the home.
+27,pH Scale,Easy,"0 to 14, Acidic below 7, Neutral 7, Alkaline above 7, Hydrogen ion concentration",Measurement,This scale indicates the acidity or alkalinity of a solution.
+28,Universal Indicator,Easy,"Colour range, pH estimate, Red to purple, Mixture of indicators, Test paper",Measurement,This indicator gives an approximate pH by colour.
+29,Litmus,Easy,"Blue litmus turns red in acid, Red litmus turns blue in alkali, Acid-base indicator, Colour change",Measurement,This indicator distinguishes acidic from alkaline solutions.
+30,Methyl Orange,Medium,"Red in acid, Yellow in alkali, Acid-base indicator, Transition range",Measurement,This indicator changes colour over an acidic pH range.
+31,Phenolphthalein,Medium,"Colourless in acid, Pink in alkali, Acid-base indicator, Titration",Measurement,This indicator is colourless in acidic solution and pink in alkaline solution.
+32,pH Meter,Easy,"Electrode, Numerical pH, Accurate measurement, Solution acidity, Laboratory instrument",Equipment,This instrument measures pH directly.
+33,Importance of pH,Medium,"Drinking water, Soil, Blood, Urine, Industrial wastewater",Environment,pH control is important in biological and environmental systems.
+34,Salt,Easy,"Ionic compound, Acid hydrogen replaced, Metal ion, Ammonium ion, Acid radical",Matter,A salt forms when ionisable hydrogen in an acid is replaced by a metal or ammonium ion.
+35,Normal Salt,Medium,"All replaceable H removed, Neutral salt, KCl, Na?SO?, Complete neutralisation",Matter,This salt contains no replaceable acidic hydrogen or basic hydroxide.
+36,Acid Salt,Medium,"Partial replacement of acid H, NaHSO?, NaH?PO?, Hydrogen remains, Polyprotic acid",Matter,This salt still contains replaceable hydrogen from the parent acid.
+37,Basic Salt,Medium,"Partial neutralisation of base, Hydroxide remains, Basic ion, Incomplete neutralisation",Matter,This salt contains residual hydroxide or oxide character from the base.
+38,Double Salt,Hard,"Two simple salts, Crystallised together, Fixed proportion, Dissociates into simple ions, Double composition",Matter,This crystalline salt contains two simpler salts in a fixed ratio.
+39,Complex Salt,Hard,"Complex ion, Central metal, Ligands, Dissociates to complex ion, Coordination compound",Matter,This salt contains at least one complex ion.
+40,Salt Preparation by Neutralisation,Medium,"Acid, Alkali, Indicator, Evaporation, Crystallisation",Process,Soluble salts can be prepared by reacting an acid with an alkali.
+41,Salt Preparation by Acid + Metal,Medium,"Dilute acid, Reactive metal, Hydrogen gas, Excess metal, Filter then crystallise",Process,Some soluble salts are prepared using a suitable reactive metal.
+42,Salt Preparation by Acid + Insoluble Base,Medium,"Acid, Metal oxide or hydroxide, Excess solid, Filter, Crystallise",Process,An insoluble base can neutralise acid and excess solid can be removed.
+43,Salt Preparation by Precipitation,Medium,"Two soluble salts, Insoluble product, Mix solutions, Filter precipitate, Wash and dry",Process,Insoluble salts are commonly prepared by precipitation.
+44,Soluble Salts,Medium,"All nitrates, Most chlorides, Most sulphates, Na? salts, K? salts, NH?? salts",Matter,These general patterns are used in salt solubility rules.
+45,Insoluble Salts,Medium,"Many carbonates, Many hydroxides, Some sulphates, Some chlorides, Precipitates",Matter,These salts have limited solubility in water.

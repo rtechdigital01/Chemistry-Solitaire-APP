@@ -1,0 +1,26 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Carbon,Easy,"Symbol C, Non-metal, Atomic number 6, Four valence electrons, Covalent bonding",Matter,This element forms a very large number of compounds.
+2,Allotropy of Carbon,Medium,"Diamond, Graphite, Different structures, Same element, Different properties",Structure,Carbon can exist in different structural forms.
+3,Allotrope,Easy,"Same element, Different structure, Different properties, Same physical state, Carbon forms",Structure,This is one of two or more structural forms of an element.
+4,Diamond,Easy,"Hard, Transparent, Giant covalent lattice, Electrical insulator, Cutting tools",Structure,This carbon allotrope has a strong three-dimensional network.
+5,Graphite,Easy,"Soft, Black, Layered structure, Conducts electricity, Lubricant",Structure,This carbon allotrope has layers and mobile electrons.
+6,Diamond vs Graphite,Medium,"Both carbon, Different bonding arrangement, Hard vs soft, Insulator vs conductor, Giant structures",Structure,Different atomic arrangements give these allotropes different properties.
+7,Coal,Easy,"Carbon-rich, Fossil fuel, Solid fuel, Impurities, Industrial raw material",Matter,This natural carbon-rich material is an important fuel and industrial resource.
+8,Coke,Easy,"High carbon content, Coal derivative, Fuel, Reducing agent, Porous solid",Matter,This carbon-rich solid is produced from coal and used industrially.
+9,Gasification of Coke,Medium,"Fuel gas, Coke, Steam or air, Carbon monoxide, Hydrogen",Industry,This process converts coke into useful gaseous fuels.
+10,Carbon Monoxide,Medium,"CO, Colourless gas, Poisonous, Reducing agent, Incomplete combustion",Matter,This oxide of carbon is dangerous because it is toxic.
+11,Carbon Dioxide,Easy,"CO?, Colourless gas, Acidic oxide, Greenhouse gas, Limewater test",Matter,This oxide is produced by complete combustion of carbon-containing fuels.
+12,Complete Combustion of Carbon,Easy,"Enough oxygen, CO? formed, Heat released, Oxidation, Carbon burns",Reaction,Carbon forms carbon dioxide when oxygen is sufficient.
+13,Incomplete Combustion,Medium,"Limited oxygen, CO may form, Soot may form, Fuel burning, Toxic gas",Reaction,Limited oxygen can produce carbon monoxide or soot.
+14,Carbon Dioxide Test,Easy,"Limewater, Turns milky, Calcium carbonate, CO?, Gas test",Reaction,This gas forms a white precipitate with limewater.
+15,Acidic Oxide,Medium,"Non-metal oxide, Reacts with bases, May form acid in water, CO?, SO?",Matter,This oxide reacts with bases and may produce acidic solutions.
+16,Trioxocarbonate(IV) Ion,Medium,"CO?²?, Carbonate, Divalent anion, Salts, Acid reaction gives CO?",Particle,This polyatomic ion occurs in carbonates.
+17,Carbonate + Acid,Easy,"Salt, Water, CO?, Effervescence, Acid reaction",Reaction,Carbonates release carbon dioxide when treated with acids.
+18,Calcium Carbonate,Easy,"CaCO?, Limestone, Chalk, Marble, Carbonate",Matter,This common carbonate occurs naturally in several forms.
+19,Thermal Decomposition of Carbonate,Medium,"Heating, Metal oxide, CO?, Carbonate breakdown, CaCO? ? CaO + CO?",Reaction,Some carbonates decompose on strong heating.
+20,Carbon Cycle,Medium,"Photosynthesis, Respiration, Combustion, Decay, Atmospheric CO?, Carbon transfer",Environment,This cycle describes movement of carbon through the environment.
+21,Photosynthesis in Carbon Cycle,Easy,"CO? uptake, Green plants, Glucose formation, Sunlight, Carbon fixation",Environment,Plants remove carbon dioxide from the atmosphere during this process.
+22,Respiration in Carbon Cycle,Easy,"CO? release, Living organisms, Organic molecules, Energy release, Atmosphere",Environment,Respiration returns carbon dioxide to the environment.
+23,Combustion in Carbon Cycle,Easy,"Fuel burning, CO? release, Wood, Fossil fuels, Oxidation",Environment,Burning carbon-containing materials transfers carbon to the atmosphere.
+24,Decay in Carbon Cycle,Easy,"Decomposers, Organic matter, CO? release, Dead organisms, Carbon recycling",Environment,Decomposition returns carbon compounds to the environment.
+25,Uses of Carbon,Easy,"Fuel, Electrodes, Lubricants, Cutting tools, Reducing agent",Industry,Different carbon forms have important applications.

@@ -1,0 +1,40 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemical Symbol,Easy,"Element abbreviation, One or two letters, Capital first letter, H, Na, Cl",Structure,This shorthand represents an element.
+2,Element Symbols from Latin,Medium,"Na from natrium, K from kalium, Fe from ferrum, Cu from cuprum, Ag from argentum",Structure,Some symbols come from Latin element names.
+3,Chemical Formula,Easy,"Element symbols, Subscripts, Composition, Molecule or formula unit, Compound identity",Structure,This notation shows the elements and their proportions in a substance.
+4,Subscript in Formula,Easy,"Number of atoms, Written lower right, H?O, CO?, Not a coefficient",Measurement,This small number shows how many atoms of an element are present.
+5,Coefficient in Equation,Easy,"Number before formula, Mole ratio, Whole number, Balances equation, Applies to entire formula",Measurement,This number changes the amount of a substance without changing its identity.
+6,Radical,Medium,"Polyatomic ion, Acts as unit, NO??, SO?²?, OH?",Particle,This charged group of atoms behaves as a single unit in reactions.
+7,Nitrate Ion,Easy,"NO??, Negative ion, Monovalent, Polyatomic, Salt formation",Particle,This polyatomic ion occurs in nitrates.
+8,Sulphate Ion,Easy,"SO?²?, Negative ion, Divalent, Polyatomic, Sulphate salts",Particle,This polyatomic ion occurs in sulphates.
+9,Carbonate Ion,Easy,"CO?²?, Negative ion, Divalent, Polyatomic, Carbonate salts",Particle,This ion is present in trioxocarbonate(IV) salts.
+10,Hydroxide Ion,Easy,"OH?, Negative ion, Base, Alkali, Polyatomic",Particle,This ion is characteristic of alkalis in water.
+11,Ammonium Ion,Easy,"NH??, Positive ion, Polyatomic, Ammonium salts, Cation",Particle,This is a common polyatomic cation.
+12,Oxidation Number,Medium,"Apparent charge, Positive or negative, Used in naming, Variable oxidation states, Roman numerals",Measurement,This value is used to describe oxidation state.
+13,Valency,Easy,"Combining power, Bond formation, No sign, Whole number, Formula writing",Measurement,This describes the combining capacity of an atom or radical.
+14,Formula Writing by Valency,Medium,"Write symbols, Write valencies, Cross over numbers, Simplify ratio, Check neutrality",Process,These steps are used to construct many compound formulae.
+15,Sodium Chloride Formula,Easy,"Na?, Cl?, 1:1 ratio, NaCl, Neutral compound",Structure,Equal opposite charges give this ionic formula.
+16,Magnesium Chloride Formula,Easy,"Mg²?, Cl?, 1:2 ratio, MgCl?, Charge balance",Structure,One magnesium ion combines with two chloride ions.
+17,Calcium Nitrate Formula,Medium,"Ca²?, NO??, Ca(NO?)?, Parentheses, Charge balance",Structure,Two nitrate ions balance one calcium ion.
+18,Aluminium Sulphate Formula,Medium,"Al³?, SO?²?, Al?(SO?)?, Lowest whole-number ratio, Charge balance",Structure,This formula balances aluminium and sulphate charges.
+19,IUPAC Nomenclature,Medium,"Systematic naming, Oxidation number, Element names, Compound names, Roman numerals",Process,This system gives compounds standard scientific names.
+20,Iron(II) Oxide,Easy,"Fe²?, O²?, FeO, Iron +2, Binary compound",Structure,This compound contains iron in oxidation state +2.
+21,Iron(III) Oxide,Easy,"Fe³?, O²?, Fe?O?, Iron +3, Binary compound",Structure,This compound contains iron in oxidation state +3.
+22,Copper(II) Oxide,Easy,"Cu²?, O²?, CuO, Copper +2, Black oxide",Structure,This oxide contains copper in oxidation state +2.
+23,Empirical Formula,Medium,"Simplest whole-number ratio, Experimental composition, CH?O example, Element ratio, Not necessarily molecular",Structure,This formula gives the simplest ratio of atoms.
+24,Molecular Formula,Medium,"Actual atom numbers, Whole-number multiple, Molar mass needed, C?H?O? example, Molecule",Structure,This formula gives the actual number of atoms in a molecule.
+25,Empirical Formula Calculation,Hard,"Mass or percentage data, Convert to moles, Divide by smallest, Whole-number ratio, Write formula",Measurement,These steps determine an empirical formula from composition data.
+26,Molecular Formula Calculation,Hard,"Empirical formula mass, Relative molecular mass, Find multiplier, Multiply subscripts, Actual formula",Measurement,This uses molar mass to convert an empirical formula to a molecular formula.
+27,Law of Conservation of Mass,Medium,"Mass reactants equals products, Closed system, Atoms conserved, No mass created, No mass destroyed",Reaction,This law states that total mass remains constant in a chemical reaction.
+28,Law of Definite Proportions,Medium,"Fixed composition, Constant mass ratio, Pure compound, Same elements, Same proportion",Reaction,A pure compound always contains its elements in a fixed proportion by mass.
+29,Law of Multiple Proportions,Hard,"Same two elements, More than one compound, Simple whole-number mass ratios, Fixed mass of one element, Dalton",Reaction,This law compares mass ratios when two elements form several compounds.
+30,Law of Reciprocal Proportions,Hard,"Three elements, Mass ratios, Combine separately, Simple relationship, Chemical combination law",Reaction,This law relates the masses of elements that combine with a common element.
+31,Chemical Equation,Easy,"Reactants, Products, Arrow, Chemical formulae, Reaction representation",Reaction,This symbolic statement represents a chemical reaction.
+32,Reactant,Easy,"Left side, Starting substance, Consumed, Chemical equation, Reaction",Matter,This substance is present before a chemical reaction.
+33,Product,Easy,"Right side, New substance, Formed, Chemical equation, Reaction",Matter,This substance is formed during a chemical reaction.
+34,Balanced Equation,Medium,"Equal atoms both sides, Coefficients, Conservation of mass, Whole numbers, Correct formulae unchanged",Reaction,This equation has the same number of each atom on both sides.
+35,Balancing Equations,Medium,"Count atoms, Adjust coefficients, Do not change subscripts, Lowest whole numbers, Recheck atoms",Process,These steps balance chemical equations correctly.
+36,State Symbols,Easy,"(s) solid, (l) liquid, (g) gas, (aq) aqueous, Physical state",Structure,These symbols show physical states in chemical equations.
+37,Information from Chemical Equation,Medium,"Mole ratio, Mass relationship, Gas volume ratio, Reactants and products, Physical states",Measurement,A balanced equation provides quantitative and qualitative reaction information.
+38,Stoichiometry,Medium,"Balanced equation, Mole ratio, Mass calculation, Gas volume, Reaction quantities",Measurement,This uses balanced equations to calculate reacting amounts.
+39,Limiting Relationship in Equations,Hard,"Stoichiometric ratio, Given amount, Required amount, Balanced coefficients, Reaction calculation",Measurement,Chemical calculations depend on ratios from a balanced equation.

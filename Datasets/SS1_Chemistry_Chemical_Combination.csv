@@ -1,0 +1,36 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Periodic Table,Easy,"Periods, Groups, Atomic number, Elements, Electronic configuration",Structure,This chart organises elements according to atomic number and recurring properties.
+2,Period,Easy,"Horizontal row, Electron shells, Periodic table, 1 to 7, Energy levels",Structure,Elements in the same row have the same number of occupied electron shells.
+3,Group,Easy,"Vertical column, Valence electrons, Similar properties, Periodic table, Chemical family",Structure,Elements in the same column often have similar outer-electron arrangements.
+4,Noble Gas Configuration,Easy,"Stable shell, Helium duet, Octet, Low reactivity, Full outer shell",Structure,This electron arrangement is especially stable.
+5,Octet Rule,Medium,"Eight outer electrons, Stable configuration, Electron transfer, Electron sharing, Noble gases",Process,Many atoms react to attain eight electrons in the outer shell.
+6,Duet Rule,Medium,"Two outer electrons, First shell, Helium configuration, Hydrogen bonding",Process,Atoms using only the first shell become stable with two electrons.
+7,Chemical Bond,Easy,"Holds atoms together, Ionic bond, Covalent bond, Metallic bond, Chemical combination",Structure,This attractive force joins atoms or ions.
+8,Electrovalent Bond,Medium,"Ionic bond, Electron transfer, Cation, Anion, Electrostatic attraction",Structure,This bond forms after electron transfer creates oppositely charged ions.
+9,Ionic Compound,Easy,"Positive ions, Negative ions, Crystal lattice, High melting point, Conducts when molten",Matter,This compound consists of ions held by electrostatic attraction.
+10,Formation of Sodium Chloride,Medium,"Na loses electron, Cl gains electron, Na?, Cl?, NaCl",Reaction,Electron transfer forms sodium and chloride ions.
+11,Formation of Calcium Chloride,Medium,"Ca loses two electrons, Two Cl atoms gain electrons, Ca²?, 2Cl?, CaCl?",Reaction,One calcium atom transfers electrons to two chlorine atoms.
+12,Formation of Calcium Oxide,Medium,"Ca²?, O²?, Electron transfer, CaO, Ionic bond",Reaction,Calcium and oxygen form an ionic compound by electron transfer.
+13,Ionic Lattice,Medium,"Alternating ions, Three-dimensional structure, Strong attraction, Crystal, Regular arrangement",Structure,Ions in ionic solids are arranged in a giant regular structure.
+14,Properties of Ionic Compounds,Medium,"High melting point, High boiling point, Brittle crystals, Conduct when molten, Often water soluble",Matter,These properties arise from strong electrostatic forces between ions.
+15,Covalent Bond,Medium,"Electron sharing, Non-metals, Shared pair, Molecule, Orbital overlap",Structure,This bond forms when atoms share electron pairs.
+16,Single Covalent Bond,Easy,"One shared pair, H?, Cl?, HCl, One bond",Structure,This covalent bond contains one shared pair of electrons.
+17,Double Covalent Bond,Medium,"Two shared pairs, O?, CO?, Ethene, Double bond",Structure,This bond contains two shared electron pairs.
+18,Triple Covalent Bond,Medium,"Three shared pairs, N?, Ethyne, Strong bond, Triple bond",Structure,This bond contains three shared electron pairs.
+19,Hydrogen Molecule,Easy,"H?, One shared pair, Single bond, Duet achieved, Covalent",Particle,Two hydrogen atoms share electrons in this molecule.
+20,Chlorine Molecule,Easy,"Cl?, Single bond, Shared pair, Octet achieved, Covalent",Particle,Two chlorine atoms share one electron pair.
+21,Water Molecule,Easy,"H?O, Two O-H bonds, Two lone pairs, Covalent, Polar molecule",Particle,Oxygen shares electrons with two hydrogen atoms.
+22,Ammonia Molecule,Easy,"NH?, Three N-H bonds, One lone pair, Covalent, Nitrogen centre",Particle,Nitrogen forms three covalent bonds in this molecule.
+23,Methane Molecule,Easy,"CH?, Four C-H bonds, Tetrahedral idea, Covalent, Carbon centre",Particle,Carbon shares four pairs of electrons in methane.
+24,Properties of Simple Covalent Compounds,Medium,"Low melting point, Low boiling point, Poor electrical conductivity, Discrete molecules, Often non-polar solvent soluble",Matter,Weak forces between molecules explain many of these properties.
+25,Coordinate Covalent Bond,Hard,"Dative bond, Shared pair from one atom, Donor atom, Acceptor atom, Arrow notation",Structure,Both bonding electrons are supplied by one atom.
+26,Hydronium Ion Formation,Hard,"H?O + H?, Lone pair donation, H?O?, Coordinate bond, Oxygen donor",Reaction,Water donates a lone pair to a proton.
+27,Ammonium Ion Formation,Hard,"NH? + H?, Lone pair donation, NH??, Coordinate bond, Nitrogen donor",Reaction,Ammonia donates its lone pair to a proton.
+28,Hydrogen Bond,Medium,"Intermolecular force, H bonded to N O or F, Dipole attraction, Water, Hydrogen fluoride",Structure,This strong intermolecular attraction occurs with highly electronegative atoms.
+29,Importance of Hydrogen Bonding,Medium,"High boiling point of water, Solubility, Protein structure, DNA structure, Molecular association",Structure,Hydrogen bonding strongly affects physical and biological properties.
+30,Metallic Bond,Medium,"Positive metal ions, Delocalised electrons, Metal lattice, Electrical conductivity, Heat conductivity",Structure,This bond holds metal ions together through mobile electrons.
+31,Metallic Properties,Easy,"Conduct electricity, Conduct heat, Malleable, Ductile, Lustrous",Matter,These properties arise from metallic structure and bonding.
+32,Van der Waals Forces,Hard,"Weak intermolecular force, Temporary dipoles, Non-polar molecules, Noble gases, Molecular solids",Structure,These weak attractions act between particles without permanent ionic or covalent bonding.
+33,Intermolecular Forces,Medium,"Hydrogen bonding, Van der Waals, Dipole attraction, Between molecules, Physical properties",Structure,These forces act between molecules rather than within them.
+34,Bond Type and Conductivity,Medium,"Ionic molten conducts, Ionic solid does not, Metals conduct, Covalent molecules poor conductors, Mobile charges",Measurement,Electrical conductivity depends on whether mobile charged particles are available.
+35,Bond Type and Melting Point,Medium,"Ionic high, Metallic often high, Simple covalent low, Bond strength, Lattice energy",Measurement,Melting behaviour reflects the forces holding particles together.

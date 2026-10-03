@@ -1,0 +1,41 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Kinetic Theory of Matter,Easy,"Particles in motion, Kinetic energy, Temperature, States of matter, Particle model",Particle,This theory explains matter using moving particles.
+2,Particle Motion,Easy,"Vibration, Rotation, Translation, Random motion, Kinetic energy",Particle,Particles move in different ways depending on state.
+3,Temperature and Kinetic Energy,Easy,"Higher temperature, Faster particles, More kinetic energy, Particle collisions, Heating",Energy,Increasing temperature raises average particle kinetic energy.
+4,Solid Particle Model,Easy,"Closely packed, Fixed positions, Vibrate, Strong forces, Definite shape",Particle,Particles in a solid vibrate around fixed positions.
+5,Liquid Particle Model,Easy,"Close particles, Random movement, Flow, Definite volume, No fixed shape",Particle,Liquid particles can move past one another.
+6,Gas Particle Model,Easy,"Far apart, Rapid random motion, Weak attraction, Compressible, Fills container",Particle,Gas particles move freely and occupy available space.
+7,Change of State,Easy,"Melting, Freezing, Vaporisation, Condensation, Sublimation",Process,Heating or cooling can change the physical state of matter.
+8,Melting Point,Easy,"Solid-liquid equilibrium, Fixed temperature for pure substance, Heat absorbed, Crystal breaks down, °C or K",Measurement,This is the temperature at which a solid becomes liquid.
+9,Latent Heat of Fusion,Medium,"Melting, No temperature rise during change, Heat absorbed, Solid to liquid, Interparticle forces",Energy,This heat changes solid to liquid at constant temperature.
+10,Evaporation,Easy,"Surface process, Occurs below boiling point, Fast particles escape, Cooling effect, Liquid to vapour",Process,This vaporisation occurs at the surface of a liquid.
+11,Factors Affecting Evaporation,Medium,"Temperature, Surface area, Air movement, Intermolecular forces, Humidity",Environment,These conditions influence how quickly a liquid evaporates.
+12,Evaporative Cooling,Medium,"High-energy particles escape, Average kinetic energy falls, Liquid cools, Surface evaporation",Energy,Evaporation removes faster molecules and cools the remaining liquid.
+13,Vapour Pressure,Medium,"Vapour above liquid, Dynamic equilibrium, Temperature dependent, Closed container, Pressure",Measurement,This pressure is exerted by vapour in equilibrium with its liquid.
+14,Saturated Vapour Pressure,Hard,"Dynamic equilibrium, Evaporation equals condensation, Maximum vapour pressure, Fixed temperature, Closed system",Measurement,This is the equilibrium vapour pressure at a given temperature.
+15,Boiling,Easy,"Vapour pressure equals external pressure, Throughout liquid, Bubbles, Boiling point, Vaporisation",Process,Boiling begins when vapour pressure matches the surrounding pressure.
+16,Boiling Point,Easy,"Temperature, Vapour pressure, Atmospheric pressure, Pure liquid, Constant during boiling",Measurement,This is the temperature at which boiling occurs.
+17,Pressure Effect on Boiling Point,Medium,"Higher pressure raises boiling point, Lower pressure lowers boiling point, Atmospheric pressure, Vapour pressure",Measurement,Boiling point changes when external pressure changes.
+18,Freezing Point,Easy,"Liquid to solid, Solid-liquid equilibrium, Heat removed, Pure substance, Temperature",Measurement,This is the temperature at which a liquid freezes.
+19,Latent Heat of Vaporisation,Medium,"Boiling, Liquid to gas, Heat absorbed, No temperature rise during change, Intermolecular forces",Energy,This heat converts liquid to vapour at constant temperature.
+20,Ideal Gas Assumptions,Hard,"Particles negligible volume, No intermolecular attraction, Elastic collisions, Random motion, Many particles",Particle,These assumptions define the simplified ideal-gas model.
+21,Gas Pressure,Easy,"Particle collisions, Container walls, Force per area, Random motion, Pressure",Force,Gas pressure results from collisions with container walls.
+22,Boyle's Law,Medium,"Pressure inverse to volume, Constant temperature, Fixed mass gas, P?V?=P?V?, PV constant",Measurement,This law relates pressure and volume at constant temperature.
+23,Boyle Plot,Medium,"P vs V curve, P vs 1/V straight line, Inverse relationship, Constant temperature",Measurement,These graphs represent Boyle's law.
+24,Charles' Law,Medium,"Volume proportional to Kelvin temperature, Constant pressure, Fixed mass gas, V?/T?=V?/T?, Absolute temperature",Measurement,This law relates gas volume to absolute temperature at constant pressure.
+25,Absolute Zero,Easy,"0 K, ?273 °C, Minimum theoretical temperature, Kelvin scale, Gas extrapolation",Measurement,This is the zero point of the absolute temperature scale.
+26,Kelvin Conversion,Easy,"K = °C + 273, Absolute temperature, Gas laws, Temperature scale",Measurement,Gas-law calculations use absolute temperature.
+27,General Gas Equation,Hard,"P?V?/T? = P?V?/T?, Combined gas law, Fixed mass gas, Pressure, Volume, Temperature",Measurement,This equation combines Boyle's and Charles' relationships.
+28,Ideal Gas Equation,Hard,"PV = nRT, Pressure, Volume, Moles, Temperature, Gas constant",Measurement,This equation relates the major measurable variables of an ideal gas.
+29,Gas Constant,Hard,"R, 0.082 atm dm³ mol?¹ K?¹, 8.31 J mol?¹ K?¹, Ideal gas equation",Measurement,This constant appears in the ideal gas equation.
+30,Dalton's Law of Partial Pressures,Hard,"Gas mixture, Total pressure, Sum of partial pressures, Mole fraction, Non-reacting gases",Measurement,The total pressure of a gas mixture equals the sum of component partial pressures.
+31,Partial Pressure,Medium,"Component gas, Mole fraction, Total pressure, Gas mixture, Pressure contribution",Measurement,This is the pressure one gas contributes to a mixture.
+32,Gas Collected Over Water,Hard,"Total pressure, Gas pressure, Water vapour pressure, Subtract vapour pressure, Wet gas",Measurement,Water vapour pressure must be considered when a gas is collected over water.
+33,Gay-Lussac's Law of Combining Volumes,Medium,"Reacting gas volumes, Simple whole-number ratios, Same temperature, Same pressure, Gas reactions",Measurement,Reacting gases combine in simple volume ratios under the same conditions.
+34,Avogadro's Law,Medium,"Equal gas volumes, Same temperature and pressure, Equal numbers of molecules, Volume proportional to amount",Measurement,Equal gas volumes under the same conditions contain equal numbers of molecules.
+35,Molar Volume of Gas at STP,Easy,"22.4 dm³ mol?¹, One mole gas, STP, Gas volume, Mole",Measurement,The textbook uses this molar gas volume at standard temperature and pressure.
+36,Standard Temperature and Pressure,Easy,"0 °C, 273 K, 1 atm, 760 mmHg, Gas reference condition",Measurement,These reference conditions are used for gas calculations.
+37,Relative Vapour Density,Hard,"Gas density relative to hydrogen, Vapour density, Relative molecular mass, Mr = 2 × VD, Equal volume comparison",Measurement,This compares the mass of a gas with an equal volume of hydrogen.
+38,Graham's Law of Diffusion,Hard,"Rate inverse to square root of density, Rate inverse to square root of molar mass, Gas diffusion, Effusion, Molecular mass",Measurement,Lighter gases diffuse faster than heavier gases.
+39,Diffusion,Easy,"Random motion, High to low concentration, Gas mixing, Particle movement, No bulk flow",Process,Particles spread from regions of higher concentration to lower concentration.
+40,Gas Rate of Diffusion,Medium,"Volume ÷ time, cm³ s?¹, Gas movement, Graham's law, Rate",Measurement,This can be calculated from gas volume moved per unit time.

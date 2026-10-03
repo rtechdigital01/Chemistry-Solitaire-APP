@@ -1,0 +1,49 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,States of Matter,Easy,"Solid, Liquid, Gas, Particle arrangement, Physical state",Matter,"Matter commonly exists as solid, liquid or gas."
+2,Solid,Easy,"Definite shape, Definite volume, Closely packed particles, Fixed positions, Hard to compress",Matter,This state has a fixed shape and volume.
+3,Liquid,Easy,"No fixed shape, Definite volume, Particles can move, Flows, Slightly compressible",Matter,This state takes the shape of its container but keeps a definite volume.
+4,Gas,Easy,"No fixed shape, No fixed volume, Particles far apart, Fills container, Compressible",Matter,This state expands to fill its container.
+5,Physical Property,Easy,"Density, Colour, Melting point, Boiling point, Electrical conductivity",Measurement,This property can be observed without changing chemical identity.
+6,Chemical Property,Easy,"Rusting, Burning, Reaction with acid, Reaction with water, Decomposition",Reaction,This property describes how a substance undergoes chemical change.
+7,Phase,Medium,"Uniform region, Same composition, Same properties, Homogeneous part, Matter region",Matter,This is a uniform portion of matter with consistent properties.
+8,Homogeneous Matter,Easy,"Uniform composition, Single phase, Solution, Same throughout, No visible boundary",Matter,This material has the same composition throughout.
+9,Heterogeneous Matter,Easy,"Non-uniform composition, More than one phase, Visible boundaries, Mixture, Different regions",Matter,This material contains visibly different regions or phases.
+10,Pure Substance,Easy,"Fixed composition, Element, Compound, Definite properties, Single chemical substance",Matter,This material has a constant composition.
+11,Element,Easy,"One kind of atom, Cannot be chemically simplified, Chemical symbol, Building block, Pure substance",Matter,This pure substance contains only one type of atom.
+12,Compound,Easy,"Two or more elements, Chemically combined, Fixed ratio, Chemical formula, New properties",Matter,This pure substance contains elements chemically combined in fixed proportions.
+13,Mixture,Easy,"Physical combination, Variable composition, Components retain properties, Can be separated physically, Homogeneous or heterogeneous",Matter,This contains substances combined without chemical bonding.
+14,Mixture vs Compound,Medium,"Variable vs fixed composition, Physical vs chemical separation, Components retain properties, Formula only for compound, Mixture may be heterogeneous",Matter,These features distinguish mixtures from compounds.
+15,Metals,Easy,"Good conductors, Malleable, Ductile, Lustrous, Usually solid",Matter,These are common physical properties of metallic elements.
+16,Non-metals,Easy,"Poor conductors, Brittle when solid, Not malleable, Not ductile, Often dull",Matter,These are common physical properties of non-metallic elements.
+17,Metalloids,Medium,"Intermediate properties, Semi-conductors, Silicon, Boron, Arsenic",Matter,These elements show properties between metals and non-metals.
+18,Physical Change,Easy,"No new substance, Usually reversible, Change of state, Dissolving, Crystallisation",Process,This change does not produce a new chemical substance.
+19,Chemical Change,Easy,"New substance, Often difficult to reverse, Energy change, Colour change, Gas or precipitate may form",Reaction,This change produces one or more new substances.
+20,Signs of Chemical Change,Easy,"Gas produced, Colour change, Precipitate, Heat change, New odour",Reaction,These observations may indicate that a chemical reaction has occurred.
+21,Melting,Easy,"Solid to liquid, Heat absorbed, Melting point, Particle motion increases, Physical change",Process,This state change occurs when a solid becomes a liquid.
+22,Freezing,Easy,"Liquid to solid, Heat removed, Freezing point, Particles become ordered, Physical change",Process,This state change occurs when a liquid becomes a solid.
+23,Vaporisation,Easy,"Liquid to gas, Evaporation, Boiling, Heat absorbed, Physical change",Process,This general process converts liquid into gas.
+24,Condensation,Easy,"Gas to liquid, Cooling, Heat released, Droplet formation, Physical change",Process,This state change converts vapour to liquid.
+25,Separation Techniques,Easy,"Sieving, Filtration, Distillation, Crystallisation, Chromatography, Separating funnel",Equipment,These physical methods separate components of mixtures.
+26,Sieving,Easy,"Particle size, Mesh, Solid-solid mixture, Larger particles retained, Mining",Equipment,This method separates solid particles of different sizes.
+27,Decantation,Easy,"Sedimentation, Pour off liquid, Solid-liquid mixture, Two immiscible liquids, Quick separation",Process,This method separates a liquid from settled solid or another liquid layer.
+28,Filtration,Easy,"Filter paper, Funnel, Residue, Filtrate, Insoluble solid",Equipment,This method separates an insoluble solid from a liquid.
+29,Residue,Easy,"Solid left behind, Filter paper, Insoluble material, Filtration product",Matter,This is the solid remaining on filter paper.
+30,Filtrate,Easy,"Liquid through filter, Collected below funnel, Solution, Filtration product",Matter,This is the liquid that passes through a filter.
+31,Evaporation,Easy,"Solvent removed, Dissolved solid remains, Heating, Surface process, Salt recovery",Process,This method can recover a dissolved solid from solution.
+32,Simple Distillation,Medium,"Boiling, Vaporisation, Condenser, Condensation, Pure liquid",Equipment,This method separates a volatile liquid from non-volatile substances.
+33,Fractional Distillation,Medium,"Close boiling points, Fractionating column, Repeated vaporisation, Repeated condensation, Liquid mixture",Equipment,This method separates miscible liquids with different boiling points.
+34,Liebig Condenser,Medium,"Cold water inlet, Water outlet, Cooling vapour, Condensation, Distillation apparatus",Equipment,This apparatus cools vapour to form liquid during distillation.
+35,Crystallisation,Medium,"Saturated solution, Cooling, Crystal formation, Purification, Soluble solid",Process,This method obtains pure crystals from a solution.
+36,Sublimation,Medium,"Solid to vapour, Vapour to solid, Iodine, Ammonium chloride, Naphthalene",Process,This separation uses a substance that vaporises directly from the solid state.
+37,Precipitation,Medium,"Insoluble solid, Two solutions mixed, Precipitate, Filtration, Chemical separation",Reaction,This process forms an insoluble solid from solutions.
+38,Chromatography,Medium,"Stationary phase, Mobile phase, Different movement rates, Spots, Mixture separation",Equipment,This method separates dissolved substances by different movement rates.
+39,Paper Chromatography,Medium,"Paper strip, Solvent front, Sample spot, Separated spots, Chromatogram",Equipment,This common chromatography method separates soluble mixture components on paper.
+40,Chromatogram,Easy,"Separated spots, Paper, Solvent movement, Mixture components, Analysis",Measurement,This is the pattern obtained after chromatographic separation.
+41,Separating Funnel,Medium,"Immiscible liquids, Density difference, Stopcock, Lower layer removed, Liquid-liquid separation",Equipment,This apparatus separates immiscible liquid layers.
+42,Magnetic Separation,Easy,"Magnet, Iron filings, Magnetic material, Non-magnetic material, Solid mixture",Equipment,This method separates magnetic from non-magnetic solids.
+43,Solubility as Separation Basis,Medium,"Soluble component, Insoluble component, Selective solvent, Dissolving, Recovery",Process,Differences in solubility can be used to separate a mixture.
+44,Boiling Point as Separation Basis,Medium,"Volatility, Distillation, Fractional distillation, Different boiling points, Vapour",Measurement,Differences in boiling point allow liquids to be separated.
+45,Density as Separation Basis,Medium,"Immiscible liquids, Layer formation, Separating funnel, Denser lower layer, Less dense upper layer",Measurement,Density differences help separate liquid layers.
+46,Purity,Easy,"Single substance, Sharp melting point, Sharp boiling point, No contaminant, Constant properties",Measurement,A pure substance has characteristic physical constants.
+47,Melting Point Test,Medium,"Pure solid, Sharp temperature, Impurity lowers or broadens, Thermometer, Heating bath",Measurement,This measurement can be used to assess purity of a solid.
+48,Boiling Point Test,Medium,"Pure liquid, Constant temperature, Thermometer, Boiling, Purity check",Measurement,This measurement can be used to assess purity of a liquid.
