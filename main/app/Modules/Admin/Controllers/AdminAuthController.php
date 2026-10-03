@@ -64,6 +64,9 @@ class AdminAuthController extends Controller
                 'total_admins' => User::where('role', 'admin')->count(),
                 'total_gameplay_attempts' => GameplayAttempt::count(),
                 'total_categories' => Category::count(),
+                'active_students_7d' => User::where('role', 'student')
+                    ->where('updated_at', '>=', now()->subDays(7))
+                    ->count(),
             ],
             'Admin overview loaded successfully'
         );
@@ -74,7 +77,7 @@ class AdminAuthController extends Controller
         return $this->successResponse(
             User::where('role', 'student')
                 ->orderBy('created_at', 'desc')
-                ->get(['id', 'name', 'email', 'country', 'education_level', 'key_stage', 'created_at']),
+                ->get(['id', 'name', 'email', 'country', 'education_level', 'key_stage', 'coin_balance', 'created_at']),
             'Students loaded successfully'
         );
     }
@@ -84,7 +87,7 @@ class AdminAuthController extends Controller
         return $this->successResponse(
             User::where('role', 'teacher')
                 ->orderBy('created_at', 'desc')
-                ->get(['id', 'name', 'email', 'country', 'created_at']),
+                ->get(['id', 'name', 'email', 'country', 'coin_balance', 'created_at']),
             'Teachers loaded successfully'
         );
     }

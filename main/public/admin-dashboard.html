@@ -115,8 +115,20 @@
             <strong id="totalTeachers">0</strong>
         </div>
         <div class="admin-stat-card">
+            <span>Admins</span>
+            <strong id="totalAdmins">0</strong>
+        </div>
+        <div class="admin-stat-card">
             <span>Gameplay Attempts</span>
             <strong id="totalGameplayAttempts">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Categories Loaded</span>
+            <strong id="totalCategories">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Active Students (7d)</span>
+            <strong id="activeStudents7d">0</strong>
         </div>
     </div>
 </section>
@@ -140,15 +152,22 @@
                         <th>Key Stage</th>
                         <th>Coins</th>
                         <th>Registered</th>
+                        <th>Activity</th>
                     </tr>
                 </thead>
                 <tbody id="studentsTableBody">
                     <tr>
-                        <td colspan="7">Loading students...</td>
+                        <td colspan="8">Loading students...</td>
                     </tr>
                 </tbody>
             </table>
         </div>
+    </div>
+
+    <!-- Student drill-down -->
+    <div id="studentActivityPanel" style="display:none; margin-top:24px;">
+        <h2 id="studentActivityTitle" style="font-size:18px;"></h2>
+        <div id="studentActivityContent"></div>
     </div>
 </section>
 
@@ -167,12 +186,13 @@
                         <th>Name</th>
                         <th>Email</th>
                         <th>Country</th>
+                        <th>Coins</th>
                         <th>Registered</th>
                     </tr>
                 </thead>
                 <tbody id="teachersTableBody">
                     <tr>
-                        <td colspan="4">Loading teachers...</td>
+                        <td colspan="5">Loading teachers...</td>
                     </tr>
                 </tbody>
             </table>
@@ -185,22 +205,47 @@
 
         <section class="admin-tab-panel" id="gameplay">
             <h1>Gameplay</h1>
+            <p class="admin-section-subtitle">
+                Aggregate session stats, completion rates and per-deck performance.
+            </p>
+            <div id="gameplayContent">
+                <p style="padding:24px; color:#64748B; font-weight:700;">Loading gameplay data…</p>
+            </div>
         </section>
 
         <section class="admin-tab-panel" id="feedback">
             <h1>Feedback</h1>
+            <p class="admin-section-subtitle">
+                Reviews shown as testimonials on the landing page.
+            </p>
+            <div id="feedbackSummary" class="admin-stats-grid"></div>
+            <div id="feedbackList"></div>
         </section>
 
         <section class="admin-tab-panel" id="coins">
-            <h1>Points & Coins</h1>
+            <h1>Points &amp; Coins</h1>
+            <p class="admin-section-subtitle">
+                Coin economy totals and the biggest holders.
+            </p>
+            <div id="coinsSummary" class="admin-stats-grid"></div>
+            <div id="coinsTopHolders"></div>
         </section>
 
         <section class="admin-tab-panel" id="payments">
             <h1>Payments</h1>
+            <p class="admin-section-subtitle">
+                No payment provider is connected to this deployment yet.
+            </p>
         </section>
 
         <section class="admin-tab-panel" id="reports">
             <h1>Reports</h1>
+            <p class="admin-section-subtitle">
+                Registrations, activity trends and dataset coverage.
+            </p>
+            <div id="reportsContent">
+                <p style="padding:24px; color:#64748B; font-weight:700;">Loading reports…</p>
+            </div>
         </section>
 
         <section class="admin-tab-panel" id="datasets">
