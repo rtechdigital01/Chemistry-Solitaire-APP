@@ -1,0 +1,34 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Crystal,Easy,"Regular arrangement, Definite shape, Sharp melting point, Lattice, solid",Matter,A crystal has a regular ordered internal structure.
+2,Crystalline Solid,Easy,"Ordered particles, Definite melting point, Geometric form, Lattice, solid",Matter,Crystalline solids have long-range regular arrangement.
+3,Amorphous Solid,Easy,"No long-range order, Softens over range, No sharp melting point, Glass, plastic",Matter,Amorphous solids lack a regular repeating crystal lattice.
+4,Crystal Lattice,Medium,"Regular pattern, Atoms ions or molecules, Repeating structure, Three-dimensional arrangement, crystal",Structure,The crystal lattice describes the repeated arrangement of particles.
+5,Cubic Crystal,Easy,"Cube shape, Crystal form, Symmetry, lattice, geometry",Structure,A cubic crystal has equal edge lengths and right angles.
+6,Prismatic Crystal,Easy,"Prism shape, Crystal form, geometry, flat faces, solid",Structure,A prismatic crystal has a prism-like geometric form.
+7,Octahedral Crystal,Easy,"Eight faces, Crystal form, geometry, symmetry, solid",Structure,An octahedral crystal has eight triangular faces.
+8,Ionic Crystal,Medium,"Positive and negative ions, Electrostatic attraction, NaCl, High melting point, lattice",Structure,Ionic crystals consist of oppositely charged ions in a lattice.
+9,Molecular Crystal,Medium,"Molecules, Intermolecular forces, Lower melting point, Crystal lattice, molecular solid",Structure,Molecular crystals are held together by intermolecular forces.
+10,Giant Covalent Crystal,Medium,"Strong covalent network, Diamond, Graphite, High melting point, lattice",Structure,These crystals contain atoms linked in extended covalent networks.
+11,Sodium Chloride Crystal,Medium,"Na?, Cl?, Cubic lattice, Ionic bonding, alternating ions",Structure,Sodium chloride forms a regular ionic lattice.
+12,Diamond Structure,Medium,"Carbon atoms, Four covalent bonds, Giant lattice, Very hard, high melting point",Structure,Diamond is a three-dimensional covalent network.
+13,Graphite Structure,Medium,"Carbon layers, Delocalised electrons, Conducts electricity, Soft layers, giant covalent",Structure,Graphite consists of carbon layers with mobile electrons between bonding networks.
+14,Crystal Melting Point,Easy,"Sharp melting point, Ordered structure, Pure crystalline substance, temperature, phase change",Measurement,Pure crystals often melt at a definite temperature.
+15,Amorphous Softening,Easy,"Softens gradually, Temperature range, No sharp melting point, glass, plastic",Matter,Amorphous solids usually soften over a temperature range.
+16,Crystalline vs Amorphous,Medium,"Ordered vs disordered, Sharp vs gradual melting, Geometric shape, Particle arrangement, solid types",Structure,These two solid types differ mainly in particle order and melting behaviour.
+17,Hydrated Crystal,Medium,"Water of crystallisation, Crystal, Heating may remove water, Salt hydrate, structure",Matter,Some crystals contain water molecules within their structure.
+18,Anhydrous Substance,Medium,"No water of crystallisation, Dry salt, Heating product, Crystal chemistry, solid",Matter,An anhydrous substance contains no water of crystallisation.
+19,Definite Melting Point,Easy,"Crystalline solid, Sharp temperature, Ordered lattice, pure substance, melting",Measurement,Crystalline substances often melt at a definite temperature.
+20,Crystal Symmetry,Medium,"Regular geometry, Repeating pattern, Lattice, Faces, crystal",Structure,Crystal shapes reflect ordered internal arrangement.
+21,Lattice Point,Medium,"Repeating position, Atom ion or molecule, Crystal lattice, structure, solid",Structure,Lattice points represent repeated particle positions in a crystal.
+22,Ionic Bond in Crystal,Medium,"Electrostatic attraction, Opposite ions, Strong force, NaCl, lattice",Structure,Ionic crystals are held by electrostatic attraction between oppositely charged ions.
+23,Crystal Hardness,Medium,"Strong bonding, Lattice, Diamond, Mechanical property, solid",Matter,Crystal hardness depends strongly on bonding and structure.
+24,Crystal Solubility,Medium,"Ionic crystal, Polar solvent, Particle separation, Solution, solid",Matter,Some ionic crystals dissolve when solvent attractions overcome lattice forces.
+25,Crystal Cleavage,Medium,"Break along planes, Lattice structure, Flat faces, crystal, solid",Matter,Some crystals split preferentially along structural planes.
+26,Amorphous Cooling,Medium,"No crystallisation, Gradual solidification, Glass, Random arrangement, cooling",Matter,Amorphous substances solidify without forming an ordered lattice.
+27,Glass,Easy,"Amorphous solid, No sharp melting point, Disordered structure, Transparent, solid",Matter,Glass is a common amorphous material.
+28,Plastic,Easy,"Often amorphous, Softens on heating, Polymer, Disordered structure, solid",Matter,Many plastics show amorphous behaviour.
+29,Water of Crystallisation,Medium,"Bound water, Hydrated salt, Crystal structure, Heating removes water, hydrate",Structure,Water of crystallisation is incorporated into some crystal structures.
+30,Dehydration of Hydrated Crystal,Medium,"Heating, Water removed, Anhydrous product, Mass decreases, hydrate",Process,Heating a hydrated salt can remove its water of crystallisation.
+31,Crystal Model,Easy,"Particle arrangement, Regular repeating pattern, Lattice, Visual model, solid",Structure,Crystal models help show regular particle arrangement.
+32,Ordered Solid,Easy,"Crystalline, Long-range order, Lattice, Definite form, solid",Matter,An ordered solid has a regular repeating particle arrangement.
+33,Disordered Solid,Easy,"Amorphous, No long-range order, Random arrangement, Glass, solid",Matter,A disordered solid lacks a regular repeating lattice.

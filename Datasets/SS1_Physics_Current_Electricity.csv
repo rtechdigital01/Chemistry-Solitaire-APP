@@ -1,0 +1,68 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electric Current,Easy,"Flow of charge, I, ampere, Charge per second, circuit",Electricity,Current is the rate of flow of electric charge.
+2,Current Formula,Easy,"I = Q/t, charge, time, ampere, coulomb",Formula,Current equals charge divided by time.
+3,Coulomb,Easy,"Unit of charge, C, 1 A × 1 s, electric charge, SI unit",Measurement,The coulomb is the SI unit of electric charge.
+4,Potential Difference,Easy,"Energy per charge, Volt, V, Between two points, drives current",Electricity,Potential difference measures work done per unit charge.
+5,Volt,Easy,"V, J C?¹, Unit of potential difference, electricity, SI unit",Measurement,One volt is one joule per coulomb.
+6,Resistance,Easy,"Opposes current, Ohm, R, V/I, conductor",Electricity,Resistance is the opposition a material offers to electric current.
+7,Ohm,Easy,"?, Unit of resistance, V/A, resistance, SI-derived unit",Measurement,The ohm is the unit of electrical resistance.
+8,Ohm's Law,Medium,"V ? I, Constant temperature, V = IR, Ohmic conductor, resistance",Electricity,"For an ohmic conductor at constant temperature, current is proportional to potential difference."
+9,V = IR,Easy,"Potential difference, Current, Resistance, Ohm's law, circuit",Formula,"Ohm's law relates voltage, current and resistance."
+10,Ohmic Conductor,Medium,"Constant resistance, Straight V-I relation, Metal wire, Constant temperature, Ohm's law",Electricity,An ohmic conductor obeys Ohm's law under constant physical conditions.
+11,Non-ohmic Conductor,Medium,"Changing resistance, Nonlinear V-I graph, Lamp filament, Diode, temperature effect",Electricity,A non-ohmic device does not have constant resistance.
+12,Resistivity,Hard,"Material property, ?, R = ?L/A, ? m, conductor",Measurement,Resistivity measures a material's intrinsic resistance to current flow.
+13,Resistance and Length,Easy,"Longer wire, Higher resistance, R ? L, same material, same area",Electricity,Resistance increases with conductor length.
+14,Resistance and Area,Easy,"Larger area, Lower resistance, R ? 1/A, conductor, cross-section",Electricity,A thicker conductor has lower resistance.
+15,Series Resistors,Easy,"Same current, R? = R? + R? + ..., Voltage divides, One path, circuit",Circuit,Resistances in series add directly.
+16,Parallel Resistors,Medium,"Same voltage, Current divides, 1/R? = 1/R? + ..., multiple paths, circuit",Circuit,Parallel branches share the same potential difference.
+17,Ammeter,Easy,"Measures current, Ampere, Series connection, Low resistance, meter",Equipment,An ammeter is connected in series to measure current.
+18,Voltmeter,Easy,"Measures potential difference, Volt, Parallel connection, High resistance, meter",Equipment,A voltmeter is connected across a component.
+19,Galvanometer,Medium,"Detects small current, Sensitive meter, Deflection, current direction, instrument",Equipment,A galvanometer detects small electric currents.
+20,Rheostat,Medium,"Variable resistor, Current control, Sliding contact, Resistance change, circuit",Equipment,A rheostat varies resistance and therefore controls current.
+21,Electric Cell,Easy,"Chemical energy to electrical, Electrodes, Electrolyte, emf, source",Electricity,An electric cell converts chemical energy into electrical energy.
+22,EMF,Medium,"Electromotive force, Energy supplied per charge, Volt, Source, Open-circuit potential",Electricity,EMF is the energy supplied per unit charge by a source.
+23,Simple Cell,Medium,"Copper, Zinc, Electrolyte, About 1 V, primary cell",Equipment,A simple cell uses two different electrodes in an electrolyte.
+24,Polarisation,Medium,"Hydrogen bubbles, Cell performance falls, Positive electrode, Primary cell defect, voltage drop",Electricity,Polarisation reduces current by coating an electrode with gas.
+25,Local Action,Medium,"Impure zinc, Internal corrosion, Primary cell defect, amalgamation reduces it, energy loss",Electricity,Local action wastes zinc even when the cell is not supplying current.
+26,Leclanché Cell,Medium,"Zinc, Carbon, Ammonium chloride, Manganese dioxide, primary cell",Equipment,The Leclanché cell is a common primary cell system.
+27,Dry Cell,Easy,"Portable, Zinc container, Carbon rod, Paste electrolyte, primary cell",Equipment,A dry cell is a convenient form of the Leclanché cell.
+28,Secondary Cell,Easy,"Rechargeable, Lead-acid, Accumulator, Reversible chemistry, storage",Equipment,A secondary cell can be recharged by passing current through it.
+29,Lead-Acid Accumulator,Medium,"Lead dioxide, Lead, Sulphuric acid, Rechargeable, about 2 V per cell",Equipment,This rechargeable cell is widely used in vehicles.
+30,Cells in Series,Medium,"EMFs add, Internal resistances add, Higher voltage, battery, same current path",Circuit,Connecting cells in series increases total emf.
+31,Cells in Parallel,Medium,"Same emf as one cell, Lower effective internal resistance, Current capacity, parallel connection, battery",Circuit,Parallel cells can supply larger current with the same nominal emf.
+32,Closed Circuit,Easy,"Complete path, Current flows, Switch closed, source connected, conducting loop",Circuit,Current flows only when there is a complete conducting path.
+33,Open Circuit,Easy,"Broken path, No current, Switch open, circuit interruption, source",Circuit,An open circuit prevents sustained current flow.
+34,Electrical Energy,Easy,"W = VIt, joule, charge movement, potential difference, current",Energy,"Electrical energy transferred is related to voltage, current and time."
+35,Electrical Power,Easy,"P = VI, watt, energy per second, current, potential difference",Energy,Electrical power is the rate of electrical energy transfer.
+36,Electrical Power Formula,Medium,"P = VI, P = I²R, P = V²/R, watt, circuit",Formula,Power can be expressed in several equivalent forms.
+37,Kilowatt-hour in Electricity,Easy,"Commercial energy unit, kWh, Billing, 1000 W for 1 h, 3.6 MJ",Measurement,Electricity consumption is commonly measured in kilowatt-hours.
+38,Charge Flow Direction,Medium,"Conventional current, Positive to negative externally, Electron flow opposite, Circuit, current direction",Electricity,Conventional current direction is opposite to electron drift in metals.
+39,Current in Series Circuit,Easy,"Same current everywhere, One path, Ammeter, series, circuit",Circuit,Current is the same at all points in a simple series circuit.
+40,Current in Parallel Circuit,Easy,"Current divides, Branches, Total current equals branch sum, junction, circuit",Circuit,"At a junction, incoming current equals total outgoing current."
+41,Potential Difference in Series,Medium,"Voltage divides, Sum across components, Source voltage, series circuit, energy per charge",Circuit,Potential differences across series components add to the supply voltage.
+42,Potential Difference in Parallel,Easy,"Same across branches, Parallel circuit, Source voltage, voltmeter, circuit",Circuit,Each parallel branch has the same potential difference.
+43,Total Series Resistance,Easy,"R? = R? + R? + R?, larger than any component, one path, series, resistance",Formula,Series resistances add.
+44,Two Parallel Resistors,Medium,"R = R?R?/(R?+R?), parallel, lower than smallest, resistance, two branches",Formula,"For two parallel resistors, the product-over-sum formula gives the equivalent resistance."
+45,Parallel Resistance Rule,Medium,"1/R? = ?1/R, multiple branches, same voltage, equivalent resistance, circuit",Formula,Reciprocals of parallel resistances add.
+46,Conductivity,Hard,"Reciprocal of resistivity, ? = 1/?, S m?¹, material property, electrical",Measurement,Conductivity measures how readily a material carries electric current.
+47,Temperature Effect on Metal Resistance,Medium,"Temperature rises, Resistance increases, Metal, Lattice vibration, current",Electricity,Metal resistance generally increases with temperature.
+48,Standard Resistor,Easy,"Known resistance, Circuit calibration, Fixed resistor, ohm, component",Equipment,A standard resistor provides a known resistance value.
+49,Variable Resistor,Easy,"Rheostat, Adjustable resistance, Current control, slider, circuit",Equipment,A variable resistor changes circuit resistance.
+50,Short Circuit,Easy,"Very low resistance path, Large current, Danger, Bypasses load, circuit",Safety,A short circuit can cause dangerously large current.
+51,Internal Resistance,Medium,"Cell resistance, Voltage drop, r, Current inside source, battery",Electricity,A real cell has internal resistance that reduces terminal voltage under load.
+52,Terminal Potential Difference,Hard,"V = E ? Ir, cell delivering current, emf, internal resistance, voltage",Formula,Terminal voltage is less than emf when a cell supplies current.
+53,Primary Cell,Easy,"Not rechargeable, Irreversible chemistry, Dry cell, Leclanché, electric cell",Equipment,Primary cells are intended for single-use discharge.
+54,Secondary Cell Charging,Medium,"External current, Reverse chemical change, Rechargeable, Accumulator, energy storage",Process,Charging restores chemical energy in a secondary cell.
+55,Battery,Easy,"Two or more cells, Source, Series or parallel, Electrical energy, circuit",Equipment,A battery is a combination of cells.
+56,Cell in Series Effect,Medium,"Higher total emf, Same current path, EMFs add, battery, source",Electricity,Series cells are used when a larger potential difference is needed.
+57,Cell in Parallel Effect,Medium,"Same emf, Greater current capacity, Lower effective internal resistance, battery, source",Electricity,Parallel cells are useful when more current is required.
+58,Electrical Work,Easy,"W = VQ, W = VIt, joule, charge, potential difference",Formula,Electrical work is the energy transferred when charge moves through a potential difference.
+59,P = I²R,Medium,"Power, Current, Resistance, Heating, electricity",Formula,This form of power is useful when current and resistance are known.
+60,P = V²/R,Medium,"Power, Voltage, Resistance, electricity, formula",Formula,This power relation is useful when voltage and resistance are known.
+61,Joule Heating,Medium,"I²Rt, Heat in resistor, Current, Resistance, Time",Energy,Electrical energy is converted to heat in a resistor.
+62,Electric Heater,Easy,"Resistance wire, Heat production, Electrical energy, Power, appliance",Equipment,An electric heater converts electrical energy mainly into thermal energy.
+63,Electric Kettle Rating,Easy,"Watt, Power, Energy transfer rate, Appliance, electricity",Measurement,A kettle's power rating tells how rapidly it transfers electrical energy.
+64,Energy Cost,Medium,"kWh, Tariff, Electricity bill, Power × time, commercial energy",Measurement,Electricity cost depends on the energy used in kilowatt-hours.
+65,Ammeter Connection,Easy,"Series, Low resistance, Current measurement, Circuit path, ampere",Circuit,An ammeter must be placed in the current path.
+66,Voltmeter Connection,Easy,"Parallel, High resistance, Potential difference, Across component, volt",Circuit,A voltmeter is connected across the component being measured.
+67,Meter Safety,Medium,"Correct range, Correct polarity, Avoid excessive current, Instrument protection, circuit",Safety,Electrical meters should be connected with suitable range and polarity.

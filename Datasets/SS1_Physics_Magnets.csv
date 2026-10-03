@@ -1,0 +1,39 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Magnet,Easy,"North pole, South pole, Attraction, Magnetic field, magnetic material",Magnetism,A magnet produces magnetic effects and has two poles.
+2,Magnetic Material,Easy,"Iron, Steel, Nickel, Cobalt, attracted by magnet",Matter,Magnetic materials can be strongly attracted by magnets.
+3,Non-magnetic Material,Easy,"Wood, Glass, Plastic, Copper, not strongly attracted",Matter,These materials are not strongly attracted by ordinary magnets.
+4,Magnetic Poles,Easy,"North, South, Ends of magnet, Strongest magnetic effect, pair",Magnetism,Magnetic effects are strongest near the poles.
+5,Law of Magnetism,Easy,"Like poles repel, Unlike poles attract, N–N repels, N–S attracts, magnetic force",Magnetism,Similar poles repel and unlike poles attract.
+6,Magnetic Field,Easy,"Region around magnet, Force acts, Field lines, North to south outside magnet, compass",Magnetism,A magnetic field is the region where magnetic forces can act.
+7,Magnetic Field Lines,Medium,"North to south outside, Do not cross, Denser means stronger field, Closed loops, direction",Structure,Field lines represent the direction and relative strength of a magnetic field.
+8,Compass,Easy,"Magnetised needle, North-south alignment, Direction, Earth field, navigation",Equipment,A compass aligns with a magnetic field.
+9,Test for Magnetic Polarity,Medium,"Known pole, Attraction and repulsion, Repulsion is conclusive, North or south, magnet",Process,Repulsion with a known pole identifies the same pole.
+10,Molecular Theory of Magnetism,Medium,"Tiny magnetic regions, Alignment, Magnetised material, Disordered state, domains concept",Structure,Magnetisation occurs when microscopic magnetic regions become aligned.
+11,Magnetisation,Easy,"Align magnetic regions, Make a magnet, Stroking, Electric current, induction",Process,Magnetisation produces magnetic order in a material.
+12,Magnetising by Stroking,Medium,"Single touch, Double touch, Permanent magnet, Steel bar, alignment",Process,A magnetic material can be magnetised by repeated stroking.
+13,Magnetising by Electric Current,Medium,"Solenoid, Current, Iron or steel core, Magnetic field, electromagnet method",Process,Current through a coil can magnetise a suitable material.
+14,Magnetic Induction,Medium,"Temporary magnetism, Nearby magnet, No rubbing required, Soft iron, attraction",Magnetism,A magnetic material can become magnetised in an external magnetic field.
+15,Demagnetisation,Easy,"Loss of magnetism, Heating, Hammering, Alternating field, disorder",Process,Demagnetisation destroys magnetic alignment.
+16,Iron and Steel Magnetism,Medium,"Iron magnetises easily, Iron loses magnetism easily, Steel harder to magnetise, Steel retains magnetism, material choice",Matter,Iron and steel differ in ease of magnetisation and retention.
+17,Soft Iron,Easy,"Easy to magnetise, Easy to demagnetise, Electromagnets, temporary magnet, high permeability",Matter,Soft iron is preferred when temporary magnetism is required.
+18,Steel Magnet,Easy,"Hard to magnetise, Retains magnetism, Permanent magnet, coercivity, magnetic material",Matter,Steel is useful for permanent magnets.
+19,Induced Magnetism,Medium,"Temporary poles, External field, Magnetic material, Attraction, field effect",Magnetism,A magnetic material develops poles when placed in a magnetic field.
+20,Uses of Magnets,Easy,"Compass, Electric bell, Motors, Speakers, magnetic separation",Industry,Magnets are used in many electrical and mechanical devices.
+21,Bar Magnet,Easy,"North pole, South pole, Magnetic field, Permanent magnet, bar shape",Magnetism,A bar magnet has two poles and a surrounding magnetic field.
+22,Horseshoe Magnet,Easy,"Two close poles, Strong field gap, Permanent magnet, North and South, magnet",Magnetism,A horseshoe magnet concentrates its field between nearby poles.
+23,Repulsion Test,Easy,"Like poles, Repel, True test of magnet, Known pole, magnetic polarity",Process,Repulsion is the sure test that an object is magnetised.
+24,Attraction is Not Conclusive,Medium,"Iron can be attracted, Induced magnetism, Magnet test, Attraction alone, magnetic material",Magnetism,Attraction alone does not prove an object is a magnet.
+25,Pole Pair Rule,Easy,"North and South together, No isolated pole, Cut magnet, Each piece has two poles, magnetism",Magnetism,Magnetic poles always occur in pairs.
+26,Neutral Point,Medium,"Fields cancel, Resultant magnetic field zero, Compass no preferred direction, Two magnetic fields, magnetism",Magnetism,A neutral point is where magnetic fields cancel.
+27,Plotting Compass,Easy,"Small compass, Field direction, Magnetic field map, needle, experiment",Equipment,A plotting compass traces the direction of a magnetic field.
+28,Iron Filings Pattern,Easy,"Field shape, Magnetic lines, Bar magnet, Visualisation, experiment",Experiment,Iron filings reveal the shape of a magnetic field.
+29,Single-Touch Method,Medium,"One magnet, Stroke one direction, Steel bar, Magnetisation, permanent magnet",Process,Single-touch magnetisation repeatedly strokes a bar in one direction.
+30,Double-Touch Method,Medium,"Two magnets, Opposite poles at centre, Stroke outward, Steel bar, magnetisation",Process,Double-touch magnetisation uses two magnets moving from the centre outward.
+31,Electrical Method of Magnetisation,Medium,"Solenoid, Direct current, Core, Magnetic field, magnetisation",Process,A current-carrying coil can magnetise iron or steel.
+32,Heating Demagnetisation,Easy,"High temperature, Magnetic order disrupted, Loss of magnetism, heating, demagnetisation",Process,Heating can destroy magnetic alignment.
+33,Mechanical Demagnetisation,Easy,"Hammering, Dropping, Vibration, Magnetic order disturbed, demagnetisation",Process,Mechanical shock can weaken magnetism.
+34,AC Demagnetisation,Medium,"Alternating field, Gradually reduced, Solenoid, Magnet loses alignment, demagnetisation",Process,An alternating magnetic field can demagnetise a material.
+35,Magnetic Retentivity,Hard,"Ability to retain magnetism, Steel high, Permanent magnet, material property, magnetism",Measurement,Retentivity describes how well a material keeps magnetisation.
+36,Magnetic Permeability,Hard,"Ease of magnetisation, Soft iron high, Magnetic material, field response, magnetism",Measurement,Permeability indicates how readily a material supports magnetic flux.
+37,Temporary Magnet,Easy,"Soft iron, Easy magnetisation, Easy demagnetisation, Electromagnet core, short-lived magnetism",Matter,Temporary magnets are useful when magnetism must be switched or removed.
+38,Permanent Magnet,Easy,"Steel, Retains magnetism, Hard magnetic material, Bar magnet, long-lived magnetism",Matter,Permanent magnets retain magnetisation for long periods.

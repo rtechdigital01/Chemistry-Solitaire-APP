@@ -1,0 +1,58 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Fluid,Easy,"Liquid, Gas, Flows, No fixed shape, deforms continuously",Matter,A fluid can flow and take the shape of its container.
+2,Surface Tension,Easy,"Liquid surface, Cohesion, Force per unit length, N m?¹, surface film",Fluid,Surface tension makes a liquid surface behave like a stretched film.
+3,Surface Tension Cause,Medium,"Cohesive forces, Surface molecules, Net inward force, Liquid surface, molecular attraction",Particle,Surface molecules experience an unbalanced inward attraction.
+4,Capillarity,Medium,"Narrow tube, Liquid rise or fall, Adhesion, Cohesion, surface tension",Fluid,Capillary action causes liquids to rise or fall in narrow tubes.
+5,Meniscus,Easy,"Curved liquid surface, Concave, Convex, adhesion, cohesion",Fluid,A meniscus is the curved surface of a liquid in a container.
+6,Concave Meniscus,Easy,"Water in glass, Adhesion greater than cohesion, Edges rise, capillary tube, liquid",Fluid,Water in glass forms a concave meniscus.
+7,Convex Meniscus,Easy,"Mercury in glass, Cohesion greater than adhesion, Centre raised, liquid, capillary tube",Fluid,Mercury in glass forms a convex meniscus.
+8,Cohesion,Easy,"Attraction between like molecules, Liquid, surface tension, molecular force, same substance",Particle,Cohesion is attraction between molecules of the same substance.
+9,Adhesion,Easy,"Attraction between unlike molecules, Liquid and surface, wetting, capillarity, different substances",Particle,Adhesion is attraction between molecules of different substances.
+10,Viscosity,Easy,"Internal friction, Resistance to flow, Liquid, Gas, fluid property",Fluid,Viscosity measures a fluid's resistance to flow.
+11,High Viscosity,Easy,"Flows slowly, Large internal friction, Engine oil, Syrup, fluid",Fluid,A highly viscous fluid resists motion strongly.
+12,Low Viscosity,Easy,"Flows easily, Small internal friction, Water, fluid, less resistance",Fluid,A low-viscosity fluid flows more easily.
+13,Streamline Flow,Medium,"Smooth layers, No turbulent mixing, Low speed, Ordered motion, fluid",Fluid,"In streamline flow, fluid particles follow smooth paths."
+14,Turbulent Flow,Medium,"Irregular motion, Eddies, High speed, Mixing, fluid",Fluid,Turbulent flow contains chaotic motion and eddies.
+15,Terminal Velocity,Medium,"Constant final speed, Drag balances driving force, Falling through fluid, No further acceleration, viscosity",Motion,Terminal velocity occurs when resultant force becomes zero.
+16,Viscous Drag,Medium,"Fluid resistance, Opposes motion, Falling sphere, Depends on viscosity, drag force",Force,Viscous drag opposes motion through a fluid.
+17,Stokes-Type Falling Sphere Idea,Hard,"Sphere in viscous liquid, Terminal speed, Viscosity estimate, Drag, falling ball",Experiment,Falling-sphere motion can be used to study liquid viscosity.
+18,Lubrication,Easy,"Reduces friction, Oil or grease, Moving parts, Viscosity, machine",Industry,Lubricants reduce friction between moving surfaces.
+19,Applications of Viscosity,Medium,"Lubricants, Paints, Oils, Flow control, industrial fluids",Industry,Viscosity affects how fluids behave in machines and processes.
+20,Wetting,Easy,"Adhesion, Liquid spreads, Contact with surface, capillarity, surface tension",Fluid,Wetting occurs when adhesive attraction favours spreading over a surface.
+21,Surface Tension Applications,Medium,"Needle floating, Detergents, Droplet shape, Capillary rise, liquid surface",Fluid,Surface tension explains several everyday liquid phenomena.
+22,Fluid Pressure,Easy,"Force per area, Liquid, Gas, Acts in all directions, pressure",Fluid,Fluid pressure is force exerted per unit area.
+23,Hydrostatic Pressure,Medium,"P = ?gh, Density, Depth, Gravity, liquid",Formula,Pressure in a liquid increases with density and depth.
+24,Pressure with Depth,Easy,"Greater depth, Higher pressure, Liquid, ?gh, fluid",Fluid,Liquid pressure increases as depth increases.
+25,Pressure and Density,Easy,"Denser liquid, Greater pressure, Same depth, ?gh, fluid",Fluid,"At the same depth, denser liquids exert greater pressure."
+26,Pascal's Principle,Medium,"Pressure transmitted equally, Enclosed fluid, Hydraulic machine, Force multiplication, liquid",Fluid,Pressure applied to an enclosed fluid is transmitted throughout it.
+27,Hydraulic Press,Medium,"Pascal's principle, Small force, Large force, Different piston areas, machine",Equipment,A hydraulic press multiplies force using different piston areas.
+28,Hydraulic Brake,Medium,"Fluid pressure, Brake pedal, Wheel cylinders, Pascal's principle, vehicle",Equipment,Hydraulic brakes transmit pedal pressure through brake fluid.
+29,Hydraulic Jack,Medium,"Lift load, Small piston, Large piston, Pascal's principle, machine",Equipment,A hydraulic jack uses fluid pressure to lift heavy loads.
+30,Atmospheric Pressure,Easy,"Air weight, Acts in all directions, Sea level, barometer, atmosphere",Fluid,Atmospheric pressure is caused by the weight of the air above us.
+31,Mercury Barometer,Medium,"760 mmHg, Mercury column, Atmospheric pressure, Vacuum above column, instrument",Equipment,A mercury barometer measures atmospheric pressure using a mercury column.
+32,Fortin Barometer,Hard,"Adjustable mercury reservoir, Precise reading, Atmospheric pressure, Vernier, barometer",Equipment,A Fortin barometer provides accurate atmospheric-pressure measurements.
+33,Aneroid Barometer,Medium,"No liquid, Flexible metal capsule, Atmospheric pressure, Portable, instrument",Equipment,An aneroid barometer measures pressure using a sealed flexible capsule.
+34,Bourdon Gauge,Medium,"Pressure gauge, Curved tube, Gas or liquid pressure, Pointer, instrument",Equipment,A Bourdon gauge measures pressure using deformation of a curved tube.
+35,Siphon,Medium,"Liquid transfer, Different levels, Atmospheric pressure, Continuous tube, flow",Fluid,A siphon transfers liquid from a higher level to a lower level through a filled tube.
+36,Syringe,Easy,"Pressure difference, Piston, Liquid draw, Injection, fluid",Equipment,A syringe uses pressure changes caused by piston motion.
+37,Bicycle Pump,Easy,"Compress air, Piston, Pressure increase, Tyre, air pump",Equipment,A bicycle pump compresses air and forces it into a tyre.
+38,Lift Pump,Medium,"Atmospheric pressure, Piston, Valves, Water lifting, pump",Equipment,A lift pump raises water using pressure differences and valves.
+39,Force Pump,Medium,"Piston, Valves, Water under pressure, Greater delivery height, pump",Equipment,A force pump delivers liquid under pressure.
+40,Upthrust,Easy,"Buoyant force, Upward, Fluid, Displaced liquid, Archimedes",Force,Upthrust is the upward force a fluid exerts on an immersed body.
+41,Archimedes' Principle,Medium,"Upthrust, Weight of displaced fluid, Immersed body, Buoyancy, fluid",Fluid,Upthrust equals the weight of fluid displaced.
+42,Floatation Principle,Medium,"Floating body, Weight equals upthrust, Displaced fluid, equilibrium, buoyancy",Fluid,A floating object displaces its own weight of fluid.
+43,Relative Density,Easy,"Density of substance ÷ density of water, No unit, Specific gravity, comparison, density",Measurement,Relative density compares a substance's density with water.
+44,Hydrometer,Medium,"Relative density, Floating instrument, Liquid, Graduated stem, density",Equipment,A hydrometer measures relative density by how deeply it floats.
+45,Lactometer,Medium,"Milk density, Hydrometer type, Quality check, Relative density, instrument",Equipment,A lactometer is a hydrometer used for milk.
+46,Density Bottle,Medium,"Relative density of liquid, Known volume, Weighing, Bottle, density",Equipment,A density bottle determines liquid density from mass and known volume.
+47,Overflow Can,Easy,"Displacement, Irregular solid volume, Water overflow, Measuring cylinder, volume",Equipment,An overflow can helps measure the volume of an irregular solid.
+48,Floating Condition,Easy,"Upthrust = weight, Equilibrium, Object floats, Average density less than fluid, buoyancy",Fluid,A floating body is in vertical equilibrium.
+49,Sinking Condition,Easy,"Weight > upthrust, Object descends, Density greater than fluid, buoyancy, fluid",Fluid,An object sinks when its weight exceeds the available upthrust.
+50,Floating Ship,Medium,"Large displaced volume, Average density, Upthrust, Hollow structure, Archimedes",Fluid,Ships float because their shape allows enough water to be displaced.
+51,Floating Ice,Medium,"Ice less dense than water, Partly submerged, Upthrust equals weight, floatation, density",Fluid,Ice floats because its density is lower than liquid water.
+52,Floating Balloon,Medium,"Air displacement, Buoyancy in gas, Average density, Upthrust, atmosphere",Fluid,A balloon can rise when its average density is less than surrounding air.
+53,Terminal Speed in Fluid,Medium,"Weight, Upthrust, Viscous drag, Resultant zero, constant speed",Motion,Terminal speed is reached when downward and upward forces balance.
+54,Viscosity and Temperature,Medium,"Liquid viscosity decreases when heated, Flow easier, Internal friction, temperature, fluid",Fluid,"For many liquids, viscosity falls as temperature rises."
+55,Detergent and Surface Tension,Medium,"Surface tension reduced, Wetting increases, Cleaning, Soap, liquid",Fluid,Detergents lower water's surface tension and improve wetting.
+56,Capillary Rise,Medium,"Adhesion greater than cohesion, Narrow tube, Water, Meniscus, surface tension",Fluid,Water rises in a narrow glass tube because adhesion dominates.
+57,Capillary Depression,Medium,"Cohesion greater than adhesion, Mercury, Narrow tube, Convex meniscus, surface tension",Fluid,Mercury is depressed in a glass capillary because cohesion dominates.

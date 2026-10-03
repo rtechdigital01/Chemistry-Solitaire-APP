@@ -1,0 +1,68 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Motion,Easy,"Change of position, Time, Reference point, Distance, Movement",Motion,Motion is a change in the position of a body with time.
+2,Random Motion,Easy,"Irregular path, No fixed direction, Brownian motion, Gas particles, unpredictable movement",Motion,Random motion has no regular path or fixed direction.
+3,Translational Motion,Easy,"Body moves from one point to another, Straight-line motion, Linear motion, Position changes, translation",Motion,In translational motion the body changes position without rotating as a whole.
+4,Rotational Motion,Easy,"Rotation about axis, Circular path, Wheel, Fan blade, Earth rotation",Motion,Rotational motion occurs about an axis.
+5,Oscillatory Motion,Easy,"To and fro, Equilibrium position, Pendulum, Vibration, periodic",Motion,Oscillatory motion repeats back and forth around an equilibrium position.
+6,Position,Easy,"Location, Reference origin, Coordinates, Direction, distance from origin",Structure,Position specifies where an object is relative to a chosen reference.
+7,Distance,Easy,"Total path length, Scalar, metre, No direction, motion",Measurement,Distance is the total length of the path travelled.
+8,Displacement,Easy,"Straight-line change, Vector, Direction, Initial to final position, metre",Measurement,Displacement is the directed change in position.
+9,Scalar Quantity,Easy,"Magnitude only, Distance, Speed, Mass, Temperature",Structure,A scalar is completely specified by magnitude.
+10,Vector Quantity,Easy,"Magnitude and direction, Displacement, Velocity, Acceleration, Force",Structure,A vector requires both magnitude and direction.
+11,Speed,Easy,"distance ÷ time, m s?¹, scalar, rate, motion",Measurement,Speed is distance travelled per unit time.
+12,Average Speed,Easy,"Total distance, Total time, distance ÷ time, journey, scalar",Measurement,Average speed equals total distance divided by total time.
+13,Velocity,Easy,"displacement ÷ time, m s?¹, vector, direction, rate of displacement",Measurement,Velocity is the rate of change of displacement.
+14,Acceleration,Medium,"change in velocity ÷ time, m s?², vector, speeding up or slowing down, motion",Measurement,Acceleration describes how velocity changes with time.
+15,Uniform Velocity,Medium,"Constant velocity, Equal displacement in equal time, Straight line, No acceleration, motion",Motion,Uniform velocity has constant magnitude and direction.
+16,Uniform Acceleration,Medium,"Constant acceleration, Equal velocity change in equal time, m s?², kinematics, motion",Motion,Uniform acceleration means acceleration stays constant.
+17,Equations of Uniform Motion,Medium,"v = u + at, s = ut + ½at², v² = u² + 2as, s = ½(u+v)t, constant acceleration",Formula,"These equations relate displacement, velocity, acceleration and time."
+18,v = u + at,Medium,"Final velocity, Initial velocity, Acceleration, Time, uniform acceleration",Formula,This equation links initial and final velocity under constant acceleration.
+19,s = ut + ½at²,Medium,"Displacement, Initial velocity, Acceleration, Time, uniform acceleration",Formula,This equation gives displacement for constant acceleration.
+20,v² = u² + 2as,Medium,"Final velocity, Initial velocity, Acceleration, Displacement, No time term",Formula,This motion equation is useful when time is not required.
+21,Distance-Time Graph,Medium,"Distance, Time, Gradient, Speed, motion graph",Graph,The gradient of a distance-time graph gives speed.
+22,Speed-Time Graph,Medium,"Speed, Time, Gradient, Acceleration, Area under graph",Graph,The slope gives acceleration and the area gives distance travelled.
+23,Velocity-Time Graph,Medium,"Velocity, Time, Gradient, Acceleration, Area under graph",Graph,The gradient gives acceleration and the signed area gives displacement.
+24,Uniform Motion Graph,Medium,"Straight line, Constant gradient, Constant speed, Distance-time, motion",Graph,Uniform motion is represented by a constant slope on a distance-time graph.
+25,Non-uniform Motion Graph,Medium,"Curved graph, Changing gradient, Changing speed, Distance-time, acceleration",Graph,A changing gradient indicates non-uniform motion.
+26,Free Fall,Medium,"Gravity, g, Downward acceleration, Air resistance neglected, motion",Motion,A freely falling body accelerates under gravity.
+27,Acceleration Due to Gravity,Easy,"g, approximately 9.8 or 10 m s?², downward, free fall, Earth",Measurement,Near Earth's surface free-fall acceleration is approximately constant.
+28,Vertical Projection,Medium,"Upward motion, Gravity downward, Maximum height, Time of flight, u",Motion,An object projected vertically slows under gravity until its velocity becomes zero.
+29,Maximum Height,Medium,"v = 0 at top, vertical projection, gravity, u²/2g, displacement",Measurement,At maximum height the instantaneous vertical velocity is zero.
+30,Relative Motion,Medium,"Observer, Relative velocity, One body compared with another, Same direction, Opposite direction",Motion,Relative motion describes motion measured from another moving reference.
+31,Uniform Circular Motion,Medium,"Constant speed, Changing direction, Circular path, Centripetal acceleration, radius",Motion,A body in uniform circular motion has constant speed but changing velocity.
+32,Centripetal Acceleration,Hard,"v²/r, towards centre, circular motion, direction changes, acceleration",Formula,This acceleration points toward the centre of a circular path.
+33,Centrifuge,Medium,"Rotation, Separation, Centrifugal effect, Laboratory device, circular motion",Equipment,A centrifuge uses rapid rotation to separate materials.
+34,Force as Cause of Motion,Easy,"Push, Pull, Change motion, Vector, interaction",Force,A force can change the state of rest or motion of an object.
+35,Contact Force,Easy,"Friction, Tension, Normal reaction, Physical contact, push or pull",Force,A contact force acts when bodies touch.
+36,Field Force,Easy,"Gravitational, Electric, Magnetic, No contact, force at a distance",Force,A field force can act without physical contact.
+37,Reference Point,Easy,"Origin, Observer, Position, Motion comparison, fixed point",Motion,Motion is described relative to a chosen reference point.
+38,Rest,Easy,"No change of position, Reference point, Time, stationary, relative",Motion,An object is at rest when its position does not change relative to the reference.
+39,Bearing,Medium,"Clockwise from North, Degrees, Direction, navigation, position",Measurement,A bearing specifies direction measured clockwise from North.
+40,Resultant Displacement,Medium,"Vector addition, Straight-line result, Magnitude, Direction, displacement",Structure,Resultant displacement combines successive displacements as vectors.
+41,Speedometer,Easy,"Instantaneous speed, Vehicle, km h?¹, motion, instrument",Equipment,A speedometer shows the instantaneous speed of a vehicle.
+42,Odometer,Easy,"Distance travelled, Vehicle, kilometres, motion, instrument",Equipment,An odometer records total distance travelled.
+43,Instantaneous Velocity,Medium,"Velocity at an instant, Direction, m s?¹, tangent idea, motion",Motion,Instantaneous velocity describes motion at a particular moment.
+44,Retardation,Easy,"Negative acceleration, Slowing down, Velocity decreases, m s?², deceleration",Motion,Retardation is acceleration opposite to the direction of motion.
+45,Initial Velocity,Easy,"u, starting velocity, m s?¹, kinematics, motion",Measurement,Initial velocity is the velocity at the start of the interval.
+46,Final Velocity,Easy,"v, ending velocity, m s?¹, kinematics, motion",Measurement,Final velocity is the velocity at the end of the interval.
+47,Displacement Symbol,Easy,"s, metre, position change, kinematics, vector",Measurement,The symbol s is commonly used for displacement.
+48,Acceleration Symbol,Easy,"a, m s?², velocity change, kinematics, vector",Measurement,The symbol a represents acceleration.
+49,Time Symbol,Easy,"t, second, duration, kinematics, motion",Measurement,The symbol t represents elapsed time.
+50,Gradient of Distance-Time Graph,Easy,"speed, rise ÷ run, distance, time, slope",Graph,The slope of a distance-time graph gives speed.
+51,Horizontal Distance-Time Line,Easy,"stationary, distance constant, zero speed, time passes, graph",Graph,A horizontal distance-time line means the object is at rest.
+52,Steeper Distance-Time Line,Easy,"greater speed, larger gradient, distance-time graph, faster motion, slope",Graph,A steeper distance-time graph represents a greater speed.
+53,Gradient of Velocity-Time Graph,Medium,"acceleration, change in velocity ÷ time, slope, graph, m s?²",Graph,The gradient of a velocity-time graph gives acceleration.
+54,Area under Velocity-Time Graph,Medium,"displacement, velocity × time, signed area, graph, motion",Graph,The area under a velocity-time graph gives displacement.
+55,Area under Speed-Time Graph,Medium,"distance travelled, speed × time, area, graph, motion",Graph,The area under a speed-time graph gives distance.
+56,Constant Speed,Easy,"Same distance per equal time, zero speed change, uniform motion, scalar, steady",Motion,Constant speed means equal distances are covered in equal times.
+57,Constant Velocity,Medium,"Same speed, Same direction, zero acceleration, vector, uniform motion",Motion,Velocity is constant only if both speed and direction stay unchanged.
+58,Projectile-like Vertical Motion,Medium,"Gravity, Upward slowing, Downward speeding, maximum height, free fall",Motion,Vertical motion under gravity changes velocity uniformly when air resistance is ignored.
+59,Time to Maximum Height,Hard,"v = 0, t = u/g, vertical projection, gravity, upward motion",Formula,At maximum height the upward velocity becomes zero.
+60,Free-Fall Distance from Rest,Hard,"s = ½gt², u = 0, gravity, time, vertical displacement",Formula,"For free fall from rest, displacement grows with the square of time."
+61,Circular Motion Velocity,Medium,"Tangential direction, Constant speed possible, Direction changes, circle, vector",Motion,"In circular motion, instantaneous velocity is tangent to the path."
+62,Centripetal Direction,Medium,"Towards centre, Radial, Circular motion, acceleration, force",Force,Centripetal acceleration and resultant force point toward the centre.
+63,Frequency of Rotation,Medium,"revolutions per second, Hz, circular motion, period, rotation",Measurement,Frequency tells how many cycles or revolutions occur each second.
+64,Period of Rotation,Medium,"time for one revolution, T, seconds, circular motion, cycle",Measurement,The period is the time taken for one complete cycle.
+65,Force Changes Motion,Easy,"Start, Stop, Speed up, Slow down, Change direction",Force,A resultant force changes velocity.
+66,Balanced Motion,Medium,"Resultant force zero, Rest or constant velocity, Newtonian idea, no acceleration, motion",Force,Zero resultant force means no acceleration.
+67,Frictional Force,Easy,"Opposes motion, Contact force, Surfaces, Heat, resistance",Force,Friction acts against relative motion between surfaces.

@@ -1,0 +1,45 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Matter,Easy,"Has mass, Occupies space, Particles, Solid liquid gas, physical substance",Matter,Matter has mass and occupies space.
+2,Particle Nature of Matter,Easy,"Atoms, Molecules, Constant motion, Spaces, attractive forces",Particle,Matter is composed of tiny particles.
+3,Atom,Easy,"Small particle of element, Chemical reactions, Element identity, Nucleus, electrons",Particle,An atom is the smallest particle of an element that takes part in chemical reactions.
+4,Molecule,Easy,"Two or more atoms, Independent existence, Chemical bonding, Substance properties, particle",Particle,A molecule is the smallest particle that can exist independently while retaining substance properties.
+5,Simple Molecule Model,Easy,"Atoms joined, Element or compound, Particle model, Chemical bond, molecule",Structure,Simple particle diagrams represent molecules as joined atoms.
+6,Molecular Size,Medium,"Very small, Order 10?¹? m, Thin film experiment, Microscopic, particle",Measurement,"Molecules are extremely small, with dimensions on the order of atomic scales."
+7,Oil Film Experiment,Medium,"Monolayer, Surface area, Drop volume, Estimate molecular size, water surface",Experiment,A thin oil film can be used to estimate molecular dimensions.
+8,Brownian Motion,Easy,"Random zigzag motion, Suspended particles, Particle collisions, Evidence of molecular motion, microscope",Motion,Brownian motion is visible random motion caused by molecular collisions.
+9,Brownian Motion Evidence,Medium,"Air or liquid molecules move, Random collisions, Smoke particles, Pollen grains, kinetic theory",Particle,Brownian motion supports the idea that molecules are in constant motion.
+10,Diffusion,Easy,"Particles spread, High to low concentration, Random motion, Gases, liquids",Particle,Diffusion is the spreading of particles due to random molecular motion.
+11,Diffusion in Gases,Easy,"Fast diffusion, Random motion, Gas mixing, Hydrogen faster than heavier gas, particle",Particle,Gas particles diffuse rapidly because they move freely.
+12,Law of Definite Proportion,Medium,"Fixed composition, Compound, Elements combine in fixed ratio, Mass ratio, chemical law",Structure,A pure compound always contains its elements in definite proportions.
+13,Atomic Structure,Easy,"Proton, Neutron, Electron, Nucleus, atom",Particle,Atoms contain a central nucleus with electrons around it.
+14,Proton,Easy,"Positive charge, Nucleus, Mass about 1 u, Atomic structure, particle",Particle,The proton is a positively charged nuclear particle.
+15,Neutron,Easy,"No charge, Nucleus, Mass about 1 u, Atomic structure, particle",Particle,The neutron is electrically neutral and found in the nucleus.
+16,Electron,Easy,"Negative charge, Outside nucleus, Very small mass, Atomic structure, particle",Particle,Electrons carry negative charge.
+17,Kinetic Energy of Molecules,Medium,"Particle motion, Temperature, Higher speed means higher kinetic energy, Random movement, thermal behaviour",Energy,Molecular kinetic energy is associated with particle motion.
+18,State of Matter,Easy,"Solid, Liquid, Gas, Particle arrangement, physical state",Matter,"Matter commonly exists as solid, liquid or gas."
+19,Solid State,Easy,"Closely packed, Fixed positions, Vibrate, Definite shape, Definite volume",Matter,Solid particles are closely packed and only vibrate about fixed positions.
+20,Liquid State,Easy,"Close particles, Move past one another, Definite volume, No fixed shape, flow",Matter,Liquid particles remain close but can move past one another.
+21,Gas State,Easy,"Far apart, Rapid random motion, No fixed shape, No fixed volume, compressible",Matter,Gas particles move freely with large spaces between them.
+22,Change of State Particle View,Medium,"Energy change, Particle spacing, Particle motion, Melting, Vaporisation",Particle,Changes of state alter particle motion and arrangement.
+23,Evidence for Particles,Easy,"Brownian motion, Diffusion, Thin oil film, State behaviour, kinetic theory",Particle,Several observations support the particle model of matter.
+24,Particle Spacing,Easy,"Solids close, Liquids close, Gases far apart, compressibility, state of matter",Particle,Spacing between particles differs greatly between states.
+25,Particle Motion in Solid,Easy,"Vibration, Fixed position, Low freedom, Thermal motion, solid",Particle,Solid particles vibrate about fixed positions.
+26,Particle Motion in Liquid,Easy,"Slide past one another, Random motion, Flow, Close spacing, liquid",Particle,Liquid particles move around while remaining close together.
+27,Particle Motion in Gas,Easy,"Rapid random motion, Frequent collisions, Large spaces, Free movement, gas",Particle,Gas particles move rapidly and randomly in all directions.
+28,Solid Compressibility,Easy,"Very low, Particles close packed, Little empty space, solid, matter",Matter,Solids are difficult to compress.
+29,Liquid Compressibility,Easy,"Low, Particles close, Small empty spaces, liquid, matter",Matter,Liquids are only slightly compressible.
+30,Gas Compressibility,Easy,"High, Large spaces, Particles far apart, gas, matter",Matter,Gases are easily compressed because of large intermolecular spaces.
+31,Solid Shape,Easy,"Definite shape, Fixed structure, Particles held in place, solid, state",Matter,Solids keep their shape under ordinary conditions.
+32,Liquid Shape,Easy,"Takes container shape, Flows, No fixed shape, liquid, state",Matter,Liquids adopt the shape of their container.
+33,Gas Shape,Easy,"Fills container, No fixed shape, Expands, gas, state",Matter,A gas spreads to fill the available container.
+34,Solid Volume,Easy,"Definite volume, Closely packed particles, state, solid, matter",Matter,A solid has a nearly fixed volume.
+35,Liquid Volume,Easy,"Definite volume, Flows, state, liquid, matter",Matter,A liquid has a definite volume but no definite shape.
+36,Gas Volume,Easy,"No fixed volume, Fills container, Compressible, gas, matter",Matter,A gas takes the volume of its container.
+37,Intermolecular Force,Medium,"Attraction between molecules, Strong in solids, Weaker in gases, Particle model, matter",Particle,Forces between particles influence state and physical properties.
+38,Gas Pressure Particle View,Medium,"Particle collisions, Container walls, Random motion, Force per area, gas",Particle,Gas pressure arises from particle collisions with container walls.
+39,Temperature Particle View,Medium,"Average kinetic energy, Particle speed, Heating, Cooling, kinetic theory",Particle,Temperature is linked to the average kinetic energy of particles.
+40,Diffusion Rate,Medium,"Particle speed, Mass, Temperature, Gas faster, random motion",Particle,Diffusion becomes faster when particle motion is faster.
+41,Hydrogen Diffusion,Medium,"Light gas, Diffuses quickly, Particle mass, Gas mixing, random motion",Particle,Lighter gas particles generally diffuse faster.
+42,Carbon Dioxide Diffusion,Medium,"Heavier gas, Slower than hydrogen, Gas mixing, particle mass, diffusion",Particle,Heavier gas molecules tend to diffuse more slowly.
+43,Molecular Collision,Easy,"Particles collide, Changes direction, Random motion, Gas, kinetic theory",Particle,Molecular collisions contribute to random particle motion.
+44,Mass Conservation in State Change,Easy,"Same particles, No matter lost, Solid liquid gas, physical change, mass",Matter,A change of state does not change the total mass in a closed system.

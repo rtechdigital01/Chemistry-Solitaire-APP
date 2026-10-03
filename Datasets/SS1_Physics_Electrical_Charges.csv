@@ -1,0 +1,39 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electric Charge,Easy,"Positive, Negative, Coulomb, Electrons, Protons",Electricity,Electric charge is a fundamental property of matter.
+2,Positive Charge,Easy,"Electron deficiency, Proton excess relative to electrons, Like charges repel, Opposite charges attract, electricity",Electricity,A body is positively charged when it has lost electrons.
+3,Negative Charge,Easy,"Excess electrons, Like charges repel, Opposite charges attract, electricity, electron transfer",Electricity,A body is negatively charged when it gains electrons.
+4,Law of Electric Charges,Easy,"Like charges repel, Unlike charges attract, Positive, Negative, electrostatics",Electricity,Charges of the same sign repel while opposite signs attract.
+5,Charging by Friction,Easy,"Rubbing, Electron transfer, Insulators, Static charge, two materials",Process,Friction can transfer electrons between materials.
+6,Charging by Contact,Medium,"Touching, Charge transfer, Conductor, Same sign after contact, electrostatics",Process,Contact allows charge to move directly between conductors.
+7,Charging by Induction,Medium,"No contact, Charge separation, Earthing, Opposite charge, conductor",Process,Induction charges a conductor without direct contact with the charged body.
+8,Electrostatic Induction,Medium,"Charge redistribution, Nearby charged body, Conductor, Attraction, No initial contact",Electricity,A nearby charge rearranges charges in a conductor.
+9,Conservation of Charge,Medium,"Charge not created, Charge not destroyed, Transferred, Total charge constant, isolated system",Electricity,Total electric charge is conserved.
+10,Elementary Charge,Medium,"1.6 × 10?¹? C, electron charge magnitude, proton charge magnitude, quantised charge, coulomb",Measurement,The magnitude of charge on one proton or electron is the elementary charge.
+11,Gold Leaf Electroscope,Easy,"Detect charge, Metal cap, Gold leaf, Divergence, electrostatics",Equipment,A gold-leaf electroscope is used to detect electric charge.
+12,Electroscope Charging,Medium,"Leaf divergence, Contact, Induction, Charge sign, electrostatics",Process,Leaf separation shows that charge has reached the electroscope.
+13,Charge Distribution on Conductors,Medium,"Surface charge, Greater at sharp points, Conductor exterior, Electrostatics, charge density",Electricity,Static charge on a conductor resides mainly on its outer surface.
+14,Lightning,Easy,"Charge separation, Clouds, Large potential difference, Electric discharge, atmosphere",Environment,Lightning is a large electrostatic discharge.
+15,Lightning Conductor,Medium,"Metal rod, Earth connection, Protect building, Charge discharge, sharp point",Safety,A lightning conductor provides a safe path for charge to reach Earth.
+16,Conductor,Easy,"Free electrons, Allows charge flow, Metal, Low resistivity, electricity",Matter,A conductor allows electric charge to move readily.
+17,Insulator,Easy,"Bound charges, Poor charge flow, Glass, Plastic, high resistivity",Matter,An insulator strongly resists charge movement.
+18,Semiconductor,Medium,"Intermediate conductivity, Silicon, Germanium, Temperature sensitive, electronics",Matter,A semiconductor conducts less than a metal but more than an insulator.
+19,Electrostatic Attraction,Easy,"Opposite charges, Charged body, Neutral object can be attracted, induction, force",Force,Electrostatic forces can attract unlike charges or polarised neutral bodies.
+20,Static Electricity Applications,Medium,"Photocopier, Electrostatic painting, Dust removal, Spray painting, charge control",Industry,Static charge can be used in useful industrial processes.
+21,Neutral Body,Easy,"Equal positive and negative charge, Net charge zero, Matter, electrons and protons, uncharged",Electricity,A neutral body has zero net electric charge.
+22,Electron Transfer,Easy,"Electrons move, Positive charge left behind, Negative charge gained, static electricity, charging",Electricity,"In ordinary charging, electrons transfer while protons remain bound in nuclei."
+23,Quantisation of Charge,Medium,"Q = ne, Integer multiples, Elementary charge, electron, coulomb",Electricity,Electric charge occurs in discrete multiples of the elementary charge.
+24,Charging Glass with Silk,Easy,"Glass becomes positive, Silk gains electrons, Friction, electron transfer, electrostatics",Process,Rubbing glass with silk can transfer electrons from glass to silk.
+25,Charging Ebonite with Fur,Easy,"Ebonite becomes negative, Fur loses electrons, Friction, electron transfer, electrostatics",Process,Rubbing ebonite with fur can make the ebonite negatively charged.
+26,Electroscope Leaf Divergence,Easy,"Like charges repel, Leaf and stem charged, Deflection, charge detection, electroscope",Equipment,The leaf diverges because similarly charged parts repel.
+27,Discharging an Electroscope,Medium,"Earthing, Touch cap, Charge flows to Earth, Leaf collapses, neutralisation",Process,An electroscope can be discharged by providing a conducting path to Earth.
+28,Earthing,Easy,"Earth reservoir, Charge flows, Conductor, Safety, electrostatics",Safety,Earthing allows excess charge to flow safely to or from Earth.
+29,Sharp Point Effect,Medium,"High charge density, Electric discharge, Lightning conductor tip, Conductor, electrostatics",Electricity,Charge becomes concentrated at sharp points of a conductor.
+30,Electrostatic Field,Medium,"Region around charge, Force on test charge, Field lines, Electric force, no contact",Electricity,An electric field is the region where an electric charge experiences force.
+31,Field Direction,Medium,"From positive, Toward negative, Test positive charge, Electric field, direction",Structure,Electric field direction is defined by the force on a positive test charge.
+32,Insulator Charging,Easy,"Charge remains localised, Glass, Plastic, Rubber, poor charge mobility",Matter,Charge tends to remain where placed on an insulator.
+33,Conductor Charging,Easy,"Charge redistributes, Metal, Free electrons, Surface charge, electrostatics",Matter,Charge spreads over a conductor because electrons are mobile.
+34,Atmospheric Charging,Medium,"Cloud collisions, Charge separation, Storm, Lightning, electrostatics",Environment,Storm clouds can build large separated electric charges.
+35,Electrostatic Discharge,Easy,"Spark, Sudden charge flow, Large potential difference, Air breakdown, static electricity",Electricity,A spark is a rapid discharge through ionised air.
+36,Lightning Safety,Easy,"Avoid exposed high points, Lightning conductor, Earthing, Storm safety, electric discharge",Safety,Safe grounding reduces the danger from lightning discharge.
+37,Good Electrical Conductor,Easy,"Copper, Aluminium, Metals, Free electrons, low resistivity",Matter,Good conductors allow charge to flow readily.
+38,Poor Electrical Conductor,Easy,"Rubber, Glass, Dry wood, Plastic, high resistivity",Matter,Poor conductors strongly resist the motion of charge.

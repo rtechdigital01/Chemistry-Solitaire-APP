@@ -1,0 +1,39 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Elasticity,Easy,"Returns to original shape, Force removed, Elastic deformation, material property, solid",Matter,Elasticity is the ability of a material to regain its original shape after deformation.
+2,Elastic Limit,Easy,"Maximum elastic deformation, Beyond it permanent change, Load limit, material, spring",Measurement,Beyond the elastic limit a body may not return fully to its original shape.
+3,Extension,Easy,"Change in length, Stretched body, Final length ? original length, metre, spring",Measurement,Extension is the increase in length produced by a stretching force.
+4,Hooke's Law,Easy,"F ? extension, Within elastic limit, F = ke, spring, linear relation",Force,"Within the elastic limit, extension is proportional to applied force."
+5,Spring Constant,Medium,"k, F/e, N m?¹, Stiffness, Hooke's law",Measurement,The spring constant measures stiffness.
+6,Force-Extension Graph,Medium,"Straight line initially, Gradient related to stiffness, Elastic limit, Yield point, breaking point",Graph,A force-extension graph reveals elastic and plastic behaviour.
+7,Stress,Medium,"Force ÷ area, Pa, Tensile force, material, deformation",Measurement,Stress is force per unit cross-sectional area.
+8,Strain,Medium,"Extension ÷ original length, No unit, fractional deformation, material, tension",Measurement,Strain measures extension relative to original length.
+9,Young's Modulus,Hard,"Stress ÷ strain, Pa, Stiffness, Elastic region, material property",Measurement,Young's modulus relates tensile stress to tensile strain.
+10,Yield Point,Medium,"Permanent deformation begins, Force-extension graph, Plastic behaviour, material, load",Measurement,"Beyond the yield point, deformation becomes permanent."
+11,Breaking Point,Medium,"Material failure, Maximum load, Force-extension graph, fracture, solid",Measurement,The breaking point is where the material finally fails.
+12,Elastic Potential Energy,Medium,"Stored in deformation, ½Fe, ½ke², spring, joule",Energy,An elastic body stores energy when stretched or compressed.
+13,Work Done Stretching Spring,Medium,"Area under force-extension graph, ½Fe, Energy stored, joule, spring",Energy,"For a Hookean spring, work done equals the elastic potential energy stored."
+14,Stiff Spring,Easy,"Large k, Small extension for same force, High stiffness, Hooke's law, spring",Matter,A larger spring constant means a stiffer spring.
+15,Elastic Deformation,Easy,"Reversible, Original shape restored, Below elastic limit, spring, material",Matter,Elastic deformation disappears when the force is removed.
+16,Plastic Deformation,Easy,"Permanent, Beyond elastic limit, Does not fully recover, material, deformation",Matter,Plastic deformation remains after the applied force is removed.
+17,Verification of Hooke's Law,Medium,"Add loads, Measure extension, Plot force against extension, Straight line, elastic limit",Experiment,Hooke's law can be tested by measuring extension for increasing loads.
+18,Applications of Elasticity,Easy,"Springs, Suspension, Weighing scales, Elastic cords, shock absorption",Industry,Elastic properties are useful in many devices.
+19,Hookean Region,Medium,"Straight-line force-extension graph, F ? e, Elastic limit not exceeded, spring, linear response",Graph,The Hookean region is where force and extension are proportional.
+20,Non-Hookean Region,Medium,"Curved force-extension graph, Proportionality fails, Large extension, material, elasticity",Graph,"Beyond the proportional region, force may no longer be directly proportional to extension."
+21,Proportional Limit,Medium,"End of linear relation, Hooke's law limit, Force-extension graph, material, spring",Measurement,The proportional limit marks the end of direct proportionality.
+22,Tensile Force,Easy,"Pulling force, Stretching, Wire, Spring, deformation",Force,A tensile force stretches a material.
+23,Compressive Force,Easy,"Pushing force, Compression, Shortening, material, deformation",Force,A compressive force squeezes a body.
+24,Tensile Stress,Medium,"Force per area, Stretching, Pa, wire, material",Measurement,Tensile stress is stretching force divided by cross-sectional area.
+25,Tensile Strain,Medium,"Extension/original length, No unit, Stretching, wire, material",Measurement,Tensile strain is fractional extension.
+26,Young's Modulus Unit,Easy,"pascal, Pa, N m?², stress, elastic modulus",Measurement,Young's modulus has the same unit as stress.
+27,Large Young's Modulus,Medium,"Stiff material, Small strain for given stress, elasticity, solid, modulus",Matter,A large Young's modulus indicates a stiff material.
+28,Small Young's Modulus,Medium,"Less stiff, Larger strain, elasticity, solid, modulus",Matter,A smaller Young's modulus indicates easier elastic deformation.
+29,Spring Energy Formula,Medium,"E = ½ke², Elastic potential energy, Spring constant, Extension, joule",Formula,A Hookean spring stores one-half k times extension squared.
+30,Area under Force-Extension Graph,Medium,"Work done, Elastic energy, Triangle area, force, extension",Graph,The area under the force-extension graph equals work done in stretching.
+31,Permanent Set,Medium,"Residual deformation, After load removed, Plastic deformation, material, elasticity",Matter,A permanent set remains after a material is stretched beyond its elastic range.
+32,Breaking Load,Medium,"Maximum load before failure, Fracture, material, strength, force",Measurement,Breaking load is the load at which a specimen fails.
+33,Elastic Fatigue,Hard,"Repeated loading, Loss of elasticity, Material weakening, cycles, spring",Matter,Repeated deformation can gradually reduce elastic performance.
+34,Spring Balance Principle,Easy,"Hooke's law, Extension proportional to force, Scale calibration, force measurement, spring",Equipment,Spring balances use elastic extension to measure force.
+35,Stiffness Comparison,Easy,"Spring constant, Higher k is stiffer, Force-extension, spring, elasticity",Measurement,Spring constants can be used to compare stiffness.
+36,Energy Conversion in Catapult,Medium,"Elastic potential to kinetic, Stretched band, Projectile, energy transfer, elasticity",Energy,A catapult converts stored elastic energy into kinetic energy.
+37,Energy Conversion in Bow,Medium,"Elastic potential, Kinetic energy, Arrow, Deformation, energy",Energy,A drawn bow stores elastic energy before releasing the arrow.
+38,Elastic Material Example,Easy,"Spring steel, Rubber, Restores shape, Elastic deformation, material",Matter,Elastic materials tend to recover their original shape after loading.

@@ -1,0 +1,64 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Physical Quantity,Easy,"Measured property, Numerical value, Unit, Observation, Measurement",Measurement,A physical quantity is described by a number and an appropriate unit.
+2,Fundamental Quantity,Easy,"Length, Mass, Time, Temperature, Electric current, Amount of substance, Luminous intensity",Measurement,These basic quantities are not defined in terms of other physical quantities.
+3,Derived Quantity,Easy,"Area, Volume, Speed, Density, Force, Pressure",Measurement,Derived quantities are formed from combinations of fundamental quantities.
+4,SI Units,Easy,"metre (m), kilogram (kg), second (s), kelvin (K), ampere (A), mole (mol), candela (cd)",Measurement,The SI system provides internationally agreed standard units.
+5,Length Unit,Easy,"metre, m, SI base unit, distance, length",Measurement,The SI base unit of length is the metre.
+6,Mass Unit,Easy,"kilogram, kg, SI base unit, mass, balance",Measurement,The SI base unit of mass is the kilogram.
+7,Time Unit,Easy,"second, s, SI base unit, time, stopwatch",Measurement,The SI base unit of time is the second.
+8,Temperature Unit,Easy,"kelvin, K, SI base unit, temperature, thermometer",Measurement,The SI base unit of thermodynamic temperature is the kelvin.
+9,Electric Current Unit,Easy,"ampere, A, SI base unit, current, ammeter",Measurement,The SI base unit of electric current is the ampere.
+10,Prefixes,Easy,"kilo, centi, milli, micro, mega",Measurement,Prefixes express powers of ten attached to units.
+11,Kilo,Easy,"10³, 1000, kilometre, kilogram, prefix",Measurement,Kilo means one thousand times the base unit.
+12,Milli,Easy,"10?³, 0.001, millimetre, millisecond, prefix",Measurement,Milli means one thousandth of the base unit.
+13,Micro,Medium,"10??, micrometre, microampere, prefix, one millionth",Measurement,Micro represents one millionth of a unit.
+14,Area,Easy,"length × breadth, m², derived quantity, surface, square metre",Measurement,Area is measured in square metres in SI.
+15,Volume,Easy,"length × breadth × height, m³, derived quantity, space occupied, cubic metre",Measurement,Volume measures the space occupied by a body.
+16,Density,Easy,"mass ÷ volume, kg m?³, ?, material property, derived quantity",Measurement,Density is mass per unit volume.
+17,Speed,Easy,"distance ÷ time, m s?¹, scalar, rate of distance, motion",Measurement,Speed is the rate of change of distance.
+18,Velocity,Medium,"displacement ÷ time, m s?¹, vector, direction, motion",Measurement,Velocity is speed specified in a particular direction.
+19,Acceleration,Medium,"change in velocity ÷ time, m s?², vector, motion, rate of velocity change",Measurement,Acceleration is the rate of change of velocity.
+20,Force Unit,Easy,"newton, N, kg m s?², force, derived unit",Measurement,Force is measured in newtons.
+21,Pressure Unit,Easy,"pascal, Pa, N m?², force per area, derived unit",Measurement,Pressure is measured in pascals.
+22,Dimensional Formula,Medium,"M, L, T, physical dimensions, equation check",Structure,Dimensions express physical quantities in terms of fundamental dimensions.
+23,Dimension of Velocity,Medium,"LT?¹, length per time, velocity, dimension, motion",Structure,Velocity has dimension length divided by time.
+24,Dimension of Acceleration,Medium,"LT?², velocity per time, acceleration, dimension, motion",Structure,Acceleration has dimension length per time squared.
+25,Dimension of Force,Medium,"MLT?², mass × acceleration, force, dimension, newton",Structure,Force has dimension mass × length × time?².
+26,Dimensional Analysis,Hard,"Check equations, Determine units, Compare dimensions, Homogeneity, Physical formula",Process,A valid physical equation must be dimensionally consistent.
+27,Metre Rule,Easy,"Length, millimetre scale, straight objects, reading, measurement tool",Equipment,A metre rule is used for ordinary length measurements.
+28,Vernier Calipers,Medium,"External diameter, Internal diameter, Depth, Vernier scale, 0.01 cm accuracy",Equipment,Vernier calipers measure lengths more precisely than a metre rule.
+29,Micrometer Screw Gauge,Medium,"Small diameter, Thickness, Screw motion, Thimble scale, high precision",Equipment,A micrometer screw gauge measures very small dimensions accurately.
+30,Stopwatch,Easy,"Time interval, seconds, timing, start-stop, measurement",Equipment,A stopwatch is used to measure elapsed time.
+31,Beam Balance,Easy,"Mass, Comparison, Known masses, beam, balance",Equipment,A beam balance compares an unknown mass with standard masses.
+32,Spring Balance,Easy,"Weight, force, newtons, spring extension, force meter",Equipment,A spring balance measures force or weight.
+33,Measuring Cylinder,Easy,"Liquid volume, graduated scale, cm³, meniscus, container",Equipment,A measuring cylinder is used to measure liquid volume.
+34,Displacement Method,Medium,"Irregular solid, Water displacement, Final volume ? initial volume, Measuring cylinder, Volume",Process,The volume of an irregular solid can be found by liquid displacement.
+35,Parallax Error,Medium,"Eye position, Scale reading, Viewing angle, Measurement error, Correct line of sight",Measurement,Parallax error occurs when a scale is viewed from the wrong angle.
+36,Degree of Accuracy,Medium,"Smallest scale division, Uncertainty, Significant figures, Instrument precision, Measurement",Measurement,Measurement quality depends on instrument resolution and uncertainty.
+37,Significant Figures,Medium,"Meaningful digits, Precision, Recorded measurement, Rounding, uncertainty",Measurement,Significant figures communicate the precision of measured values.
+38,Base Units,Easy,"metre, kilogram, second, kelvin, ampere, mole, candela",Measurement,Base units are the standard SI units used for fundamental quantities.
+39,Derived Units,Easy,"m², m³, m s?¹, kg m?³, newton, pascal, joule",Measurement,Derived units are obtained by combining base units.
+40,Mega,Easy,"10?, 1,000,000, megawatt, megajoule, prefix",Measurement,Mega means one million times the base unit.
+41,Centi,Easy,"10?², 0.01, centimetre, one hundredth, prefix",Measurement,Centi means one hundredth of the base unit.
+42,Nanometre,Medium,"10?? m, very small length, nanometre, SI prefix, microscopic scale",Measurement,A nanometre is one billionth of a metre.
+43,Unit Conversion,Easy,"100 cm = 1 m, 1000 m = 1 km, 1000 g = 1 kg, 60 s = 1 min, conversion factor",Process,Convert units before substituting values into physics equations.
+44,Time Conversion,Easy,"60 s = 1 min, 60 min = 1 h, 24 h = 1 day, seconds, time",Measurement,Time quantities often need conversion into seconds.
+45,Length Conversion,Easy,"1000 mm = 1 m, 100 cm = 1 m, 1000 m = 1 km, metre, length",Measurement,"Length conversions connect millimetres, centimetres, metres and kilometres."
+46,Mass Conversion,Easy,"1000 mg = 1 g, 1000 g = 1 kg, kilogram, gram, mass",Measurement,"Mass is commonly converted between milligrams, grams and kilograms."
+47,Volume Unit,Easy,"m³, cm³, litre, cubic measure, space occupied",Measurement,Volume is measured using cubic units.
+48,1 cm³,Easy,"1 mL, cubic centimetre, small volume, liquid volume, unit relation",Measurement,One cubic centimetre is equal to one millilitre.
+49,1 litre,Easy,"1000 cm³, 1000 mL, liquid volume, L, capacity",Measurement,One litre is equal to one thousand cubic centimetres.
+50,Momentum Unit,Medium,"kg m s?¹, mass × velocity, derived unit, momentum, SI",Measurement,Momentum has SI unit kilogram metre per second.
+51,Work Unit,Easy,"joule, J, newton metre, energy, work",Measurement,Work and energy are measured in joules.
+52,Power Unit,Easy,"watt, W, joule per second, power, SI",Measurement,Power is measured in watts.
+53,Density Formula,Easy,"? = m/V, mass, volume, kg m?³, density",Formula,Density equals mass divided by volume.
+54,Momentum Formula,Medium,"p = mv, mass, velocity, kg m s?¹, momentum",Formula,Momentum is the product of mass and velocity.
+55,Pressure Formula,Easy,"P = F/A, force, area, pascal, pressure",Formula,Pressure equals force divided by area.
+56,Least Count,Medium,"Smallest readable division, Instrument scale, precision, resolution, measurement",Measurement,Least count is the smallest change an instrument can reliably resolve.
+57,Zero Error,Medium,"Instrument offset, Correction, Micrometer, Vernier, measurement error",Measurement,Zero error occurs when an instrument does not read zero at true zero.
+58,Zero Correction,Medium,"Opposite of zero error, Measurement correction, instrument, accuracy, reading",Process,Zero correction is applied to compensate for zero error.
+59,Meniscus Reading,Medium,"Eye level, Bottom of concave meniscus, Liquid volume, Measuring cylinder, parallax avoided",Measurement,Liquid volume should be read at eye level to reduce parallax.
+60,Regular Solid Volume,Easy,"Length × breadth × height, Cylinder formula, Sphere formula, geometry, volume",Formula,Regular solids can have their volume calculated from dimensions.
+61,Irregular Solid Volume,Easy,"Displacement, Immersion, Water, Measuring cylinder, overflow can",Process,Irregular solids are measured by the volume of liquid displaced.
+62,Precision vs Accuracy,Medium,"Repeatability, Closeness to true value, measurement, uncertainty, instrument",Measurement,Precision concerns repeatability; accuracy concerns closeness to the true value.
+63,Physical Equation Check,Hard,"Same dimensions both sides, Homogeneous equation, Dimensional analysis, formula test, M L T",Process,A physical equation must have matching dimensions on both sides.

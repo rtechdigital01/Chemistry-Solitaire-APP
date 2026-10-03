@@ -1,0 +1,56 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Heat,Easy,"Thermal energy transfer, Temperature difference, Hot to cold, Joule, energy",Energy,Heat is energy transferred because of a temperature difference.
+2,Temperature,Easy,"Degree of hotness, Thermometer, Kelvin, Celsius, thermal state",Measurement,Temperature indicates how hot or cold a body is.
+3,Heat vs Temperature,Medium,"Energy transfer, Thermal state, Joule, Kelvin, Different concepts",Energy,"Heat is energy in transit, while temperature measures thermal condition."
+4,Thermometry,Easy,"Temperature measurement, Thermometer, Thermometric property, Scale, fixed points",Measurement,Thermometry is the measurement of temperature.
+5,Thermometric Property,Medium,"Changes with temperature, Volume, Pressure, Resistance, emf",Measurement,A thermometric property varies predictably with temperature.
+6,Kinetic Molecular Theory,Medium,"Particles, Random motion, Kinetic energy, Attractive forces, Temperature",Particle,The kinetic theory explains thermal behaviour using particle motion.
+7,Temperature and Particle Motion,Medium,"Higher temperature, Higher average kinetic energy, Faster particles, Thermal motion, kinetic theory",Particle,Average particle kinetic energy increases with temperature.
+8,Thermal Expansion,Easy,"Increase in size, Heating, Solids, Liquids, temperature change",Energy,Most materials expand when heated.
+9,Linear Expansion,Medium,"Length increase, ?, Original length, Temperature change, solid",Measurement,Linear expansivity describes fractional length change per degree temperature rise.
+10,Linear Expansivity Formula,Medium,"?L = ?L?T, Length change, Temperature change, Coefficient, solid",Formula,The change in length is proportional to original length and temperature change.
+11,Area Expansion,Medium,"Surface area, ?, Temperature change, ? ? 2?, solid",Measurement,Area expansion describes change in surface area with temperature.
+12,Volume Expansion,Medium,"Volume change, ?, Temperature change, ? ? 3?, solid",Measurement,Volume expansivity describes fractional volume change per degree rise.
+13,Expansion of Liquids,Medium,"Real expansion, Apparent expansion, Container expansion, Volume, heating",Energy,A liquid's observed expansion depends on both the liquid and its container.
+14,Real Expansivity,Hard,"True liquid expansion, Volume increase, Container corrected, ??, temperature",Measurement,Real expansivity is the actual fractional volume increase of the liquid.
+15,Apparent Expansivity,Hard,"Observed liquid expansion, Container included, ??, volume change, temperature",Measurement,Apparent expansivity is what is observed in an expanding vessel.
+16,Anomalous Expansion of Water,Medium,"Maximum density at 4°C, Expands below 4°C, Ice less dense, Lakes freeze from top, water",Energy,Water behaves unusually between 0°C and 4°C.
+17,Change of State,Easy,"Melting, Freezing, Boiling, Condensation, latent heat",Energy,Matter changes state when energy is absorbed or released.
+18,Melting,Easy,"Solid to liquid, Melting point, Latent heat of fusion, Constant temperature, state change",Energy,Melting changes a solid into a liquid.
+19,Boiling,Easy,"Liquid to gas, Boiling point, Throughout liquid, Latent heat, vapour",Energy,Boiling is rapid vaporisation throughout a liquid.
+20,Evaporation,Easy,"Surface process, Liquid to gas, Below boiling point, Cooling effect, fast molecules escape",Energy,Evaporation occurs at the liquid surface and can happen below boiling point.
+21,Conduction,Easy,"Heat transfer, Particles vibrate, No bulk movement, Solids, hot to cold",Energy,Conduction transfers heat through matter without bulk movement.
+22,Good Thermal Conductor,Easy,"Metal, Copper, Aluminium, Fast heat transfer, cooking utensils",Matter,Metals are generally good conductors of heat.
+23,Thermal Insulator,Easy,"Poor conductor, Wood, Cork, Air, reduces heat transfer",Matter,An insulator slows heat transfer.
+24,Convection,Easy,"Fluids, Bulk movement, Density changes, Convection currents, heating",Energy,Convection transfers heat by motion of a fluid.
+25,Sea Breeze,Medium,"Daytime, Land heats faster, Warm air rises, Cool sea air moves inland, convection",Environment,Sea breeze is produced by convection due to unequal heating of land and sea.
+26,Land Breeze,Medium,"Night, Land cools faster, Air circulation, Sea warmer, convection",Environment,Land breeze is a nighttime convection effect.
+27,Radiation,Easy,"Electromagnetic waves, No medium required, Infrared, Vacuum, heat transfer",Energy,Thermal radiation can transfer energy through a vacuum.
+28,Good Absorber of Radiation,Easy,"Dull black surface, Absorbs infrared, Good emitter, Thermal radiation, surface property",Matter,Dark dull surfaces are good absorbers and emitters of thermal radiation.
+29,Poor Absorber of Radiation,Easy,"Shiny surface, Polished metal, Reflects radiation, Poor emitter, thermal radiation",Matter,Shiny surfaces absorb and emit thermal radiation poorly.
+30,Vacuum Flask,Medium,"Vacuum, Silvered walls, Cork or plastic stopper, Reduces conduction convection radiation, insulation",Equipment,A vacuum flask is designed to reduce all three modes of heat transfer.
+31,Celsius Scale,Easy,"°C, 0°C ice point, 100°C steam point, temperature, thermometer",Measurement,The Celsius scale uses fixed reference temperatures for calibration.
+32,Kelvin Scale,Easy,"K, Absolute temperature, 0 K absolute zero, 273 K ? 0°C, temperature",Measurement,Kelvin is the SI unit for thermodynamic temperature.
+33,Celsius-Kelvin Conversion,Medium,"K = °C + 273, °C = K ? 273, temperature, absolute scale, conversion",Formula,Celsius and Kelvin differ by approximately 273.
+34,Lower Fixed Point,Easy,"Melting ice, 0°C, 273 K, thermometer calibration, fixed point",Measurement,The lower fixed point is the melting point of pure ice at standard pressure.
+35,Upper Fixed Point,Easy,"Steam point, 100°C, 373 K, thermometer calibration, fixed point",Measurement,The upper fixed point is the steam point at standard pressure.
+36,Mercury Thermometer,Easy,"Mercury, Expansion, Glass capillary, Temperature, liquid-in-glass",Equipment,Mercury expansion can be used to indicate temperature.
+37,Alcohol Thermometer,Easy,"Alcohol, Low temperatures, Expansion, Liquid-in-glass, temperature",Equipment,Alcohol thermometers are useful for low-temperature measurement.
+38,Clinical Thermometer,Easy,"Body temperature, Narrow range, Constriction, Medical, thermometer",Equipment,A clinical thermometer is designed for human body temperature.
+39,Maximum-Minimum Thermometer,Medium,"Daily maximum, Daily minimum, Weather, Temperature range, thermometer",Equipment,This thermometer records temperature extremes over a period.
+40,Gas Thermometer,Hard,"Gas pressure, Constant volume, Accurate temperature, thermometric property, calibration",Equipment,A gas thermometer can use gas pressure as a thermometric property.
+41,Resistance Thermometer,Hard,"Electrical resistance, Platinum, Temperature, Calibration, thermometric property",Equipment,Resistance changes with temperature and can be used for thermometry.
+42,Thermocouple,Medium,"Two metals, Junctions, Thermoelectric emf, Temperature difference, high temperatures",Equipment,A thermocouple converts temperature difference into a small emf.
+43,Bimetallic Strip,Medium,"Two metals, Different expansion, Bending, Thermostat, temperature control",Equipment,Unequal expansion of two bonded metals causes bending.
+44,Thermostat,Medium,"Temperature control, Bimetallic strip, Switch, Automatic regulation, heating device",Equipment,A thermostat switches a system to maintain a set temperature.
+45,Expansion Gap,Easy,"Railway lines, Bridges, Thermal expansion, Space allowed, engineering",Industry,Expansion gaps prevent damage when materials expand in heat.
+46,Sagging Wires,Easy,"Hot weather, Expansion, Overhead cables, Length increases, temperature",Environment,Overhead wires sag more when heated because they expand.
+47,Evaporation Cooling,Medium,"Fast molecules escape, Average kinetic energy falls, Surface process, Cooling, liquid",Energy,Evaporation cools a liquid because faster molecules escape first.
+48,Factors Affecting Evaporation,Medium,"Temperature, Surface area, Wind, Humidity, liquid volatility",Energy,Evaporation rate depends on environmental and liquid conditions.
+49,Convection Current,Easy,"Warm fluid rises, Cool fluid sinks, Density difference, Circulation, heat transfer",Energy,Convection currents arise because heated fluid becomes less dense.
+50,Radiation in Vacuum,Easy,"No particles needed, Infrared, Sun to Earth, Electromagnetic transfer, heat",Energy,Radiation is the only heat-transfer method that works through a vacuum.
+51,Black Body Surface,Medium,"Good absorber, Good emitter, Dull black, Thermal radiation, surface",Matter,Dull black surfaces absorb and emit thermal radiation efficiently.
+52,Polished Surface,Easy,"Poor absorber, Poor emitter, Good reflector, Shiny metal, thermal radiation",Matter,Polished surfaces reflect thermal radiation well.
+53,Vacuum Flask Vacuum,Medium,"Reduces conduction, Stops convection, No fluid particles, insulation, flask",Equipment,The vacuum limits heat transfer by conduction and convection.
+54,Vacuum Flask Silvering,Medium,"Reflects radiation, Shiny surface, Reduces heat transfer, insulation, flask",Equipment,Silvered walls reduce heat transfer by radiation.
+55,Vacuum Flask Stopper,Medium,"Poor conductor, Reduces convection, Cork or plastic, insulation, flask",Equipment,An insulating stopper reduces heat exchange through the neck.

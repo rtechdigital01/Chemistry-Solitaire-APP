@@ -1,0 +1,48 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Work,Easy,"Force, Displacement, Same direction component, Joule, energy transfer",Energy,Work is done when a force causes displacement.
+2,Work Formula,Easy,"W = Fs, force × distance, joule, same direction, mechanical work",Formula,"For force along the motion, work equals force multiplied by distance."
+3,Work at an Angle,Medium,"W = Fs cos?, Force component, Displacement, Angle, joule",Formula,Only the component of force along the displacement does work.
+4,Joule,Easy,"J, unit of work, newton metre, energy, SI unit",Measurement,One joule is the work done by a one-newton force through one metre.
+5,Work Against Gravity,Medium,"mgh, Weight, Vertical height, Gravitational potential energy, lifting",Energy,Lifting a body through height h against gravity requires work mgh.
+6,Energy,Easy,"Capacity to do work, Joule, Kinetic, Potential, Stored or transferred",Energy,Energy is the capacity to do work.
+7,Forms of Energy,Easy,"Mechanical, Heat, Light, Sound, Electrical, Chemical, Nuclear",Energy,Energy occurs in several forms.
+8,Renewable Energy,Easy,"Solar, Wind, Hydroelectric, Renewable resource, replenished",Environment,Renewable energy sources are naturally replenished.
+9,Non-renewable Energy,Easy,"Coal, Petroleum, Natural gas, finite resource, fossil fuels",Environment,Non-renewable resources are depleted when used.
+10,Kinetic Energy,Easy,"Motion, ½mv², mass, speed, mechanical energy",Energy,Kinetic energy is the energy a body has because it is moving.
+11,Kinetic Energy Formula,Medium,"E? = ½mv², mass, velocity, joule, motion",Formula,Kinetic energy depends on mass and the square of speed.
+12,Potential Energy,Easy,"Stored energy, Position, Configuration, height, mechanical energy",Energy,Potential energy is energy associated with position or configuration.
+13,Gravitational Potential Energy,Easy,"mgh, mass, gravity, height, joule",Formula,"Near Earth, gravitational potential energy is mgh."
+14,Elastic Potential Energy,Medium,"Stretched spring, Compressed spring, ½kx², stored energy, elasticity",Energy,Elastic potential energy is stored when an elastic body is deformed.
+15,Energy Transformation,Easy,"One form to another, Kinetic to potential, Chemical to heat, Electrical to light, conservation",Energy,Energy can change form during physical processes.
+16,Conservation of Energy,Easy,"Energy not created, Energy not destroyed, Transformation, Total energy constant, isolated system",Energy,Total energy remains constant in an isolated system.
+17,Conservation of Mechanical Energy,Medium,"Kinetic + potential constant, No friction, Pendulum, Falling body, energy exchange",Energy,Mechanical energy is conserved when non-conservative losses are absent.
+18,Power,Easy,"Rate of doing work, Work ÷ time, watt, energy per second, output",Energy,Power measures how quickly work is done or energy is transferred.
+19,Power Formula,Easy,"P = W/t, P = E/t, watt, joule per second, time",Formula,Power equals work done or energy transferred per unit time.
+20,Power from Force and Velocity,Medium,"P = Fv, Force, Velocity, Mechanical power, constant speed",Formula,"For steady motion in the force direction, power can be written as Fv."
+21,Watt,Easy,"W, J s?¹, unit of power, energy rate, SI unit",Measurement,One watt equals one joule per second.
+22,Kilowatt,Easy,"kW, 1000 W, power, machine rating, electrical power",Measurement,One kilowatt equals one thousand watts.
+23,Kilowatt-hour,Medium,"kWh, Energy unit, 1000 W for 1 hour, 3.6 × 10? J, electricity",Measurement,The kilowatt-hour is a commercial unit of energy.
+24,Force-Distance Graph,Medium,"Area under graph, Work done, Force, Distance, variable force",Graph,The area under a force-distance graph represents work done.
+25,Efficiency of Energy Conversion,Medium,"Useful output, Input energy, Percentage, Energy loss, machine",Measurement,Efficiency compares useful energy output with total energy input.
+26,Mechanical Energy,Easy,"Kinetic energy, Potential energy, Motion, Position, energy",Energy,Mechanical energy is the sum of kinetic and potential energy.
+27,Chemical Energy,Easy,"Fuel, Food, Battery, Chemical bonds, energy store",Energy,Chemical reactions can release stored chemical energy.
+28,Electrical Energy,Easy,"Moving charges, Circuits, Appliances, Power supply, energy transfer",Energy,Electrical energy is associated with moving charges.
+29,Light Energy,Easy,"Radiation, Sun, Lamp, Visible light, energy",Energy,Light carries energy from luminous sources.
+30,Sound Energy,Easy,"Vibrations, Waves, Medium, Hearing, energy transfer",Energy,Sound transfers energy through vibrations in a medium.
+31,Nuclear Energy,Easy,"Atomic nucleus, Radioactive processes, Large energy, nuclear reactions, energy source",Energy,Nuclear energy is associated with changes in atomic nuclei.
+32,Solar Energy,Easy,"Sun, Renewable, Light, Heat, energy resource",Environment,Solar radiation is a major renewable energy source.
+33,Wind Energy,Easy,"Moving air, Turbine, Generator, Renewable, kinetic energy",Environment,Wind energy comes from the kinetic energy of moving air.
+34,Hydroelectric Energy,Easy,"Falling water, Turbine, Generator, Renewable, gravitational potential",Environment,Hydroelectric generation converts water's gravitational energy into electricity.
+35,Petroleum,Easy,"Fossil fuel, Non-renewable, Chemical energy, Combustion, energy resource",Environment,Petroleum is a non-renewable energy resource.
+36,Coal,Easy,"Fossil fuel, Non-renewable, Combustion, Thermal energy, energy resource",Environment,Coal stores chemical energy that can be released by burning.
+37,Natural Gas,Easy,"Fossil fuel, Non-renewable, Combustion, Methane-rich, energy resource",Environment,Natural gas is a combustible fossil fuel.
+38,Positive Work,Medium,"Force along displacement, Energy transferred to object, W > 0, motion, mechanical",Energy,Work is positive when the force component acts with the displacement.
+39,Negative Work,Medium,"Force opposite displacement, Friction, Energy removed, W < 0, mechanical",Energy,Work is negative when force acts opposite the displacement.
+40,Zero Work,Medium,"No displacement, Force perpendicular to motion, W = 0, mechanical, energy",Energy,Work is zero if there is no displacement in the force direction.
+41,Work-Energy Principle,Medium,"Net work, Change in kinetic energy, Force, motion, energy",Energy,Net work done on a body changes its kinetic energy.
+42,Falling Body Energy Change,Medium,"Potential decreases, Kinetic increases, Energy conserved, Gravity, free fall",Energy,"During ideal free fall, gravitational potential energy converts to kinetic energy."
+43,Pendulum Energy Change,Medium,"Kinetic, Potential, Lowest point, Highest point, energy conservation",Energy,A pendulum exchanges kinetic and gravitational potential energy.
+44,Machine Power,Easy,"Work per second, High power means faster work, watt, motor, energy rate",Energy,A more powerful machine transfers energy more quickly.
+45,Horsepower,Medium,"hp, 746 W approximately, Power unit, engine, machine",Measurement,Horsepower is a non-SI unit of power.
+46,Energy Loss,Easy,"Friction, Heat, Sound, Inefficiency, dissipation",Energy,Useful energy transfers are often accompanied by energy dissipated to the surroundings.
+47,Useful Energy Output,Easy,"Desired output, Efficiency, Machine, Energy conversion, work",Energy,Useful output is the part of input energy that performs the intended task.
