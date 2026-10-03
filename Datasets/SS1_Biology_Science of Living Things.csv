@@ -1,0 +1,29 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Biology,Easy,"Study of living things, Life science, Living organisms",Organism,This is the branch of science concerned with living things.
+2,Branches of Biology,Easy,"Botany, Zoology, Microbiology, Ecology",Organism,These are major areas into which biology can be divided.
+3,Scientific Method,Easy,"Observation, Problem identification, Hypothesis, Experiment, Conclusion",Process,These are the main stages used in a scientific investigation.
+4,Observation,Easy,"Use senses, Notice change, Record evidence, Identify pattern",Measurement,This is usually the first step when investigating a biological problem.
+5,Hypothesis,Easy,"Possible explanation, Testable idea, Prediction, Provisional answer",Process,This is a proposed explanation that can be tested.
+6,Experiment,Easy,"Test hypothesis, Controlled conditions, Collect results, Repeat trials",Process,This is used to test a hypothesis.
+7,Control Experiment,Medium,"Control setup, Comparison setup, Normal condition, Reference result",Process,This setup provides a basis for comparison with the experimental setup.
+8,Independent Variable,Medium,"Changed factor, Manipulated factor, Test variable",Measurement,This is the factor deliberately changed by the investigator.
+9,Dependent Variable,Medium,"Measured result, Observed response, Outcome variable",Measurement,This is what is measured after the independent variable is changed.
+10,Controlled Variables,Medium,"Kept constant, Same conditions, Fair test",Measurement,These factors are kept unchanged to make an experiment fair.
+11,Reliable Results,Medium,"Repeat experiment, Similar results, Large sample, Consistent data",Measurement,Reliability improves when an experiment is repeated and gives consistent results.
+12,Scientific Theory,Medium,"Supported explanation, Repeated evidence, Tested idea, Broad explanation",Process,This is an explanation supported by repeated observations and experiments.
+13,Scientific Law,Medium,"Established pattern, Repeated observation, General rule",Process,This describes a consistent relationship observed in nature.
+14,Living Things,Easy,"Cellular organisation, Metabolism, Growth, Reproduction, Response",Organism,These features distinguish living organisms from non-living things.
+15,Nutrition,Easy,"Food intake, Nutrient use, Energy source, Growth materials",Process,Living organisms obtain and use food or nutrients through this process.
+16,Respiration,Easy,"Energy release, Food breakdown, Cellular process, Glucose",Energy,This process releases usable energy from food.
+17,Excretion,Easy,"Metabolic waste, Waste removal, Carbon dioxide, Urea",Process,This removes waste products made by metabolism.
+18,Movement,Easy,"Change of position, Body movement, Organism movement",Process,This characteristic of life involves changing position or moving body parts.
+19,Sensitivity,Easy,"Stimulus, Response, Environmental change, Reaction",Process,Living organisms detect and respond to changes in their surroundings.
+20,Growth,Easy,"Increase in size, Increase in dry mass, New protoplasm, Permanent increase",Process,This is a permanent increase in size and living material.
+21,Reproduction,Easy,"Produce offspring, Continuation of species, New individuals",Process,This process ensures continuity of a species.
+22,MRS NERG,Easy,"Movement, Respiration, Sensitivity, Nutrition, Excretion, Reproduction, Growth",Organism,This mnemonic summarises seven characteristics of living things.
+23,Autotrophic Nutrition,Medium,"Makes own food, Green plants, Photosynthesis, Inorganic materials",Process,Organisms using this mode manufacture their own organic food.
+24,Heterotrophic Nutrition,Medium,"Depends on others, Ready-made food, Animals, Fungi",Process,Organisms using this mode obtain food from other organisms.
+25,Plant Features,Easy,"Cellulose cell wall, Chlorophyll, Autotrophic, Limited movement",Organism,These features are typical of plants.
+26,Animal Features,Easy,"No cell wall, Heterotrophic, Active movement, Rapid response",Organism,These features are typical of animals.
+27,Plant vs Animal Nutrition,Easy,"Autotrophic plants, Heterotrophic animals, Photosynthesis, Ready-made food",Process,The major difference is how each group obtains food.
+28,Plant vs Animal Movement,Easy,"Plants limited, Animals active, Locomotion, Growth movement",Organism,Animals usually move from place to place; plants generally do not.

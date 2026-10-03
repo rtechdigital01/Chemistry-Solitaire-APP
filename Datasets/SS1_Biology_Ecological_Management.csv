@@ -1,0 +1,50 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Ecological Association,Easy,"Mutualism, Parasitism, Commensalism, Predation",Environment,These are common interactions between organisms.
+2,Symbiosis,Medium,"Close association, Different species, Long-term interaction",Environment,This refers broadly to a close relationship between different species.
+3,Mutualism,Easy,"Both benefit, Lichen, Rhizobium-legume, Termite microbes",Environment,Both organisms gain from this relationship.
+4,Parasitism,Easy,"Parasite benefits, Host harmed, Tapeworm, Tick",Environment,One organism benefits while the host is harmed.
+5,Commensalism,Easy,"One benefits, Other unaffected, Remora and shark",Environment,One partner benefits while the other is neither helped nor harmed.
+6,Predation,Easy,"Predator, Prey, Hunting, Feeding",Environment,One organism kills and feeds on another.
+7,Competition,Easy,"Limited resources, Food, Space, Light, Mates",Environment,Organisms compete when important resources are limited.
+8,Lichen,Easy,"Alga, Fungus, Mutualism, Food and protection",Organism,This association combines an alga and a fungus.
+9,Rhizobium-Legume,Easy,"Root nodules, Nitrogen fixation, Bacteria, Mutualism",Organism,The plant receives nitrogen compounds while bacteria receive food and shelter.
+10,Termite-Microbe Mutualism,Medium,"Cellulose digestion, Gut microbes, Termites, Mutual benefit",Organism,Microorganisms help termites digest cellulose.
+11,Tapeworm Adaptations,Medium,"Hooks, Suckers, Large surface area, Reduced digestive system",Structure,These features help a tapeworm live inside a host.
+12,Ectoparasite,Easy,"Outside host, Tick, Louse, Flea",Organism,This parasite lives on the body surface of its host.
+13,Endoparasite,Easy,"Inside host, Tapeworm, Roundworm, Liver fluke",Organism,This parasite lives inside the host.
+14,Host,Easy,"Provides food, Provides shelter, Harmed by parasite",Organism,This organism supports a parasite.
+15,Tolerance,Medium,"Environmental factor, Survival range, Organism response",Environment,Organisms can survive only within certain environmental limits.
+16,Tolerance Range,Medium,"Minimum limit, Optimum range, Maximum limit",Measurement,These describe the limits within which an organism survives.
+17,Optimum Range,Easy,"Best growth, Best reproduction, Most favourable conditions",Environment,Organisms perform best within this part of their tolerance range.
+18,Zone of Stress,Medium,"Reduced growth, Reduced reproduction, Near tolerance limit",Environment,Conditions here are survivable but unfavourable.
+19,Zone of Intolerance,Medium,"Cannot survive, Beyond limits, Death",Environment,Conditions outside tolerance limits prevent survival.
+20,Adaptation,Easy,"Survival feature, Structural, Physiological, Behavioural",Organism,This is a feature that improves survival in a particular environment.
+21,Structural Adaptation,Easy,"Body shape, Body covering, Special organs",Structure,This is a physical feature that aids survival.
+22,Physiological Adaptation,Easy,"Internal process, Salt regulation, Water conservation",Process,This involves how the body functions.
+23,Behavioural Adaptation,Easy,"Migration, Nocturnal activity, Hiding, Feeding behaviour",Organism,This involves actions that improve survival.
+24,Aquatic Adaptations,Medium,"Streamlined body, Fins, Gills, Osmoregulation",Structure,These features help organisms live in water.
+25,Fish Streamlining,Easy,"Reduced resistance, Smooth movement, Spindle shape",Structure,This body shape makes swimming more efficient.
+26,Marine Fish Osmoregulation,Hard,"Drink seawater, Excrete salts, Low urine volume, Water conservation",Process,Marine fish must prevent excessive water loss.
+27,Freshwater Fish Osmoregulation,Hard,"Gain water, Do not drink much, Dilute urine, Salt uptake",Process,Freshwater fish must remove excess water while conserving salts.
+28,Hydrophytes,Medium,"Water plants, Air spaces, Reduced support tissue, Thin cuticle",Organism,These plants are adapted to living in water.
+29,Mesophytes,Easy,"Moderate water, Ordinary land plants, Well-developed roots",Organism,These plants live where water supply is neither excessive nor very low.
+30,Xerophytes,Medium,"Dry habitat, Reduced leaves, Thick cuticle, Water storage",Organism,These plants are adapted to dry conditions.
+31,Xerophyte Adaptations,Medium,"Sunken stomata, Thick cuticle, Succulent tissue, Reduced leaf area",Structure,These features reduce water loss.
+32,Bird Beak Adaptations,Medium,"Hooked beak, Seed-crushing beak, Flat beak, Long probing beak",Structure,Different beak shapes suit different feeding habits.
+33,Bird Foot Adaptations,Medium,"Perching, Swimming, Grasping prey, Wading",Structure,Different foot structures suit different lifestyles.
+34,Camouflage,Easy,"Blend with background, Avoid predators, Approach prey",Organism,Colour or pattern helps an organism remain unnoticed.
+35,Mimicry,Medium,"Resembles another organism, Protection, Deception",Organism,An organism resembles another form to gain an advantage.
+36,Pollution,Easy,"Air pollution, Water pollution, Soil pollution, Noise pollution",Environment,This is harmful contamination of the environment.
+37,Air Pollution,Easy,"Smoke, Sulfur dioxide, Carbon monoxide, Nitrogen oxides",Environment,These are common pollutants released into air.
+38,Carbon Monoxide,Medium,"Incomplete combustion, Binds haemoglobin, Reduces oxygen transport",Matter,This poisonous gas prevents efficient oxygen transport in blood.
+39,Sulfur Dioxide,Medium,"Fossil fuel burning, Acid rain, Respiratory irritation",Matter,This gas can contribute to acid rain and breathing problems.
+40,Nitrogen Oxides,Medium,"Vehicle engines, Acid rain, Air pollution",Matter,These gases are produced during high-temperature combustion.
+41,Acid Rain,Medium,"Low pH rain, Sulfur dioxide, Nitrogen oxides, Ecosystem damage",Environment,"This acidic precipitation can damage plants, water bodies and buildings."
+42,Water Pollution,Easy,"Sewage, Oil spills, Industrial waste, Fertilisers",Environment,"These pollutants can contaminate rivers, lakes and seas."
+43,Eutrophication,Hard,"Nitrate enrichment, Algal bloom, Oxygen depletion, Fish death",Process,Excess nutrients can cause algal growth followed by oxygen shortage.
+44,Soil Pollution,Easy,"Pesticides, Industrial waste, Chemical residues",Environment,These substances can contaminate soil.
+45,Noise Pollution,Easy,"Loud sound, Hearing damage, Stress, Urban activity",Environment,Excessive sound can affect health and wellbeing.
+46,Biodegradable Pollutants,Medium,"Broken down naturally, Microorganisms, Organic waste",Matter,These pollutants can be decomposed by biological processes.
+47,Non-biodegradable Pollutants,Medium,"Persist in environment, Plastics, Heavy metals, Long-lasting",Matter,These pollutants resist natural breakdown.
+48,Pollution Control,Medium,"Waste treatment, Emission control, Proper disposal, Recycling",Process,These measures reduce environmental pollution.
+49,Conservation,Easy,"Protect resources, Sustainable use, Preserve species, Habitat protection",Environment,This involves wise use and protection of natural resources.

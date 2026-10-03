@@ -1,0 +1,75 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Agriculture,Easy,"Crop production, Livestock rearing, Food production, Raw materials",Organism,Agriculture includes growing crops and rearing farm animals.
+2,Importance of Biology to Agriculture,Easy,"Breeding, Pest control, Disease control, Soil management",Process,Biological knowledge improves agricultural production.
+3,Plant Life Span,Easy,"Annuals, Biennials, Perennials",Organism,Cultivated plants can be grouped by how long they live.
+4,Annual Plants,Easy,"One growing season, Maize, Beans, Groundnut",Organism,These plants complete their life cycle within one season.
+5,Biennial Plants,Medium,"Two growing seasons, First year storage, Second year reproduction",Organism,These plants complete their life cycle in two seasons.
+6,Perennial Plants,Easy,"Many years, Trees, Shrubs, Repeated flowering",Organism,These plants live for several years.
+7,Cereals,Easy,"Maize, Rice, Millet, Sorghum, Wheat",Organism,These grass crops are grown mainly for grains.
+8,Legumes,Easy,"Beans, Groundnut, Cowpea, Soybean, Pigeon pea",Organism,These crops are rich in protein and often associate with nitrogen-fixing bacteria.
+9,Root and Tuber Crops,Easy,"Cassava, Yam, Sweet potato, Cocoyam",Organism,These crops store food mainly in underground organs.
+10,Vegetable Crops,Easy,"Tomato, Okra, Pepper, Amaranthus",Organism,"These crops are grown for edible leaves, fruits or other soft parts."
+11,Fruit Crops,Easy,"Orange, Mango, Pawpaw, Pineapple, Banana",Organism,These plants are cultivated mainly for their fruits.
+12,Beverage Crops,Easy,"Cocoa, Coffee, Tea, Kola",Organism,These crops provide materials used to prepare drinks or stimulants.
+13,Fibre Crops,Easy,"Cotton, Jute, Hemp",Organism,These crops are grown mainly for fibres.
+14,Oil Crops,Easy,"Oil palm, Groundnut, Coconut, Sunflower",Organism,These crops are cultivated for edible or industrial oils.
+15,Latex Crop,Easy,"Rubber, Latex, Industrial raw material",Organism,Rubber is grown mainly for this milky product.
+16,Soil Components,Easy,"Mineral particles, Humus, Water, Air, Living organisms",Matter,These are the major components of soil.
+17,Soil Particles,Easy,"Gravel, Coarse sand, Fine sand, Silt, Clay",Matter,These mineral particles differ mainly in size.
+18,Humus,Easy,"Decayed organic matter, Dark material, Nutrient source, Improves soil",Matter,This decomposed organic material improves soil quality.
+19,Soil Water,Easy,"Dissolved minerals, Root absorption, Capillary water",Matter,Water in soil carries dissolved mineral salts to roots.
+20,Soil Air,Easy,"Oxygen, Root respiration, Soil organisms, Pore spaces",Matter,Air in soil provides oxygen for roots and soil organisms.
+21,Soil Organisms,Easy,"Bacteria, Fungi, Earthworms, Termites",Organism,These organisms contribute to soil processes and fertility.
+22,Soil Profile,Medium,"Topsoil, Subsoil, Weathered rock, Parent rock",Structure,A vertical section through soil shows these layers.
+23,Sandy Soil,Easy,"Large particles, Good drainage, Low water retention, Well aerated",Matter,This soil has relatively large particles and drains quickly.
+24,Clay Soil,Easy,"Fine particles, High water retention, Poor drainage, Low aeration",Matter,This soil has very small particles and retains much water.
+25,Loam Soil,Easy,"Balanced particles, Humus, Good drainage, Good water retention",Matter,This soil combines favourable properties for plant growth.
+26,Soil Fertility,Medium,"Mineral salts, Humus, Good structure, Water, Air",Environment,Fertile soil supplies conditions and nutrients needed for crop growth.
+27,Soil Erosion,Easy,"Topsoil removal, Water, Wind, Loss of fertility",Environment,This is the removal of fertile topsoil.
+28,Erosion Control,Medium,"Contour ploughing, Terracing, Cover crops, Windbreaks, Mulching",Process,These practices reduce soil erosion.
+29,Bush Burning,Easy,"Destroys vegetation, Kills soil organisms, Nutrient ash, Erosion risk",Environment,This agricultural practice can damage soil and ecosystems.
+30,Tillage,Easy,"Ploughing, Harrowing, Seedbed preparation, Soil aeration",Process,This prepares soil for cultivation.
+31,Manure,Easy,"Organic fertiliser, Animal waste, Plant remains, Humus",Matter,This organic material improves soil fertility.
+32,Fertiliser,Easy,"Mineral nutrients, Nitrogen, Phosphorus, Potassium",Matter,This material is added to soil to supply nutrients.
+33,Pesticides,Easy,"Herbicides, Fungicides, Insecticides, Pest control",Matter,These chemicals are used to control agricultural pests.
+34,Shifting Cultivation,Medium,"Short cultivation, Fallow period, Move to new land, Soil recovery",Process,Land is farmed briefly and then left to recover.
+35,Crop Rotation,Easy,"Different crops, Different seasons, Maintains fertility, Reduces pests",Process,Different crops are grown in sequence on the same land.
+36,Mixed Cropping,Easy,"Two or more crops, Same field, Same time, Risk spreading",Process,Different crops are cultivated together on one field.
+37,Monocropping,Easy,"One crop, Large area, Same season, Mechanisation",Process,Only one type of crop is grown over a field.
+38,Mixed Farming,Easy,"Crops, Livestock, Same farm, Nutrient recycling",Process,This combines crop production with animal rearing.
+39,Pastoral Farming,Easy,"Livestock, Grazing land, Cattle, Sheep, Goats",Organism,This farming system focuses mainly on livestock.
+40,Crop Pests,Easy,"Stem borers, Leaf feeders, Sap suckers, Root feeders, Fruit feeders",Organism,Crop pests may be grouped by the part of the plant they attack.
+41,Yam Beetle,Easy,"Yam tuber, Beetle, Feeding damage, Underground pest",Organism,This pest attacks yam tubers.
+42,Stem Borer,Easy,"Maize, Larva, Stem damage, Reduced growth",Organism,This pest tunnels into crop stems.
+43,Cotton Stainer,Easy,"Cotton, Sap sucking, Seeds, Fibre staining",Organism,This insect pest damages cotton bolls and seeds.
+44,Pest Control Methods,Medium,"Physical, Chemical, Biological, Cultural",Process,These are major approaches to pest control.
+45,Biological Control,Medium,"Natural enemies, Predators, Parasites, Pathogens",Process,This method uses living organisms to control pests.
+46,Chemical Control,Easy,"Pesticides, Insecticides, Herbicides, Fungicides",Process,This method uses chemicals to control unwanted organisms.
+47,Cultural Control,Medium,"Crop rotation, Sanitation, Early planting, Resistant varieties",Process,These farming practices reduce pest or disease problems.
+48,Crop Diseases,Easy,"Fungi, Bacteria, Viruses, Plant pathogens",Organism,These agents cause many diseases of crops.
+49,Farm Animal Parasites,Easy,"Ticks, Tapeworms, Roundworms, Liver flukes",Organism,These parasites affect livestock.
+50,Trypanosomiasis,Medium,"Trypanosome, Tsetse fly, Cattle disease, Blood parasite",Organism,This disease is transmitted by tsetse flies.
+51,Liver Fluke,Medium,"Fasciola, Sheep, Snail host, Liver parasite",Organism,This flatworm parasitises the liver and uses a snail intermediate host.
+52,Animal Disease Control,Medium,"Vaccination, Sanitation, Quarantine, Vector control, Treatment",Process,These measures help reduce disease in farm animals.
+53,Food Production Factors,Medium,"Arable land, Climate, Soil fertility, Labour, Pests",Environment,These factors influence how much food can be produced.
+54,Improved Crop Yield,Medium,"Improved varieties, Fertilisers, Irrigation, Mechanisation, Pest control",Process,These practices can raise crop productivity.
+55,Improved Livestock Yield,Medium,"Selective breeding, Good feeding, Disease control, Housing",Process,These practices improve livestock productivity.
+56,Food Preservation,Easy,"Drying, Smoking, Salting, Freezing, Canning",Process,These methods slow spoilage and extend shelf life.
+57,Drying,Easy,"Water removal, Sun drying, Reduced microbial growth",Process,This method preserves food by reducing moisture.
+58,Smoking,Easy,"Heat, Smoke chemicals, Drying, Fish, Meat",Process,This method combines drying and antimicrobial effects of smoke.
+59,Salting,Easy,"High salt concentration, Water removal, Microbe inhibition",Process,Salt reduces water available to microorganisms.
+60,Refrigeration,Easy,"Low temperature, Slows microbes, Short-term storage",Process,Cooling slows food spoilage.
+61,Freezing,Easy,"Very low temperature, Stops growth, Longer storage",Process,This preserves food by greatly slowing microbial activity.
+62,Canning,Medium,"Heat treatment, Sealed container, Microbe destruction",Process,Food is heated and sealed to prevent recontamination.
+63,Pasteurisation,Medium,"Controlled heating, Milk, Reduces microbes, Not sterilisation",Process,This heat treatment reduces harmful microorganisms.
+64,Fermentation,Easy,"Microorganisms, Alcohol, Organic acids, Food processing",Process,Microbial activity is deliberately used to change food.
+65,Food Spoilage,Easy,"Microorganisms, Enzymes, Oxidation, Poor storage",Environment,These processes can make food unfit for consumption.
+66,Food Wastage,Easy,"Poor storage, Pests, Transport losses, Overproduction",Environment,These factors can cause edible food to be lost.
+67,Population Growth,Easy,"Birth rate, Death rate, Migration, Population size",Measurement,"Population size changes through births, deaths and migration."
+68,Birth Rate,Easy,"Births, Population, Time period, Population increase",Measurement,This measures the number of births in a population over time.
+69,Death Rate,Easy,"Deaths, Population, Time period, Population decrease",Measurement,This measures the number of deaths in a population over time.
+70,Population Pyramid,Medium,"Age structure, Male population, Female population, Population shape",Measurement,This diagram shows the age and sex structure of a population.
+71,Developed Country Pyramid,Medium,"Lower birth rate, Longer lifespan, More older people",Measurement,This population structure typically has a narrower base.
+72,Developing Country Pyramid,Medium,"High birth rate, Broad base, Many young people",Measurement,This population structure typically has a broad base.
+73,Population Control,Medium,"Family planning, Education, Birth control, Later marriage",Process,These approaches can reduce rapid population growth.
+74,Food Availability,Easy,"Production, Storage, Distribution, Preservation",Environment,"Food supply depends on producing, protecting and distributing food."

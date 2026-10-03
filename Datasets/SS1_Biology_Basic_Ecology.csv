@@ -1,0 +1,55 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Ecology,Easy,"Organisms, Environment, Interactions, Relationships",Environment,This is the study of living organisms in relation to their environment.
+2,Ecological Organisation,Easy,"Organism, Population, Community, Ecosystem, Biome, Biosphere",Structure,These levels show increasing ecological complexity.
+3,Environment,Easy,"Surroundings, Biotic factors, Abiotic factors",Environment,This includes all conditions surrounding an organism.
+4,Habitat,Easy,"Place of living, Physical location, Organism home",Environment,This is the place where an organism lives.
+5,Ecological Niche,Medium,"Functional role, Feeding role, Interactions, Habitat use",Environment,This describes the role and way of life of an organism in its habitat.
+6,Population,Easy,"Same species, Same area, Same time, Interbreeding organisms",Organism,This consists of organisms of the same species living together.
+7,Community,Easy,"Different populations, Same habitat, Interacting species",Organism,This consists of all populations living together in an area.
+8,Ecosystem,Easy,"Community, Abiotic environment, Interactions, Energy flow",Environment,This includes living organisms and their non-living environment.
+9,Biosphere,Easy,"All ecosystems, Zone of life, Earth",Environment,This is the part of Earth where life exists.
+10,Biotic Components,Easy,"Producers, Consumers, Decomposers",Organism,These are the living functional groups in an ecosystem.
+11,Abiotic Components,Easy,"Light, Temperature, Water, Soil, Wind, Rainfall",Environment,These non-living factors influence organisms.
+12,Producers,Easy,"Green plants, Autotrophs, Photosynthesis, Food manufacture",Organism,These organisms make their own organic food.
+13,Consumers,Easy,"Heterotrophs, Animals, Feed on organisms",Organism,These organisms obtain food by eating other organisms.
+14,Decomposers,Easy,"Bacteria, Fungi, Dead matter, Nutrient recycling",Organism,These organisms break down dead organic material.
+15,Aquatic Habitat,Easy,"Freshwater, Marine, Water environment",Environment,This habitat is based in water.
+16,Terrestrial Habitat,Easy,"Land environment, Forest, Grassland, Desert",Environment,This habitat occurs on land.
+17,Arboreal Habitat,Medium,"Trees, Tree canopy, Branches",Environment,This habitat is associated with trees.
+18,Biome,Easy,"Large ecosystem, Climate, Vegetation, Regional community",Environment,This is a large ecological region defined mainly by climate and vegetation.
+19,Tropical Rain Forest,Easy,"Heavy rainfall, Dense forest, High humidity, High biodiversity",Environment,This biome has high rainfall and dense evergreen vegetation.
+20,Mangrove Swamp,Medium,"Coastal, Salty water, Mangroves, Waterlogged soil",Environment,This vegetation occurs in salty coastal swamp areas.
+21,Freshwater Swamp,Medium,"Lowland, Fresh water, Waterlogged soil, Swamp vegetation",Environment,This swamp biome is flooded by fresh water.
+22,Guinea Savanna,Medium,"Tall grasses, Scattered trees, Moderate rainfall, Nigeria",Environment,This Nigerian savanna has more rainfall than Sudan savanna.
+23,Sudan Savanna,Medium,"Shorter grasses, Fewer trees, Lower rainfall, Northern Nigeria",Environment,This savanna is drier than Guinea savanna.
+24,Sahel Savanna,Medium,"Very low rainfall, Sparse grass, Few shrubs, Semi-desert",Environment,This is the driest savanna belt in Nigeria.
+25,Desert,Easy,"Very low rainfall, Sparse vegetation, High evaporation",Environment,This biome has extremely limited rainfall.
+26,Temperate Forest,Medium,"Deciduous trees, Moderate rainfall, Seasonal climate",Environment,This biome occurs in temperate regions with distinct seasons.
+27,Coniferous Forest,Medium,"Needle leaves, Evergreen trees, Cold climate",Environment,This biome is dominated by conifers.
+28,Tundra,Medium,"Very cold, Permafrost, Short growing season, Low vegetation",Environment,This cold biome supports only limited low-growing vegetation.
+29,Population Size,Easy,"Number of individuals, Population count, Abundance",Measurement,This is the total number of individuals in a population.
+30,Population Density,Medium,"Individuals per area, Population size, Habitat area",Measurement,This expresses population size relative to area occupied.
+31,Frequency,Medium,"Presence in samples, Occurrence, Percentage of quadrats",Measurement,This describes how often a species occurs in samples.
+32,Percentage Cover,Medium,"Ground covered, Plant abundance, Area occupied",Measurement,This estimates how much ground surface a plant species covers.
+33,Distribution,Easy,"Clumped, Random, Uniform",Environment,These patterns describe how individuals are spaced.
+34,Clumped Distribution,Easy,"Groups, Patches, Resource concentration",Environment,Individuals occur in clusters.
+35,Random Distribution,Easy,"No clear pattern, Independent spacing",Environment,Individuals occur without a predictable spacing pattern.
+36,Uniform Distribution,Easy,"Even spacing, Territoriality, Regular pattern",Environment,Individuals are spaced relatively evenly.
+37,Population Factors,Medium,"Births, Deaths, Immigration, Emigration",Measurement,These processes change population size.
+38,Quadrat,Easy,"Plant sampling, Square frame, Stationary organisms, Random placement",Measurement,This device is commonly used for sampling plants.
+39,Transect,Easy,"Line sampling, Environmental gradient, Species distribution",Measurement,This method records organisms along a line across a habitat.
+40,Capture-Recapture,Medium,"Capture, Mark, Release, Recapture",Measurement,This method estimates populations of mobile animals.
+41,Sweep Net,Easy,"Insects, Grassland, Sweep vegetation",Measurement,This is used to collect insects from vegetation.
+42,Pooter,Medium,"Small insects, Suction, Collection jar",Measurement,This device collects very small invertebrates.
+43,Pitfall Trap,Easy,"Ground insects, Container in soil, Crawling animals",Measurement,This trap samples small animals moving across the ground.
+44,Soil Organism Collection,Medium,"Tullgren funnel, Heat, Soil invertebrates",Measurement,This apparatus drives soil organisms away from heat into a collecting container.
+45,Temperature,Easy,"Thermometer, Degrees Celsius, Abiotic factor",Measurement,This abiotic factor is measured using a thermometer.
+46,Rainfall,Easy,"Rain gauge, Millimetres, Precipitation",Measurement,This abiotic factor is measured using a rain gauge.
+47,Light Intensity,Easy,"Light meter, Lux, Photosynthesis",Measurement,This abiotic factor affects photosynthesis and behaviour.
+48,Relative Humidity,Medium,"Hygrometer, Moisture in air, Percentage",Measurement,This measures the amount of water vapour in the air.
+49,Wind,Easy,"Wind vane, Anemometer, Direction, Speed",Measurement,These instruments measure wind direction and speed.
+50,Atmospheric Pressure,Medium,"Barometer, Air pressure, Millibars",Measurement,This abiotic factor is measured with a barometer.
+51,Soil pH,Medium,"Acidic, Neutral, Alkaline, pH scale",Measurement,This shows the acidity or alkalinity of soil.
+52,Soil Water-Holding Capacity,Medium,"Retained water, Pore spaces, Soil type",Measurement,This describes how much water a soil can retain.
+53,Soil Porosity,Medium,"Pore spaces, Air space, Water space",Measurement,This describes the amount of empty space between soil particles.
+54,Soil Capillarity,Medium,"Water rise, Small pores, Capillary action",Process,This allows water to rise through fine spaces in soil.

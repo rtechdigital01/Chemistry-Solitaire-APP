@@ -1,0 +1,51 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Classification,Easy,"Grouping organisms, Shared features, Differences, Identification",Organism,This process places organisms into groups based on similarities and differences.
+2,Need for Classification,Easy,"Easy identification, Organised study, Shows relationships, Avoid confusion",Organism,Classification makes the study and identification of organisms easier.
+3,Taxonomic Hierarchy,Medium,"Kingdom, Phylum, Class, Order, Family, Genus, Species",Structure,These are the major taxonomic ranks from broadest to most specific.
+4,Kingdom,Easy,"Largest major group, Broadest rank, Many phyla",Structure,This is the highest major taxonomic group used here.
+5,Species,Easy,"Smallest unit, Interbreeding group, Fertile offspring, Similar organisms",Organism,This is the basic unit of classification.
+6,Binomial Nomenclature,Medium,"Genus name, Species name, Two-word name, Scientific name",Structure,Scientific names are written using two words.
+7,Genus Name,Easy,"First name, Capital letter, Generic name",Structure,This is the first part of a binomial scientific name.
+8,Species Name,Easy,"Second name, Lowercase, Specific name",Structure,This is the second part of a binomial scientific name.
+9,Five Kingdoms,Easy,"Monera, Protista, Fungi, Plantae, Animalia",Organism,These are the five kingdoms used in the textbook.
+10,Kingdom Monera,Easy,"Bacteria, Prokaryotic, Unicellular, No true nucleus",Organism,Members of this kingdom are prokaryotic and usually unicellular.
+11,Bacterial Shapes,Medium,"Cocci, Bacilli, Vibrio, Spirilla",Structure,These names describe common bacterial shapes.
+12,Bacterial Reproduction,Easy,"Binary fission, Asexual reproduction, Rapid multiplication",Process,Most bacteria reproduce by this simple cell division.
+13,Kingdom Protista,Easy,"Amoeba, Paramecium, Euglena, Unicellular eukaryotes",Organism,This kingdom contains many unicellular eukaryotes.
+14,Amoeba Movement,Easy,"Pseudopodia, False feet, Cytoplasmic extensions",Structure,Amoeba moves using temporary extensions of cytoplasm.
+15,Paramecium Movement,Easy,"Cilia, Hair-like structures, Swimming",Structure,Paramecium moves using numerous short hair-like structures.
+16,Euglena Movement,Easy,"Flagellum, Whip-like structure, Swimming",Structure,Euglena moves mainly using this long structure.
+17,Kingdom Fungi,Easy,"Yeast, Mushroom, Rhizopus, No chlorophyll",Organism,Members feed by absorption and do not photosynthesise.
+18,Fungal Nutrition,Easy,"Saprophytic, Parasitic, Absorption, External digestion",Process,Fungi obtain soluble nutrients after external digestion.
+19,Rhizopus Structures,Medium,"Hyphae, Mycelium, Rhizoids, Sporangium",Structure,These are important structures of bread mould.
+20,Useful Fungi,Easy,"Decomposition, Food, Fermentation, Antibiotics",Organism,Fungi can perform these beneficial roles.
+21,Kingdom Plantae,Easy,"Cellulose wall, Chlorophyll, Autotrophic, Multicellular",Organism,These are key features of plants.
+22,Thallophytes,Medium,"Algae, Simple body, No true roots, No true stems, No true leaves",Organism,These are simple plant-like organisms with an undifferentiated body.
+23,Bryophytes,Medium,"Mosses, Liverworts, No vascular tissue, Moist habitat",Organism,These small plants lack true vascular tissues.
+24,Pteridophytes,Medium,"Ferns, Vascular tissue, Spores, True roots",Organism,These are vascular plants that reproduce by spores.
+25,Gymnosperms,Medium,"Naked seeds, Conifers, No fruits, Seed plants",Organism,Their seeds are not enclosed inside fruits.
+26,Angiosperms,Easy,"Flowering plants, Seeds in fruits, Flowers, Vascular plants",Organism,These are flowering seed plants.
+27,Monocotyledons,Medium,"One cotyledon, Parallel veins, Fibrous roots, Floral parts in threes",Structure,These features are typical of monocots.
+28,Dicotyledons,Medium,"Two cotyledons, Net veins, Tap root, Floral parts in fours or fives",Structure,These features are typical of dicots.
+29,Kingdom Animalia,Easy,"No cell wall, Heterotrophic, Multicellular, Active movement",Organism,These are typical animal features.
+30,Invertebrates,Easy,"No backbone, Sponges, Worms, Molluscs, Arthropods",Organism,These animals lack a vertebral column.
+31,Vertebrates,Easy,"Backbone, Internal skeleton, Fish, Amphibians, Reptiles, Birds, Mammals",Organism,These animals possess a vertebral column.
+32,Porifera,Medium,"Sponges, Pores, Sessile, Aquatic",Organism,These simple animals have many pores in their bodies.
+33,Coelenterates,Medium,"Hydra, Jellyfish, Radial symmetry, Tentacles",Organism,Members commonly possess tentacles and radial symmetry.
+34,Flatworms,Medium,"Platyhelminthes, Flat body, Bilateral symmetry, No true coelom",Organism,These worms have flattened bodies.
+35,Roundworms,Medium,"Nematodes, Cylindrical body, Unsegmented, Pseudocoelom",Organism,These worms have long cylindrical unsegmented bodies.
+36,Annelids,Medium,"Earthworm, Segmented body, True coelom, Setae",Organism,These worms have visibly segmented bodies.
+37,Molluscs,Medium,"Snail, Muscular foot, Mantle, Soft body",Organism,These animals usually have a soft body and muscular foot.
+38,Arthropods,Easy,"Jointed legs, Exoskeleton, Segmented body, Insects, Crustaceans",Organism,These animals possess jointed appendages and an exoskeleton.
+39,Insect Features,Easy,"Three body regions, Three pairs of legs, One pair antennae, Compound eyes",Structure,These features identify an insect.
+40,Fish,Easy,"Gills, Fins, Scales, Cold-blooded",Organism,These features are typical of fish.
+41,Amphibians,Easy,"Moist skin, Metamorphosis, Cold-blooded, Eggs in water",Organism,Frogs and toads belong to this class.
+42,Reptiles,Easy,"Dry scales, Lungs, Internal fertilisation, Cold-blooded",Organism,These features are typical of reptiles.
+43,Birds,Easy,"Feathers, Wings, Beak, Warm-blooded",Organism,These features are typical of birds.
+44,Mammals,Easy,"Hair or fur, Mammary glands, Warm-blooded, External ears",Organism,These are characteristic mammalian features.
+45,Levels of Organisation,Easy,"Cell, Tissue, Organ, Organ system, Organism",Structure,These levels progress from the basic unit of life to a whole organism.
+46,Cell,Easy,"Basic unit of life, Smallest living unit, Cell membrane, Cytoplasm",Structure,This is the basic structural and functional unit of life.
+47,Tissue,Easy,"Similar cells, Common function, Epithelial, Muscle, Nervous",Structure,A tissue is a group of similar cells carrying out a common function.
+48,Organ,Easy,"Different tissues, Specific function, Heart, Leaf, Kidney",Structure,An organ contains different tissues working together.
+49,Organ System,Easy,"Several organs, Coordinated function, Digestive system, Circulatory system",Structure,This consists of organs working together to perform a major function.
+50,Cell Organelles,Medium,"Nucleus, Mitochondrion, Chloroplast, Vacuole, Ribosome",Structure,These specialised structures carry out functions inside cells.

@@ -1,0 +1,69 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Nutrition,Easy,"Food substances, Energy, Growth, Repair, Metabolism",Process,Nutrition provides organisms with materials and energy needed for life.
+2,Autotrophic Nutrition,Easy,"Makes own food, Photosynthesis, Green plants, Inorganic raw materials",Process,This mode of nutrition is typical of green plants.
+3,Heterotrophic Nutrition,Easy,"Ready-made food, Animals, Fungi, Consumers",Process,This mode depends on other organisms for food.
+4,Photosynthesis,Easy,"Green plants, Light energy, Glucose formation, Oxygen release",Process,This process manufactures organic food using light energy.
+5,Photosynthesis Raw Materials,Easy,"Carbon dioxide, Water",Matter,These substances are used to manufacture glucose.
+6,Photosynthesis Conditions,Easy,"Light, Chlorophyll, Suitable temperature",Environment,These conditions are necessary for photosynthesis to proceed effectively.
+7,Photosynthesis Products,Easy,"Glucose, Oxygen",Matter,These are the main products of photosynthesis.
+8,Photosynthesis Equation,Medium,"Carbon dioxide + water, Glucose + oxygen, Light energy, Chlorophyll",Process,This summarises the overall reaction of photosynthesis.
+9,Chloroplast,Easy,"Chlorophyll, Light absorption, Photosynthesis site",Structure,This organelle is the main site of photosynthesis.
+10,Chlorophyll,Easy,"Green pigment, Absorbs light, Chloroplast",Matter,This pigment traps light energy.
+11,Light Reaction,Medium,"Light required, Water split, Oxygen released, ATP formed",Energy,This stage directly depends on light energy.
+12,Dark Reaction,Medium,"Carbon dioxide reduced, Glucose formed, ATP used, No direct light requirement",Process,This stage uses products of the light reaction to build carbohydrate.
+13,Starch Test,Easy,"Iodine solution, Blue-black colour, Leaf test, Starch present",Measurement,This test is used to show that photosynthesis has produced starch.
+14,Destarching,Medium,"Keep plant in dark, Use stored starch, Before experiment",Process,This removes previously stored starch before a photosynthesis investigation.
+15,Leaf Boiling,Medium,"Boiling water, Kill leaf, Stop reactions",Process,This is an early step in preparing a leaf for the starch test.
+16,Leaf Decolourising,Medium,"Alcohol, Remove chlorophyll, Water bath",Process,This makes the iodine colour change easier to observe.
+17,Light Needed,Easy,"Covered leaf area, Exposed leaf area, Starch only in light",Measurement,A partially covered leaf can demonstrate this requirement.
+18,Carbon Dioxide Needed,Medium,"Potassium hydroxide, Absorbs carbon dioxide, No starch without CO2",Measurement,Removing carbon dioxide demonstrates its necessity for photosynthesis.
+19,Chlorophyll Needed,Medium,"Variegated leaf, Green areas, Starch in green parts",Measurement,A variegated leaf can demonstrate this requirement.
+20,Water Needed,Medium,"Watered plant, Unwatered plant, Photosynthesis reduced",Measurement,Water availability can be tested as a photosynthesis requirement.
+21,Leaf Blade,Easy,"Broad surface, Light capture, Thin structure",Structure,This leaf part exposes a large area to sunlight.
+22,Stomata,Easy,"Gas exchange, Guard cells, Carbon dioxide entry, Water vapour exit",Structure,These pores regulate gaseous exchange in leaves.
+23,Guard Cells,Easy,"Open stomata, Close stomata, Control pore size",Structure,These cells regulate stomatal opening.
+24,Palisade Mesophyll,Medium,"Many chloroplasts, Upper leaf, Photosynthesis",Structure,This tissue contains many chloroplasts and is a major photosynthetic region.
+25,Spongy Mesophyll,Medium,"Air spaces, Gas diffusion, Some chloroplasts",Structure,Its air spaces aid gas exchange inside the leaf.
+26,Leaf Veins,Easy,"Xylem, Phloem, Transport, Support",Structure,These contain transport tissues supplying and removing materials.
+27,Xylem,Easy,"Water transport, Mineral salts, Roots to leaves",Structure,This tissue carries water and mineral salts upward.
+28,Phloem,Easy,"Food transport, Sucrose, Translocation",Structure,This tissue transports manufactured food.
+29,Fate of Glucose,Medium,"Respiration, Starch storage, Cellulose, Fats and oils, Proteins",Process,Glucose can be converted or used in several ways in plants.
+30,Mineral Nutrition,Easy,"Nitrogen, Phosphorus, Potassium, Magnesium, Iron",Matter,"Plants require these mineral elements in addition to carbon, hydrogen and oxygen."
+31,Nitrogen Function,Medium,"Amino acids, Proteins, Growth, Chlorophyll",Matter,Nitrogen is required especially for protein synthesis and healthy growth.
+32,Nitrogen Deficiency,Medium,"Stunted growth, Yellow leaves, Poor growth",Environment,These symptoms can occur when nitrate supply is inadequate.
+33,Magnesium Function,Medium,"Chlorophyll formation, Photosynthesis, Green leaves",Matter,Magnesium is an important part of chlorophyll.
+34,Magnesium Deficiency,Medium,"Chlorosis, Yellow leaves, Reduced photosynthesis",Environment,Lack of magnesium commonly causes yellowing of leaves.
+35,Iron Function,Medium,"Chlorophyll formation, Enzyme activity, Healthy leaves",Matter,Iron supports chlorophyll formation and enzyme function.
+36,Phosphorus Function,Medium,"ATP, Nucleic acids, Energy transfer, Root growth",Matter,Phosphorus is important in energy transfer and nucleic acids.
+37,Potassium Function,Medium,"Enzyme activity, Cell function, Healthy growth",Matter,Potassium contributes to normal plant metabolism.
+38,Limiting Factors,Medium,"Light intensity, Carbon dioxide, Temperature, Water",Environment,The slowest or least available factor can limit the rate of photosynthesis.
+39,Light Intensity Experiment,Medium,"Elodea, Bubble count, Distance from lamp, Rate of photosynthesis",Measurement,Bubble production can be used as an indicator of photosynthetic rate.
+40,Nitrogen Cycle,Medium,"Nitrogen fixation, Nitrification, Assimilation, Ammonification, Denitrification",Process,"These processes recycle nitrogen between atmosphere, soil and organisms."
+41,Nitrogen Fixation,Medium,"Rhizobium, Azotobacter, Nitrogen to compounds, Legume nodules",Process,This converts atmospheric nitrogen into usable nitrogen compounds.
+42,Nitrification,Medium,"Ammonium to nitrites, Nitrites to nitrates, Nitrifying bacteria",Process,This bacterial process produces nitrates in soil.
+43,Denitrification,Medium,"Nitrates to nitrogen gas, Denitrifying bacteria, Nitrogen loss from soil",Process,This returns nitrogen gas to the atmosphere.
+44,Food Classes,Easy,"Carbohydrates, Proteins, Lipids, Vitamins, Minerals, Water",Matter,These are the six major nutrient classes.
+45,Carbohydrates,Easy,"Energy source, Sugars, Starch, Glycogen",Energy,This nutrient class is a major source of energy.
+46,Simple Sugars,Easy,"Glucose, Fructose, Galactose, Monosaccharides",Matter,These are single-unit sugars.
+47,Complex Sugars,Medium,"Sucrose, Maltose, Lactose, Disaccharides",Matter,These sugars are formed from two simple sugar units.
+48,Polysaccharides,Medium,"Starch, Glycogen, Cellulose, Many sugar units",Matter,These are large carbohydrates made from many sugar units.
+49,Proteins,Easy,"Amino acids, Growth, Repair, Enzymes",Matter,These nutrients are built from amino acids.
+50,Lipids,Easy,"Fats, Oils, Energy store, Insulation",Energy,These nutrients store energy and can provide insulation.
+51,Mineral Salts,Easy,"Calcium, Iron, Iodine, Phosphorus, Magnesium",Matter,These inorganic nutrients are needed in small amounts.
+52,Vitamins,Easy,"Vitamin A, Vitamin B, Vitamin C, Vitamin D, Vitamin E, Vitamin K",Matter,These organic micronutrients are required in small amounts.
+53,Water,Easy,"Solvent, Transport medium, Temperature regulation, Metabolic reactions",Matter,This substance forms a major part of the body and supports many reactions.
+54,Roughage,Easy,"Dietary fibre, Bowel movement, Prevents constipation, Indigestible",Matter,This indigestible material helps food move through the intestine.
+55,Balanced Diet,Easy,"Correct nutrients, Right proportions, Age, Activity, Health",Organism,This diet supplies all needed nutrients in suitable amounts.
+56,Benedict's Test,Medium,"Reducing sugar, Benedict's solution, Heat, Brick-red precipitate",Measurement,This test detects reducing sugars.
+57,Iodine Test,Easy,"Starch, Iodine solution, Blue-black",Measurement,This food test identifies starch.
+58,Biuret Test,Medium,"Protein, Biuret reagent, Violet colour",Measurement,This test detects proteins.
+59,Sudan Test,Medium,"Lipids, Sudan dye, Red-stained oil layer",Measurement,This test identifies fats and oils.
+60,Enzymes,Easy,"Biological catalysts, Proteins, Specific, Reusable",Process,These substances speed up biochemical reactions.
+61,Enzyme Specificity,Medium,"Active site, Specific substrate, Lock-and-key",Structure,Each enzyme acts on a particular substrate.
+62,Enzyme Temperature,Medium,"Optimum temperature, Low temperature slows, High temperature denatures",Environment,Temperature affects enzyme activity.
+63,Enzyme pH,Medium,"Optimum pH, Acidic conditions, Alkaline conditions, Denaturation",Environment,Different enzymes work best at particular pH values.
+64,Digestive Enzymes,Medium,"Amylase, Protease, Lipase, Cellulase",Process,These enzymes digest major food groups.
+65,Mutualism,Easy,"Both benefit, Lichen, Termite microbes",Environment,Both organisms benefit from this association.
+66,Parasitism,Easy,"Parasite benefits, Host harmed, Tapeworm, Mistletoe",Environment,One organism benefits while the other is harmed.
+67,Saprophytism,Easy,"Dead organic matter, External digestion, Fungi, Decomposition",Process,Saprophytes feed on dead organic material.
+68,Carnivorous Plants,Medium,"Pitcher plant, Sundew, Insects, Mineral supplement",Organism,These plants trap animals mainly to obtain scarce mineral nutrients.
