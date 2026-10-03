@@ -42,9 +42,9 @@ public function register(Request $request): JsonResponse
             'Year 13' => 'KS5',
         ],
         'Nigeria' => [
-            'SS1' => 'KS3',
-            'SS2' => 'KS4',
-            'SS3' => 'KS4',
+            'SS1' => 'SS1',
+            'SS2' => 'SS2',
+            'SS3' => 'SS3',
             'A Level' => 'KS5',
         ],
     ];

@@ -13,6 +13,90 @@ class CategoryController extends Controller
     use ApiResponse;
 
     /**
+     * Default deck per subject / key stage. UK students (KS3) play the
+     * UK datasets; Nigerian students (SS1-SS3) are routed to the deck
+     * matching their own senior-secondary level per subject.
+     */
+    private const DEFAULT_DECKS = [
+        'UK' => [
+            'science' => 'science-foundation',
+            'chemistry' => 'periodic-table-groups',
+        ],
+        'Nigeria' => [
+            'biology' => ['SS1' => 'ss1-biology', 'SS2' => 'ss2-biology', 'SS3' => 'ss3-biology'],
+            'chemistry' => ['SS1' => 'ss1-chemistry', 'SS2' => 'ss2-chemistry', 'SS3' => 'ss3-chemistry'],
+            'physics' => ['SS1' => 'ss1-physics', 'SS2' => 'ss2-physics', 'SS3' => 'ss3-physics'],
+        ],
+    ];
+
+    /**
+     * Resolve the current user's key stage: explicit query param first,
+     * then the stored profile, then the country default (UK -> KS3,
+     * Nigeria -> SS1).
+     */
+    private function resolveKeyStage(Request $request): string
+    {
+        $requested = strtoupper(
+            $request->query('key_stage', '')
+        );
+
+        if ($requested) {
+            return $requested;
+        }
+
+        $user = $request->user();
+
+        if ($user && $user->key_stage) {
+            return strtoupper($user->key_stage);
+        }
+
+        return ($user && $user->country === 'Nigeria') ? 'SS1' : 'KS3';
+    }
+
+    /**
+     * Resolve the deck for a subject: an explicitly requested deck
+     * always wins when it has data for the user's key stage; otherwise
+     * fall back to that country/grade's default deck for the subject.
+     */
+    private function resolveDeck(Request $request, string $subject, string $keyStage): string
+    {
+        $user = $request->user();
+        $country = $user?->country === 'Nigeria' ? 'Nigeria' : 'UK';
+
+        $requested = $request->query('deck');
+
+        if ($requested) {
+            $exists = Category::query()
+                ->where('deck', $requested)
+                ->where('key_stage', $keyStage)
+                ->exists();
+
+            if ($exists) {
+                return $requested;
+            }
+        }
+
+        $defaults = self::DEFAULT_DECKS[$country][$subject] ?? null;
+
+        if (is_array($defaults)) {
+            return $defaults[$keyStage]
+                ?? $defaults['SS1']
+                ?? reset($defaults);
+        }
+
+        return $defaults ?: $requested ?: 'periodic-table-groups';
+    }
+
+    /**
+     * The user's country — used to decide which dataset family a
+     * student may browse.
+     */
+    private function resolveCountry(Request $request): string
+    {
+        return $request->user()?->country === 'Nigeria' ? 'Nigeria' : 'UK';
+    }
+
+    /**
      * Return all categories for a deck.
      */
     public function index(Request $request): JsonResponse
@@ -40,15 +124,18 @@ class CategoryController extends Controller
 
 
     /**
-     * List every playable deck, with the real, dataset-derived level
-     * count for each difficulty tier (5 categories per level — the
-     * same rule `board()` uses to compute `max_levels`).
+     * List every playable deck the *current user* is entitled to:
+     * only decks matching the user's key stage (UK students see UK
+     * datasets, Nigerian students see decks for their own SS level).
      */
     public function decks(Request $request): JsonResponse
     {
         $categoryCount = 5;
 
+        $keyStage = $this->resolveKeyStage($request);
+
         $rows = Category::query()
+            ->where('key_stage', $keyStage)
             ->select('deck', 'key_stage', 'difficulty', 'card_pool')
             ->get()
             ->filter(function ($category) {
@@ -109,14 +196,11 @@ class CategoryController extends Controller
      */
     public function board(Request $request): JsonResponse
     {
-        $deck = $request->query(
-            'deck',
-            'periodic-table-groups'
-        );
+        // Route shape: /api/{subject}/board -> subject is segment 2.
+        $subject = $request->segment(2) ?: 'chemistry';
 
-        $keyStage = strtoupper(
-            $request->query('key_stage', 'KS3')
-        );
+        $keyStage = $this->resolveKeyStage($request);
+        $deck = $this->resolveDeck($request, $subject, $keyStage);
 
         $difficulty = $request->query('difficulty');
 
@@ -192,6 +276,7 @@ class CategoryController extends Controller
             [
                 'deck' => $deck,
                 'key_stage' => $keyStage,
+                'subject' => $subject,
                 'categories' => $board,
                 'categories_per_level' => $categoryCount,
                 'total_categories_available' => $availableCategories,

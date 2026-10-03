@@ -367,6 +367,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const levelModalTitle  = document.getElementById("levelModalTitle");
     const levelModalGroups = document.getElementById("levelModalGroups");
 
+    function authToken() {
+        return localStorage.getItem("auth_token");
+    }
+
     const DECK_ICON = `
         <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.7" />
@@ -506,34 +510,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function loadDecks() {
     const subject = getSubject();
-    if (subject === "biology") {
-
-        deckCardsGrid.innerHTML = `
-            <p style="padding:24px; color:#64748B; font-weight:700;">
-                Biology decks coming soon.
-            </p>
-        `;
-
-        if (decksCountEl) {
-            decksCountEl.textContent = "0 decks available";
+    if (subject === "science") {
+        // Science Foundation is a UK (KS3) subject only. Nigerian
+        // students' subject tabs already cover Bio / Chem / Physics.
+        if (!authToken()) {
+            // Not logged in: no profile, fall through to the generic
+            // deck request and let the API decide what to show.
+        } else {
+            try {
+                const user = JSON.parse(localStorage.getItem("user") || "null");
+                if (user && user.country === "Nigeria") {
+                    deckCardsGrid.innerHTML = `
+                        <p style="padding:24px; color:#64748B; font-weight:700;">
+                            Science Foundation is a UK (KS3) subject. See your SS level subjects above.
+                        </p>
+                    `;
+                    if (decksCountEl) decksCountEl.textContent = "0 decks available";
+                    return;
+                }
+            } catch (e) { /* fall through */ }
         }
-
-        return;
-    }
-
-    if (subject === "physics") {
-
-        deckCardsGrid.innerHTML = `
-            <p style="padding:24px; color:#64748B; font-weight:700;">
-                Physics decks coming soon.
-            </p>
-        `;
-
-        if (decksCountEl) {
-            decksCountEl.textContent = "0 decks available";
-        }
-
-        return;
     }
 
     deckCardsGrid.innerHTML = `
@@ -543,9 +539,10 @@ function loadDecks() {
     `;
 
     fetch(`/api/${subject}/decks`, {
-        headers: {
-            Accept: "application/json"
-        }
+        headers: Object.assign(
+            { Accept: "application/json" },
+            authToken() ? { Authorization: `Bearer ${authToken()}` } : {}
+        ),
     })
     .then(async response => {
 

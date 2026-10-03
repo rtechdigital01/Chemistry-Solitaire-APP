@@ -14,6 +14,7 @@ class ModuleServiceProvider extends ServiceProvider
         'Auth',
         'Chemistry',
         'Gameplay',
+        'Admin',
     ];
 
     /**

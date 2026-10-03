@@ -76,6 +76,10 @@
                 Reports
             </button>
 
+            <button class="admin-nav-btn" data-tab="datasets">
+                Datasets
+            </button>
+
             <button class="admin-nav-btn" data-tab="settings">
                 Settings
             </button>
@@ -199,8 +203,58 @@
             <h1>Reports</h1>
         </section>
 
+        <section class="admin-tab-panel" id="datasets">
+            <h1>Datasets</h1>
+            <p class="admin-section-subtitle">
+                Load, refresh, replace or remove the question datasets students play with.
+                Datasets are grouped by country and grade — students only ever see the
+                dataset belonging to their own level.
+            </p>
+            <div class="admin-table-card">
+                <div class="admin-table-wrapper">
+                    <table class="admin-table" id="datasetsTable">
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Label</th>
+                                <th>Country</th>
+                                <th>Level</th>
+                                <th>Subject</th>
+                                <th>Loaded</th>
+                                <th>In CSV</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datasetsTableBody">
+                            <tr><td colspan="8">Loading datasets…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="datasetActionMessage" style="margin-top:14px; font-weight:800;"></div>
+        </section>
+
         <section class="admin-tab-panel" id="settings">
             <h1>Settings</h1>
+            <p class="admin-section-subtitle">
+                Upload a fresh dataset CSV to replace what is on disk, then import it.
+            </p>
+            <div class="admin-table-card" style="max-width:520px;">
+                <div style="padding:24px; display:flex; flex-direction:column; gap:14px;">
+                    <label style="font-weight:800;">Dataset
+                        <select id="settingsDatasetSelect" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #E2E8F0;"></select>
+                    </label>
+                    <label style="font-weight:800;">CSV file
+                        <input type="file" id="settingsDatasetFile" accept=".csv,text/csv"
+                            style="width:100%; margin-top:6px; padding:8px;" />
+                    </label>
+                    <button type="button" id="settingsUploadBtn"
+                        style="padding:10px 16px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">
+                        Upload CSV
+                    </button>
+                    <p id="settingsUploadMessage" style="font-weight:700; margin:0;"></p>
+                </div>
+            </div>
         </section>
 
     </main>

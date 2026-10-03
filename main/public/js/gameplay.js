@@ -55,10 +55,25 @@ document.addEventListener("DOMContentLoaded", () => {
     const params      = new URLSearchParams(window.location.search);
     const subject     = params.get("subject")    || "chemistry";
     const deck        = params.get("deck")       || "periodic-table-groups";
-    const keyStage    = params.get("key_stage")  || "KS3";
     const difficulty  = params.get("difficulty") || "easy";
     const level       = parseInt(params.get("level")) || 1;
     const categoryCount = parseInt(params.get("categories")) || 6;
+
+    // Get key_stage from URL or fetch from user profile
+    let keyStage = params.get("key_stage");
+    const token = localStorage.getItem("auth_token");
+    const userJson = localStorage.getItem("user");
+
+    if (!keyStage && userJson) {
+        try {
+            const user = JSON.parse(userJson);
+            keyStage = user.key_stage || (user.country === 'Nigeria' ? 'SS1' : 'KS3');
+        } catch (e) {
+            keyStage = 'KS3';
+        }
+    } else if (!keyStage) {
+        keyStage = 'KS3';
+    }
 
     /* ============================================================
        GAME STATE
@@ -1511,7 +1526,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 + `&difficulty=${encodeURIComponent(difficulty)}`
                 + `&categories=${encodeURIComponent(categoryCount)}`;
 
-            const res    = await fetch(url, { headers: { Accept: "application/json" } });
+            const headers = { Accept: "application/json" };
+            if (token) {
+                headers["Authorization"] = `Bearer ${token}`;
+            }
+
+            const res    = await fetch(url, { headers });
             const result = await res.json();
 
             if (!res.ok) throw new Error(result.message || "Unable to load the chemistry board.");

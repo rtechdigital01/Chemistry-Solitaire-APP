@@ -10,7 +10,8 @@ class ImportCategoriesCommand extends Command
     protected $signature = 'chemistry:import-categories
         {--file=KS3_Atomic_Structure_Isotopes.csv : CSV file inside storage/app}
         {--deck=atomic-structure-isotopes : Deck identifier}
-        {--key-stage=KS3 : Key Stage}';
+        {--key-stage=KS3 : Key Stage}
+        {--subject=chemistry : Subject identifier}';
 
     protected $description =
         'Import Chemistry categories from a CSV dataset';
@@ -20,6 +21,7 @@ class ImportCategoriesCommand extends Command
         $filePath = $this->option('file');
         $deck = $this->option('deck');
         $keyStage = strtoupper($this->option('key-stage'));
+        $subject = strtolower($this->option('subject') ?? 'chemistry');
 
         $fullPath = storage_path('app/' . $filePath);
 
@@ -51,7 +53,7 @@ class ImportCategoriesCommand extends Command
             }
 
             $serialNumber = (int) trim($row[0]);
-            $name = trim($row[1]);
+            $name = trim($this->toUtf8($row[1]));
             $difficulty = $this->normalizeDifficulty($row[2]);
 
             /*
@@ -63,14 +65,14 @@ class ImportCategoriesCommand extends Command
             $cardPool = array_values(
                 array_filter(
                     array_map(
-                        'trim',
+                        fn ($card) => trim($this->toUtf8($card)),
                         explode(',', $row[3])
                     ),
                     fn ($card) => $card !== ''
                 )
             );
 
-            $iconType = strtolower(trim($row[4]));
+            $iconType = strtolower(trim($this->toUtf8($row[4])));
 
             if ($name === '' || count($cardPool) < 3) {
                 $skipped++;
@@ -88,6 +90,7 @@ class ImportCategoriesCommand extends Command
                 [
                     'deck' => $deck,
                     'key_stage' => $keyStage,
+                    'subject' => $subject,
                     'serial_number' => $serialNumber,
                 ],
                 [
@@ -128,5 +131,17 @@ class ImportCategoriesCommand extends Command
             'easy', 'medium', 'hard' => ucfirst($value),
             default => ucfirst($value) ?: 'Easy',
         };
+    }
+
+    /**
+     * Some dataset CSVs were saved as Windows-1252 / Latin-1, so bytes
+     * like the multiplication sign (0xD7) would break the JSON card
+     * pool cast. Convert anything that is not already valid UTF-8.
+     */
+    private function toUtf8(string $value): string
+    {
+        return mb_check_encoding($value, 'UTF-8')
+            ? $value
+            : mb_convert_encoding($value, 'UTF-8', 'Windows-1252');
     }
 }
