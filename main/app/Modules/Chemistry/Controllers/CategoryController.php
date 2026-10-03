@@ -263,6 +263,7 @@ class CategoryController extends Controller
                     'id' => $category->id,
                     'name' => $category->name,
                     'difficulty' => $category->difficulty,
+                    'hint' => $category->hint,
                     'icon_type' => strtolower((string) $category->icon_type),
                     'cards' => collect($category->card_pool)
                         ->shuffle()

@@ -330,7 +330,7 @@ if (displayNameInput && previewName) {
 ======================================== */
 const reviewsContainer = document.getElementById('reviewsContainer');
 if (reviewsContainer) {
-    fetch('/api/reviews')
+    fetch(`${window.APP_CONFIG.API_BASE_URL}/reviews`)
         .then(response => response.json())
         .then(result => {
             if (result.status === 'Success' && result.data && result.data.length > 0) {

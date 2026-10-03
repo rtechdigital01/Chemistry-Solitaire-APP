@@ -759,8 +759,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 setBanner("⏱️ Out of moves!", "error");
                 showGameOverOverlay();
             } else {
+                const hintText = selectedCard.dataset.hint || "That card doesn't belong in this category. Give it another try!";
                 setBanner("Not quite — try a different category.", "error");
-                showGamePopup("That card doesn't belong in this category. Give it another try!", "error");
+                showGamePopup(hintText, "error");
             }
         }
     }
@@ -799,7 +800,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!token) return false;
 
     try {
-        const res = await fetch("/api/gameplay/attempt", {
+        const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -867,7 +868,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (token) {
             try {
-                const res = await fetch("/api/gameplay/attempt", {
+                const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
                     method: "POST",
                     headers: {
                         "Content-Type":  "application/json",
@@ -1262,6 +1263,9 @@ document.addEventListener("DOMContentLoaded", () => {
         card.className           = "game-card";
         card.dataset.categoryId  = String(category.id);
         card.dataset.categoryName= category.name;
+        if (category.hint) {
+            card.dataset.hint = category.hint;
+        }
 
         card.innerHTML = `
             <span class="card-crown">${CROWN_SVG}</span>
@@ -1688,7 +1692,7 @@ document.addEventListener("DOMContentLoaded", () => {
             finishLevelBtn.disabled = true;
 
             try {
-                const res = await fetch("/api/gameplay/attempt", {
+                const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
                     method: "POST",
                     headers: {
                         "Content-Type":  "application/json",

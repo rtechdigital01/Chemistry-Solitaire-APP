@@ -15,6 +15,7 @@ class Category extends Model
         'difficulty',
         'card_pool',
         'icon_type',
+        'hint',
     ];
 
     protected $casts = [

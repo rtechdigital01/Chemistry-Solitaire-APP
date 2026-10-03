@@ -77,7 +77,7 @@ function setText(id, value) {
 
 async function loadAdminOverview() {
     try {
-        const response = await fetch("/api/admin/overview", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/overview`, {
             headers: adminHeaders(),
         });
 
@@ -111,7 +111,7 @@ async function loadAdminStudents() {
     if (!tableBody) return;
 
     try {
-        const response = await fetch("/api/admin/students", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/students`, {
             headers: adminHeaders(),
         });
 
@@ -272,7 +272,7 @@ async function loadAdminTeachers() {
     if (!tableBody) return;
 
     try {
-        const response = await fetch("/api/admin/teachers", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/teachers`, {
             headers: adminHeaders(),
         });
 
@@ -339,7 +339,7 @@ async function loadAdminDatasets() {
     }
 
     try {
-        const response = await fetch("/api/admin/datasets", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/datasets`, {
             headers: adminHeaders(),
         });
 
@@ -437,7 +437,7 @@ async function runDatasetAction(btn) {
         }
 
         try {
-            const response = await fetch("/api/admin/datasets", {
+            const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/datasets`, {
                 method: "DELETE",
                 headers: adminHeaders({ "Content-Type": "application/json" }),
                 body: JSON.stringify({ dataset }),
@@ -506,7 +506,7 @@ async function loadAdminGameplayOverview() {
     panel.dataset.loaded = "1";
 
     try {
-        const response = await fetch("/api/admin/gameplay/overview", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/gameplay/overview`, {
             headers: adminHeaders(),
         });
 
@@ -641,7 +641,7 @@ async function loadAdminLeaderboard() {
     if (!container) return;
 
     try {
-        const response = await fetch("/api/admin/gameplay/leaderboard", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/gameplay/leaderboard`, {
             headers: adminHeaders(),
         });
 
@@ -722,7 +722,7 @@ async function loadAdminFeedback() {
     panel.dataset.loaded = "1";
 
     try {
-        const response = await fetch("/api/admin/feedback", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/feedback`, {
             headers: adminHeaders(),
         });
 
@@ -817,7 +817,7 @@ async function loadAdminCoins() {
     panel.dataset.loaded = "1";
 
     try {
-        const response = await fetch("/api/admin/coins", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/coins`, {
             headers: adminHeaders(),
         });
 
@@ -894,7 +894,7 @@ async function loadAdminReports() {
     panel.dataset.loaded = "1";
 
     try {
-        const response = await fetch("/api/admin/reports", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/reports`, {
             headers: adminHeaders(),
         });
 
@@ -994,7 +994,7 @@ if (settingsUploadBtn) {
         msg.style.color = "#64748B";
 
         try {
-            const response = await fetch("/api/admin/datasets/upload", {
+            const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/datasets/upload`, {
                 method: "POST",
                 headers: adminHeaders(),
                 body: formData,

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (!token) return;
 
     try {
-        const response = await fetch('/api/user', {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/user`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Accept': 'application/json'

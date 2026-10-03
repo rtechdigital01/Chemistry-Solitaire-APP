@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     
     // API Configuration
-    const API_BASE_URL = '/api';
+    const API_BASE_URL = window.APP_CONFIG.API_BASE_URL;
 
 
 // ========================================

@@ -191,12 +191,13 @@ class AdminDatasetController extends Controller
                 continue;
             }
 
-            // S/N, Category, Difficulty, Card Pool, Icon Type
+            // S/N, Category, Difficulty, Card Pool, Icon Type, Hint
             $serialNumber = (int) trim($row[0]);
             $name = trim($this->toUtf8($row[1], $encoding));
             $difficulty = $this->normalizeDifficulty($row[2]);
             $cardPoolRaw = $row[3];
             $iconType = $row[4] ?? '';
+            $hint = isset($row[5]) ? trim($this->toUtf8($row[5], $encoding)) : '';
 
             $cardPool = array_values(array_filter(
                 array_map(fn ($card) => trim($this->toUtf8($card, $encoding)), explode(',', $cardPoolRaw)),
@@ -222,6 +223,7 @@ class AdminDatasetController extends Controller
                     'difficulty' => $difficulty,
                     'card_pool' => $cardPool,
                     'icon_type' => $iconType ?: null,
+                    'hint' => $hint ?: null,
                 ]
             );
 
@@ -287,8 +289,8 @@ class AdminDatasetController extends Controller
 
     private function datasetPath(string $name): string
     {
-        // Stored at repo root: <project>/Datasets/<name>.csv
-        return base_path('../Datasets/' . $name . '.csv');
+        // Stored locally in storage/app/datasets/
+        return storage_path('app/datasets/' . $name . '.csv');
     }
 
     private function toUtf8(string $value, ?string $encoding): string

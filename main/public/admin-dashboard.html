@@ -15,22 +15,25 @@
 
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/admin-dashboard.css">
+    <script src="js/config.js"></script>
 </head>
 
 <body>
 <script>
-    const adminToken = localStorage.getItem("admin_token");
-    const adminUser = JSON.parse(
-        localStorage.getItem("admin_user") || "null"
-    );
+    (function() {
+        const token = localStorage.getItem("admin_token");
+        const user = JSON.parse(
+            localStorage.getItem("admin_user") || "null"
+        );
 
-    if (
-        !adminToken ||
-        !adminUser ||
-        adminUser.role !== "admin"
-    ) {
-        window.location.replace("admin-login.html");
-    }
+        if (
+            !token ||
+            !user ||
+            user.role !== "admin"
+        ) {
+            window.location.replace("admin-login.html");
+        }
+    })();
 </script>
 
 <div class="admin-layout">

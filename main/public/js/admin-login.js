@@ -9,7 +9,7 @@ adminLoginForm.addEventListener("submit", async (event) => {
     adminLoginMessage.textContent = "Signing in...";
 
     try {
-        const response = await fetch("/api/admin/login", {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/login`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

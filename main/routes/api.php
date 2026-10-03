@@ -61,3 +61,22 @@ Route::get('/physics/board', [
     \App\Modules\Chemistry\Controllers\CategoryController::class,
     'board'
 ]);
+
+/*
+|--------------------------------------------------------------------------
+| Dynamic Module Routes
+|--------------------------------------------------------------------------
+*/
+$moduleRoutes = [
+    'Admin/Routes/api.php',
+    'Auth/Routes/api.php',
+    'Chemistry/Routes/api.php',
+    'Gameplay/Routes/api.php',
+];
+
+foreach ($moduleRoutes as $routeFile) {
+    $path = base_path('app/Modules/' . $routeFile);
+    if (file_exists($path)) {
+        require $path;
+    }
+}
