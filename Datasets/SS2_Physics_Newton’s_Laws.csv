@@ -1,0 +1,47 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Newton's First Law,Easy,"Rest remains rest, Uniform straight-line motion continues, Resultant force zero, Inertia, motion",Force,A body keeps its state of motion unless acted on by a resultant force.
+2,Inertia,Easy,"Resistance to change of motion, Mass measure, First law, Body, motion",Force,Inertia is a body's tendency to resist changes in velocity.
+3,Mass and Inertia,Easy,"More mass, More inertia, Harder to accelerate, kg, motion",Force,Mass is a measure of inertia.
+4,Newton's Second Law,Easy,"Force causes acceleration, F = ma, Rate of change of momentum, Resultant force, motion",Force,Acceleration depends on resultant force and mass.
+5,F = ma,Easy,"Force, Mass, Acceleration, newton, second law",Formula,"For constant mass, resultant force equals mass times acceleration."
+6,Acceleration and Force,Easy,"a ? F, Constant mass, More force gives more acceleration, Second law, motion",Force,Acceleration is directly proportional to resultant force.
+7,Acceleration and Mass,Easy,"a ? 1/m, Constant force, More mass gives less acceleration, Second law, motion",Force,"For the same force, a larger mass accelerates less."
+8,Newton Definition,Easy,"1 N, 1 kg accelerated at 1 m s?², Force unit, SI, second law",Measurement,One newton gives a 1 kg mass an acceleration of 1 m s?².
+9,Momentum,Easy,"p = mv, Mass × velocity, kg m s?¹, Vector, motion",Motion,Momentum measures quantity of motion.
+10,Change in Momentum,Easy,"?p = mv ? mu, Impulse, Force, Velocity change, momentum",Motion,A force changes momentum.
+11,Force as Rate of Momentum Change,Medium,"F = ?p/?t, Newton's second law, Impulse, Momentum, time",Formula,Resultant force equals rate of change of momentum.
+12,Impulse,Medium,"F?t, Change in momentum, N s, Force-time, collision",Force,Impulse equals the change in momentum.
+13,Impulse Unit,Easy,"N s, kg m s?¹, Equivalent units, Impulse, momentum",Measurement,Newton-second and kilogram metre per second are equivalent.
+14,Force-Time Graph,Medium,"Area under graph, Impulse, Change in momentum, Force, Time",Graph,The area under a force-time graph gives impulse.
+15,Newton's Third Law,Easy,"Action and reaction, Equal magnitude, Opposite direction, Different bodies, interaction",Force,Interaction forces come in equal and opposite pairs.
+16,Action-Reaction Pair,Easy,"Same type of force, Different bodies, Equal, Opposite, simultaneous",Force,Third-law forces act on different objects.
+17,Third Law Not Balanced Forces,Medium,"Different bodies, Cannot cancel on one body, Action-reaction, Interaction, forces",Force,Action-reaction forces do not cancel because they act on different bodies.
+18,Walking and Third Law,Easy,"Foot pushes ground backward, Ground pushes person forward, Friction, Action-reaction, motion",Force,Walking depends on an action-reaction pair with the ground.
+19,Rocket Motion,Medium,"Gas expelled backward, Rocket pushed forward, Momentum conservation, Third law, thrust",Force,Rocket thrust comes from momentum exchange with exhaust gases.
+20,Gun Recoil,Medium,"Bullet forward, Gun backward, Momentum conservation, Third law, recoil",Motion,Gun recoil balances the bullet's forward momentum.
+21,Conservation of Momentum,Medium,"Total momentum before = after, Closed system, Collision, Explosion, vector",Motion,Total momentum remains constant when external resultant force is negligible.
+22,Elastic Collision,Medium,"Momentum conserved, Kinetic energy conserved, Collision, Bodies separate, mechanics",Motion,An elastic collision conserves both momentum and kinetic energy.
+23,Inelastic Collision,Medium,"Momentum conserved, Kinetic energy not conserved, Deformation, Heat, collision",Motion,Inelastic collisions lose some kinetic energy to other forms.
+24,Perfectly Inelastic Collision,Medium,"Bodies stick together, Momentum conserved, Common velocity, Kinetic energy loss, collision",Motion,"In a perfectly inelastic collision, objects move together afterward."
+25,Collision Equation,Medium,"m?u? + m?u? = m?v? + m?v?, Momentum conservation, One dimension, Closed system, collision",Formula,This equation applies momentum conservation in one dimension.
+26,Explosion Momentum,Medium,"Initial total momentum, Fragments opposite, Momentum conserved, Internal forces, explosion",Motion,Explosions redistribute momentum among fragments.
+27,Friction,Easy,"Opposes relative motion, Contact force, Heat, Surfaces, resistance",Force,Friction acts against sliding or attempted sliding.
+28,Static Friction,Easy,"Prevents sliding, Adjusts to applied force, Up to limiting value, Contact, surface",Force,Static friction acts before surfaces begin to slide.
+29,Limiting Friction,Medium,"Maximum static friction, Just before motion, F = ?R, Surface, friction",Force,Limiting friction is the greatest static friction before sliding.
+30,Coefficient of Friction,Medium,"? = F/R, Dimensionless, Surface pair, Limiting friction, normal reaction",Formula,The coefficient of friction compares limiting friction with normal reaction.
+31,Kinetic Friction,Easy,"Sliding surfaces, Opposes motion, Usually less than limiting friction, Contact, force",Force,Kinetic friction acts while surfaces slide.
+32,Advantages of Friction,Easy,"Walking, Braking, Writing, Grip, Tyres",Force,Friction can be useful by providing grip.
+33,Disadvantages of Friction,Easy,"Wear, Heating, Energy loss, Reduced efficiency, Moving parts",Force,Friction can waste energy and wear surfaces.
+34,Reducing Friction,Easy,"Lubrication, Ball bearings, Smooth surfaces, Air cushion, streamlining",Process,Friction can be reduced by separating or smoothing surfaces.
+35,Increasing Friction,Easy,"Roughen surface, Treads, Grip, Sand, brakes",Process,Friction is increased when greater grip is needed.
+36,Weight,Easy,"W = mg, Gravitational force, Downward, newton, mass × g",Force,Weight is the force of gravity on a mass.
+37,Normal Reaction,Easy,"Perpendicular to surface, Contact force, Support, R, force",Force,Normal reaction balances the component pressing into a surface.
+38,Tension,Easy,"Pulling force, String, Rope, Cable, along connector",Force,Tension acts along a taut connector.
+39,Resultant Force,Easy,"Vector sum, Net force, Causes acceleration, N, forces",Force,Only the resultant force determines acceleration.
+40,Balanced Forces,Easy,"Resultant zero, No acceleration, Rest or constant velocity, equilibrium, forces",Force,Balanced forces do not change velocity.
+41,Unbalanced Forces,Easy,"Nonzero resultant, Acceleration, Speed or direction changes, motion, forces",Force,An unbalanced force changes velocity.
+42,Terminal Velocity,Medium,"Weight balanced by drag, Constant speed, Falling body, Resultant zero, air resistance",Motion,Terminal velocity occurs when resistive forces balance weight.
+43,Seat Belt Physics,Medium,"Increase stopping time, Reduce force, Impulse, Momentum change, safety",Safety,Increasing stopping time reduces average impact force.
+44,Airbag Physics,Medium,"Increase impact time, Reduce force, Spread force, Impulse, safety",Safety,Airbags reduce injury by increasing stopping time and area.
+45,Crumple Zone,Medium,"Increase collision time, Reduce deceleration, Absorb energy, Vehicle, safety",Safety,Crumple zones reduce impact force by extending stopping time.
+46,Dynamics,Easy,"Forces and motion, Newton laws, Acceleration, Mass, Mechanics",Force,Dynamics studies the causes of motion.

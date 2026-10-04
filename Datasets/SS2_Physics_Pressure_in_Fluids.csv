@@ -1,0 +1,44 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Pressure,Easy,"Force per unit area, P = F/A, pascal, N m?², fluid",Fluid,Pressure is force acting per unit area.
+2,Pascal,Easy,"Pa, N m?², Unit of pressure, SI unit, fluid",Measurement,One pascal equals one newton per square metre.
+3,Fluid Pressure,Easy,"Liquid, Gas, Acts in all directions, Force per area, pressure",Fluid,Fluids exert pressure on surfaces in contact with them.
+4,Hydrostatic Pressure,Medium,"P = ?gh, Density, Depth, Gravity, liquid",Formula,Pressure at depth in a liquid is ?gh.
+5,Pressure Increases with Depth,Easy,"Greater depth, Higher pressure, Liquid, ?gh, fluid",Fluid,Liquid pressure rises with depth.
+6,Pressure Depends on Density,Easy,"Higher density, Higher pressure, Same depth, ?gh, liquid",Fluid,Denser liquids exert greater pressure at the same depth.
+7,Same Depth Same Pressure,Easy,"Same liquid, Same horizontal level, Independent of container shape, hydrostatic, pressure",Fluid,"In a connected liquid at rest, points at the same depth have equal pressure."
+8,Atmospheric Pressure,Easy,"Weight of air, Acts in all directions, Barometer, Sea level, atmosphere",Fluid,The atmosphere exerts pressure because air has weight.
+9,Standard Atmospheric Pressure,Medium,"1.01 × 10? Pa, 760 mmHg, 1 atm, Sea level, pressure",Measurement,Standard atmospheric pressure is about 1.01 × 10? Pa.
+10,Mercury Barometer,Medium,"Mercury column, 760 mm, Atmospheric pressure, Vacuum above, instrument",Equipment,A mercury barometer measures atmospheric pressure.
+11,Barometer Equation,Hard,"P = ?gh, Mercury density, Column height, Atmospheric pressure, barometer",Formula,Atmospheric pressure can be found from the supported liquid column.
+12,Fortin Barometer,Medium,"Adjustable cistern, Vernier, Mercury, Atmospheric pressure, precision",Equipment,A Fortin barometer allows accurate mercury-column readings.
+13,Aneroid Barometer,Easy,"No liquid, Flexible capsule, Portable, Atmospheric pressure, weather",Equipment,An aneroid barometer uses a sealed metal capsule.
+14,Barograph,Medium,"Continuous pressure record, Aneroid capsules, Rotating drum, Atmospheric pressure, weather",Equipment,A barograph records atmospheric pressure over time.
+15,Manometer,Medium,"Pressure difference, Liquid column, U-tube, Gas pressure, instrument",Equipment,A manometer measures pressure or pressure difference.
+16,U-Tube Manometer,Medium,"Height difference, Liquid density, Gas pressure, Pressure difference, U-shaped tube",Equipment,Pressure differences create unequal liquid levels in a U-tube.
+17,Gauge Pressure,Medium,"Above atmospheric pressure, Measured relative to atmosphere, Tyres, gas pressure, pressure",Measurement,Gauge pressure excludes atmospheric pressure.
+18,Absolute Pressure,Medium,"Gauge + atmospheric, Measured from vacuum, Pa, pressure, fluid",Measurement,Absolute pressure includes atmospheric pressure.
+19,Syringe,Easy,"Piston, Pressure difference, Draws liquid, Injection, fluid",Equipment,A syringe uses pressure differences produced by piston movement.
+20,Siphon,Medium,"Liquid flows over higher point, Lower outlet, Atmospheric pressure, Continuous liquid column, fluid",Fluid,A siphon transfers liquid from a higher reservoir to a lower outlet.
+21,Siphon Conditions,Medium,"Tube filled, Outlet below liquid surface, Continuous liquid, No air leak, flow",Process,A working siphon needs a continuous liquid column and lower outlet.
+22,Bicycle Pump,Easy,"Compresses air, Piston, Pressure rises, Tyre, pump",Equipment,A bicycle pump forces compressed air into a tyre.
+23,Lift Pump,Medium,"Piston, One-way valves, Atmospheric pressure, Water rises, pump",Equipment,A lift pump uses atmospheric pressure and valves to raise water.
+24,Force Pump,Medium,"Piston, Valves, Delivers under pressure, Water, pump",Equipment,A force pump sends liquid out under pressure.
+25,Pascal's Principle,Medium,"Pressure transmitted equally, Enclosed fluid, Hydraulic machine, Force multiplication, liquid",Fluid,Applied pressure is transmitted throughout an enclosed fluid.
+26,Hydraulic Press,Medium,"Small piston, Large piston, Pascal's principle, Force multiplication, machine",Equipment,A hydraulic press multiplies force through unequal piston areas.
+27,Hydraulic Press Formula,Medium,"F?/A? = F?/A?, Pressure equality, Pistons, Hydraulic machine, force",Formula,Equal fluid pressure links input and output forces.
+28,Hydraulic Jack,Easy,"Lifting vehicle, Pascal's principle, Small effort, Large load, hydraulic",Equipment,Hydraulic jacks lift heavy loads with smaller applied force.
+29,Hydraulic Brakes,Easy,"Brake fluid, Pedal force, Wheel cylinders, Pascal's principle, vehicle",Equipment,Hydraulic brakes transmit pressure from pedal to wheels.
+30,Upthrust,Easy,"Buoyant force, Upward, Fluid, Immersed body, Archimedes",Force,Upthrust is the upward force exerted by a fluid.
+31,Archimedes' Principle,Medium,"Upthrust, Weight of displaced fluid, Immersed body, Buoyancy, fluid",Fluid,The buoyant force equals the weight of displaced fluid.
+32,Apparent Weight,Medium,"True weight ? upthrust, Immersed object, Spring balance, Buoyancy, fluid",Formula,Immersion reduces apparent weight by the upthrust.
+33,Loss in Weight,Medium,"Equals upthrust, Immersed body, Weight in air ? weight in fluid, Archimedes, buoyancy",Fluid,The apparent loss in weight equals the buoyant force.
+34,Principle of Floatation,Medium,"Weight of body = weight of displaced fluid, Floating object, Equilibrium, Buoyancy, fluid",Fluid,A floating body displaces its own weight of fluid.
+35,Floating Body,Easy,"Upthrust = weight, Equilibrium, Partly immersed, Fluid, buoyancy",Fluid,A floating body experiences balanced vertical forces.
+36,Sinking Body,Easy,"Weight > upthrust, Density greater than fluid, Moves downward, Fluid, buoyancy",Fluid,A body sinks when its weight exceeds the available upthrust.
+37,Relative Density,Easy,"Density substance ÷ density water, No unit, Specific gravity, comparison, density",Measurement,Relative density compares a substance with water.
+38,Hydrometer,Easy,"Floats, Graduated stem, Relative density, Liquid, instrument",Equipment,A hydrometer measures liquid relative density by floatation.
+39,Lactometer,Easy,"Milk, Hydrometer, Relative density, Quality check, instrument",Equipment,A lactometer is a hydrometer used for milk.
+40,Ship Floatation,Medium,"Large displaced water volume, Average density low, Upthrust, Hollow hull, floatation",Fluid,A ship floats by displacing enough water to balance its weight.
+41,Submarine Depth Control,Medium,"Ballast tanks, Average density, Buoyancy, Water intake or expulsion, submarine",Machine,Submarines change average density to sink or rise.
+42,Balloon Floatation,Medium,"Buoyancy in air, Low average density, Upthrust, Gas, atmosphere",Fluid,Balloons rise when buoyant force exceeds their weight.
+43,Pressure Question Strategy,Easy,"Identify force, Identify area, Use SI units, Use P = F/A or ?gh, check depth",Process,Choose the pressure equation that matches the physical situation.

@@ -1,0 +1,43 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Machine,Easy,"Makes work easier, Changes force or direction, Effort, Load, mechanical device",Machine,A machine helps apply force conveniently.
+2,Effort,Easy,"Input force, Applied force, Machine, E, user",Force,Effort is the force applied to a machine.
+3,Load,Easy,"Output force, Resistance overcome, Machine, L, weight",Force,Load is the force overcome by a machine.
+4,Mechanical Advantage,Easy,"MA = Load/Effort, Force multiplication, No unit, Machine, ratio",Formula,Mechanical advantage compares output force with input force.
+5,Velocity Ratio,Medium,"Distance moved by effort / distance moved by load, Machine geometry, No unit, distance ratio, machine",Formula,Velocity ratio depends mainly on machine geometry.
+6,Efficiency,Easy,"? = MA/VR × 100%, Useful output/input, Percentage, Machine, losses",Formula,Efficiency measures how much input becomes useful output.
+7,Ideal Machine,Easy,"100% efficiency, MA = VR, No friction, No energy loss, machine",Machine,An ideal machine has no energy losses.
+8,Real Machine,Easy,"Efficiency < 100%, Friction, Energy loss, MA < VR, machine",Machine,"Real machines lose some energy, often through friction."
+9,Work Input,Easy,"Effort × effort distance, Energy supplied, Machine, joule, input",Energy,Input work is done by the effort.
+10,Work Output,Easy,"Load × load distance, Useful work, Machine, joule, output",Energy,Output work is done on the load.
+11,Machine Efficiency from Work,Medium,"Output work / input work × 100%, Energy, Machine, percentage, losses",Formula,Efficiency can be calculated from work or energy.
+12,Lever,Easy,"Rigid bar, Pivot, Effort, Load, simple machine",Machine,A lever turns about a fixed point called a fulcrum.
+13,Fulcrum,Easy,"Pivot, Lever, Turning point, Support, machine",Machine,The fulcrum is the pivot of a lever.
+14,First-Class Lever,Easy,"Fulcrum between effort and load, Seesaw, Scissors, Crowbar, lever",Machine,"In a first-class lever, the fulcrum lies between effort and load."
+15,Second-Class Lever,Easy,"Load between fulcrum and effort, Wheelbarrow, Nutcracker, Bottle opener, lever",Machine,"In a second-class lever, the load lies between fulcrum and effort."
+16,Third-Class Lever,Easy,"Effort between fulcrum and load, Tweezers, Human forearm, Fishing rod, lever",Machine,"In a third-class lever, the effort lies between fulcrum and load."
+17,Lever MA,Medium,"Effort arm / load arm, Ideal lever, Moment balance, Mechanical advantage, lever",Formula,"For an ideal lever, MA equals effort arm divided by load arm."
+18,Pulley,Easy,"Grooved wheel, Rope, Changes force direction, Lifting, simple machine",Machine,A pulley guides a rope and may provide force advantage.
+19,Fixed Pulley,Easy,"Changes direction, MA about 1, One support strand, Pulley, lifting",Machine,A fixed pulley mainly changes the direction of effort.
+20,Movable Pulley,Medium,"Moves with load, Two support strands, MA about 2 ideal, Pulley, lifting",Machine,A single movable pulley can double force ideally.
+21,Block and Tackle,Medium,"Several pulleys, Support strands, Large VR, Lifting, machine",Machine,A block and tackle uses multiple pulleys for larger force advantage.
+22,Pulley VR,Medium,"Number of supporting rope segments, Ideal system, Pulley, Velocity ratio, lifting",Formula,"For many pulley systems, VR equals the number of supporting strands."
+23,Wheel and Axle,Easy,"Large wheel, Small axle, Rotational machine, Force multiplication, simple machine",Machine,A wheel and axle changes torque and force.
+24,Wheel and Axle VR,Medium,"Radius wheel / radius axle, Ideal machine, Rotation, Velocity ratio, machine",Formula,Velocity ratio equals wheel radius divided by axle radius.
+25,Inclined Plane,Easy,"Slope, Raises load gradually, Smaller force over longer distance, Ramp, simple machine",Machine,An inclined plane trades distance for smaller effort.
+26,Inclined Plane VR,Medium,"Length of slope / vertical height, Ramp, Ideal machine, Velocity ratio, machine",Formula,"The longer the slope relative to height, the greater the velocity ratio."
+27,Screw,Easy,"Inclined plane wrapped around cylinder, Thread, Jack, Bolt, simple machine",Machine,A screw converts rotation into linear motion.
+28,Screw Jack,Medium,"Lifts heavy load, Thread pitch, Handle radius, High VR, machine",Machine,A screw jack provides large mechanical advantage.
+29,Screw Jack VR,Hard,"2?r / pitch, Handle radius, Thread pitch, Velocity ratio, screw",Formula,One turn moves the effort through a circumference while the load rises by one pitch.
+30,Gear,Easy,"Toothed wheels, Transmit rotation, Change speed, Change torque, machine",Machine,Gears transmit rotational motion between shafts.
+31,Gear Ratio,Medium,"Teeth driven / teeth driver, Speed ratio, Torque change, Gears, rotation",Formula,Gear ratio depends on the numbers of teeth.
+32,Belt Drive,Easy,"Pulleys, Belt, Transmit rotation, Machines, speed ratio",Machine,A belt transmits motion between rotating pulleys.
+33,Machine Friction,Easy,"Energy loss, Heat, Reduces efficiency, Moving parts, resistance",Force,Friction makes real machines less efficient.
+34,Lubrication,Easy,"Reduces friction, Oil, Grease, Machine parts, efficiency",Process,Lubrication reduces friction and wear.
+35,Machine Advantage Trade-off,Medium,"Force reduced, Distance increased, Work not created, Ideal energy conservation, machine",Energy,Machines trade force against distance rather than creating energy.
+36,Power in Machines,Easy,"Rate of doing work, Motor, Output, Watt, machine",Energy,Machines can also be compared by how quickly they do work.
+37,Self-Locking Machine,Medium,"Load cannot drive machine backward, High friction, Safety, Screw jack, machine",Machine,Self-locking machines resist reverse motion.
+38,Machine Maintenance,Easy,"Lubrication, Alignment, Reduce wear, Clean parts, efficiency",Safety,Good maintenance reduces energy loss and failure.
+39,Machine Safety,Easy,"Guards, Stable support, Load limits, Correct use, moving parts",Safety,Machines should be used within safe operating limits.
+40,Efficiency Limit,Easy,"Cannot exceed 100%, Energy conservation, Real machine, Losses, percentage",Energy,A real machine cannot have efficiency above 100%.
+41,Mechanical Advantage Units,Easy,"No unit, Ratio of forces, Load/Effort, Machine, dimensionless",Measurement,Mechanical advantage is dimensionless.
+42,Velocity Ratio Units,Easy,"No unit, Ratio of distances, Machine geometry, dimensionless, VR",Measurement,Velocity ratio is also dimensionless.

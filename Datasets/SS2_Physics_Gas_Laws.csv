@@ -1,0 +1,41 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Gas Pressure,Easy,"Particle collisions, Container walls, Force per area, Gas, Pressure",Particle,Gas pressure comes from particle collisions with container walls.
+2,Gas Volume,Easy,"Space occupied, Container volume, m³, Gas, State",Measurement,A gas fills its container.
+3,Gas Temperature,Easy,"Kelvin, Average kinetic energy, Absolute temperature, Gas, Thermal",Measurement,Gas-law temperatures must be in kelvin.
+4,Boyle's Law,Easy,"P ? 1/V, Constant temperature, PV = constant, Gas, Compression",Formula,"At constant temperature, pressure is inversely proportional to volume."
+5,Boyle's Law Equation,Easy,"P?V? = P?V?, Constant temperature, Gas, Pressure, Volume",Formula,Use this equation for isothermal changes.
+6,Boyle Graph P-V,Medium,"Inverse curve, Pressure, Volume, Constant temperature, Gas",Graph,Pressure versus volume gives an inverse curve.
+7,Boyle Graph P-1/V,Medium,"Straight line, Pressure, Reciprocal volume, Constant temperature, Gas",Graph,Pressure is directly proportional to reciprocal volume.
+8,Charles' Law,Easy,"V ? T, Constant pressure, Kelvin, Gas, Expansion",Formula,"At constant pressure, volume is directly proportional to absolute temperature."
+9,Charles' Law Equation,Easy,"V?/T? = V?/T?, Constant pressure, Gas, Kelvin, Volume",Formula,Use absolute temperatures for Charles' law.
+10,Pressure Law,Easy,"P ? T, Constant volume, Kelvin, Gas, Heating",Formula,"At constant volume, pressure is directly proportional to absolute temperature."
+11,Pressure Law Equation,Easy,"P?/T? = P?/T?, Constant volume, Gas, Kelvin, Pressure",Formula,Use absolute temperatures for the pressure law.
+12,General Gas Law,Medium,"PV/T = constant, Fixed gas mass, Pressure, Volume, Kelvin",Formula,"For a fixed mass of gas, PV/T remains constant."
+13,Combined Gas Equation,Medium,"P?V?/T? = P?V?/T?, Pressure, Volume, Temperature, Gas",Formula,The combined gas law handles simultaneous changes.
+14,Absolute Temperature,Easy,"Kelvin, 0 K, 273 + Celsius, Gas laws, Temperature",Measurement,Gas laws require an absolute temperature scale.
+15,Absolute Zero,Medium,"0 K, ?273°C approximately, Minimum theoretical temperature, Gas, Kelvin",Measurement,Absolute zero is the lower limit of the Kelvin scale.
+16,Isothermal Process,Medium,"Constant temperature, Boyle's law, PV constant, Gas, Process",Process,An isothermal change keeps temperature constant.
+17,Isobaric Process,Medium,"Constant pressure, Charles' law, V/T constant, Gas, Process",Process,An isobaric change keeps pressure constant.
+18,Isochoric Process,Medium,"Constant volume, Pressure law, P/T constant, Gas, Process",Process,An isochoric change keeps volume constant.
+19,Kinetic Theory of Gases,Medium,"Random motion, Elastic collisions, Large spacing, Particle model, Pressure",Particle,Kinetic theory explains gas behaviour using moving particles.
+20,Gas Particle Motion,Easy,"Rapid, Random, Straight between collisions, All directions, Gas",Particle,Gas molecules move randomly and rapidly.
+21,Elastic Collision,Medium,"Kinetic energy conserved, Gas particles, Container walls, Kinetic theory, Collision",Particle,Ideal-gas collisions are treated as elastic.
+22,Negligible Particle Volume,Medium,"Very small molecules, Large spacing, Ideal gas, Particle model, Gas",Particle,Ideal-gas molecules occupy negligible volume compared with the container.
+23,Negligible Intermolecular Forces,Medium,"No attraction except collision, Ideal gas, Particles, Kinetic theory, Gas",Particle,Ideal-gas molecules are treated as non-interacting between collisions.
+24,Heating Gas at Constant Volume,Easy,"Particles move faster, Pressure increases, Volume fixed, Temperature rises, Gas",Particle,Faster particles collide more forcefully with walls.
+25,Heating Gas at Constant Pressure,Easy,"Volume increases, Particles faster, Piston moves, Charles' law, Gas",Particle,A gas expands when heated at constant pressure.
+26,Compressing Gas Isothermally,Easy,"Volume decreases, Pressure increases, Temperature constant, Boyle's law, Gas",Process,Reducing volume increases collision frequency.
+27,Kelvin Conversion in Gas Laws,Easy,"T(K)=?(°C)+273, Absolute scale, Gas law, Temperature, Conversion",Formula,Never substitute Celsius directly into proportional gas laws.
+28,Gas Syringe Experiment,Easy,"Trapped gas, Change volume, Measure pressure, Boyle's law, Experiment",Experiment,A gas syringe can demonstrate Boyle's law.
+29,Charles Law Experiment,Medium,"Gas volume, Water bath, Temperature, Constant pressure, Experiment",Experiment,Heating trapped gas at constant pressure demonstrates Charles' law.
+30,Pressure Law Experiment,Medium,"Sealed gas, Fixed volume, Pressure gauge, Water bath, Experiment",Experiment,Pressure changes with temperature in a rigid container.
+31,PV Constant,Easy,"Boyle's law, Constant temperature, Fixed gas mass, Pressure × volume, Gas",Formula,"For an isothermal change, PV remains constant."
+32,V/T Constant,Easy,"Charles' law, Constant pressure, Kelvin, Fixed gas mass, Gas",Formula,"At constant pressure, V/T remains constant."
+33,P/T Constant,Easy,"Pressure law, Constant volume, Kelvin, Fixed gas mass, Gas",Formula,"At constant volume, P/T remains constant."
+34,Gas Law Graph Skills,Medium,"Read axes, Check kelvin, Identify constant variable, Recognise direct or inverse, Gas",Graph,Graph shape helps identify the correct gas law.
+35,Boyle Law Example,Easy,"Syringe, Bicycle pump, Breathing, Compression, Gas",Environment,Compression processes can illustrate Boyle's law.
+36,Charles Law Example,Easy,"Hot-air balloon, Warm gas expands, Balloon volume, Temperature, Gas",Environment,Heating gas at constant pressure increases volume.
+37,Pressure Law Example,Easy,"Tyre pressure, Sealed can, Heating, Pressure increase, Gas",Safety,Heating a sealed gas raises its pressure.
+38,Gas Law Safety,Easy,"Do not heat sealed containers, Pressure rise, Explosion risk, Gas, Temperature",Safety,Sealed gases can become dangerous when heated.
+39,Gas Law Question Strategy,Easy,"Identify constant, Convert to kelvin, Choose law, Use consistent units, Solve",Process,First determine which variable is held constant.
+40,Ideal Gas Approximation,Medium,"Low pressure, High temperature, Real gases approximate ideal, Model, Gas",Structure,Real gases behave more ideally when molecular interactions are small.

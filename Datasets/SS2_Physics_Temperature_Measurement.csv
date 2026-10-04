@@ -1,0 +1,42 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Temperature,Easy,"Degree of hotness, Thermometer, Kelvin, Celsius, thermal state",Measurement,Temperature indicates the thermal state of a body.
+2,Heat,Easy,"Energy transfer, Temperature difference, Hot to cold, Joule, thermal",Energy,Heat is energy transferred because of temperature difference.
+3,Thermometry,Easy,"Temperature measurement, Thermometer, Scale, Fixed points, thermometric property",Measurement,Thermometry is the science of temperature measurement.
+4,Thermometric Property,Medium,"Changes with temperature, Volume, Pressure, Resistance, emf",Measurement,A thermometric property varies predictably with temperature.
+5,Celsius Scale,Easy,"°C, 0°C ice point, 100°C steam point, temperature scale, thermometer",Measurement,The Celsius scale uses ice and steam points under standard conditions.
+6,Kelvin Scale,Easy,"K, Absolute temperature, 0 K, 273 K ? 0°C, SI temperature",Measurement,Kelvin is the SI unit of thermodynamic temperature.
+7,Celsius to Kelvin,Easy,"K = °C + 273, Temperature conversion, Absolute scale, Kelvin, Celsius",Formula,Add approximately 273 to convert °C to K.
+8,Kelvin to Celsius,Easy,"°C = K ? 273, Temperature conversion, Absolute scale, Kelvin, Celsius",Formula,Subtract approximately 273 to convert K to °C.
+9,Lower Fixed Point,Easy,"Melting ice, 0°C, 273 K, Thermometer calibration, fixed point",Measurement,The lower fixed point is the melting point of pure ice.
+10,Upper Fixed Point,Easy,"Steam above boiling water, 100°C, 373 K, Thermometer calibration, fixed point",Measurement,The upper fixed point is the steam point at standard pressure.
+11,Fundamental Interval,Medium,"Upper fixed point ? lower fixed point, 100 Celsius degrees, Calibration, Thermometer, scale",Measurement,The fundamental interval is divided to construct a temperature scale.
+12,Liquid-in-Glass Thermometer,Easy,"Mercury or alcohol, Expansion, Capillary, Bulb, temperature",Equipment,Liquid expansion in a narrow capillary indicates temperature.
+13,Mercury Thermometer,Easy,"Mercury, Uniform expansion, Shiny column, High boiling point, thermometer",Equipment,Mercury has several useful thermometric properties.
+14,Alcohol Thermometer,Easy,"Alcohol, Low freezing point, Coloured liquid, Low temperatures, thermometer",Equipment,Alcohol thermometers are useful for low temperatures.
+15,Clinical Thermometer,Easy,"Body temperature, Constriction, Narrow range, Medical, thermometer",Equipment,A clinical thermometer is designed for human body temperature.
+16,Maximum-Minimum Thermometer,Medium,"Weather, Highest temperature, Lowest temperature, Daily range, thermometer",Equipment,This thermometer records daily temperature extremes.
+17,Thermocouple,Medium,"Two dissimilar metals, Junctions, Thermoelectric emf, Fast response, temperature",Equipment,A thermocouple produces emf depending on junction temperatures.
+18,Resistance Thermometer,Medium,"Electrical resistance, Platinum, Temperature dependence, Accurate, sensor",Equipment,Resistance thermometers use temperature-dependent electrical resistance.
+19,Constant-Volume Gas Thermometer,Hard,"Gas pressure, Fixed volume, Thermodynamic scale, High accuracy, thermometer",Equipment,Gas pressure at constant volume can define temperature.
+20,Bimetallic Thermometer,Medium,"Two metals, Different expansion, Bending strip, Pointer, temperature",Equipment,Differential expansion bends a bimetallic strip.
+21,Thermostat,Medium,"Automatic temperature control, Bimetallic strip, Switch, Set point, device",Equipment,A thermostat controls heating or cooling around a set temperature.
+22,Range of Thermometer,Easy,"Lowest measurable, Highest measurable, Temperature interval, Instrument, thermometer",Measurement,A thermometer must have a suitable range for the task.
+23,Sensitivity of Thermometer,Medium,"Large scale change per degree, Narrow capillary, Large bulb, Thermometric property, instrument",Measurement,Sensitivity measures response to a small temperature change.
+24,Linearity,Medium,"Equal property change per degree, Calibration, Thermometer, Scale, accuracy",Measurement,A linear thermometric property simplifies calibration.
+25,Thermometer Response Time,Medium,"Thermal capacity, Bulb size, Contact, Fast or slow response, instrument",Measurement,A thermometer needs time to reach thermal equilibrium.
+26,Thermal Equilibrium,Easy,"Same temperature, No net heat flow, Objects in contact, equilibrium, thermal",Energy,At thermal equilibrium there is no net heat transfer.
+27,Zeroth-Law Idea,Medium,"Thermal equilibrium, Temperature comparison, Thermometer, Common third body, thermal",Structure,Temperature measurement relies on transitive thermal equilibrium.
+28,Temperature Reading Error,Easy,"Parallax, Poor contact, Not at equilibrium, Wrong range, measurement",Measurement,Several practical errors can affect temperature readings.
+29,Thermometer Calibration,Medium,"Fixed points, Mark scale, Thermometric property, Known temperatures, instrument",Process,Calibration links instrument response to known temperatures.
+30,Thermometer Choice,Easy,"Range, Sensitivity, Response time, Accuracy, environment",Process,Choose a thermometer suited to the temperature range and required response.
+31,Absolute Zero,Medium,"0 K, ?273°C approximately, Kelvin scale, Temperature limit, thermal",Measurement,Absolute zero is the zero point of the Kelvin scale.
+32,Room Temperature,Easy,"About 20–25°C, About 293–298 K, Everyday condition, Temperature, environment",Measurement,Room temperature is commonly around the low twenties Celsius.
+33,Boiling Water Temperature,Easy,"100°C at standard pressure, 373 K, Upper fixed point, Water, temperature",Measurement,Pure water boils near 100°C at standard atmospheric pressure.
+34,Melting Ice Temperature,Easy,"0°C, 273 K, Lower fixed point, Water, temperature",Measurement,Pure ice melts near 0°C at standard pressure.
+35,Temperature Difference,Easy,"?T, Same numerical interval in K and °C, Change in temperature, thermal, measurement",Measurement,A temperature difference of 1 K equals a change of 1°C.
+36,Clinical Thermometer Constriction,Medium,"Holds reading, Mercury column, Body temperature, Instrument, thermometer",Equipment,The constriction lets the maximum reading remain visible.
+37,Mercury Limitation,Medium,"Toxic, Unsuitable for very low temperatures, Thermometer, Safety, mercury",Safety,Mercury thermometers have safety and low-temperature limitations.
+38,Alcohol Limitation,Medium,"Lower boiling point, Less suitable for high temperatures, Thermometer, Liquid, temperature",Measurement,Alcohol is useful at low temperatures but not very high ones.
+39,Thermocouple Use,Easy,"Furnace, Engine, Small object, Rapid temperature change, sensor",Industry,Thermocouples are useful where fast response or high temperature is needed.
+40,Resistance Thermometer Use,Easy,"Laboratory, Industry, Accurate measurement, Electrical sensor, temperature",Industry,Resistance thermometers are used for precise temperature measurement.
+41,Temperature Question Strategy,Easy,"Identify scale, Convert if necessary, Check fixed points, Use suitable formula, include unit",Process,Always distinguish temperature from heat energy.

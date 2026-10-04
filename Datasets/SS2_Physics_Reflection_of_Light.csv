@@ -1,0 +1,48 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Light,Easy,"Electromagnetic wave, Visible radiation, Vacuum, Straight-line propagation, Energy",Optics,Light is a visible electromagnetic wave.
+2,Luminous Object,Easy,"Produces light, Sun, Lamp, Flame, Source",Optics,A luminous object emits its own light.
+3,Non-luminous Object,Easy,"Seen by reflected light, Moon, Book, Object, Reflection",Optics,Non-luminous objects are visible because they reflect light.
+4,Rectilinear Propagation,Easy,"Straight-line travel, Uniform medium, Rays, Shadows, Pinhole camera",Optics,Light travels approximately in straight lines in a uniform medium.
+5,Ray,Easy,"Direction of light travel, Arrow, Geometrical optics, Straight line, Light",Structure,A ray represents the direction of light travel.
+6,Beam,Easy,"Bundle of rays, Parallel, Convergent, Divergent, Light",Optics,A beam is a collection of light rays.
+7,Reflection,Easy,"Light bounces back, Same medium, Surface, Incident ray, Reflected ray",Optics,Reflection returns light into the original medium.
+8,Incident Ray,Easy,"Approaches surface, Light ray, Reflection, Normal, Point of incidence",Optics,The incident ray travels toward the reflecting surface.
+9,Reflected Ray,Easy,"Leaves surface, Same medium, Reflection, Normal, Point of incidence",Optics,The reflected ray leaves the reflecting surface.
+10,Normal,Easy,"Perpendicular to surface, Point of incidence, Angle reference, Reflection, 90°",Structure,Angles in reflection are measured from the normal.
+11,Angle of Incidence,Easy,"Incident ray to normal, i, Reflection, Degrees, Light",Measurement,The angle of incidence is measured from the normal.
+12,Angle of Reflection,Easy,"Reflected ray to normal, r, Reflection, Degrees, Light",Measurement,The angle of reflection is measured from the normal.
+13,First Law of Reflection,Easy,"i = r, Equal angles, Mirror, Normal, Light",Formula,The angles of incidence and reflection are equal.
+14,Second Law of Reflection,Medium,"Incident ray, Reflected ray, Normal, Same plane, Reflection",Optics,"The incident ray, reflected ray and normal lie in one plane."
+15,Plane Mirror,Easy,"Flat mirror, Virtual image, Same size, Laterally inverted, Reflection",Equipment,A plane mirror forms a virtual upright image.
+16,Plane Mirror Image,Easy,"Virtual, Upright, Same size, Same distance, Laterally inverted",Optics,Plane-mirror images have characteristic geometry.
+17,Virtual Image,Easy,"Cannot project on screen, Apparent ray intersection, Behind mirror, Plane mirror, Image",Optics,A virtual image is formed by apparent ray intersections.
+18,Real Image,Easy,"Can project on screen, Actual ray intersection, Optical system, Image, Light",Optics,A real image is formed where rays actually meet.
+19,Lateral Inversion,Easy,"Left-right reversal, Plane mirror, Image, Reflection, Orientation",Optics,Plane mirrors interchange left and right.
+20,Plane Mirror Distance,Easy,"Object distance = image distance, Perpendicular to mirror, Same distance, Plane mirror, Geometry",Formula,Object and image are equally distant from a plane mirror.
+21,Plane Mirror Magnification,Easy,"m = 1, Same image size, Upright, Plane mirror, Image",Formula,A plane mirror produces unit magnification.
+22,Multiple Reflection,Medium,"Two mirrors, Repeated images, Angle between mirrors, Reflection, Images",Optics,Two mirrors can produce several images.
+23,Periscope,Easy,"Two plane mirrors, 45° mirrors, Changes viewing direction, Reflection, Instrument",Equipment,A simple periscope uses two plane mirrors.
+24,Curved Mirror,Easy,"Spherical mirror, Concave, Convex, Reflection, Optics",Equipment,Curved mirrors alter ray directions by reflection.
+25,Concave Mirror,Easy,"Converging mirror, Inner surface, Real or virtual images, Focus, Spherical",Equipment,A concave mirror converges parallel rays.
+26,Convex Mirror,Easy,"Diverging mirror, Outer surface, Virtual diminished image, Wide field, Spherical",Equipment,A convex mirror spreads reflected rays.
+27,Pole of Mirror,Easy,"Centre of reflecting surface, P, Principal axis, Mirror, Geometry",Structure,The pole is the centre of a spherical mirror surface.
+28,Principal Axis,Easy,"Line through pole and centre of curvature, Mirror, Optical axis, C and P, Geometry",Structure,The principal axis is the main reference line.
+29,Centre of Curvature,Easy,"C, Centre of parent sphere, Radius of curvature, Mirror, Geometry",Structure,The centre of curvature is the centre of the parent sphere.
+30,Radius of Curvature,Easy,"R, Distance PC, Mirror geometry, 2f, Spherical",Measurement,"For a spherical mirror, R is approximately 2f."
+31,Principal Focus,Easy,"F, Parallel rays converge or appear to diverge, Principal axis, Mirror, Focus",Optics,The principal focus is linked to parallel incident rays.
+32,Focal Length,Easy,"f, Distance PF, Mirror, Metre, Focus",Measurement,Focal length is the distance from pole to focus.
+33,R = 2f,Medium,"Radius of curvature, Focal length, Spherical mirror, Paraxial rays, Formula",Formula,"For small-aperture spherical mirrors, R ? 2f."
+34,Mirror Formula,Medium,"1/f = 1/u + 1/v, Object distance, Image distance, Focal length, Mirror",Formula,"The mirror formula relates object, image and focal distances."
+35,Mirror Magnification,Medium,"m = v/u, Image height/object height, Mirror, Image, Ratio",Formula,Magnification compares image and object size.
+36,Concave Mirror Beyond C,Medium,"Real, Inverted, Diminished, Between C and F, Image",Optics,An object beyond C forms a diminished real image.
+37,Concave Mirror at C,Medium,"Real, Inverted, Same size, At C, Image",Optics,An object at C forms an equal-size image at C.
+38,Concave Mirror Between C and F,Medium,"Real, Inverted, Magnified, Beyond C, Image",Optics,An object between C and F forms a magnified real image.
+39,Concave Mirror at F,Medium,"Reflected rays parallel, Image at infinity, No finite screen image, Focus, Ray",Optics,"At F, reflected rays emerge parallel."
+40,Concave Mirror Inside F,Medium,"Virtual, Upright, Magnified, Behind mirror, Image",Optics,"Inside F, a concave mirror acts as a magnifier."
+41,Convex Mirror Image,Easy,"Virtual, Upright, Diminished, Behind mirror, Wide field",Optics,A convex mirror always gives a virtual diminished upright image.
+42,Convex Driving Mirror,Easy,"Wide field of view, Diminished image, Upright, Vehicle, Safety",Safety,Convex mirrors give drivers a wider field of view.
+43,Ray Through C,Easy,"Returns along same path, Normal incidence, Concave mirror, Ray rule, Reflection",Optics,A ray through C strikes the mirror normally.
+44,Ray Parallel to Axis,Easy,"Reflects through F, Concave mirror, Ray rule, Focus, Optics",Optics,Parallel rays reflect through the focus of a concave mirror.
+45,Ray Through F,Easy,"Reflects parallel to axis, Concave mirror, Ray rule, Focus, Optics",Optics,A ray through F reflects parallel to the principal axis.
+46,Ray Diagram,Easy,"Principal rays, Object, Image, Mirror, Geometry",Graph,Ray diagrams locate mirror images.
+47,Reflection Question Strategy,Easy,"Draw normal, Measure from normal, Use i = r, Use mirror ray rules, Check image type",Process,Always measure optical angles from the normal.

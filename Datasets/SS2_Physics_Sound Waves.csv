@@ -1,0 +1,53 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Sound,Easy,"Mechanical wave, Needs medium, Produced by vibration, Longitudinal in air, Energy",Sound,Sound is a mechanical disturbance produced by vibration.
+2,Sound Source,Easy,"Vibrating object, Tuning fork, String, Vocal cord, Speaker",Sound,Sound begins with a vibrating source.
+3,Sound in Air,Easy,"Longitudinal wave, Compressions, Rarefactions, Air particles vibrate, Medium",Sound,Air carries sound through pressure variations.
+4,Compression,Easy,"High pressure, Particles close, Longitudinal wave, Sound, Air",Sound,Compression is a crowded region in a sound wave.
+5,Rarefaction,Easy,"Low pressure, Particles spread, Longitudinal wave, Sound, Air",Sound,Rarefaction is a low-density region.
+6,Sound Needs Medium,Easy,"Cannot travel in vacuum, Particles required, Mechanical wave, Air, Solid or liquid",Sound,Sound requires matter for propagation.
+7,Speed of Sound,Easy,"Depends on medium, Fastest in solids, Slower in liquids, Slowest in gases, Temperature effect",Measurement,Sound speed depends on the medium.
+8,Speed of Sound in Air,Medium,"About 340 m s?¹, Room temperature, Air, Sound, Speed",Measurement,Sound travels through room-temperature air at roughly 340 m s?¹.
+9,Temperature Effect on Sound,Medium,"Warmer air, Faster sound, Gas particles, Sound, Temperature",Sound,Sound travels faster in warmer air.
+10,Frequency of Sound,Easy,"Hz, Vibration rate, Pitch, Source, Sound",Measurement,Sound frequency is set by the source.
+11,Pitch,Easy,"Frequency perception, High frequency high pitch, Low frequency low pitch, Sound, Hearing",Sound,Pitch mainly depends on frequency.
+12,Loudness,Easy,"Amplitude, Intensity, Energy, Sound, Hearing",Sound,Loudness generally increases with sound amplitude and intensity.
+13,Amplitude of Sound,Easy,"Maximum disturbance, Loudness relation, Pressure variation, Sound, Wave",Measurement,Greater amplitude generally means louder sound.
+14,Sound Intensity,Medium,"Power per area, W m?², Energy flow, Loudness relation, Sound",Measurement,Intensity measures sound power crossing unit area.
+15,Audible Range,Easy,"20 Hz to 20 kHz approximately, Human hearing, Frequency, Sound, Range",Measurement,Normal young human hearing is roughly 20 Hz to 20 kHz.
+16,Infrasound,Easy,"Below 20 Hz, Low frequency, Not normally heard, Sound, Frequency",Sound,Infrasound lies below normal human hearing.
+17,Ultrasound,Easy,"Above 20 kHz, High frequency, Not normally heard, Sound, Applications",Sound,Ultrasound is above normal human hearing.
+18,Ultrasound Uses,Easy,"Medical imaging, Cleaning, SONAR, Distance measurement, Testing",Industry,Ultrasound has many practical uses.
+19,Echo,Easy,"Reflected sound, Delay, Distant surface, Sound, Reflection",Sound,An echo is a reflected sound heard separately.
+20,Echo Distance,Medium,"d = vt/2, Round trip, Sound speed, Time delay, Distance",Formula,The factor 2 accounts for travel out and back.
+21,Reverberation,Easy,"Multiple reflections, Sound persists, Hall, Acoustics, Echo overlap",Sound,Reverberation is persistence of sound due to repeated reflection.
+22,Reducing Reverberation,Easy,"Curtains, Carpets, Acoustic panels, Soft materials, Absorption",Sound,Sound-absorbing materials reduce reverberation.
+23,Acoustics,Easy,"Study of sound, Room design, Reflection, Absorption, Hearing",Sound,"Acoustics deals with production, transmission and control of sound."
+24,Musical Sound,Easy,"Regular vibration, Definite pitch, Harmonics, Tone, Sound",Sound,Musical sounds usually arise from periodic vibrations.
+25,Noise,Easy,"Irregular vibration, Unwanted sound, Broad frequencies, Pollution, Sound",Environment,Noise is unwanted or unpleasant sound.
+26,Tuning Fork,Easy,"Pure tone, Known frequency, Vibrating prongs, Sound experiment, Resonance",Equipment,A tuning fork produces a nearly single-frequency tone.
+27,Vibrating String,Easy,"Fixed ends, Standing waves, Frequency, Musical instrument, Sound",Sound,Strings produce sound through standing-wave vibration.
+28,String Frequency Factors,Medium,"Length, Tension, Mass per unit length, Vibration, Sound",Sound,"String frequency depends on length, tension and linear density."
+29,Shorter String,Easy,"Higher frequency, Higher pitch, Same tension, String, Sound",Sound,Shortening a string raises its frequency.
+30,Greater Tension,Easy,"Higher frequency, Higher pitch, String, Vibration, Sound",Sound,Increasing string tension raises frequency.
+31,Heavier String,Easy,"Lower frequency, Lower pitch, Greater linear density, String, Sound",Sound,A heavier string vibrates more slowly.
+32,Air Column,Easy,"Standing sound waves, Pipe, Resonance, Open or closed, Instrument",Sound,Air columns support standing-wave resonances.
+33,Open Pipe,Medium,"Open both ends, Antinodes at ends, Harmonics, Air column, Sound",Sound,An open pipe supports a harmonic series.
+34,Closed Pipe,Medium,"One end closed, Node at closed end, Antinode at open end, Odd harmonics, Air column",Sound,A closed pipe has a node at the closed end.
+35,Resonance Tube,Medium,"Water column, Tuning fork, Air-column resonance, Measure wavelength, Experiment",Experiment,A resonance tube can determine sound wavelength and speed.
+36,Fundamental Frequency,Easy,"Lowest natural frequency, First harmonic, Standing wave, Sound, Resonance",Sound,The fundamental is the lowest resonant frequency.
+37,Harmonics,Easy,"Integer multiples, Overtones, Standing waves, Musical tone, Frequency",Sound,Harmonics are related resonant frequencies.
+38,Overtone,Medium,"Above fundamental, Musical sound, Harmonic relation, Tone quality, Sound",Sound,Overtones shape the character of musical sounds.
+39,Quality or Timbre,Easy,"Distinguishes instruments, Harmonic content, Same pitch different sound, Waveform, Music",Sound,Timbre depends strongly on harmonic composition.
+40,Beats,Medium,"Two close frequencies, Periodic loud-soft variation, Interference, Sound, Beat frequency",Sound,Beats arise from interference of nearby frequencies.
+41,Beat Frequency,Medium,"|f? ? f?|, Loudness variation rate, Two sounds, Interference, Frequency",Formula,Beat frequency equals the difference between close frequencies.
+42,Sound Reflection,Easy,"Echo, Hard surface, Boundary, Sound, Reflection",Sound,Sound can reflect from surfaces.
+43,Sound Absorption,Easy,"Soft porous materials, Energy converted to heat, Reduced reflection, Acoustics, Sound",Sound,Sound absorption reduces reflected energy.
+44,SONAR,Easy,"Sound navigation and ranging, Echo timing, Ultrasound, Underwater, Distance",Equipment,SONAR uses reflected sound to detect underwater objects.
+45,SONAR Distance,Medium,"d = vt/2, Echo time, Sound speed in water, Range, Measurement",Formula,SONAR distance uses round-trip travel time.
+46,Stethoscope,Easy,"Body sounds, Sound transmission, Medical instrument, Tube, Hearing",Equipment,A stethoscope channels body sounds to the listener.
+47,String Instruments,Easy,"Guitar, Violin, Piano, Vibrating strings, Sound",Sound,String instruments generate sound from stretched strings.
+48,Wind Instruments,Easy,"Flute, Trumpet, Pipe organ, Air columns, Resonance",Sound,Wind instruments use resonating air columns.
+49,Percussion Instruments,Easy,"Drum, Membrane, Vibration, Sound, Instrument",Sound,Percussion instruments use struck vibrating surfaces.
+50,Sound Pollution,Easy,"Excessive noise, Hearing damage, Stress, Environment, Sound",Environment,Persistent high noise levels can be harmful.
+51,Hearing Protection,Easy,"Ear defenders, Reduce intensity, Industrial noise, Safety, Sound",Safety,Hearing protection reduces sound energy reaching the ear.
+52,Sound Question Strategy,Easy,"Use v=f?, Echo uses vt/2, Identify medium, Check frequency, Units",Process,Keep ordinary wave and echo relationships separate.

@@ -1,0 +1,45 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Wave,Easy,"Transfers energy, Disturbance, No net matter transfer, Oscillation, Propagation",Wave,A wave transfers energy through a disturbance.
+2,Wave Motion,Easy,"Disturbance travels, Particles oscillate, Energy transfer, Medium or vacuum, Wave",Wave,Wave motion carries energy from place to place.
+3,Transverse Wave,Easy,"Vibration perpendicular to travel, Crests, Troughs, Light, Water surface",Wave,"In a transverse wave, oscillations are perpendicular to propagation."
+4,Longitudinal Wave,Easy,"Vibration parallel to travel, Compressions, Rarefactions, Sound, Wave",Wave,"In a longitudinal wave, oscillations are parallel to propagation."
+5,Mechanical Wave,Easy,"Needs medium, Sound, Water wave, Elastic medium, Energy",Wave,Mechanical waves require matter to propagate.
+6,Electromagnetic Wave,Easy,"No medium needed, Vacuum, Light, Radio, Wave",Wave,Electromagnetic waves can travel through vacuum.
+7,Amplitude,Easy,"Maximum displacement, A, Equilibrium, Energy relation, Wave",Measurement,Amplitude is the maximum displacement from equilibrium.
+8,Wavelength,Easy,"?, Crest to crest, Same-phase separation, Metre, Wave",Measurement,Wavelength is the spatial period of a wave.
+9,Frequency,Easy,"f, Cycles per second, Hertz, Source vibration, Wave",Measurement,Frequency is the number of complete waves per second.
+10,Period,Easy,"T, Time for one cycle, Second, T = 1/f, Wave",Measurement,Period is the time for one oscillation.
+11,Wave Speed,Easy,"v, m s?¹, Propagation speed, Distance/time, Wave",Measurement,Wave speed is the speed of the disturbance.
+12,Wave Equation,Easy,"v = f?, Wave speed, Frequency, Wavelength, Formula",Formula,Wave speed equals frequency times wavelength.
+13,Phase,Medium,"Stage in cycle, Angle, Same phase, Out of phase, Wave",Measurement,Phase identifies position within a wave cycle.
+14,Crest,Easy,"Highest point, Transverse wave, Positive displacement, Wave profile, Amplitude",Wave,A crest is the highest point of a transverse wave.
+15,Trough,Easy,"Lowest point, Transverse wave, Negative displacement, Wave profile, Amplitude",Wave,A trough is the lowest point of a transverse wave.
+16,Compression,Easy,"Particles close, High pressure region, Longitudinal wave, Sound, Wave",Wave,A compression is a crowded region in a longitudinal wave.
+17,Rarefaction,Easy,"Particles spread, Low pressure region, Longitudinal wave, Sound, Wave",Wave,A rarefaction is a low-density region.
+18,Wavefront,Medium,"Points in same phase, Crest line, Propagation geometry, Plane wave, Wave",Structure,A wavefront joins points vibrating in the same phase.
+19,Ray,Easy,"Direction of wave travel, Perpendicular to wavefront, Arrow, Propagation, Geometry",Structure,A ray indicates wave propagation direction.
+20,Plane Wave,Medium,"Parallel wavefronts, Straight rays, Distant source, Ripple tank, Wave",Wave,Plane waves have straight parallel wavefronts.
+21,Circular Wave,Medium,"Circular wavefronts, Point source, Radial rays, Ripple tank, Wave",Wave,A point source produces circular wavefronts.
+22,Reflection of Waves,Easy,"Bounce back, Boundary, Same medium, Direction changes, Wave",Wave,Reflection occurs when a wave returns from a boundary.
+23,Refraction of Waves,Easy,"Speed changes, Direction changes, Different medium, Wavelength changes, Wave",Wave,Refraction occurs when wave speed changes across a boundary.
+24,Diffraction,Easy,"Spreading, Gap, Obstacle edge, Comparable wavelength, Wave",Wave,Diffraction is wave spreading around obstacles or through gaps.
+25,Interference,Medium,"Superposition, Waves overlap, Constructive, Destructive, Wave",Wave,Interference results when waves overlap.
+26,Superposition Principle,Medium,"Displacements add, Overlapping waves, Resultant, Interference, Wave",Structure,The resultant displacement is the algebraic sum.
+27,Constructive Interference,Easy,"In phase, Larger amplitude, Crest + crest, Reinforcement, Wave",Wave,Constructive interference increases amplitude.
+28,Destructive Interference,Easy,"Out of phase, Reduced amplitude, Crest + trough, Cancellation, Wave",Wave,Destructive interference reduces amplitude.
+29,Standing Wave,Medium,"Nodes, Antinodes, Opposite travelling waves, Same frequency, Stationary pattern",Wave,Standing waves form from interference of opposite waves.
+30,Node,Easy,"Zero amplitude, Standing wave, Destructive interference, Fixed point, Wave",Wave,A node has zero oscillation amplitude.
+31,Antinode,Easy,"Maximum amplitude, Standing wave, Constructive interference, Between nodes, Wave",Wave,An antinode has maximum amplitude.
+32,Polarisation,Medium,"Transverse waves only, Restricts vibration direction, Light, Wave property, Filter",Wave,Polarisation is evidence of transverse wave motion.
+33,Wave Energy and Amplitude,Medium,"Greater amplitude, More energy, Intensity, Wave, Energy",Energy,Larger-amplitude waves generally carry more energy.
+34,Wave Frequency Set by Source,Easy,"Source vibration, Frequency unchanged at boundary, Wave, Oscillator, Propagation",Wave,Wave frequency is determined by its source.
+35,Wave Speed Set by Medium,Easy,"Medium property, Changes at boundary, Wave, Propagation, Speed",Wave,Wave speed depends on the medium.
+36,Refraction Frequency,Easy,"Frequency unchanged, Source controlled, Boundary crossing, Wave, Refraction",Wave,Frequency remains unchanged during refraction.
+37,Refraction Wavelength,Easy,"Changes with speed, v = f?, Boundary crossing, Wave, Refraction",Wave,Wavelength changes if speed changes.
+38,Ripple Tank,Easy,"Water waves, Wavefronts, Reflection, Refraction, Diffraction",Equipment,A ripple tank demonstrates wave behaviours.
+39,Measuring Wavelength,Easy,"Several crests, Divide total distance, Ruler, Wave, Measurement",Measurement,Measuring several wavelengths reduces percentage error.
+40,Measuring Frequency,Easy,"Count cycles, Divide by time, Hertz, Wave, Measurement",Measurement,Frequency equals number of cycles divided by time.
+41,Wave Speed Experiment,Medium,"Measure f, Measure ?, Use v = f?, Ripple tank, Experiment",Experiment,Wave speed follows from frequency and wavelength.
+42,Displacement-Distance Graph,Medium,"Wavelength, Amplitude, Snapshot, Wave profile, Graph",Graph,A displacement-distance graph shows wave shape at one instant.
+43,Displacement-Time Graph,Medium,"Period, Amplitude, One point, Oscillation, Graph",Graph,A displacement-time graph shows one point oscillating.
+44,Wave Question Strategy,Easy,"Identify wave type, Find f, ? or v, Use v=f?, Check medium, Units",Process,Keep wavelength in metres and frequency in hertz.

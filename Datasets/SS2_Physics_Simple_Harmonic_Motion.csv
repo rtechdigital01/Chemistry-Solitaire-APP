@@ -1,0 +1,43 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Simple Harmonic Motion,Easy,"Oscillation, Restoring force, Proportional to displacement, Opposite direction, equilibrium",Motion,SHM occurs when restoring acceleration is proportional to and opposite displacement.
+2,Oscillation,Easy,"Repeated to-and-fro motion, Equilibrium position, Periodic motion, Vibration, cycle",Motion,An oscillation is one complete to-and-fro motion.
+3,Equilibrium Position,Easy,"Mean position, Zero displacement, Resultant force zero, SHM, centre",Motion,The equilibrium position is the centre of oscillation.
+4,Displacement in SHM,Easy,"Distance from equilibrium with direction, x, Positive or negative, Oscillation, position",Measurement,SHM displacement is measured from the equilibrium position.
+5,Amplitude,Easy,"Maximum displacement, A, From equilibrium, Oscillation, metre",Measurement,Amplitude is the greatest displacement from equilibrium.
+6,Period,Easy,"Time for one oscillation, T, second, Periodic motion, SHM",Measurement,Period is the time for one complete cycle.
+7,Frequency,Easy,"Oscillations per second, f, hertz, Periodic motion, SHM",Measurement,Frequency is the number of oscillations per second.
+8,Period-Frequency Relation,Easy,"f = 1/T, T = 1/f, hertz, second, oscillation",Formula,Frequency and period are reciprocals.
+9,Angular Frequency,Medium,"? = 2?f, ? = 2?/T, rad s?¹, SHM, frequency",Formula,Angular frequency expresses oscillation rate in radians per second.
+10,SHM Acceleration,Medium,"a = ??²x, Toward equilibrium, Proportional to displacement, maximum at extremes, zero at centre",Formula,SHM acceleration is opposite to displacement.
+11,Restoring Force,Medium,"F = ?kx, Toward equilibrium, Opposes displacement, Spring, SHM",Force,A restoring force drives the system back toward equilibrium.
+12,Hooke's Law Oscillator,Medium,"F = ?kx, Spring constant, Mass-spring system, SHM, elastic force",Force,A Hookean spring provides the restoring force for SHM.
+13,Mass-Spring Period,Medium,"T = 2??(m/k), Mass, Spring constant, Oscillation, SHM",Formula,A heavier mass increases spring period; a stiffer spring decreases it.
+14,Simple Pendulum,Easy,"Bob, Light string, Small angle, Oscillation, Gravity",Equipment,A simple pendulum approximates SHM for small angular displacements.
+15,Pendulum Period,Medium,"T = 2??(l/g), Length, Gravity, Small angle, pendulum",Formula,The period of a simple pendulum depends on length and gravity.
+16,Pendulum Length Effect,Easy,"Longer pendulum, Longer period, Lower frequency, T ? ?l, pendulum",Motion,Increasing pendulum length increases the period.
+17,Pendulum Mass Effect,Easy,"No effect on period, Ideal pendulum, Same length, Same g, mass",Motion,Pendulum period is independent of bob mass in the ideal model.
+18,Pendulum Gravity Effect,Medium,"Higher g, Shorter period, T ? 1/?g, Pendulum, planet",Motion,A pendulum oscillates faster where gravity is stronger.
+19,Velocity in SHM,Medium,"Maximum at centre, Zero at extremes, Changes continuously, Oscillation, motion",Motion,SHM speed is greatest at equilibrium and zero at turning points.
+20,Acceleration in SHM,Easy,"Zero at centre, Maximum at extremes, Toward centre, Oscillation, motion",Motion,Acceleration is greatest at maximum displacement.
+21,Kinetic Energy in SHM,Medium,"Maximum at centre, Zero at extremes, ½mv², Oscillation, energy",Energy,Kinetic energy is greatest where speed is greatest.
+22,Potential Energy in SHM,Medium,"Maximum at extremes, Minimum at centre, Elastic or gravitational, Oscillation, energy",Energy,Potential energy is greatest at maximum displacement.
+23,Total Energy in SHM,Medium,"Constant if undamped, Kinetic + potential, Energy exchange, Oscillation, conservation",Energy,Ideal SHM conserves total mechanical energy.
+24,Spring SHM Total Energy,Hard,"½kA², Amplitude, Spring constant, Energy, SHM",Formula,The total energy of a spring oscillator depends on amplitude squared.
+25,Phase,Medium,"Position in cycle, Angle, Radians, Oscillation, timing",Measurement,Phase tells where an oscillator is within its cycle.
+26,Phase Difference,Medium,"Difference in phase, Radians or degrees, Oscillations, Timing, waves",Measurement,Phase difference compares the stages of two oscillations.
+27,SHM Displacement Equation,Hard,"x = A sin?t, x = A cos?t, Amplitude, Angular frequency, phase choice",Formula,Sinusoidal functions describe ideal SHM displacement.
+28,Maximum SHM Speed,Medium,"vmax = ?A, At equilibrium, Amplitude, Angular frequency, speed",Formula,Maximum speed equals angular frequency times amplitude.
+29,Maximum SHM Acceleration,Medium,"amax = ?²A, At extremes, Amplitude, Angular frequency, acceleration",Formula,Maximum acceleration occurs at maximum displacement.
+30,SHM Graph x-t,Medium,"Sine curve, Amplitude, Period, Displacement, time",Graph,Displacement varies sinusoidally with time.
+31,SHM Graph v-t,Medium,"Sinusoidal, Quarter-cycle phase shift, Maximum at x=0, Velocity, time",Graph,Velocity oscillates sinusoidally and is phase-shifted from displacement.
+32,SHM Graph a-t,Medium,"Opposite phase to displacement, Sinusoidal, a = ??²x, Acceleration, time",Graph,Acceleration is 180° out of phase with displacement.
+33,SHM and Circular Motion,Hard,"Projection of uniform circular motion, Angular frequency, Sine wave, Radius = amplitude, model",Structure,SHM can be modelled as the projection of uniform circular motion.
+34,Damping,Easy,"Amplitude decreases, Energy lost, Friction, Resistance, oscillation",Motion,Damping reduces oscillation amplitude over time.
+35,Resonance,Medium,"Driving frequency = natural frequency, Large amplitude, Forced oscillation, Energy transfer, vibration",Motion,Resonance occurs when a system is driven at its natural frequency.
+36,Natural Frequency,Easy,"Free oscillation frequency, System property, Mass and stiffness, Pendulum length, resonance",Measurement,Natural frequency is the frequency of free oscillation.
+37,Forced Oscillation,Easy,"External periodic force, Driving frequency, Vibration, Resonance possible, oscillation",Motion,A periodic external force can drive an oscillator.
+38,SHM Examples,Easy,"Pendulum small angle, Mass on spring, Tuning fork, Vibrating ruler, oscillation",Motion,Several systems approximate simple harmonic motion.
+39,Timing Many Oscillations,Easy,"Measure 10 or 20 cycles, Divide total time, Reduce timing error, Pendulum, period",Experiment,Timing many cycles improves the period measurement.
+40,Pendulum Experiment,Medium,"Measure length, Time oscillations, Calculate T, Plot T² against l, Find g",Experiment,Pendulum measurements can be used to estimate gravitational acceleration.
+41,Spring Experiment,Medium,"Attach masses, Measure period, Plot T² against m, Find k, oscillation",Experiment,Mass-spring oscillations can be used to determine spring stiffness.
+42,SHM Condition,Medium,"a ? ?x, Restoring acceleration, Equilibrium, Oscillation, criterion",Process,The defining SHM condition is acceleration proportional to negative displacement.

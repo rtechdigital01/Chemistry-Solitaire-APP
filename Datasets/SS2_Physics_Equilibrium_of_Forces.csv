@@ -1,0 +1,44 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Equilibrium,Easy,"Resultant force zero, No acceleration, Rest or constant velocity, Balanced forces, body",Force,A body is in translational equilibrium when the resultant force is zero.
+2,Static Equilibrium,Easy,"Body at rest, Balanced forces, Balanced moments, No acceleration, equilibrium",Force,Static equilibrium means the body remains at rest.
+3,Dynamic Equilibrium,Medium,"Constant velocity, Resultant force zero, No acceleration, Moving body, equilibrium",Force,A moving body can be in equilibrium if its velocity is constant.
+4,First Condition of Equilibrium,Medium,"?F = 0, Horizontal forces balance, Vertical forces balance, No translation, equilibrium",Formula,The vector sum of all forces must be zero.
+5,Second Condition of Equilibrium,Medium,"?M = 0, Clockwise moments, Anticlockwise moments, No rotation, equilibrium",Formula,The net moment about any point must be zero.
+6,Moment of Force,Easy,"Turning effect, Force × perpendicular distance, N m, Pivot, rotation",Force,A moment measures the turning effect of a force.
+7,Moment Formula,Easy,"M = Fd, Force, Perpendicular distance, N m, pivot",Formula,Moment equals force times perpendicular distance from the pivot.
+8,Clockwise Moment,Easy,"Turns clockwise, Pivot, Force, Distance, moment",Force,A clockwise moment tends to rotate a body clockwise.
+9,Anticlockwise Moment,Easy,"Turns anticlockwise, Pivot, Force, Distance, moment",Force,An anticlockwise moment tends to rotate a body anticlockwise.
+10,Principle of Moments,Medium,"Clockwise moments = anticlockwise moments, Equilibrium, Pivot, Turning effects, balance",Force,"For rotational equilibrium, total clockwise and anticlockwise moments are equal."
+11,Couple,Medium,"Two equal opposite forces, Parallel forces, Separated lines of action, Pure rotation, moment",Force,A couple produces rotation without a resultant force.
+12,Moment of a Couple,Medium,"Force × separation, N m, Parallel opposite forces, rotation, couple",Formula,The moment of a couple equals one force times the perpendicular separation.
+13,Centre of Gravity,Easy,"Point where weight acts, Balance point, Body, Gravity, stability",Structure,The centre of gravity is the effective point of action of weight.
+14,Centre of Mass,Easy,"Mass distribution point, Balance, Body, Uniform gravity, structure",Structure,The centre of mass represents the mean position of mass.
+15,Finding Centre of Gravity,Medium,"Plumb line, Suspend lamina, Intersect vertical lines, Irregular lamina, experiment",Experiment,The centre of gravity of an irregular lamina can be located using plumb lines.
+16,Stable Equilibrium,Easy,"Returns after small displacement, C.G. rises when displaced, Low C.G., Wide base, stability",Force,A stable body tends to return to its original position.
+17,Unstable Equilibrium,Easy,"Moves farther away, C.G. lowers when displaced, Topples, Narrow base, stability",Force,An unstable body moves away from its original position after displacement.
+18,Neutral Equilibrium,Easy,"New position maintained, C.G. same height, Sphere on level surface, stability, equilibrium",Force,"In neutral equilibrium, displacement does not raise or lower the centre of gravity."
+19,Stability,Easy,"Wide base, Low centre of gravity, Vertical through C.G., Toppling, body",Structure,Stability improves with a wider base and lower centre of gravity.
+20,Toppling Condition,Medium,"Line of action of weight outside base, Moment causes rotation, Unstable, Centre of gravity, body",Force,A body topples when the weight line falls outside its base.
+21,Parallel Forces,Easy,"Same or opposite directions, Separate lines of action, Resultant, Moments, forces",Force,Parallel forces act along parallel lines.
+22,Like Parallel Forces,Easy,"Same direction, Resultant is sum, Acts between forces, Parallel, forces",Force,Like parallel forces combine by addition.
+23,Unlike Parallel Forces,Medium,"Opposite directions, Resultant is difference, Line of action, Parallel, forces",Force,Unlike parallel forces combine by subtraction.
+24,Resultant of Like Parallel Forces,Medium,"R = F? + F?, Same direction, Moment balance locates line, parallel forces, resultant",Formula,Like parallel forces produce a resultant equal to their sum.
+25,Resultant of Unlike Parallel Forces,Medium,"R = |F??F?|, Direction of larger force, Parallel forces, resultant, moment",Formula,Unlike parallel forces produce a resultant equal to their difference.
+26,Force Triangle,Medium,"Three concurrent forces, Closed triangle, Equilibrium, Vector addition, forces",Structure,Three forces in equilibrium can be represented by a closed triangle.
+27,Lami's Theorem,Hard,"F?/sin? = F?/sin? = F?/sin?, Three concurrent forces, Equilibrium, Angles opposite forces, formula",Formula,Lami's theorem applies to three concurrent nonparallel forces in equilibrium.
+28,Concurrent Forces,Easy,"Lines of action meet, Common point, Forces, Resultant, equilibrium",Force,Concurrent forces act through one point.
+29,Non-concurrent Forces,Easy,"Different lines of action, Moments important, Rigid body, Forces, equilibrium",Force,Non-concurrent forces can produce rotation.
+30,Free-Body Diagram,Easy,"Isolate object, Show all forces, Arrows, Labels, mechanics",Graph,A free-body diagram displays forces acting on one body.
+31,Tension,Easy,"Pulling force, String, Rope, Along string, force",Force,Tension acts along a stretched string or rope.
+32,Normal Reaction,Easy,"Perpendicular contact force, Surface, Support, Contact, force",Force,Normal reaction acts perpendicular to a supporting surface.
+33,Weight,Easy,"W = mg, Downward, Gravity, newton, force",Force,Weight is the gravitational force on a body.
+34,Inclined Plane Equilibrium,Medium,"Weight components, Normal reaction, Friction or tension, Slope, equilibrium",Force,Forces on an inclined plane are often resolved parallel and perpendicular to the slope.
+35,Weight Along Slope,Medium,"mg sin?, Down slope, Inclined plane, component, gravity",Formula,The component of weight parallel to an incline is mg sin?.
+36,Weight Normal to Slope,Medium,"mg cos?, Into plane, Inclined plane, component, gravity",Formula,The component of weight perpendicular to an incline is mg cos?.
+37,Friction in Equilibrium,Medium,"Opposes impending motion, Contact force, Along surface, Variable up to limit, balance",Force,Static friction adjusts to help maintain equilibrium.
+38,Floatation Equilibrium,Easy,"Upthrust = weight, Floating body, No vertical acceleration, Fluid, balance",Fluid,A floating body is in vertical force equilibrium.
+39,Suspended Body,Easy,"Tension upward, Weight downward, Equilibrium, String, forces",Force,"For a stationary suspended body, tension balances weight."
+40,Beam Equilibrium,Medium,"Support reactions, Loads, Moments, ?F = 0, ?M = 0",Force,A beam in equilibrium satisfies both force and moment conditions.
+41,Uniform Beam,Medium,"Weight acts at midpoint, Centre of gravity, Support, Moments, equilibrium",Structure,"For a uniform beam, its weight acts at the geometric centre."
+42,Lever Balance,Easy,"Effort moment, Load moment, Pivot, Principle of moments, equilibrium",Machine,A balanced lever obeys the principle of moments.
+43,Equilibrium Question Strategy,Easy,"Draw FBD, Resolve forces, Choose pivot, Apply ?F=0, Apply ?M=0",Process,A clear force diagram usually makes equilibrium problems easier.

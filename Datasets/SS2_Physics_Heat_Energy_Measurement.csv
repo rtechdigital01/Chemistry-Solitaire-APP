@@ -1,0 +1,43 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Heat Energy,Easy,"Transferred thermal energy, Joule, Temperature change, Heating, Cooling",Energy,Heat energy transferred can change temperature or state.
+2,Specific Heat Capacity,Easy,"Energy for 1 kg by 1 K, c, J kg?¹ K?¹, Material property, Heating",Measurement,Specific heat capacity is energy required per kilogram per degree rise.
+3,Heat Capacity,Easy,"Energy for body by 1 K, C, J K?¹, Mass × specific heat capacity, Body",Measurement,Heat capacity refers to an entire body.
+4,Q = mc?T,Easy,"Heat energy, Mass, Specific heat capacity, Temperature change, Joule",Formula,Sensible heat transfer equals mass × specific heat capacity × temperature change.
+5,Q = C?T,Medium,"Heat capacity, Temperature change, Energy, Body, Joule",Formula,Heat energy equals heat capacity times temperature change.
+6,Specific Heat Capacity Unit,Easy,"J kg?¹ K?¹, Energy, Mass, Temperature change, Unit",Measurement,Specific heat capacity uses joules per kilogram per kelvin.
+7,Water High Specific Heat,Easy,"Large energy needed, Cooling systems, Climate moderation, Water, Thermal",Energy,Water changes temperature relatively slowly.
+8,Calorimeter,Easy,"Insulated container, Heat measurement, Thermometer, Known mass, Experiment",Equipment,A calorimeter reduces unwanted heat exchange.
+9,Calorimetry,Easy,"Heat transfer, Energy balance, Temperature change, Mass, Specific heat",Experiment,Calorimetry uses energy conservation to determine thermal quantities.
+10,Method of Mixtures,Medium,"Hot body + cold body, Heat lost = heat gained, Final temperature, Calorimeter, Thermal equilibrium",Experiment,Mixing experiments use conservation of energy.
+11,Heat Lost = Heat Gained,Medium,"Isolated system, Calorimetry, Energy conservation, Hot object, Cold object",Energy,Ideal calorimetry balances energy lost and gained.
+12,Specific Heat by Electrical Method,Medium,"Heater, VIt, Mass, Temperature rise, Insulation",Experiment,Electrical energy can be used to determine specific heat capacity.
+13,Electrical Heating Energy,Easy,"E = VIt, Power × time, Heater, Joule, Electricity",Formula,Electrical energy supplied equals voltage × current × time.
+14,Heat Loss Error,Easy,"Surroundings, Calorimeter, Conduction, Convection, Radiation",Experiment,Unwanted heat loss reduces thermal measurement accuracy.
+15,Reducing Heat Loss,Easy,"Insulation, Lid, Polished surface, Quick readings, Calorimeter",Process,Insulation and careful procedure improve calorimetry.
+16,Specific Latent Heat,Easy,"Energy per kg, State change, No temperature change, J kg?¹, Latent heat",Measurement,Specific latent heat is energy needed per kilogram for a state change.
+17,Latent Heat of Fusion,Easy,"Solid-liquid, Melting, Freezing, L_f, No temperature change",Energy,Latent heat of fusion applies to solid-liquid changes.
+18,Latent Heat of Vaporisation,Easy,"Liquid-gas, Boiling, Condensation, L_v, No temperature change",Energy,Latent heat of vaporisation applies to liquid-gas changes.
+19,Q = mL,Easy,"Latent heat, Mass, Specific latent heat, State change, Joule",Formula,Energy for a phase change equals mass times specific latent heat.
+20,Melting,Easy,"Solid to liquid, Absorbs latent heat, Constant temperature, Fusion, State change",Energy,Melting absorbs energy without a temperature rise at the melting point.
+21,Freezing,Easy,"Liquid to solid, Releases latent heat, Constant temperature, Fusion, State change",Energy,Freezing releases latent heat.
+22,Boiling,Easy,"Liquid to gas, Throughout liquid, Boiling point, Latent heat, Vaporisation",Energy,Boiling changes liquid to vapour throughout the liquid.
+23,Evaporation,Easy,"Surface only, Below boiling point, Cooling, Fast molecules escape, Liquid",Energy,Evaporation occurs at the liquid surface.
+24,Evaporation Cooling,Medium,"High-energy molecules escape, Average kinetic energy drops, Cooling, Surface process, Liquid",Energy,Evaporation lowers the average kinetic energy of remaining molecules.
+25,Factors Affecting Evaporation,Medium,"Temperature, Surface area, Wind, Humidity, Liquid nature",Energy,Evaporation rate depends on environmental conditions.
+26,Vapour Pressure,Medium,"Pressure of vapour, Closed container, Temperature dependent, Dynamic equilibrium, Vapour",Fluid,Vapour pressure is exerted by vapour in equilibrium with its liquid.
+27,Saturated Vapour,Medium,"Evaporation = condensation, Dynamic equilibrium, Maximum vapour at temperature, Closed space, Vapour",Particle,A saturated vapour is in dynamic equilibrium with its liquid.
+28,Boiling Condition,Medium,"Vapour pressure = external pressure, Bubble formation, Boiling point, Liquid, Pressure",Fluid,A liquid boils when its vapour pressure equals external pressure.
+29,Pressure and Boiling Point,Medium,"Lower pressure lowers boiling point, Higher pressure raises boiling point, Altitude, Pressure cooker, Liquid",Energy,Boiling point changes with external pressure.
+30,Pressure Cooker,Easy,"Higher pressure, Higher boiling temperature, Faster cooking, Steam, Application",Equipment,A pressure cooker raises the boiling temperature.
+31,High Altitude Boiling,Easy,"Lower atmospheric pressure, Lower boiling point, Slower cooking, Mountain, Water",Environment,Water boils below 100°C at high altitude.
+32,Cooling Curve,Medium,"Temperature vs time, Plateau at phase change, Cooling, State change, Graph",Graph,A cooling curve shows temperature as heat is removed.
+33,Heating Curve,Medium,"Temperature vs time, Plateaus at melting and boiling, Heating, State change, Graph",Graph,Heating curves show sensible and latent heat regions.
+34,Phase-Change Plateau,Easy,"Temperature constant, Energy changes state, Melting, Boiling, Graph",Graph,"During a pure substance phase change, temperature stays constant."
+35,Specific Latent Heat Unit,Easy,"J kg?¹, Energy per mass, Phase change, Latent heat, Unit",Measurement,Specific latent heat is measured in joules per kilogram.
+36,Mechanical Equivalent of Heat,Medium,"Work to heat, Energy equivalence, Joule, Mechanical energy, Thermal",Energy,Mechanical work can be transformed into thermal energy.
+37,Latent Heat of Fusion of Ice,Medium,"Ice at 0°C, Melting, Energy balance, Mass melted, L_f",Experiment,Melting ice can be used to determine latent heat of fusion.
+38,Latent Heat of Vaporisation of Water,Medium,"Boiling water, Steam, Energy supplied, Mass vaporised, L_v",Experiment,Boiling experiments can estimate latent heat of vaporisation.
+39,Cooling by Sweating,Easy,"Evaporation, Latent heat, Skin cooling, Water, Body",Energy,Sweat cools because evaporation requires energy.
+40,Refrigeration Principle,Medium,"Evaporation absorbs heat, Condensation releases heat, Refrigerant, Cooling cycle, Latent heat",Machine,Refrigerators use repeated phase changes.
+41,Thermal Energy Conservation,Easy,"Energy not destroyed, Heat transfer, Calorimetry, System, Conservation",Energy,Thermal calculations rely on conservation of energy.
+42,Heat Question Strategy,Easy,"Use mc?T for temperature change, Use mL for state change, Use VIt for electrical input, Check mass units, Energy",Process,Choose the heat equation from the physical process.

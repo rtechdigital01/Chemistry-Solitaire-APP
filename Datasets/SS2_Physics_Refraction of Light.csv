@@ -1,0 +1,54 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Refraction,Easy,"Change in direction, Change in speed, Boundary, Different optical medium, Light",Optics,Refraction occurs when light changes speed at a boundary.
+2,Optical Medium,Easy,"Transparent material, Air, Water, Glass, Light propagation",Optics,An optical medium allows light to travel through it.
+3,Incident Ray,Easy,"Approaches boundary, Refraction, Normal, Light, Ray",Optics,The incident ray travels toward the interface.
+4,Refracted Ray,Easy,"Transmitted into second medium, Changes direction, Refraction, Light, Ray",Optics,The refracted ray travels in the second medium.
+5,Normal at Boundary,Easy,"Perpendicular to surface, Angle reference, Point of incidence, Refraction, 90°",Structure,Refraction angles are measured from the normal.
+6,Angle of Incidence,Easy,"Incident ray to normal, i, Boundary, Degrees, Refraction",Measurement,Incidence angle is measured from the normal.
+7,Angle of Refraction,Easy,"Refracted ray to normal, r, Boundary, Degrees, Refraction",Measurement,Refraction angle is measured from the normal.
+8,Toward the Normal,Easy,"Entering denser medium, Light slows, r < i, Refraction, Glass",Optics,Light bends toward the normal when it slows down.
+9,Away from the Normal,Easy,"Entering rarer medium, Light speeds up, r > i, Refraction, Air",Optics,Light bends away from the normal when it speeds up.
+10,Normal Incidence,Easy,"i = 0°, Straight through, Speed changes, Direction unchanged, Refraction",Optics,A ray along the normal changes speed but not direction.
+11,Refractive Index,Easy,"n, Optical density, Speed ratio, Snell's law, No unit",Measurement,Refractive index measures how strongly a medium slows light.
+12,Absolute Refractive Index,Medium,"n = c/v, Speed in vacuum, Speed in medium, Optics, Index",Formula,Absolute refractive index is vacuum speed divided by medium speed.
+13,Snell's Law,Medium,"n? sin i = n? sin r, Refraction, Angles, Media, Light",Formula,Snell's law relates angles and refractive indices.
+14,Air-to-Medium Index,Easy,"n = sin i / sin r, Air approximation, Refraction, Angles, Index",Formula,"For air entering a medium, the sine ratio gives refractive index."
+15,Refractive Index Unit,Easy,"No unit, Ratio, Dimensionless, Optics, n",Measurement,Refractive index is dimensionless.
+16,Speed of Light in Medium,Medium,"v = c/n, Refractive index, Light speed, Medium, Optics",Formula,Light travels more slowly in media with larger refractive index.
+17,Rectangular Glass Block,Easy,"Parallel faces, Emergent ray parallel, Lateral displacement, Refraction, Glass",Equipment,A rectangular block shifts a ray sideways.
+18,Lateral Displacement,Medium,"Sideways shift, Parallel-sided block, Incident and emergent rays parallel, Glass, Refraction",Optics,A parallel-sided slab produces lateral displacement.
+19,Apparent Depth,Medium,"Object appears shallower, Water, Refraction, Real depth, Image",Optics,Refraction makes submerged objects appear closer to the surface.
+20,Real Depth,Easy,"Actual depth, Water, Apparent depth, Refraction, Measurement",Measurement,Real depth is the true geometrical depth.
+21,Apparent Depth Formula,Medium,"n = real depth / apparent depth, Near-normal viewing, Refraction, Water, Index",Formula,"For near-normal viewing, refractive index is real depth divided by apparent depth."
+22,Glass Slab Experiment,Medium,"Pins, Trace rays, Measure i and r, Refraction, Experiment",Experiment,Ray tracing through a glass block can verify refraction.
+23,Snell Graph,Medium,"sin i against sin r, Straight line, Gradient gives n, Refraction, Experiment",Graph,A sine graph can determine refractive index.
+24,Triangular Prism,Easy,"Two refracting faces, Deviation, Spectrum possible, Glass, Optics",Equipment,A prism refracts light at two nonparallel faces.
+25,Angle of Prism,Easy,"A, Angle between refracting faces, Prism, Degrees, Geometry",Measurement,The prism angle is between its two refracting surfaces.
+26,Angle of Deviation,Medium,"?, Original vs emergent direction, Prism, Refraction, Degrees",Measurement,Deviation measures how much a prism turns a ray.
+27,Minimum Deviation,Medium,"Symmetric path, i = e, r? = r?, Prism, Smallest ?",Optics,At minimum deviation the ray path is symmetric.
+28,Prism Index Formula,Hard,"n = sin((A+?m)/2) / sin(A/2), Minimum deviation, Prism angle, Refractive index, Formula",Formula,This relation gives prism refractive index at minimum deviation.
+29,Critical Angle,Medium,"Denser medium, Refracted ray at 90°, c, TIR threshold, Optics",Measurement,The critical angle gives a 90° refracted ray.
+30,Critical Angle Formula,Medium,"sin c = 1/n, Medium to air, Refractive index, TIR, Formula",Formula,"For a medium-air boundary, sin c is the reciprocal of refractive index."
+31,Total Internal Reflection,Easy,"Denser to rarer, i > critical angle, No refracted ray, Complete reflection, Light",Optics,Total internal reflection occurs above the critical angle.
+32,Conditions for TIR,Easy,"Denser to rarer, Angle above critical, Transparent boundary, Light, Reflection",Optics,Both direction and angle conditions are required for TIR.
+33,Optical Fibre,Easy,"Total internal reflection, Light guiding, Core, Cladding, Communication",Equipment,Optical fibres guide light by repeated internal reflection.
+34,Optical Fibre Uses,Easy,"Telecommunications, Medical endoscope, Data transmission, Lighting, TIR",Industry,Optical fibres carry light and information efficiently.
+35,Mirage,Medium,"Hot air layers, Refraction, TIR effect, Road appearance, Atmosphere",Environment,Temperature gradients in air can create mirages.
+36,Lens,Easy,"Transparent refracting device, Curved surfaces, Focus, Image, Optics",Equipment,A lens changes ray direction by refraction.
+37,Convex Lens,Easy,"Converging lens, Thicker centre, Parallel rays converge, Real focus, Lens",Equipment,A convex lens converges parallel rays.
+38,Concave Lens,Easy,"Diverging lens, Thinner centre, Parallel rays spread, Virtual focus, Lens",Equipment,A concave lens diverges parallel rays.
+39,Principal Axis of Lens,Easy,"Reference line, Optical centre, Focus, Lens, Geometry",Structure,The principal axis is the main reference line through a lens.
+40,Optical Centre,Easy,"O, Central point, Ray approximately undeviated, Lens, Geometry",Structure,A paraxial ray through the optical centre is taken as undeviated.
+41,Principal Focus of Lens,Easy,"F, Parallel rays, Converge or appear to diverge, Lens, Focus",Optics,The principal focus corresponds to parallel incident rays.
+42,Focal Length of Lens,Easy,"f, Distance O to F, Metre, Lens, Focus",Measurement,Lens focal length is measured from optical centre to principal focus.
+43,Lens Formula,Medium,"1/f = 1/u + 1/v, Thin lens, Object distance, Image distance, Formula",Formula,"The thin-lens formula relates object, image and focal distances."
+44,Lens Magnification,Medium,"m = v/u, Image height/object height, Lens, Image, Ratio",Formula,Lens magnification compares image and object dimensions.
+45,Convex Lens Beyond 2F,Medium,"Real, Inverted, Diminished, Between F and 2F, Image",Optics,An object beyond 2F forms a smaller real image.
+46,Convex Lens at 2F,Medium,"Real, Inverted, Same size, At 2F, Image",Optics,An object at 2F forms an equal-size real image.
+47,Convex Lens Between F and 2F,Medium,"Real, Inverted, Magnified, Beyond 2F, Image",Optics,This object position gives a magnified real image.
+48,Convex Lens at F,Medium,"Emergent rays parallel, Image at infinity, No finite screen image, Lens, Focus",Optics,"At the focal point, refracted rays emerge parallel."
+49,Convex Lens Inside F,Medium,"Virtual, Upright, Magnified, Same side as object, Magnifier",Optics,A convex lens inside its focal length acts as a magnifying glass.
+50,Concave Lens Image,Easy,"Virtual, Upright, Diminished, Same side as object, Lens",Optics,A concave lens always forms a virtual diminished upright image.
+51,Lens Power,Medium,"P = 1/f, Dioptre, f in metres, Convex positive, Concave negative",Formula,Lens power is the reciprocal of focal length in metres.
+52,Dioptre,Easy,"D, m?¹, Lens power unit, Optics, Lens",Measurement,One dioptre is one reciprocal metre.
+53,Refraction Question Strategy,Easy,"Draw normal, Use angles from normal, Choose Snell or lens formula, Check medium, Units",Process,Keep ray geometry and sign conventions consistent.

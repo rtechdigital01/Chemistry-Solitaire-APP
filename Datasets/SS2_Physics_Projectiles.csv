@@ -1,0 +1,44 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Projectile,Easy,"Object launched, Moves under gravity, Horizontal and vertical motion, Air resistance neglected, trajectory",Motion,A projectile moves mainly under gravity after launch.
+2,Projectile Motion,Easy,"Two-dimensional motion, Horizontal component, Vertical component, Gravity, trajectory",Motion,Projectile motion combines uniform horizontal motion with accelerated vertical motion.
+3,Trajectory,Easy,"Curved path, Parabola, Projectile, Position over time, motion",Graph,The path of an ideal projectile is parabolic.
+4,Horizontal Projection,Easy,"Initial vertical velocity zero, Horizontal speed, Gravity downward, Projectile, launch",Motion,A horizontally projected body starts with no vertical velocity.
+5,Oblique Projection,Medium,"Launch angle, Horizontal component, Vertical component, Projectile, trajectory",Motion,Oblique projection has both horizontal and vertical initial velocity components.
+6,Initial Velocity,Easy,"u, Launch speed, m s?¹, Projectile, motion",Measurement,Initial velocity is the launch velocity.
+7,Launch Angle,Easy,"?, Angle above horizontal, Projectile, Initial velocity, direction",Measurement,Launch angle controls the horizontal and vertical velocity components.
+8,Horizontal Initial Velocity,Medium,"u cos?, Constant if air resistance ignored, x-direction, Projectile, component",Formula,The initial horizontal component is u cos?.
+9,Vertical Initial Velocity,Medium,"u sin?, Changes under gravity, y-direction, Projectile, component",Formula,The initial vertical component is u sin?.
+10,Horizontal Acceleration,Easy,"0, Ideal projectile, No horizontal force, Constant horizontal velocity, motion",Motion,"Ignoring air resistance, horizontal acceleration is zero."
+11,Vertical Acceleration,Easy,"g downward, Approximately 9.8 or 10 m s?², Gravity, Projectile, motion",Motion,The vertical acceleration of a projectile is due to gravity.
+12,Time of Flight,Medium,"2u sin?/g, Total air time, Same launch and landing level, Projectile, time",Formula,"For equal launch and landing levels, total flight time is 2u sin?/g."
+13,Time to Maximum Height,Medium,"u sin?/g, Vertical velocity zero, Top of trajectory, Projectile, time",Formula,The vertical velocity becomes zero at maximum height.
+14,Maximum Height,Medium,"u²sin²?/2g, Vertical velocity zero, Highest point, Projectile, height",Formula,Maximum height depends on the square of the vertical launch component.
+15,Horizontal Range,Medium,"u²sin2?/g, Same level, Horizontal distance, Projectile, range",Formula,The range depends on launch speed and angle.
+16,Maximum Range Angle,Easy,"45°, Same level, Ideal projectile, sin2? = 1, maximum range",Motion,"For equal launch and landing levels, 45° gives the greatest range."
+17,Complementary Angles,Medium,"? and 90°??, Same range, Same speed, Ideal projectile, angles",Motion,Complementary launch angles give equal ranges on level ground.
+18,Projectile at Highest Point,Easy,"Vertical velocity zero, Horizontal velocity unchanged, Acceleration downward, Maximum height, motion",Motion,"At the top, vertical speed is zero but gravity still acts."
+19,Velocity at Highest Point,Medium,"u cos?, Horizontal only, Vertical component zero, Projectile, speed",Formula,"At maximum height, ideal projectile velocity is purely horizontal."
+20,Horizontal Displacement,Easy,"x = u cos? × t, constant horizontal velocity, Projectile, distance, time",Formula,Horizontal displacement equals horizontal speed multiplied by time.
+21,Vertical Displacement,Medium,"y = u sin? t ? ½gt², Projectile, Gravity, time, height",Formula,Vertical motion follows constant-acceleration equations.
+22,Projectile Equation,Hard,"y = x tan? ? gx²/(2u²cos²?), Trajectory equation, Parabola, Projectile, x-y relation",Formula,Eliminating time gives the equation of the projectile path.
+23,Range Depends on Speed,Easy,"R ? u², Same angle, Projectile, launch speed, distance",Motion,Increasing launch speed increases the range strongly.
+24,Range Depends on Gravity,Easy,"R ? 1/g, Lower g gives larger range, Projectile, planet, gravity",Motion,Range is greater where gravitational acceleration is smaller.
+25,Range Depends on Angle,Easy,"sin2?, 0° gives zero range, 45° maximum, 90° zero horizontal range, Projectile",Motion,Range varies with launch angle through sin2?.
+26,Projectile Symmetry,Medium,"Ascent mirrors descent, Same speed at equal heights, Same level, Ideal motion, trajectory",Motion,Ideal projectile motion is symmetric about the highest point.
+27,Time Up,Easy,"u sin?/g, Ascent time, Vertical motion, Projectile, gravity",Measurement,Time to rise to maximum height depends on vertical launch speed.
+28,Time Down,Easy,"Equals time up, Same launch and landing level, Projectile, gravity, symmetry",Motion,"For equal levels, descent time equals ascent time."
+29,Projectile Velocity Components,Medium,"v? = u cos?, v? = u sin? ? gt, Vector velocity, Projectile, components",Formula,Projectile velocity is obtained from horizontal and vertical components.
+30,Projectile Speed at Time t,Hard,"?(v?²+v?²), Resultant velocity, Components, Projectile, speed",Formula,Instantaneous speed is the magnitude of the velocity vector.
+31,Projectile Direction at Time t,Hard,"tan? = v?/v?, Velocity angle, Components, Projectile, direction",Formula,The velocity direction follows from the ratio of components.
+32,Dropped Object,Easy,"Initial velocity zero, Free fall, g downward, Vertical motion, projectile special case",Motion,A dropped object is a vertical projectile with zero initial speed.
+33,Vertically Thrown Up,Easy,"u upward, Slows under gravity, v = 0 at top, returns downward, projectile",Motion,Vertical projection is a special one-dimensional projectile.
+34,Projectile Graph x-t,Medium,"Straight line, Constant horizontal velocity, x proportional to t, Projectile, graph",Graph,Horizontal displacement increases uniformly with time.
+35,Projectile Graph v?-t,Medium,"Straight line slope ?g, Vertical velocity, Zero at top, Projectile, graph",Graph,Vertical velocity changes linearly with time.
+36,Projectile Graph y-t,Medium,"Parabolic curve, Height, Time, Gravity, Projectile",Graph,Vertical position varies quadratically with time.
+37,Practical Projectile Example,Easy,"Thrown ball, Football, Water jet, Bullet path, launched object",Motion,Many launched objects approximately follow projectile motion.
+38,Projectile Assumptions,Medium,"Ignore air resistance, Constant g, Flat Earth locally, Point mass, ideal model",Structure,Ideal projectile equations rely on simplifying assumptions.
+39,Air Resistance Effect,Medium,"Reduced range, Horizontal slowing, Asymmetry, Real projectile, drag",Motion,Air resistance makes real projectile motion differ from the ideal model.
+40,Projectile Question Strategy,Easy,"Resolve u, Treat x and y separately, Use same time, Apply g vertically, combine results",Process,The safest method is to split projectile motion into perpendicular components.
+41,Maximum Height Condition,Easy,"v? = 0, Acceleration not zero, Top of path, Projectile, condition",Motion,"At the highest point the vertical velocity is zero, not the acceleration."
+42,Range Condition,Medium,"Return to launch level, y = 0, Nonzero time root, Projectile, horizontal distance",Process,Range is found when the projectile returns to the launch level.
+43,Horizontal and Vertical Independence,Medium,"Same time, Separate equations, Gravity only vertical, Projectile, components",Structure,Horizontal and vertical motions are independent but share the same time.

@@ -1,0 +1,46 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Optical Instrument,Easy,"Uses lenses or mirrors, Forms image, Magnifies, Redirects light, Device",Equipment,Optical instruments manipulate light to form useful images.
+2,Simple Microscope,Easy,"Single convex lens, Object inside focal length, Virtual magnified image, Magnifier, Instrument",Equipment,A simple microscope is essentially a magnifying glass.
+3,Compound Microscope,Medium,"Objective lens, Eyepiece lens, High magnification, Small object, Instrument",Equipment,A compound microscope uses two converging lens systems.
+4,Microscope Objective,Easy,"Short focal length, Near specimen, Real enlarged intermediate image, Lens, Microscope",Equipment,The objective produces the first magnified image.
+5,Microscope Eyepiece,Easy,"Magnifies intermediate image, Acts as simple microscope, Near eye, Lens, Microscope",Equipment,The eyepiece magnifies the intermediate image.
+6,Microscope Magnification,Medium,"Objective magnification × eyepiece magnification, Image enlargement, Instrument, Lens, Microscope",Formula,Overall magnification is the product of stage magnifications.
+7,Telescope,Easy,"Distant objects, Objective, Eyepiece, Angular magnification, Instrument",Equipment,A telescope makes distant objects appear larger.
+8,Astronomical Telescope,Medium,"Long-focus objective, Short-focus eyepiece, Distant object, Inverted image, Instrument",Equipment,An astronomical telescope uses two lenses to view distant objects.
+9,Telescope Objective,Easy,"Large aperture, Long focal length, Collects light, Forms real image, Telescope",Equipment,The objective gathers light and forms the primary image.
+10,Telescope Eyepiece,Easy,"Short focal length, Magnifies image, Near eye, Telescope, Lens",Equipment,The eyepiece increases angular size.
+11,Telescope Magnifying Power,Hard,"M = f?/f?, Normal adjustment, Objective focal length, Eyepiece focal length, Telescope",Formula,"For normal adjustment, magnifying power is the focal-length ratio."
+12,Normal Adjustment Telescope,Medium,"Final image at infinity, Relaxed eye, Parallel emergent rays, Telescope, Focus",Optics,Normal adjustment places the final image at infinity.
+13,Camera,Easy,"Convex lens, Real image, Image sensor or film, Aperture, Instrument",Equipment,A camera forms a real image on a recording surface.
+14,Camera Image,Easy,"Real, Inverted, Usually diminished, Sensor or film, Lens",Optics,The camera lens forms a real inverted image.
+15,Camera Aperture,Easy,"Controls light amount, Diaphragm, Opening size, Camera, Brightness",Equipment,Aperture controls light reaching the sensor.
+16,Camera Shutter,Easy,"Controls exposure time, Opens and closes, Motion blur, Camera, Light",Equipment,The shutter controls how long light reaches the sensor.
+17,Camera Focusing,Easy,"Adjust lens-sensor distance, Sharp image, Object distance changes, Camera, Lens",Process,Focusing positions the image sharply on the sensor.
+18,Projector,Easy,"Real enlarged image, Convex lens, Screen, Bright object, Instrument",Equipment,A projector forms an enlarged real image on a screen.
+19,Slide Projector,Medium,"Object between F and 2F, Convex lens, Real magnified image, Screen, Projection",Equipment,A slide projector enlarges a slide image.
+20,Human Eye,Easy,"Cornea, Lens, Retina, Iris, Optic nerve",Biology,The eye is a natural optical instrument.
+21,Cornea,Easy,"Transparent front surface, Major refraction, Eye, Protection, Light",Biology,The cornea provides much of the eye's refraction.
+22,Eye Lens,Easy,"Convex flexible lens, Focuses light, Accommodation, Eye, Image",Biology,The eye lens adjusts to focus objects.
+23,Retina,Easy,"Light-sensitive layer, Real inverted image, Photoreceptors, Eye, Image",Biology,The retina detects the image formed by the eye.
+24,Iris,Easy,"Controls pupil size, Light level, Eye, Aperture, Muscle",Biology,The iris adjusts the amount of light entering the eye.
+25,Pupil,Easy,"Opening in iris, Light enters, Eye, Aperture, Vision",Biology,The pupil is the opening through which light enters.
+26,Accommodation,Medium,"Lens curvature changes, Near and far focus, Ciliary muscles, Eye, Vision",Biology,Accommodation changes lens power for different object distances.
+27,Near Point,Easy,"Closest clear vision, About 25 cm reference, Eye, Accommodation, Vision",Measurement,The near point is the closest clear viewing distance.
+28,Far Point,Easy,"Farthest clear vision, Infinity for normal eye, Eye, Vision, Focus",Measurement,The far point of a normal eye is effectively infinity.
+29,Myopia,Easy,"Short sight, Distant blur, Image before retina, Concave lens correction, Eye defect",Biology,Myopia is corrected with a diverging lens.
+30,Hypermetropia,Easy,"Long sight, Near blur, Image behind retina tendency, Convex lens correction, Eye defect",Biology,Hypermetropia is corrected with a converging lens.
+31,Presbyopia,Medium,"Age-related, Loss of accommodation, Near point recedes, Reading glasses, Eye",Biology,Presbyopia occurs as the eye lens loses flexibility.
+32,Astigmatism,Medium,"Unequal curvature, Blurred directions, Cylindrical lens, Eye, Vision",Biology,Astigmatism results from unequal optical curvature.
+33,Corrective Lens,Easy,"Convex or concave, Spectacles, Eye defect, Focusing, Lens",Equipment,Corrective lenses compensate for eye focusing errors.
+34,Binoculars,Easy,"Two telescopes, Distant viewing, Prisms, Upright image, Instrument",Equipment,Binoculars use paired optical systems.
+35,Prism in Binoculars,Medium,"Total internal reflection, Folds light path, Erects image, Compact design, Binoculars",Optics,Prisms shorten the instrument and correct orientation.
+36,Periscope,Easy,"Mirrors or prisms, See over obstacles, Reflection, Submarine, Instrument",Equipment,A periscope redirects light from a concealed viewpoint.
+37,Optical Fibre Endoscope,Medium,"Fibre bundle, TIR, Medical viewing, Flexible, Instrument",Equipment,Endoscopes can carry light and images through fibres.
+38,Magnifying Glass,Easy,"Convex lens, Object within focal length, Virtual upright enlarged image, Simple microscope, Instrument",Equipment,A magnifying glass increases angular size.
+39,Image Orientation,Easy,"Upright, Inverted, Real, Virtual, Instrument",Optics,Orientation helps identify the image type.
+40,Image Size,Easy,"Magnified, Diminished, Same size, Magnification, Instrument",Optics,Image size relative to object is described by magnification.
+41,Focusing Screen,Easy,"Real image only, Projector, Camera sensor, Image plane, Optics",Equipment,Only real images can be caught on a screen.
+42,Instrument Aperture,Medium,"Light collection, Brightness, Lens diameter, Resolution influence, Optics",Measurement,Larger apertures collect more light.
+43,Instrument Resolution,Hard,"Distinguish close details, Aperture, Wavelength, Microscope, Telescope",Measurement,Resolution describes ability to separate nearby details.
+44,Optical Safety,Easy,"Never view Sun through telescope, Bright light hazard, Eye protection, Instrument, Safety",Safety,Optical instruments can concentrate dangerous light.
+45,Optical Question Strategy,Easy,"Identify lens or mirror, Determine object position, State image type, Use formula, Draw rays",Process,Classify the optical element before predicting the image.
