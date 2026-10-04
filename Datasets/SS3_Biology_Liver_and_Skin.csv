@@ -1,0 +1,36 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Liver Location,Easy,"Upper abdomen, Right side, Below diaphragm",Structure,The liver lies mainly on the right side beneath the diaphragm.
+2,Liver Functions,Easy,"Detoxification, Deamination, Glycogen storage, Bile production, Heat production, Protein metabolism, Urea formation, Iron storage",Process,This organ performs many metabolic and regulatory functions.
+3,Detoxification,Easy,"Alcohol breakdown, Drug breakdown, Toxin removal, Toxic chemicals, Metabolic conversion, Liver enzymes",Process,The liver converts many harmful substances into less harmful forms.
+4,Glycogen Storage,Easy,"Stores glucose, Blood sugar reserve, Glycogen",Energy,The liver stores excess glucose in this polysaccharide form.
+5,Glycogenesis,Medium,"Glucose to glycogen, Insulin effect, Storage",Process,This converts glucose into glycogen for storage.
+6,Glycogenolysis,Medium,"Glycogen to glucose, Glucagon effect, Blood sugar rises",Process,This releases glucose from stored glycogen.
+7,Bile Production,Easy,"Liver, Fat emulsification, Alkaline fluid, Bile salts, Duodenum, Neutralises acid",Process,The liver produces this digestive fluid.
+8,Bile Storage,Easy,"Gall bladder, Stores bile, Releases to duodenum",Structure,This organ stores bile before release into the small intestine.
+9,Liver Disease,Medium,"Hepatitis, Cirrhosis, Jaundice",Organism,These conditions can impair liver function.
+10,Hepatitis,Easy,"Liver inflammation, Viral infection, Jaundice",Organism,This condition involves inflammation of the liver.
+11,Cirrhosis,Medium,"Liver scarring, Alcohol damage, Reduced function",Organism,Long-term liver damage can lead to this scarring condition.
+12,Jaundice,Easy,"Yellow skin, Bile pigments, Liver problem",Organism,This condition causes yellowing due to buildup of bile pigments.
+13,Skin Functions,Easy,"Protection, Temperature control, Excretion, Sensation, Waterproof barrier, UV protection, Vitamin D synthesis",Structure,The skin performs these major body functions.
+14,Skin Layers,Easy,"Epidermis, Dermis, Subcutaneous layer",Structure,These are the major layers of the skin.
+15,Epidermis,Easy,"Outer layer, Keratin, Melanin, No blood vessels, Cornified layer, Malpighian layer, Protective barrier",Structure,This is the protective outer skin layer.
+16,Dermis,Easy,"Blood vessels, Sweat glands, Hair follicles, Nerves, Sensory receptors, Sebaceous glands, Arrector muscles",Structure,This deeper layer contains many skin structures.
+17,Sweat Gland,Easy,"Produces sweat, Coiled gland, Thermoregulation",Structure,This gland produces sweat for cooling and excretion.
+18,Sweat Pore,Easy,"Surface opening, Sweat exits, Epidermis",Structure,Sweat leaves the skin through this opening.
+19,Sebaceous Gland,Medium,"Sebum, Oily secretion, Hair follicle",Structure,This gland secretes oil that lubricates skin and hair.
+20,Melanin,Easy,"Skin pigment, UV protection, Melanocytes",Matter,This pigment contributes to skin colour and protection from UV.
+21,Temperature Regulation,Easy,"Sweating, Vasodilation, Vasoconstriction, Shivering, Heat loss, Heat production, Hypothalamic control",Process,These responses help maintain a stable body temperature.
+22,Vasodilation,Medium,"Wider skin vessels, More heat loss, Hot conditions, Capillaries near surface, Skin reddens, Heat radiation",Process,Skin blood vessels widen to increase heat loss.
+23,Vasoconstriction,Medium,"Narrow skin vessels, Less heat loss, Cold conditions, Less skin blood flow, Heat conservation, Skin pales",Process,Skin blood vessels narrow to conserve heat.
+24,Sweating,Easy,"Evaporation, Cooling, Water loss, Sweat glands, Latent heat, Evaporative cooling",Process,Evaporation of sweat removes heat from the body.
+25,Shivering,Easy,"Muscle contractions, Heat production, Cold response",Energy,Rapid muscle contractions generate heat in cold conditions.
+26,Hair Erection,Medium,"Arrector pili, Traps air, Cold response",Process,"Hair muscles contract in cold conditions, raising hairs."
+27,Skin Receptors,Easy,"Touch, Pressure, Pain, Temperature",Structure,These sensory endings detect different stimuli.
+28,Skin Care,Easy,"Cleanliness, Avoid injury, Balanced diet, Sun protection",Organism,These practices help maintain healthy skin.
+29,Liver and Blood Glucose,Medium,"Glycogenesis, Glycogenolysis, Insulin, Glucagon, Glucose storage, Glucose release",Process,The liver stores or releases glucose in response to hormones.
+30,Bile Salts,Medium,"Emulsify fats, Increase surface area, Small fat droplets, Lipase action, Duodenum",Matter,These substances physically break large fat globules into smaller droplets.
+31,Malpighian Layer,Medium,"Living epidermal cells, Melanin, Cell division, Skin renewal, Epidermis",Structure,This living part of the epidermis produces new cells and contains pigment.
+32,Cornified Layer,Medium,"Dead cells, Keratin, Waterproof, Outer epidermis, Protective barrier",Structure,This outer layer reduces water loss and protects against damage.
+33,Arrector Pili Muscle,Medium,"Hair erection, Cold response, Hair follicle, Smooth muscle, Air trapping",Structure,This small muscle raises hairs during cold conditions.
+34,Sebum,Easy,"Oily secretion, Sebaceous gland, Lubricates skin, Lubricates hair, Reduces drying",Matter,This oily substance helps keep skin and hair flexible.
+35,Heat Loss from Skin,Medium,"Radiation, Convection, Evaporation, Vasodilation, Sweating",Energy,These processes allow body heat to leave through the skin.

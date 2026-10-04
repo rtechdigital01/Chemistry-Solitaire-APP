@@ -1,0 +1,33 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Hormones,Easy,"Chemical messengers, Blood transport, Target organs, Endocrine glands, Specific receptors, Chemical coordination, Slow response",Matter,These chemical messengers coordinate body activities.
+2,Endocrine Glands,Easy,"Ductless glands, Hormone secretion, Bloodstream, Pituitary, Thyroid, Adrenal, Pancreas, Gonads",Structure,These glands release hormones directly into the blood.
+3,Target Organ,Easy,"Hormone receptor, Specific response, Hormone action",Structure,This organ or tissue responds to a particular hormone.
+4,Pituitary Gland,Easy,"Master gland, Brain base, Growth hormone, Tropic hormones, FSH, LH, ADH release, Tropic control",Structure,This gland controls several other endocrine glands.
+5,Growth Hormone,Easy,"Body growth, Pituitary, Bone growth, Protein synthesis",Matter,This pituitary hormone promotes growth.
+6,Growth Hormone Excess,Medium,"Gigantism, Acromegaly, Excess growth",Organism,Too much growth hormone causes abnormal excessive growth.
+7,Growth Hormone Deficiency,Medium,"Dwarfism, Reduced growth, Pituitary problem",Organism,Too little growth hormone during childhood causes reduced growth.
+8,Thyroid Gland,Easy,"Neck gland, Thyroxine, Metabolic rate",Structure,This gland produces thyroxine.
+9,Thyroxine,Easy,"Metabolic rate, Thyroid, Growth, Development, Iodine required, Cell respiration, Basal metabolic rate",Matter,This hormone helps control metabolic rate.
+10,Iodine Deficiency,Medium,"Goitre, Low thyroxine, Enlarged thyroid",Organism,Insufficient iodine can cause thyroid enlargement.
+11,Pancreas,Easy,"Insulin, Glucagon, Blood glucose, Islets, Islets of Langerhans, Endocrine tissue, Glucose regulation",Structure,This gland helps regulate blood glucose.
+12,Insulin,Easy,"Lowers blood glucose, Glucose uptake, Glycogen formation, Cell glucose uptake, Glucose to glycogen, After a meal",Matter,This hormone reduces blood glucose concentration.
+13,Glucagon,Easy,"Raises blood glucose, Glycogen breakdown, Liver target, Glycogen to glucose, Fasting response, Blood sugar recovery",Matter,This hormone raises blood glucose concentration.
+14,Blood Glucose Control,Medium,"Insulin, Glucagon, Negative feedback, Pancreas",Process,These hormones maintain blood glucose within a narrow range.
+15,Diabetes Mellitus,Easy,"High blood glucose, Insulin problem, Glucose in urine",Organism,This disorder results from insufficient insulin action.
+16,Adrenal Gland,Easy,"Above kidneys, Adrenaline, Stress response",Structure,These glands release adrenaline.
+17,Adrenaline,Easy,"Fight or flight, Heart rate rises, Breathing rises, Blood glucose rises, Pupil dilation, Blood to muscles, Glycogen breakdown",Matter,This hormone prepares the body for emergency action.
+18,Ovary Hormones,Easy,"Oestrogen, Progesterone, Female cycle",Matter,These hormones are secreted mainly by the ovaries.
+19,Oestrogen,Easy,"Female secondary traits, Uterine lining, Menstrual cycle",Matter,This hormone promotes female secondary sexual characteristics.
+20,Progesterone,Easy,"Maintains uterine lining, Pregnancy support, Menstrual cycle",Matter,This hormone helps maintain the uterine lining.
+21,Testosterone,Easy,"Male secondary traits, Sperm production, Testes",Matter,This hormone promotes male secondary sexual characteristics.
+22,Testes,Easy,"Testosterone, Sperm production, Male gonad",Structure,These are the male reproductive glands.
+23,Hormone Over-Secretion,Medium,"Excess hormone, Abnormal response, Endocrine disorder",Organism,Too much hormone secretion can disturb body function.
+24,Hormone Under-Secretion,Medium,"Hormone deficiency, Reduced response, Endocrine disorder",Organism,Too little hormone secretion can disturb body function.
+25,Nervous vs Hormonal,Medium,"Fast vs slow, Electrical vs chemical, Short vs long lasting, Nerves vs blood, Precise vs widespread, Temporary vs prolonged",Process,These are key differences between nervous and hormonal coordination.
+26,Endocrine vs Exocrine,Medium,"Ductless vs ducted, Hormones vs secretions, Bloodstream vs duct, Endocrine gland, Exocrine gland",Process,These gland types differ in how they release their products.
+27,Feedback in Hormone Control,Medium,"Negative feedback, Hormone level detected, Secretion adjusted, Target response, Stable condition",Process,Hormone secretion is often adjusted according to its effects.
+28,FSH,Medium,"Pituitary hormone, Follicle development, Oestrogen secretion, Ovary, Menstrual cycle",Matter,This hormone stimulates ovarian follicle development.
+29,LH,Medium,"Pituitary hormone, Ovulation, Corpus luteum, Progesterone, Menstrual cycle",Matter,A surge of this hormone triggers ovulation.
+30,Menstrual Hormone Sequence,Hard,"FSH rises, Oestrogen rises, LH surge, Ovulation, Progesterone rises, Uterine lining maintained",Process,These hormonal events coordinate the menstrual cycle.
+31,Adrenal Medulla,Medium,"Adrenaline, Emergency response, Sympathetic stimulation, Above kidney, Fight or flight",Structure,This part of the adrenal gland releases adrenaline.
+32,Goitre,Medium,"Iodine deficiency, Enlarged thyroid, Low thyroxine, Neck swelling, Thyroid stimulation",Organism,This thyroid enlargement may result from insufficient dietary iodine.

@@ -1,0 +1,54 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Homeostasis,Easy,"Stable internal environment, Constant conditions, Body regulation, Feedback control, Internal balance, Dynamic equilibrium, Controlled variables",Process,This keeps internal conditions within safe limits despite external changes.
+2,Internal Environment,Easy,"Blood, Tissue fluid, Lymph, Body fluids",Matter,These fluids surround or transport substances to body cells.
+3,Homeostatic Variables,Medium,"Body temperature, Blood glucose, Water balance, Salt balance, Blood pH, Core temperature, Glucose concentration, Ion concentration",Measurement,These internal conditions must be regulated.
+4,Negative Feedback,Medium,"Detect change, Correct deviation, Restore normal, Control loop, Deviation detected, Response opposes change, Set point",Process,This mechanism reverses a change and returns a condition towards normal.
+5,Receptor,Easy,"Detects change, Stimulus detector, Sense change",Structure,This part detects a change in the internal or external environment.
+6,Coordinator,Easy,"Processes information, Control centre, Brain or gland",Structure,This part receives information and organises a response.
+7,Effector,Easy,"Muscle, Gland, Carries response, Corrective action",Structure,This organ carries out the response.
+8,Excretion,Easy,"Metabolic waste, Waste removal, Toxic products, Body waste, Carbon dioxide removal, Urea removal, Excretory products",Process,This removes waste substances produced by metabolism.
+9,Excretion vs Egestion,Medium,"Metabolic waste, Undigested food, Different processes",Process,Excretion removes metabolic wastes; egestion removes undigested food.
+10,Human Excretory Organs,Easy,"Kidneys, Lungs, Skin, Liver, Kidney removes urea, Lungs remove CO?, Skin removes sweat",Structure,These organs remove important metabolic wastes.
+11,Kidney Location,Easy,"Abdominal cavity, Either side spine, Back wall, Below ribs",Structure,The kidneys lie towards the back of the abdominal cavity.
+12,Kidney Regions,Medium,"Cortex, Medulla, Pelvis",Structure,These are the main regions visible in a section through the kidney.
+13,Renal Cortex,Easy,"Outer region, Bowman's capsules, Glomeruli",Structure,This is the outer kidney region containing many filtration structures.
+14,Renal Medulla,Easy,"Inner region, Loops of Henle, Collecting ducts",Structure,This inner kidney region contains many tubules and collecting ducts.
+15,Renal Pelvis,Easy,"Collects urine, Leads to ureter, Central cavity",Structure,Urine collects here before entering the ureter.
+16,Ureter,Easy,"Kidney to bladder, Carries urine, Muscular tube",Structure,This tube carries urine from a kidney to the bladder.
+17,Urinary Bladder,Easy,"Stores urine, Muscular sac, Temporary storage",Structure,This organ temporarily stores urine.
+18,Urethra,Easy,"Urine exits, Bladder outlet, Urinary passage",Structure,Urine leaves the body through this tube.
+19,Renal Artery,Easy,"To kidney, Oxygenated blood, Contains urea",Structure,This vessel brings blood containing wastes to the kidney.
+20,Renal Vein,Easy,"From kidney, Filtered blood, Less urea",Structure,This vessel carries filtered blood away from the kidney.
+21,Nephron,Easy,"Kidney unit, Urine formation, Microscopic tubule, Bowman's capsule, Glomerulus, Renal tubule, Collecting duct",Structure,This is the functional unit of the kidney.
+22,Bowman's Capsule,Medium,"Cup-shaped, Surrounds glomerulus, Collects filtrate",Structure,This cup receives fluid filtered from the glomerulus.
+23,Glomerulus,Medium,"Capillary knot, High pressure, Ultrafiltration",Structure,This network of capillaries carries out high-pressure filtration.
+24,Ultrafiltration,Medium,"Small molecules filtered, High pressure, Glomerulus, Filtrate forms, Blood pressure, Proteins retained, Blood cells retained",Process,This forces water and small solutes from blood into Bowman's capsule.
+25,Glomerular Filtrate,Medium,"Water, Glucose, Salts, Urea",Matter,This fluid contains small substances filtered from blood.
+26,Selective Reabsorption,Medium,"Useful substances, Back to blood, Glucose reabsorbed, Tubules, Glucose to blood, Amino acids to blood, Useful ions",Process,Useful substances are returned from the nephron to the blood.
+27,Proximal Tubule,Medium,"Glucose reabsorption, Amino acids, Salts, Water",Structure,Much selective reabsorption occurs in this nephron region.
+28,Loop of Henle,Medium,"Water balance, Salt gradient, Medulla, Urine concentration",Structure,This nephron loop helps concentrate urine.
+29,Distal Tubule,Medium,"Ion balance, pH control, Selective secretion",Structure,This tubule helps fine-tune salt and acid-base balance.
+30,Collecting Duct,Medium,"Collects urine, Water reabsorption, ADH target",Structure,Final urine passes through this duct; water reabsorption varies here.
+31,Urine Contents,Easy,"Water, Urea, Mineral salts, Pigments",Matter,These are normal major components of urine.
+32,Urea Formation,Medium,"Excess amino acids, Deamination, Liver, Nitrogen waste",Process,Urea is formed after removal of amino groups from excess amino acids.
+33,Deamination,Medium,"Amino group removed, Liver, Ammonia formed, Urea produced",Process,This process removes amino groups from excess amino acids.
+34,Osmoregulation,Medium,"Water balance, Salt balance, Kidneys, ADH, Blood water level, Urine concentration, Hypothalamus",Process,This controls water and dissolved salt concentrations in body fluids.
+35,ADH,Medium,"Antidiuretic hormone, Water reabsorption, Collecting ducts, Less urine, Pituitary release, Collecting duct permeability, Water conservation",Matter,This hormone increases water reabsorption by the kidneys.
+36,High ADH Effect,Medium,"More water reabsorbed, Concentrated urine, Low urine volume",Process,This occurs when the body needs to conserve water.
+37,Low ADH Effect,Medium,"Less water reabsorbed, Dilute urine, High urine volume",Process,This occurs when the body has excess water.
+38,Kidney Failure,Medium,"Waste accumulation, Poor filtration, Uraemia, Fluid imbalance",Organism,This occurs when kidneys cannot adequately filter blood.
+39,Dialysis,Medium,"Artificial kidney, Diffusion, Waste removal, Blood cleaning, Dialysis membrane, Dialysis fluid, Urea diffusion, Artificial filtration",Process,This treatment removes wastes from blood when kidneys fail.
+40,Dialysis Fluid,Medium,"No urea, Normal glucose, Normal salts, Concentration gradient",Matter,Its composition allows wastes to leave blood without losing useful solutes.
+41,Kidney Transplant,Medium,"Donor kidney, Surgery, Rejection risk, Immunosuppressants",Process,This treatment replaces a failed kidney with a functioning donor organ.
+42,Kidney Stones,Medium,"Mineral crystals, Urinary tract, Severe pain, Blockage",Organism,These hard deposits may form in the kidney or urinary tract.
+43,Skin Excretion,Easy,"Sweat, Water, Salts, Small urea",Process,The skin removes small amounts of waste in sweat.
+44,Lung Excretion,Easy,"Carbon dioxide, Water vapour, Exhalation",Process,The lungs remove these metabolic products during breathing.
+45,Plant Excretion,Medium,"Oxygen, Carbon dioxide, Water vapour, Gums, Resins, Leaf fall, Stomata, Lenticels",Process,Plants remove or store waste products in several ways.
+46,Set Point,Medium,"Normal value, Reference level, Controlled condition, Feedback target, Stable range",Measurement,A regulated condition is maintained around this reference value.
+47,Dehydration Response,Medium,"Low blood water, More ADH, More water reabsorbed, Concentrated urine, Thirst",Process,The body conserves water when blood water content falls.
+48,Excess Water Response,Medium,"High blood water, Less ADH, Less water reabsorbed, Dilute urine, More urine",Process,The kidneys remove excess water when blood water content rises.
+49,Kidney Blood Filtration,Medium,"Renal artery, Glomerulus, High pressure, Filtrate, Blood cells retained, Plasma proteins retained",Process,Blood is filtered at the glomerulus while large components stay in the blood.
+50,Tubular Reabsorption,Medium,"Glucose, Amino acids, Water, Mineral ions, Capillaries, Renal tubule",Process,Useful materials move from the nephron back into the blood.
+51,Urine Concentration,Medium,"Loop of Henle, Collecting duct, ADH, Water gradient, Medulla, Water reabsorption",Process,These factors determine how concentrated the final urine becomes.
+52,Uraemia,Medium,"Urea accumulation, Kidney failure, Toxic blood, Dialysis, Renal failure",Organism,This condition results from accumulation of nitrogenous waste in the blood.
+53,Dialysis Membrane,Medium,"Partially permeable, Small solutes pass, Blood cells retained, Proteins retained, Diffusion",Structure,This membrane separates blood from dialysis fluid.

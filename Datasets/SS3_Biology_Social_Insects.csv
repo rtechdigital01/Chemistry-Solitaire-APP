@@ -1,0 +1,37 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Social Insects,Easy,"Termites, Bees, Ants, Colonies, Wasps, Caste system",Organism,These insects live cooperatively in organised communities.
+2,Colony,Easy,"Organised group, Same species, Cooperative living, Queen, Workers, Reproductives, Social bond",Organism,This is the organised community of social insects.
+3,Social Insect Features,Easy,"Division of labour, Castes, Communication, Cooperation, Specialisation, Co-operation, Shared nest, Reproductive division",Organism,These characteristics are typical of social insects.
+4,Caste,Easy,"Specialised group, Division of labour, Different roles, Structural specialisation, Physiological specialisation, Behavioural role",Organism,This is a specialised group within a social insect colony.
+5,Termite Castes,Easy,"Queen, King, Workers, Soldiers, Winged reproductives, Reproductives, Alates, Nymphs",Organism,These are the main groups in a termite colony.
+6,Termite Queen,Easy,"Egg laying, Large abdomen, Reproduction",Organism,This termite caste is the main egg producer.
+7,Termite King,Easy,"Mates queen, Reproductive male, Colony reproduction",Organism,This male remains with the queen for reproduction.
+8,Termite Workers,Easy,"Feed colony, Build nest, Care young, Forage, Nest repair, Food sharing, Grooming, Care of queen",Organism,These termites perform most maintenance work.
+9,Termite Soldiers,Easy,"Defence, Large jaws, Protect colony, Colony defence, Specialised jaws, Non-reproductive",Organism,These termites defend the colony.
+10,Winged Termites,Easy,"Alates, Reproductive, Dispersal flight, New colonies",Organism,These winged forms leave to start new colonies.
+11,Termite Nest,Medium,"Mound, Ventilation, Chambers, Nursery",Structure,This organised structure houses the termite colony.
+12,Termite Communication,Medium,"Pheromones, Touch, Chemical signals",Process,Termites coordinate colony activities using these signals.
+13,Bee Castes,Easy,"Queen, Workers, Drones, One queen, Hundreds of drones, Thousands of workers",Organism,These are the main castes in a honeybee colony.
+14,Queen Bee,Easy,"Egg laying, Single fertile female, Pheromones, Fertilised eggs, Nuptial flight, Queen substance, Sperm storage",Organism,This is the principal reproductive female.
+15,Worker Bee,Easy,"Sterile female, Foraging, Nursing, Hive work, Wax secretion, Food collection, Brood care, Guarding",Organism,These females perform most colony tasks.
+16,Drone Bee,Easy,"Male bee, Mates queen, No sting, Unfertilised egg, Male, Nuptial flight, Mating",Organism,This male caste mainly functions in reproduction.
+17,Division of Labour,Easy,"Specialised tasks, Different castes, Efficiency, Reproductive caste, Foraging caste, Defence caste, Brood care",Organism,Different colony members perform different jobs.
+18,Bee Communication,Medium,"Waggle dance, Pheromones, Food direction, Round dance, Colony scent, Touch",Process,Bees use movement and chemical signals to communicate.
+19,Waggle Dance,Medium,"Food direction, Food distance, Worker bee, Food more than about 90 m away, Direction to Sun, Distance encoded, Food source",Process,This dance communicates the location of food.
+20,Pheromones,Easy,"Chemical signals, Colony communication, Recognition, Queen substance, Caste regulation, Colony recognition",Matter,These chemicals communicate information within social insect colonies.
+21,Advantages of Social Life,Medium,"Defence, Food gathering, Brood care, Nest building",Organism,Cooperation provides these benefits.
+22,Insect Society,Easy,"Caste system, Division of labour, Colony, Communication, Cooperation",Organism,Social insects live in highly organised communities.
+23,Honeybee Colony,Easy,"One queen, Drones, Workers, Hive, Caste system",Organism,These members make up a typical honeybee colony.
+24,Bee Complete Metamorphosis,Easy,"Egg, Larva, Pupa, Adult, Complete life cycle",Process,Honeybees pass through these four developmental stages.
+25,Royal Jelly,Easy,"Queen larva food, Nutrient rich, Queen development, Worker feeding, Bee larva",Matter,Larvae fed this special food can develop as queens.
+26,Queen Substance,Hard,"Queen pheromone, Suppresses worker ovaries, Colony regulation, Social bond, Caste control",Matter,This chemical signal helps maintain the queen's reproductive dominance.
+27,Swarming,Medium,"Old queen leaves, Workers follow, New colony, Overcrowded hive, Queen cells",Process,This process establishes a new bee colony.
+28,Nuptial Flight,Medium,"Queen bee, Drones, Mating, Sperm storage, Reproduction",Process,The young queen mates during this flight.
+29,Round Dance,Medium,"Nearby food, Worker bee, No direction given, Food source, Bee communication",Process,This dance signals a nearby food source.
+30,Colony Scent,Medium,"Recognition, Grooming, Licking, Intruder detection, Social bond",Matter,A shared odour helps colony members recognise one another.
+31,Termite Incomplete Metamorphosis,Easy,"Egg, Nymph, Adult caste, No pupa, Caste differentiation",Process,Termites develop through nymphal stages without a pupa.
+32,Termite Caste Regulation,Hard,"Queen chemicals, Caste chemicals, Colony need, Nymph development, Worker shortage",Process,Chemical signals help determine which caste termite nymphs become.
+33,Food Sharing in Termites,Medium,"Mouth-to-mouth, Anal feeding, Colony bond, Nutrient transfer, Social behaviour",Process,Termites exchange food directly among colony members.
+34,Social Communication,Medium,"Touch, Smell, Dance, Pheromones, Sound",Process,Social animals use these signals to coordinate group activity.
+35,Advantages of Group Living,Easy,"Predator protection, Cooperative hunting, Food finding, Mate finding, Learning, Reduced aggression",Organism,These benefits can increase survival of animals living in groups.
+36,Self-Sacrifice,Hard,"Lookout behaviour, Group survival, Kin survival, Cooperation, Social adaptation",Organism,An individual may accept risk that improves survival of relatives or the group.

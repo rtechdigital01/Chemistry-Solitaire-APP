@@ -1,0 +1,79 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Sense Organs,Easy,"Eye, Ear, Nose, Tongue, Skin, Sensory receptors, Stimulus detection, Nerve impulses",Structure,These organs detect different environmental stimuli.
+2,Eye Function,Easy,"Vision, Light detection, Image formation, Photoreceptors, Optic nerve, Visual information",Structure,This sense organ detects light.
+3,Cornea,Easy,"Transparent front, Refracts light, Eye surface, Transparent, Main refraction, Protective surface",Structure,This transparent curved surface bends incoming light.
+4,Iris,Easy,"Controls pupil, Pigmented ring, Light regulation, Circular muscle, Radial muscle, Pupil reflex",Structure,This coloured structure controls pupil size.
+5,Pupil,Easy,"Light opening, Iris centre, Light entry, Dilates in dim light, Constricts in bright light, Eye aperture",Structure,Light enters the eye through this opening.
+6,Lens,Easy,"Focuses light, Changes shape, Retina image, Biconvex, Flexible, Accommodation, Fine focusing",Structure,This transparent structure focuses light on the retina.
+7,Ciliary Muscles,Medium,"Change lens shape, Accommodation, Near focus, Far focus, Relax for distance, Contract for near vision, Ciliary body",Structure,These muscles adjust lens curvature.
+8,Suspensory Ligaments,Medium,"Hold lens, Change tension, Accommodation, Taut for distance, Slack for near vision, Lens support",Structure,These fibres transmit tension to the lens.
+9,Retina,Easy,"Photoreceptors, Rods, Cones, Image forms, Light-sensitive layer, Fovea, Blind spot, Bipolar cells",Structure,This light-sensitive layer detects the image.
+10,Rods,Easy,"Dim light, Black and white, Low light vision, Rhodopsin, Night vision, High sensitivity",Structure,These photoreceptors work well in dim light.
+11,Cones,Easy,"Colour vision, Bright light, Sharp vision, Red-sensitive, Green-sensitive, Blue-violet-sensitive, Fovea",Structure,These photoreceptors detect colour.
+12,Optic Nerve,Easy,"Retina to brain, Visual impulses, Sensory nerve, Sensory fibres, Leaves at blind spot, Visual pathway",Structure,This nerve carries impulses from the eye to the brain.
+13,Blind Spot,Medium,"No photoreceptors, Optic nerve exit, No image detection, Optic disc, No rods, No cones",Structure,This retinal region lacks rods and cones.
+14,Yellow Spot,Medium,"Sharpest vision, Many cones, Retina, Fovea centralis, Maximum cone density, Sharp vision",Structure,This retinal region provides the clearest colour vision.
+15,Accommodation,Medium,"Lens changes shape, Near focus, Far focus, Ciliary muscles, Focal length change, Lens curvature, Ciliary action",Process,This adjusts the eye to focus objects at different distances.
+16,Near Vision,Medium,"Lens thicker, Ciliary muscles contract, Ligaments slack",Process,These changes help focus on a nearby object.
+17,Distant Vision,Medium,"Lens thinner, Ciliary muscles relax, Ligaments tighten",Process,These changes help focus on a distant object.
+18,Short-Sightedness,Medium,"Myopia, Distant blur, Concave lens, Image before retina, Long eyeball, Myopia correction",Organism,This defect makes distant objects difficult to see clearly.
+19,Long-Sightedness,Medium,"Hypermetropia, Near blur, Convex lens, Image behind retina, Short eyeball, Hypermetropia correction",Organism,This defect makes nearby objects difficult to see clearly.
+20,Cataract,Easy,"Cloudy lens, Reduced vision, Lens opacity",Organism,This condition causes the eye lens to become cloudy.
+21,Ear Functions,Easy,"Hearing, Balance, Sound detection, Mechanoreceptors, Auditory nerve, Equilibrium",Structure,The ear detects sound and helps maintain balance.
+22,Pinna,Easy,"Collects sound, Outer ear, Directs sound, Cartilage, Sound collection, External ear",Structure,This outer part collects sound waves.
+23,Auditory Canal,Easy,"Carries sound, Outer ear passage, To eardrum",Structure,This canal directs sound to the eardrum.
+24,Eardrum,Easy,"Vibrates, Sound waves, Tympanic membrane, Outer-middle ear boundary, Transfers vibration",Structure,Sound waves make this membrane vibrate.
+25,Ear Ossicles,Medium,"Malleus, Incus, Stapes, Amplify vibrations, Hammer, Anvil, Stirrup, Amplification",Structure,These tiny bones transmit and amplify vibrations.
+26,Cochlea,Easy,"Hearing receptor, Hair cells, Inner ear, Organ of Corti, Basilar membrane, Endolymph",Structure,This coiled organ converts vibrations into nerve impulses.
+27,Auditory Nerve,Easy,"Ear to brain, Sound impulses, Sensory nerve",Structure,This nerve carries hearing impulses to the brain.
+28,Semicircular Canals,Medium,"Balance, Head movement, Inner ear, Ampulla, Cupula, Rotational movement, Vestibular nerve",Structure,These canals detect rotational movements of the head.
+29,Eustachian Tube,Medium,"Equalises pressure, Middle ear, Throat connection, Nasopharynx, Air-pressure balance",Structure,This tube equalises air pressure on both sides of the eardrum.
+30,Smell Receptors,Easy,"Olfactory cells, Nasal cavity, Chemicals in air, Olfactory epithelium, Mucus, Olfactory nerve",Structure,These receptors detect dissolved airborne chemicals.
+31,Taste Buds,Easy,"Tongue, Taste receptors, Dissolved substances, Chemoreceptors, Dissolved chemicals, Sensory neurones",Structure,These receptors detect chemicals dissolved in saliva.
+32,Basic Tastes,Easy,"Sweet, Sour, Salty, Bitter, Umami",Organism,These are major taste sensations.
+33,Skin as Sense Organ,Easy,"Touch, Pressure, Pain, Heat, Cold",Structure,The skin contains receptors for these stimuli.
+34,Sensory Receptor,Easy,"Stimulus detector, Electrical impulse, Specialised cell, Sensory neurone, Specific stimulus",Structure,This specialised structure converts a stimulus into electrical activity.
+35,Mechanoreceptors,Easy,"Touch, Pressure, Sound, Movement, Mechanical stimulus",Structure,These receptors detect mechanical changes.
+36,Chemoreceptors,Easy,"Smell, Taste, Dissolved chemicals, Chemical stimulus, Nose, Tongue",Structure,These receptors respond to chemicals.
+37,Thermoreceptors,Easy,"Heat, Cold, Temperature change, Skin receptors, Thermal stimulus",Structure,These receptors detect changes in temperature.
+38,Photoreceptors,Easy,"Light, Rods, Cones, Retina, Vision",Structure,These receptors respond to light.
+39,Primary Sense Cell,Medium,"Sensory neurone ending, Free dendrite, Touch receptor, Direct impulse, Primary receptor",Structure,This receptor is itself part of a sensory neuron.
+40,Secondary Sense Cell,Medium,"Specialised receptor cell, Synapses with neurone, Taste receptor, Receptor cell, Secondary receptor",Structure,This receptor cell communicates with a separate sensory neuron.
+41,Touch Receptors,Easy,"Light pressure, Free nerve endings, Meissner corpuscle, Fingertips, Skin surface",Structure,These receptors respond to gentle contact.
+42,Pressure Receptors,Medium,"Pacinian corpuscle, Deep dermis, Strong pressure, Joints, Tendons",Structure,These receptors detect stronger pressure.
+43,Pain Receptors,Easy,"Nociceptors, Tissue damage, Free nerve endings, Warning sensation, Skin",Structure,These receptors signal actual or potential tissue injury.
+44,Stretch Receptors,Medium,"Muscle spindle, Muscle length, Body position, Balance, Proprioception",Structure,These receptors help the brain monitor muscle stretch and body position.
+45,Olfactory Epithelium,Medium,"Upper nasal cavity, Smell receptors, Mucus, Olfactory nerve, Chemoreception",Structure,This tissue contains receptors for smell.
+46,Smell Process,Medium,"Chemicals dissolve in mucus, Olfactory receptors stimulated, Sensory impulses, Olfactory nerve, Brain interprets",Process,These steps allow airborne chemicals to be perceived as odours.
+47,Taste Receptors,Easy,"Taste buds, Dissolved chemicals, Tongue, Soft palate, Chemoreceptors",Structure,These receptors respond to substances dissolved in saliva.
+48,Sclera,Easy,"Tough white layer, Eye protection, Eye shape, Outer coat, Cornea continuation",Structure,This tough outer coat protects and supports the eyeball.
+49,Choroid,Easy,"Pigmented layer, Blood capillaries, Prevents reflection, Ciliary body, Iris",Structure,This dark vascular layer nourishes the eye and absorbs stray light.
+50,Conjunctiva,Medium,"Transparent membrane, Eyelid lining, Covers front eye, Protection, Moist surface",Structure,This membrane covers the exposed front of the eye and lines the eyelids.
+51,Aqueous Humour,Medium,"Watery fluid, Front chamber, Cornea nutrition, Refraction, Eye pressure",Matter,This fluid fills the region in front of the lens.
+52,Vitreous Humour,Medium,"Jelly-like fluid, Behind lens, Maintains eye shape, Light transmission, Supports retina",Matter,This transparent gel fills most of the eyeball.
+53,Image on Retina,Medium,"Real, Inverted, Diminished, Focused on retina, Brain interprets",Process,These are properties of the image formed by the eye.
+54,Pupil Reflex,Medium,"Bright light constriction, Dim light dilation, Circular iris muscle, Radial iris muscle, Retina protection",Process,This reflex regulates the amount of light entering the eye.
+55,Rhodopsin,Medium,"Visual purple, Rod pigment, Vitamin A, Dim light, Photochemical change",Matter,This light-sensitive pigment is important in rod cells.
+56,Night Blindness,Medium,"Poor dim-light vision, Vitamin A deficiency, Rhodopsin shortage, Rod function, Low-light difficulty",Organism,This condition reduces vision in low light.
+57,Astigmatism,Medium,"Uneven cornea, Distorted image, Unequal refraction, Corrective lens, Blurred lines",Organism,This defect results when light is refracted unevenly.
+58,Presbyopia,Medium,"Ageing, Reduced lens elasticity, Near vision difficulty, Convex correction, Accommodation loss",Organism,Age-related loss of accommodation causes difficulty focusing nearby.
+59,Eye and Camera Similarities,Medium,"Convex lens, Opening controls light, Image on screen, Real inverted image, Light-sensitive surface",Process,These features are shared by the eye and a camera.
+60,Sound Wave,Easy,"Vibrations, Compressions, Rarefactions, Medium required, Longitudinal wave",Wave,Sound travels as a mechanical wave through matter.
+61,Sound Frequency,Easy,"Hertz, Cycles per second, Pitch, High frequency, Low frequency",Measurement,This determines the pitch of a sound.
+62,Sound Amplitude,Easy,"Loudness, Large vibration, Small vibration, Wave size, Sound intensity",Measurement,This is associated with how loud a sound is.
+63,Outer Ear,Easy,"Pinna, Auditory canal, Eardrum, Sound collection, External ear",Structure,This region collects and channels sound to the eardrum.
+64,Middle Ear,Easy,"Ossicles, Air-filled chamber, Eustachian tube, Oval window, Round window",Structure,This region transfers and amplifies eardrum vibrations.
+65,Inner Ear,Easy,"Cochlea, Semicircular canals, Utricle, Saccule, Fluid-filled",Structure,This region contains organs of hearing and balance.
+66,Malleus,Medium,"Hammer, Eardrum attachment, Ear ossicle, Vibration transfer, Middle ear",Structure,This ossicle is attached to the tympanic membrane.
+67,Incus,Medium,"Anvil, Middle ossicle, Malleus connection, Stapes connection, Middle ear",Structure,This ossicle links the malleus to the stapes.
+68,Stapes,Medium,"Stirrup, Oval window, Ear ossicle, Vibration amplification, Middle ear",Structure,This ossicle transmits vibration to the oval window.
+69,Oval Window,Medium,"Stapes contact, Inner ear opening, Pressure waves, Cochlea, Membrane",Structure,Vibrations enter the inner ear through this membrane-covered opening.
+70,Round Window,Medium,"Pressure release, Cochlea, Membrane, Middle ear boundary, Fluid movement",Structure,This membrane moves to relieve pressure waves in the cochlea.
+71,Perilymph,Hard,"Bony labyrinth fluid, Cochlear canals, Pressure waves, Inner ear, Fluid",Matter,This inner-ear fluid carries pressure waves.
+72,Endolymph,Hard,"Membranous labyrinth fluid, Cochlear duct, Semicircular canals, Utricle, Saccule",Matter,This fluid moves within sensory structures of the inner ear.
+73,Organ of Corti,Hard,"Cochlear duct, Hair cells, Basilar membrane, Tectorial membrane, Hearing receptor",Structure,This sensory organ converts cochlear vibrations into nerve impulses.
+74,Utricle and Saccule,Hard,"Static balance, Linear movement, Maculae, Gravity, Endolymph",Structure,These sacs detect head position and linear movement.
+75,Ampulla,Hard,"Semicircular canal swelling, Cupula, Hair cells, Rotational balance, Endolymph movement",Structure,This enlarged canal region contains receptors for rotational movement.
+76,Hearing Sequence,Hard,"Pinna collects sound, Eardrum vibrates, Ossicles move, Oval window moves, Cochlear fluid vibrates, Hair cells fire",Process,These events convert sound waves into nerve impulses.
+77,Binaural Hearing,Medium,"Two ears, Sound direction, Arrival-time difference, Intensity difference, Sound localisation",Process,Hearing with both ears helps locate the direction of sound.
+78,Deafness Causes,Medium,"Ear wax blockage, Damaged eardrum, Middle ear infection, Cochlear damage, Loud noise",Organism,These conditions can reduce or prevent hearing.

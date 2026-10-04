@@ -1,0 +1,46 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chromosome,Easy,"DNA, Genes, Nucleus, Thread-like structure, Chromatin, Protein framework, DNA molecule, Species-specific number",Structure,This structure carries hereditary information.
+2,Chromatid,Easy,"Chromosome half, Identical copy, Centromere joined, Sister chromatids, Replication product, Identical DNA",Structure,A duplicated chromosome consists of two of these.
+3,Centromere,Easy,"Joins chromatids, Spindle attachment, Chromosome region, Chromatid junction, Chromosome constriction",Structure,This region joins sister chromatids.
+4,Homologous Chromosomes,Medium,"Matching pair, Same genes, One from each parent, Same loci, Maternal and paternal, Pair during meiosis",Structure,These chromosome pairs carry genes for the same traits.
+5,Diploid Number,Easy,"2n, Two chromosome sets, Body cells, Somatic cells, Homologous pairs",Measurement,This is the chromosome number in most body cells.
+6,Haploid Number,Easy,"n, One chromosome set, Gametes, One homologue each",Measurement,This is the chromosome number in gametes.
+7,Human Diploid Number,Easy,"46 chromosomes, 23 pairs, 2n = 46",Measurement,This is the chromosome number in human body cells.
+8,Human Haploid Number,Easy,"23 chromosomes, Gametes, n = 23",Measurement,This is the chromosome number in human gametes.
+9,Autosomes,Easy,"22 pairs, Non-sex chromosomes, Body traits, 22 human pairs, Same in sexes",Structure,These are chromosomes other than the sex chromosomes.
+10,Sex Chromosomes,Easy,"X chromosome, Y chromosome, 23rd pair, XX, XY, Sex determination",Structure,These chromosomes determine sex in humans.
+11,DNA,Easy,"Genetic material, Double helix, Nucleotide polymer, Genes, Replication, Genetic code, Hereditary material",Structure,This molecule stores hereditary information.
+12,DNA Components,Medium,"Sugar, Phosphate, Nitrogen base, Nucleotide, Deoxyribose, Nitrogenous base",Matter,These parts make up DNA nucleotides.
+13,DNA Bases,Easy,"Adenine, Thymine, Cytosine, Guanine, A, T, C, G",Matter,These are the four nitrogenous bases in DNA.
+14,Base Pairing,Medium,"A-T, C-G, Hydrogen bonds, Adenine-thymine, Cytosine-guanine, Weak hydrogen bonds",Structure,These complementary pairs hold the two DNA strands together.
+15,DNA Replication,Medium,"DNA copies, Before cell division, Complementary strands, DNA unzips, Free nucleotides, Two identical molecules, Enzymes",Process,This process duplicates DNA before cell division.
+16,RNA,Medium,"Single strand, Uracil, Protein synthesis",Structure,This nucleic acid helps transfer genetic information for protein synthesis.
+17,RNA Bases,Easy,"Adenine, Uracil, Cytosine, Guanine",Matter,These are the nitrogenous bases found in RNA.
+18,Gene Expression,Medium,"DNA information, Protein production, Trait expression, Genetic code, Amino-acid sequence, Polypeptide",Process,This uses genetic information to produce functional products.
+19,Meiosis,Easy,"Reduction division, Four cells, Haploid cells, Gamete formation, Two divisions, Homologue separation, Chromatid separation, Genetic variation",Process,This division reduces chromosome number by half.
+20,Purpose of Meiosis,Easy,"Gametes, Haploid cells, Variation, Chromosome stability",Process,Meiosis prepares cells for sexual reproduction.
+21,Meiosis I,Medium,"Homologues separate, Reduction division, Crossing over",Process,The first meiotic division separates homologous chromosomes.
+22,Meiosis II,Medium,"Chromatids separate, Second division, Four cells",Process,The second meiotic division separates sister chromatids.
+23,Crossing Over,Medium,"Homologous chromosomes, Exchange DNA, New combinations, Chiasmata, Recombinant chromatids, New allele combinations",Process,This exchanges genetic material between homologous chromosomes.
+24,Independent Assortment,Medium,"Random chromosome alignment, Different gametes, Variation, Random orientation, Maternal-paternal combinations, Second Mendelian law",Process,Homologous pairs align independently during meiosis.
+25,Mitosis vs Meiosis,Medium,"Two vs four cells, Diploid vs haploid, Same vs varied",Process,These are key differences between the two forms of nuclear division.
+26,Mutation,Easy,"DNA change, Gene change, Chromosome change, Permanent DNA change, Somatic or germline, Variation source",Process,This is a sudden change in genetic material.
+27,Gene Mutation,Medium,"DNA sequence change, Single gene, New allele",Process,This mutation alters the sequence within a gene.
+28,Chromosome Mutation,Medium,"Chromosome structure, Chromosome number, Large change",Process,This mutation affects chromosomes rather than a single gene.
+29,Mutagens,Medium,"Radiation, Chemicals, Mutation rate",Matter,These agents increase the chance of mutation.
+30,Chromatin,Medium,"Uncoiled DNA, Protein, Nuclear material, Chromosome precursor, Interphase",Structure,This diffuse DNA-protein material condenses into chromosomes.
+31,Chromosome Condensation,Medium,"Chromatin shortens, Chromatin thickens, Visible chromosome, Before division, Coiled DNA",Process,This makes chromosomes distinct before cell division.
+32,Chromosome Theory of Heredity,Hard,"Genes on chromosomes, Sutton, Morgan, Meiosis evidence, Inheritance",Process,This theory states that chromosomes carry hereditary factors.
+33,Protein Framework of Chromosome,Hard,"Chromosomal proteins, DNA coiling, Nucleosomes, Chromosome packing, Structural support",Structure,Chromosomal DNA is packaged around proteins.
+34,Nucleosome,Hard,"DNA wrapped around protein, Chromatin unit, DNA packaging, Chromosome structure, Histone core",Structure,This is a basic unit of DNA packaging in chromatin.
+35,Genetic Code,Hard,"Base sequence, Protein information, Triplet code, Amino acids, DNA",Process,This information system links DNA base sequence to protein sequence.
+36,Triplet Codon,Hard,"Three bases, One amino acid, Genetic code, Base triplet, Protein synthesis",Structure,A group of three bases specifies an amino acid in the textbook's description.
+37,Polypeptide,Medium,"Amino-acid chain, Protein component, Gene product, DNA information, Protein synthesis",Matter,This chain is assembled according to genetic information.
+38,Chromosome Mapping,Hard,"Gene positions, Loci, Drosophila, Linkage, Morgan",Measurement,This determines the relative locations of genes on chromosomes.
+39,Gamete Formation,Medium,"Diploid parent cell, Meiosis, Haploid gametes, Allele separation, Chromosome reduction",Process,Meiosis forms gametes with one set of chromosomes.
+40,Fertilisation Restores Diploidy,Medium,"Haploid sperm, Haploid egg, Diploid zygote, Homologous pairs restored, Two parental sets",Process,Fusion of gamete nuclei restores the diploid chromosome number.
+41,Random Fertilisation,Medium,"Random gamete union, New combinations, Genetic variation, Sexual reproduction, Allele combinations",Process,Random fusion of compatible gametes increases genetic variation.
+42,Paternal Chromosomes,Easy,"From father, One homologous set, Inherited in sperm, Zygote, Paternal genes",Structure,One chromosome set in an offspring comes from the father.
+43,Maternal Chromosomes,Easy,"From mother, One homologous set, Inherited in ovum, Zygote, Maternal genes",Structure,One chromosome set in an offspring comes from the mother.
+44,Germline Mutation,Hard,"Gamete lineage, Heritable mutation, Passed to offspring, Evolutionary variation, DNA change",Process,This mutation can be transmitted to future generations.
+45,Somatic Mutation,Hard,"Body cell, Usually not inherited, Cell lineage, DNA change, Somatic tissue",Process,This mutation occurs in non-reproductive body cells.

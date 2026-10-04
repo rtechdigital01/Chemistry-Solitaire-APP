@@ -1,0 +1,81 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Genetics,Easy,"Heredity, Variation, Inheritance, Genes, Inheritance patterns, Breeding experiments, Geneticists",Organism,This branch of biology studies heredity and variation.
+2,Heredity,Easy,"Parent to offspring, Inherited traits, Transmission, Genes via gametes, Parent-offspring similarity, Inherited characters",Process,This is the transmission of characteristics from parents to offspring.
+3,Variation,Easy,"Differences, Same species, Individual differences, New gene combinations, Mutation, Environmental influence",Organism,This refers to differences among individuals of the same species.
+4,Trait,Easy,"Characteristic, Feature, Inherited character",Organism,This is a distinguishable characteristic of an organism.
+5,Gene,Easy,"Unit of heredity, DNA segment, Controls trait, Locus, Protein information, Hereditary factor",Structure,This hereditary unit influences a characteristic.
+6,Allele,Easy,"Gene form, Alternative form, Same locus, Alternative gene form, Mutation origin, Allelic pair",Structure,This is an alternative form of a gene.
+7,Dominant Allele,Easy,"Expressed in heterozygote, Capital letter, Masks recessive, Upper-case symbol, Dominant phenotype",Structure,This allele is expressed when only one copy is present.
+8,Recessive Allele,Easy,"Two copies needed, Lowercase letter, Masked by dominant, Lower-case symbol, Expressed when homozygous, May skip a generation",Structure,This allele is usually expressed only when homozygous.
+9,Genotype,Easy,"Genetic makeup, Allele combination, TT Tt tt, Genetic make-up, Allele pair, Inherited constitution",Structure,This describes the alleles an organism possesses.
+10,Phenotype,Easy,"Observable trait, Appearance, Expression, Visible expression, Genotype plus environment, Observable character",Organism,This is the visible or measurable expression of a trait.
+11,Homozygous,Easy,"Same alleles, TT, Pure breeding, Identical alleles, True breeding",Structure,This genotype contains two identical alleles.
+12,Heterozygous,Easy,"Different alleles, Tt, Hybrid, Does not breed true",Structure,This genotype contains two different alleles.
+13,Mendel,Easy,"Pea plants, Inheritance laws, Genetics, Garden peas, Quantitative inheritance, Laws of heredity",Organism,This scientist used pea plants to study inheritance.
+14,Monohybrid Cross,Medium,"One trait, Two alleles, Punnett square, Single factor, F? generation, F? generation, 3:1 phenotype ratio",Process,This genetic cross follows inheritance of one characteristic.
+15,Punnett Square,Easy,"Gametes, Genotypes, Probability, Genetic cross, Gamete combinations, Expected ratio, Random fertilisation",Measurement,This grid predicts possible offspring genotypes.
+16,Gamete,Easy,"Haploid, Sperm, Ovum, One allele, One chromosome set, One allele per locus, Produced by meiosis",Structure,This reproductive cell carries one allele for each gene.
+17,Zygote Genetics,Easy,"Two alleles, Diploid, Gamete fusion",Structure,A zygote receives one allele from each parent.
+18,First Mendelian Law,Medium,"Segregation, Alleles separate, Gamete formation, Law of segregation, Discrete factors",Process,Allele pairs separate during gamete formation.
+19,Segregation,Medium,"Alleles separate, Meiosis, One allele per gamete, Haploid gametes, Homologues separate, Random gamete distribution",Process,Paired alleles separate into different gametes.
+20,Test Cross,Medium,"Unknown genotype, Homozygous recessive, Determine genotype, Recessive tester, Unknown dominant genotype, 1:1 if heterozygous",Process,This cross reveals whether a dominant phenotype is homozygous or heterozygous.
+21,Back Cross,Medium,"Offspring to parent, Parental genotype, Genetic analysis",Process,This cross mates an offspring with a parent or parental type.
+22,Complete Dominance,Easy,"Dominant masks recessive, Heterozygote dominant, Mendelian",Process,One allele fully masks the other in a heterozygote.
+23,Incomplete Dominance,Medium,"Intermediate phenotype, Red × white, Pink offspring, Pink heterozygote, 1:2:1 phenotype ratio, Neither allele fully dominant",Process,The heterozygote shows an intermediate phenotype.
+24,Codominance,Medium,"Both alleles expressed, AB blood group, Equal expression, Both traits expressed, I?I?, No allele masks the other",Process,Both alleles are fully expressed in the heterozygote.
+25,Multiple Alleles,Medium,"More than two alleles, ABO blood group, Population alleles, More than two population alleles, I?, I?, i",Structure,A gene may have more than two alternative forms in a population.
+26,ABO Blood Group,Medium,"A, B, AB, O, Multiple alleles, Antigen A, Antigen B, Plasma antibodies",Organism,This human blood-group system shows multiple alleles and codominance.
+27,Blood Group A,Easy,"I?I?, I?i, A antigen",Structure,These genotypes can produce blood group A.
+28,Blood Group B,Easy,"I?I?, I?i, B antigen",Structure,These genotypes can produce blood group B.
+29,Blood Group AB,Easy,"I?I?, Codominance, A and B antigens",Structure,Both A and B alleles are expressed.
+30,Blood Group O,Easy,"ii, Recessive, No A/B antigen",Structure,This blood group results from two recessive alleles.
+31,Sex Determination,Medium,"XX female, XY male, Sex chromosomes, X-bearing sperm, Y-bearing sperm, Equal probability",Process,Sex in humans depends on the combination of X and Y chromosomes.
+32,X Chromosome,Easy,"Female XX, Male XY, Sex chromosome",Structure,Both sexes possess at least one of this chromosome.
+33,Y Chromosome,Easy,"Male only, XY, Sex determination",Structure,This chromosome is associated with male sex determination.
+34,Sex-Linked Trait,Medium,"X-linked, Colour blindness, Haemophilia, X-chromosome gene, Different male-female pattern, Carrier female",Organism,These traits are carried on sex chromosomes.
+35,Colour Blindness,Medium,"X-linked, Recessive, Colour vision defect",Organism,This inherited condition is commonly X-linked.
+36,Haemophilia,Medium,"X-linked, Blood clotting, Recessive",Organism,This inherited disorder affects blood clotting.
+37,Pedigree,Medium,"Family tree, Trait inheritance, Generations, Affected symbols, Carrier symbols, Family generations",Measurement,This diagram traces inheritance through a family.
+38,Probability in Genetics,Medium,"Chance, Ratios, Punnett prediction",Measurement,This estimates likelihood of different offspring genotypes.
+39,Genetic Ratio,Medium,"3:1, 1:2:1, Offspring proportions",Measurement,These common ratios may appear in Mendelian crosses.
+40,Paternity Testing,Medium,"DNA comparison, Parentage, Genetic markers",Measurement,Genetic information can be used to assess biological parentage.
+41,Genetics in Agriculture,Medium,"Selective breeding, High yield, Disease resistance, Hybrid crops, Crop improvement, Animal improvement, Desired traits",Process,Genetics is applied to improve crops and livestock.
+42,Genetics in Medicine,Medium,"Inherited disease, Diagnosis, Counselling, Blood groups, Genetic disorders, Risk prediction, Genetic counselling",Process,Genetic knowledge supports diagnosis and health decisions.
+43,Geneticist,Easy,"Studies heredity, Studies variation, Breeding experiments, Inheritance patterns, Genes",Organism,This scientist investigates inheritance and variation.
+44,Drosophila melanogaster,Medium,"Fruit fly, Short life cycle, Many offspring, Four chromosome pairs, Visible traits, Morgan",Organism,This fruit fly became an important organism for genetics research.
+45,Why Drosophila is Useful,Medium,"Small size, Easy sex identification, Two-week life cycle, Many offspring, Few large chromosomes, Discontinuous traits",Organism,These features make fruit flies useful for inheritance experiments.
+46,Locus,Easy,"Gene position, Chromosome site, Same position on homologues, Genetic map, Allele location",Structure,This is the position occupied by a gene on a chromosome.
+47,Pure Stock,Easy,"True breeding, Homozygous, Same trait offspring, Stable character, Pure line",Organism,This stock breeds true for a particular character.
+48,P Generation,Easy,"Parental generation, Original parents, Genetic cross, P, Starting generation",Measurement,This is the parental generation used to begin a genetic cross.
+49,F? Generation,Easy,"First filial generation, Offspring of P, Hybrid offspring, F?, First cross offspring",Measurement,This is the first generation produced from the parental cross.
+50,F? Generation,Easy,"Second filial generation, F? self-cross, Segregation visible, Phenotypic ratio, Second generation",Measurement,This generation results from crossing or selfing F? individuals.
+51,Hybrid,Easy,"Heterozygote, Unlike alleles, Cross offspring, Does not breed true, Rr",Organism,This individual carries different alleles for a studied character.
+52,Single-Factor Inheritance,Medium,"One gene pair, One character, Monohybrid, Allelic pair, Mendelian trait",Process,This follows inheritance of a character controlled by one gene pair.
+53,Dihybrid Cross,Hard,"Two characters, Four gamete types, Independent assortment, 9:3:3:1, Two gene pairs, F? generation",Process,This genetic cross follows two characters at the same time.
+54,Dihybrid Phenotypic Ratio,Hard,"9:3:3:1, Four phenotypes, F? generation, Independent assortment, Dihybrid cross",Measurement,This classic ratio is expected in a simple Mendelian dihybrid cross.
+55,Law of Independent Assortment,Hard,"Second Mendelian law, Different chromosomes, Allele pairs assort independently, Gamete formation, Dihybrid cross",Process,Alleles of different genes can assort independently during meiosis.
+56,Mendelian Trait,Medium,"Single gene pair, Dominant form, Recessive form, Discontinuous variation, Mendelian inheritance",Organism,This type of trait generally follows simple Mendelian laws.
+57,Reciprocal Cross,Hard,"Reverse parental roles, Same traits, Cross repeated, Mendel experiment, Compare outcomes",Process,This repeats a cross with the parental roles reversed.
+58,Albinism,Medium,"Low melanin, Recessive allele, Light pigmentation, Inherited condition, Pigment deficiency",Organism,This inherited condition involves failure to produce normal melanin.
+59,Sickle-Cell Anaemia,Medium,"Abnormal haemoglobin, Sickle red cells, Inherited disorder, Reduced oxygen transport, Pain crises",Organism,This inherited blood disorder affects red-cell shape and oxygen transport.
+60,Linkage,Hard,"Genes on same chromosome, Inherited together, Reduced independent assortment, Linkage group, Drosophila",Process,Genes on the same chromosome tend to be inherited together.
+61,Linkage Group,Hard,"Genes on one chromosome, Four in Drosophila, Twenty-three in humans, Linked genes, Chromosome set",Structure,This consists of genes located on the same chromosome.
+62,Polygenic Inheritance,Hard,"Many genes, Continuous variation, Height, Skin colour, Quantitative trait",Process,A character is controlled by several genes acting together.
+63,Non-Disjunction,Hard,"Chromosomes fail to separate, Abnormal gametes, Aneuploidy, Meiosis error, Chromosome-number change",Process,This meiotic error produces gametes with abnormal chromosome numbers.
+64,Trisomy,Hard,"Three copies, Extra chromosome, Aneuploidy, Non-disjunction, 2n+1",Structure,This chromosome condition gives three copies of one chromosome.
+65,Monosomy,Hard,"One copy, Missing chromosome, Aneuploidy, Non-disjunction, 2n-1",Structure,This condition gives only one copy of a particular chromosome.
+66,Down Syndrome,Medium,"Trisomy 21, Extra chromosome 21, Non-disjunction, Chromosome disorder, Aneuploidy",Organism,This condition is associated with an extra chromosome 21.
+67,Turner Syndrome,Hard,"Single X, XO, Female, Sex-chromosome non-disjunction, Monosomy X",Organism,This condition results from having only one X chromosome.
+68,Klinefelter Syndrome,Hard,"XXY, Male, Extra X chromosome, Sex-chromosome non-disjunction, Trisomy",Organism,This condition results from an XXY sex-chromosome constitution.
+69,Selective Breeding,Easy,"Desired traits, Choose parents, Artificial selection, Crop improvement, Livestock improvement, Repeated selection",Process,Humans choose parents to increase desired inherited characteristics.
+70,Inbreeding,Medium,"Closely related parents, Increased homozygosity, Fix desirable traits, Reduced vigour, Recessive defects",Process,This breeds related individuals to maintain selected traits.
+71,Outbreeding,Medium,"Genetically distinct parents, New alleles, Hybrid vigour, Combine useful traits, Cross breeding",Process,This crosses genetically distinct individuals or populations.
+72,Hybrid Vigour,Medium,"Large healthy offspring, Disease resistance, Outbreeding, Heterosis, Improved performance",Organism,Crosses between distinct stocks may produce especially vigorous offspring.
+73,Gene Bank,Medium,"Preserved genetic material, Wild relatives, Crop diversity, Breeding resource, Conservation",Structure,This preserves hereditary material for future breeding and research.
+74,Genetic Counselling,Medium,"Family history, Inherited disorder risk, Pedigree, Carrier status, Reproductive advice",Process,This helps families understand risks of inherited conditions.
+75,Amniocentesis,Hard,"Amniotic fluid, Foetal cells, Prenatal testing, Chromosome analysis, Genetic disorder",Process,This prenatal procedure obtains foetal cells for genetic testing.
+76,Rhesus Factor,Medium,"Rh antigen, Rh positive, Rh negative, Red blood cells, Inheritance",Structure,This inherited red-cell antigen is important in transfusion and pregnancy.
+77,Rhesus Incompatibility,Hard,"Rh-negative mother, Rh-positive fetus, Anti-Rh antibodies, Red-cell destruction, Subsequent pregnancy",Process,Maternal antibodies can attack Rh-positive fetal red blood cells.
+78,Biotechnology,Medium,"Biological organisms, Industrial products, Genetics, Medicine, Agriculture",Process,This applies biological systems to make useful products.
+79,Genetic Engineering,Hard,"Alter DNA, Foreign gene, Recombinant organism, Protein production, Modified crops",Process,This deliberately changes genetic material to obtain a desired trait or product.
+80,Hybridoma Technology,Hard,"Cell fusion, Hybrid cells, Antibody production, Cancer cell, Specific antibodies",Process,This technology fuses cells to produce large amounts of specific antibodies.

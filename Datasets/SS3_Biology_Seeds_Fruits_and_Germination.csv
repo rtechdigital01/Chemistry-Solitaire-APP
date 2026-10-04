@@ -1,0 +1,44 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Fertilisation in Flower,Easy,"Pollen nucleus, Egg nucleus, Zygote, Ovule",Process,Male and female nuclei fuse inside the ovule.
+2,Zygote,Easy,"Fertilised egg, Diploid cell, Embryo origin",Structure,This cell forms immediately after fertilisation.
+3,Embryo,Easy,"Young plant, Plumule, Radicle, Cotyledons, Embryonic axis, Stored food user",Structure,This is the developing young plant inside a seed.
+4,Ovule after Fertilisation,Easy,"Seed, Seed coat, Embryo",Process,The fertilised ovule develops into this structure.
+5,Ovary after Fertilisation,Easy,"Fruit, Fruit wall, Pericarp",Process,The ovary usually develops into this structure.
+6,Seed Coat,Easy,"Testa, Protection, Prevents damage, Water protection, Mechanical protection",Structure,This outer covering protects the seed.
+7,Cotyledon,Easy,"Seed leaf, Food store, Embryo nutrition, One or two, Seed food",Structure,This seed structure stores or absorbs food for the embryo.
+8,Plumule,Easy,"Embryonic shoot, Future stem, Future leaves, Shoot apex, Stem and leaves",Structure,This part of the embryo develops into the shoot.
+9,Radicle,Easy,"Embryonic root, First root, Root system, First to emerge, Anchorage, Water uptake",Structure,This part develops into the root.
+10,Monocot Seed,Medium,"One cotyledon, Maize, Endosperm",Structure,This type of seed has one cotyledon.
+11,Dicot Seed,Medium,"Two cotyledons, Bean, Seed leaves",Structure,This type of seed has two cotyledons.
+12,Fruit,Easy,"Mature ovary, Contains seeds, Pericarp, Seed protection, Seed dispersal, Mature ovary wall",Structure,A fruit usually develops from the ovary after fertilisation.
+13,True Fruit,Easy,"Ovary only, Mango, Tomato",Structure,This fruit develops mainly from the ovary.
+14,False Fruit,Medium,"Other floral parts, Apple, Cashew",Structure,This fruit includes tissues other than the ovary.
+15,Simple Fruit,Easy,"One ovary, One flower, Mango, Tomato",Structure,This develops from a single ovary of one flower.
+16,Aggregate Fruit,Medium,"Many ovaries, One flower, Strawberry",Structure,This develops from several ovaries of a single flower.
+17,Multiple Fruit,Medium,"Many flowers, Inflorescence, Pineapple",Structure,This develops from ovaries of many flowers in an inflorescence.
+18,Dry Fruit,Easy,"Dry pericarp, Bean pod, Maize grain",Structure,This fruit has a dry fruit wall at maturity.
+19,Fleshy Fruit,Easy,"Juicy pericarp, Mango, Tomato, Orange",Structure,This fruit has a soft or juicy fruit wall.
+20,Fruit Dispersal,Easy,"Wind, Water, Animals, Explosive mechanism, Reduces competition, Colonises new areas, Spreads offspring",Process,These are major ways fruits or seeds are dispersed.
+21,Wind Dispersal,Easy,"Wings, Hairs, Light seeds, Air movement",Process,These features help fruits or seeds travel by air.
+22,Water Dispersal,Easy,"Buoyant fruit, Waterproof coat, Coconut",Process,These features allow dispersal by water.
+23,Animal Dispersal,Easy,"Hooks, Fleshy fruits, Edible fruits, Sticky surfaces",Process,Animals move seeds externally or after eating fruits.
+24,Explosive Dispersal,Easy,"Pod splits, Seeds scattered, Balsam",Process,The fruit bursts and throws seeds away.
+25,Seed Dormancy,Medium,"Inactive embryo, Delayed germination, Survival period, Low metabolism, Viable seed, Dormancy-breaking conditions",Process,A viable seed remains inactive until suitable conditions return.
+26,Germination,Easy,"Embryo growth, Seed to seedling, Radicle emerges, Imbibition, Enzyme activation, Respiration, Seedling establishment",Process,This is the resumption of growth of the seed embryo.
+27,Germination Conditions,Easy,"Water, Oxygen, Suitable temperature, Viable seed, Moisture, Aeration, Warmth",Environment,These conditions are normally required for germination.
+28,Water in Germination,Easy,"Enzyme activation, Seed swelling, Food dissolution",Process,Water activates metabolic processes in the seed.
+29,Oxygen in Germination,Easy,"Aerobic respiration, Energy release, Embryo growth",Energy,Oxygen is needed for respiration during germination.
+30,Temperature in Germination,Easy,"Enzyme activity, Optimum range, Metabolism",Environment,Suitable temperature allows enzymes to function.
+31,Epigeal Germination,Medium,"Cotyledons above ground, Hypocotyl elongates, Bean",Process,The cotyledons are carried above the soil surface.
+32,Hypogeal Germination,Medium,"Cotyledons stay below, Epicotyl elongates, Maize",Process,The cotyledons remain below the soil.
+33,Germination Experiment,Medium,"Viable seeds, Control setup, Test condition, Observe sprouting",Measurement,This can be used to test requirements such as oxygen or water.
+34,Seed Formation,Medium,"Fertilised ovule, Embryo, Testa, Food store, Mature seed",Process,After fertilisation the ovule develops into a seed.
+35,Fruit Formation,Medium,"Ovary enlarges, Ovary wall, Pericarp, Seeds enclosed, Flower parts may persist",Process,After fertilisation the ovary usually develops into a fruit.
+36,Pericarp,Easy,"Fruit wall, Ovary wall, Epicarp, Mesocarp, Endocarp",Structure,This wall develops from the ovary wall.
+37,Seed Dispersal Advantage,Medium,"Reduces overcrowding, Reduces competition, Colonises new habitat, Escapes parent shade, Spreads species",Process,Dispersal moves offspring away from the parent plant.
+38,Wind Dispersal Adaptations,Medium,"Winged fruits, Hairy seeds, Small mass, Large surface area, Dry fruits",Structure,These features increase transport by air.
+39,Animal Dispersal Adaptations,Medium,"Hooks, Spines, Sticky hairs, Fleshy pericarp, Edible fruit",Structure,These features allow seeds to travel on or through animals.
+40,Water Dispersal Adaptations,Medium,"Fibrous husk, Air spaces, Waterproof covering, Buoyancy, Coconut",Structure,These features help fruits float and survive transport in water.
+41,Imbibition,Medium,"Water uptake, Dry seed swells, Testa softens, Germination begins, Hydration",Process,This is the initial absorption of water by a dry seed.
+42,Food Mobilisation in Germination,Medium,"Stored starch, Enzymes, Soluble food, Embryo respiration, Cotyledon or endosperm",Process,Stored food is broken down and moved to the growing embryo.
+43,Seedling Establishment,Medium,"Radicle growth, Plumule growth, Leaves unfold, Photosynthesis begins, Stored food depleted",Process,The young plant becomes independent after germination.

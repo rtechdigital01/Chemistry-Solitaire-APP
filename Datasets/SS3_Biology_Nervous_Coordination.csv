@@ -1,0 +1,65 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Nervous Coordination,Easy,"Rapid response, Electrical impulses, Nervous system, Stimulus, Receptor, Coordinator, Effector, Response",Process,This system coordinates quick responses to stimuli.
+2,Central Nervous System,Easy,"Brain, Spinal cord, CNS, Processing centre, Integration, Protected by skull and vertebral column",Structure,These two organs make up the central nervous system.
+3,Peripheral Nervous System,Easy,"Cranial nerves, Spinal nerves, Connects CNS, Sensory division, Motor division, Body nerves",Structure,This system carries information between the CNS and the body.
+4,Somatic Nervous System,Medium,"Voluntary control, Skeletal muscles, Sensory nerves, Voluntary muscles, Direct motor fibres",Structure,This division mainly controls voluntary activities.
+5,Autonomic Nervous System,Medium,"Involuntary control, Internal organs, Smooth muscle, Sympathetic, Parasympathetic, Glands, Cardiac muscle",Structure,This division controls many automatic body functions.
+6,Brain,Easy,"Cerebrum, Cerebellum, Medulla, Hypothalamus, Forebrain, Midbrain, Hindbrain, Grey matter",Structure,These are important regions of the brain.
+7,Cerebrum,Easy,"Thinking, Memory, Voluntary actions, Intelligence, Cerebral cortex, Learning, Reasoning, Speech",Structure,This large brain region controls conscious activities.
+8,Cerebellum,Easy,"Balance, Coordination, Muscle control, Posture, Fine movement, Muscle tone, Equilibrium",Structure,This region coordinates movement and balance.
+9,Medulla Oblongata,Medium,"Breathing, Heartbeat, Swallowing, Involuntary actions, Blood pressure, Digestion, Vasomotor control",Structure,This region controls vital involuntary activities.
+10,Hypothalamus,Medium,"Temperature control, Thirst, Hunger, Pituitary control, Autonomic control, Endocrine link, Emotion, Water balance",Structure,This brain region is important in homeostasis.
+11,Spinal Cord,Easy,"Reflex centre, Carries impulses, Inside vertebral column, Grey matter, White matter, Meninges, Spinal canal",Structure,This organ links the brain with spinal nerves and coordinates reflexes.
+12,Neuron,Easy,"Nerve cell, Carries impulses, Axon, Dendrites, Cell body, Dendron, Synaptic knobs, Nerve fibre",Structure,This is the functional cell of the nervous system.
+13,Sensory Neuron,Easy,"Receptor to CNS, Afferent neuron, Sensory impulse, Afferent pathway, Receptor input, Dorsal root",Structure,This neuron carries impulses from receptors to the CNS.
+14,Motor Neuron,Easy,"CNS to effector, Efferent neuron, Muscle response, Efferent pathway, Effector output, Ventral root",Structure,This neuron carries impulses from the CNS to effectors.
+15,Relay Neuron,Easy,"Within CNS, Links neurons, Interneuron, Connector neurone, Association neurone, CNS pathway",Structure,This neuron connects sensory and motor neurons inside the CNS.
+16,Dendrite,Easy,"Receives impulses, Short branches, Neuron input, Receptive ending, Towards cell body, Branched process",Structure,These branches carry impulses towards the cell body.
+17,Axon,Easy,"Carries impulses away, Long fibre, Neuron output, Synaptic knobs, Away from cell body, May be myelinated",Structure,This long fibre carries impulses away from the cell body.
+18,Myelin Sheath,Medium,"Insulation, Faster impulses, Axon covering, Schwann cells, Electrical insulation, Saltatory conduction",Structure,This fatty covering speeds impulse transmission.
+19,Synapse,Easy,"Gap between neurons, Neurotransmitter, One-way transmission, Synaptic knob, Synaptic cleft, Acetylcholine, One direction",Structure,This junction allows signals to pass from one neuron to another.
+20,Neurotransmitter,Medium,"Chemical messenger, Synaptic cleft, Neuron communication, Acetylcholine, Glycine, Chemical transmission",Matter,This chemical carries a signal across a synapse.
+21,Nerve Impulse,Easy,"Electrical signal, Along neuron, Rapid transmission, Action potential, Depolarisation, Repolarisation, All-or-none",Energy,This signal travels along nerve cells.
+22,Reflex Action,Easy,"Rapid, Automatic, Protective, Involuntary, Stereotyped response, Protective response, No conscious decision",Process,This is a fast automatic response to a stimulus.
+23,Reflex Arc,Easy,"Receptor, Sensory neuron, Relay neuron, Motor neuron, Effector, Sensory receptor, CNS, Synapse",Process,These structures form the pathway of a reflex.
+24,Receptor,Easy,"Detects stimulus, Sense organ, Impulse begins",Structure,This detects a stimulus and initiates a nerve impulse.
+25,Effector,Easy,"Muscle, Gland, Carries response",Structure,This organ responds to motor impulses.
+26,Voluntary Action,Easy,"Conscious control, Cerebrum, Skeletal muscle",Process,This response is under conscious control.
+27,Conditioned Reflex,Medium,"Learned response, Repeated association, Pavlov, Learned association, Experience, Memory",Process,This reflex develops after repeated association of stimuli.
+28,Reflex vs Voluntary,Medium,"Fast vs slower, Automatic vs conscious, Spinal vs cerebral",Process,These are key differences between reflex and voluntary responses.
+29,Nervous System Functions,Easy,"Collect information, Process information, Integrate information, Send instructions, Coordinate response, Rapid communication",Process,These are the core tasks of the nervous system.
+30,Sensory System,Easy,"Receptors, Afferent neurones, Sensory impulses, CNS input, Stimulus detection",Structure,This part carries information from receptors to the central nervous system.
+31,Motor System,Easy,"Efferent neurones, CNS output, Effectors, Somatic division, Autonomic division",Structure,This part carries instructions from the CNS to muscles and glands.
+32,Sympathetic Nervous System,Medium,"Stress response, Heart rate rises, Digestion slows, Adrenaline release, Glycogen breakdown, Sweating",Process,This autonomic division prepares the body for emergency or exertion.
+33,Parasympathetic Nervous System,Medium,"Resting conditions, Heart rate falls, Digestion increases, Energy conservation, Recovery",Process,This autonomic division dominates during relaxed conditions.
+34,Spinal Nerves,Medium,"31 pairs, Mixed nerves, Dorsal root, Ventral root, Spinal cord, Peripheral nerves",Structure,These nerves connect the spinal cord with much of the body.
+35,Dorsal Root,Medium,"Sensory root, Afferent fibres, Into spinal cord, Dorsal root ganglion, Receptor impulses",Structure,Sensory impulses enter the spinal cord through this root.
+36,Ventral Root,Medium,"Motor root, Efferent fibres, Away from spinal cord, Effector impulses, Spinal nerve",Structure,Motor impulses leave the spinal cord through this root.
+37,Dorsal Root Ganglion,Hard,"Sensory cell bodies, Dorsal root swelling, Outside spinal cord, Afferent neurones, Ganglion",Structure,This swelling contains cell bodies of sensory neurones.
+38,Cranial Nerves,Medium,"12 pairs, Brain connection, Sensory nerves, Motor nerves, Mixed nerves, Head and neck",Structure,These nerves arise directly from the brain.
+39,Vagus Nerve,Hard,"Cranial nerve, Heart, Bronchi, Gut, Autonomic control",Structure,This cranial nerve innervates several internal organs.
+40,Meninges,Medium,"Dura mater, Arachnoid mater, Pia mater, CNS protection, Membranes",Structure,These membranes protect the brain and spinal cord.
+41,Dura Mater,Medium,"Outermost meninx, Tough fibrous layer, Brain protection, Spinal cord protection, CNS covering",Structure,This is the tough outer meningeal layer.
+42,Arachnoid Mater,Medium,"Middle meninx, Web-like, Cerebrospinal fluid spaces, CNS protection, Between dura and pia",Structure,This middle membrane contains spaces filled with cerebrospinal fluid.
+43,Pia Mater,Medium,"Innermost meninx, Capillary rich, Touches nervous tissue, Delicate membrane, Nourishes CNS",Structure,This vascular membrane lies directly on the CNS.
+44,Cerebrospinal Fluid,Medium,"Shock absorber, Ventricles, Spinal canal, Arachnoid spaces, Nutrient supply, Waste removal",Matter,This fluid cushions and bathes the central nervous system.
+45,Forebrain,Medium,"Cerebrum, Thalamus, Hypothalamus, Higher functions, Sensory integration",Structure,This brain region contains major centres for complex behaviour and regulation.
+46,Thalamus,Medium,"Sensory relay, Motor coordination, Forebrain, Cerebral cortex, Information integration",Structure,This forebrain structure relays much sensory information to the cortex.
+47,Midbrain,Medium,"Visual reflexes, Auditory reflexes, Head movement, Forebrain-hindbrain link, Reflex centre",Structure,This region coordinates some sight and hearing reflexes.
+48,Pons Varolii,Hard,"Hindbrain, Cerebellar connection, Nerve fibres, Bridge, CNS",Structure,This band of fibres connects regions of the hindbrain.
+49,Grey Matter,Medium,"Neuron cell bodies, CNS, Grey appearance, Cerebral cortex, Spinal cord centre",Structure,This nervous tissue is rich in neuron cell bodies.
+50,White Matter,Medium,"Nerve fibres, Myelinated axons, CNS tracts, White appearance, Impulse pathways",Structure,"This tissue is rich in nerve fibres, many of which are myelinated."
+51,Nerve,Easy,"Bundle of nerve fibres, Connective tissue, Sensory fibres, Motor fibres, Mixed fibres",Structure,This structure contains many nerve fibres bundled together.
+52,Dendron,Medium,"Neuron process, Carries impulse to cell body, Branches to dendrites, Receptive region, Nerve fibre",Structure,This process carries impulses towards the neuron's cell body.
+53,Synaptic Knob,Medium,"Axon ending, Neurotransmitter vesicles, Synapse, Chemical release, Target cell",Structure,This axon ending releases neurotransmitter into a synapse.
+54,Node of Ranvier,Hard,"Myelin gap, Action potential jumps, Saltatory conduction, Faster impulse, Axon",Structure,These gaps in myelin allow rapid impulse transmission.
+55,Resting Potential,Hard,"About -70 mV, Polarised membrane, Na? outside, K? distribution, Resting neurone",Measurement,This electrical difference exists across the membrane of a resting neuron.
+56,Action Potential,Hard,"Depolarisation, Repolarisation, Na? entry, K? exit, Electrical pulse, Nerve impulse",Energy,This brief electrical change travels along a stimulated neuron.
+57,All-or-None Response,Medium,"Threshold reached, Full impulse, Below threshold no impulse, Same impulse strength, Neuron firing",Process,A neuron either fires a full impulse or does not fire.
+58,Saltatory Conduction,Hard,"Myelinated axon, Node to node, Fast transmission, Myelin insulation, Action potential",Process,In myelinated fibres the impulse effectively jumps between nodes.
+59,Acetylcholine,Medium,"Neurotransmitter, Synaptic transmission, Neuromuscular junction, Excitatory chemical, Synaptic knob",Matter,This neurotransmitter commonly carries signals across synapses.
+60,Synaptic Transmission,Hard,"Impulse reaches knob, Neurotransmitter released, Receptor binding, New impulse, Enzyme breakdown, One-way",Process,These events transmit a nerve signal across a synapse.
+61,Spinal Reflex,Medium,"Spinal cord, Knee jerk, Rapid, Automatic, Simple reflex arc",Process,This reflex is coordinated mainly through the spinal cord.
+62,Cranial Reflex,Medium,"Brain, Pupil reflex, Blinking, Automatic response, Cranial pathway",Process,This reflex is coordinated through the brain.
+63,Instinctive Behaviour,Medium,"Inherited, Innate, Natural reflexes, No training, Species pattern",Organism,This behaviour develops without learning from experience.
+64,Learned Behaviour,Medium,"Experience, Practice, Memory, Behaviour modification, Conditioning",Organism,This behaviour develops or changes through experience.

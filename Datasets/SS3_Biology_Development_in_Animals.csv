@@ -1,0 +1,31 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Development,Easy,"Growth, Differentiation, Maturation, Life stages, Cell division, Cell specialisation, Adult form",Process,This involves changes from an early stage to a mature organism.
+2,Courtship Behaviour,Easy,"Mating display, Pair formation, Reproductive communication, Species recognition, Mate attraction, Synchronised breeding",Organism,These behaviours help males and females recognise and attract mates.
+3,Pairing,Easy,"Male and female, Mating pair, Courtship",Organism,A compatible male and female form a reproductive pair.
+4,Display,Easy,"Visual signals, Posture, Colour, Movement",Organism,This courtship behaviour uses visible signals.
+5,Territorial Behaviour,Medium,"Defended area, Mating space, Resource protection",Organism,Animals may defend an area during reproduction.
+6,Seasonal Migration,Medium,"Breeding movement, Reproductive season, Mating grounds",Organism,Some animals move to breeding areas at particular times.
+7,External Fertilisation,Easy,"Outside body, Aquatic, Many gametes, Fish, Toad, Water medium, Sperm released, Eggs released",Process,Gametes fuse outside the female body.
+8,Internal Fertilisation,Easy,"Inside female, Fewer gametes, Reptiles, Birds, Mammals, Copulation, Reproductive tract, Higher fertilisation success",Process,Gametes fuse within the female reproductive system.
+9,Oviparity,Easy,"Egg laying, Development outside mother, Birds, Reptiles, Shelled eggs, Yolk reserve, Embryo outside body",Process,Embryos develop in eggs laid outside the mother's body.
+10,Viviparity,Easy,"Live birth, Embryo inside mother, Placenta, Uterus, Placental nourishment, Embryo protected",Process,Young develop within the mother and are born alive.
+11,Ovoviviparity,Medium,"Egg retained, Hatches inside mother, No placenta",Process,Eggs are retained until they hatch within the parent's body.
+12,Metamorphosis,Easy,"Body form changes, Larva to adult, Life cycle, Larval stage, Adult stage, Developmental transformation",Process,This is a major change in body form during development.
+13,Complete Metamorphosis,Easy,"Egg, Larva, Pupa, Adult, Pupal stage, Larva differs from adult, Four stages",Process,These four stages occur in insects such as houseflies and butterflies.
+14,Incomplete Metamorphosis,Easy,"Egg, Nymph, Adult, Nymph resembles adult, No pupa, Successive moults",Process,There is no pupal stage in this type of development.
+15,Housefly Life Cycle,Easy,"Egg, Maggot, Pupa, Adult",Organism,These are the stages in housefly development.
+16,Cockroach Life Cycle,Easy,"Egg, Nymph, Adult",Organism,These stages show incomplete metamorphosis.
+17,Toad Life Cycle,Easy,"Egg, Tadpole, Tadpole legs, Adult toad",Organism,These are major stages in toad development.
+18,Tadpole Features,Easy,"Gills, Tail, Aquatic, Herbivorous",Organism,These features are typical of early toad larvae.
+19,Adult Toad Features,Easy,"Lungs, Four limbs, No tail, Terrestrial",Organism,These features appear after metamorphosis.
+20,Toad Metamorphosis,Medium,"Gills disappear, Lungs develop, Legs grow, Tail absorbed",Process,These changes transform a tadpole into an adult toad.
+21,Adaptive Development,Medium,"Protective egg, Parental care, Larval habitat, Food supply",Organism,These features improve survival during development.
+22,Parental Care,Easy,"Protect young, Feed young, Guard offspring, Incubation, Feeding, Protection, Teaching young",Organism,This behaviour increases survival of offspring.
+23,Animal Life Cycle,Easy,"Birth or hatching, Growth, Maturity, Reproduction, Death",Process,These are broad stages in an animal life cycle.
+24,Embryonic Development,Medium,"Cleavage, Cell division, Differentiation, Organ formation, Growth",Process,The fertilised egg develops into an organised embryo.
+25,Larva,Easy,"Immature stage, Different from adult, Feeds and grows, Metamorphosis, Juvenile form",Organism,This juvenile stage occurs in many animals with metamorphosis.
+26,Pupa,Easy,"Non-feeding stage, Complete metamorphosis, Reorganisation, Between larva and adult, Protected stage",Organism,This stage occurs between larva and adult in complete metamorphosis.
+27,Nymph,Easy,"Young insect, Resembles adult, No wings initially, Incomplete metamorphosis, Moults",Organism,This immature stage resembles a smaller adult.
+28,Moulting,Easy,"Shed exoskeleton, Growth, Insects, Nymph stages, Ecdysis",Process,Arthropods shed their outer covering to grow.
+29,Advantages of Internal Fertilisation,Medium,"Gametes protected, Less water dependence, Higher fertilisation chance, Fewer gametes needed, Embryo protection",Process,These features increase reproductive success on land.
+30,Advantages of Parental Care,Medium,"Higher offspring survival, Protection, Feeding, Learning, Reduced predation",Organism,Parental investment improves the survival of young.
