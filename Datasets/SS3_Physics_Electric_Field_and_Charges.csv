@@ -1,0 +1,46 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electric Charge,Easy,"Positive, Negative, Coulomb, Conserved, Electric",Measurement,Electric charge is a property of matter measured in coulombs.
+2,Unit of Charge,Easy,"coulomb, C, Electric charge, SI unit, Quantity",Measurement,The SI unit of electric charge is the coulomb.
+3,Elementary Charge,Medium,"e = 1.60 × 10?¹? C, Proton +e, Electron ?e, Charge quantum, Electric",Measurement,Electric charge occurs in integer multiples of the elementary charge.
+4,Like Charges,Easy,"Repel, Positive-positive, Negative-negative, Electric force, Charge",Force,Like charges repel.
+5,Unlike Charges,Easy,"Attract, Positive-negative, Electric force, Charge, Interaction",Force,Unlike charges attract.
+6,Conservation of Charge,Easy,"Total charge constant, Transferred not created, Closed system, Electric, Charge",Structure,Electric charge is conserved in an isolated system.
+7,Electric Field,Easy,"Region around charge, Force on charge, Vector field, Electric, Non-contact",Force,An electric field is the region where a charge experiences electric force.
+8,Electric Field Strength,Easy,"E, Force per unit positive charge, N C?¹, Vector, Electric",Measurement,Electric field strength is force per unit positive charge.
+9,Field Strength Formula,Easy,"E = F/q, Force, Charge, N C?¹, Electric",Formula,Electric field strength equals force divided by test charge.
+10,Point Charge Field,Medium,"E = kQ/r², Radial, Point charge, Distance, Electric",Formula,The field of a point charge follows an inverse-square law.
+11,Coulomb's Law,Medium,"F = kq?q?/r², Point charges, Inverse square, Electric force, Distance",Formula,Coulomb's law gives the force between point charges.
+12,Coulomb Constant,Easy,"k ? 9.0 × 10? N m² C?², Vacuum, Electric force, Constant, Charge",Measurement,k is the electrostatic constant in vacuum.
+13,Permittivity Form,Hard,"k = 1/(4???), Vacuum permittivity, Coulomb law, Electric, Constant",Formula,The electrostatic constant can be written using vacuum permittivity.
+14,Inverse Square Electric Force,Easy,"F ? 1/r², Distance doubled quarter force, Charge, Electric, Force",Formula,Electrostatic force decreases with the square of separation.
+15,Charge Product Dependence,Easy,"F ? q?q?, Larger charges, Stronger force, Electric, Coulomb",Formula,Electrostatic force increases with the product of the charges.
+16,Electric Field Direction,Easy,"Away from positive, Toward negative, Positive test charge, Vector, Field",Structure,Field direction is defined by the force on a positive test charge.
+17,Uniform Electric Field,Easy,"Parallel field lines, Equal spacing, Constant field, Parallel plates, Electric",Structure,"Between large parallel plates, the field is approximately uniform."
+18,Electric Potential,Medium,"Energy per unit charge, V, Scalar, J C?¹, Electric",Measurement,Electric potential is potential energy per unit charge.
+19,Potential Formula,Medium,"V = W/q, Work, Charge, Volt, Electric",Formula,Potential equals work done per unit charge.
+20,Volt,Easy,"1 J C?¹, Potential difference, V, Electrical unit, Energy per charge",Measurement,One volt equals one joule per coulomb.
+21,Potential of Point Charge,Hard,"V = kQ/r, Point charge, Scalar, Electric potential, Distance",Formula,Potential around a point charge decreases as 1/r.
+22,Electric Potential Energy,Medium,"U = qV, Charge, Potential, Joule, Electric",Energy,Electric potential energy equals charge times potential.
+23,Work Moving Charge,Medium,"W = qV, Potential difference, Charge, Energy transfer, Electric",Formula,Moving charge through a potential difference transfers energy.
+24,Equipotential Surface,Medium,"Constant potential, No work along surface, Perpendicular to field, Electric, Surface",Structure,No work is done moving a charge along an equipotential.
+25,Electric Field Between Plates,Medium,"E = V/d, Uniform field, Potential difference, Plate separation, Electric",Formula,"For parallel plates, field strength is potential difference divided by separation."
+26,Capacitor,Easy,"Stores charge, Two conductors, Insulator between, Potential difference, Electrical component",Equipment,A capacitor stores separated electric charge.
+27,Capacitance,Easy,"C, Charge per volt, Farad, Q/V, Capacitor",Measurement,Capacitance is charge stored per unit potential difference.
+28,Capacitance Formula,Easy,"C = Q/V, Charge, Potential difference, Farad, Capacitor",Formula,Capacitance equals charge divided by voltage.
+29,Farad,Easy,"F, C V?¹, Unit of capacitance, Capacitor, SI unit",Measurement,The farad is the SI unit of capacitance.
+30,Parallel Plate Capacitor,Medium,"Two parallel plates, Dielectric, Stores opposite charges, Uniform field, Capacitor",Equipment,Parallel plates provide a simple capacitor geometry.
+31,Plate Area Effect,Medium,"Larger area, Larger capacitance, Parallel plates, Capacitor, Geometry",Structure,Increasing plate area increases capacitance.
+32,Plate Separation Effect,Medium,"Greater separation, Lower capacitance, Parallel plates, Capacitor, Geometry",Structure,Increasing separation decreases capacitance.
+33,Dielectric,Easy,"Insulating material, Between plates, Increases capacitance, Polarisation, Capacitor",Matter,A dielectric is an insulator inserted between capacitor plates.
+34,Dielectric Effect,Medium,"Higher capacitance, Reduced effective field, Polarisation, Capacitor, Insulator",Structure,A dielectric increases capacitance by reducing the effective field for a given charge.
+35,Capacitors in Parallel,Medium,"C_total = C? + C? + ..., Same voltage, Charges add, Capacitor network, Parallel",Formula,Parallel capacitances add directly.
+36,Capacitors in Series,Medium,"1/C_total = 1/C? + 1/C? + ..., Same charge, Voltages add, Capacitor network, Series",Formula,Reciprocals add for capacitors in series.
+37,Energy Stored in Capacitor,Medium,"½CV², ½QV, Q²/2C, Electric energy, Capacitor",Formula,A charged capacitor stores electric potential energy.
+38,Charging Capacitor,Medium,"Charge builds, Voltage rises, Current initially high, Time dependent, Capacitor",Process,A capacitor charges as charge accumulates on its plates.
+39,Discharging Capacitor,Medium,"Charge decreases, Current flows, Stored energy released, Time dependent, Capacitor",Process,A capacitor discharges by releasing stored charge and energy.
+40,Electrostatic Induction,Medium,"Charge separation, No contact, Nearby charged object, Conductor, Electric",Process,A nearby charge can redistribute charges in a conductor.
+41,Charging by Induction,Medium,"No direct contact, Earthing, Charge redistribution, Conductor, Electrostatics",Process,A conductor can be charged by induction using redistribution and earthing.
+42,Charging by Friction,Easy,"Electron transfer, Rubbing, Opposite charges, Insulators, Electrostatics",Process,Friction can transfer electrons between materials.
+43,Electroscope,Easy,"Detects charge, Leaf separation, Metal cap, Electrostatics, Instrument",Equipment,An electroscope indicates the presence of electric charge.
+44,Electric Field Question Strategy,Easy,"Identify source charge, Use signs, Choose Coulomb or field formula, Use metres, Check direction",Process,"Separate force, field, potential and energy quantities carefully."
+45,Capacitor Question Strategy,Easy,"Identify series or parallel, Find equivalent capacitance, Use Q=CV, Use energy formula, Check units",Process,Capacitor problems depend first on how the capacitors are connected.

@@ -1,0 +1,43 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Magnetic Field,Easy,"Region of magnetic force, Magnet, Current, Moving charge, Field",Force,A magnetic field is a region where magnetic forces can act.
+2,Magnetic Flux Density,Medium,"B, tesla, Magnetic field strength measure, Vector, Field",Measurement,Magnetic flux density B is measured in tesla.
+3,Tesla,Easy,"T, Unit of B, Magnetic field, SI unit, Flux density",Measurement,The tesla is the SI unit of magnetic flux density.
+4,Bar Magnet,Easy,"North pole, South pole, Permanent magnet, Magnetic field, Poles",Equipment,A bar magnet has north and south poles.
+5,Unlike Magnetic Poles,Easy,"Attract, North-south, Magnetic force, Poles, Interaction",Force,Unlike magnetic poles attract.
+6,Like Magnetic Poles,Easy,"Repel, North-north, South-south, Magnetic force, Poles",Force,Like magnetic poles repel.
+7,Magnetic Field Lines,Easy,"Outside N to S, Closed loops, Never cross, Closer lines stronger, Field",Graph,Magnetic field lines show direction and relative field strength.
+8,Magnetic Field Direction,Easy,"Direction north pole would move, N to S outside magnet, Vector, Field, Compass",Structure,Field direction is the direction a north magnetic pole would move.
+9,Magnetic Field Mapping,Easy,"Plotting compass, Iron filings, Bar magnet, Field lines, Experiment",Experiment,Magnetic field patterns can be mapped with compasses or iron filings.
+10,Permanent Magnet,Easy,"Retains magnetism, Steel, Hard magnetic material, Poles, Magnet",Matter,Permanent magnets retain magnetisation after the magnetising field is removed.
+11,Temporary Magnet,Easy,"Loses magnetism easily, Soft iron, Electromagnet core, Magnetic material, Magnet",Matter,Soft iron is useful when magnetism should be temporary.
+12,Magnetic Materials,Easy,"Iron, Cobalt, Nickel, Steel, Ferromagnetic",Matter,Some materials can be strongly magnetised.
+13,Magnetic Domain Idea,Medium,"Domains align, Magnetisation, Ferromagnetic material, Microscopic regions, Magnet",Particle,Magnetisation can be explained by alignment of magnetic domains.
+14,Magnetisation,Easy,"Domain alignment, Stroking, Electrical method, Induction, Magnet",Process,Magnetisation aligns magnetic regions within a material.
+15,Demagnetisation,Easy,"Heating, Hammering, Alternating field, Domain disorder, Magnet",Process,Demagnetisation disrupts magnetic alignment.
+16,Magnetic Induction,Easy,"Temporary magnetisation, Nearby magnet, Soft iron, Field, Magnet",Process,A magnetic material can become magnetised in an external field.
+17,Earth's Magnetic Field,Easy,"Compass alignment, Magnetic north-south, Geomagnetic field, Earth, Navigation",Environment,Earth behaves approximately like a giant magnet.
+18,Magnetic Meridian,Medium,"Vertical plane through magnetic north-south, Compass, Earth field, Direction, Geomagnetism",Measurement,The magnetic meridian contains the Earth's magnetic field direction.
+19,Magnetic Declination,Medium,"Angle between geographic and magnetic meridians, East or west, Compass, Earth field, Angle",Measurement,Declination is the horizontal angle between true north and magnetic north.
+20,Angle of Dip,Medium,"Inclination to horizontal, Earth magnetic field, Dip needle, Geomagnetism, Angle",Measurement,Magnetic dip is the angle Earth's field makes with the horizontal.
+21,Horizontal Component of Earth's Field,Hard,"B_H, Horizontal part of Earth's field, Compass, Geomagnetism, Vector",Measurement,The Earth's magnetic field can be resolved into horizontal and vertical components.
+22,Magnetic Equator,Medium,"Dip angle zero, Earth field horizontal, Geomagnetism, Earth, Location",Environment,"At the magnetic equator, the Earth's field is approximately horizontal."
+23,Magnetic Poles of Earth,Medium,"Dip near 90°, Field nearly vertical, Geomagnetism, Earth, Poles",Environment,"Near magnetic poles, Earth's field is nearly vertical."
+24,Field Around Straight Current,Easy,"Concentric circles, Current-carrying wire, Right-hand grip rule, Magnetic field, Wire",Graph,A straight current produces circular magnetic field lines.
+25,Right-Hand Grip Rule,Easy,"Thumb current, Curled fingers field, Straight conductor, Direction, Magnetism",Process,The right-hand grip rule gives field direction around a current.
+26,Field Strength Around Wire,Medium,"Stronger with current, Weaker with distance, Circular field, Wire, B",Structure,The magnetic field around a straight wire increases with current and decreases with distance.
+27,Field of Circular Coil,Easy,"Stronger at centre, Current loop, North-south faces, Magnetic field, Coil",Graph,A current loop produces a field similar to a small magnet.
+28,Solenoid,Easy,"Long coil, Nearly uniform field inside, Current, Electromagnet, Magnetic",Equipment,A solenoid produces a strong nearly uniform internal magnetic field.
+29,Solenoid Field Direction,Medium,"Right-hand grip rule, Fingers current, Thumb north pole, Coil, Magnetic field",Process,The grip rule can identify a solenoid's north end.
+30,Electromagnet,Easy,"Current-carrying coil, Soft iron core, Temporary magnet, Switchable, Magnet",Equipment,An electromagnet produces magnetism when current flows.
+31,Strength of Electromagnet,Easy,"More current, More turns, Soft iron core, Tighter coil, Stronger field",Structure,Electromagnet strength increases with current and number of turns.
+32,Electromagnet Uses,Easy,"Relay, Electric bell, Scrap crane, Circuit breaker, Door lock",Industry,Electromagnets are useful where magnetism must be switched on and off.
+33,Magnetic Relay,Easy,"Electromagnet, Switches another circuit, Low-current control, Contacts, Device",Equipment,A relay uses an electromagnet to operate electrical contacts.
+34,Electric Bell,Easy,"Electromagnet, Armature, Make-and-break contact, Bell, Device",Equipment,An electric bell repeatedly makes and breaks an electromagnet circuit.
+35,Magnetic Shielding,Medium,"Soft iron, Redirects magnetic field, Protects region, Magnetism, Shield",Safety,High-permeability materials can redirect magnetic field lines.
+36,Magnetic Compass,Easy,"Small magnet, Aligns with Earth's field, Navigation, North, Instrument",Equipment,A compass needle aligns with the local magnetic field.
+37,Neutral Point,Medium,"Resultant magnetic field zero, Earth field cancels magnet field, Field mapping, Magnet, Point",Structure,A neutral point is where magnetic fields cancel.
+38,Magnetic Flux,Medium,"?, B × area normal component, weber, Field through area, Magnetism",Measurement,Magnetic flux measures how much magnetic field passes through an area.
+39,Weber,Easy,"Wb, Unit of magnetic flux, Magnetic field, SI unit, Flux",Measurement,The weber is the SI unit of magnetic flux.
+40,Flux Formula,Hard,"? = BA cos?, Uniform field, Area, Angle to normal, Magnetic flux",Formula,"Magnetic flux depends on field strength, area and orientation."
+41,Flux Linkage,Medium,"N?, Turns × flux, Coil, Electromagnetic induction, Magnetic",Measurement,Flux linkage is magnetic flux multiplied by the number of turns.
+42,Magnetic Field Question Strategy,Easy,"Identify source, Use field direction rule, Draw field lines, Check poles or current, Use correct unit",Process,Magnetic questions often depend first on field direction.

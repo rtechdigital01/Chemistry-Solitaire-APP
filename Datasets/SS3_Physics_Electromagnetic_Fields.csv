@@ -1,0 +1,48 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Force on Current-Carrying Conductor,Easy,"Magnetic field, Electric current, Force, Conductor, Motor effect",Force,A current-carrying conductor in a magnetic field experiences a force.
+2,Motor Effect,Easy,"Current, Magnetic field, Force, Motion, Conductor",Force,The motor effect is the force on a current-carrying conductor in a magnetic field.
+3,Fleming's Left-Hand Rule,Easy,"First finger field, Second finger current, Thumb force, Motor, Direction",Process,Fleming's left-hand rule gives force direction in the motor effect.
+4,Force Formula on Conductor,Medium,"F = BIL sin?, Magnetic flux density, Current, Length, Angle",Formula,"Magnetic force depends on B, current, conductor length and orientation."
+5,Maximum Magnetic Force,Easy,"? = 90°, Conductor perpendicular to field, F = BIL, Motor effect, Force",Force,The force is greatest when current is perpendicular to the field.
+6,Zero Magnetic Force,Easy,"? = 0°, Conductor parallel to field, No motor force, Field, Current",Force,A conductor parallel to the field experiences no magnetic force.
+7,Force on Moving Charge,Medium,"F = Bqv sin?, Moving charge, Magnetic field, Velocity, Force",Formula,A moving charge in a magnetic field can experience a sideways force.
+8,Charge Moving Perpendicular to B,Medium,"Circular path, Magnetic force centripetal, Speed constant, Charge, Field",Motion,A magnetic field bends the path of a charged particle without changing its speed.
+9,Magnetic Force Does No Work,Medium,"Force perpendicular to velocity, Speed unchanged, Direction changes, Moving charge, Field",Energy,A purely magnetic force changes direction but not kinetic energy.
+10,Circular Radius of Charged Particle,Hard,"r = mv/Bq, Mass, Speed, Charge, Magnetic field",Formula,The orbit radius of a charged particle depends on momentum and field strength.
+11,Parallel Current-Carrying Wires,Medium,"Same direction attract, Opposite directions repel, Magnetic fields, Force, Conductors",Force,Parallel currents exert magnetic forces on each other.
+12,Current Balance Idea,Hard,"Force between wires, Parallel conductors, Current measurement, Magnetic field, Force",Experiment,Forces between parallel currents can be used to compare electrical and mechanical quantities.
+13,Moving-Coil Galvanometer,Medium,"Coil in magnetic field, Deflection, Small current, Torque, Instrument",Equipment,A moving-coil galvanometer detects small electric currents.
+14,Galvanometer Torque,Hard,"Current in coil, Magnetic field, Turning effect, Spring control, Deflection",Force,Current in the coil produces a magnetic turning effect.
+15,Galvanometer to Ammeter,Medium,"Low-resistance shunt, Parallel path, Large current range, Ammeter, Conversion",Equipment,A shunt allows a galvanometer to measure larger currents.
+16,Galvanometer to Voltmeter,Medium,"High series resistance, Limits current, Voltage range, Voltmeter, Conversion",Equipment,A large series resistance converts a galvanometer into a voltmeter.
+17,Electric Motor,Easy,"Current-carrying coil, Magnetic field, Torque, Rotation, Motor effect",Machine,An electric motor converts electrical energy into mechanical energy.
+18,Motor Split-Ring Commutator,Medium,"Reverses coil current, Every half-turn, Keeps torque same direction, DC motor, Commutator",Equipment,The split-ring commutator maintains continuous rotation in a DC motor.
+19,Motor Brushes,Easy,"Electrical contact, Rotating commutator, Carbon, Current supply, Motor",Equipment,Brushes maintain electrical contact with the rotating commutator.
+20,Electromagnetic Induction,Easy,"Changing magnetic flux, Induced emf, Coil, Generator effect, Faraday",Process,An emf is induced when magnetic flux linkage changes.
+21,Faraday's Law,Medium,"Induced emf ? rate of change of flux linkage, N?, Time, Induction, Generator",Formula,Faraday's law links induced emf to changing magnetic flux linkage.
+22,Lenz's Law,Medium,"Induced effect opposes change, Energy conservation, Direction, Induction, Magnetic",Process,Lenz's law gives the direction of induced current.
+23,Induced EMF,Easy,"Changing flux, Motion or changing field, Voltage, Coil, Induction",Measurement,Induced emf is produced by changing magnetic flux linkage.
+24,Increasing Induced EMF,Easy,"Move faster, Stronger field, More turns, Larger area, Faster flux change",Process,A larger rate of change of flux linkage produces a larger emf.
+25,Fleming's Right-Hand Rule,Easy,"First finger field, Thumb motion, Second finger induced current, Generator, Direction",Process,Fleming's right-hand rule gives induced-current direction.
+26,AC Generator,Easy,"Rotating coil, Magnetic field, Slip rings, Alternating emf, Generator",Machine,An AC generator converts mechanical energy into alternating electrical energy.
+27,Generator Slip Rings,Medium,"Continuous connection, Rotating coil, Alternating output, Brushes, Generator",Equipment,Slip rings connect a rotating AC generator coil to the external circuit.
+28,Generator Output,Medium,"Sinusoidal emf, Alternating direction, Rotation, Magnetic flux, AC",Graph,Uniform coil rotation in a uniform field produces approximately sinusoidal emf.
+29,Generator EMF Frequency,Medium,"Rotation rate, Cycles per second, AC frequency, Generator, Motion",Measurement,Faster generator rotation increases output frequency.
+30,Self-Induction,Medium,"Changing current, Own magnetic flux, Back emf, Inductor, Coil",Process,A changing current can induce an emf in the same coil.
+31,Back EMF,Medium,"Opposes current change, Lenz's law, Inductor, Self-induction, Voltage",Process,Self-induced emf opposes the change that produced it.
+32,Inductance,Medium,"L, henry, Flux linkage per current idea, Coil, Inductor",Measurement,Inductance measures a circuit's tendency to oppose changes in current.
+33,Henry,Easy,"H, Unit of inductance, Inductor, SI unit, Electromagnetism",Measurement,The henry is the SI unit of inductance.
+34,Mutual Induction,Medium,"Changing current in one coil, Induced emf in second coil, Transformer, Magnetic coupling, Induction",Process,Mutual induction transfers changing magnetic effects between coils.
+35,Transformer,Easy,"Primary coil, Secondary coil, Iron core, AC, Mutual induction",Equipment,A transformer changes alternating voltage by mutual induction.
+36,Transformer Turns Ratio,Medium,"V?/V? = N?/N?, Primary turns, Secondary turns, Voltage, Transformer",Formula,Transformer voltage ratio equals turns ratio for an ideal transformer.
+37,Step-Up Transformer,Easy,"N? > N?, V? > V?, Higher voltage, Lower current ideal, Transformer",Equipment,A step-up transformer increases alternating voltage.
+38,Step-Down Transformer,Easy,"N? < N?, V? < V?, Lower voltage, Higher current ideal, Transformer",Equipment,A step-down transformer reduces alternating voltage.
+39,Ideal Transformer Power,Medium,"V?I? = V?I?, Power conserved, No losses, Transformer, AC",Formula,An ideal transformer conserves electrical power.
+40,Transformer Efficiency,Medium,"Output power/input power × 100%, Losses, Heating, Core, Transformer",Formula,Real transformer efficiency is below 100%.
+41,Transformer Losses,Medium,"Copper heating, Eddy currents, Hysteresis, Flux leakage, Energy loss",Energy,Several effects reduce transformer efficiency.
+42,Reducing Eddy Currents,Easy,"Laminated core, Thin insulated sheets, Transformer, Heating reduction, Core",Process,Lamination reduces eddy-current heating.
+43,Reducing Hysteresis Loss,Medium,"Soft iron core, Narrow hysteresis loop, Transformer, Magnetic reversal, Energy",Process,Soft magnetic materials reduce hysteresis loss.
+44,Power Transmission,Easy,"High voltage, Low current, Reduced I²R loss, Grid, Transformer",Industry,Electric power is transmitted at high voltage to reduce heating losses.
+45,Transmission Loss,Medium,"P_loss = I²R, Cable resistance, Current, Heating, Grid",Formula,Power lost in transmission cables increases with current squared.
+46,Induction Coil,Medium,"High voltage pulses, Primary, Secondary, Interrupter, Electromagnetic induction",Equipment,An induction coil can produce high-voltage pulses from a low-voltage source.
+47,Electromagnetic Fields Strategy,Easy,"Choose motor or generator rule, Identify B, I or motion, Use flux change for induction, Check energy conversion, Direction",Process,First decide whether the problem is about force or induction.

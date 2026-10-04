@@ -1,0 +1,47 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Alternating Current,Easy,"Changes direction periodically, AC, Sinusoidal often, Current, Supply",Measurement,Alternating current reverses direction repeatedly.
+2,Alternating Voltage,Easy,"Changes polarity periodically, AC, Sinusoidal often, Voltage, Supply",Measurement,Alternating voltage changes magnitude and polarity with time.
+3,AC Waveform,Easy,"Positive half-cycle, Negative half-cycle, Period, Amplitude, Graph",Graph,An AC waveform shows how current or voltage varies with time.
+4,Cycle,Easy,"One complete repetition, Positive and negative halves, AC, Waveform, Period",Structure,A cycle is one complete repetition of an alternating quantity.
+5,AC Period,Easy,"T, Time for one cycle, Second, AC, Waveform",Measurement,The period is the time for one complete AC cycle.
+6,AC Frequency,Easy,"f, Cycles per second, Hertz, f = 1/T, AC",Measurement,AC frequency is the number of cycles per second.
+7,Peak Value,Easy,"Maximum instantaneous value, I? or V?, Amplitude, AC, Waveform",Measurement,Peak value is the largest magnitude reached by an alternating quantity.
+8,RMS Current,Medium,"I_rms = I?/?2, Sinusoidal AC, Heating equivalent, Current, Effective value",Formula,RMS current gives the DC-equivalent heating effect.
+9,RMS Voltage,Medium,"V_rms = V?/?2, Sinusoidal AC, Effective voltage, AC, Supply",Formula,RMS voltage is the effective value of a sinusoidal alternating voltage.
+10,Peak from RMS,Medium,"I? = ?2 I_rms, V? = ?2 V_rms, Sinusoidal AC, Peak, Formula",Formula,Peak value is ?2 times the RMS value for a sine wave.
+11,AC Through Resistor,Easy,"Current in phase with voltage, Resistance, No phase shift, Power consumed, R circuit",Structure,"In a pure resistor, current and voltage are in phase."
+12,Resistive Impedance,Easy,"Z = R, Ohm, AC resistor, Voltage/current ratio, Resistance",Formula,"For a pure resistor, impedance equals resistance."
+13,AC Through Inductor,Medium,"Current lags voltage, 90° ideal, Inductive reactance, L, AC",Structure,"In a pure inductor, current lags voltage by 90°."
+14,Inductive Reactance,Medium,"X_L = 2?fL, Ohm, Frequency, Inductance, AC",Formula,Inductive reactance increases with frequency and inductance.
+15,Inductor at Low Frequency,Easy,"Small reactance, More current, X_L ? f, AC, Inductor",Structure,An inductor opposes low-frequency AC less strongly.
+16,Inductor at High Frequency,Easy,"Large reactance, Less current, X_L ? f, AC, Inductor",Structure,An inductor opposes high-frequency AC more strongly.
+17,AC Through Capacitor,Medium,"Current leads voltage, 90° ideal, Capacitive reactance, C, AC",Structure,"In a pure capacitor, current leads voltage by 90°."
+18,Capacitive Reactance,Medium,"X_C = 1/(2?fC), Ohm, Frequency, Capacitance, AC",Formula,Capacitive reactance decreases as frequency increases.
+19,Capacitor at Low Frequency,Easy,"Large reactance, Less current, X_C ? 1/f, AC, Capacitor",Structure,A capacitor opposes low-frequency AC strongly.
+20,Capacitor at High Frequency,Easy,"Small reactance, More current, X_C ? 1/f, AC, Capacitor",Structure,A capacitor passes high-frequency AC more readily.
+21,Reactance,Easy,"Opposition in AC, Inductive or capacitive, Ohm, Frequency dependent, AC",Measurement,Reactance is frequency-dependent opposition to alternating current.
+22,Impedance,Easy,"Total AC opposition, Z, Ohm, Resistance and reactance, AC",Measurement,Impedance combines resistance and reactance.
+23,Series RL Circuit,Medium,"Resistance, Inductive reactance, Current lags supply voltage, Impedance, AC",Structure,An RL series circuit combines resistance and inductive reactance.
+24,RL Impedance,Medium,"Z = ?(R² + X_L²), Series RL, Ohm, AC, Formula",Formula,RL impedance follows a right-triangle relation.
+25,Series RC Circuit,Medium,"Resistance, Capacitive reactance, Current leads supply voltage, Impedance, AC",Structure,An RC series circuit combines resistance and capacitive reactance.
+26,RC Impedance,Medium,"Z = ?(R² + X_C²), Series RC, Ohm, AC, Formula",Formula,RC impedance follows a right-triangle relation.
+27,Series RLC Circuit,Medium,"R, L, C, Combined reactance, AC",Structure,"A series RLC circuit contains resistance, inductance and capacitance."
+28,Net Reactance,Medium,"X = X_L ? X_C, Inductive minus capacitive, RLC, AC, Reactance",Formula,Net reactance depends on the difference between inductive and capacitive reactance.
+29,RLC Impedance,Hard,"Z = ?(R² + (X_L?X_C)²), Series RLC, Ohm, AC, Formula",Formula,Series RLC impedance combines resistance with net reactance.
+30,Phase Angle,Medium,"tan? = (X_L?X_C)/R, RLC, Voltage-current phase, AC, Angle",Formula,Phase angle depends on resistance and net reactance.
+31,Inductive Circuit,Easy,"X_L > X_C, Current lags voltage, Positive phase angle, RLC, AC",Structure,A series circuit is inductive when inductive reactance dominates.
+32,Capacitive Circuit,Easy,"X_C > X_L, Current leads voltage, Negative phase relation, RLC, AC",Structure,A series circuit is capacitive when capacitive reactance dominates.
+33,Resonance,Medium,"X_L = X_C, Net reactance zero, Impedance minimum, Current maximum, RLC",Structure,Series resonance occurs when inductive and capacitive reactances are equal.
+34,Resonant Frequency,Hard,"f? = 1/(2??(LC)), Series RLC, Frequency, Inductance, Capacitance",Formula,Resonant frequency depends on L and C.
+35,RLC at Resonance,Medium,"Z = R, Current maximum, Voltage and current in phase, Power factor 1, AC",Structure,"At series resonance, the circuit behaves resistively."
+36,Voltage Triangle,Medium,"V_R, V_L?V_C, Supply voltage, RLC, Vector diagram",Graph,AC voltages in series circuits can be represented by a vector triangle.
+37,Impedance Triangle,Medium,"R, X_L?X_C, Z, Phase angle, AC",Graph,"The impedance triangle connects resistance, reactance and impedance."
+38,Power in AC Circuit,Medium,"P = V_rms I_rms cos?, Watt, RMS values, Power factor, AC",Formula,"Average AC power depends on RMS voltage, current and phase angle."
+39,Power Factor,Medium,"cos?, Real power/apparent power, Dimensionless, AC, Phase",Measurement,Power factor shows how effectively AC current transfers useful power.
+40,Pure Resistor Power Factor,Easy,"1, ? = 0°, Voltage and current in phase, Resistive load, AC",Structure,A pure resistor has unity power factor.
+41,Pure Inductor Average Power,Medium,"0 ideal, 90° phase, Energy returned, Inductor, AC",Energy,An ideal inductor consumes no average power.
+42,Pure Capacitor Average Power,Medium,"0 ideal, 90° phase, Energy returned, Capacitor, AC",Energy,An ideal capacitor consumes no average power.
+43,Apparent Power,Medium,"S = VI, VA, RMS voltage × current, AC, Power",Measurement,Apparent power is measured in volt-amperes.
+44,Real Power,Medium,"P = VI cos?, W, Useful average power, AC, Power",Measurement,Real power is the average power actually consumed.
+45,Reactive Power,Hard,"Q = VI sin?, var, Inductor or capacitor, AC, Power",Measurement,Reactive power represents oscillating energy exchange with reactive components.
+46,AC Circuit Strategy,Easy,"Find f, Compute X_L and X_C, Find Z, Find phase, Use RMS for power",Process,"Separate resistance, reactance and phase before calculating AC power."

@@ -1,0 +1,47 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electrical Conduction in Liquids,Easy,"Ions carry charge, Electrolyte, Anode, Cathode, Current",Particle,"In conducting liquids, electric charge is carried mainly by ions."
+2,Electrolyte,Easy,"Conducting liquid, Contains mobile ions, Molten salt, Aqueous solution, Electrolysis",Matter,An electrolyte conducts because it contains mobile ions.
+3,Non-Electrolyte,Easy,"Few or no mobile ions, Poor conductor, Molecular liquid, No electrolysis, Liquid",Matter,A non-electrolyte does not provide enough mobile ions for significant current.
+4,Ion,Easy,"Charged particle, Cation, Anion, Electrolyte, Charge carrier",Particle,Ions carry current through electrolytes.
+5,Cation,Easy,"Positive ion, Moves to cathode, Electrolysis, Charge carrier, Liquid",Particle,Cations move toward the negative electrode.
+6,Anion,Easy,"Negative ion, Moves to anode, Electrolysis, Charge carrier, Liquid",Particle,Anions move toward the positive electrode.
+7,Electrode,Easy,"Conductor in electrolyte, Anode or cathode, Transfers charge, Electrolysis, Circuit",Equipment,Electrodes connect an electrolyte to an external circuit.
+8,Anode,Easy,"Positive electrode in electrolysis, Attracts anions, Oxidation, Electrode, Electrolysis",Equipment,"In electrolysis, anions move to the anode."
+9,Cathode,Easy,"Negative electrode in electrolysis, Attracts cations, Reduction, Electrode, Electrolysis",Equipment,"In electrolysis, cations move to the cathode."
+10,Electrolysis,Easy,"Chemical decomposition by current, Electrolyte, Electrodes, Ions, Electrical energy",Process,Electrolysis uses electric current to drive chemical change.
+11,Faraday's First Law,Medium,"Mass deposited ? charge, m ? Q, Electrolysis, Current, Time",Formula,The mass liberated in electrolysis is proportional to the charge passed.
+12,Charge in Electrolysis,Easy,"Q = It, Current, Time, Coulomb, Electrolysis",Formula,Charge passed equals current multiplied by time.
+13,Electrochemical Equivalent,Medium,"z, Mass per unit charge, kg C?¹, Electrolysis, Deposition",Measurement,Electrochemical equivalent relates deposited mass to charge.
+14,Faraday First Law Equation,Medium,"m = zIt, Mass deposited, Current, Time, Electrochemical equivalent",Formula,Deposited mass equals electrochemical equivalent times charge.
+15,Faraday's Second Law,Hard,"Masses proportional to chemical equivalents, Same charge, Different electrolytes, Electrolysis, Faraday",Formula,"For equal charge, deposited masses depend on chemical equivalent."
+16,Electroplating,Easy,"Metal coating, Electrolysis, Object as cathode, Metal ions, Industry",Industry,Electroplating deposits a thin metal layer on an object.
+17,Electroplating Uses,Easy,"Corrosion protection, Decoration, Wear resistance, Metal coating, Industry",Industry,Electroplating improves appearance or surface properties.
+18,Purification of Copper,Medium,"Impure anode, Pure cathode, Copper electrolyte, Electrorefining, Industry",Industry,Electrolysis can purify metals such as copper.
+19,Electrolysis of Molten Salt,Medium,"Only constituent ions, Cations to cathode, Anions to anode, Molten ionic compound, Electrolysis",Process,Molten ionic compounds conduct because their ions are free to move.
+20,Electrolysis of Aqueous Solution,Medium,"Solute ions, Hydrogen and hydroxide ions, Discharge depends on conditions, Water, Electrolysis",Process,Aqueous electrolysis can involve ions from both solute and water.
+21,Electrolysis Energy Change,Easy,"Electrical to chemical energy, Non-spontaneous reaction, Electrodes, Electrolyte, Energy",Energy,Electrolysis converts electrical energy into chemical energy.
+22,Primary Cell,Medium,"Chemical to electrical energy, Non-rechargeable, Electrodes, Electrolyte, Cell",Equipment,A primary cell produces electrical energy from chemical reactions.
+23,Secondary Cell,Medium,"Rechargeable, Reversible chemistry, Battery, Chemical energy, Cell",Equipment,A secondary cell can be recharged by reversing its chemical changes.
+24,Conduction in Gases,Easy,"Ionised gas, Electrons and ions, Normally poor conductor, Electric field, Gas",Particle,Gases conduct when sufficient charged particles are present.
+25,Gas Ionisation,Easy,"Electrons removed, Positive ions formed, Radiation or high field, Charge carriers, Gas",Particle,Ionisation creates charge carriers in a gas.
+26,Ionising Agent,Easy,"Radiation, Heat, Strong electric field, Creates ions, Gas",Process,An ionising agent can make a gas electrically conductive.
+27,Gas Discharge,Medium,"Current through ionised gas, High voltage, Electrons and ions, Glow, Gas",Process,A gas discharge occurs when ionised gas sustains an electric current.
+28,Discharge Tube,Easy,"Low-pressure gas, Electrodes, High voltage, Glow discharge, Tube",Equipment,A discharge tube demonstrates electrical conduction through gas.
+29,Cathode Rays,Medium,"Electron beam, From cathode, Low-pressure tube, Deflected by fields, Discharge tube",Particle,Cathode rays are streams of electrons.
+30,Properties of Cathode Rays,Medium,"Negative charge, Straight-line travel, Cause fluorescence, Deflected by fields, Electrons",Particle,Cathode-ray behaviour identifies them as charged particles.
+31,Anode Rays,Medium,"Positive ions, Canal rays, Opposite direction to electrons, Gas discharge, Particles",Particle,Anode or canal rays consist of positive ions.
+32,Spark Discharge,Easy,"Sudden gas conduction, High electric field, Air breakdown, Short duration, Spark",Process,A spark forms when the electric field ionises air strongly.
+33,Electric Breakdown of Gas,Medium,"Field exceeds threshold, Avalanche ionisation, Large current, Gas, Discharge",Process,Gas breakdown occurs when ionisation becomes self-sustaining.
+34,Lightning,Easy,"Large atmospheric discharge, Cloud charge separation, Ionised air, High voltage, Weather",Environment,Lightning is a large-scale electrical discharge through air.
+35,Lightning Conductor,Easy,"Metal rod, Earth connection, Safe path for charge, Building protection, Lightning",Safety,A lightning conductor provides a low-resistance path to Earth.
+36,Corona Discharge,Medium,"Ionisation near sharp conductor, High electric field, Faint glow, Air, Discharge",Process,Strong fields near sharp points can ionise surrounding air.
+37,Fluorescent Lamp,Medium,"Gas discharge, Ultraviolet production, Phosphor coating, Visible light, Lamp",Equipment,Fluorescent lamps use gas discharge and phosphor fluorescence.
+38,Neon Lamp,Easy,"Low-pressure neon, Gas discharge, Orange-red glow, Advertising, Lamp",Equipment,Neon lamps produce characteristic light from excited gas atoms.
+39,Gas Discharge Spectrum,Medium,"Characteristic lines, Excited atoms, Emission, Element identification, Spectrum",Optics,Gas discharges produce characteristic emission spectra.
+40,Ionisation by Collision,Medium,"Fast electron hits atom, New electron freed, Positive ion, Avalanche, Gas",Particle,Energetic collisions can multiply charge carriers in a gas.
+41,Recombination,Medium,"Electron joins positive ion, Neutral atom formed, Charge carriers decrease, Gas, Ionisation",Particle,Recombination removes free charge carriers from ionised gas.
+42,Current in Ionised Gas,Medium,"Electron drift, Ion drift, Electric field, Charge transport, Gas",Particle,Both electrons and ions can contribute to current in a gas.
+43,Vacuum Conduction,Medium,"Electron beam, No gas ions needed, Thermionic emission, Vacuum tube, Current",Particle,"In a vacuum, current can be carried by emitted electrons."
+44,Thermionic Emission,Medium,"Heated metal emits electrons, Cathode, Vacuum tube, Electron cloud, Temperature",Process,Heating a metal can give some electrons enough energy to escape.
+45,Diode Valve,Medium,"Heated cathode, Anode, One-way current, Vacuum, Rectification",Equipment,A vacuum diode allows current mainly in one direction.
+46,Conduction Strategy,Easy,"Identify charge carrier, Distinguish liquid and gas, Use Q=It, Apply Faraday law, Check electrode signs",Process,Start by identifying what carries charge in the material.

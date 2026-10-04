@@ -1,0 +1,45 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Field,Easy,"Region of influence, Force without contact, Source object, Test object, Interaction",Structure,A field is a region where an object can experience a force.
+2,Gravitational Field,Easy,"Mass source, Acts on mass, Attractive, Gravitational force, Field",Force,Masses create gravitational fields that act on other masses.
+3,Electric Field,Easy,"Charge source, Acts on charge, Attractive or repulsive, Electric force, Field",Force,Electric charges create electric fields.
+4,Magnetic Field,Easy,"Magnet or current, Acts on magnets and moving charges, Magnetic force, Field, Region",Force,Magnetic fields are produced by magnets and electric currents.
+5,Field Line,Easy,"Direction indicator, Tangent gives field direction, Closer lines stronger field, Never cross, Representation",Graph,Field lines are diagrams used to represent direction and relative strength.
+6,Field Direction,Easy,"Force on positive test quantity, Vector direction, At a point, Field line tangent, Force",Structure,Field direction is defined by the force on a suitable positive test object.
+7,Field Strength,Easy,"Force per unit test quantity, Vector, Magnitude, Direction, Field",Measurement,Field strength describes the force experienced per unit test quantity.
+8,Uniform Field,Easy,"Parallel field lines, Equal spacing, Constant strength, Constant direction, Field",Structure,A uniform field has the same strength and direction everywhere.
+9,Non-Uniform Field,Easy,"Curved or changing spacing, Variable strength, Variable direction, Field, Source",Structure,A non-uniform field changes with position.
+10,Radial Field,Easy,"Lines point toward or away from source, Central source, Spherical symmetry, Field, Direction",Structure,A radial field is directed along lines from a central source.
+11,Inverse Square Field,Medium,"Strength ? 1/r², Point source, Distance, Radial spreading, Field",Formula,Some central fields weaken according to the inverse-square law.
+12,Gravitational Field Lines,Easy,"Point toward mass, Radial, Never repel, Mass source, Field",Graph,Gravitational field lines point toward mass.
+13,Electric Field Lines Positive Charge,Easy,"Point outward, Radial, Positive source, Electric field, Charge",Graph,Electric field lines leave positive charges.
+14,Electric Field Lines Negative Charge,Easy,"Point inward, Radial, Negative source, Electric field, Charge",Graph,Electric field lines terminate on negative charges.
+15,Magnetic Field Lines,Easy,"Closed loops, Outside magnet N to S, Inside S to N, Magnetic field, Lines",Graph,Magnetic field lines form closed loops.
+16,Field Line Density,Easy,"Closer lines, Stronger field, Qualitative strength, Diagram, Field",Graph,Greater line density represents a stronger field.
+17,Field Lines Never Cross,Easy,"Unique direction, At each point, Vector field, Diagram, Field",Structure,Crossing lines would imply two field directions at one point.
+18,Superposition of Fields,Medium,"Vector addition, Resultant field, Multiple sources, Components, Field",Process,Fields from several sources combine vectorially.
+19,Resultant Field,Medium,"Vector sum, Net field, Direction, Magnitude, Multiple sources",Structure,The resultant field is the vector sum of individual fields.
+20,Zero Field Point,Medium,"Fields cancel, Equal opposite contributions, Resultant zero, Between sources sometimes, Field",Structure,"At a zero-field point, contributions cancel exactly."
+21,Gravitational Force Line,Easy,"Field direction, Attractive, Points inward, Mass, Gravity",Force,Gravitational force lines indicate the direction of attraction.
+22,Electric Force Line,Easy,"Positive to negative, Electric field, Charge interaction, Direction, Field",Force,Electric force lines follow the direction a positive test charge would move.
+23,Magnetic Force Line,Easy,"N to S outside magnet, Closed loop, Magnetic field, Direction, Field",Force,Magnetic force lines indicate the magnetic field direction.
+24,Test Mass,Easy,"Small mass, Probes gravity, Negligible disturbance, Field, Gravity",Measurement,A test mass is used conceptually to define gravitational field direction.
+25,Test Charge,Easy,"Small positive charge, Probes electric field, Negligible disturbance, Field, Electric",Measurement,A positive test charge defines electric field direction.
+26,Field Interaction Without Contact,Easy,"Gravity, Electric, Magnetic, Non-contact force, Field",Force,Fields explain how forces act across space without direct contact.
+27,Potential Energy in a Field,Medium,"Position dependent, Gravitational, Electric, Energy, Field",Energy,Objects can store potential energy because of their position in a field.
+28,Potential,Medium,"Energy per unit quantity, Scalar, Field, Position, Reference",Measurement,Potential is a scalar measure related to energy per unit test quantity.
+29,Potential Difference,Medium,"Energy transfer per unit quantity, Two positions, Field, Voltage analogy, Work",Measurement,Potential difference compares field energy between two points.
+30,Equipotential Surface,Medium,"Constant potential, No work along surface, Perpendicular to field lines, Field, Surface",Structure,Equipotential surfaces are everywhere perpendicular to field lines.
+31,Work in a Field,Medium,"Force × displacement component, Potential change, Energy transfer, Field, Motion",Energy,Moving through a field can transfer potential energy.
+32,Central Field,Easy,"Source at centre, Radial direction, Spherical symmetry, Gravity, Electric",Structure,Central fields point along radial lines about a source.
+33,Field Around Sphere,Medium,"Outside behaves like point source, Spherical symmetry, Radial field, Gravity, Electric",Structure,"Outside a spherically symmetric source, the field can act like that of a point source."
+34,Field Strength vs Distance,Medium,"Decreases with distance, Inverse-square for point source, Graph, Field, r",Graph,Field strength generally weakens as distance from a compact source increases.
+35,Vector Nature of Field Strength,Easy,"Magnitude, Direction, Components, Resultant, Field",Structure,Field strength has both magnitude and direction.
+36,Scalar Nature of Potential,Easy,"Magnitude only, No direction, Can add algebraically, Potential, Field",Structure,Potential is a scalar quantity.
+37,Field Mapping,Easy,"Plot directions, Use test object, Draw lines, Strength pattern, Experiment",Experiment,A field can be mapped by observing how a test object responds.
+38,Magnetic Field Mapping,Easy,"Iron filings, Plotting compass, Field lines, Bar magnet, Experiment",Experiment,Iron filings and plotting compasses reveal magnetic field patterns.
+39,Electric Field Mapping,Medium,"Conducting paper, Electrodes, Equipotentials, Field lines, Experiment",Experiment,Electric fields can be mapped from measured potentials.
+40,Field Model,Easy,"Invisible interaction, Predict force, Space around source, Physics model, Field",Structure,Fields are models used to describe non-contact interactions.
+41,Field Source,Easy,"Mass, Charge, Magnet or current, Creates field, Source",Structure,Different physical sources create different kinds of fields.
+42,Field Direction Convention,Medium,"Positive test charge for electric, Mass for gravity, North pole for magnetic convention, Direction, Field",Structure,Each field type has a defined directional convention.
+43,Field Comparison,Medium,"Gravitational always attractive, Electric attractive or repulsive, Magnetic poles and currents, Non-contact, Fields",Structure,"Gravitational, electric and magnetic fields have different source and force rules."
+44,Field Question Strategy,Easy,"Identify source, Identify test object, Draw field lines, Use vector addition, Check direction",Process,Start field questions by identifying the source and the test quantity.

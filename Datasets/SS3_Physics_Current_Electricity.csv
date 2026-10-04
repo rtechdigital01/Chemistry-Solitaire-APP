@@ -1,0 +1,48 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Electric Current,Easy,"Rate of charge flow, I, ampere, Charge, Circuit",Measurement,Electric current is the rate at which charge flows.
+2,Current Formula,Easy,"I = Q/t, Charge, Time, Ampere, Current",Formula,Current equals charge divided by time.
+3,Ampere,Easy,"A, C s?¹, Unit of current, Electricity, SI unit",Measurement,One ampere is one coulomb per second.
+4,Conventional Current,Easy,"Positive charge direction, From positive to negative externally, Circuit, Current, Convention",Structure,Conventional current is defined in the direction positive charge would move.
+5,Electron Flow,Easy,"Negative to positive externally, Opposite conventional current, Metal conductor, Electrons, Circuit",Particle,Electrons move opposite to conventional current in metals.
+6,Electromotive Force,Easy,"emf, Energy supplied per unit charge, Volt, Source, Circuit",Measurement,EMF is energy supplied by a source per unit charge.
+7,EMF Formula,Easy,"? = W/Q, Energy supplied, Charge, Volt, Source",Formula,EMF equals energy supplied per unit charge.
+8,Potential Difference,Easy,"Energy transferred per unit charge, Voltage, V, Component, Circuit",Measurement,Potential difference is energy transferred per unit charge.
+9,PD Formula,Easy,"V = W/Q, Work, Charge, Volt, Component",Formula,Potential difference equals energy transferred per unit charge.
+10,Electric Circuit,Easy,"Closed conducting path, Source, Components, Current, Wires",Structure,A complete circuit provides a closed path for current.
+11,Open Circuit,Easy,"Broken path, No current, Open switch, Circuit, Electricity",Structure,An open circuit prevents continuous current flow.
+12,Closed Circuit,Easy,"Complete path, Current flows, Closed switch, Circuit, Electricity",Structure,A closed circuit allows current to flow.
+13,Resistance,Easy,"Opposition to current, R, ohm, Potential difference, Current",Measurement,Resistance measures opposition to electric current.
+14,Ohm's Law,Easy,"V = IR, Constant temperature, Resistor, Current, Voltage",Formula,"For an ohmic conductor at constant temperature, V is proportional to I."
+15,Ohm,Easy,"?, V A?¹, Unit of resistance, Resistor, SI unit",Measurement,One ohm gives one ampere when one volt is applied.
+16,Ohmic Conductor,Easy,"Constant resistance, Straight V-I graph, Metal wire at constant temperature, Ohm's law, Conductor",Structure,An ohmic conductor has constant resistance under fixed physical conditions.
+17,Non-Ohmic Conductor,Easy,"Resistance changes, Curved V-I graph, Filament lamp, Diode, Component",Structure,Non-ohmic devices do not have a constant V/I ratio.
+18,V-I Graph Resistor,Medium,"Straight line through origin, Ohmic, Voltage, Current, Graph",Graph,A straight V-I graph indicates constant resistance.
+19,I-V Graph Gradient,Medium,"Gradient = 1/R for I against V, Conductance idea, Graph, Current, Voltage",Graph,The graph gradient depends on which variable is plotted vertically.
+20,Resistors in Series,Easy,"R_total = R? + R? + ..., Same current, Voltages add, Circuit, Series",Formula,Series resistances add directly.
+21,Resistors in Parallel,Medium,"1/R_total = 1/R? + 1/R? + ..., Same voltage, Currents add, Circuit, Parallel",Formula,Reciprocals add for resistors in parallel.
+22,Two Parallel Resistors,Medium,"R = R?R?/(R?+R?), Two branches, Equivalent resistance, Parallel, Formula",Formula,"For two parallel resistors, the product-over-sum shortcut applies."
+23,Series Current,Easy,"Same at all points, Single path, Charge conservation, Circuit, Series",Structure,Current is the same through components in series.
+24,Series Voltage,Easy,"Supply voltage shared, Potential differences add, Series circuit, Voltage, Components",Structure,The sum of component voltages equals the supply voltage in series.
+25,Parallel Voltage,Easy,"Same across each branch, Common endpoints, Parallel circuit, Voltage, Components",Structure,Every parallel branch has the same potential difference.
+26,Parallel Current,Easy,"Splits at junction, Branch currents add, Charge conservation, Parallel circuit, Current",Structure,Current divides among parallel branches.
+27,Kirchhoff's First Law,Medium,"Current into junction = current out, Charge conservation, Node, Circuit, Current",Formula,Kirchhoff's first law expresses conservation of charge.
+28,Kirchhoff's Second Law,Medium,"Sum of emf = sum of voltage drops, Closed loop, Energy conservation, Circuit, Voltage",Formula,Kirchhoff's second law applies energy conservation around a loop.
+29,Internal Resistance,Medium,"Resistance inside source, r, Terminal voltage loss, Cell, Circuit",Measurement,Real cells have internal resistance.
+30,Terminal Potential Difference,Medium,"V = ? ? Ir, Delivering current, EMF, Internal resistance, Cell",Formula,Terminal voltage is reduced by the internal voltage drop.
+31,Lost Volts,Medium,"Ir, Internal resistance, Current, Cell, Voltage",Formula,Lost volts are the potential difference across a cell's internal resistance.
+32,Short Circuit,Easy,"Very low resistance path, Large current, Heating risk, Circuit, Safety",Safety,A short circuit can produce dangerously large current.
+33,Electrical Power,Easy,"P = VI, Rate of electrical energy transfer, Watt, Circuit, Power",Formula,Electrical power equals voltage multiplied by current.
+34,Power with Resistance,Medium,"P = I²R, P = V²/R, Resistor, Power, Circuit",Formula,Alternative power equations follow from Ohm's law.
+35,Electrical Energy,Easy,"E = VIt, Pt, Joule, Circuit, Energy",Formula,Electrical energy transferred equals power multiplied by time.
+36,Kilowatt-Hour,Easy,"kWh, Commercial electrical energy, 3.6 × 10? J, Meter reading, Energy",Measurement,A kilowatt-hour is a unit of electrical energy.
+37,Ammeter,Easy,"Measures current, Connected in series, Low resistance, Ampere, Instrument",Equipment,An ammeter is placed in series with the circuit.
+38,Voltmeter,Easy,"Measures potential difference, Connected in parallel, High resistance, Volt, Instrument",Equipment,A voltmeter is connected across a component.
+39,Ohmmeter,Easy,"Measures resistance, Powered meter, Component isolated, Ohm, Instrument",Equipment,An ohmmeter measures resistance directly.
+40,Wheatstone Bridge Idea,Hard,"Unknown resistance, Balance condition, Ratio arms, Null method, Measurement",Experiment,Bridge methods can determine resistance by balancing ratios.
+41,Ammeter-Voltmeter Method,Medium,"Measure V and I, R = V/I, Resistor, Circuit, Experiment",Experiment,Resistance can be determined from simultaneous current and voltage readings.
+42,Resistivity,Medium,"?, Material property, R = ?L/A, ? m, Conductor",Measurement,Resistivity describes how strongly a material resists current.
+43,Resistance of Wire,Medium,"R = ?L/A, Longer wire higher R, Larger area lower R, Material, Wire",Formula,"Wire resistance depends on resistivity, length and cross-sectional area."
+44,Temperature Effect on Metal Resistance,Medium,"Higher temperature, Higher resistance, Lattice vibration, Metal, Conductor",Particle,Metal resistance usually increases with temperature.
+45,Fuse,Easy,"Melts when current too high, Safety device, Series connection, Rated current, Circuit",Safety,A fuse breaks the circuit when current becomes excessive.
+46,Circuit Breaker,Easy,"Trips on excessive current, Resettable, Safety, Protection, Circuit",Safety,A circuit breaker disconnects an unsafe circuit.
+47,Current Electricity Strategy,Easy,"Draw circuit, Identify series/parallel, Apply V=IR, Use Kirchhoff if needed, Check units",Process,Simplify the circuit structure before calculating current or voltage.

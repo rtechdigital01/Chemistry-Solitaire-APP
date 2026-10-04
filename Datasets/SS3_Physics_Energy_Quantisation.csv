@@ -1,0 +1,43 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Energy Quantization,Easy,"Discrete energy packets, Quantum, Photon, Atomic energy levels, Planck",Energy,"At microscopic scales, energy is often exchanged in discrete amounts."
+2,Quantum,Easy,"Discrete packet, Energy, Microscopic physics, Photon concept, Planck",Energy,A quantum is a discrete amount of energy.
+3,Photon,Easy,"Quantum of electromagnetic radiation, Energy, No rest mass, Travels at c in vacuum, Light",Particle,A photon is a quantum of electromagnetic radiation.
+4,Photon Energy,Easy,"E = hf, Planck constant, Frequency, Photon, Energy",Formula,Photon energy is proportional to frequency.
+5,Planck Constant,Easy,"h = 6.63 × 10?³? J s, Photon energy, Quantum, Constant, Physics",Measurement,Planck's constant links photon energy to frequency.
+6,Photon Energy and Wavelength,Medium,"E = hc/?, Wavelength, Photon, Light speed, Energy",Formula,Shorter-wavelength photons have greater energy.
+7,High Frequency Photon,Easy,"Higher energy, Shorter wavelength, E = hf, Photon, Radiation",Energy,Photon energy increases with frequency.
+8,Low Frequency Photon,Easy,"Lower energy, Longer wavelength, E = hf, Photon, Radiation",Energy,Low-frequency radiation has lower-energy photons.
+9,Photoelectric Effect,Easy,"Electrons emitted from metal, Light, Threshold frequency, Photon, Surface",Process,The photoelectric effect shows that light transfers energy in photons.
+10,Photoelectron,Easy,"Electron emitted by light, Metal surface, Photon absorption, Kinetic energy, Photoelectric",Particle,A photoelectron is an electron emitted after absorbing photon energy.
+11,Threshold Frequency,Medium,"Minimum frequency for emission, f?, Metal dependent, Photoelectric effect, Photon",Measurement,"Below threshold frequency, photoelectrons are not emitted."
+12,Work Function,Medium,"Minimum energy to free electron, ?, Metal surface, Electron, Photoelectric",Energy,The work function is the minimum energy needed to remove an electron from a surface.
+13,Work Function Formula,Medium,"? = hf?, Threshold frequency, Planck constant, Metal, Energy",Formula,Work function equals photon energy at the threshold frequency.
+14,Einstein Photoelectric Equation,Hard,"hf = ? + K_max, Photon energy, Work function, Maximum kinetic energy, Photoelectric",Formula,Photon energy is shared between electron release and kinetic energy.
+15,Maximum Photoelectron KE,Medium,"K_max = hf ? ?, Photoelectric effect, Photon, Electron, Energy",Formula,Maximum kinetic energy increases linearly with photon frequency above threshold.
+16,Stopping Potential,Medium,"eV_s = K_max, Photoelectron, Voltage, Kinetic energy, Photoelectric",Formula,Stopping potential measures maximum photoelectron kinetic energy.
+17,Photoelectric Frequency Effect,Easy,"Higher frequency, Higher electron kinetic energy, Above threshold, Photon, Photoelectric",Process,Increasing frequency raises photoelectron energy.
+18,Photoelectric Intensity Effect,Easy,"More photons, More emitted electrons, Current increases, Frequency fixed above threshold, Photoelectric",Process,"Higher intensity increases the number of emitted electrons, not their maximum energy."
+19,No Time Delay,Medium,"Emission immediate, Photon interaction, Photoelectric evidence, Light, Quantum",Process,Photoelectrons can be emitted without measurable delay once suitable photons arrive.
+20,Classical Wave Failure,Medium,"Cannot explain threshold, Cannot explain immediate emission, Photoelectric effect, Quantum evidence, Light",Structure,The photoelectric effect required a particle-like description of light.
+21,Wave-Particle Duality,Medium,"Wave behaviour, Particle behaviour, Light, Matter, Quantum",Structure,Quantum objects can show both wave-like and particle-like behaviour.
+22,Electron Diffraction,Medium,"Electron wave behaviour, Crystal, Diffraction pattern, de Broglie, Matter wave",Experiment,Electron diffraction demonstrates wave behaviour of matter.
+23,de Broglie Wavelength,Hard,"? = h/p, Momentum, Matter wave, Particle, Quantum",Formula,A particle's wavelength is inversely proportional to its momentum.
+24,Matter Wave,Medium,"Associated with moving particle, de Broglie, Wavelength, Quantum, Wave-particle",Wave,Moving particles have an associated de Broglie wavelength.
+25,Atomic Energy Levels,Easy,"Discrete, Ground state, Excited states, Electron, Atom",Energy,Atomic electrons occupy discrete allowed energies.
+26,Energy Transition,Easy,"Electron changes level, Photon absorbed or emitted, Energy difference, Atom, Quantum",Process,Atomic transitions involve photons matching the energy difference.
+27,Emission Photon,Easy,"Electron falls, Photon released, ?E = hf, Atomic spectrum, Energy",Process,A downward transition emits a photon.
+28,Absorption Photon,Easy,"Electron rises, Photon absorbed, ?E = hf, Atomic spectrum, Energy",Process,An upward transition requires a photon with the correct energy.
+29,Energy Difference,Easy,"?E = E_high ? E_low, Transition, Photon, Atomic level, Energy",Formula,Photon energy equals the difference between atomic energy levels.
+30,Line Spectrum,Easy,"Discrete wavelengths, Atomic transitions, Element fingerprint, Emission, Absorption",Optics,Discrete energy levels produce discrete spectral lines.
+31,Ground State,Easy,"Lowest allowed energy, Atom, Electron, Stable state, Quantum",Energy,The ground state is the atom's lowest allowed energy.
+32,Excitation,Easy,"Energy absorbed, Electron raised, Higher level, Atom, Quantum",Process,Excitation moves an electron to a higher allowed energy.
+33,De-excitation,Easy,"Electron falls, Photon emitted, Lower level, Atom, Quantum",Process,"De-excitation releases energy, often as a photon."
+34,Photoelectric Cell,Medium,"Light detector, Photoemission, Photocurrent, Cathode, Device",Equipment,Photoelectric cells convert light into an electrical response.
+35,Photoelectric Applications,Easy,"Automatic doors, Light meters, Alarm systems, Sensors, Photocell",Industry,Photoelectric devices are useful for light detection and control.
+36,X-Ray Photon Energy,Medium,"High frequency, High photon energy, Short wavelength, Ionising, EM radiation",Energy,X-ray photons have much higher energy than visible photons.
+37,Gamma Photon Energy,Medium,"Very high frequency, Very high photon energy, Nuclear origin, Ionising, Radiation",Energy,Gamma photons are among the highest-energy electromagnetic photons.
+38,Electron Volt,Easy,"eV, Energy gained by electron through 1 V, Small energy unit, Quantum, Particle",Measurement,The electron volt is convenient for atomic and nuclear energies.
+39,Electron Volt in Joules,Easy,"1 eV = 1.60 × 10?¹? J, Energy conversion, Electron charge, Quantum, Unit",Measurement,One electron volt equals 1.60 × 10?¹? joule.
+40,keV,Easy,"10³ eV, X-ray energy scale, Quantum, Energy, Unit",Measurement,The kiloelectron volt is useful for higher microscopic energies.
+41,MeV,Easy,"10? eV, Nuclear energy scale, Quantum, Energy, Unit",Measurement,The megaelectron volt is common in nuclear physics.
+42,Quantum Question Strategy,Easy,"Use E=hf, Convert wavelength if needed, Check threshold, Use ?E for transitions, Convert eV/J carefully",Process,Choose the quantum relation that matches the physical process.

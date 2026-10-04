@@ -1,0 +1,45 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Gravitational Field,Easy,"Region around mass, Attractive force, Mass source, Field, Gravity",Force,A gravitational field is the region where a mass experiences gravitational force.
+2,Gravitational Field Strength,Easy,"g, Force per unit mass, N kg?¹, Vector, Gravity",Measurement,Gravitational field strength is force per unit mass.
+3,Field Strength Formula,Easy,"g = F/m, Force, Mass, N kg?¹, Gravity",Formula,Gravitational field strength equals force divided by mass.
+4,Newton's Law of Gravitation,Medium,"F = Gm?m?/r², Two masses, Inverse square, Attractive, Gravity",Formula,The gravitational force between two point masses follows the inverse-square law.
+5,Gravitational Constant,Easy,"G, 6.67 × 10?¹¹ N m² kg?², Universal constant, Gravity, Formula",Measurement,G is the universal gravitational constant.
+6,Inverse Square Dependence,Easy,"F ? 1/r², Distance doubled gives quarter force, Gravity, Point masses, Field",Formula,Gravitational force decreases with the square of separation.
+7,Mass Dependence,Easy,"F ? m?m?, Larger masses, Stronger attraction, Gravity, Force",Formula,Gravitational force is proportional to the product of the two masses.
+8,Separation Distance,Easy,"Centre-to-centre distance, r, Point masses, Spheres, Gravity",Measurement,"For spherical bodies, separation is measured between centres."
+9,Gravitational Field of Point Mass,Medium,"g = GM/r², Radial inward, Point source, Mass M, Gravity",Formula,The field strength around a point mass is GM/r².
+10,Direction of g,Easy,"Toward attracting mass, Radial inward, Vector, Gravity, Field",Structure,Gravitational field strength points toward the source mass.
+11,Earth's Gravitational Field,Easy,"Toward Earth's centre, g ? 9.8 or 10 N kg?¹, Weight, Near surface, Gravity",Force,"Near Earth's surface, g is approximately 9.8 N kg?¹."
+12,Weight,Easy,"W = mg, Gravitational force, Newton, Mass, g",Formula,Weight equals mass multiplied by gravitational field strength.
+13,Mass,Easy,"Amount of matter, kg, Constant with location, Inertia, Not weight",Measurement,Mass does not depend on gravitational field strength.
+14,Weight Changes with Location,Easy,"Depends on g, Different planets, Same mass, Gravity, Weight",Force,Weight changes when gravitational field strength changes.
+15,Relation Between g and G,Medium,"g = GM/r², Earth mass, Earth radius, Gravitational constant, Field",Formula,Surface gravitational field strength follows from Newton's gravitation law.
+16,Surface Gravity of Planet,Medium,"g = GM/R², Planet mass, Planet radius, Surface, Gravity",Formula,Planetary surface gravity depends on both mass and radius.
+17,Variation of g with Height,Medium,"g decreases with altitude, Distance from Earth's centre increases, Inverse square, Height, Gravity",Graph,Gravitational field strength decreases as altitude increases.
+18,Variation of g with Depth,Hard,"g decreases below surface, Zero at centre ideal Earth, Inside Earth, Depth, Gravity",Graph,"Inside an idealised Earth, g decreases toward zero at the centre."
+19,g at Earth's Centre,Easy,"0 N kg?¹, Symmetric attraction, Centre, Earth, Gravity",Force,"At Earth's centre, gravitational pulls cancel in all directions."
+20,Apparent Weight,Medium,"Scale reading, Support force, Acceleration dependent, Elevator, Gravity",Force,Apparent weight is the support force measured by a scale.
+21,Weightlessness,Easy,"Apparent weight zero, Free fall, No support force, Orbit, Gravity",Force,"Weightlessness occurs when there is no support force, even though gravity may act."
+22,Free Fall,Easy,"Gravity only, Acceleration g, No support, Weightlessness feeling, Motion",Motion,"In ideal free fall, gravity is the only significant force."
+23,Satellite,Easy,"Object in orbit, Continuous free fall, Gravity provides centripetal force, Earth, Orbit",Motion,A satellite remains in orbit because gravity bends its path continuously.
+24,Circular Orbit,Medium,"Gravity = centripetal force, Constant speed, Changing direction, Satellite, Orbit",Motion,"In a circular orbit, gravitational force supplies the centripetal force."
+25,Orbital Speed,Hard,"v = ?(GM/r), Circular orbit, Planet mass, Orbital radius, Satellite",Formula,Circular orbital speed depends on source mass and orbital radius.
+26,Orbital Period,Hard,"T = 2?r/v, Circular orbit, Satellite, Period, Radius",Formula,Orbital period follows from circumference divided by orbital speed.
+27,Geostationary Satellite,Medium,"24 h period, Equatorial orbit, Same direction as Earth rotation, Fixed position over Earth, Satellite",Motion,A geostationary satellite appears fixed above one point on the equator.
+28,Geostationary Uses,Easy,"Communication, Weather monitoring, Broadcasting, Satellite, Fixed coverage",Industry,Geostationary satellites are useful when constant coverage is needed.
+29,Low Earth Orbit,Easy,"Lower altitude, Short period, Higher orbital speed, Satellite, Orbit",Motion,Lower circular orbits have shorter periods and greater speeds.
+30,Escape Velocity,Medium,"Minimum speed to escape, No further propulsion ideal, Gravity, Planet, Speed",Motion,Escape velocity is the minimum launch speed needed to escape a gravitational field.
+31,Escape Velocity Formula,Hard,"v? = ?(2GM/R), Planet mass, Planet radius, Gravity, Escape",Formula,Escape velocity depends on the mass and radius of the planet.
+32,Escape Velocity and Mass,Easy,"Larger planet mass, Higher escape velocity, Gravity, Planet, Speed",Motion,More massive bodies require greater escape speed if radius is unchanged.
+33,Escape Velocity and Radius,Easy,"Larger radius lowers escape speed for same mass, v? ? 1/?R, Planet, Gravity, Speed",Motion,"For the same mass, a larger radius gives a lower surface escape velocity."
+34,Gravitational Potential,Medium,"Energy per unit mass, Scalar, Negative relative to infinity, Gravity, Potential",Energy,Gravitational potential describes energy per unit mass in a field.
+35,Gravitational Potential Formula,Hard,"V = ?GM/r, Point mass, Potential, J kg?¹, Gravity",Formula,Potential around a point mass is ?GM/r when zero is taken at infinity.
+36,Potential Energy,Medium,"U = mV, Gravitational energy, Position, Mass, Field",Energy,Gravitational potential energy equals mass times gravitational potential.
+37,Near-Earth Potential Energy,Easy,"?U = mgh, Small height changes, Weight, Energy, Gravity",Formula,"Near Earth's surface, mgh approximates gravitational potential energy change."
+38,Field Strength-Potential Relation,Hard,"Field points toward decreasing potential, Gradient idea, Gravity, Potential, g",Structure,Gravitational field points in the direction of decreasing potential.
+39,Gravitational Equipotential,Medium,"Constant potential, Spherical around point mass, No work along surface, Gravity, Field",Structure,Equipotential surfaces around a point mass are spherical.
+40,Work Against Gravity,Easy,"Increase gravitational potential energy, Lift mass, Force, Distance, Energy",Energy,Work done against gravity increases gravitational potential energy.
+41,Planetary Motion,Medium,"Gravity, Orbit, Centripetal acceleration, Sun, Planet",Motion,Gravity keeps planets moving in curved orbits.
+42,Moon's Orbit,Easy,"Earth gravity, Centripetal force, Natural satellite, Orbit, Moon",Motion,Earth's gravity keeps the Moon in orbit.
+43,Gravitational Field Graph,Medium,"g decreases with r, Inverse-square outside body, Distance, Graph, Gravity",Graph,"Outside a spherical body, field strength falls as 1/r²."
+44,Gravity Question Strategy,Easy,"Identify masses, Use centre distance, Choose F=Gm?m?/r² or g=GM/r², Check units, Direction inward",Process,Use the correct gravitational equation and centre-to-centre distance.

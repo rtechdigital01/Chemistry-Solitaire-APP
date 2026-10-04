@@ -1,0 +1,46 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Atomic Model,Easy,"Nucleus, Electrons, Protons, Neutrons, Atom",Structure,Modern atomic models place most mass in a tiny nucleus surrounded by electrons.
+2,Electron,Easy,"Negative charge, Very small mass, Outside nucleus, Elementary particle, Atom",Particle,Electrons carry negative elementary charge.
+3,Proton,Easy,"Positive charge, Nucleus, Relative mass about 1, Atomic number, Particle",Particle,Protons determine the atomic number of an element.
+4,Neutron,Easy,"No charge, Nucleus, Relative mass about 1, Isotope, Particle",Particle,Neutrons contribute mass but no net charge.
+5,Nucleus,Easy,"Protons, Neutrons, Positive charge, Most atomic mass, Very small",Structure,The nucleus contains nearly all the mass of an atom.
+6,Atomic Number,Easy,"Number of protons, Z, Element identity, Nucleus, Atom",Measurement,Atomic number equals the number of protons.
+7,Mass Number,Easy,"Protons + neutrons, A, Nucleons, Nucleus, Isotope",Measurement,Mass number is the total number of nucleons.
+8,Neutron Number,Easy,"A ? Z, Mass number, Atomic number, Nucleus, Isotope",Formula,Neutron number equals mass number minus atomic number.
+9,Isotope,Easy,"Same proton number, Different neutron number, Same element, Different mass number, Atom",Structure,Isotopes are atoms of the same element with different neutron numbers.
+10,Nucleon,Easy,"Proton or neutron, Nucleus, Mass number, Nuclear physics, Particle",Particle,Nucleons are the particles found in the nucleus.
+11,Rutherford Model,Medium,"Small dense nucleus, Mostly empty atom, Alpha scattering, Positive centre, Atomic model",Structure,Rutherford scattering showed that positive charge is concentrated in a tiny nucleus.
+12,Alpha Scattering,Medium,"Gold foil, Most pass through, Few large deflections, Nucleus, Experiment",Experiment,Alpha scattering provided evidence for a small dense nucleus.
+13,Bohr Model,Medium,"Quantised energy levels, Electrons in allowed states, Atomic spectra, Energy transitions, Atom",Structure,The Bohr model introduced discrete electron energy levels.
+14,Energy Level,Easy,"Allowed electron energy, Discrete, Atom, Transition, Quantum",Energy,Electrons in atoms occupy discrete energy states.
+15,Ground State,Easy,"Lowest energy state, Stable atom, Electron, Energy level, Atom",Energy,The ground state is the lowest allowed atomic energy.
+16,Excited State,Easy,"Higher energy state, Absorbed energy, Electron, Temporary, Atom",Energy,An excited atom has one or more electrons in higher energy states.
+17,Atomic Spectrum,Easy,"Discrete lines, Emission, Absorption, Element fingerprint, Wavelength",Optics,Atoms produce characteristic line spectra.
+18,Emission Spectrum,Easy,"Bright lines, Photon emitted, Electron drops energy, Wavelength, Atom",Optics,Emission lines occur when excited electrons move to lower energy levels.
+19,Absorption Spectrum,Easy,"Dark lines, Photon absorbed, Electron rises energy, Continuous background, Atom",Optics,Absorption lines occur when atoms absorb specific photon energies.
+20,Spectral Line,Easy,"Specific wavelength, Energy transition, Atom, Photon, Spectrum",Optics,Each spectral line corresponds to an allowed energy transition.
+21,Radioactivity,Easy,"Spontaneous nuclear decay, Unstable nucleus, Radiation, Random, Nuclear",Particle,Radioactivity is spontaneous decay of unstable nuclei.
+22,Alpha Radiation,Easy,"Helium nucleus, 2 protons 2 neutrons, +2 charge, Strongly ionising, Short range",Particle,Alpha particles are helium nuclei.
+23,Beta Minus Radiation,Easy,"Electron emitted, Neutron becomes proton, ?1 charge, Moderately ionising, Nuclear",Particle,Beta minus decay emits an electron from the nucleus.
+24,Gamma Radiation,Easy,"Electromagnetic radiation, No charge, No rest mass, Highly penetrating, Nuclear",Wave,Gamma rays are high-energy electromagnetic radiation from nuclei.
+25,Alpha Penetration,Easy,"Stopped by paper, Few cm in air, Low penetration, Alpha, Radiation",Safety,Alpha radiation has low penetrating power.
+26,Beta Penetration,Easy,"Stopped by thin aluminium, Moderate range, Beta, Radiation, Shielding",Safety,Beta radiation has moderate penetration.
+27,Gamma Penetration,Easy,"Reduced by thick lead or concrete, High penetration, Gamma, Radiation, Shielding",Safety,Gamma radiation is highly penetrating.
+28,Ionising Power,Easy,"Alpha highest, Beta medium, Gamma lower per path, Ionisation, Radiation",Safety,Alpha particles ionise strongly because of their charge and mass.
+29,Nuclear Equation,Medium,"Mass number conserved, Charge number conserved, Decay, Parent, Daughter",Formula,Balanced nuclear equations conserve nucleon number and charge.
+30,Alpha Decay Change,Medium,"A decreases by 4, Z decreases by 2, Helium nucleus emitted, Parent nucleus, Decay",Process,Alpha decay reduces mass number by four and atomic number by two.
+31,Beta Minus Decay Change,Medium,"A unchanged, Z increases by 1, Electron emitted, Neutron to proton, Decay",Process,Beta minus decay leaves mass number unchanged but increases atomic number by one.
+32,Gamma Decay Change,Easy,"A unchanged, Z unchanged, Energy released, Excited nucleus, Gamma",Process,Gamma emission changes nuclear energy without changing proton or neutron numbers.
+33,Half-Life,Easy,"Time for half nuclei to decay, Activity halves, Random decay, Constant for isotope, Nuclear",Measurement,Half-life is the time for the number of undecayed nuclei to halve.
+34,Decay Constant Idea,Hard,"Probability per unit time, ?, Radioactive decay, Half-life, Nuclear",Measurement,Decay constant describes the probability of decay per unit time.
+35,Half-Life Relation,Hard,"T?/? = ln2/?, Decay constant, Half-life, Radioactivity, Formula",Formula,Half-life is inversely related to decay constant.
+36,Activity,Medium,"Decays per second, Becquerel, Bq, Radioactive source, Rate",Measurement,Activity measures how many nuclear decays occur each second.
+37,Becquerel,Easy,"Bq, One decay per second, Activity unit, Radioactivity, SI unit",Measurement,One becquerel means one nuclear decay per second.
+38,Background Radiation,Easy,"Cosmic rays, Rocks, Medical sources, Natural radioactivity, Environment",Environment,Background radiation comes from natural and artificial sources.
+39,Nuclear Fission,Easy,"Heavy nucleus splits, Energy released, Neutrons emitted, Chain reaction, Nuclear",Energy,Fission releases energy when a heavy nucleus splits.
+40,Chain Reaction,Medium,"Neutrons trigger more fissions, Self-sustaining, Critical mass, Fission, Nuclear",Process,A chain reaction occurs when fission neutrons trigger further fissions.
+41,Nuclear Fusion,Easy,"Light nuclei combine, Energy released, High temperature, Stars, Nuclear",Energy,Fusion releases energy by combining light nuclei.
+42,Binding Energy,Medium,"Energy holding nucleus together, Mass defect, Nuclear stability, Nucleons, Energy",Energy,Binding energy is the energy needed to separate a nucleus into nucleons.
+43,Mass-Energy Equivalence,Medium,"E = mc², Mass defect, Nuclear energy, Einstein, Energy",Formula,Small mass changes can correspond to large energy changes.
+44,Nuclear Safety,Easy,"Shielding, Distance, Time, Contamination control, Radiation",Safety,"Radiation exposure is reduced by limiting time, increasing distance and using shielding."
+45,Atomic Nuclear Strategy,Easy,"Identify particle, Conserve A and Z, Use half-life, Compare penetration, Check units",Process,"Keep atomic structure, decay type and radiation properties distinct."
