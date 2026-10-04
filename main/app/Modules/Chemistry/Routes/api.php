@@ -3,17 +3,30 @@
 use App\Modules\Chemistry\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
-Route::get(
-    '/chemistry/categories',
-    [CategoryController::class, 'index']
-);
+Route::middleware('auth:sanctum')->group(function () {
 
-Route::get(
-    '/chemistry/board',
-    [CategoryController::class, 'board']
-);
+    Route::get(
+        '/chemistry/categories',
+        [CategoryController::class, 'index']
+    );
 
-Route::get(
-    '/chemistry/decks',
-    [CategoryController::class, 'decks']
-);
+    Route::get(
+        '/chemistry/board',
+        [CategoryController::class, 'board']
+    );
+
+    Route::get(
+        '/chemistry/decks',
+        [CategoryController::class, 'decks']
+    );
+
+    Route::get(
+        '/biology/decks',
+        [CategoryController::class, 'decks']
+    );
+
+    Route::get(
+        '/physics/decks',
+        [CategoryController::class, 'decks']
+    );
+});

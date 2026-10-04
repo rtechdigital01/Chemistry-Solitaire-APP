@@ -894,126 +894,337 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ============================================================
        FULL-SCREEN CONGRATULATIONS OVERLAY
     ============================================================ */
+function showCongratsAndRedirect() {
+    document.querySelectorAll(".game-card").forEach(c => {
+        c.style.pointerEvents = "none";
+    });
 
-    function showCongratsAndRedirect() {
-        document.querySelectorAll(".game-card").forEach(c => {
-            c.style.pointerEvents = "none";
-        });
+    const overlay = document.createElement("div");
+    overlay.id = "congratsOverlay";
 
-        const overlay = document.createElement("div");
-        overlay.id = "congratsOverlay";
-        overlay.style.cssText = `
-            position: fixed; inset: 0; z-index: 99999;
-            background: rgba(14, 30, 65, 0.82);
-            backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            animation: popupFadeIn 0.35s ease;
-        `;
+    overlay.style.cssText = `
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: rgba(14, 30, 65, 0.82);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        animation: popupFadeIn 0.35s ease;
+    `;
 
-        overlay.innerHTML = `
+    overlay.innerHTML = `
+        <div style="
+            background: #FFF;
+            border-radius: 26px;
+            padding: 30px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 32px 80px rgba(14,30,65,0.28);
+            font-family: Nunito, sans-serif;
+            animation: popupSlideUp 0.3s ease;
+        ">
+
             <div style="
-                background: #FFF;
-                border-radius: 28px;
-                padding: 44px 36px 36px;
-                max-width: 420px; width: 92%;
-                text-align: center;
-                box-shadow: 0 32px 80px rgba(14,30,65,0.28);
-                font-family: Nunito, sans-serif;
-                animation: popupSlideUp 0.3s ease;
+                font-size: 46px;
+                margin-bottom: 8px;
+                line-height: 1;
+            ">🎉</div>
+
+            <h2 style="
+                margin: 0 0 6px;
+                color: #14213D;
+                font-size: 25px;
+                font-weight: 900;
             ">
-                <div style="font-size: 64px; margin-bottom: 16px; line-height: 1;">🎉</div>
-                <h2 style="margin: 0 0 10px; color: #14213D; font-size: 26px; font-weight: 900;">
-                    Level Complete!
-                </h2>
-                <p style="margin: 0 0 6px; color: #4B5563; font-size: 15px; font-weight: 600; line-height: 1.5;">
-                    You matched all <strong>${cardsPlaced}</strong> cards correctly in <strong>${moves}</strong> moves.
-                </p>
-                <div style="
-                    display: flex; justify-content: center; gap: 28px;
-                    margin: 22px 0 28px;
-                    padding: 16px 20px;
-                    background: #F8FAFF;
-                    border-radius: 16px;
-                    border: 1px solid #E2EEFF;
-                ">
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #F89E19;">${score}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Points</div>
-                    </div>
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #2563EB;">${moves}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Moves</div>
-                    </div>
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #16A34A;">${cardsPlaced}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Cards</div>
-                    </div>
+                Level Complete!
+            </h2>
+
+            <p style="
+                margin: 0;
+                color: #64748B;
+                font-size: 13px;
+                font-weight: 600;
+            ">
+                You matched all ${cardsPlaced} cards correctly in ${moves} moves.
+            </p>
+
+            <!-- RESULTS -->
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                margin: 18px 0;
+                padding: 13px 16px;
+                background: #F8FAFF;
+                border-radius: 14px;
+                border: 1px solid #E2EEFF;
+            ">
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #F89E19;
+                    ">${score}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Points</div>
                 </div>
-                <button id="congratsGoBtn" style="
-                    width: 100%; height: 52px;
-                    border: none; border-radius: 999px;
+
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #2563EB;
+                    ">${moves}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Moves</div>
+                </div>
+
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #16A34A;
+                    ">${cardsPlaced}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Cards</div>
+                </div>
+
+            </div>
+
+            <!-- FEEDBACK -->
+            <div style="
+                text-align: left;
+                padding-top: 4px;
+            ">
+
+                <p style="
+                    margin: 0 0 9px;
+                    color: #14213D;
+                    font-size: 14px;
+                    font-weight: 900;
+                    text-align: center;
+                ">
+                    How was this level?
+                </p>
+
+                <div id="gameplayRatingStars" style="
+                    display: flex;
+                    justify-content: center;
+                    gap: 9px;
+                    margin-bottom: 14px;
+                ">
+                    ${[1,2,3,4,5].map(star => `
+                        <button
+                            type="button"
+                            class="gameplay-rating-star"
+                            data-rating="${star}"
+                            style="
+                                border: none;
+                                background: transparent;
+                                font-size: 30px;
+                                color: #CBD5E1;
+                                cursor: pointer;
+                                padding: 0;
+                            "
+                        >★</button>
+                    `).join("")}
+                </div>
+
+                <textarea
+                    id="gameplayFeedbackText"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="Tell us what you liked or what we can improve..."
+                    style="
+                        width: 100%;
+                        box-sizing: border-box;
+                        resize: none;
+                        border: 1px solid #DDE5F1;
+                        border-radius: 12px;
+                        padding: 12px 13px;
+                        font-family: Nunito, sans-serif;
+                        font-size: 13px;
+                        color: #14213D;
+                        outline: none;
+                        background: #FFFFFF;
+                    "
+                ></textarea>
+                
+                <p id="gameplayFeedbackMessage" style="
+                    min-height: 17px;
+                    margin: 6px 0 0;
+                    color: #DC2626;
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-align: center;
+                "></p>
+            </div>
+            
+            <button
+                id="submitGameplayFeedback"
+                type="button"
+                style="
+                    width: 100%;
+                    height: 48px;
+                    margin-top: 9px;
+                    border: none;
+                    border-radius: 999px;
                     background: linear-gradient(135deg, #2563EB, #1D4ED8);
                     color: #FFF;
                     font-family: Nunito, sans-serif;
-                    font-size: 16px; font-weight: 900;
+                    font-size: 14px;
+                    font-weight: 900;
                     cursor: pointer;
-                    box-shadow: 0 8px 20px rgba(37,99,255,0.3);
-                    transition: opacity 0.15s;
-                ">Continue →</button>
-                <p id="congratsCountdown" style="
-                    margin: 12px 0 0;
-                    font-size: 12px; font-weight: 700;
-                    color: #94A3B8;
-                ">Redirecting in 5s…</p>
-            </div>
-        `;
+                    box-shadow: 0 8px 20px rgba(37,99,255,0.25);
+                "
+            >
+                Submit Feedback & Continue →
+            </button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
 
-        document.body.appendChild(overlay);
+    /* ===============================
+       STAR RATING
+    =============================== */
+    let selectedRating = 0;
 
-        let secs = 5;
-        const countdownEl = overlay.querySelector("#congratsCountdown");
-        const timer = setInterval(() => {
-            secs--;
-            if (countdownEl) countdownEl.textContent = `Redirecting in ${secs}s…`;
-            if (secs <= 0) {
-                clearInterval(timer);
-            
-                saveCompletedAttempt().then(saved => {
-                    if (!saved) return;
-            
-                    overlay.remove();
-            
-                    if (nextLevelBtn) {
-                        nextLevelBtn.disabled = false;
-                    }
-            
-                    setBanner(
-                        "🎉 Level complete! Click Next Level to continue.",
-                        "success"
-                    );
-                });
-            }
-        }, 1000);
+    const stars = overlay.querySelectorAll(".gameplay-rating-star");
 
-        overlay.querySelector("#congratsGoBtn").addEventListener("click", async () => {
-            clearInterval(timer);
-        
-            const saved = await saveCompletedAttempt();
-        
-            if (!saved) return;
-        
-            overlay.remove();
-        
-            if (nextLevelBtn) {
-                nextLevelBtn.disabled = false;
-            }
-        
-            setBanner(
-                "🎉 Level complete! Click Next Level to continue.",
-                "success"
-            );
+    stars.forEach(star => {
+        star.addEventListener("click", () => {
+
+            selectedRating = Number(star.dataset.rating);
+
+            stars.forEach(s => {
+                s.style.color =
+                    Number(s.dataset.rating) <= selectedRating
+                        ? "#FBBF24"
+                        : "#CBD5E1";
+            });
         });
-    }
+    });
+
+    /* ===============================
+       SUBMIT FEEDBACK
+    =============================== */
+    overlay
+        .querySelector("#submitGameplayFeedback")
+        .addEventListener("click", async () => {
+
+            const button =
+                overlay.querySelector("#submitGameplayFeedback");
+
+            const message =
+                overlay.querySelector("#gameplayFeedbackMessage");
+
+            const feedback =
+                overlay
+                    .querySelector("#gameplayFeedbackText")
+                    .value
+                    .trim();
+            if (selectedRating === 0) {
+                message.textContent =
+                    "Please select a rating.";
+                return;
+            }
+            if (!feedback) {
+                message.textContent =
+                    "Please enter your feedback.";
+                return;
+            }
+            button.disabled = true;
+            button.textContent = "Submitting...";
+            message.textContent = "";
+            const saved = await saveCompletedAttempt();
+            if (!saved) {
+                button.disabled = false;
+                button.textContent =
+                    "Submit Feedback & Continue →";
+                message.textContent =
+                    "Unable to save your completed level.";
+                return;
+            }
+            const params =
+                new URLSearchParams(window.location.search);
+            const payload = {
+                subject: params.get("subject"),
+                deck: params.get("deck"),
+                key_stage: params.get("key_stage"),
+                difficulty: params.get("difficulty"),
+                level: Number(params.get("level") || 1),
+                rating: selectedRating,
+                feedback: feedback
+            };
+            try {
+
+                const token =
+                    localStorage.getItem("auth_token");
+
+                const response = await fetch(
+                    "/api/gameplay/feedback",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Accept": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+
+                        body: JSON.stringify(payload)
+                    }
+                );
+                const result = await response.json();
+                if (!response.ok) {
+                    throw new Error(
+                        result.message ||
+                        "Unable to submit feedback."
+                    );
+                }
+                overlay.remove();
+                if (nextLevelBtn) {
+                    nextLevelBtn.disabled = false;
+                }
+                setBanner(
+                    "🎉 Feedback submitted! Click Next Level to continue.",
+                    "success"
+                );
+            } catch (error) {
+
+                console.error(
+                    "Gameplay feedback error:",
+                    error
+                );
+                button.disabled = false;
+
+                button.textContent =
+                    "Submit Feedback & Continue →";
+                message.textContent =
+                    error.message ||
+                    "Unable to submit feedback.";
+            }
+        });
+}
 
     /* ============================================================
        GAME OVER — moves budget exhausted before the level is done.

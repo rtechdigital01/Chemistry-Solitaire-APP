@@ -16,8 +16,11 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
 
-    <!-- Tailwind compiled CSS -->
-    <link rel="stylesheet" href="./css/output.css">
+<!-- Tailwind compiled CSS -->
+<link rel="stylesheet" href="./css/output.css">
+
+<!-- Games page only -->
+<link rel="stylesheet" href="./css/games.css">
 
     <script src="js/config.js"></script>
 </head>
@@ -474,40 +477,83 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    function renderDeckCard(deck) {
-        const card = document.createElement("article");
-        card.className = "deck-card deck-card-playable";
+function renderDeckCard(deck) {
+    const card = document.createElement("article");
+    card.className = "deck-card deck-card-playable";
 
-        const title = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+    const subject = getSubject().toLowerCase();
+    const keyStage = String(deck.key_stage || "").toLowerCase();
 
-        card.innerHTML = `
-            <div class="deck-card-top">
-                <div class="deck-card-heading-row">
-                    <div class="deck-icon deck-icon-playable">${DECK_ICON}</div>
-                    <div class="deck-heading-text">
-                        <h3 class="deck-title">${title}</h3>
-                        <p class="deck-level">${deck.key_stage} · ${deck.total_levels} levels across Easy, Medium &amp; Hard</p>
-                        <span class="deck-status deck-status-playable">Fully Playable</span>
-                    </div>
-                </div>
-            </div>
-            <div class="deck-card-body">
-                <p class="deck-outcomes-heading">DIFFICULTY BREAKDOWN</p>
-                <ul class="deck-outcomes">
-                    ${deck.difficulties.filter(d => d.max_levels > 0).map(d => `<li>${d.difficulty}: ${d.max_levels} levels</li>`).join("")}
-                </ul>
-                <button type="button" class="deck-play-button">
-                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-                        <path d="M8 5L19 12L8 19V5Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
-                    </svg>
-                    <span>Choose a Level</span>
-                </button>
-            </div>
-        `;
+    let topic = String(deck.deck || "");
 
-        card.querySelector(".deck-play-button").addEventListener("click", () => openLevelModal(deck));
-        return card;
+    // Remove level prefix e.g. ss1-
+    if (keyStage && topic.toLowerCase().startsWith(keyStage + "-")) {
+        topic = topic.slice(keyStage.length + 1);
     }
+
+    // Remove subject prefix e.g. biology-
+    if (subject && topic.toLowerCase().startsWith(subject + "-")) {
+        topic = topic.slice(subject.length + 1);
+    }
+
+    // Convert slug into clean topic title
+    topic = topic
+        .replace(/-/g, " ")
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+    card.innerHTML = `
+        <div class="premium-deck-card-content">
+
+            <div class="premium-deck-card-top">
+
+                <div class="deck-icon deck-icon-playable">
+                    ${DECK_ICON}
+                </div>
+
+                <div class="premium-deck-info">
+
+                    <h3 class="deck-title">
+                        ${topic}
+                    </h3>
+
+                    <p class="premium-deck-levels">
+                        ${deck.total_levels} level${Number(deck.total_levels) !== 1 ? "s" : ""}
+                    </p>
+
+                </div>
+
+            </div>
+
+            <button type="button" class="deck-play-button">
+
+                <span>Choose Level</span>
+
+                <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M9 5L16 12L9 19"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+            </button>
+
+        </div>
+    `;
+
+    card
+        .querySelector(".deck-play-button")
+        .addEventListener("click", () => openLevelModal(deck));
+
+    return card;
+}
 
 function loadDecks() {
     const subject = getSubject();

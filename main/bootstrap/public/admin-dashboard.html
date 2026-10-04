@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | Science Solitaire</title>
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/admin-dashboard.css">
+    <script src="js/config.js"></script>
+</head>
+
+<body>
+<script>
+    (function() {
+        const token = localStorage.getItem("admin_token");
+        const user = JSON.parse(
+            localStorage.getItem("admin_user") || "null"
+        );
+
+        if (
+            !token ||
+            !user ||
+            user.role !== "admin"
+        ) {
+            window.location.replace("admin-login.html");
+        }
+    })();
+</script>
+
+<div class="admin-layout">
+
+    <aside class="admin-sidebar">
+
+        <div class="admin-brand">
+            <h2>Science Solitaire</h2>
+            <span>ADMIN</span>
+        </div>
+
+        <nav class="admin-nav">
+
+            <button class="admin-nav-btn active" data-tab="overview">
+                Overview
+            </button>
+
+            <button class="admin-nav-btn" data-tab="students">
+                Students
+            </button>
+
+            <button class="admin-nav-btn" data-tab="teachers">
+                Teachers
+            </button>
+
+            <button class="admin-nav-btn" data-tab="gameplay">
+                Gameplay
+            </button>
+
+            <button class="admin-nav-btn" data-tab="feedback">
+                Feedback
+            </button>
+
+            <button class="admin-nav-btn" data-tab="coins">
+                Points & Coins
+            </button>
+
+            <button class="admin-nav-btn" data-tab="payments">
+                Payments
+            </button>
+
+            <button class="admin-nav-btn" data-tab="reports">
+                Reports
+            </button>
+
+            <button class="admin-nav-btn" data-tab="datasets">
+                Datasets
+            </button>
+
+            <button class="admin-nav-btn" data-tab="settings">
+                Settings
+            </button>
+        </nav>
+        <button id="adminLogoutBtn" class="admin-logout-btn">
+            Log Out
+        </button>
+    </aside>
+
+
+
+
+    <main class="admin-main">
+        
+        
+
+<section class="admin-tab-panel active" id="overview">
+    <h1>Overview</h1>
+    <p class="admin-section-subtitle">
+        Live platform activity and registration summary.
+    </p>
+    <div class="admin-stats-grid">
+        <div class="admin-stat-card">
+            <span>Total Users</span>
+            <strong id="totalUsers">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Students</span>
+            <strong id="totalStudents">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Teachers</span>
+            <strong id="totalTeachers">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Admins</span>
+            <strong id="totalAdmins">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Gameplay Attempts</span>
+            <strong id="totalGameplayAttempts">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Categories Loaded</span>
+            <strong id="totalCategories">0</strong>
+        </div>
+        <div class="admin-stat-card">
+            <span>Active Students (7d)</span>
+            <strong id="activeStudents7d">0</strong>
+        </div>
+    </div>
+</section>
+
+
+<section class="admin-tab-panel" id="students">
+    <h1>Students</h1>
+    <p class="admin-section-subtitle">
+        Registered student accounts on Science Solitaire.
+    </p>
+    <div class="admin-table-card">
+
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Education Level</th>
+                        <th>Key Stage</th>
+                        <th>Coins</th>
+                        <th>Registered</th>
+                        <th>Activity</th>
+                    </tr>
+                </thead>
+                <tbody id="studentsTableBody">
+                    <tr>
+                        <td colspan="8">Loading students...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Student drill-down -->
+    <div id="studentActivityPanel" style="display:none; margin-top:24px;">
+        <h2 id="studentActivityTitle" style="font-size:18px;"></h2>
+        <div id="studentActivityContent"></div>
+    </div>
+</section>
+
+
+
+<section class="admin-tab-panel" id="teachers">
+    <h1>Teachers</h1>
+    <p class="admin-section-subtitle">
+        Registered teacher accounts on Science Solitaire. 
+    </p>
+    <div class="admin-table-card">
+        <div class="admin-table-wrapper">
+            <table class="admin-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Country</th>
+                        <th>Coins</th>
+                        <th>Registered</th>
+                    </tr>
+                </thead>
+                <tbody id="teachersTableBody">
+                    <tr>
+                        <td colspan="5">Loading teachers...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+
+
+
+        <section class="admin-tab-panel" id="gameplay">
+            <h1>Gameplay</h1>
+            <p class="admin-section-subtitle">
+                Aggregate session stats, completion rates and per-deck performance.
+            </p>
+            <div id="gameplayContent">
+                <p style="padding:24px; color:#64748B; font-weight:700;">Loading gameplay data…</p>
+            </div>
+        </section>
+
+        <section class="admin-tab-panel" id="feedback">
+            <h1>Feedback</h1>
+            <p class="admin-section-subtitle">
+                Reviews shown as testimonials on the landing page.
+            </p>
+            <div id="feedbackSummary" class="admin-stats-grid"></div>
+            <div id="feedbackList"></div>
+        </section>
+
+        <section class="admin-tab-panel" id="coins">
+            <h1>Points &amp; Coins</h1>
+            <p class="admin-section-subtitle">
+                Coin economy totals and the biggest holders.
+            </p>
+            <div id="coinsSummary" class="admin-stats-grid"></div>
+            <div id="coinsTopHolders"></div>
+        </section>
+
+        <section class="admin-tab-panel" id="payments">
+            <h1>Payments</h1>
+            <p class="admin-section-subtitle">
+                No payment provider is connected to this deployment yet.
+            </p>
+        </section>
+
+        <section class="admin-tab-panel" id="reports">
+            <h1>Reports</h1>
+            <p class="admin-section-subtitle">
+                Registrations, activity trends and dataset coverage.
+            </p>
+            <div id="reportsContent">
+                <p style="padding:24px; color:#64748B; font-weight:700;">Loading reports…</p>
+            </div>
+        </section>
+
+        <section class="admin-tab-panel" id="datasets">
+            <h1>Datasets</h1>
+            <p class="admin-section-subtitle">
+                Load, refresh, replace or remove the question datasets students play with.
+                Datasets are grouped by country and grade — students only ever see the
+                dataset belonging to their own level.
+            </p>
+            <div class="admin-table-card">
+                <div class="admin-table-wrapper">
+                    <table class="admin-table" id="datasetsTable">
+                        <thead>
+                            <tr>
+                                <th>Dataset</th>
+                                <th>Label</th>
+                                <th>Country</th>
+                                <th>Level</th>
+                                <th>Subject</th>
+                                <th>Loaded</th>
+                                <th>In CSV</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="datasetsTableBody">
+                            <tr><td colspan="8">Loading datasets…</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div id="datasetActionMessage" style="margin-top:14px; font-weight:800;"></div>
+        </section>
+
+        <section class="admin-tab-panel" id="settings">
+            <h1>Settings</h1>
+            <p class="admin-section-subtitle">
+                Upload a fresh dataset CSV to replace what is on disk, then import it.
+            </p>
+            <div class="admin-table-card" style="max-width:520px;">
+                <div style="padding:24px; display:flex; flex-direction:column; gap:14px;">
+                    <label style="font-weight:800;">Dataset
+                        <select id="settingsDatasetSelect" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #E2E8F0;"></select>
+                    </label>
+                    <label style="font-weight:800;">CSV file
+                        <input type="file" id="settingsDatasetFile" accept=".csv,text/csv"
+                            style="width:100%; margin-top:6px; padding:8px;" />
+                    </label>
+                    <button type="button" id="settingsUploadBtn"
+                        style="padding:10px 16px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">
+                        Upload CSV
+                    </button>
+                    <p id="settingsUploadMessage" style="font-weight:700; margin:0;"></p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</div>
+
+<script src="./js/admin-dashboard.js"></script>
+
+</body>
+</html>

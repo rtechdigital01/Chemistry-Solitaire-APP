@@ -18,6 +18,9 @@
 
     <!-- Tailwind compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
+    
+    <!-- Dashboard responsive fixes -->
+    <link rel="stylesheet" href="./css/dashboard-responsive.css">
 
     <script src="js/config.js"></script>
 </head>
@@ -160,7 +163,7 @@
         <!-- ========================================
              STANDARD DASHBOARD CONTENT
         ========================================= -->
-        <section style="margin-top: 32px; display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
+        <section class="dashboard-main-grid" style="margin-top: 32px; display: grid; grid-template-columns: 2fr 1fr; gap: 24px;">
             
             <!-- Main Content Area -->
             <div>
@@ -186,7 +189,7 @@
                 </div>
 
                 <!-- Call to Action -->
-                <div style="background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%); border-radius: 16px; padding: 32px; color: white; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);">
+                <div class="dashboard-cta" style="background: linear-gradient(135deg, #4F46E5 0%, #3B82F6 100%); border-radius: 16px; padding: 32px; color: white; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.4);">
                     <div>
                         <h2 style="font-size: 24px; font-weight: 800; margin: 0 0 8px 0;">Ready for your next challenge?</h2>
                         <p style="margin: 0; opacity: 0.9; font-size: 15px; max-width: 400px;">Browse our growing library of Science topics and continue testing your knowledge.</p>

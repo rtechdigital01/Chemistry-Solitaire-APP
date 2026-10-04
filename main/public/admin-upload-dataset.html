@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Upload Dataset | Science Solitaire Admin</title>
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/admin-dashboard.css">
+
+    <script src="./js/config.js"></script>
+</head>
+
+<body>
+
+<script>
+    (function() {
+        const token = localStorage.getItem("admin_token");
+        const user = JSON.parse(
+            localStorage.getItem("admin_user") || "null"
+        );
+
+        if (
+            !token ||
+            !user ||
+            user.role !== "admin"
+        ) {
+            window.location.replace("admin-login.html");
+        }
+    })();
+</script>
+
+
+<div style="
+    min-height:100vh;
+    background:#F4F7FB;
+    padding:32px 20px;
+">
+
+    <div style="
+        width:100%;
+        max-width:760px;
+        margin:0 auto;
+    ">
+
+        <a
+            href="admin-dashboard.html"
+            style="
+                display:inline-flex;
+                align-items:center;
+                gap:6px;
+                margin-bottom:20px;
+                color:#2563FF;
+                text-decoration:none;
+                font-weight:800;
+                font-family:'Nunito',sans-serif;
+            "
+        >
+            ← Back to Admin Dashboard
+        </a>
+
+
+        <div class="admin-table-card">
+
+            <div style="padding:30px;">
+
+                <div style="margin-bottom:26px;">
+                    <h1 style="
+                        margin:0 0 6px;
+                        color:#14213D;
+                        font-size:28px;
+                        font-weight:900;
+                    ">
+                        Upload Dataset
+                    </h1>
+
+                    <p style="
+                        margin:0;
+                        color:#64748B;
+                        font-size:14px;
+                        font-weight:600;
+                    ">
+                        Create a topic dataset and make it available to the correct students.
+                    </p>
+                </div>
+
+
+                <div style="
+                    display:grid;
+                    grid-template-columns:1fr 1fr;
+                    gap:18px;
+                ">
+
+                    <label style="font-weight:800;">
+                        Country
+
+                        <select
+                            id="topicCountry"
+                            style="
+                                width:100%;
+                                padding:11px;
+                                margin-top:6px;
+                                border-radius:9px;
+                                border:1px solid #E2E8F0;
+                                font-family:'Nunito',sans-serif;
+                            "
+                        >
+                            <option value="">Select country</option>
+                            <option value="Nigeria">Nigeria</option>
+                            <option value="UK">UK</option>
+                        </select>
+                    </label>
+
+
+                    <label style="font-weight:800;">
+                        Level
+
+                        <select
+                            id="topicLevel"
+                            style="
+                                width:100%;
+                                padding:11px;
+                                margin-top:6px;
+                                border-radius:9px;
+                                border:1px solid #E2E8F0;
+                                font-family:'Nunito',sans-serif;
+                            "
+                        >
+                            <option value="">Select level</option>
+                        </select>
+                    </label>
+
+
+                    <label style="font-weight:800;">
+                        Subject
+
+                        <select
+                            id="topicSubject"
+                            style="
+                                width:100%;
+                                padding:11px;
+                                margin-top:6px;
+                                border-radius:9px;
+                                border:1px solid #E2E8F0;
+                                font-family:'Nunito',sans-serif;
+                            "
+                        >
+                            <option value="">Select subject</option>
+                            <option value="biology">Biology</option>
+                            <option value="chemistry">Chemistry</option>
+                            <option value="physics">Physics</option>
+                            <option value="science">Science</option>
+                        </select>
+                    </label>
+
+
+                    <label style="font-weight:800;">
+                        Topic
+
+                        <input
+                            type="text"
+                            id="topicName"
+                            placeholder="e.g. Cell Biology"
+                            style="
+                                width:100%;
+                                padding:11px;
+                                margin-top:6px;
+                                border-radius:9px;
+                                border:1px solid #E2E8F0;
+                                font-family:'Nunito',sans-serif;
+                            "
+                        >
+                    </label>
+
+                </div>
+
+
+                <div style="margin-top:18px;">
+
+                    <label style="font-weight:800;">
+                        Dataset CSV
+
+                        <input
+                            type="file"
+                            id="topicDatasetFile"
+                            accept=".csv,text/csv"
+                            style="
+                                width:100%;
+                                margin-top:8px;
+                                padding:14px;
+                                border:1px dashed #CBD5E1;
+                                border-radius:10px;
+                                background:#F8FAFC;
+                            "
+                        >
+                    </label>
+
+                </div>
+
+
+                <div style="
+                    margin-top:24px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:flex-end;
+                    gap:12px;
+                ">
+
+                    <a
+                        href="admin-dashboard.html"
+                        style="
+                            padding:11px 18px;
+                            border-radius:9px;
+                            background:#F1F5F9;
+                            color:#475569;
+                            text-decoration:none;
+                            font-weight:800;
+                        "
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="button"
+                        id="createTopicDatasetBtn"
+                        style="
+                            padding:11px 20px;
+                            border:none;
+                            border-radius:9px;
+                            background:#2563FF;
+                            color:#FFFFFF;
+                            font-family:'Nunito',sans-serif;
+                            font-weight:900;
+                            cursor:pointer;
+                        "
+                    >
+                        Create & Upload Dataset
+                    </button>
+
+                </div>
+
+
+                <p
+                    id="createTopicDatasetMessage"
+                    style="
+                        margin:16px 0 0;
+                        font-weight:800;
+                    "
+                ></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script src="./js/admin-upload-dataset.js"></script>
+
+</body>
+</html>

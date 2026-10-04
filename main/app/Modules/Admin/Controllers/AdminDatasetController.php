@@ -3,6 +3,7 @@
 namespace App\Modules\Admin\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Modules\Admin\Models\GameDataset;
 use App\Modules\Chemistry\Models\Category;
 use App\Traits\ApiResponse;
 use Illuminate\Http\JsonResponse;
@@ -115,33 +116,57 @@ class AdminDatasetController extends Controller
      * currently loaded for it, and how many rows the source CSV has.
      */
     public function index(): JsonResponse
-    {
-        $datasets = collect(self::DATASETS)->map(function ($meta, $name) {
-            $csvPath = $this->datasetPath($name);
-
-            $loaded = Category::query()
-                ->where('deck', $meta['deck'])
-                ->where('key_stage', $meta['key_stage'])
-                ->count();
-
-            $sourceRows = 0;
-            if (is_file($csvPath)) {
-                $sourceRows = max(0, count(file($csvPath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES)) - 1);
-            }
-
-            return array_merge($meta, [
-                'dataset' => $name,
-                'loaded' => $loaded,
-                'source_rows' => $sourceRows,
-                'available' => is_file($csvPath),
-            ]);
-        })->values();
-
-        return $this->successResponse(
-            $datasets,
-            'Datasets loaded successfully'
-        );
-    }
+        {
+            $datasets = GameDataset::query()
+                ->where('is_active', true)
+                ->orderBy('country')
+                ->orderBy('key_stage')
+                ->orderBy('subject')
+                ->orderBy('topic')
+                ->get()
+                ->map(function ($dataset) {
+        
+                    $csvPath = $this->datasetPath($dataset->dataset_key);
+        
+                    $loaded = Category::query()
+                        ->where('deck', $dataset->deck)
+                        ->where('key_stage', $dataset->key_stage)
+                        ->where('subject', $dataset->subject)
+                        ->count();
+        
+                    $sourceRows = 0;
+        
+                    if (is_file($csvPath)) {
+                        $sourceRows = max(
+                            0,
+                            count(
+                                file(
+                                    $csvPath,
+                                    FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+                                )
+                            ) - 1
+                        );
+                    }
+        
+                    return [
+                        'dataset' => $dataset->dataset_key,
+                        'deck' => $dataset->deck,
+                        'key_stage' => $dataset->key_stage,
+                        'subject' => $dataset->subject,
+                        'topic' => $dataset->topic,
+                        'label' => $dataset->label,
+                        'country' => $dataset->country,
+                        'loaded' => $loaded,
+                        'source_rows' => $sourceRows,
+                        'available' => is_file($csvPath),
+                    ];
+                });
+        
+            return $this->successResponse(
+                $datasets,
+                'Datasets loaded successfully'
+            );
+        }
 
     /**
      * Import (or re-import) one dataset from its CSV. Re-importing is
@@ -151,12 +176,25 @@ class AdminDatasetController extends Controller
      */
     public function import(Request $request): JsonResponse
     {
-        $data = $request->validate([
-            'dataset' => 'required|string|in:' . implode(',', array_keys(self::DATASETS)),
+       $data = $request->validate([
+    'dataset' => 'required|string|exists:game_datasets,dataset_key',
         ]);
-
+        
         $name = $data['dataset'];
-        $meta = self::DATASETS[$name];
+        
+        $dataset = GameDataset::where('dataset_key', $name)
+            ->where('is_active', true)
+            ->firstOrFail();
+        
+        $meta = [
+            'deck' => $dataset->deck,
+            'key_stage' => $dataset->key_stage,
+            'subject' => $dataset->subject,
+            'label' => $dataset->label,
+            'country' => $dataset->country,
+            'topic' => $dataset->topic,
+        ];
+        
         $csvPath = $this->datasetPath($name);
 
         if (!is_file($csvPath)) {
@@ -252,10 +290,18 @@ class AdminDatasetController extends Controller
     public function replace(Request $request): JsonResponse
     {
         $data = $request->validate([
-            'dataset' => 'required|string|in:' . implode(',', array_keys(self::DATASETS)),
+            'dataset' => 'required|string|exists:game_datasets,dataset_key',
         ]);
-
-        $meta = self::DATASETS[$data['dataset']];
+        
+        $dataset = GameDataset::where('dataset_key', $data['dataset'])
+            ->where('is_active', true)
+            ->firstOrFail();
+        
+        $meta = [
+            'deck' => $dataset->deck,
+            'key_stage' => $dataset->key_stage,
+            'subject' => $dataset->subject,
+        ];
 
         Category::query()
             ->where('deck', $meta['deck'])
@@ -268,30 +314,45 @@ class AdminDatasetController extends Controller
     /**
      * Delete every category belonging to one dataset.
      */
-    public function destroy(Request $request): JsonResponse
+public function destroy(Request $request): JsonResponse
     {
         $data = $request->validate([
-            'dataset' => 'required|string|in:' . implode(',', array_keys(self::DATASETS)),
+            'dataset' => 'required|string|exists:game_datasets,dataset_key',
         ]);
-
-        $meta = self::DATASETS[$data['dataset']];
-
+    
+        $dataset = GameDataset::where('dataset_key', $data['dataset'])
+            ->where('is_active', true)
+            ->firstOrFail();
+    
         $deleted = Category::query()
-            ->where('deck', $meta['deck'])
-            ->where('key_stage', $meta['key_stage'])
+            ->where('deck', $dataset->deck)
+            ->where('key_stage', $dataset->key_stage)
+            ->where('subject', $dataset->subject)
             ->delete();
-
+    
+        $csvPath = $this->datasetPath($dataset->dataset_key);
+    
+        if (is_file($csvPath)) {
+            unlink($csvPath);
+        }
+    
+        $label = $dataset->label;
+    
+        $dataset->delete();
+    
         return $this->successResponse(
-            ['dataset' => $data['dataset'], 'deleted' => $deleted],
-            "Deleted {$deleted} categories for {$meta['label']}"
+            [
+                'dataset' => $data['dataset'],
+                'deleted' => $deleted,
+            ],
+            "Deleted {$deleted} categories for {$label}"
         );
     }
 
-    private function datasetPath(string $name): string
-    {
-        // Stored locally in storage/app/datasets/
-        return storage_path('app/datasets/' . $name . '.csv');
-    }
+private function datasetPath(string $name): string
+{
+    return base_path('../Datasets/' . $name . '.csv');
+}
 
     private function toUtf8(string $value, ?string $encoding): string
     {

@@ -23,12 +23,14 @@ adminNavButtons.forEach((button) => {
 
         // Lazy-load tab-specific data on first visit.
         const lazyLoads = {
-            gameplay: loadAdminGameplayOverview,
-            datasets: loadAdminDatasets,
-            feedback: loadAdminFeedback,
-            coins: loadAdminCoins,
-            reports: loadAdminReports,
-        };
+    gameplay: loadAdminGameplayOverview,
+    datasets: loadAdminDatasets,
+    settings: loadAdminDatasets,
+    feedback: loadAdminFeedback,
+    coins: loadAdminCoins,
+    reports: loadAdminReports,
+}; 
+
 
         const loader = lazyLoads[targetTab];
 
@@ -357,7 +359,9 @@ async function loadAdminDatasets() {
             return;
         }
 
-        const datasets = result.data || [];
+        const datasets = (result.data || []).filter(d =>
+        d.available === true || Number(d.loaded) > 0
+        );
         const settingsSelect = document.getElementById("settingsDatasetSelect");
 
         if (settingsSelect) {
@@ -373,39 +377,46 @@ async function loadAdminDatasets() {
             return;
         }
 
-        tableBody.innerHTML = datasets.map(d => {
-            const inSync =
-                d.loaded === d.source_rows && d.source_rows > 0;
-            const status = d.available
-                ? (inSync
-                    ? `<span style="color:#16A34A; font-weight:800;">In sync</span>`
-                    : `<span style="color:#D97706; font-weight:800;">${d.loaded} / ${d.source_rows}</span>`)
-                : `<span style="color:#DC2626; font-weight:800;">CSV missing</span>`;
+tableBody.innerHTML = datasets.map(d => {
+    const inSync =
+        d.loaded === d.source_rows && d.source_rows > 0;
 
-            return `
-                <tr>
-                    <td>${d.dataset}</td>
-                    <td>${d.label}</td>
-                    <td>${d.country}</td>
-                    <td>${d.key_stage}</td>
-                    <td>${d.subject}</td>
-                    <td>${d.loaded}</td>
-                    <td>${d.source_rows}</td>
-                    <td>${status}</td>
-                    <td style="white-space:nowrap;">
-                        <button type="button" class="dataset-action"
-                            data-action="import" data-dataset="${d.dataset}"
-                            style="padding:6px 10px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">Load</button>
-                        <button type="button" class="dataset-action"
-                            data-action="replace" data-dataset="${d.dataset}"
-                            style="padding:6px 10px; border:none; border-radius:8px; background:#D97706; color:#fff; font-weight:800; cursor:pointer;">Replace</button>
-                        <button type="button" class="dataset-action"
-                            data-action="delete" data-dataset="${d.dataset}"
-                            style="padding:6px 10px; border:none; border-radius:8px; background:#DC2626; color:#fff; font-weight:800; cursor:pointer;">Delete</button>
-                    </td>
-                </tr>
-            `;
-        }).join("");
+    const status = d.available
+        ? (inSync
+            ? `<span style="color:#16A34A; font-weight:800;">In sync</span>`
+            : `<span style="color:#D97706; font-weight:800;">${d.loaded} / ${d.source_rows}</span>`)
+        : `<span style="color:#DC2626; font-weight:800;">CSV missing</span>`;
+
+    const topic = d.topic || d.label || d.dataset;
+
+    return `
+        <tr>
+            <td style="font-weight:800; color:#0F172A;">${topic}</td>
+            <td style="text-transform:capitalize;">${d.subject}</td>
+            <td>${d.key_stage}</td>
+            <td>${d.country}</td>
+            <td>${d.loaded}</td>
+            <td>${status}</td>
+            <td style="white-space:nowrap;">
+                <button type="button" class="dataset-action"
+                    data-action="import"
+                    data-dataset="${d.dataset}"
+                    style="padding:6px 10px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">
+                    Load
+                </button>
+
+                <button type="button" class="dataset-action"
+                    data-action="delete"
+                    data-dataset="${d.dataset}"
+                    style="padding:6px 10px; border:none; border-radius:8px; background:#DC2626; color:#fff; font-weight:800; cursor:pointer;">
+                    Delete
+                </button>
+            </td>
+        </tr>
+    `;
+}).join("");
+
+
 
         document.querySelectorAll(".dataset-action").forEach(btn => {
             btn.addEventListener("click", () => runDatasetAction(btn));
@@ -762,15 +773,44 @@ async function loadAdminFeedback() {
                         <tbody>
                             ${data.reviews.map(r => `
                                 <tr>
-                                    <td>${r.user_name}</td>
+                                    <td>${r.name || "Unknown user"}</td>
                                     <td>${r.role}</td>
                                     <td>${"★".repeat(Math.max(0, Math.min(5, r.rating)))}</td>
                                     <td style="max-width:360px;">${r.comment}</td>
                                     <td>${r.created_at ? new Date(r.created_at).toLocaleDateString() : "-"}</td>
-                                    <td>
-                                        <button type="button" class="review-delete-btn"
+                                    <td style="white-space:nowrap;">
+                                    
+                                        <button
+                                            type="button"
+                                            class="review-feature-btn"
                                             data-review-id="${r.id}"
-                                            style="padding:6px 10px; border:none; border-radius:8px; background:#DC2626; color:#fff; font-weight:800; cursor:pointer;">
+                                            style="
+                                                padding:6px 10px;
+                                                border:none;
+                                                border-radius:8px;
+                                                background:${r.is_featured ? "#64748B" : "#2563EB"};
+                                                color:#fff;
+                                                font-weight:800;
+                                                cursor:pointer;
+                                                margin-right:6px;
+                                            "
+                                        >
+                                            ${r.is_featured ? "Remove from Homepage" : "Show on Homepage"}
+                                        </button>
+                                        <button
+                                            type="button"
+                                            class="review-delete-btn"
+                                            data-review-id="${r.id}"
+                                            style="
+                                                padding:6px 10px;
+                                                border:none;
+                                                border-radius:8px;
+                                                background:#DC2626;
+                                                color:#fff;
+                                                font-weight:800;
+                                                cursor:pointer;
+                                            "
+                                        >
                                             Delete
                                         </button>
                                     </td>
@@ -782,6 +822,25 @@ async function loadAdminFeedback() {
             </div>
         `;
 
+
+        document.querySelectorAll(".review-feature-btn").forEach(btn => {
+            btn.addEventListener("click", async () => {
+        
+                const response = await fetch(
+                    `/api/admin/feedback/${btn.dataset.reviewId}/feature`,
+                    {
+                        method: "POST",
+                        headers: adminHeaders()
+                    }
+                );
+        
+                if (response.ok) {
+                    panel.dataset.loaded = "";
+                    loadAdminFeedback();
+                }
+            });
+        });
+        
         document.querySelectorAll(".review-delete-btn").forEach(btn => {
             btn.addEventListener("click", async () => {
                 if (!confirm("Delete this review?")) return;
@@ -1018,3 +1077,125 @@ if (settingsUploadBtn) {
         }
     });
 }
+
+
+/* ============================================================
+   CREATE TOPIC DATASET
+============================================================ */
+
+const topicCountry = document.getElementById("topicCountry");
+const topicLevel = document.getElementById("topicLevel");
+const createTopicDatasetBtn = document.getElementById("createTopicDatasetBtn");
+
+if (topicCountry && topicLevel) {
+    topicCountry.addEventListener("change", () => {
+        const country = topicCountry.value;
+
+        let levels = [];
+
+        if (country === "Nigeria") {
+            levels = ["SS1", "SS2", "SS3"];
+        }
+
+        if (country === "UK") {
+            levels = ["KS3", "KS4", "KS5"];
+        }
+
+        topicLevel.innerHTML = `
+            <option value="">Select level</option>
+            ${levels.map(level => `
+                <option value="${level}">${level}</option>
+            `).join("")}
+        `;
+    });
+}
+
+if (createTopicDatasetBtn) {
+    createTopicDatasetBtn.addEventListener("click", async () => {
+
+        const country = document.getElementById("topicCountry")?.value;
+        const keyStage = document.getElementById("topicLevel")?.value;
+        const subject = document.getElementById("topicSubject")?.value;
+        const topic = document.getElementById("topicName")?.value.trim();
+        const file = document.getElementById("topicDatasetFile")?.files?.[0];
+        const message = document.getElementById("createTopicDatasetMessage");
+
+        if (!country || !keyStage || !subject || !topic || !file) {
+            message.textContent = "Complete all fields and choose a CSV file.";
+            message.style.color = "#DC2626";
+            return;
+        }
+
+        const formData = new FormData();
+
+        formData.append("country", country);
+        formData.append("key_stage", keyStage);
+        formData.append("subject", subject);
+        formData.append("topic", topic);
+        formData.append("file", file);
+
+        message.textContent = "Creating topic dataset…";
+        message.style.color = "#64748B";
+
+        try {
+            const response = await fetch(
+                `${window.APP_CONFIG.API_BASE_URL}/admin/datasets/topic`,
+                {
+                    method: "POST",
+                    headers: adminHeaders(),
+                    body: formData,
+                }
+            );
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                message.textContent =
+                    result.message || "Unable to create topic dataset.";
+
+                message.style.color = "#DC2626";
+                return;
+            }
+
+            message.textContent =
+                result.message || "Topic dataset created successfully.";
+
+            message.style.color = "#16A34A";
+
+            document.getElementById("topicName").value = "";
+            document.getElementById("topicDatasetFile").value = "";
+
+            const datasetsPanel = document.getElementById("datasets");
+
+            if (datasetsPanel) {
+                datasetsPanel.dataset.loaded = "";
+            }
+
+            loadAdminDatasets();
+
+        } catch (error) {
+            console.error("Create topic dataset error:", error);
+
+            message.textContent = "Unable to create topic dataset.";
+            message.style.color = "#DC2626";
+        }
+    });
+}
+
+
+
+document
+    .getElementById("openDatasetUploadModal")
+    ?.addEventListener("click", function () {
+
+        document.getElementById("datasetUploadModal").style.display = "flex";
+
+    });
+
+document
+    .getElementById("closeDatasetUploadModal")
+    ?.addEventListener("click", function () {
+
+        document.getElementById("datasetUploadModal").style.display = "none";
+
+    });

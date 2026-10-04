@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Login | Science Solitaire</title>
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./css/admin-login.css">
+    <script src="js/config.js"></script>
+</head>
+
+<body>
+
+    <main>
+        <h1>Admin Login</h1>
+
+        <form id="adminLoginForm">
+
+            <input
+                type="email"
+                id="adminEmail"
+                placeholder="Admin email"
+                required
+            >
+
+            <input
+                type="password"
+                id="adminPassword"
+                placeholder="Password"
+                required
+            >
+
+            <button type="submit">
+                Log In
+            </button>
+
+        </form>
+
+        <p id="adminLoginMessage"></p>
+    </main>
+
+    <script src="./js/admin-login.js"></script>
+
+</body>
+</html>

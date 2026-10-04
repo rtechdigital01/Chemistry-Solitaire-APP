@@ -1,0 +1,117 @@
+[02-Sep-2026 11:37:15 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:37:15 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:37:15 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:45:52 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:45:52 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:45:52 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:49:09 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:49:09 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:49:09 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:52:28 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:54:10 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:54:10 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:54:10 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:55:30 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:56:03 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:56:03 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 11:56:03 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:00:19 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:00:19 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:00:19 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:01:43 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:01:43 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:01:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:06:35 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:06:35 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:06:35 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:07:29 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:07:29 UTC] PHP Warning:  require(/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php): Failed to open stream: No such file or directory in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:07:29 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/jwahleie/scisolitaire.com/main/public/../vendor/autoload.php' (include_path='.:/opt/cpanel/ea-php83/root/usr/share/pear') in /home/jwahleie/scisolitaire.com/main/public/index.php:14
+Stack trace:
+#0 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/public/index.php on line 14
+[02-Sep-2026 12:08:36 UTC] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.4.1". You are running 8.3.32. in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /home/jwahleie/scisolitaire.com/main/vendor/composer/autoload_real.php(25): require()
+#1 /home/jwahleie/scisolitaire.com/main/vendor/autoload.php(22): ComposerAutoloaderInitcda2add6397422fb1a2eb5b9207f1575::getLoader()
+#2 /home/jwahleie/scisolitaire.com/main/public/index.php(14): require('/home/jwahleie/...')
+#3 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php on line 22
+[02-Sep-2026 12:11:26 UTC] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.4.1". You are running 8.3.32. in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /home/jwahleie/scisolitaire.com/main/vendor/composer/autoload_real.php(25): require()
+#1 /home/jwahleie/scisolitaire.com/main/vendor/autoload.php(22): ComposerAutoloaderInitcda2add6397422fb1a2eb5b9207f1575::getLoader()
+#2 /home/jwahleie/scisolitaire.com/main/public/index.php(14): require('/home/jwahleie/...')
+#3 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php on line 22
+[02-Sep-2026 12:11:59 UTC] PHP Fatal error:  Uncaught RuntimeException: Composer detected issues in your platform: Your Composer dependencies require a PHP version ">= 8.4.1". You are running 8.3.32. in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php:22
+Stack trace:
+#0 /home/jwahleie/scisolitaire.com/main/vendor/composer/autoload_real.php(25): require()
+#1 /home/jwahleie/scisolitaire.com/main/vendor/autoload.php(22): ComposerAutoloaderInitcda2add6397422fb1a2eb5b9207f1575::getLoader()
+#2 /home/jwahleie/scisolitaire.com/main/public/index.php(14): require('/home/jwahleie/...')
+#3 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php on line 22

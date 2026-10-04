@@ -1,0 +1,6062 @@
+/* ========================================
+   FIGMA COLOURS
+======================================== */
+
+:root {
+    --primary-blue: #2563FF;
+    --heading-dark: #14213D;
+    --description-text: #5F6F88;
+
+    --badge-text: #1D4ED8;
+    --badge-border: #C7DBFF;
+    --badge-background: #EFF5FF;
+}
+
+
+/* ========================================
+   GLOBAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: #FFFFFF;
+    overflow-x: hidden;
+
+    font-family: "Nunito", sans-serif;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+
+/* ========================================
+   HERO
+
+   Figma desktop:
+   Left starts: X 16
+   Left width: 600px
+
+   Image starts: X 674
+   Image: 606px × 606px
+
+   Gap:
+   674 - 16 - 600 = 58px
+======================================== */
+
+/* ========================================
+   HEADER
+
+   Figma:
+   Width: 1440px
+   Height: 94px
+   Horizontal padding: 80px
+   Vertical padding: 0px
+   Background: #FFFFFF
+   Bottom stroke: #EDF1F7
+======================================== */
+
+.site-header {
+    width: 100%;
+    height: 94px;
+
+    background-color: #FFFFFF;
+
+    border-bottom: 1px solid #EDF1F7;
+
+    position: relative;
+    z-index: 100;
+}
+
+
+.header-inner {
+    width: 100%;
+    max-width: 1440px;
+    height: 100%;
+
+    margin: 0 auto;
+
+    padding: 0 80px;
+
+    display: flex;
+    align-items: center;
+}
+
+
+/* ========================================
+   BRAND / LOGO
+======================================== */
+
+.brand {
+    display: inline-flex;
+    align-items: center;
+
+    gap: 14px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.brand-logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.brand-icon img {
+    width: 60px;
+    height: 60px;
+
+    object-fit: contain;
+    display: block;
+}
+
+
+.brand-icon svg {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+/* ========================================
+   DESKTOP NAVIGATION
+======================================== */
+
+.header-nav {
+    margin-left: auto;
+
+    display: flex;
+    align-items: center;
+
+    gap: 42px;
+}
+
+
+.header-nav>a:not(.header-play-button) {
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition: color 180ms ease;
+}
+
+
+.header-nav>a:not(.header-play-button):hover {
+    color: #2563FF;
+}
+
+
+/* ========================================
+   HEADER PLAY NOW BUTTON
+======================================== */
+
+.header-play-button {
+    height: 48px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 140px;
+    flex-shrink: 0;
+
+    gap: 8px;
+
+    padding: 0 24px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+
+    transition:
+        transform 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.header-play-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+.header-play-button span {
+    display: inline-block !important;
+    color: #FFFFFF !important;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.header-play-button:hover {
+    transform: translateY(-2px);
+}
+
+
+/* ========================================
+   MOBILE MENU BUTTON
+======================================== */
+
+.mobile-menu-button {
+    display: none;
+
+    width: 42px;
+    height: 42px;
+
+    margin-left: auto;
+
+    padding: 9px;
+
+    background: transparent;
+
+    border: 0;
+
+    cursor: pointer;
+}
+
+
+.mobile-menu-button span {
+    display: block;
+
+    width: 100%;
+    height: 2px;
+
+    margin: 5px 0;
+
+    background-color: #14213D;
+
+    border-radius: 999px;
+}
+
+
+/* ========================================
+   MOBILE NAVIGATION
+======================================== */
+
+.mobile-nav {
+    display: none;
+}
+
+
+/* ========================================
+   TABLET / SMALL LAPTOP
+======================================== */
+/* ========================================
+   TABLET / SMALL LAPTOP
+======================================== */
+
+@media (max-width: 1200px) {
+
+    .header-inner {
+        padding: 0 24px;
+    }
+
+    .header-nav {
+        gap: 16px;
+    }
+
+    .header-nav>a:not(.header-play-button) {
+        font-size: 14px;
+    }
+
+    .header-play-button {
+        min-width: 125px;
+        height: 46px;
+        padding: 0 18px;
+    }
+
+    .brand {
+        gap: 10px;
+        font-size: 16px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 850px) {
+
+    .site-header {
+        height: 76px;
+    }
+
+    .header-inner {
+        padding: 0 16px;
+    }
+
+    .header-nav {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .mobile-nav {
+        position: absolute;
+
+        top: 76px;
+        left: 0;
+
+        width: 100%;
+
+        padding: 20px 16px;
+
+        background-color: #FFFFFF;
+
+        border-bottom: 1px solid #EDF1F7;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .mobile-nav.active {
+        display: flex;
+    }
+
+    .mobile-nav a {
+        color: #14213D;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+
+        text-decoration: none;
+    }
+
+}
+
+
+/* Small phones */
+@media screen and (max-width: 600px) {
+    .brand-logo {
+        width: 90px;
+    }
+}
+
+
+
+
+.hero-section {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 600px) 606px;
+
+    column-gap: 58px;
+
+    padding-left: 16px;
+
+    align-items: start;
+}
+
+
+/* ========================================
+   LEFT CONTENT
+======================================== */
+
+.hero-content {
+    padding-top: 16px;
+}
+
+
+/* ========================================
+   1. REVISION BADGE
+
+   Figma:
+   260 × 32
+   Padding: 16 / 6
+   Gap: 8
+   Radius: 999
+======================================== */
+
+.revision-badge {
+    width: 260px;
+    height: 32px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 6px 16px;
+
+    background: var(--badge-background);
+
+    border: 1px solid var(--badge-border);
+    border-radius: 999px;
+
+    color: var(--badge-text);
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+
+    white-space: nowrap;
+}
+
+.revision-badge-icon {
+    width: 16px;
+    height: 16px;
+
+    flex-shrink: 0;
+
+    color: var(--primary-blue);
+}
+
+
+/* ========================================
+   2. HEADING
+
+   Exact Figma typography:
+   Nunito Black
+   64px
+   Line height 64px
+   Letter spacing -1.92px
+
+   Figma frame:
+   600 × 192 Hug
+======================================== */
+.chemistry-link {
+    color: #2563eb;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.chemistry-link:hover {
+    text-decoration: underline;
+}
+
+
+.hero-heading {
+    width: 100%;
+    max-width: 600px;
+
+    margin: 40px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 64px;
+    font-weight: 900;
+
+    line-height: 64px;
+    letter-spacing: -1.92px;
+}
+
+.hero-heading span {
+    display: block;
+}
+
+.heading-dark {
+    color: var(--heading-dark);
+}
+
+.heading-blue {
+    color: var(--primary-blue);
+}
+
+
+/* ========================================
+   3. DESCRIPTION
+
+   Exact Figma typography:
+   Nunito Regular
+   19px
+   Line height 32.3px
+   Letter spacing 0
+
+   Width: 520px
+   Top spacing: 28px
+   Colour: #5F6F88
+======================================== */
+
+.hero-description {
+    width: 100%;
+    max-width: 520px;
+
+    margin: 28px 0 0;
+
+    color: var(--description-text);
+
+    font-family: "Nunito", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+
+    line-height: 32.3px;
+    letter-spacing: 0;
+}
+
+
+/* ========================================
+   RIGHT HERO IMAGE
+
+   Figma:
+   X: 674
+   Y: 16
+   Width: 606
+   Height: 606
+======================================== */
+
+.hero-image-wrapper {
+    width: 606px;
+    height: 606px;
+
+    margin-top: 16px;
+
+    overflow: hidden;
+
+    border-radius: 391.68px;
+}
+
+.hero-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.reveal {
+    opacity: 0;
+
+    transform: translateY(20px);
+
+    transition:
+        opacity 700ms ease,
+        transform 700ms ease;
+
+    will-change: opacity, transform;
+}
+
+.reveal.reveal-active {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+/* Image gets slightly stronger scale reveal */
+.scale-reveal {
+    transform:
+        translateY(20px) scale(0.94);
+}
+
+.scale-reveal.reveal-active {
+    transform:
+        translateY(0) scale(1);
+}
+
+
+/* ========================================
+   TABLET / SMALL LAPTOP
+======================================== */
+
+@media (max-width: 1100px) {
+
+    .hero-section {
+        grid-template-columns: 1fr 46%;
+
+        gap: 35px;
+
+        padding: 16px 24px 50px;
+    }
+
+    .hero-content {
+        padding-top: 0;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        margin-top: 0;
+    }
+
+    .hero-heading {
+        font-size: 54px;
+        line-height: 55px;
+
+        letter-spacing: -1.6px;
+    }
+
+    .hero-description {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 760px) {
+
+    .hero-section {
+        display: flex;
+        flex-direction: column;
+
+        gap: 40px;
+
+        padding: 16px 16px 50px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .revision-badge {
+        width: fit-content;
+        max-width: 100%;
+
+        padding-left: 12px;
+        padding-right: 12px;
+
+        font-size: 12px;
+    }
+
+    .hero-heading {
+        max-width: 100%;
+
+        margin-top: 32px;
+
+        font-size: clamp(42px, 12vw, 50px);
+        line-height: 0.98;
+
+        letter-spacing: -1.4px;
+    }
+
+    .hero-description {
+        max-width: 100%;
+
+        margin-top: 24px;
+
+        font-size: 17px;
+        line-height: 28px;
+    }
+
+    .hero-image-wrapper {
+        width: 100%;
+        max-width: 520px;
+
+        height: auto;
+
+        aspect-ratio: 1 / 1;
+
+        margin: 0 auto;
+    }
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .reveal,
+    .scale-reveal {
+        opacity: 1;
+
+        transform: none;
+
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   HERO BUTTONS
+======================================== */
+
+.hero-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    margin-top: 40px;
+}
+
+
+/* ========================================
+   PLAY FREE DEMO
+
+   Figma:
+   204 × 52
+   Horizontal padding: 28px
+   Gap: 8px
+   Radius: 999px
+   Fill: #2563FF
+======================================== */
+
+.demo-button {
+    width: 204px;
+    height: 52px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 28px;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    background-color: #2563FF;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        transform 200ms ease,
+        box-shadow 200ms ease;
+}
+
+
+.play-icon {
+    width: 20px;
+    height: 20px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   HOW IT WORKS
+
+   Figma:
+   161 × 52
+   Horizontal padding: 28px
+   Radius: 999px
+   Fill: #FFFFFF
+   Stroke: #2563FF / 1px
+======================================== */
+
+.how-button {
+    width: 161px;
+    height: 52px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 28px;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    background-color: #FFFFFF;
+
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+
+    text-decoration: none;
+    white-space: nowrap;
+
+    transition:
+        transform 200ms ease,
+        background-color 200ms ease;
+}
+
+
+/* Small interaction */
+
+.demo-button:hover,
+.how-button:hover {
+    transform: translateY(-2px);
+}
+
+.how-button:hover {
+    background-color: #EFF5FF;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 480px) {
+
+    .hero-buttons {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .demo-button {
+        width: 100%;
+    }
+
+    .how-button {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   HERO FEATURE PILLS
+
+   Figma:
+   Height: 36px Hug
+   Width: Hug
+   Gap: 8px
+   Padding: 16px horizontal / 6px vertical
+   Radius: 999px
+   Background: #FFFFFF
+   Border: #DDE5F1
+======================================== */
+
+.hero-pills {
+    width: 520px;
+    max-width: 100%;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 16px;
+
+    margin-top: 48px;
+}
+
+
+.feature-pill {
+    min-height: 36px;
+
+    display: inline-flex;
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 6px 16px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 22px;
+
+    white-space: nowrap;
+}
+
+
+.feature-pill-icon {
+    width: 18px;
+    height: 18px;
+
+    flex-shrink: 0;
+
+    color: #2563FF;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .hero-pills {
+        margin-top: 36px;
+
+        gap: 12px;
+    }
+
+    .feature-pill {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+/* ========================================
+   WHY CARD-MATCHING SECTION
+======================================== */
+
+.why-section {
+    width: 100%;
+    padding: 40px 16px 20px;
+    background-color: #FFFFFF;
+}
+
+.why-content {
+    width: 100%;
+    max-width: 560px;
+    margin: 0 auto;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   WHY HEADING
+
+   FIGMA:
+   Width: 452px
+   Height: 101px Hug
+   Font: Nunito Black
+   Size: 48px
+   Line height: 50.4px
+   Letter spacing: -1.2px
+   Colour: #14213D
+======================================== */
+
+.why-heading {
+    width: 100%;
+    max-width: 452px;
+
+    margin: 0 auto;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 50.4px;
+    letter-spacing: -1.2px;
+
+    color: #14213D;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   WHY DESCRIPTION
+
+   FIGMA:
+   Width: 560px
+   Height: 95px Hug
+   Font: Nunito Regular
+   Size: 19px
+   Line height: 31.4px
+   Letter spacing: 0
+   Colour: #5F6F88
+======================================== */
+
+.why-description {
+    width: 100%;
+    max-width: 560px;
+
+    margin: 24px auto 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 31.4px;
+    letter-spacing: 0;
+
+    color: #5F6F88;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+    .why-section {
+        padding: 60px 16px 30px;
+    }
+
+    .why-heading {
+        font-size: 38px;
+        line-height: 41px;
+        letter-spacing: -0.8px;
+    }
+
+    .why-description {
+        margin-top: 20px;
+
+        font-size: 17px;
+        line-height: 28px;
+    }
+}
+
+/* ========================================
+   WHY CARDS CONTAINER
+======================================== */
+
+.why-cards {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 32px auto 0;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+
+/* ========================================
+   CARD
+
+   FIGMA:
+   Width: 302px
+   Height: approx. 302px
+   Horizontal padding: 28px
+   Vertical padding: 32px
+   Radius: 24px
+   Background: #FFFFFF
+   Border: #DDE5F1
+======================================== */
+
+.why-card {
+    width: 302px;
+    min-height: 302px;
+
+    padding: 32px 28px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 24px;
+
+    box-shadow:
+        0 12px 28px rgba(20, 33, 61, 0.10);
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+
+/* ========================================
+   ICON BOX
+
+   FIGMA:
+   56 × 56px
+   Radius: 18px
+   Blue fill: 9.4%
+   Blue stroke: 26.7%
+======================================== */
+
+.why-card-icon {
+    width: 56px;
+    height: 56px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 18px;
+}
+
+
+.why-card-icon-blue {
+    color: #2563FF;
+
+    background-color: rgba(37, 99, 255, 0.094);
+
+    border: 1px solid rgba(37, 99, 255, 0.267);
+}
+
+
+.why-card-icon svg {
+    width: 26px;
+    height: 26px;
+}
+
+
+/* ========================================
+   CARD TITLE
+
+   FIGMA:
+   Nunito ExtraBold
+   17px
+   Line height: 25.5px
+   Colour: #14213D
+======================================== */
+
+.why-card-title {
+    margin: 24px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 800;
+    line-height: 25.5px;
+    letter-spacing: 0;
+
+    color: #14213D;
+}
+
+
+/* ========================================
+   CARD DESCRIPTION
+
+   FIGMA:
+   Width: 244px
+   Nunito Regular
+   14px
+   Line height: 23.8px
+   Colour: #5F6F88
+======================================== */
+
+.why-card-description {
+    width: 100%;
+    max-width: 244px;
+
+    margin: 12px 0 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 23.8px;
+    letter-spacing: 0;
+
+    color: #5F6F88;
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    .why-cards {
+        margin-top: 40px;
+    }
+
+    .why-card {
+        width: 100%;
+        min-height: auto;
+    }
+}
+
+.why-card-icon-purple {
+    color: #8B5CF6;
+    background-color: rgba(139, 92, 246, 0.08);
+    border: 1px solid rgba(139, 92, 246, 0.20);
+}
+
+.why-card-icon-gold {
+    color: #EAB308;
+    background-color: rgba(234, 179, 8, 0.08);
+    border: 1px solid rgba(234, 179, 8, 0.20);
+}
+
+.why-card-icon-green {
+    color: #34C98A;
+    background-color: rgba(52, 201, 138, 0.08);
+    border: 1px solid rgba(52, 201, 138, 0.20);
+}
+
+
+@media (max-width: 1050px) {
+    .why-cards {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .why-card {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .why-cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+/* ========================================
+   REUSABLE FOOTER
+
+   FIGMA:
+   Width: 1280px
+   Height: 394px
+   Padding: 80px
+   Radius: 28px
+   Background: #14213D
+======================================== */
+.footer-logo-image {
+    width: 110px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+.site-footer {
+    width: 100%;
+    max-width: none;
+    min-height: 394px;
+
+    margin: 40px 0 0;
+    padding: 40px 80px;
+
+    background-color: #14213D;
+    border-radius: 28px 28px 0 0;
+
+    font-family: "Nunito", sans-serif;
+}
+
+
+/* ========================================
+   FOOTER TOP AREA
+======================================== */
+
+.footer-main {
+    display: grid;
+
+    grid-template-columns:
+        2.2fr 1fr 1.25fr 1fr;
+
+    gap: 55px;
+
+    align-items: start;
+}
+
+
+/* ========================================
+   FOOTER BRAND
+======================================== */
+
+
+
+.footer-logo-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #2563FF;
+    border-radius: 10px;
+
+    color: #FFFFFF;
+}
+
+
+
+.footer-description {
+    max-width: 300px;
+
+    margin: 20px 0 0;
+
+    color: #AAB6C9;
+
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 24px;
+}
+
+
+/* ========================================
+   FOOTER COLUMNS
+======================================== */
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.footer-column h3 {
+    margin: 0 0 8px;
+
+    color: #8D9AB0;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1.4px;
+}
+
+
+.footer-column a {
+    color: #AAB6C9;
+
+    font-size: 14px;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    transition: color 180ms ease;
+}
+
+
+.footer-column a:hover {
+    color: #FFFFFF;
+}
+
+
+/* ========================================
+   DIVIDER
+======================================== */
+
+.footer-divider {
+    width: 100%;
+    height: 1px;
+
+    margin-top: 64px;
+
+    background-color: rgba(255, 255, 255, 0.10);
+}
+
+
+/* ========================================
+   FOOTER BOTTOM
+======================================== */
+
+.footer-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+
+    margin-top: 28px;
+}
+
+
+.footer-bottom p {
+    margin: 0;
+
+    color: #7F8DA5;
+
+    font-size: 13px;
+    font-weight: 400;
+}
+
+
+.footer-legal {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+.footer-legal a {
+    color: #7F8DA5;
+
+    font-size: 13px;
+    font-weight: 400;
+
+    text-decoration: none;
+
+    white-space: nowrap;
+}
+
+
+.footer-legal a:hover {
+    color: #FFFFFF;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .site-footer {
+        width: calc(100% - 48px);
+
+        margin: 60px auto;
+
+        padding: 60px 48px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1.6fr 1fr 1fr;
+
+        gap: 45px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 650px) {
+
+    .site-footer {
+        width: calc(100% - 32px);
+
+        min-height: auto;
+
+        margin: 40px auto;
+
+        padding: 40px 24px;
+
+        border-radius: 22px;
+    }
+
+    .footer-main {
+        grid-template-columns: 1fr;
+
+        gap: 36px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+
+    .footer-divider {
+        margin-top: 40px;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+
+        align-items: flex-start;
+    }
+
+    .footer-legal {
+        flex-wrap: wrap;
+
+        gap: 18px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+/* ========================================
+   PROFILE SETUP PAGE
+======================================== */
+/* ========================================
+   PROFILE SETUP PAGE
+======================================== */
+
+.profile-setup-page {
+    width: 100%;
+
+    background:
+        linear-gradient(135deg,
+            #F4F8FF 0%,
+            #FFFFFF 55%,
+            #F7FBFF 100%);
+}
+
+
+/* ========================================
+   PROFILE STAGE
+
+   Keeps atom + white card together
+======================================== */
+
+.profile-stage {
+    position: relative;
+
+    width: 100%;
+    min-height: 700px;
+
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
+    padding: 60px 24px 80px;
+
+    overflow: hidden;
+}
+
+
+/* ========================================
+   ATOM BACKGROUND
+======================================== */
+
+.profile-atom-background {
+    position: absolute;
+
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: min(760px, 78vw);
+    height: auto;
+
+    opacity: 0.55;
+
+    pointer-events: none;
+    user-select: none;
+
+    z-index: 0;
+}
+
+
+/* ========================================
+   MAIN PROFILE CARD
+
+   Figma:
+   40px inner padding
+======================================== */
+
+.profile-setup-card {
+    position: relative;
+    z-index: 1;
+
+    width: 460px;
+    max-width: 100%;
+
+    padding: 24px 28px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 24px rgba(20, 33, 61, 0.05);
+}
+
+
+/* ========================================
+   PROFILE TOP CONTENT
+======================================== */
+
+.profile-top-content {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   ACCOUNT CREATED PILL
+
+   Figma:
+   214px Hug × 29px Hug
+   Padding: 5px 14px
+   Gap: 6px
+   Radius: 999px
+======================================== */
+
+.profile-status-pill {
+    min-height: 29px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 5px 14px;
+
+    background-color: #ECFDF3;
+
+    border: 1px solid #A7F3D0;
+    border-radius: 999px;
+
+    color: #168A47;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    line-height: 16.5px;
+
+    white-space: nowrap;
+}
+
+
+.profile-status-icon {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   SET UP YOUR PROFILE
+
+   Figma:
+   Nunito 900
+   24px
+   Line height 36px
+   #14213D
+======================================== */
+
+.profile-title {
+    margin: 20px 0 0;
+
+    color: #14213D;
+    margin-top: 16px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 36px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   PROFILE SUBTITLE
+
+   Figma:
+   Nunito Regular
+   14px
+   Line height 21px
+   #5F6F88
+======================================== */
+
+.profile-subtitle {
+    margin: 4px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+
+    text-align: center;
+}
+
+
+/* ========================================
+   AVATAR SECTION
+======================================== */
+
+.profile-avatar-section {
+    width: 100%;
+
+    margin-top: 26px;
+}
+
+
+.avatar-section-title {
+    margin: 0 0 14px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+}
+
+
+/* ========================================
+   AVATAR GRID
+======================================== */
+
+.avatar-grid {
+    display: grid;
+
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 10px;
+}
+
+
+/* ========================================
+   AVATAR OPTION
+======================================== */
+
+.avatar-option {
+    min-width: 0;
+    height: 78px;
+
+    padding: 10px 6px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    background-color: #F7F9FC;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 14px;
+
+    color: #7C8CA5;
+
+    font-family: "Nunito", sans-serif;
+
+    cursor: pointer;
+
+    transition:
+        border-color 180ms ease,
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+
+.avatar-option:hover {
+    transform: translateY(-2px);
+
+    border-color: #AFC5FF;
+}
+
+
+/* Selected avatar */
+
+.avatar-option.active {
+    background-color: #F4F7FF;
+
+    border: 2px solid #2563FF;
+
+    color: #2563FF;
+}
+
+
+.avatar-emoji {
+    display: block;
+
+    font-size: 28px;
+    line-height: 1;
+}
+
+
+.avatar-name {
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 16px;
+}
+
+
+/* ========================================
+   DISPLAY NAME
+======================================== */
+
+.profile-name-section {
+    width: 100%;
+
+    margin-top: 24px;
+}
+
+
+.profile-field-label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 19.5px;
+}
+
+
+.profile-name-input {
+    width: 100%;
+    height: 46px;
+
+    padding: 0 14px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 10px;
+
+    outline: none;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+
+    transition:
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+
+.profile-name-input:focus {
+    border-color: #2563FF;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 255, 0.10);
+}
+
+
+/* ========================================
+   PROFILE PREVIEW
+======================================== */
+
+.profile-preview {
+    width: 100%;
+
+    margin-top: 14px;
+    padding: 14px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 14px;
+
+    background-color: #F3F6FB;
+
+    border-radius: 12px;
+}
+
+
+.profile-preview-avatar {
+    flex-shrink: 0;
+
+    font-size: 30px;
+}
+
+
+.profile-preview-content {
+    min-width: 0;
+}
+
+
+.profile-preview-title {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 21px;
+}
+
+
+.profile-preview-description {
+    margin: 2px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 18px;
+}
+
+
+/* ========================================
+   ENTER MY PORTAL BUTTON
+======================================== */
+
+.enter-portal-button {
+    width: 100%;
+    height: 48px;
+
+    margin-top: 16px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+
+.enter-portal-button:hover {
+    transform: translateY(-2px);
+
+    background-color: #1D4ED8;
+}
+
+
+.enter-portal-icon {
+    width: 20px;
+    height: 20px;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 750px) {
+
+    .profile-stage {
+        min-height: auto;
+
+        padding: 70px 20px 100px;
+    }
+
+    .profile-atom-background {
+        width: 850px;
+        max-width: none;
+
+        opacity: 0.35;
+    }
+
+    .profile-setup-card {
+        width: 100%;
+
+        max-width: 560px;
+
+        padding: 32px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 500px) {
+
+    .profile-stage {
+        padding: 48px 16px 70px;
+    }
+
+    .profile-setup-card {
+        padding: 28px 20px;
+
+        border-radius: 14px;
+    }
+
+    .profile-atom-background {
+        width: 720px;
+
+        opacity: 0.22;
+    }
+
+    .profile-title {
+        font-size: 22px;
+        line-height: 33px;
+    }
+
+    .profile-status-pill {
+        font-size: 10px;
+    }
+
+    .avatar-grid {
+        grid-template-columns: repeat(3, 1fr);
+
+        gap: 8px;
+    }
+
+    .avatar-option {
+        height: 82px;
+    }
+
+    .enter-portal-button {
+        height: 50px;
+
+        font-size: 15px;
+    }
+}
+
+/* ========================================
+   CUSTOM AVATAR UPLOAD
+======================================== */
+
+.avatar-upload-preview {
+    width: 30px;
+    height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    border-radius: 50%;
+}
+
+
+.avatar-upload-preview svg {
+    width: 24px;
+    height: 24px;
+}
+
+
+.avatar-upload-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+/* Uploaded image inside profile preview */
+
+.profile-preview-avatar img {
+    width: 42px;
+    height: 42px;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+
+
+/* ========================================
+   DASHBOARD PAGE
+======================================== */
+
+.dashboard-page {
+    width: 100%;
+
+    padding: 48px 24px 80px;
+
+    background-color: #F8FAFD;
+}
+
+
+/* ========================================
+   DASHBOARD PROFILE CARD
+
+   Figma:
+   Width: 1280px
+   Height: 186px
+======================================== */
+
+.dashboard-profile-card {
+    width: 100%;
+    max-width: 1280px;
+    min-height: 186px;
+
+    margin: 0 auto;
+
+    padding: 32px 36px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 24px;
+}
+
+
+/* ========================================
+   LEFT USER AREA
+======================================== */
+
+.dashboard-user {
+    display: flex;
+    align-items: center;
+
+    gap: 24px;
+}
+
+
+/* ========================================
+   AVATAR
+
+   Figma:
+   Width: 88px
+   Height: 88px
+   Radius: 26px
+   Border: 3px
+======================================== */
+
+.dashboard-avatar {
+    position: relative;
+
+    width: 88px;
+    height: 88px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EFF5FF;
+
+    border: 3px solid #2563FF;
+    border-radius: 26px;
+}
+
+
+.dashboard-avatar-content {
+    font-size: 42px;
+    line-height: 1;
+}
+
+
+/* Green status circle */
+
+.dashboard-avatar-status {
+    position: absolute;
+
+    right: -7px;
+    bottom: -7px;
+
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #22C55E;
+
+    border: 3px solid #FFFFFF;
+    border-radius: 50%;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+
+/* ========================================
+   USER TEXT
+======================================== */
+
+.dashboard-user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Good morning
+
+   Figma:
+   Nunito SemiBold
+   14px
+   Line height: 21px
+   #5F6F88
+*/
+
+.dashboard-greeting {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 21px;
+}
+
+
+/* Alex
+
+   Figma:
+   Nunito Black
+   36px
+   Line height: 36px
+*/
+
+.dashboard-user-name {
+    margin: 6px 0 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 36px;
+}
+
+
+/* Year 10 · GCSE Chemistry
+
+   Figma:
+   Nunito Regular
+   14px
+   Line height: 21px
+   #5F6F88
+*/
+
+.dashboard-user-course {
+    margin: 8px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .dashboard-page {
+        padding: 32px 16px 60px;
+    }
+
+    .dashboard-profile-card {
+        min-height: auto;
+
+        padding: 28px 22px;
+
+        align-items: flex-start;
+    }
+
+    .dashboard-user {
+        gap: 18px;
+    }
+
+    .dashboard-avatar {
+        width: 72px;
+        height: 72px;
+
+        border-radius: 22px;
+    }
+
+    .dashboard-avatar-content {
+        font-size: 34px;
+    }
+
+    .dashboard-user-name {
+        font-size: 30px;
+        line-height: 32px;
+    }
+}
+
+/* ========================================
+   DASHBOARD RIGHT SIDE
+======================================== */
+
+.dashboard-profile-actions {
+    display: flex;
+    align-items: center;
+
+    gap: 28px;
+}
+
+
+/* ========================================
+   COIN AREA
+======================================== */
+
+.dashboard-coin-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 8px;
+}
+
+
+.coin-vault {
+    min-width: 142px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 8px 20px;
+
+    background-color: #FFF9E8;
+
+    border: 1px solid #F1D98A;
+    border-radius: 999px;
+}
+
+
+.coin-vault-icon {
+    width: 24px;
+    height: 24px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid #C99B2E;
+    border-radius: 50%;
+
+    color: #C99B2E;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+
+.coin-vault-amount {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 900;
+    line-height: 21px;
+}
+
+
+.coin-vault-label {
+    margin: 1px 0 0;
+
+    color: #8B6B1D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 14px;
+
+    text-transform: uppercase;
+}
+
+
+.coin-vault-note {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 11px;
+    font-weight: 400;
+    line-height: 16px;
+}
+
+
+/* ========================================
+   EDIT PROFILE + LOG OUT
+======================================== */
+
+.dashboard-account-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+.dashboard-edit-button {
+    height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 0 20px;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+}
+
+
+.dashboard-edit-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+
+.dashboard-logout-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 7px;
+
+    padding: 0;
+
+    background: transparent;
+
+    border: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+
+.dashboard-logout-button svg {
+    width: 17px;
+    height: 17px;
+}
+
+/* ========================================
+   CHEMISTRY DECKS HEADING SECTION
+
+   FIGMA:
+   Max width: 1280px
+   Horizontal spacing: 80px
+   Vertical spacing: 40px
+======================================== */
+
+.decks-heading-section {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 40px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 32px;
+}
+
+
+/* ========================================
+   LEFT CONTENT
+======================================== */
+
+.decks-heading-content {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+/* ========================================
+   YOUR CHEMISTRY DECKS
+
+   FIGMA:
+   Nunito Black
+   32px
+   Line height: 48px
+   Letter spacing: -0.64px
+   #14213D
+======================================== */
+
+.decks-heading {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 32px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 48px;
+    letter-spacing: -0.64px;
+}
+
+
+/* ========================================
+   SUBTITLE
+
+   FIGMA:
+   Nunito Regular
+   15px
+   Line height: 22.5px
+   #5F6F88
+======================================== */
+
+.decks-subtitle {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22.5px;
+}
+
+
+/* ========================================
+   1 DECK AVAILABLE PILL
+
+   FIGMA:
+   Padding: 8px 16px
+   Radius: 999px
+   Background: #F3F6FB
+   Border: #DDE5F1
+======================================== */
+
+.decks-available-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    padding: 8px 16px;
+
+    background-color: #F3F6FB;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 18px;
+
+    white-space: nowrap;
+}
+
+
+.decks-available-icon {
+    width: 14px;
+    height: 14px;
+
+    flex-shrink: 0;
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .decks-heading-section {
+        padding: 32px 0;
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+        gap: 18px;
+    }
+
+    .decks-heading {
+        font-size: 27px;
+        line-height: 38px;
+    }
+
+    .decks-subtitle {
+        font-size: 14px;
+        line-height: 21px;
+    }
+}
+
+
+
+
+/* ========================================
+   DECK CARDS SECTION
+
+   FIGMA:
+   Width: 1280px
+   Approx height: 454px
+   3 cards
+======================================== */
+
+.deck-cards-section {
+    width: 100%;
+    max-width: 1280px;
+
+    margin: 0 auto;
+
+    padding: 0 0 40px;
+}
+
+
+.deck-cards-grid {
+    width: 100%;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 52px;
+}
+
+
+/* ========================================
+   BASE DECK CARD
+======================================== */
+
+.deck-card {
+    width: 100%;
+    min-height: 450px;
+
+    overflow: hidden;
+
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 24px;
+
+    box-shadow:
+        0 10px 25px rgba(20, 33, 61, 0.08);
+}
+
+
+/* ========================================
+   CARD TOP
+======================================== */
+
+.deck-card-top {
+    min-height: 176px;
+
+    padding: 32px;
+
+    background-color: #FFF1F4;
+
+    border-bottom: 1px solid #F4CDD6;
+}
+
+
+.deck-card-top-locked {
+    background-color: #F3F6FB;
+
+    border-bottom-color: #DDE5F1;
+}
+
+
+.deck-card-heading-row {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 20px;
+}
+
+
+/* ========================================
+   ICON
+======================================== */
+
+.deck-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 18px;
+}
+
+
+.deck-icon svg {
+    width: 30px;
+    height: 30px;
+}
+
+
+.deck-icon-playable {
+    color: #B42345;
+
+    background-color: rgba(255, 201, 212, 0.27);
+
+    border: 1px solid rgba(180, 35, 69, 0.14);
+}
+
+
+.deck-icon-locked {
+    color: #7F8DA5;
+
+    background-color: #EEF2F7;
+
+    border: 1px solid #DDE5F1;
+}
+
+
+/* ========================================
+   TITLE
+======================================== */
+
+.deck-heading-text {
+    min-width: 0;
+}
+
+
+.deck-title {
+    margin: 0;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 23.8px;
+}
+
+
+.deck-card-locked .deck-title {
+    color: #7F8DA5;
+}
+
+
+/* ========================================
+   LEVEL / SUBTITLE
+======================================== */
+
+.deck-level {
+    margin: 8px 0 0;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 23.8px;
+}
+
+
+.deck-card-locked .deck-level {
+    color: #8D9AB0;
+}
+
+
+/* ========================================
+   STATUS PILLS
+======================================== */
+
+.deck-status {
+    width: fit-content;
+
+    margin-top: 12px;
+
+    display: inline-flex;
+    align-items: center;
+
+    padding: 5px 12px;
+
+    border-radius: 999px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 21px;
+
+    white-space: nowrap;
+}
+
+
+.deck-status-playable {
+    color: #B42345;
+
+    background-color: #FFF6F8;
+
+    border: 1px solid #F2CBD4;
+}
+
+
+.deck-status-locked {
+    color: #7F8DA5;
+
+    background-color: #EDF1F6;
+
+    border: 1px solid #E1E7EF;
+}
+
+
+/* ========================================
+   CARD BODY
+======================================== */
+
+.deck-card-body {
+    padding: 24px 32px 30px;
+}
+
+
+/* ========================================
+   LEARNING OUTCOMES
+======================================== */
+
+.deck-outcomes-heading {
+    margin: 0 0 18px;
+
+    color: #7F8DA5;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 18px;
+
+    letter-spacing: 1.3px;
+}
+
+
+.deck-outcomes {
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 14px;
+}
+
+
+.deck-outcomes li {
+    position: relative;
+
+    padding-left: 20px;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 22px;
+}
+
+
+.deck-outcomes li::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 8px;
+
+    width: 7px;
+    height: 7px;
+
+    background-color: #B42345;
+
+    border-radius: 50%;
+}
+
+
+.deck-card-locked .deck-outcomes li {
+    color: #A1ACBC;
+}
+
+
+.deck-card-locked .deck-outcomes li::before {
+    background-color: #CAD3E0;
+}
+
+
+/* ========================================
+   PLAY BUTTON
+======================================== */
+
+.deck-play-button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #2563FF;
+
+    border: 1px solid #2563FF;
+    border-radius: 999px;
+
+    color: #FFFFFF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 8px 18px rgba(37, 99, 255, 0.18);
+
+    transition:
+        transform 180ms ease,
+        background-color 180ms ease;
+}
+
+
+.deck-play-button svg {
+    width: 20px;
+    height: 20px;
+}
+
+
+.deck-play-button:hover {
+    transform: translateY(-2px);
+
+    background-color: #1D4ED8;
+}
+
+
+/* ========================================
+   LOCKED BUTTON
+======================================== */
+
+.deck-locked-button {
+    width: 100%;
+    height: 52px;
+
+    margin-top: 26px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    background-color: #F3F6FB;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 999px;
+
+    color: #7F8DA5;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   TABLET
+======================================== */
+
+@media (max-width: 1050px) {
+
+    .deck-cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 24px;
+    }
+
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    .deck-cards-grid {
+        grid-template-columns: 1fr;
+
+        gap: 22px;
+    }
+
+    .deck-card {
+        min-height: auto;
+    }
+
+    .deck-card-top {
+        padding: 26px 22px;
+    }
+
+    .deck-card-body {
+        padding: 22px;
+    }
+}
+
+
+/* ========================================
+   DASHBOARD MOBILE FIX
+   Keep this at the VERY BOTTOM of style.css
+======================================== */
+
+@media (max-width: 700px) {
+
+    /* Prevent horizontal overflow */
+    html,
+    body {
+        overflow-x: hidden;
+    }
+
+
+    /* ========================================
+   PAGE
+======================================== */
+
+    .dashboard-page {
+        width: 100%;
+        padding: 24px 16px 50px;
+    }
+
+
+    /* ========================================
+   PROFILE CARD
+======================================== */
+
+    .dashboard-profile-card {
+        width: 100%;
+        min-height: auto;
+
+        padding: 24px 18px;
+
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 28px;
+
+        border-radius: 20px;
+    }
+
+
+    /* User area */
+
+    .dashboard-user {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        gap: 16px;
+    }
+
+
+    .dashboard-avatar {
+        width: 68px;
+        height: 68px;
+
+        border-width: 2px;
+        border-radius: 20px;
+    }
+
+
+    .dashboard-avatar-content {
+        font-size: 32px;
+    }
+
+
+    .dashboard-avatar-status {
+        width: 21px;
+        height: 21px;
+
+        right: -5px;
+        bottom: -5px;
+
+        border-width: 2px;
+
+        font-size: 9px;
+    }
+
+
+    .dashboard-user-info {
+        min-width: 0;
+    }
+
+
+    .dashboard-greeting {
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    .dashboard-user-name {
+        margin-top: 3px;
+
+        font-size: 28px;
+        line-height: 30px;
+    }
+
+
+    .dashboard-user-course {
+        margin-top: 5px;
+
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    /* ========================================
+   COINS + ACCOUNT ACTIONS
+======================================== */
+
+    .dashboard-profile-actions {
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    .dashboard-coin-area {
+        flex: 1;
+
+        align-items: flex-start;
+    }
+
+
+    .coin-vault {
+        min-width: 0;
+        width: 100%;
+        height: 52px;
+
+        padding: 7px 12px;
+
+        gap: 9px;
+    }
+
+
+    .coin-vault-icon {
+        width: 22px;
+        height: 22px;
+
+        font-size: 11px;
+    }
+
+
+    .coin-vault-amount {
+        font-size: 17px;
+        line-height: 19px;
+    }
+
+
+    .coin-vault-label {
+        font-size: 9px;
+        line-height: 12px;
+    }
+
+
+    .coin-vault-note {
+        padding-left: 6px;
+
+        font-size: 10px;
+        line-height: 15px;
+    }
+
+
+    .dashboard-account-area {
+        flex: 1;
+
+        align-items: stretch;
+    }
+
+
+    .dashboard-edit-button {
+        width: 100%;
+        height: 40px;
+
+        padding: 0 12px;
+
+        font-size: 12px;
+    }
+
+
+    .dashboard-logout-button {
+        align-self: center;
+
+        font-size: 12px;
+    }
+
+
+    /* ========================================
+   CHEMISTRY DECK HEADING
+======================================== */
+
+    .decks-heading-section {
+        width: 100%;
+
+        padding: 32px 0 24px;
+
+        flex-direction: column;
+        align-items: flex-start;
+
+        gap: 14px;
+    }
+
+
+    .decks-heading-content {
+        gap: 4px;
+    }
+
+
+    .decks-heading {
+        font-size: 26px;
+        line-height: 34px;
+
+        letter-spacing: -0.4px;
+    }
+
+
+    .decks-subtitle {
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+
+    .decks-available-pill {
+        padding: 6px 12px;
+
+        font-size: 11px;
+        line-height: 17px;
+    }
+
+
+    /* ========================================
+   DECK CARDS
+======================================== */
+
+    .deck-cards-section {
+        width: 100%;
+
+        padding-bottom: 30px;
+    }
+
+
+    .deck-cards-grid {
+        width: 100%;
+
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+
+    .deck-card {
+        width: 100%;
+        min-height: auto;
+
+        border-radius: 20px;
+    }
+
+
+    .deck-card-top {
+        min-height: auto;
+
+        padding: 24px 20px;
+    }
+
+
+    .deck-card-heading-row {
+        gap: 14px;
+    }
+
+
+    .deck-icon {
+        width: 52px;
+        height: 52px;
+
+        border-radius: 15px;
+    }
+
+
+    .deck-icon svg {
+        width: 25px;
+        height: 25px;
+    }
+
+
+    .deck-title {
+        font-size: 17px;
+        line-height: 21px;
+    }
+
+
+    .deck-level {
+        margin-top: 6px;
+
+        font-size: 13px;
+        line-height: 19px;
+    }
+
+
+    .deck-status {
+        margin-top: 9px;
+
+        padding: 4px 10px;
+
+        font-size: 12px;
+        line-height: 18px;
+    }
+
+
+    .deck-card-body {
+        padding: 22px 20px 24px;
+    }
+
+
+    .deck-outcomes-heading {
+        margin-bottom: 14px;
+
+        font-size: 11px;
+        line-height: 17px;
+    }
+
+
+    .deck-outcomes {
+        gap: 11px;
+    }
+
+
+    .deck-outcomes li {
+        padding-left: 17px;
+
+        font-size: 13px;
+        line-height: 20px;
+    }
+
+
+    .deck-outcomes li::before {
+        width: 6px;
+        height: 6px;
+
+        top: 7px;
+    }
+
+
+    .deck-play-button,
+    .deck-locked-button {
+        height: 48px;
+
+        margin-top: 22px;
+
+        font-size: 14px;
+    }
+
+}
+
+
+/* ========================================
+   VERY SMALL PHONES
+======================================== */
+
+@media (max-width: 390px) {
+
+    .dashboard-profile-actions {
+        flex-direction: column;
+    }
+
+    .dashboard-coin-area,
+    .dashboard-account-area {
+        width: 100%;
+    }
+
+    .coin-vault {
+        width: 100%;
+    }
+
+    .dashboard-user-name {
+        font-size: 26px;
+    }
+}
+
+/* ========================================
+   GAMEPLAY SCREEN
+======================================== */
+.gameplay-top-bar {
+    width: 100%;
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EDF1F7;
+    position: relative;
+    z-index: 90;
+    padding: 16px 0;
+}
+
+.gameplay-top-inner {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.gameplay-level-info {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.gameplay-close-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid #E2E8F0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    color: #64748B;
+    transition: all 180ms ease;
+}
+
+.gameplay-close-btn:hover {
+    background-color: #F8FAFC;
+    color: #0F172A;
+}
+
+.gameplay-close-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.gameplay-level-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.level-label {
+    font-size: 10px;
+    font-weight: 800;
+    color: #94A3B8;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.level-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+.gameplay-progress-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 40px;
+}
+
+.gameplay-progress-track {
+    flex: 1;
+    height: 6px;
+    background-color: #E2E8F0;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.gameplay-progress-fill {
+    height: 100%;
+    background-color: #2563FF;
+    border-radius: 999px;
+}
+
+.gameplay-progress-text {
+    font-size: 12px;
+    font-weight: 700;
+    color: #64748B;
+}
+
+.gameplay-stats-actions {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.gameplay-stats {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+.stat-icon {
+    width: 18px;
+    height: 18px;
+    color: #94A3B8;
+}
+
+.stat-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.1;
+}
+
+.stat-value {
+    font-size: 12px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+.stat-label {
+    font-size: 10px;
+    font-weight: 600;
+    color: #64748B;
+}
+
+.gameplay-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 16px;
+    height: 36px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 180ms ease;
+    white-space: nowrap;
+}
+
+.btn-action svg {
+    width: 16px;
+    height: 16px;
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid #BFDBFE;
+    color: #2563FF;
+}
+
+.btn-outline:hover {
+    background: #EFF6FF;
+}
+
+.btn-yellow {
+    background: #FBBF24;
+    border: 1px solid #FBBF24;
+    color: #78350F;
+}
+
+.btn-yellow:hover {
+    background: #F59E0B;
+}
+
+.gameplay-main {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 40px 80px 80px;
+}
+
+.game-info-banner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #EFF6FF;
+    border: 1px solid #DBEAFE;
+    color: #1D4ED8;
+    padding: 16px 24px;
+    border-radius: 12px;
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+}
+
+/* Banner States */
+.banner-correct {
+    background-color: #ECFDF5;
+    border-color: #A7F3D0;
+    color: #047857;
+}
+
+.banner-correct .info-icon {
+    color: #10B981;
+}
+
+.banner-incorrect {
+    background-color: #FEF2F2;
+    border-color: #FECACA;
+    color: #B91C1C;
+}
+
+.banner-incorrect .info-icon {
+    color: #EF4444;
+}
+
+.banner-hint {
+    background-color: #FFFBEB;
+    border-color: #FDE68A;
+    color: #B45309;
+}
+
+.banner-hint .info-icon {
+    color: #F59E0B;
+}
+
+.game-section {
+    margin-bottom: 40px;
+}
+
+/* Give subsequent game sections breathing room */
+.game-section + .game-section {
+    margin-top: 40px;
+}
+
+.section-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #94A3B8;
+    letter-spacing: 1px;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+}
+
+.cards-hand {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0; /* Overlap handled by negative margins */
+    margin-top: 20px;
+    padding: 20px 0;
+    min-height: 220px;
+    overflow-x: auto;
+}
+
+.cards-hand .game-card {
+    flex-shrink: 0;
+    width: 140px; /* fixed width for hand */
+    margin-left: -40px; /* negative margin for overlap */
+    transition: transform 0.3s ease, margin 0.3s ease, z-index 0s;
+    position: relative;
+    z-index: 1;
+    box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+}
+
+.cards-hand .game-card:first-child {
+    margin-left: 0;
+}
+
+.cards-hand .game-card:hover, .cards-hand .card-selected {
+    transform: translateY(-20px);
+    z-index: 10;
+    margin-right: 20px; /* push next card over slightly */
+}
+
+/* Flying animation class */
+.card-flying {
+    position: fixed !important;
+    z-index: 9999 !important;
+    transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1) !important;
+    pointer-events: none;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.2) !important;
+    transform: scale(0.7) !important;
+    margin: 0 !important;
+}
+
+.game-card {
+    background: #FFFFFF;
+    border-radius: 16px;
+    padding: 16px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 160px;
+    cursor: pointer;
+    position: relative;
+    transition: transform 150ms ease, box-shadow 150ms ease;
+    border: 2px solid transparent;
+}
+
+.game-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.card-selected {
+    border-color: #2563FF !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 255, 0.1);
+}
+
+/* Card States */
+.card-correct {
+    border-color: #10B981 !important;
+    background-color: #ECFDF5;
+    box-shadow: 0 0 0 2px #10B981;
+}
+
+.card-incorrect {
+    border-color: #EF4444 !important;
+    background-color: #FEF2F2;
+    box-shadow: 0 0 0 2px #EF4444;
+    animation: shake 0.4s ease-in-out;
+}
+
+.card-hint {
+    border-color: #F59E0B !important;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4), 0 0 0 2px #F59E0B;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    20%,
+    60% {
+        transform: translateX(-4px);
+    }
+
+    40%,
+    80% {
+        transform: translateX(4px);
+    }
+}
+
+/* Stack State: Hint highlight */
+.foundation-stack.stack-hint {
+    border-color: #F59E0B;
+    background-color: #FFFBEB;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.4);
+}
+
+/* Stack State: Correct card accepted — brief green flash */
+.foundation-stack.stack-accepted {
+    border-color: #10B981;
+    background-color: #ECFDF5;
+    box-shadow: 0 0 18px rgba(16, 185, 129, 0.35);
+    transition: border-color 0.15s ease, background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.card-icon-top {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    width: 16px;
+    height: 16px;
+}
+
+.card-icon-center {
+    width: 48px;
+    height: 48px;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+.card-name {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0F172A;
+    text-align: center;
+    line-height: 1.2;
+}
+
+.card-category {
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-top: 4px;
+}
+
+/* Card variants */
+.card-pink {
+    background-color: #FFF1F2;
+    border-color: #FECDD3;
+}
+
+.text-pink {
+    color: #E11D48;
+}
+
+.icon-pink {
+    color: #E11D48;
+}
+
+.card-pink .card-icon-top {
+    color: #FDA4AF;
+}
+
+.card-blue {
+    background-color: #EFF6FF;
+    border-color: #BFDBFE;
+}
+
+.text-blue {
+    color: #2563FF;
+}
+
+.icon-blue {
+    color: #2563FF;
+}
+
+.card-blue .card-icon-top {
+    color: #93C5FD;
+}
+
+.card-green {
+    background-color: #ECFDF5;
+    border-color: #A7F3D0;
+}
+
+.text-green {
+    color: #059669;
+}
+
+.icon-green {
+    color: #059669;
+}
+
+.card-green .card-icon-top {
+    color: #6EE7B7;
+}
+
+/* For the selected Proton card which is subatomic (pink) but selected */
+.card-selected {
+    background-color: #EFF6FF;
+}
+
+.card-selected .icon-pink {
+    color: #E11D48;
+}
+
+.card-selected .card-icon-top {
+    color: #E11D48;
+}
+
+.stacks-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.foundation-stack {
+    background-color: #FFFFFF;
+    border: 2px solid #2563FF;
+    border-radius: 20px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.stack-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #2563FF;
+    text-align: center;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+}
+
+.stack-count {
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.count-total {
+    color: #94A3B8;
+}
+
+@media (max-width: 1200px) {
+
+    .gameplay-top-inner,
+    .gameplay-main {
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+
+    .cards-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 850px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stacks-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .gameplay-top-inner {
+        flex-wrap: wrap;
+        gap: 16px;
+    }
+
+    .gameplay-progress-container {
+        order: 3;
+        max-width: 100%;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gameplay-stats {
+        display: none;
+    }
+}
+
+/* ========================================
+   RESULTS SCREEN
+======================================== */
+.results-main {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 24px 100px;
+}
+
+.results-card {
+    background-color: #FFFFFF;
+    border-radius: 24px;
+    padding: 60px 80px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+/* Header / Trophy */
+.results-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.trophy-icon-wrapper {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+}
+
+.trophy-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D9B340, #5C8DFF);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(37, 99, 255, 0.2);
+}
+
+.trophy-svg {
+    width: 32px;
+    height: 32px;
+}
+
+.trophy-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #10B981;
+    border: 2px solid #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trophy-badge svg {
+    width: 14px;
+    height: 14px;
+}
+
+.results-title {
+    font-size: 40px;
+    font-weight: 900;
+    color: #0F172A;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+}
+
+.results-subtitle {
+    font-size: 16px;
+    color: #64748B;
+    margin-bottom: 24px;
+}
+
+/* Pills */
+.results-pills {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.result-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.result-pill svg {
+    width: 14px;
+    height: 14px;
+}
+
+.check-mark {
+    margin-left: 2px;
+}
+
+.pill-pink {
+    background-color: #FFF1F2;
+    color: #E11D48;
+}
+
+.pill-blue {
+    background-color: #EFF6FF;
+    color: #2563FF;
+}
+
+.pill-green {
+    background-color: #ECFDF5;
+    color: #059669;
+}
+
+/* Layout */
+.results-layout {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 40px;
+    padding-top: 48px;
+    border-top: 1px solid #EDF1F7;
+}
+
+/* Left Column */
+.coins-collected-card {
+    background-color: #FFFBEB;
+    /* very light amber */
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 24px;
+}
+
+.coins-title {
+    font-size: 11px;
+    font-weight: 800;
+    color: #B45309;
+    /* amber-700 */
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.coins-amount {
+    font-size: 48px;
+    font-weight: 900;
+    color: #1E293B;
+    line-height: 1;
+    margin-bottom: 24px;
+}
+
+.coins-breakdown {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.breakdown-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #64748B;
+    font-weight: 600;
+}
+
+.breakdown-value {
+    color: #D97706;
+    /* amber-600 */
+    font-weight: 800;
+}
+
+.coins-divider {
+    height: 1px;
+    background-color: #FDE68A;
+    margin-bottom: 24px;
+}
+
+.new-balance-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.new-balance-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.new-balance-value {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 24px;
+    font-weight: 900;
+    color: #0F172A;
+}
+
+.new-balance-value .coin-icon {
+    width: 20px;
+    height: 20px;
+    color: #D97706;
+}
+
+/* Stats Boxes */
+.stats-boxes {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.stat-box {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background-color: #F8FAFC;
+    border-radius: 12px;
+    padding: 16px 20px;
+}
+
+.stat-box-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2563FF;
+    flex-shrink: 0;
+}
+
+.stat-box-icon svg {
+    width: 20px;
+    height: 20px;
+}
+
+.stat-box-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-box-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #64748B;
+}
+
+.stat-box-value {
+    font-size: 16px;
+    font-weight: 800;
+    color: #0F172A;
+}
+
+/* Right Column */
+.actions-title {
+    font-size: 14px;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 24px;
+}
+
+.action-card {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border: 1px solid #EDF1F7;
+    border-radius: 16px;
+    margin-bottom: 16px;
+    text-decoration: none;
+    transition: all 180ms ease;
+    cursor: pointer;
+}
+
+.action-card:hover:not(.action-locked) {
+    border-color: #BFDBFE;
+    box-shadow: 0 4px 12px rgba(37, 99, 255, 0.05);
+}
+
+.action-primary {
+    background-color: #F0F5FF;
+    border-color: #D6E4FF;
+}
+
+.action-primary:hover {
+    background-color: #E0EDFF;
+}
+
+.action-locked {
+    background-color: #F8FAFC;
+    cursor: not-allowed;
+}
+
+.action-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+    flex-shrink: 0;
+}
+
+.action-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.bg-blue {
+    background-color: #2563FF;
+    color: #FFFFFF;
+}
+
+.bg-gray {
+    background-color: #F1F5F9;
+    color: #64748B;
+}
+
+.bg-gray-locked {
+    background-color: #E2E8F0;
+    color: #94A3B8;
+}
+
+.action-text {
+    flex: 1;
+}
+
+.action-heading {
+    font-size: 15px;
+    font-weight: 800;
+    color: #0F172A;
+    margin-bottom: 4px;
+}
+
+.action-primary .action-heading {
+    color: #1D4ED8;
+}
+
+.action-locked .action-heading,
+.action-locked .action-subheading {
+    color: #94A3B8;
+}
+
+.action-subheading {
+    font-size: 12px;
+    font-weight: 600;
+    color: #64748B;
+}
+
+.action-primary .action-subheading {
+    color: #3B82F6;
+}
+
+.action-arrow {
+    width: 24px;
+    height: 24px;
+    color: #94A3B8;
+    margin-left: 12px;
+}
+
+.action-primary .action-arrow {
+    color: #3B82F6;
+}
+
+.action-badge {
+    padding: 6px 10px;
+    background-color: #F1F5F9;
+    color: #64748B;
+    border-radius: 999px;
+    font-size: 10px;
+    font-weight: 700;
+    margin-left: 12px;
+}
+
+.level-complete-summary {
+    background-color: #ECFDF5;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.summary-title {
+    font-size: 12px;
+    font-weight: 800;
+    color: #059669;
+    margin-bottom: 16px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+}
+
+.summary-box {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.summary-val {
+    font-size: 20px;
+    font-weight: 900;
+    color: #0F172A;
+    margin-bottom: 4px;
+}
+
+.summary-lbl {
+    font-size: 10px;
+    font-weight: 700;
+    color: #94A3B8;
+    letter-spacing: 0.5px;
+}
+
+@media (max-width: 900px) {
+    .results-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .results-card {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .results-card {
+        padding: 30px 20px;
+    }
+
+    .results-title {
+        font-size: 32px;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+/* ========================================
+   DASHBOARD — STATS STRIP
+
+   Replaces the inline-styled Decks / Accuracy /
+   Coin Vault row in the profile card.
+======================================== */
+
+.dashboard-stats-strip {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+
+    background: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 14px;
+
+    padding: 14px 24px;
+}
+
+.dashboard-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+}
+
+.dashboard-stat-value {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+    line-height: 1;
+
+    color: #14213D;
+}
+
+.dashboard-stat-value--green {
+    color: #10B981;
+}
+
+.dashboard-stat-label {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+    font-weight: 800;
+    line-height: 1;
+
+    color: #64748B;
+
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.dashboard-stat-divider {
+    width: 1px;
+    height: 32px;
+
+    background-color: #EDF1F7;
+
+    flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+    .dashboard-stats-strip {
+        gap: 14px;
+        padding: 12px 16px;
+    }
+
+    .dashboard-stat-value {
+        font-size: 18px;
+    }
+}
+
+
+/* ========================================
+   DASHBOARD — SWITCH VIEW BUTTON
+
+   Small pill link: "Switch to Teacher View"
+======================================== */
+
+.dashboard-switch-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 6px;
+
+    padding: 8px 16px;
+
+    background-color: #EEF2FF;
+
+    border: 1px solid #C7D2FE;
+    border-radius: 999px;
+
+    color: #4338CA;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    text-decoration: none;
+
+    transition:
+        background-color 180ms ease,
+        transform 180ms ease;
+}
+
+.dashboard-switch-btn:hover {
+    background-color: #E0E7FF;
+    transform: translateY(-1px);
+}
+
+
+/* ========================================
+   DASHBOARD — SECTION CARD
+
+   Reusable white card used for Recent Activity,
+   Overall Progress, and the CTA banner.
+======================================== */
+
+.dashboard-section {
+    margin-top: 32px;
+    max-width: 1280px;
+    margin-left: auto;
+    margin-right: auto;
+
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 24px;
+}
+
+.dashboard-card {
+    background-color: #FFFFFF;
+
+    border: 1px solid #DDE5F1;
+    border-radius: 20px;
+
+    padding: 28px;
+
+    box-shadow: 0 2px 12px rgba(14, 30, 62, 0.04);
+}
+
+.dashboard-card-title {
+    margin: 0 0 20px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
+    font-weight: 900;
+    line-height: 24px;
+
+    color: #14213D;
+}
+
+/* Recent activity row */
+
+.activity-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 16px;
+
+    background-color: #F8FAFD;
+
+    border: 1px solid #EDF1F7;
+    border-radius: 14px;
+}
+
+.activity-row-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.activity-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background-color: #EEF2FF;
+    border-radius: 14px;
+
+    color: #4338CA;
+}
+
+.activity-icon svg {
+    width: 22px;
+    height: 22px;
+}
+
+.activity-title {
+    margin: 0 0 4px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+    color: #14213D;
+}
+
+.activity-meta {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    color: #5F6F88;
+}
+
+.activity-row-right {
+    text-align: right;
+}
+
+.activity-score {
+    margin: 0 0 4px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 900;
+    color: #10B981;
+}
+
+.activity-link {
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #2563FF;
+    text-decoration: none;
+}
+
+.activity-link:hover {
+    text-decoration: underline;
+}
+
+/* CTA Banner */
+
+.dashboard-cta-banner {
+    background: linear-gradient(135deg, #2563FF 0%, #4F46E5 100%);
+
+    border-radius: 20px;
+
+    padding: 32px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    margin-top: 24px;
+
+    box-shadow: 0 12px 28px rgba(37, 99, 255, 0.22);
+}
+
+.dashboard-cta-text {
+    color: #FFFFFF;
+}
+
+.dashboard-cta-heading {
+    margin: 0 0 8px;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 22px;
+    font-weight: 900;
+}
+
+.dashboard-cta-desc {
+    margin: 0;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+
+    opacity: 0.88;
+
+    max-width: 380px;
+}
+
+.dashboard-cta-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    height: 48px;
+
+    padding: 0 28px;
+
+    background-color: #FFFFFF;
+
+    border: none;
+    border-radius: 999px;
+
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 15px;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    cursor: pointer;
+
+    transition: transform 180ms ease;
+}
+
+.dashboard-cta-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* Progress bars */
+
+.progress-item {
+    margin-bottom: 20px;
+}
+
+.progress-item:last-child {
+    margin-bottom: 0;
+}
+
+.progress-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 8px;
+}
+
+.progress-label {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #475569;
+}
+
+.progress-pct {
+    font-family: "Nunito", sans-serif;
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.progress-track {
+    width: 100%;
+    height: 8px;
+
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 600ms ease;
+}
+
+/* Subject colour tokens */
+.progress-fill--chemistry { background-color: #2563FF; }
+.progress-fill--biology   { background-color: #10B981; }
+.progress-fill--physics   { background-color: #F59E0B; }
+
+.progress-track--chemistry { background-color: #EEF2FF; }
+.progress-track--biology   { background-color: #D1FAE5; }
+.progress-track--physics   { background-color: #FEF3C7; }
+
+.progress-pct--chemistry { color: #2563FF; }
+.progress-pct--biology   { color: #10B981; }
+.progress-pct--physics   { color: #F59E0B; }
+
+@media (max-width: 768px) {
+    .dashboard-section {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-cta-banner {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .dashboard-cta-btn {
+        width: 100%;
+    }
+}
+
+
+/* ========================================
+   GAMEPLAY — PROGRESS BAR TRANSITION
+======================================== */
+
+.gameplay-progress-fill {
+    transition: width 400ms ease;
+}
+
+
+
+
+
+/* =====================================================
+   SCISOLITAIRE ABOUT PAGE
+===================================================== */
+
+.about-page {
+    font-family: "Nunito", sans-serif;
+    background: #ffffff;
+}
+
+.about-switcher-section {
+    padding: 40px 16px 80px;
+    background: #ffffff;
+}
+
+.about-switcher-container {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.about-main-intro {
+    max-width: 780px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-main-badge {
+    width: max-content;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 7px 14px;
+    margin-bottom: 20px;
+
+    border: 1px solid #C7DBFF;
+    border-radius: 999px;
+
+    background: #EFF5FF;
+
+    color: #1D4ED8;
+
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.about-main-badge-dot {
+    width: 7px;
+    height: 7px;
+
+    border-radius: 50%;
+
+    background: #2563FF;
+}
+
+.about-main-intro h1 {
+    margin: 0;
+
+    color: #14213D;
+
+    font-size: clamp(44px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.03;
+    letter-spacing: -1.8px;
+}
+
+.about-main-intro h1 span {
+    display: block;
+    color: #2563FF;
+}
+
+.about-main-intro > p {
+    max-width: 680px;
+
+    margin: 23px auto 0;
+
+    color: #5F6F88;
+
+    font-size: 17px;
+    line-height: 29px;
+}
+
+
+/* =====================================================
+   TAB PILLS
+===================================================== */
+
+.about-tabs {
+    width: max-content;
+
+    display: flex;
+
+    margin: 36px auto 44px;
+
+    padding: 5px;
+
+    border: 1px solid #EDF1F7;
+    border-radius: 999px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 5px 18px rgba(20, 33, 61, 0.07);
+}
+
+.about-tab {
+    min-width: 175px;
+
+    padding: 11px 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 8px;
+
+    border: 0;
+    border-radius: 999px;
+
+    background: transparent;
+
+    color: #5F6F88;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.about-tab:hover {
+    color: #14213D;
+}
+
+.about-tab.active {
+    background: #14213D;
+    color: #ffffff;
+
+    box-shadow:
+        0 5px 15px rgba(20, 33, 61, 0.18);
+}
+
+.about-tab-icon {
+    font-size: 13px;
+}
+
+
+/* =====================================================
+   TAB CONTENT
+===================================================== */
+
+.about-tab-panel {
+    animation: aboutTabFade 0.35s ease;
+}
+
+.about-tab-panel[hidden] {
+    display: none !important;
+}
+
+@keyframes aboutTabFade {
+
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   MAIN FEATURE CARD
+===================================================== */
+
+.about-feature-card {
+    overflow: hidden;
+
+    border: 1px solid #E4EAF2;
+    border-radius: 28px;
+
+    background: #ffffff;
+
+    box-shadow:
+        0 18px 55px rgba(20, 33, 61, 0.07);
+}
+
+
+/* HEADER */
+
+.about-feature-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 25px;
+
+    padding: 38px 42px 24px;
+}
+
+.about-feature-heading {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+}
+
+.about-feature-icon {
+    width: 54px;
+    height: 54px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #C7DBFF;
+    border-radius: 16px;
+
+    background: #EFF5FF;
+
+    color: #2563FF;
+
+    font-size: 11px;
+    font-weight: 900;
+}
+
+.website-icon {
+    background: #EEFCF7;
+    border-color: #CBEFE0;
+    color: #25875F;
+
+    font-size: 18px;
+}
+
+.about-eyebrow {
+    display: block;
+
+    margin-bottom: 4px;
+
+    color: #8090A8;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.about-feature-heading h2 {
+    margin: 0;
+
+    color: #14213D;
+
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.about-status-pill {
+    flex-shrink: 0;
+
+    padding: 8px 14px;
+
+    border: 1px solid #C7DBFF;
+    border-radius: 999px;
+
+    background: #EFF5FF;
+
+    color: #1D4ED8;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.safe-pill {
+    border-color: #CBEFE0;
+    background: #EEFCF7;
+    color: #25875F;
+}
+
+
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.about-feature-description {
+    padding: 0 42px 34px;
+}
+
+.about-feature-description p {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-size: 16px;
+    line-height: 29px;
+}
+
+.about-feature-description p + p {
+    margin-top: 10px;
+}
+
+.about-feature-divider {
+    height: 1px;
+    background: #EDF1F7;
+}
+
+.about-subheading {
+    padding: 30px 42px 20px;
+
+    color: #8090A8;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+
+/* =====================================================
+   GAME MECHANICS
+===================================================== */
+.about-subheading {
+    padding: 30px 42px 20px;
+    color: #8B95A7;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    text-transform: uppercase;
+}
+
+.game-mechanics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+    padding: 0 42px 40px;
+}
+
+.game-mechanic-card {
+    background: #F7F9FC;
+    border: 1px solid #EEF2F7;
+    border-radius: 24px;
+    padding: 34px 34px 30px;
+    min-height: 265px;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.game-mechanic-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(20, 33, 61, 0.08);
+}
+
+.mechanic-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.mechanic-icon-box {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    border: 1.5px solid;
+}
+
+.mechanic-icon-box svg {
+    width: 24px;
+    height: 24px;
+}
+
+.mechanic-title {
+    margin: 0;
+    font-size: 19px;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.2px;
+}
+
+.mechanic-description {
+    margin: 0;
+    color: #6B7280;
+    font-size: 17px;
+    line-height: 1.75;
+    font-weight: 500;
+}
+
+/* Blue */
+.blue-icon {
+    background: #F2F7FF;
+    border-color: #D8E5FF;
+    color: #84A9FF;
+}
+
+.blue-text {
+    color: #4B7CF3;
+}
+
+/* Gold */
+.gold-icon {
+    background: #FFF8E8;
+    border-color: #F6E2A6;
+    color: #D8A317;
+}
+
+.gold-text {
+    color: #C89512;
+}
+
+/* Green */
+.green-icon {
+    background: #EEFCEF;
+    border-color: #D5F5D7;
+    color: #37B36B;
+}
+
+.green-text {
+    color: #29A35A;
+}
+
+/* Purple */
+.purple-icon {
+    background: #F4F1FF;
+    border-color: #E4DBFF;
+    color: #9A7EF2;
+}
+
+.purple-text {
+    color: #8B73E8;
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .about-subheading {
+        padding: 24px 28px 16px;
+    }
+
+    .game-mechanics-grid {
+        padding: 0 28px 32px;
+        gap: 16px;
+    }
+
+    .game-mechanic-card {
+        padding: 26px 24px;
+        min-height: 220px;
+    }
+
+    .mechanic-title {
+        font-size: 18px;
+    }
+
+    .mechanic-description {
+        font-size: 15px;
+        line-height: 1.7;
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .game-mechanics-grid {
+        grid-template-columns: 1fr;
+        padding: 0 20px 28px;
+        gap: 14px;
+    }
+
+    .game-mechanic-card {
+        min-height: auto;
+        padding: 22px 20px;
+        border-radius: 20px;
+    }
+
+    .mechanic-top {
+        gap: 14px;
+        margin-bottom: 18px;
+    }
+
+    .mechanic-icon-box {
+        width: 50px;
+        height: 50px;
+        border-radius: 14px;
+    }
+
+    .mechanic-icon-box svg {
+        width: 22px;
+        height: 22px;
+    }
+
+    .mechanic-title {
+        font-size: 18px;
+    }
+
+    .mechanic-description {
+        font-size: 15px;
+        line-height: 1.65;
+    }
+}
+
+
+.commitment-icon.pink {
+    color: #D7547A;
+    background: #FFF0F5;
+    border: 1px solid #F8D3DF;
+}
+
+.game-mechanic-card h3 {
+    margin: 0 0 8px;
+
+    color: #14213D;
+
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.game-mechanic-card p {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+/* =====================================================
+   PLATFORM COMMITMENTS
+===================================================== */
+
+.platform-commitments {
+    display: grid;
+    gap: 14px;
+
+    padding: 0 42px 40px;
+}
+
+.platform-commitment-card {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    padding: 22px;
+
+    border: 1px solid #EDF1F7;
+    border-radius: 18px;
+
+    background: #F8FAFD;
+}
+
+.platform-commitment-card .commitment-icon {
+    flex-shrink: 0;
+    margin: 0;
+}
+
+.platform-commitment-card h3 {
+    margin: 0 0 5px;
+
+    color: #14213D;
+
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.platform-commitment-card p {
+    margin: 0;
+
+    color: #5F6F88;
+
+    font-size: 14px;
+    line-height: 24px;
+}
+
+
+/* =====================================================
+   CARD FOOTER
+===================================================== */
+
+.about-card-footer {
+    min-height: 90px;
+
+    padding: 20px 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    border-top: 1px solid #EDF1F7;
+}
+
+.about-card-footer p {
+    margin: 0;
+
+    color: #7A899F;
+
+    font-size: 14px;
+}
+
+.about-primary-btn,
+.about-secondary-btn {
+    min-width: 205px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 13px 22px;
+
+    border-radius: 999px;
+
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 800;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.about-primary-btn {
+    background: #14213D;
+    color: #ffffff;
+}
+
+.about-secondary-btn {
+    border: 1px solid #14213D;
+    background: #14213D;
+    color: #ffffff;
+}
+
+.about-primary-btn:hover,
+.about-secondary-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(20, 33, 61, 0.12);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 768px) {
+
+    .about-switcher-section {
+        padding: 40px 18px 65px;
+    }
+
+    .about-feature-header {
+        padding: 30px 28px 22px;
+    }
+
+    .about-feature-description {
+        padding: 0 28px 28px;
+    }
+
+    .about-subheading {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .game-mechanics-grid,
+    .platform-commitments {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+
+    .about-card-footer {
+        padding-left: 28px;
+        padding-right: 28px;
+    }
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 600px) {
+
+    .about-switcher-section {
+        padding: 32px 16px 50px;
+    }
+
+    .about-main-intro h1 {
+        font-size: 39px;
+        line-height: 1.07;
+
+        letter-spacing: -1px;
+    }
+
+    .about-main-intro > p {
+        margin-top: 18px;
+
+        font-size: 15px;
+        line-height: 25px;
+    }
+
+
+    /* TABS */
+
+    .about-tabs {
+        width: 100%;
+
+        margin: 28px auto 32px;
+    }
+
+    .about-tab {
+        min-width: 0;
+        width: 50%;
+
+        padding: 11px 8px;
+
+        font-size: 12px;
+    }
+
+
+    /* FEATURE CARD */
+
+    .about-feature-card {
+        border-radius: 21px;
+    }
+
+    .about-feature-header {
+        padding: 24px 20px 18px;
+
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .about-feature-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .about-feature-heading {
+        align-items: flex-start;
+    }
+
+    .about-feature-heading h2 {
+        font-size: 24px;
+    }
+
+    .about-status-pill {
+        margin-left: 64px;
+    }
+
+    .about-feature-description {
+        padding: 0 20px 24px;
+    }
+
+    .about-feature-description p {
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+    .about-subheading {
+        padding: 24px 20px 17px;
+    }
+
+
+    /* GAME CARDS */
+
+    .game-mechanics-grid {
+        grid-template-columns: 1fr;
+
+        gap: 12px;
+
+        padding: 0 20px 28px;
+    }
+
+    .game-mechanic-card {
+        min-height: 0;
+
+        padding: 19px;
+    }
+
+
+    /* WEBSITE CARDS */
+
+    .platform-commitments {
+        padding: 0 20px 28px;
+    }
+
+    .platform-commitment-card {
+        padding: 18px;
+
+        gap: 14px;
+    }
+
+
+    /* FOOTER */
+
+    .about-card-footer {
+        padding: 20px;
+
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-card-footer p {
+        text-align: center;
+    }
+
+    .about-primary-btn,
+    .about-secondary-btn {
+        width: 100%;
+    }
+}
+
+
+
+
+/* =====================================================
+   MEET THE TEAM
+===================================================== */
+
+.about-team-section {
+    position: relative;
+    overflow: hidden;
+
+    padding: 50px 10px;
+
+    font-family: "Nunito", sans-serif;
+
+    background:
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(37, 99, 255, 0.35),
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #1D4ED8 0%,
+            #14213D 100%
+        );
+}
+
+.about-team-container {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 0 auto;
+}
+
+
+/* Heading */
+
+.about-team-heading {
+    max-width: 650px;
+
+    margin: 0 auto 52px;
+
+    text-align: center;
+}
+
+.about-team-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 7px 14px;
+
+    margin-bottom: 18px;
+
+    border: 1px solid rgba(199, 219, 255, 0.28);
+    border-radius: 999px;
+
+    background: rgba(239, 245, 255, 0.10);
+
+    color: #C7DBFF;
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.8px;
+}
+
+.about-team-heading h2 {
+    margin: 0;
+
+    color: #FFFFFF;
+
+    font-size: clamp(38px, 4vw, 52px);
+    font-weight: 900;
+    line-height: 1.08;
+}
+
+.about-team-heading p {
+    max-width: 560px;
+
+    margin: 16px auto 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 15px;
+    line-height: 25px;
+}
+
+
+/* Cards */
+
+.about-team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+
+    gap: 20px;
+}
+
+.about-team-card {
+    overflow: hidden;
+
+    border-radius: 16px;
+
+    background: #FFFFFF;
+
+    box-shadow:
+        0 16px 35px rgba(6, 21, 56, 0.18);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.about-team-card:hover {
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 22px 45px rgba(6, 21, 56, 0.28);
+}
+
+
+/* Photo */
+
+.about-team-photo {
+    width: 100%;
+    height: 190px;
+
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            #2563FF,
+            #1D4ED8
+        );
+}
+
+.about-team-photo img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: top center;
+}
+
+
+/* Info */
+
+.about-team-info {
+    padding: 15px 14px 16px;
+}
+
+.about-team-info h3 {
+    margin: 0;
+
+    color: #14213D;
+
+    font-size: 13px;
+    font-weight: 900;
+    line-height: 18px;
+}
+
+.about-team-info > p {
+    margin: 3px 0 12px;
+
+    color: #5F6F88;
+
+    font-size: 10px;
+    font-weight: 600;
+}
+
+
+/* Connect buttons */
+.about-team-links {
+    display: flex;
+    gap: 6px;
+}
+
+.about-team-links a {
+    flex: 1;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    padding: 6px 7px;
+
+    border: 1px solid #C7DBFF;
+    border-radius: 6px;
+
+    background: #EFF5FF;
+
+    color: #1D4ED8;
+
+    text-decoration: none;
+
+    font-size: 9px;
+    font-weight: 800;
+}
+
+
+.social-icon {
+    font-size: 10px;
+    font-weight: 900;
+    line-height: 1;
+}
+
+.about-team-links a:hover {
+    background: #2563FF;
+    color: #FFFFFF;
+}
+
+
+/* Join Team */
+
+.about-team-cta {
+    display: flex;
+    justify-content: center;
+
+    margin-top: 40px;
+}
+
+.about-team-join {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 9px;
+
+    padding: 13px 25px;
+
+    border-radius: 999px;
+
+    background: #FBBF24;
+
+    color: #14213D;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 900;
+
+    box-shadow:
+        0 10px 25px rgba(251, 191, 36, 0.25);
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.about-team-join:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 30px rgba(251, 191, 36, 0.35);
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media screen and (max-width: 1000px) {
+
+    .about-team-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media screen and (max-width: 600px) {
+
+    .about-team-section {
+        padding: 55px 16px;
+    }
+
+    .about-team-heading {
+        margin-bottom: 34px;
+    }
+
+    .about-team-heading h2 {
+        font-size: 36px;
+    }
+
+    .about-team-heading p {
+        font-size: 14px;
+        line-height: 23px;
+    }
+
+    .about-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 12px;
+    }
+
+    .about-team-photo {
+        height: 165px;
+    }
+
+    .about-team-info {
+        padding: 13px 11px 14px;
+    }
+
+    .about-team-info h3 {
+        font-size: 12px;
+        line-height: 16px;
+    }
+
+    .about-team-info > p {
+        font-size: 9px;
+        min-height: 24px;
+    }
+
+    .about-team-links {
+        flex-direction: column;
+    }
+
+    .about-team-links a {
+        width: 100%;
+    }
+
+    .about-team-cta {
+        margin-top: 30px;
+    }
+}
+
+
+/* Very small phone */
+
+@media screen and (max-width: 380px) {
+
+    .about-team-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-team-photo {
+        height: 260px;
+    }
+}
+
+
+
+

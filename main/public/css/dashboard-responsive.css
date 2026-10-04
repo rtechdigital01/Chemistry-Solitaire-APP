@@ -1,0 +1,212 @@
+/* =========================================================
+   DASHBOARD — PHONE USING "DESKTOP SITE"
+   Normal PC layout stays untouched
+========================================================= */
+
+@media (hover: none) and (pointer: coarse) and (min-width: 700px) {
+
+    html,
+    body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    .dashboard-page {
+        width: 100% !important;
+        max-width: 820px !important;
+        margin: 0 auto !important;
+        padding: 28px 30px !important;
+    }
+
+
+    /* PROFILE AREA */
+
+    .dashboard-profile-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 24px !important;
+
+        padding: 28px !important;
+    }
+
+    .dashboard-user {
+        width: 100% !important;
+    }
+
+    .dashboard-avatar {
+        width: 82px !important;
+        height: 82px !important;
+    }
+
+    .dashboard-greeting {
+        font-size: 18px !important;
+    }
+
+    .dashboard-user-name {
+        font-size: 30px !important;
+        line-height: 1.15 !important;
+    }
+
+    .dashboard-user-course {
+        font-size: 17px !important;
+    }
+
+
+    /* PROFILE STATS + ACTIONS */
+
+    .dashboard-profile-actions {
+        width: 100% !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        gap: 18px !important;
+    }
+
+    .dashboard-profile-actions > div:first-child {
+        width: 100% !important;
+
+        justify-content: space-around !important;
+
+        padding: 18px 20px !important;
+    }
+
+    .dashboard-profile-actions > div:first-child p:first-child {
+        font-size: 30px !important;
+    }
+
+    .dashboard-profile-actions > div:first-child p:last-child {
+        font-size: 14px !important;
+    }
+
+    .dashboard-account-area {
+        width: 100% !important;
+
+        display: flex !important;
+        justify-content: flex-end !important;
+
+        gap: 14px !important;
+    }
+
+    .dashboard-edit-button,
+    .dashboard-logout-button {
+        min-height: 48px !important;
+
+        padding: 10px 18px !important;
+
+        font-size: 16px !important;
+    }
+
+
+    /* MAIN CONTENT */
+
+    .dashboard-main-grid {
+        grid-template-columns: 1fr !important;
+
+        gap: 20px !important;
+
+        margin-top: 22px !important;
+    }
+
+    .dashboard-main-grid > div {
+        min-width: 0 !important;
+    }
+
+    .dashboard-main-grid h3 {
+        font-size: 23px !important;
+    }
+
+    .dashboard-main-grid h4 {
+        font-size: 19px !important;
+    }
+
+    .dashboard-main-grid p,
+    .dashboard-main-grid span,
+    .dashboard-main-grid a {
+        font-size: 16px !important;
+    }
+
+
+    /* CTA */
+
+    .dashboard-cta {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+
+        gap: 20px !important;
+
+        padding: 26px !important;
+    }
+
+    .dashboard-cta h2 {
+        font-size: 28px !important;
+    }
+
+    .dashboard-cta p {
+        font-size: 17px !important;
+        line-height: 1.55 !important;
+    }
+
+    .dashboard-cta a {
+        width: 100% !important;
+
+        text-align: center !important;
+
+        padding: 15px 20px !important;
+
+        font-size: 17px !important;
+    }
+
+
+    /* FOOTER */
+
+    #footer {
+        width: 100% !important;
+        max-width: 820px !important;
+
+        margin: 28px auto 0 !important;
+    }
+}
+
+
+/* ========================================
+   MOBILE FOOTER POSITION FIX
+======================================== */
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.dashboard-page {
+    flex: 1 0 auto !important;
+}
+
+#footer {
+    flex-shrink: 0 !important;
+    margin-top: auto !important;
+}
+
+@media (max-width: 700px) {
+
+    body {
+        min-height: 100dvh !important;
+    }
+
+    #footer {
+        margin-top: 0 !important;
+    }
+}

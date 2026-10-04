@@ -7,6 +7,7 @@ use App\Modules\Gameplay\Services\GameplayService;
 use App\Traits\ApiResponse;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class GameplayController extends Controller
 {
@@ -20,10 +21,8 @@ class GameplayController extends Controller
     }
 
     /**
-     * The current user's furthest completed level per difficulty for
-     * a deck — what a level-select screen needs to decide what's
-     * unlocked. A level is "completed" once any attempt at it is
-     * marked completed.
+     * The current user's furthest completed level per difficulty
+     * for a deck.
      */
     public function progress(Request $request): JsonResponse
     {
@@ -38,9 +37,14 @@ class GameplayController extends Controller
             ->get(['difficulty', 'level']);
 
         $highest = [];
+
         foreach ($rows as $row) {
             $difficulty = ucfirst(strtolower((string) $row->difficulty));
-            $highest[$difficulty] = max($highest[$difficulty] ?? 0, (int) $row->level);
+
+            $highest[$difficulty] = max(
+                $highest[$difficulty] ?? 0,
+                (int) $row->level
+            );
         }
 
         return $this->successResponse(
@@ -53,6 +57,10 @@ class GameplayController extends Controller
         );
     }
 
+
+    /**
+     * Save gameplay attempt.
+     */
     public function saveAttempt(Request $request): JsonResponse
     {
         $data = $request->validate([
@@ -79,6 +87,44 @@ class GameplayController extends Controller
         return $this->successResponse(
             $attempt,
             'Gameplay attempt saved successfully',
+            201
+        );
+    }
+
+
+    /**
+     * Save feedback after completing a level.
+     */
+    public function saveFeedback(Request $request): JsonResponse
+    {
+        $data = $request->validate([
+            'subject' => 'required|string|max:50',
+            'deck' => 'required|string|max:191',
+            'key_stage' => 'required|string|max:20',
+            'difficulty' => 'required|string|max:20',
+            'level' => 'required|integer|min:1',
+            'rating' => 'required|integer|min:1|max:5',
+            'feedback' => 'required|string|max:500',
+        ]);
+
+        $reviewId = DB::table('reviews')->insertGetId([
+            'user_id' => $request->user()->id,
+            'subject' => strtolower($data['subject']),
+            'deck' => $data['deck'],
+            'key_stage' => strtoupper($data['key_stage']),
+            'difficulty' => strtolower($data['difficulty']),
+            'level' => $data['level'],
+            'rating' => $data['rating'],
+            'feedback' => $data['feedback'],
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+
+        return $this->successResponse(
+            [
+                'review_id' => $reviewId,
+            ],
+            'Feedback submitted successfully',
             201
         );
     }

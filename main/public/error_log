@@ -115,3 +115,15 @@ Stack trace:
 #2 /home/jwahleie/scisolitaire.com/main/public/index.php(14): require('/home/jwahleie/...')
 #3 {main}
   thrown in /home/jwahleie/scisolitaire.com/main/vendor/composer/platform_check.php on line 22
+[03-Oct-2026 22:56:22 UTC] PHP Fatal error:  Uncaught ErrorException: Cannot modify header information - headers already sent by (output started at /home/jwahleie/scisolitaire.com/main/vendor/symfony/http-foundation/Response.php:393) in /home/jwahleie/scisolitaire.com/main/vendor/symfony/http-foundation/Response.php:328
+Stack trace:
+#0 /home/jwahleie/scisolitaire.com/main/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\Foundation\Bootstrap\HandleExceptions->handleError(2, 'Cannot modify h...', '/home/jwahleie/...', 328)
+#1 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->{closure:Illuminate\Foundation\Bootstrap\HandleExceptions::forwardsTo():262}(2, 'Cannot modify h...', '/home/jwahleie/...', 328)
+#2 /home/jwahleie/scisolitaire.com/main/vendor/symfony/http-foundation/Response.php(328): header('HTTP/1.0 500 In...', true, 500)
+#3 /home/jwahleie/scisolitaire.com/main/vendor/symfony/http-foundation/Response.php(407): Symfony\Component\HttpFoundation\Response->sendHeaders()
+#4 /home/jwahleie/scisolitaire.com/main/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(226): Symfony\Component\HttpFoundation\Response->send()
+#5 /home/jwahleie/scisolitaire.com/main/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(203): Illuminate\Foundation\Bootstrap\HandleExceptions->renderHttpResponse(Object(ParseError))
+#6 /home/jwahleie/scisolitaire.com/main/vendor/laravel/framework/src/Illuminate/Foundation/Bootstrap/HandleExceptions.php(263): Illuminate\Foundation\Bootstrap\HandleExceptions->handleException(Object(ParseError))
+#7 [internal function]: Illuminate\Foundation\Bootstrap\HandleExceptions->{closure:Illuminate\Foundation\Bootstrap\HandleExceptions::forwardsTo():262}(Object(ParseError))
+#8 {main}
+  thrown in /home/jwahleie/scisolitaire.com/main/vendor/symfony/http-foundation/Response.php on line 328

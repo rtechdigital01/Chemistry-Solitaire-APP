@@ -1,0 +1,1164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Science Solitaire</title>
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Tailwind compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <script src="js/config.js"></script>
+</head>
+
+<body>
+
+    <!-- ========================================
+     HEADER
+========================================= -->
+    <!-- ========================================
+         REUSABLE HEADER
+    ========================================= -->
+
+    <div id="header"></div>
+    
+    
+
+    <main class="hero-section">
+
+        <!-- LEFT SIDE -->
+        <section class="hero-content">
+
+            <!-- Revision Badge -->
+    <div
+    class="revision-badge reveal"
+    data-delay="0"
+    style="
+        display: inline-flex;
+        width: max-content;
+        max-width: 100%;
+        height: auto;
+        min-height: 32px;
+        padding: 6px 16px;
+        align-items: center;
+        gap: 8px;
+        white-space: nowrap;   ">
+
+                <svg
+                    class="revision-badge-icon"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                    aria-hidden="true"
+                >
+                    <path
+                        d="M12 3L13.5 8.5L19 10L13.5 11.5L12 17L10.5 11.5L5 10L10.5 8.5L12 3Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M19 3L19.7 5.3L22 6L19.7 6.7L19 9L18.3 6.7L16 6L18.3 5.3L19 3Z"
+                        fill="currentColor"
+                    />
+                </svg>
+
+                <span>Interactive Science Learning Through Play</span>
+
+            </div>
+
+
+            <!-- Main Heading -->
+            <h1 class="hero-heading reveal" data-delay="120">
+
+                <span class="heading-dark">
+                   Learn Science
+                </span>
+
+                <span class="heading-dark">
+                    By Making
+                </span>
+
+                <span class="heading-blue">
+                    Connections
+                </span>
+
+            </h1>
+
+
+            <!-- Description -->
+            <p class="hero-description reveal" data-delay="240">
+                The interactive card-matching game built for Secondary School
+            Science
+                Learning. Build confidence across biology, chemistry, and physics by matching concepts, recognizing patterns and making connections through active learning, not passive reading.
+            </p>
+
+            <!-- ========================================
+     HERO BUTTONS
+========================================= -->
+
+<div class="hero-buttons reveal" data-delay="360">
+
+    <!-- Play Free Demo -->
+    <a href="#free" class="demo-button">
+
+        <svg
+            class="play-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+        >
+            <path
+                d="M8 5L19 12L8 19V5Z"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>Play Free Demo</span>
+
+    </a>
+
+
+    <!-- How It Works -->
+    <a href="#how-it-works" class="how-button">
+        How It Works
+    </a>
+
+</div>
+
+<!-- ========================================
+     HERO FEATURE PILLS
+========================================= -->
+<div
+    id="heroFeaturePills"
+    class="hero-pills reveal"
+    data-delay="480"
+    style="
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: max-content;
+        align-items: center;
+        gap: 12px;
+        width: max-content;
+        max-width: none;
+    "
+>
+
+    <!-- Curriculum-Aligned Science Learning  -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M3 9L12 5L21 9L12 13L3 9Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+
+            <path
+                d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+
+        <span>Curriculum-Aligned Science Learning </span>
+
+    </div>
+
+
+    <!-- Designed for Different Learning Need -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M20.8 4.6C18.7 2.5 15.3 2.5 13.2 4.6L12 5.8L10.8 4.6C8.7 2.5 5.3 2.5 3.2 4.6C1.1 6.7 1.1 10.1 3.2 12.2L12 21L20.8 12.2C22.9 10.1 22.9 6.7 20.8 4.6Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>Designed for Different Learning Needs</span>
+
+    </div>
+
+
+    <!--Choose Your Curriculum and Learning Stage -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M12 3L19 6V11C19 15.8 16.1 19.1 12 21C7.9 19.1 5 15.8 5 11V6L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+        <span>Choose Your Curriculum and Learning Stage</span>
+
+    </div>
+    
+    <!-- Ad-free Learning -->
+    <div class="feature-pill">
+
+        <svg
+            class="feature-pill-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M12 3L19 6V11C19 15.8 16.1 19.1 12 21C7.9 19.1 5 15.8 5 11V6L12 3Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+        <span>Ad-free Learning</span>
+    </div>
+    
+ <style>
+@media screen and (max-width: 768px) {
+
+    #heroFeaturePills {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+
+        width: 100% !important;
+        max-width: 100% !important;
+
+        gap: 12px !important;
+    }
+
+    #heroFeaturePills .feature-pill {
+        width: auto !important;
+        flex: none !important;
+    }
+}
+</style>
+
+</div>
+
+        </section>
+
+
+        <!-- RIGHT SIDE -->
+        <section class="hero-image-wrapper reveal scale-reveal" data-delay="180">
+
+            <img
+                src="./images/hero-chemistry.png"
+                alt="Interactive science revision cards and laboratory characters"
+                class="hero-image"
+            >
+
+        </section>
+
+    </main>
+
+
+<section class="why-section">
+
+    <div class="why-content reveal" data-delay="0">
+
+        <h2 class="why-heading">
+            Why Learn Through Card-Matching?
+        </h2>
+
+        <p class="why-description">
+            SciSolitaire turns retrieval practice into short matching challenges. Learners actively recall information, recognize relationships between concepts and receive feedback as they play.
+        </p>
+    </div>
+
+    <!-- ========================================
+     WHY CARDS
+========================================= -->
+
+<div class="why-cards">
+
+    <!-- Active Recall Card -->
+    <article class="why-card reveal" data-delay="120">
+
+        <!-- Icon -->
+        <div class="why-card-icon why-card-icon-blue">
+
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+            >
+                <path
+                    d="M4 5.5C4 4.67 4.67 4 5.5 4H10C11.1 4 12 4.9 12 6V20C12 18.9 11.1 18 10 18H4V5.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+
+                <path
+                    d="M20 5.5C20 4.67 19.33 4 18.5 4H14C12.9 4 12 4.9 12 6V20C12 18.9 12.9 18 14 18H20V5.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+            </svg>
+
+        </div>
+
+
+        <!-- Title -->
+        <h3 class="why-card-title">
+            Active Recall
+        </h3>
+
+
+        <!-- Description -->
+        <p class="why-card-description">
+            Matching prompts learner to retrieve information and recongnize relationships rather than simply re-read notes.
+        </p>
+
+    </article>
+
+    <!-- Topic by Topic Card -->
+<article class="why-card reveal" data-delay="220">
+
+    <div class="why-card-icon why-card-icon-purple">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M3 9L12 5L21 9L12 13L3 9Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+            <path
+                d="M7 11V15C7 16.5 9.2 18 12 18C14.8 18 17 16.5 17 15V11"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Topic by Topic
+    </h3>
+
+    <p class="why-card-description">
+        Each deck explores one key science topic in depth, helping you focus on the concepts that matter most for learning, revision, and assessments.
+    </p>
+
+</article>
+
+
+<!-- Progress Rewarded Card -->
+<article class="why-card reveal" data-delay="320">
+
+    <div class="why-card-icon why-card-icon-gold">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <circle
+                cx="12"
+                cy="8"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+
+            <path
+                d="M9.5 12L8 20L12 17.5L16 20L14.5 12"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Progress Rewarded
+    </h3>
+
+    <p class="why-card-description">
+        Earn coins for every correct match. Track your score,
+        completion time, and hints used — celebrating progress at every step.
+    </p>
+
+</article>
+
+
+<!-- Designed for Everyone Card -->
+<article class="why-card reveal" data-delay="420">
+
+    <div class="why-card-icon why-card-icon-green">
+
+        <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+        >
+            <path
+                d="M20.8 4.6C18.7 2.5 15.3 2.5 13.2 4.6L12 5.8L10.8 4.6C8.7 2.5 5.3 2.5 3.2 4.6C1.1 6.7 1.1 10.1 3.2 12.2L12 21L20.8 12.2C22.9 10.1 22.9 6.7 20.8 4.6Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+
+    </div>
+
+    <h3 class="why-card-title">
+        Designed for Everyone
+    </h3>
+
+    <p class="why-card-description">
+        Plain English mode, adjustable text size, high contrast,
+        and reduced motion make Science Solitaire accessible to all learners.
+    </p>
+
+</article>
+
+</div>
+</section>
+
+
+
+<!-- ========================================
+     LEARNERS & TEACHERS
+========================================= -->
+
+<section
+    id="learnerTeacherSection"
+    style="
+        position: relative;
+        overflow: hidden;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 80px 20px 100px;
+        background: #ffffff;
+        font-family: 'Nunito', sans-serif;
+    "
+>
+
+    <!-- BOY IMAGE -->
+    <img
+        src="images/learner.png"
+        alt=""
+        class="audience-person audience-boy reveal-scale"
+        style="
+            position: absolute;
+            top: 10px;
+            left: 25px;
+            width: 270px;
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+        "
+    >
+
+
+    <!-- TEACHER IMAGE -->
+    <img
+        src="images/teacher.png"
+        alt=""
+        class="audience-person audience-teacher reveal-scale"
+        style="
+            position: absolute;
+            right: 25px;
+            bottom: 0;
+            width: 270px;
+            height: auto;
+            z-index: 1;
+            pointer-events: none;
+        "
+    >
+
+
+    <div
+        style="
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 1050px;
+            margin: 0 auto;
+        "
+    >
+
+        <!-- HEADING -->
+        <div
+            class="reveal"
+            style="
+                max-width: 760px;
+                margin: 0 auto 45px;
+                text-align: center;
+            "
+        >
+
+            <div
+                style="
+                    display: inline-flex;
+                    align-items: center;
+                    gap: 7px;
+                    padding: 7px 15px;
+                    margin-bottom: 18px;
+                    border: 1px solid #C7DBFF;
+                    border-radius: 999px;
+                    background: #EFF5FF;
+                    color: #1D4ED8;
+                    font-size: 12px;
+                    font-weight: 700;
+                "
+            >
+                <span>✦</span>
+                One Game. Two Views.
+            </div>
+
+
+            <h2
+                style="
+                    margin: 0;
+                    color: #14213D;
+                    font-size: clamp(38px, 4vw, 52px);
+                    font-weight: 900;
+                    line-height: 1.08;
+                    letter-spacing: -1.3px;
+                "
+            >
+                Built for Every
+                <span style="color:#2563FF;">Learner.</span>
+                <br>
+
+                Designed to Support Every
+                <span style="color:#2563FF;">Teacher.</span>
+            </h2>
+
+
+            <p
+                style="
+                    max-width: 610px;
+                    margin: 18px auto 0;
+                    color: #5F6F88;
+                    font-size: 15px;
+                    line-height: 25px;
+                "
+            >
+                The same engaging science experience, tailored to different needs.
+                Whether you're learning or teaching, everyone wins.
+            </p>
+
+        </div>
+
+
+        <!-- CARDS -->
+        <div
+            class="learner-teacher-grid"
+            style="
+                width: 100%;
+                max-width: 720px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 28px;
+            "
+        >
+
+
+            <!-- ============================
+                 LEARNER CARD
+            ============================= -->
+            <article
+                class="reveal-scale learner-teacher-card"
+                style="
+                    box-sizing: border-box;
+                    padding: 30px;
+                    border: 1px solid #EDF1F7;
+                    border-radius: 24px;
+                    background: #ffffff;
+                    box-shadow: 0 15px 40px rgba(20,33,61,0.09);
+                "
+            >
+
+                <div
+                    style="
+                        width: 55px;
+                        height: 55px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-bottom: 20px;
+                        border-radius: 15px;
+                        background: #2563FF;
+                        color: #ffffff;
+                    "
+                >
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        style="width:27px;height:27px;"
+                    >
+                        <path
+                            d="M3 9L12 4L21 9L12 14L3 9Z"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linejoin="round"
+                        />
+                        <path
+                            d="M7 12V16C10 18 14 18 17 16V12"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+                </div>
+
+
+                <h3
+                    style="
+                        margin: 0;
+                        color: #14213D;
+                        font-size: 24px;
+                        font-weight: 900;
+                    "
+                >
+                    For Learners
+                </h3>
+
+                <p
+                    style="
+                        margin: 4px 0 25px;
+                        color: #5F6F88;
+                        font-size: 13px;
+                    "
+                >
+                    Play. Practice. Progress.
+                </p>
+
+
+                <!-- FEATURE 1 -->
+                <div style="display:flex;gap:13px;margin-bottom:20px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#EAFBF1;
+                            color:#27AE60;
+                            font-weight:800;
+                        "
+                    >
+                        ▣
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            Active Recall Practice
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            Strengthen your memory with fun, repeated play.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 2 -->
+                <div style="display:flex;gap:13px;margin-bottom:20px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#F2EEFF;
+                            color:#8066E8;
+                            font-weight:800;
+                        "
+                    >
+                        ▷
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            Track Your Progress
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            See your improvement as you play.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 3 -->
+                <div style="display:flex;gap:13px;margin-bottom:28px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#FFF7DD;
+                            color:#D89C10;
+                            font-weight:800;
+                        "
+                    >
+                        ★
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            Test Your Knowledge
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            Challenge yourself and build confidence.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="/login"
+                    style="
+                        width:100%;
+                        box-sizing:border-box;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        gap:10px;
+                        padding:13px 20px;
+                        border-radius:999px;
+                        background:#2563FF;
+                        color:#ffffff;
+                        text-decoration:none;
+                        font-size:13px;
+                        font-weight:800;
+                        box-shadow:0 8px 20px rgba(37,99,255,0.22);
+                    "
+                >
+                    Start Learning
+                    <span>→</span>
+                </a>
+
+            </article>
+
+
+
+            <!-- ============================
+                 TEACHER CARD
+            ============================= -->
+            <article
+                class="reveal-scale learner-teacher-card"
+                style="
+                    box-sizing: border-box;
+                    padding: 30px;
+                    border: 1px solid #D7F0E1;
+                    border-radius: 24px;
+                    background: #F0FBF5;
+                    box-shadow: 0 15px 40px rgba(20,33,61,0.09);
+                "
+            >
+
+                <div
+                    style="
+                        width:55px;
+                        height:55px;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        margin-bottom:20px;
+                        border-radius:15px;
+                        background:#169B58;
+                        color:#ffffff;
+                    "
+                >
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        style="width:27px;height:27px;"
+                    >
+                        <circle
+                            cx="9"
+                            cy="8"
+                            r="3"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                        />
+
+                        <path
+                            d="M3 19V17C3 14.5 5.5 13 9 13C12.5 13 15 14.5 15 17V19"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+
+                        <path
+                            d="M17 6C19 6.4 20 7.5 20 9C20 10.4 19 11.5 17 12"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                        />
+                    </svg>
+
+                </div>
+
+
+                <h3
+                    style="
+                        margin:0;
+                        color:#14213D;
+                        font-size:24px;
+                        font-weight:900;
+                    "
+                >
+                    For Teachers
+                </h3>
+
+
+                <p
+                    style="
+                        margin:4px 0 25px;
+                        color:#5F6F88;
+                        font-size:13px;
+                    "
+                >
+                    Plan. Monitor. Empower.
+                </p>
+
+
+                <!-- FEATURE 1 -->
+                <div style="display:flex;gap:13px;margin-bottom:20px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#EAF1FF;
+                            color:#2563FF;
+                            font-weight:800;
+                        "
+                    >
+                        ▥
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            Assign Lessons Easily
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            Set focused science activities in minutes.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 2 -->
+                <div style="display:flex;gap:13px;margin-bottom:20px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#FFF0F5;
+                            color:#E15B88;
+                            font-weight:800;
+                        "
+                    >
+                        ▤
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            View Class Performance
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            Track progress and identify areas of support.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <!-- FEATURE 3 -->
+                <div style="display:flex;gap:13px;margin-bottom:28px;">
+
+                    <div
+                        style="
+                            width:36px;
+                            height:36px;
+                            flex-shrink:0;
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+                            border-radius:50%;
+                            background:#FFF1E4;
+                            color:#D77A28;
+                            font-weight:800;
+                        "
+                    >
+                        ◉
+                    </div>
+
+                    <div>
+                        <strong
+                            style="
+                                display:block;
+                                color:#14213D;
+                                font-size:13px;
+                                font-weight:800;
+                                margin-bottom:3px;
+                            "
+                        >
+                            Identify Knowledge Gaps
+                        </strong>
+
+                        <p
+                            style="
+                                margin:0;
+                                color:#5F6F88;
+                                font-size:11px;
+                                line-height:17px;
+                            "
+                        >
+                            Use insights to personalise learning.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <a
+                    href="/login"
+                    style="
+                        width:100%;
+                        box-sizing:border-box;
+                        display:flex;
+                        align-items:center;
+                        justify-content:center;
+                        gap:10px;
+                        padding:13px 20px;
+                        border-radius:999px;
+                        background:#169B58;
+                        color:#ffffff;
+                        text-decoration:none;
+                        font-size:13px;
+                        font-weight:800;
+                        box-shadow:0 8px 20px rgba(22,155,88,0.20);
+                    "
+                >
+                    Empower Your Class
+                    <span>→</span>
+                </a>
+
+            </article>
+
+        </div>
+    </div>
+</section>
+<style>
+@media screen and (max-width: 700px) {
+
+    #learnerTeacherSection {
+        padding: 55px 16px 65px !important;
+    }
+
+    #learnerTeacherSection .learner-teacher-grid {
+        grid-template-columns: 1fr !important;
+        max-width: 430px !important;
+        gap: 18px !important;
+    }
+
+    #learnerTeacherSection .learner-teacher-card {
+        padding: 24px 21px !important;
+    }
+
+    #learnerTeacherSection .audience-person {
+        display: none !important;
+    }
+}
+</style>
+
+
+
+<!-- ========================================
+     REVIEWS SECTION (Layer 5)
+========================================= -->
+<section class="reviews-section" style="padding: 64px 20px; max-width: 1200px; margin: 0 auto; text-align: center;">
+    <h2 style="font-size: 32px; font-weight: 800; color: #1E293B; margin-bottom: 48px;">What Our Users Say</h2>
+    <div id="reviewsContainer" style="display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;">
+        <p style="color: #64748B;">Loading reviews...</p>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+    <div id="footer"></div>
+
+<script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script src="./js/app.js"></script>
+
+<script src="./js/api.js"></script>
+</body>
+
+</html>

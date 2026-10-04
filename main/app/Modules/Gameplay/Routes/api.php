@@ -15,4 +15,9 @@ Route::middleware('auth:sanctum')->group(function () {
         [GameplayController::class, 'progress']
     );
 
+    Route::post(
+        '/gameplay/feedback',
+        [GameplayController::class, 'saveFeedback']
+    );
+
 });

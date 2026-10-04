@@ -251,56 +251,178 @@
             </div>
         </section>
 
-        <section class="admin-tab-panel" id="datasets">
+
+<section class="admin-tab-panel" id="datasets">
+
+    <div style="
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:20px;
+        margin-bottom:24px;
+        flex-wrap:wrap;
+    ">
+        <div>
             <h1>Datasets</h1>
-            <p class="admin-section-subtitle">
-                Load, refresh, replace or remove the question datasets students play with.
-                Datasets are grouped by country and grade — students only ever see the
-                dataset belonging to their own level.
+
+            <p class="admin-section-subtitle" style="margin-bottom:0 !important;">
+                Manage subject and topic datasets available to students.
             </p>
-            <div class="admin-table-card">
-                <div class="admin-table-wrapper">
-                    <table class="admin-table" id="datasetsTable">
-                        <thead>
-                            <tr>
-                                <th>Dataset</th>
-                                <th>Label</th>
-                                <th>Country</th>
-                                <th>Level</th>
-                                <th>Subject</th>
-                                <th>Loaded</th>
-                                <th>In CSV</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="datasetsTableBody">
-                            <tr><td colspan="8">Loading datasets…</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="datasetActionMessage" style="margin-top:14px; font-weight:800;"></div>
-        </section>
+        </div>
+
+        <a
+            href="admin-upload-dataset.html"
+            style="
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                padding:11px 18px;
+                border-radius:10px;
+                background:#2563FF;
+                color:#FFFFFF;
+                font-family:'Nunito',sans-serif;
+                font-size:13px;
+                font-weight:900;
+                text-decoration:none;
+                box-shadow:0 6px 16px rgba(37,99,255,0.18);
+            "
+        >
+            + Upload Dataset
+        </a>
+    </div>
+
+
+    <!-- FILTER BAR -->
+    <div class="admin-table-card" style="margin-bottom:20px;">
+        <div style="
+            padding:16px;
+            display:grid;
+            grid-template-columns:minmax(220px,1fr) 160px 160px 160px;
+            gap:12px;
+        ">
+
+            <input
+                type="search"
+                id="datasetSearchInput"
+                placeholder="Search topic or subject..."
+                style="
+                    width:100%;
+                    padding:10px 12px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+
+            <select
+                id="datasetCountryFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Countries</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="UK">UK</option>
+            </select>
+
+            <select
+                id="datasetLevelFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Levels</option>
+                <option value="SS1">SS1</option>
+                <option value="SS2">SS2</option>
+                <option value="SS3">SS3</option>
+                <option value="KS3">KS3</option>
+                <option value="KS4">KS4</option>
+                <option value="KS5">KS5</option>
+            </select>
+
+            <select
+                id="datasetSubjectFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Subjects</option>
+                <option value="biology">Biology</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="physics">Physics</option>
+                <option value="science">Science</option>
+            </select>
+
+        </div>
+    </div>
+
+    <!-- DATASET LIST -->
+    <div class="admin-table-card">
+
+        <div class="admin-table-wrapper">
+
+            <table class="admin-table" id="datasetsTable">
+
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Subject</th>
+                        <th>Level</th>
+                        <th>Country</th>
+                        <th>Categories</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="datasetsTableBody">
+                    <tr>
+                        <td colspan="7">Loading datasets…</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div
+        id="datasetActionMessage"
+        style="margin-top:14px; font-weight:800;"
+    ></div>
+
+</section>
+
 
         <section class="admin-tab-panel" id="settings">
             <h1>Settings</h1>
+        
             <p class="admin-section-subtitle">
-                Upload a fresh dataset CSV to replace what is on disk, then import it.
+                Platform configuration and administrative settings.
             </p>
-            <div class="admin-table-card" style="max-width:520px;">
-                <div style="padding:24px; display:flex; flex-direction:column; gap:14px;">
-                    <label style="font-weight:800;">Dataset
-                        <select id="settingsDatasetSelect" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #E2E8F0;"></select>
-                    </label>
-                    <label style="font-weight:800;">CSV file
-                        <input type="file" id="settingsDatasetFile" accept=".csv,text/csv"
-                            style="width:100%; margin-top:6px; padding:8px;" />
-                    </label>
-                    <button type="button" id="settingsUploadBtn"
-                        style="padding:10px 16px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">
-                        Upload CSV
-                    </button>
-                    <p id="settingsUploadMessage" style="font-weight:700; margin:0;"></p>
+        
+            <div class="admin-table-card" style="max-width:700px;">
+                <div style="padding:24px;">
+        
+                    <h2 style="margin:0 0 8px; font-size:18px;">
+                        Platform Settings
+                    </h2>
+        
+                    <p style="margin:0; color:#64748B; font-weight:600;">
+                        Administrative settings such as gameplay rules, coin values,
+                        payment configuration and security controls will be managed here.
+                    </p>
+        
                 </div>
             </div>
         </section>

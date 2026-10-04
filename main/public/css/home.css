@@ -1,0 +1,192 @@
+/* ========================================
+   PREVENT HORIZONTAL PAGE SCROLL
+======================================== */
+
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden !important;
+}
+
+body {
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+main,
+section,
+header,
+footer,
+#header,
+#footer {
+    max-width: 100%;
+}
+
+/* ========================================
+   PREMIUM REVIEWS CAROUSEL
+======================================== */
+.reviews-section {
+    overflow: hidden;
+}
+
+.reviews-slider {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.reviews-track {
+    max-width: none;
+    display: flex;
+    gap: 16px;
+    width: max-content;
+    animation: reviewsScroll 26s linear infinite;
+}
+
+.reviews-track:hover {
+    animation-play-state: paused;
+}
+
+.premium-review-card {
+    width: 260px;
+    flex: 0 0 260px;
+
+    background: #FFFFFF;
+    border: 1px solid #E7ECF3;
+    border-radius: 16px;
+
+    padding: 16px;
+
+    text-align: left;
+
+    box-shadow:
+        0 6px 18px rgba(15, 23, 42, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.premium-review-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 28px rgba(15, 23, 42, 0.10);
+}
+
+.review-stars {
+    color: #FBBF24;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+
+.review-comment {
+    margin: 0 0 14px;
+
+    color: #334155;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.5;
+
+    min-height: 58px;
+}
+
+.review-user {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.review-avatar {
+    width: 34px;
+    height: 34px;
+
+    flex: 0 0 34px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #EEF4FF;
+    color: #2563FF;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.review-name {
+    display: block;
+
+    color: #14213D;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.review-role {
+    display: block;
+
+    margin-top: 1px;
+
+    color: #94A3B8;
+
+    font-family: "Nunito", sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+
+    text-transform: capitalize;
+}
+
+@keyframes reviewsScroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .premium-review-card {
+        width: 220px;
+        flex-basis: 220px;
+        padding: 14px;
+    }
+
+    .reviews-track {
+        gap: 12px;
+        animation-duration: 22s;
+    }
+}
+
+
+
+/* ========================================
+   CLOSE GAP ABOVE FOOTER
+======================================== */
+
+.reviews-section {
+    padding-bottom: 4px !important;
+    margin-bottom: 0 !important;
+}
+
+#footer {
+    margin-top: 0 !important;
+}
+

@@ -334,21 +334,51 @@ if (reviewsContainer) {
         .then(response => response.json())
         .then(result => {
             if (result.status === 'Success' && result.data && result.data.length > 0) {
-                reviewsContainer.innerHTML = '';
-                result.data.forEach(review => {
-                    const stars = '⭐'.repeat(review.rating);
-                    const reviewCard = `
-                        <div style="flex: 1; min-width: 280px; max-width: 350px; background: white; border: 1px solid #E2E8F0; padding: 24px; border-radius: 12px; box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05); text-align: left;">
-                            <div style="font-size: 20px; margin-bottom: 12px;">${stars}</div>
-                            <p style="color: #334155; font-size: 16px; margin-bottom: 24px; line-height: 1.5; font-style: italic;">"${review.comment}"</p>
-                            <div>
-                                <strong style="display: block; color: #1E293B; font-size: 15px;">${review.user_name}</strong>
-                                <span style="color: #64748B; font-size: 14px;">${review.role}</span>
-                            </div>
+               
+                    reviewsContainer.innerHTML = `
+                        <div class="reviews-slider">
+                            <div class="reviews-track" id="reviewsTrack"></div>
                         </div>
                     `;
-                    reviewsContainer.innerHTML += reviewCard;
-                });
+                    
+                    const reviewsTrack = document.getElementById("reviewsTrack");
+                    
+                    const reviews = [...result.data, ...result.data];
+                    
+                    reviews.forEach(review => {
+                        const stars = '★'.repeat(review.rating);
+                    
+                        const reviewCard = `
+                            <div class="premium-review-card">
+                                <div class="review-stars">${stars}</div>
+                    
+                                <p class="review-comment">
+                                    "${review.comment}"
+                                </p>
+                    
+                                <div class="review-user">
+                                    <div class="review-avatar">
+                                        ${review.user_name
+                                            ? review.user_name.charAt(0).toUpperCase()
+                                            : "U"}
+                                    </div>
+                    
+                                    <div>
+                                        <strong class="review-name">
+                                            ${review.user_name}
+                                        </strong>
+                    
+                                        <span class="review-role">
+                                            ${review.role}
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    
+                        reviewsTrack.innerHTML += reviewCard;
+                    });               
+              
             } else {
                 reviewsContainer.innerHTML = '<p style="color: #64748B;">No reviews available at this time.</p>';
             }

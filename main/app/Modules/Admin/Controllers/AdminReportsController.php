@@ -18,25 +18,97 @@ class AdminReportsController extends Controller
      * Reviews shown as testimonials on the landing page. Admins can
      * moderate them from the Feedback tab.
      */
-    public function feedback(): JsonResponse
-    {
-        $rows = DB::table('reviews')
-            ->orderBy('created_at', 'desc')
-            ->get();
+     
+public function homepageReviews(): JsonResponse
+{
+    $rows = DB::table('reviews')
+        ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
+        ->where('reviews.is_featured', 1)
+        ->select(
+            'reviews.id',
+            'reviews.rating',
+            'reviews.feedback as comment',
+            'users.name as user_name',
+            'users.role as role'
+        )
+        ->orderByDesc('reviews.created_at')
+        ->get();
 
-        $average = $rows->count() > 0
-            ? round($rows->avg('rating'), 2)
-            : 0;
+    return $this->successResponse(
+        $rows,
+        'Homepage reviews loaded successfully'
+    );
+}
+     
+     
+      public function feedback(): JsonResponse
+        {
+            $rows = DB::table('reviews')
+                ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
+                ->select(
+                    'reviews.id',
+                    'reviews.user_id',
+                    'users.name as name',
+                    'users.role as role',
+                    'reviews.subject',
+                    'reviews.deck',
+                    'reviews.key_stage',
+                    'reviews.difficulty',
+                    'reviews.level',
+                    'reviews.rating',
+                    'reviews.feedback as comment',
+                    'reviews.is_featured',
+                    'reviews.created_at'
+                )
+                ->orderByDesc('reviews.created_at')
+                ->get();
+        
+            $average = $rows->count() > 0
+                ? round($rows->avg('rating'), 2)
+                : 0;
+        
+            return $this->successResponse(
+                [
+                    'average_rating' => (float) $average,
+                    'total' => $rows->count(),
+                    'reviews' => $rows,
+                ],
+                'Feedback loaded successfully'
+            );
+        }
+        
+        
+public function featureFeedback(Request $request, int $reviewId): JsonResponse
+{
+    $review = DB::table('reviews')
+        ->where('id', $reviewId)
+        ->first();
 
-        return $this->successResponse(
-            [
-                'average_rating' => (float) $average,
-                'total' => $rows->count(),
-                'reviews' => $rows,
-            ],
-            'Feedback loaded successfully'
-        );
+    if (!$review) {
+        return response()->json([
+            'message' => 'Review not found.'
+        ], 404);
     }
+
+    $newStatus = !$review->is_featured;
+
+    DB::table('reviews')
+        ->where('id', $reviewId)
+        ->update([
+            'is_featured' => $newStatus,
+            'updated_at' => now(),
+        ]);
+
+    return $this->successResponse(
+        [
+            'review_id' => $reviewId,
+            'is_featured' => $newStatus,
+        ],
+        $newStatus
+            ? 'Review added to homepage'
+            : 'Review removed from homepage'
+    );
+}
 
     public function deleteFeedback(Request $request, int $reviewId): JsonResponse
     {

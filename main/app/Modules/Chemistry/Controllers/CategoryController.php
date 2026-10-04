@@ -131,11 +131,13 @@ class CategoryController extends Controller
     public function decks(Request $request): JsonResponse
     {
         $categoryCount = 5;
-
         $keyStage = $this->resolveKeyStage($request);
-
+        $subject = strtolower(
+            $request->segment(2) ?: 'chemistry'
+        );
         $rows = Category::query()
             ->where('key_stage', $keyStage)
+            ->where('subject', $subject)
             ->select('deck', 'key_stage', 'difficulty', 'card_pool')
             ->get()
             ->filter(function ($category) {
@@ -145,7 +147,6 @@ class CategoryController extends Controller
             ->groupBy(function ($row) {
                 return $row->deck . '|' . $row->key_stage;
             });
-
         $decks = $rows->map(function ($rows, $key) use ($categoryCount) {
             [$deck, $keyStage] = explode('|', $key);
 

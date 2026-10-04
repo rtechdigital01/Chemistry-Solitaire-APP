@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gameplay | Chemistry Solitaire</title>
+    <meta name="description" content="Play Chemistry Solitaire – sort cards into the correct chemistry categories to build your knowledge.">
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <!-- Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Compiled CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
+
+
+    <script src="js/config.js"></script>
+</head>
+
+<body>
+
+
+
+
+<!-- ============================================================
+     GAMEPLAY TOP BAR
+============================================================ -->
+
+<div class="gameplay-top-bar">
+    <div class="gameplay-top-inner">
+
+        <!-- LEVEL -->
+        <div class="gameplay-level-info">
+
+            <button
+                class="gameplay-close-btn"
+                type="button"
+                onclick="window.location.href='games.html'"
+                aria-label="Exit game"
+            >
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+
+            <div class="gameplay-level-text">
+                <span class="level-label">KS3 · Easy</span>
+                <span class="level-title">Periodic Table &amp; Groups</span>
+            </div>
+
+        </div>
+
+
+        <!-- PROGRESS -->
+        <div class="gameplay-progress-container">
+            <div class="gameplay-progress-track">
+                <div class="gameplay-progress-fill" style="width:0%;"></div>
+            </div>
+            <span class="gameplay-progress-text">0/0</span>
+        </div>
+
+
+        <!-- STATS -->
+        <div class="gameplay-stats-actions">
+
+            <div class="gameplay-stats">
+
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6L12 2z"
+                            stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Score</span>
+                </div>
+
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+                            stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Moves</span>
+                </div>
+
+                <div class="stat-item">
+                    <svg class="stat-icon" viewBox="0 0 24 24" fill="none">
+                        <rect x="2" y="5" width="20" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/>
+                        <path d="M2 10h20" stroke="currentColor" stroke-width="1.6"/>
+                    </svg>
+                    <span class="stat-value">0</span>
+                    <span class="stat-label">Cards</span>
+                </div>
+
+            </div>
+
+
+            <!-- ACTION BUTTONS -->
+            <div class="gameplay-actions">
+
+                <button
+                    type="button"
+                    id="topRedealBtn"
+                    class="btn-action btn-outline"
+                    aria-label="Shuffle cards"
+                >
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M16 3l4 4-4 4M20 7H4M8 21l-4-4 4-4M4 17h16"
+                            stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Shuffle
+                </button>
+
+                <button
+                    type="button"
+                    id="topHintBtn"
+                    class="btn-action btn-yellow"
+                    aria-label="Get a hint"
+                >
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z" stroke="currentColor" stroke-width="1.7"/>
+                        <path d="M12 16v6M9 19h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/>
+                    </svg>
+                    <span id="topHintLabel">Hint</span>
+                </button>
+                
+                
+<button
+    type="button"
+    id="viewResultsBtn"
+    class="btn-action view-results-btn"
+>
+    View Results
+</button>
+                
+                
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================================================
+     MAIN GAMEPLAY
+============================================================ -->
+
+<main class="gameplay-main">
+
+    <!-- Decorative molecules -->
+    <div class="game-molecule top">
+        <svg viewBox="0 0 320 260" fill="none">
+            <circle cx="70" cy="60" r="45" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="180" cy="130" r="36" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="70" cy="205" r="29" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M105 87L150 112" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M149 150L95 188" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+        </svg>
+    </div>
+
+    <div class="game-molecule bottom">
+        <svg viewBox="0 0 340 300" fill="none">
+            <circle cx="70"  cy="165" r="48" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="175" cy="85"  r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="185" cy="235" r="42" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <circle cx="290" cy="145" r="38" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M106 136L143 108" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M111 192L150 218" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+            <path d="M213 105L260 132" stroke="rgba(74,150,232,0.5)" stroke-width="4"/>
+        </svg>
+    </div>
+
+
+    <div class="gameplay-board">
+
+        <!-- INFO BANNER -->
+        <div class="game-info-banner">
+            <span class="info-icon-wrap">
+                <svg class="info-icon" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/>
+                    <path d="M12 11V16M12 8H12.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </span>
+            Select a card from the hand below, then tap a category above.
+        </div>
+
+
+
+        <!-- MOVES & SHUFFLE PANELS -->
+        <div class="game-middle-actions">
+
+            <div class="moves-badge">
+                <span class="moves-label">Moves</span>
+                <span class="moves-value" id="movesValueBadge">0</span>
+            </div>
+
+            <div class="shuffle-panels">
+
+                <!-- Active hand: top playable card + peek of what's next -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-reveal-pile" id="shuffleRevealPile"></div>
+                </div>
+
+                <!-- Remaining logical deck, not yet dealt into play -->
+                <div class="shuffle-panel">
+                    <div class="shuffle-deck-pile" id="shuffleDeckBtn" role="button" aria-label="Shuffle remaining cards into play">
+                        <span class="shuffle-deck-count" id="shuffleDeckCount">0</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ==============================
+             CATEGORY SECTION
+        ============================== -->
+
+        <section class="category-section" aria-label="Category foundation stacks">
+
+            <div class="category-grid">
+                <div id="stacksGrid"></div>
+                <div id="lockedCategorySlots"></div>
+            </div>
+
+        </section>
+
+
+
+        <div class="game-section-divider"></div>
+
+
+
+        <!-- ==============================
+             GAME CARDS (HAND)
+        ============================== -->
+
+        <section class="game-cards-section" aria-label="Card hand">
+
+            <div id="cardsGrid" role="list" aria-label="Playable cards"></div>
+
+            <!-- CONTROLS -->
+            <div class="game-bottom-actions">
+
+                <button
+                    type="button"
+                    class="bottom-game-btn restart-btn"
+                    id="restartBtn"
+                >
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M1 4v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M3.51 15a9 9 0 102.13-9.36L1 10" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Restart
+                </button>
+
+                <button
+                    type="button"
+                    class="bottom-game-btn next-level-btn"
+                    id="nextLevelBtn"
+                    disabled
+                >
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    Next Level
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+
+
+
+
+<!-- Hidden finish button used by gameplay.js -->
+<button type="button" id="finishLevelBtn" style="display:none;"></button>
+
+<!-- Hidden hint / redeal refs used by gameplay.js -->
+<button type="button" id="hintBtn"   style="display:none;"></button>
+<button type="button" id="redealBtn" style="display:none;"></button>
+
+
+<!-- ============================================================
+     SCRIPTS
+============================================================ -->
+
+
+<script src="./js/app.js"></script>
+<script src="./js/api.js"></script>
+<script src="./js/gameplay.js"></script>
+
+
+<script>
+/* ============================================================
+   TOP-BAR BRIDGE BUTTONS
+   (Wire Shuffle / Hint top-bar buttons → gameplay.js helpers)
+============================================================ */
+
+document.getElementById("topRedealBtn")?.addEventListener("click", () => {
+    window._gameShuffleHand?.();
+});
+
+document.getElementById("topHintBtn")?.addEventListener("click", () => {
+    window._gameHintClick?.();
+});
+</script>
+
+
+</body>
+</html>
