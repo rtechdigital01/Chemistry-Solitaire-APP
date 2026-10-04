@@ -1,0 +1,23 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Stoichiometry,Easy,"Balanced equation, Mole ratio, Mass relationship, Gas volume, Reaction calculation",Measurement,Stoichiometry uses balanced equations to relate reacting quantities.
+2,Mole Ratio,Easy,"Coefficients, Balanced equation, Reactants, Products, Whole-number ratio",Measurement,Equation coefficients give the ratio of reacting moles.
+3,Mass-Mass Calculation,Medium,"Mass to moles, Mole ratio, Moles to mass, Molar mass, Balanced equation",Measurement,This converts a known mass into the mass of another reacting substance.
+4,Mass-Volume Calculation,Medium,"Mass to moles, Gas moles, Molar gas volume, Balanced equation, Gas volume",Measurement,This connects a solid or liquid mass with a gaseous reaction quantity.
+5,Volume-Volume Gas Calculation,Medium,"Gas coefficients, Same temperature and pressure, Combining volumes, Simple ratio, Balanced equation",Measurement,Gas volumes may be related directly through stoichiometric coefficients.
+6,Molar Mass,Easy,"g mol?¹, Mass of one mole, Formula mass in grams, Moles, Mass",Measurement,This converts between mass and amount of substance.
+7,Molar Volume at STP,Easy,"22.4 dm³ mol?¹, One mole gas, STP, Gas calculation, Volume",Measurement,This value converts moles of gas to volume at STP in the textbook convention.
+8,Avogadro Constant,Easy,"6.02 × 10²³ mol?¹, Particles, Moles, Atoms, Molecules",Measurement,This links moles to numbers of particles.
+9,Percentage Purity,Medium,"Pure component mass, Impure sample mass, ×100, Reaction data, Sample quality",Measurement,This expresses how much of an impure sample is the desired substance.
+10,Percentage Yield,Medium,"Actual yield, Theoretical yield, ×100, Reaction efficiency, Product amount",Measurement,This compares the product obtained with the maximum predicted amount.
+11,Theoretical Yield,Medium,"Stoichiometric maximum, Limiting reactant, Balanced equation, Predicted product, 100% conversion",Measurement,This is the maximum product calculated from stoichiometry.
+12,Actual Yield,Easy,"Measured product, Experimental amount, Usually below theoretical, Laboratory result",Measurement,This is the amount of product actually obtained.
+13,Limiting Reactant,Medium,"Used up first, Controls product amount, Stoichiometric comparison, Excess reactant remains, Yield",Reaction,This reactant limits how much product can form.
+14,Excess Reactant,Medium,"More than required, Left after reaction, Not limiting, Stoichiometric excess, Reactant",Reaction,This reactant remains after the limiting reactant is consumed.
+15,Empirical Formula from Composition,Hard,"Convert masses to moles, Divide by smallest, Whole-number ratio, Element composition, Formula",Measurement,This calculation derives the simplest atom ratio from composition data.
+16,Molecular Formula from Empirical Formula,Hard,"Empirical formula mass, Molar mass, Whole-number multiplier, Actual formula, Molecular composition",Measurement,The molar mass determines how many empirical units occur in one molecule.
+17,Gas Stoichiometry,Hard,"Mole ratio, Gas volumes, Pressure, Temperature, Molar volume",Measurement,Gas reaction calculations combine stoichiometry with gas relationships.
+18,Solution Stoichiometry,Hard,"Concentration, Volume, Moles, Balanced equation, Titration",Measurement,Moles in solution can be used in reaction calculations.
+19,Concentration in mol dm?³,Easy,"Moles ÷ volume, mol dm?³, Solution, Molar concentration, Volume in dm³",Measurement,This gives the number of moles of solute per cubic decimetre of solution.
+20,Moles from Concentration,Medium,"n = cV, Concentration, Volume in dm³, Solution, Moles",Measurement,This relationship gives moles in a measured solution volume.
+21,Stoichiometric Ratio from Equation,Easy,"Coefficients, Reactant ratio, Product ratio, Balanced equation, Moles",Measurement,Coefficients are interpreted as relative numbers of moles.
+22,Chemical Equation as Quantitative Model,Medium,"Moles, Masses, Gas volumes, Particle numbers, Stoichiometric coefficients",Measurement,A balanced equation provides several quantitative relationships.

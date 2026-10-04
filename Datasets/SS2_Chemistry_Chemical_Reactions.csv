@@ -1,0 +1,24 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemical Reaction,Easy,"Reactants, Products, Bond breaking, Bond formation, Chemical change",Reaction,A chemical reaction converts starting substances into new substances.
+2,Reactants,Easy,"Starting substances, Left side of equation, Consumed, Chemical reaction, Before reaction",Matter,These substances take part at the beginning of a reaction.
+3,Products,Easy,"New substances, Right side of equation, Formed, Chemical reaction, After reaction",Matter,These substances are formed by a chemical reaction.
+4,Collision Theory,Medium,"Particle collisions, Activation energy, Correct orientation, Reaction rate, Effective collisions",Particle,Reactions occur when particles collide effectively.
+5,Effective Collision,Medium,"Sufficient energy, Correct orientation, Bond changes, Reaction occurs, Collision theory",Particle,This collision has the conditions needed for reaction.
+6,Activation Energy,Medium,"Minimum energy, Reaction starts, Energy barrier, Effective collision, Catalyst lowers it",Energy,This is the minimum energy needed for a successful reaction.
+7,Rate of Reaction,Easy,"Change per unit time, Reactant disappearance, Product formation, Fast or slow, Reaction speed",Measurement,This describes how quickly a chemical reaction occurs.
+8,Concentration Effect,Medium,"More particles per volume, More collisions, Higher rate, Solution reaction, Collision frequency",Reaction,Increasing concentration usually increases reaction rate.
+9,Pressure Effect on Gas Reactions,Medium,"Gas particles closer, More collisions, Higher pressure, Faster reaction, Gas phase",Reaction,Increasing gas pressure often increases reaction rate.
+10,Temperature Effect,Medium,"Faster particles, More kinetic energy, More effective collisions, Higher rate, Activation energy",Energy,Increasing temperature usually increases reaction rate.
+11,Surface Area Effect,Medium,"Smaller particles, More exposed surface, More collisions, Powder reacts faster, Solid reactant",Reaction,Increasing the surface area of a solid often speeds up reaction.
+12,Catalyst Effect,Medium,"Alternative pathway, Lower activation energy, Faster reaction, Unchanged at end, Small amount",Reaction,A catalyst increases rate without being permanently consumed.
+13,Light Effect on Reaction Rate,Medium,"Photochemical reaction, Light intensity, Energy input, Reaction rate, Photosensitive substances",Energy,Some reactions become faster when more light energy is supplied.
+14,Nature of Reactants,Medium,"Bond type, Chemical identity, Reactivity, Physical state, Reaction rate",Matter,Different substances react at different rates because of their chemical nature.
+15,Measuring Reaction Rate,Medium,"Gas volume, Mass loss, Colour change, Concentration change, Time",Measurement,Reaction rate can be followed by measuring a changing quantity against time.
+16,Rate Curve,Medium,"Quantity against time, Initial steep slope, Rate decreases, Plateau, Reaction completion",Measurement,The gradient of a reaction graph indicates reaction rate.
+17,Fast Reaction,Easy,"Combustion, Explosion, Acid-metal reaction, Short time, High rate",Reaction,These reactions occur over a relatively short time.
+18,Slow Reaction,Easy,"Rusting, Fermentation, Weathering, Long time, Low rate",Reaction,These reactions proceed over a relatively long time.
+19,Catalyst,Easy,"Speeds reaction, Not used up, Lower activation energy, Specific, Reusable",Reaction,This substance changes reaction rate without permanent consumption.
+20,Enzyme Catalyst,Medium,"Biological catalyst, Specific substrate, Protein, Temperature sensitive, Living systems",Organism,Enzymes catalyse reactions in biological systems.
+21,Industrial Catalysis,Medium,"Faster production, Lower operating cost, Lower temperature possible, Selective reaction, Large-scale process",Industry,Catalysts make many industrial chemical processes more efficient.
+22,Reversible Reaction,Medium,"Forward reaction, Backward reaction, Double arrow, Products reform reactants, Dynamic system",Reaction,This reaction can proceed in both directions.
+23,Irreversible Reaction,Easy,"One main direction, Products do not readily reform reactants, Single arrow, Reaction completion",Reaction,This reaction proceeds essentially in one direction under stated conditions.

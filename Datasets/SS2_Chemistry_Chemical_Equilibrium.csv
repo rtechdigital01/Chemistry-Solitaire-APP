@@ -1,0 +1,21 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Chemical Equilibrium,Easy,"Reversible reaction, Forward rate equals reverse rate, Closed system, Constant concentrations, Dynamic state",Reaction,"At equilibrium, forward and reverse reactions continue at equal rates."
+2,Dynamic Equilibrium,Medium,"Both reactions continue, Equal rates, Macroscopic constancy, Closed system, No net change",Reaction,Equilibrium is dynamic even though observable composition stays constant.
+3,Equilibrium in Reversible Reactions,Medium,"Forward reaction, Reverse reaction, Double arrow, Closed vessel, Equilibrium mixture",Reaction,A reversible reaction can establish a balance between opposing reaction rates.
+4,Equilibrium Position,Medium,"Reactant-favoured, Product-favoured, Composition, Conditions, Le Châtelier",Measurement,This describes the relative amounts of reactants and products at equilibrium.
+5,Le Châtelier's Principle,Medium,"System opposes change, Concentration, Pressure, Temperature, Equilibrium shift",Process,An equilibrium system responds to imposed changes by opposing them.
+6,Concentration and Equilibrium,Medium,"Add reactant shifts to products, Remove product shifts to products, System opposes change, Composition changes, Equilibrium",Reaction,Changing concentration can shift an equilibrium position.
+7,Pressure and Equilibrium,Hard,"Gas moles, Increase pressure, Shift to fewer gas molecules, Decrease pressure, Gas equilibrium",Reaction,Pressure affects equilibria involving different numbers of gaseous molecules.
+8,Temperature and Equilibrium,Hard,"Exothermic direction, Endothermic direction, Heat as reactant or product, Equilibrium shift, Temperature change",Energy,Temperature shifts equilibrium toward the direction that absorbs the imposed heat change.
+9,Catalyst and Equilibrium,Medium,"Speeds forward reaction, Speeds reverse reaction, No equilibrium shift, Equilibrium reached faster, Lower activation energy",Reaction,"A catalyst changes how quickly equilibrium is reached, not its position."
+10,Equilibrium Constant,Hard,"Kc, Product concentrations, Reactant concentrations, Powers from coefficients, Fixed temperature",Measurement,This constant describes equilibrium composition at a specified temperature.
+11,Kc Expression,Hard,"Concentration terms, Products over reactants, Stoichiometric powers, Equilibrium values, Homogeneous equilibrium",Measurement,The balanced equation determines the form of the equilibrium-constant expression.
+12,Large Kc,Medium,"Products favoured, Equilibrium to right, More products than reactants, At fixed temperature",Measurement,A large equilibrium constant indicates a product-rich equilibrium mixture.
+13,Small Kc,Medium,"Reactants favoured, Equilibrium to left, More reactants than products, At fixed temperature",Measurement,A small equilibrium constant indicates a reactant-rich equilibrium mixture.
+14,Haber Process Equilibrium,Medium,"N? + 3H? ? 2NH?, High pressure favours ammonia, Moderate temperature, Iron catalyst, Industrial equilibrium",Industry,Ammonia manufacture is a major application of equilibrium principles.
+15,Contact Process Equilibrium,Medium,"2SO? + O? ? 2SO?, Catalyst, Temperature compromise, Pressure effect, Sulphuric acid manufacture",Industry,Sulphur trioxide formation illustrates industrial equilibrium control.
+16,Industrial Equilibrium Compromise,Medium,"Yield, Rate, Temperature, Pressure, Cost",Industry,Industrial conditions balance equilibrium yield with practical production rate and cost.
+17,Acid-Base Equilibrium,Hard,"Weak acid, Partial ionisation, Reversible proton transfer, Equilibrium mixture, Hydrogen ions",Reaction,Weak acids and bases establish ionisation equilibria in water.
+18,Water Ionisation,Hard,"H?O ? H? + OH?, Very small extent, Hydrogen ions, Hydroxide ions, Equilibrium",Reaction,Water undergoes slight self-ionisation.
+19,pH and Equilibrium,Hard,"Hydrogen ion concentration, Weak acids, Weak bases, Ionisation balance, Acid-base system",Measurement,pH reflects the equilibrium concentration of hydrogen ions.
+20,Buffer Solution,Hard,"Resists pH change, Weak acid/base pair, Small acid addition, Small base addition, Equilibrium",Matter,A buffer minimises pH changes when small amounts of acid or base are added.

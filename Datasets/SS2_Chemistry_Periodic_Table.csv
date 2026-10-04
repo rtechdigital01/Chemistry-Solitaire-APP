@@ -1,0 +1,25 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Periodic Table,Easy,"Elements, Atomic number, Groups, Periods, Electronic configuration",Structure,The periodic table arranges elements systematically by atomic number.
+2,Modern Periodic Law,Medium,"Atomic number, Periodic properties, Recurring pattern, Element arrangement, Modern periodic table",Structure,Element properties recur periodically when elements are arranged by atomic number.
+3,Historical Periodic Table,Medium,"Early classifications, Atomic mass, Mendeleev, Periodic patterns, Element prediction",History,Early scientists arranged elements before the modern atomic-number system.
+4,Mendeleev's Periodic Table,Medium,"Atomic mass, Gaps for undiscovered elements, Similar properties, Predicted elements, Periodic arrangement",History,Mendeleev left gaps where he expected new elements to be discovered.
+5,Period,Easy,"Horizontal row, Electron shells, Atomic number increases, 1 to 7, Periodic table",Structure,Elements in the same period have the same number of occupied electron shells.
+6,Group,Easy,"Vertical column, Similar properties, Valence electrons, Chemical family, Periodic table",Structure,Elements in the same group often have similar outer-electron configurations.
+7,Group 1 Elements,Easy,"Alkali metals, One valence electron, Reactive metals, Form +1 ions, Soft metals",Matter,These metals have one electron in the outer shell.
+8,Group 2 Elements,Easy,"Alkaline earth metals, Two valence electrons, Form +2 ions, Reactive metals, Metal oxides",Matter,These elements commonly form ions with a 2+ charge.
+9,Group 17 Elements,Easy,"Halogens, Seven valence electrons, Reactive non-metals, Form ?1 ions, Diatomic molecules",Matter,These non-metals need one electron to complete the outer shell.
+10,Group 18 Elements,Easy,"Noble gases, Full outer shell, Very unreactive, Monatomic, Stable electronic configuration",Matter,These gases are chemically stable because their outer shells are complete.
+11,Valence Electrons,Easy,"Outermost shell, Chemical bonding, Group behaviour, Reactivity, Electron loss or gain",Particle,These electrons largely determine an element's chemical behaviour.
+12,Electronic Configuration and Group,Medium,"Outer electrons, Group number, Similar chemistry, Main-group elements, Valence pattern",Structure,Outer-shell electron number helps explain group similarities.
+13,Electronic Configuration and Period,Medium,"Occupied shells, Period number, Energy levels, Electron arrangement, Periodic table",Structure,The number of occupied shells corresponds to the period number.
+14,Metals in the Periodic Table,Easy,"Left and centre, Electron loss, Positive ions, Conductors, Metallic properties",Matter,Most elements on the left and centre of the table are metals.
+15,Non-metals in the Periodic Table,Easy,"Right side, Electron gain or sharing, Poor conductors, Covalent compounds, Non-metallic properties",Matter,Most non-metals occupy the right-hand side of the table.
+16,Atomic Radius Trend,Medium,"Decreases across a period, Increases down a group, Nuclear charge, Electron shells, Periodic trend",Measurement,Atomic size changes systematically across periods and down groups.
+17,Ionisation Energy Trend,Hard,"Generally increases across period, Generally decreases down group, Electron removal, Nuclear attraction, Periodic trend",Energy,This trend reflects how strongly outer electrons are held.
+18,Electronegativity Trend,Hard,"Generally increases across period, Generally decreases down group, Bond electrons, Fluorine high, Periodic trend",Measurement,This measures an atom's attraction for shared electrons.
+19,Metallic Character Trend,Medium,"Decreases across period, Increases down group, Electron loss, Metal behaviour, Periodic trend",Matter,Metallic character changes systematically in the periodic table.
+20,Reactivity of Group 1,Medium,"Increases down group, Outer electron farther from nucleus, Easier electron loss, Alkali metals, Water reaction",Reaction,Alkali metals become more reactive down the group.
+21,Reactivity of Halogens,Medium,"Decreases down group, Electron gain, Fluorine most reactive, Displacement reactions, Halogen trend",Reaction,Halogen reactivity generally decreases down the group.
+22,Periodic Trends,Medium,"Atomic radius, Ionisation energy, Electronegativity, Metallic character, Reactivity",Measurement,These properties show recurring changes across the periodic table.
+23,Transition Elements,Medium,"d-block, Variable oxidation states, Coloured compounds, Catalytic activity, Metals",Matter,These metallic elements show several characteristic chemical properties.
+24,Position from Electronic Configuration,Medium,"Count occupied shells, Count valence electrons, Determine period, Determine group, Main-group element",Process,Electron arrangement can be used to locate many elements in the periodic table.

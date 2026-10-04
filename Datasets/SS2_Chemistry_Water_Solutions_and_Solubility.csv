@@ -1,0 +1,31 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Water,Easy,"H?O, Polar molecule, Solvent, Hydrogen bonding, Essential resource",Matter,Water has important physical and chemical properties.
+2,Sources of Water,Easy,"Rain, Rivers, Lakes, Wells, Groundwater, Sea",Environment,These are common natural sources of water.
+3,Hard Water,Easy,"Ca²?, Mg²?, Poor lather, Scale, Dissolved salts",Matter,Hard water contains dissolved calcium or magnesium ions.
+4,Soft Water,Easy,"Lathers easily, Low Ca²? and Mg²?, Soap effective, No scale",Matter,Soft water forms lather readily with soap.
+5,Temporary Hardness,Medium,"Hydrogencarbonates, Removed by boiling, Calcium hydrogencarbonate, Magnesium hydrogencarbonate, Hard water",Matter,This type of hardness can be removed by boiling.
+6,Permanent Hardness,Medium,"Sulphates, Chlorides, Not removed by boiling, Ca²?, Mg²?",Matter,This type of hardness persists after boiling.
+7,Removal of Temporary Hardness,Medium,"Boiling, Lime treatment, Precipitation, Carbonates, Water softening",Process,Temporary hardness can be removed by decomposing hydrogencarbonates.
+8,Removal of Permanent Hardness,Medium,"Washing soda, Ion exchange, Precipitation, Ca²? removal, Mg²? removal",Process,Permanent hardness requires chemical or ion-exchange treatment.
+9,Advantages of Hard Water,Medium,"Calcium source, Magnesium source, May reduce pipe corrosion, Taste, Minerals",Environment,Hard water can provide useful mineral ions despite its disadvantages.
+10,Disadvantages of Hard Water,Easy,"Soap wastage, Scum, Scale, Blocked pipes, Boiler inefficiency",Environment,Hard water causes practical problems in washing and heating systems.
+11,Water Pollution,Easy,"Sewage, Industrial waste, Oil spill, Fertilizers, Pathogens",Environment,Water pollution introduces harmful substances into water sources.
+12,Water Pollutants,Easy,"Heavy metals, Detergents, Pesticides, Sewage, Oil",Environment,These contaminants can make water unsafe or damage ecosystems.
+13,Water Treatment,Easy,"Screening, Sedimentation, Filtration, Chlorination, Storage",Process,These stages are used to make raw water suitable for use.
+14,Sedimentation,Easy,"Settling, Suspended particles, Gravity, Clarification, Water treatment",Process,Heavier suspended particles settle during this treatment stage.
+15,Filtration in Water Treatment,Easy,"Sand bed, Removes fine particles, Clarification, Water purification, Filter medium",Equipment,Filtration removes remaining suspended matter.
+16,Chlorination,Easy,"Chlorine, Disinfection, Kills microorganisms, Water treatment, Residual protection",Safety,Chlorination reduces disease-causing microorganisms in water.
+17,Solution,Easy,"Solute, Solvent, Homogeneous mixture, Dissolved particles, Single phase",Matter,A solution is a homogeneous mixture of solute and solvent.
+18,Solute,Easy,"Dissolved substance, Smaller amount usually, Solution component, Solid liquid or gas",Matter,This component is dissolved in a solvent.
+19,Solvent,Easy,"Dissolving medium, Larger amount usually, Solution component, Water common example",Matter,This component dissolves the solute.
+20,Solubility,Easy,"Maximum solute, Given temperature, Saturated solution, Solvent amount, Dissolving capacity",Measurement,This is the maximum amount of solute that dissolves under specified conditions.
+21,Saturated Solution,Easy,"Maximum dissolved solute, Equilibrium, Given temperature, Undissolved solute may remain, Solubility limit",Matter,This solution contains the maximum solute that can dissolve at that temperature.
+22,Unsaturated Solution,Easy,"Can dissolve more solute, Below solubility limit, Given temperature, Solution",Matter,This solution can still dissolve additional solute.
+23,Supersaturated Solution,Hard,"More dissolved than normal saturation, Unstable, Crystallises readily, Prepared by cooling, Excess solute",Matter,This solution temporarily contains more dissolved solute than the normal saturation limit.
+24,Solubility Curve,Medium,"Solubility vs temperature, Graph, Saturated values, Crystallisation prediction, Comparing solutes",Measurement,This graph shows how solubility changes with temperature.
+25,Temperature and Solid Solubility,Medium,"Often increases with temperature, Solubility curve, Hot solvent, Crystallisation on cooling, Solid solute",Measurement,Many solids dissolve more readily in hotter water.
+26,Temperature and Gas Solubility,Medium,"Usually decreases with temperature, Gas escapes on heating, Dissolved gases, Cold water holds more gas",Measurement,Gases are generally less soluble in warmer liquids.
+27,Pressure and Gas Solubility,Medium,"Higher pressure, More gas dissolves, Carbonated drinks, Gas over liquid, Solubility",Measurement,Increasing gas pressure above a liquid usually increases gas solubility.
+28,Crystallisation from Solution,Medium,"Hot saturated solution, Cooling, Crystal formation, Solubility decreases, Pure solid",Process,Cooling a suitable saturated solution can produce crystals.
+29,Soluble Substance,Easy,"Dissolves, Solution forms, Solvent, Solubility",Matter,This substance dissolves appreciably in a given solvent.
+30,Insoluble Substance,Easy,"Does not dissolve appreciably, Suspension possible, Filterable solid, Solvent",Matter,This substance has very low solubility in a given solvent.

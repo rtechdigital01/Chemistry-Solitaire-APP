@@ -1,0 +1,20 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Oxygen,Easy,"Symbol O, Atomic number 8, O?, Supports combustion, Respiration",Matter,Oxygen is a reactive non-metallic gas essential to many processes.
+2,Occurrence of Oxygen,Easy,"Air, Water, Oxides, Earth crust, Combined and free states",Environment,Oxygen occurs both free in air and combined in many compounds.
+3,Laboratory Preparation of Oxygen,Medium,"Decomposition, Hydrogen peroxide, Potassium chlorate, Catalyst, Gas collection",Equipment,Oxygen can be prepared by decomposing suitable oxygen-rich compounds.
+4,Hydrogen Peroxide Decomposition,Medium,"H?O?, O? gas, Water, MnO? catalyst, Decomposition",Reaction,Hydrogen peroxide decomposes to water and oxygen.
+5,Test for Oxygen,Easy,"Glowing splint, Relights, Supports combustion, Gas test",Safety,Oxygen relights a glowing splint.
+6,Physical Properties of Oxygen,Easy,"Colourless, Odourless, Gas, Slightly soluble, Denser than hydrogen",Matter,These are common physical properties of oxygen.
+7,Chemical Properties of Oxygen,Medium,"Oxidising agent, Supports combustion, Forms oxides, Reacts with metals, Reacts with non-metals",Reaction,Oxygen reacts with many substances to form oxides.
+8,Metal Oxide,Easy,"Metal + oxygen, Oxide, Often basic, Ionic compound, Example MgO",Matter,These oxides are formed when metals react with oxygen.
+9,Non-metal Oxide,Easy,"Non-metal + oxygen, Often acidic, Covalent, Example CO?, Example SO?",Matter,These oxides are formed when non-metals react with oxygen.
+10,Basic Oxide,Medium,"Metal oxide, Reacts with acid, Salt + water, MgO, CaO",Matter,This oxide neutralises acids.
+11,Acidic Oxide,Medium,"Non-metal oxide, Reacts with alkali, May form acid in water, CO?, SO?",Matter,This oxide behaves as an acid anhydride.
+12,Amphoteric Oxide,Hard,"Reacts with acids, Reacts with bases, Al?O?, ZnO, Dual behaviour",Matter,This oxide reacts with both acids and alkalis.
+13,Neutral Oxide,Medium,"Neither acidic nor basic, CO, NO, Limited acid-base reaction",Matter,This oxide is neither strongly acidic nor basic.
+14,Oxidation,Easy,"Gain of oxygen, Loss of electrons, Increase oxidation number, Combustion, Redox",Reaction,Oxidation can be described in several equivalent ways.
+15,Uses of Oxygen,Easy,"Medical oxygen, Welding, Steelmaking, Combustion, Respiration support",Industry,Oxygen is widely used in medicine and industry.
+16,Ozone,Medium,"O?, Allotrope of oxygen, Strong oxidising agent, Ozone layer, Three oxygen atoms",Matter,Ozone is a triatomic allotrope of oxygen.
+17,Ozone Layer,Medium,"Stratosphere, Absorbs ultraviolet, O?, Protects life, Atmospheric chemistry",Environment,Stratospheric ozone reduces harmful ultraviolet radiation reaching Earth.
+18,Hydrogen Peroxide,Medium,"H?O?, Oxidising agent, Bleaching, Decomposes to H?O and O?, Peroxide",Matter,This oxygen compound is used as an oxidant and bleaching agent.
+19,Uses of Hydrogen Peroxide,Easy,"Bleaching, Disinfection, Oxidation, Laboratory oxygen, Cleaning",Industry,Hydrogen peroxide has useful oxidising applications.

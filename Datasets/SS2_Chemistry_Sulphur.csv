@@ -1,0 +1,23 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Sulphur,Easy,"Symbol S, Non-metal, Yellow solid, Group 16, Allotropes",Matter,Sulphur is a yellow non-metallic element.
+2,Occurrence of Sulphur,Easy,"Native sulphur, Sulphide ores, Sulphate minerals, Petroleum, Natural gas",Environment,Sulphur occurs free and combined in nature.
+3,Extraction of Sulphur,Medium,"Underground deposits, Frasch process, Hot water, Compressed air, Molten sulphur",Industry,Sulphur can be recovered from underground deposits by hot-water extraction.
+4,Frasch Process,Medium,"Superheated water, Compressed air, Molten sulphur, Underground deposit, Extraction",Equipment,This industrial method brings molten sulphur to the surface.
+5,Allotropes of Sulphur,Medium,"Rhombic sulphur, Monoclinic sulphur, Different crystal forms, Same element, Temperature dependent",Structure,Sulphur exists in more than one crystalline form.
+6,Rhombic Sulphur,Easy,"Yellow crystals, Room-temperature stable form, Sulphur allotrope, Octahedral crystals",Structure,This allotrope is the stable crystalline form at ordinary temperature.
+7,Monoclinic Sulphur,Easy,"Needle-shaped crystals, Higher-temperature form, Sulphur allotrope, Converts on cooling",Structure,This allotrope is stable over a higher temperature range.
+8,Sulphur Dioxide,Easy,"SO?, Colourless gas, Pungent smell, Acidic oxide, Reducing agent",Matter,Sulphur dioxide is an acidic gaseous oxide.
+9,Preparation of Sulphur Dioxide,Medium,"Burn sulphur, Acidify sulphite, SO? gas, Laboratory preparation, Acidic gas",Equipment,Sulphur dioxide can be prepared by burning sulphur or acidifying sulphites.
+10,Properties of Sulphur Dioxide,Medium,"Acidic, Reducing, Bleaching, Soluble in water, Pungent",Matter,These properties explain many reactions of sulphur dioxide.
+11,Bleaching by Sulphur Dioxide,Medium,"Reduction, Temporary bleaching, Moist conditions, Coloured substances, SO?",Reaction,Sulphur dioxide bleaches some materials by reduction.
+12,Sulphur Trioxide,Medium,"SO?, Acidic oxide, Forms sulphuric acid, Contact process intermediate, Reactive",Matter,Sulphur trioxide is used in sulphuric acid manufacture.
+13,Contact Process,Medium,"SO? oxidation, V?O? catalyst, SO? formation, Sulphuric acid, Industrial process",Industry,This process manufactures sulphuric acid from sulphur dioxide.
+14,Sulphuric Acid,Easy,"H?SO?, Strong acid, Dibasic, Dehydrating agent, Industrial chemical",Matter,Sulphuric acid is a major industrial acid.
+15,Properties of Dilute Sulphuric Acid,Medium,"Acid reactions, Metals, Bases, Carbonates, Sulphate salts",Reaction,Dilute sulphuric acid behaves as a strong dibasic acid.
+16,Concentrated Sulphuric Acid,Hard,"Dehydrating agent, Oxidising agent, Hygroscopic, Dense liquid, Corrosive",Safety,Concentrated sulphuric acid has strong dehydrating and oxidising properties.
+17,Sulphates,Easy,"SO?²?, Salts of sulphuric acid, BaSO? insoluble, Many soluble, Divalent anion",Matter,These salts contain the sulphate ion.
+18,Test for Sulphate Ion,Medium,"Barium chloride or nitrate, Acidified solution, White precipitate, BaSO?, Sulphate test",Reaction,Sulphate ions form insoluble barium sulphate.
+19,Hydrogen Sulphide,Medium,"H?S, Rotten-egg smell, Toxic, Weak acid, Reducing gas",Safety,Hydrogen sulphide is a poisonous sulphur hydride with a characteristic odour.
+20,Sulphides,Easy,"S²?, Metal sulphides, Often insoluble, Hydrogen sulphide salts, Sulphur compounds",Matter,These compounds contain sulphide ions or sulphur in a low oxidation state.
+21,Uses of Sulphur,Easy,"Sulphuric acid manufacture, Vulcanisation, Fungicides, Matches, Chemical manufacture",Industry,Sulphur is an important industrial raw material.
+22,Uses of Sulphuric Acid,Easy,"Fertilizers, Batteries, Detergents, Petroleum refining, Chemical manufacture",Industry,Sulphuric acid is used in many major industries.

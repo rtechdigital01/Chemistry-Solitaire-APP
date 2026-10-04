@@ -1,0 +1,42 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Organic Chemistry,Easy,"Carbon compounds, Hydrocarbons, Functional groups, Homologous series, Covalent compounds",Matter,Organic chemistry focuses mainly on compounds of carbon.
+2,Special Nature of Carbon,Medium,"Tetravalency, Catenation, Strong C–C bonds, Multiple bonding, Many compounds",Structure,Carbon forms a huge variety of compounds because of its bonding properties.
+3,Tetravalency of Carbon,Easy,"Four covalent bonds, Four valence electrons, CH?, Carbon bonding, Valency 4",Structure,Carbon commonly forms four covalent bonds.
+4,Catenation,Medium,"C–C bonds, Chains, Branches, Rings, Carbon skeleton",Structure,Carbon atoms can bond to one another to form extended structures.
+5,Organic Formulae,Easy,"Molecular formula, Structural formula, Displayed formula, Condensed formula, Carbon compounds",Structure,Organic compounds can be represented in several formula formats.
+6,Molecular Formula in Organic Chemistry,Easy,"Numbers of each atom, C?H?, C?H?, Composition, No bonding detail",Structure,This formula shows atom numbers but not connectivity.
+7,Structural Formula,Easy,"Atom connectivity, Bonds, Carbon chain, Functional group position, Organic molecule",Structure,This representation shows how atoms are connected.
+8,Homologous Series,Easy,"Same functional group, Same general formula, Similar chemistry, Gradual physical trends, Successive members differ by CH?",Structure,Members of a homologous series share a common functional group and general formula.
+9,Functional Group,Easy,"Reactive part, Characteristic reactions, Homologous series, Specific atom group, Organic chemistry",Structure,This atom or group determines characteristic reactions.
+10,General Formula,Easy,"Homologous series pattern, Alkanes C?H????, Alkenes C?H??, Alkynes C?H????, Alkanols C?H????OH",Structure,This algebraic formula describes members of a homologous series.
+11,IUPAC Naming of Alkanes,Medium,"Longest chain, Number carbon atoms, Meth eth prop but, -ane suffix, Substituent locants",Process,Systematic naming follows the carbon skeleton and substituent positions.
+12,Alkane,Easy,"Saturated hydrocarbon, Single C–C bonds, C?H????, Methane, Ethane",Matter,Alkanes contain only single carbon-carbon bonds.
+13,Methane,Easy,"CH?, Simplest alkane, Natural gas, Combustible, Tetrahedral molecule",Matter,Methane is the first member of the alkane series.
+14,Ethane,Easy,"C?H?, Alkane, Saturated, Single C–C bond, Combustible",Matter,Ethane is a two-carbon alkane.
+15,Propane,Easy,"C?H?, Alkane, LPG component, Saturated hydrocarbon, Fuel",Matter,Propane is a three-carbon alkane used as a fuel.
+16,Butane,Easy,"C?H??, Alkane, LPG component, Isomers, Fuel",Matter,Butane is a four-carbon alkane.
+17,Combustion of Alkanes,Easy,"Oxygen, CO?, H?O, Heat, Complete combustion",Reaction,Alkanes burn completely in excess oxygen to form carbon dioxide and water.
+18,Substitution Reaction of Alkanes,Medium,"Halogen, UV light, Hydrogen replaced, Haloalkane, Chain reaction",Reaction,Alkanes react with halogens mainly by substitution.
+19,Alkene,Easy,"Unsaturated hydrocarbon, C=C, C?H??, Ethene, Addition reactions",Matter,Alkenes contain at least one carbon-carbon double bond.
+20,Ethene,Easy,"C?H?, Alkene, C=C bond, Unsaturated, Addition reactions",Matter,Ethene is the simplest common alkene.
+21,Test for Unsaturation,Easy,"Bromine water, Decolourised, C=C bond, Addition reaction, Alkene",Reaction,Bromine water is decolourised by many unsaturated compounds.
+22,Addition of Hydrogen to Alkene,Medium,"Hydrogenation, H?, Catalyst, Alkane product, C=C consumed",Reaction,Hydrogen adds across the carbon-carbon double bond.
+23,Addition of Halogen to Alkene,Medium,"Br?, C=C bond, Dihaloalkane, Decolourisation, Addition",Reaction,Halogen molecules add across a carbon-carbon double bond.
+24,Polymerisation of Alkenes,Medium,"Addition polymerisation, Monomer, Polymer, C=C opens, Poly(ethene)",Reaction,Many alkene molecules can join to form a long-chain polymer.
+25,Alkyne,Medium,"Unsaturated hydrocarbon, C?C, C?H????, Ethyne, Addition reactions",Matter,Alkynes contain a carbon-carbon triple bond.
+26,Ethyne,Easy,"C?H?, Alkyne, Triple bond, Unsaturated, Combustible",Matter,Ethyne is the simplest alkyne.
+27,Aromatic Hydrocarbon,Medium,"Benzene ring, Delocalised electrons, Stable ring, Benzene, Aromaticity",Structure,These hydrocarbons contain aromatic ring systems such as benzene.
+28,Benzene,Medium,"C?H?, Aromatic ring, Delocalised electrons, Planar molecule, Combustible",Matter,Benzene is the simplest common aromatic hydrocarbon.
+29,Alkanol,Easy,"Alcohol, –OH functional group, C?H????OH, Methanol, Ethanol",Matter,Alkanols are organic compounds containing the hydroxyl functional group.
+30,Methanol,Easy,"CH?OH, Alkanol, Toxic, Solvent, Fuel",Matter,Methanol is the simplest alkanol.
+31,Ethanol,Easy,"C?H?OH, Alkanol, Solvent, Fuel, Fermentation product",Matter,Ethanol is a two-carbon alcohol with many uses.
+32,Fermentation to Ethanol,Medium,"Glucose, Yeast, Ethanol, CO?, Anaerobic conditions",Reaction,Sugars can be converted biologically to ethanol and carbon dioxide.
+33,Combustion of Ethanol,Easy,"O?, CO?, H?O, Heat, Exothermic",Reaction,Ethanol burns in oxygen to release energy.
+34,Oxidation of Ethanol,Medium,"Ethanol, Ethanal, Ethanoic acid, Oxidising agent, Stepwise oxidation",Reaction,Ethanol can be oxidised to more oxygen-rich organic products.
+35,Uses of Ethanol,Easy,"Solvent, Fuel, Antiseptic, Beverages, Chemical feedstock",Industry,"Ethanol is widely used as a solvent, fuel and chemical raw material."
+36,Isomerism,Medium,"Same molecular formula, Different structures, Different properties, Structural isomers, Organic compounds",Structure,Isomers share a molecular formula but differ in structure.
+37,Structural Isomerism,Medium,"Different connectivity, Same molecular formula, Chain isomers, Position isomers, Organic structures",Structure,This isomerism arises when atoms are connected differently.
+38,Saturated Hydrocarbon,Easy,"Only single bonds, Alkane, Maximum hydrogen, C–C single bonds, Less reactive toward addition",Matter,This hydrocarbon contains no carbon-carbon multiple bonds.
+39,Unsaturated Hydrocarbon,Easy,"C=C or C?C, Alkene or alkyne, Addition reactions, Bromine water test, Fewer hydrogens",Matter,This hydrocarbon contains at least one carbon-carbon multiple bond.
+40,Hydrocarbon,Easy,"Carbon, Hydrogen, Organic compound, Fuel, Alkane alkene alkyne",Matter,A hydrocarbon contains only carbon and hydrogen.
+41,Petrochemical Feedstock,Medium,"Crude oil fractions, Hydrocarbons, Cracking products, Organic manufacture, Polymers",Industry,Hydrocarbons provide starting materials for many organic chemicals.

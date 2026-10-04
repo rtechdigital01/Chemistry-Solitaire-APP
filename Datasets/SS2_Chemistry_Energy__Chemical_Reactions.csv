@@ -1,0 +1,23 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Energy Change in Reactions,Easy,"Heat released, Heat absorbed, Bond breaking, Bond making, Enthalpy change",Energy,Chemical reactions involve energy changes.
+2,Heat Content,Medium,"Enthalpy, Energy stored, State function, Reactants, Products",Energy,This refers to the heat content of a chemical system at constant pressure.
+3,Enthalpy Change,Medium,"?H, Products minus reactants, kJ mol?¹, Exothermic or endothermic, Heat change",Energy,This measures heat change for a process at constant pressure.
+4,Exothermic Reaction,Easy,"Heat released, Negative ?H, Surroundings warm, Products lower in energy, Combustion",Energy,This reaction transfers heat to the surroundings.
+5,Endothermic Reaction,Easy,"Heat absorbed, Positive ?H, Surroundings cool, Products higher in energy, Thermal decomposition",Energy,This reaction absorbs heat from the surroundings.
+6,Energy Profile Diagram,Medium,"Reactant energy, Product energy, Activation energy, Reaction pathway, ?H",Energy,This diagram shows how energy changes during a reaction.
+7,Exothermic Energy Profile,Medium,"Products lower, Negative ?H, Activation energy peak, Energy released, Reaction pathway",Energy,The products lie below the reactants in this profile.
+8,Endothermic Energy Profile,Medium,"Products higher, Positive ?H, Activation energy peak, Energy absorbed, Reaction pathway",Energy,The products lie above the reactants in this profile.
+9,Bond Breaking,Easy,"Requires energy, Endothermic step, Existing bonds, Reactants, Energy input",Energy,Energy must be supplied to break chemical bonds.
+10,Bond Formation,Easy,"Releases energy, Exothermic step, New bonds, Products, Energy output",Energy,Energy is released when new chemical bonds form.
+11,Bond Energy,Medium,"Energy to break bond, kJ mol?¹, Average bond enthalpy, Covalent bond, Energy calculation",Energy,This quantity measures the energy needed to break a mole of bonds.
+12,Bond Energy Calculation,Hard,"Energy bonds broken, Energy bonds formed, ?H = broken ? formed, Bond enthalpies, Reaction energy",Measurement,Reaction enthalpy can be estimated using average bond energies.
+13,Heat of Reaction,Medium,"Reaction enthalpy, Heat evolved or absorbed, Specified equation, Molar quantity, ?H",Energy,This is the heat change associated with a chemical reaction.
+14,Heat of Combustion,Medium,"Burning one mole, Oxygen, Heat released, Negative ?H, Fuel",Energy,This is the heat released when one mole of a substance burns completely.
+15,Heat of Neutralisation,Medium,"Acid + base, One mole water formed, Heat released, H? + OH?, Enthalpy",Energy,This is the heat change when acid and base form water.
+16,Heat of Formation,Medium,"One mole compound formed, Elements in standard states, Standard conditions, ?Hf, Enthalpy",Energy,This heat change refers to forming one mole of a compound from its elements.
+17,Standard Conditions for Enthalpy,Medium,"Specified temperature, Specified pressure, Standard states, Comparable data, Thermochemistry",Measurement,Energy data must be quoted under defined conditions.
+18,Calorimetry,Medium,"Temperature change, Mass, Specific heat capacity, q = mc?T, Heat measurement",Measurement,This technique measures heat transferred during a process.
+19,Specific Heat Capacity,Medium,"Energy per mass per degree, J g?¹ K?¹, q = mc?T, Temperature change, Heat calculation",Measurement,This property relates heat energy to mass and temperature change.
+20,Calorimeter,Easy,"Insulated container, Thermometer, Reaction vessel, Heat measurement, Temperature change",Equipment,This apparatus is used to estimate heat changes.
+21,Sources of Error in Calorimetry,Medium,"Heat loss, Heat absorbed by apparatus, Incomplete reaction, Evaporation, Measurement error",Measurement,These factors can make measured heat changes differ from true values.
+22,Energy and Catalyst,Medium,"Lower activation energy, Same ?H, Alternative pathway, Faster rate, Catalyst",Energy,A catalyst changes activation energy but not overall reaction enthalpy.

@@ -1,0 +1,23 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Redox Reaction,Easy,"Oxidation, Reduction, Electron transfer, Oxidation numbers change, Coupled processes",Reaction,Oxidation and reduction occur together in a redox reaction.
+2,Oxidation,Easy,"Loss of electrons, Gain of oxygen, Loss of hydrogen, Oxidation number increases, OIL",Reaction,Oxidation can be recognised by electron loss or increasing oxidation number.
+3,Reduction,Easy,"Gain of electrons, Loss of oxygen, Gain of hydrogen, Oxidation number decreases, RIG",Reaction,Reduction can be recognised by electron gain or decreasing oxidation number.
+4,Oxidation Number,Medium,"Apparent charge, Redox tracking, Increase means oxidation, Decrease means reduction, Roman numerals",Measurement,Oxidation numbers help identify redox changes.
+5,Oxidising Agent,Medium,"Causes oxidation, Accepts electrons, Is reduced, Electron acceptor, Oxidant",Reaction,This reagent oxidises another substance and is itself reduced.
+6,Reducing Agent,Medium,"Causes reduction, Donates electrons, Is oxidised, Electron donor, Reductant",Reaction,This reagent reduces another substance and is itself oxidised.
+7,Electron Transfer,Easy,"Donor, Acceptor, Oxidation, Reduction, Redox",Particle,Redox reactions can be described as transfers of electrons.
+8,Displacement Reaction,Easy,"More reactive element, Less reactive element displaced, Redox, Metal displacement, Halogen displacement",Reaction,A more reactive element can replace a less reactive one in a compound.
+9,Metal Displacement,Medium,"Zn + Cu²?, Copper deposited, Zinc oxidised, Copper ions reduced, Reactivity series",Reaction,Metal displacement involves simultaneous oxidation and reduction.
+10,Halogen Displacement,Medium,"Cl? + Br?, Br? formed, Chloride formed, Halogen reactivity, Redox",Reaction,A more reactive halogen oxidises the halide of a less reactive halogen.
+11,Combination Reaction,Easy,"Two or more reactants, One main product, Synthesis, A + B ? AB, Chemical reaction type",Reaction,This reaction combines substances to form a product.
+12,Decomposition Reaction,Easy,"One reactant, Two or more products, Breakdown, Heat may be used, AB ? A + B",Reaction,This reaction breaks one substance into simpler products.
+13,Thermal Decomposition,Easy,"Heating, Compound breaks down, Gas may form, Metal carbonate, Energy absorbed",Reaction,Heat causes a compound to decompose.
+14,Catalytic Decomposition,Medium,"Catalyst, Faster breakdown, Hydrogen peroxide, Oxygen formation, Decomposition",Reaction,A catalyst accelerates the breakdown of a compound.
+15,Reversible Reaction,Medium,"Forward reaction, Reverse reaction, Double arrow, Equilibrium possible, Products reform reactants",Reaction,This reaction can proceed in both directions.
+16,Neutralisation Reaction,Easy,"Acid, Base, Salt, Water, H? + OH?",Reaction,Acid and base react to form salt and water.
+17,Combustion as Redox,Medium,"Oxygen, Fuel oxidised, Oxidising agent, Heat release, Electron transfer concept",Reaction,Combustion involves oxidation of a fuel by oxygen.
+18,Corrosion as Redox,Medium,"Metal oxidation, Oxygen reduction, Electrochemical process, Rusting, Electron transfer",Reaction,Corrosion involves coupled oxidation and reduction processes.
+19,Balancing Redox Equations,Hard,"Oxidation half-equation, Reduction half-equation, Electron balance, Charge balance, Combine equations",Process,Redox equations can be balanced by matching electron loss and gain.
+20,Half-Equation,Medium,"Electrons shown, Oxidation half, Reduction half, Charge balance, Redox",Reaction,A half-equation shows either the oxidation or reduction part of a redox process.
+21,Oxidation Half-Equation,Medium,"Electrons on product side, Electron loss, Oxidation number rises, Redox",Reaction,This half-equation shows loss of electrons.
+22,Reduction Half-Equation,Medium,"Electrons on reactant side, Electron gain, Oxidation number falls, Redox",Reaction,This half-equation shows gain of electrons.

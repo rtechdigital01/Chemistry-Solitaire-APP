@@ -1,0 +1,22 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Halogens,Easy,"Group 17, F?, Cl?, Br?, I?, Seven valence electrons",Matter,These reactive non-metals form the halogen family.
+2,Halogen Trend,Medium,"Reactivity decreases down group, Colour deepens down group, Boiling point rises, Atomic size increases, Group 17",Measurement,Several physical and chemical properties change systematically down the halogens.
+3,Fluorine,Easy,"F?, Pale yellow gas, Most reactive halogen, Group 17, Strong oxidising agent",Matter,Fluorine is the most reactive halogen.
+4,Chlorine,Easy,"Cl?, Greenish-yellow gas, Disinfectant, Bleaching agent, Group 17",Matter,Chlorine is widely used in water treatment and bleaching.
+5,Bromine,Easy,"Br?, Red-brown liquid, Volatile, Group 17, Halogen",Matter,Bromine is the liquid halogen at room temperature.
+6,Iodine,Easy,"I?, Grey-black solid, Purple vapour, Sublimes, Halogen",Matter,Iodine forms a purple vapour when heated.
+7,Halide Ion,Easy,"F?, Cl?, Br?, I?, ?1 charge",Particle,Halogens form these monovalent negative ions.
+8,Halogen Displacement,Medium,"More reactive halogen, Displaces less reactive halide, Redox, Chlorine displaces bromide, Group trend",Reaction,A more reactive halogen displaces a less reactive one from its salt solution.
+9,Chlorine + Bromide,Medium,"Cl?, Br?, Br? formed, Cl? formed, Displacement",Reaction,Chlorine oxidises bromide ions to bromine.
+10,Chlorine + Iodide,Medium,"Cl?, I?, I? formed, Cl? formed, Displacement",Reaction,Chlorine oxidises iodide ions to iodine.
+11,Preparation of Chlorine,Medium,"Oxidation of concentrated HCl, MnO?, Cl? gas, Laboratory preparation, Gas handling",Equipment,Chlorine can be prepared by oxidising hydrochloric acid.
+12,Properties of Chlorine,Medium,"Greenish-yellow, Pungent, Toxic, Bleaches damp litmus, Reactive",Matter,These are characteristic properties of chlorine gas.
+13,Bleaching by Chlorine,Medium,"Damp condition, Oxidation, Colour removal, Hypochlorous acid, Permanent bleaching",Reaction,Chlorine bleaches many dyes through oxidation in moist conditions.
+14,Chlorine in Water Treatment,Easy,"Disinfection, Kills microorganisms, Drinking water, Swimming pools, Residual chlorine",Safety,Chlorine is used to disinfect water.
+15,Hydrogen Chloride,Easy,"HCl, Covalent gas, Very soluble in water, Acidic solution, Hydrogen halide",Matter,Hydrogen chloride forms hydrochloric acid when dissolved in water.
+16,Hydrochloric Acid Reactions,Medium,"Metals, Bases, Carbonates, Chlorides, Strong acid",Reaction,Hydrochloric acid undergoes characteristic acid reactions.
+17,Chlorides,Easy,"Cl? salts, NaCl, KCl, AgCl, Ionic compounds",Matter,These salts contain chloride ions.
+18,Test for Chloride Ion,Medium,"Silver nitrate, Dilute nitric acid, White precipitate, AgCl, Halide test",Reaction,Chloride ions give a white precipitate with silver nitrate.
+19,Test for Bromide Ion,Medium,"Silver nitrate, Cream precipitate, AgBr, Halide test, Nitric acid",Reaction,Bromide ions form a cream silver bromide precipitate.
+20,Test for Iodide Ion,Medium,"Silver nitrate, Yellow precipitate, AgI, Halide test, Nitric acid",Reaction,Iodide ions form a yellow silver iodide precipitate.
+21,Uses of Halogens,Easy,"Disinfection, Bleaching, Antiseptics, Photography compounds, Chemical manufacture",Industry,Halogens and their compounds have many practical applications.

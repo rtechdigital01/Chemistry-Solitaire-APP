@@ -1,0 +1,23 @@
+S/N,Category,Difficulty,Card Pool,Icon Type,hint
+1,Air,Easy,"Gas mixture, Nitrogen, Oxygen, Noble gases, Carbon dioxide",Environment,Air is a mixture of gases surrounding Earth.
+2,Composition of Air,Easy,"Nitrogen about 78%, Oxygen about 21%, Argon and noble gases, Carbon dioxide small amount, Water vapour variable",Measurement,These are the major components of clean dry air.
+3,Nitrogen in Air,Easy,"Largest component, About 78%, N?, Relatively unreactive, Industrial raw material",Matter,Nitrogen is the major component of the atmosphere.
+4,Oxygen in Air,Easy,"About 21%, O?, Supports combustion, Respiration, Reactive gas",Matter,Oxygen is the second major atmospheric component.
+5,Noble Gases in Air,Easy,"Argon, Neon, Helium, Very unreactive, Small percentages",Matter,These gases occur in small amounts and are chemically unreactive.
+6,Carbon Dioxide in Air,Easy,"CO?, Small percentage, Photosynthesis, Greenhouse gas, Combustion product",Environment,This gas is present in air in a small but important amount.
+7,Water Vapour in Air,Easy,"Variable amount, Humidity, Condensation, Clouds, Weather",Environment,The amount of this gas varies with atmospheric conditions.
+8,Combustion,Easy,"Oxygen, Fuel, Heat, Oxidation, Products",Reaction,Combustion is a rapid reaction with oxygen that releases energy.
+9,Rusting,Easy,"Iron, Oxygen, Water, Corrosion, Hydrated iron oxide",Reaction,Iron rusts when both oxygen and water are present.
+10,Flame,Medium,"Combustion zone, Heat, Light, Fuel, Oxygen",Reaction,A flame is the visible gaseous region of many combustion processes.
+11,Air Pollution,Easy,"Harmful gases, Smoke, Particulates, Chemical contaminants, Atmosphere",Environment,Air pollution is contamination of the atmosphere by harmful substances.
+12,Carbon Monoxide Pollution,Medium,"Incomplete combustion, CO, Toxic, Binds haemoglobin, Vehicle exhaust",Safety,This poisonous gas is produced when fuels burn incompletely.
+13,Sulphur Dioxide Pollution,Medium,"SO?, Sulphur fuels, Acid rain, Respiratory irritation, Industrial emissions",Environment,Sulphur dioxide contributes to acid rain and respiratory problems.
+14,Nitrogen Oxides Pollution,Medium,"NO?, High-temperature combustion, Acid rain, Smog, Vehicle engines",Environment,Nitrogen oxides are important air pollutants from combustion.
+15,Particulate Pollution,Easy,"Soot, Dust, Smoke, Respiratory risk, Visibility reduction",Environment,Tiny suspended solid particles can pollute air.
+16,Greenhouse Gases,Easy,"CO?, CH?, Water vapour, Heat trapping, Climate",Environment,These gases absorb outgoing infrared radiation.
+17,Greenhouse Effect,Medium,"Heat trapping, Infrared radiation, Atmosphere, Greenhouse gases, Warming",Environment,This natural process warms Earth when gases absorb outgoing heat radiation.
+18,Acid Rain,Medium,"SO?, NO?, Acidic precipitation, Damage to lakes, Damage to buildings",Environment,Acid-forming air pollutants can lower the pH of rainfall.
+19,Sources of Air Pollution,Easy,"Vehicles, Factories, Burning fuels, Bush burning, Waste burning",Environment,These activities release pollutants into the atmosphere.
+20,Control of Air Pollution,Medium,"Cleaner fuels, Catalytic converters, Emission limits, Filters, Renewable energy",Environment,These measures reduce harmful emissions to air.
+21,Catalytic Converter,Medium,"Vehicle exhaust, CO removal, NO? reduction, Hydrocarbon oxidation, Catalyst",Equipment,This device reduces harmful gases in vehicle exhaust.
+22,Air as Industrial Raw Material,Medium,"Fractional distillation, Oxygen, Nitrogen, Argon, Liquefied air",Industry,Air can be separated industrially to obtain useful gases.
