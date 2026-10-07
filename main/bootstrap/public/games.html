@@ -407,7 +407,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function openLevelModal(deck) {
-        levelModalTitle.textContent = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        const cleanName = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+        levelModalTitle.textContent = deck.key_stage ? `${deck.key_stage.toUpperCase()} — ${cleanName}` : cleanName;
 
         const token = localStorage.getItem("auth_token");
         const progressPromise = token
