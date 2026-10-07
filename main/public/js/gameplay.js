@@ -353,7 +353,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const levelLabel = document.querySelector(".level-label");
         const levelTitle = document.querySelector(".level-title");
         if (levelLabel) levelLabel.textContent = `${keyStage} · ${difficultyLabels[difficulty] || difficulty.toUpperCase()}`;
-        if (levelTitle) levelTitle.textContent = "Periodic Table & Groups";
+        let titleStr = deck.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        if (deck === 'periodic-table-groups') titleStr = 'Periodic Table & Groups';
+        if (deck === 'ss3-chemistry') titleStr = 'SS3 Chemistry';
+        if (levelTitle) levelTitle.textContent = titleStr;
     }
 
     /* ============================================================

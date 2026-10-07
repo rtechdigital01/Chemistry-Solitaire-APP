@@ -48,7 +48,14 @@ if (
     authPages.includes(currentPage) &&
     authToken
 ) {
-    window.location.href = '/dashboard';
+    let redirectUrl = '/dashboard';
+    try {
+        const u = JSON.parse(localStorage.getItem('user') || '{}');
+        if (u.role === 'teacher' || u.role === 'admin') {
+            redirectUrl = '/teacher-dashboard.html';
+        }
+    } catch(e) {}
+    window.location.href = redirectUrl;
     return;
 }
     
@@ -436,7 +443,7 @@ document.querySelectorAll('.password-toggle').forEach(button => {
 /* ========================================
    DASHBOARD USER PROFILE
 ======================================== */
-if (currentPage === 'dashboard') {
+if (currentPage === 'dashboard' || currentPage === 'teacher-dashboard' || currentPage === 'games') {
 
     const token = localStorage.getItem('auth_token');
 
@@ -482,10 +489,14 @@ if (currentPage === 'dashboard') {
                 document.getElementById("dashboardUserCourse");
             
             if (dashboardUserCourse) {
-                dashboardUserCourse.textContent =
-                    user.education_level && user.key_stage
-                        ? `${user.education_level} • ${user.key_stage} Chemistry`
-                        : 'Chemistry Student';
+                if (user.role === 'teacher') {
+                    dashboardUserCourse.textContent = 'Chemistry Teacher';
+                } else {
+                    dashboardUserCourse.textContent =
+                        user.education_level && user.key_stage
+                            ? `${user.education_level} • ${user.key_stage} Chemistry`
+                            : 'Chemistry Student';
+                }
             }
 
             // Keep local browser copy updated
@@ -496,12 +507,63 @@ if (currentPage === 'dashboard') {
             
             
 
-const dashboardCoinBalance =
-    document.getElementById("dashboardCoinBalance");
-
+const dashboardCoinBalance = document.getElementById("dashboardCoinBalance");
 if (dashboardCoinBalance) {
-    dashboardCoinBalance.textContent =
-        Number(user.coin_balance || 0).toLocaleString();
+    dashboardCoinBalance.textContent = Number(user.coin_balance || 0).toLocaleString();
+}
+
+const dashboardDecksPlayed = document.getElementById("dashboardDecksPlayed");
+if (dashboardDecksPlayed) {
+    dashboardDecksPlayed.textContent = Number(user.decks_played || 0).toLocaleString();
+}
+
+const dashboardAccuracy = document.getElementById("dashboardAccuracy");
+if (dashboardAccuracy) {
+    dashboardAccuracy.textContent = (user.accuracy ? Number(user.accuracy) : 0) + '%';
+}
+
+const chemText = document.getElementById("dashboardChemistryProgressText");
+const chemBar = document.getElementById("dashboardChemistryProgressBar");
+if (chemText && chemBar) {
+    const p = user.progress_chemistry || 0;
+    chemText.textContent = p + '%';
+    chemBar.style.width = p + '%';
+}
+
+const bioText = document.getElementById("dashboardBiologyProgressText");
+const bioBar = document.getElementById("dashboardBiologyProgressBar");
+if (bioText && bioBar) {
+    const p = user.progress_biology || 0;
+    bioText.textContent = p + '%';
+    bioBar.style.width = p + '%';
+}
+
+const physText = document.getElementById("dashboardPhysicsProgressText");
+const physBar = document.getElementById("dashboardPhysicsProgressBar");
+if (physText && physBar) {
+    const p = user.progress_physics || 0;
+    physText.textContent = p + '%';
+    physBar.style.width = p + '%';
+}
+
+const teacherTotalStudents = document.getElementById("teacherTotalStudents");
+if (teacherTotalStudents) {
+    teacherTotalStudents.textContent = Number(user.total_students || 0).toLocaleString();
+}
+
+const teacherClassesAssigned = document.getElementById("teacherClassesAssigned");
+if (teacherClassesAssigned) {
+    teacherClassesAssigned.textContent = Number(user.classes_assigned || 0).toLocaleString();
+}
+
+const teacherAvgClassScore = document.getElementById("teacherAvgClassScore");
+if (teacherAvgClassScore) {
+    teacherAvgClassScore.textContent = (user.avg_class_score ? Number(user.avg_class_score) : 0) + '%';
+}
+
+const teacherNeedsAttention = document.getElementById("teacherNeedsAttention");
+if (teacherNeedsAttention) {
+    teacherNeedsAttention.textContent = Number(user.needs_attention || 0).toLocaleString();
 }
 
             /* USER NAME */
@@ -509,14 +571,17 @@ if (dashboardCoinBalance) {
                 document.getElementById('dashboardUserName');
 
             if (nameElement) {
-
-                const firstName =
-                    user.display_name ||
-                    (user.name
-                        ? user.name.trim().split(' ')[0]
-                        : 'Student');
-
-                nameElement.textContent = firstName;
+                let displayName;
+                if (user.role === 'teacher') {
+                    displayName = user.display_name || user.name || 'Mr. Educator';
+                } else {
+                    displayName =
+                        user.display_name ||
+                        (user.name
+                            ? user.name.trim().split(' ')[0]
+                            : 'Student');
+                }
+                nameElement.textContent = displayName;
             }
 
 
@@ -696,7 +761,11 @@ if (currentPage === 'profile-setup') {
                     JSON.stringify(result.data)
                 );
 
-                window.location.href = 'dashboard.html';
+                if (result.data.role === 'teacher' || result.data.role === 'admin') {
+                    window.location.href = 'teacher-dashboard.html';
+                } else {
+                    window.location.href = 'dashboard.html';
+                }
 
             } catch (error) {
 

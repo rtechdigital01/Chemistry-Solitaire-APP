@@ -8,6 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isLoggedIn = !!localStorage.getItem("auth_token");
 
+    let playHref = "/login";
+    let playText = "Play Now";
+
+    if (isLoggedIn) {
+        let userRole = null;
+        let userCountry = null;
+        let userClass = null;
+
+        try {
+            const userJson = localStorage.getItem("user");
+            if (userJson) {
+                const u = JSON.parse(userJson);
+                userRole = u.role;
+                userCountry = u.country;
+                userClass = u.education_level || u.key_stage;
+            }
+        } catch (e) {}
+
+        if (userRole === 'teacher') {
+            const path = window.location.pathname;
+            if (path.includes('games.html') || path.includes('gameplay.html') || path.includes('gameplay-states.html')) {
+                playHref = "teacher-dashboard.html";
+                playText = "Dashboard";
+            } else {
+                playText = "Play Game";
+                playHref = "games.html";
+            }
+        } else {
+            playHref = "dashboard.html";
+            playText = "Dashboard";
+        }
+    }
+
 
     /* ========================================
        INSERT HEADER
@@ -71,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     <a
-                        href="${isLoggedIn ? "/dashboard" : "/login"}"
+                        href="${playHref}"
                         class="header-play-button"
                     >
 
@@ -90,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </svg>
 
                         <span>
-                            ${isLoggedIn ? "Dashboard" : "Play Now"}
+                            ${playText}
                         </span>
 
                     </a>
@@ -156,8 +189,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         : ""
                 }
 
-                <a href="${isLoggedIn ? "/dashboard" : "/login"}">
-                    ${isLoggedIn ? "Dashboard" : "Play Now"}
+                <a href="${playHref}">
+                    ${playText}
                 </a>
 
             </nav>
