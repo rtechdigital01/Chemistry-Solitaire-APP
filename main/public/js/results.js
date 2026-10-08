@@ -1,14 +1,85 @@
 document.addEventListener("DOMContentLoaded", () => {
+    async function loadMobileProgress() {
+    const token = localStorage.getItem("auth_token");
 
-    const savedResult =
-        localStorage.getItem("latest_game_result");
+    if (!token) return;
 
-    const savedUser =
-        localStorage.getItem("user");
+    try {
 
-    if (!savedResult) {
-        return;
+        const response = await fetch(
+            "/api/gameplay/progress",
+            {
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Unable to load progress.");
+        }
+
+        const data = result.data || {};
+        const weekly = data.weekly || {};
+        const subjects = data.subjects || {};
+
+        document.getElementById("mobileWeeklyCards").textContent =
+            Number(weekly.cards || 0);
+
+        document.getElementById("mobileWeeklySessions").textContent =
+            Number(weekly.sessions || 0);
+
+        document.getElementById("mobileWeeklyAccuracy").textContent =
+            `${Number(weekly.accuracy || 0)}%`;
+
+        document.getElementById("mobileWeeklyCoins").textContent =
+            Number(weekly.coins || 0);
+
+        const chemistry = subjects.chemistry || {};
+        const biology = subjects.biology || {};
+        const physics = subjects.physics || {};
+
+        document.getElementById("mobileChemistryPercent").textContent =
+            `${Number(chemistry.accuracy || 0)}%`;
+
+        document.getElementById("mobileChemistryBar").style.width =
+            `${Number(chemistry.accuracy || 0)}%`;
+
+        document.getElementById("mobileChemistryDecks").textContent =
+            `${Number(chemistry.completed_decks || 0)} decks completed`;
+
+        document.getElementById("mobileBiologyPercent").textContent =
+            `${Number(biology.accuracy || 0)}%`;
+
+        document.getElementById("mobileBiologyBar").style.width =
+            `${Number(biology.accuracy || 0)}%`;
+
+        document.getElementById("mobileBiologyDecks").textContent =
+            `${Number(biology.completed_decks || 0)} decks completed`;
+
+        document.getElementById("mobilePhysicsPercent").textContent =
+            `${Number(physics.accuracy || 0)}%`;
+
+        document.getElementById("mobilePhysicsBar").style.width =
+            `${Number(physics.accuracy || 0)}%`;
+
+        document.getElementById("mobilePhysicsDecks").textContent =
+            `${Number(physics.completed_decks || 0)} decks completed`;
+
+    } catch (error) {
+        console.error("Progress page error:", error);
     }
+}
+
+        const savedResult = localStorage.getItem("latest_game_result");
+        const savedUser = localStorage.getItem("user");
+        
+        loadMobileProgress();
+        
+        if (!savedResult) return;
 
     const result = JSON.parse(savedResult);
     const user = savedUser
@@ -103,6 +174,20 @@ const coinsEarned =
 
 const coinBalance =
     Number(result.coin_balance || 0);
+    
+/* ========================================
+   MOBILE PROGRESS DATA
+======================================== */
+const chemistryProgress =
+    Number(user?.progress_chemistry || 0);
+const biologyProgress =
+    Number(user?.progress_biology || 0);
+const physicsProgress =
+    Number(user?.progress_physics || 0);
+const overallAccuracy =
+    Number(user?.accuracy ?? accuracy);
+const totalDecksPlayed =
+    Number(user?.decks_played || 0);
 
 
     /* HEADER */
@@ -305,5 +390,8 @@ if (summaryCoinBalance) {
             }
         }
     }
+
+
+
 
 });

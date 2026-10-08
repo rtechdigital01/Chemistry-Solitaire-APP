@@ -131,25 +131,13 @@ class CategoryController extends Controller
     public function decks(Request $request): JsonResponse
     {
         $categoryCount = 5;
-        $user = $request->user();
-        $isTeacherOrAdmin = $user && in_array($user->role, ['teacher', 'admin']);
-
+        $keyStage = $this->resolveKeyStage($request);
         $subject = strtolower(
             $request->segment(2) ?: 'chemistry'
         );
-
-        $query = Category::query()->where('subject', $subject);
-
-        $requestedKeyStage = strtoupper($request->query('key_stage', ''));
-
-        if ($requestedKeyStage) {
-            $query->where('key_stage', $requestedKeyStage);
-        } elseif (!$isTeacherOrAdmin) {
-            $keyStage = $this->resolveKeyStage($request);
-            $query->where('key_stage', $keyStage);
-        }
-
-        $rows = $query
+        $rows = Category::query()
+            ->where('key_stage', $keyStage)
+            ->where('subject', $subject)
             ->select('deck', 'key_stage', 'difficulty', 'card_pool')
             ->get()
             ->filter(function ($category) {

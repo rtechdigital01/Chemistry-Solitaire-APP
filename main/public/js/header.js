@@ -28,12 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (userRole === 'teacher') {
             const path = window.location.pathname;
-            if (path.includes('teacher-dashboard')) {
-                playText = "Play Game";
-                playHref = "games.html";
-            } else {
+            if (path.includes('games.html') || path.includes('gameplay.html') || path.includes('gameplay-states.html')) {
                 playHref = "teacher-dashboard.html";
                 playText = "Dashboard";
+            } else {
+                playText = "Play Game";
+                playHref = "games.html";
             }
         } else {
             playHref = "dashboard.html";

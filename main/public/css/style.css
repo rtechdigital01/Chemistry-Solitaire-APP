@@ -6060,3 +6060,668 @@ body {
 
 
 
+
+
+
+/* =========================================================
+   RESULTS / PROGRESS — MOBILE APP VIEW
+   COMPACT / NO SCROLL
+========================================================= */
+
+.mobile-results-page {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        overflow: hidden !important;
+        background: #F8FAFF !important;
+    }
+
+    #header,
+    .results-main,
+    #footer {
+        display: none !important;
+    }
+
+    .mobile-results-page {
+        display: block;
+
+        width: 100%;
+        height: 100dvh;
+
+        padding:
+            22px
+            18px
+            72px;
+
+        overflow: hidden;
+
+        background: #F8FAFF;
+
+        font-family: "Nunito", sans-serif;
+    }
+
+
+    /* HEADING */
+
+    .mobile-results-heading {
+        margin-bottom: 15px;
+    }
+
+    .mobile-results-heading h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 23px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+    .mobile-results-heading p {
+        margin: 5px 0 0;
+
+        color: #8B98AA;
+
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+
+    /* THIS WEEK CARD */
+
+    .mobile-results-week {
+        margin-bottom: 18px;
+
+        padding:
+            16px
+            16px
+            17px;
+
+        background: #152748;
+
+        border-radius: 20px;
+
+        color: #FFFFFF;
+    }
+
+    .mobile-results-week-label {
+        display: block;
+
+        margin-bottom: 13px;
+
+        color: #8FA0BE;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 1.1px;
+    }
+
+    .mobile-results-week-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 4px;
+    }
+
+    .mobile-results-week-grid > div {
+        text-align: center;
+    }
+
+    .mobile-results-week-grid strong {
+        display: block;
+
+        color: #FFFFFF;
+
+        font-size: 21px;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+    .mobile-results-week-grid span {
+        display: block;
+
+        margin-top: 5px;
+
+        color: #A9B4C7;
+
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+
+    /* BY SUBJECT */
+
+    .mobile-results-subjects h2 {
+        margin:
+            0
+            0
+            11px;
+
+        color: #14213D;
+
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-subject-card {
+        margin-bottom: 10px;
+
+        padding:
+            13px
+            14px
+            12px;
+
+        background: #FFFFFF;
+
+        border: 1px solid #E4E9F1;
+        border-radius: 17px;
+
+        box-shadow:
+            0 3px 10px
+            rgba(15, 23, 42, 0.04);
+    }
+
+    .mobile-progress-subject-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+    .mobile-progress-subject-left {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .mobile-progress-subject-icon {
+        width: 38px;
+        height: 38px;
+
+        flex: 0 0 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-subject-icon.chemistry {
+        color: #2563FF;
+        background: #EDF4FF;
+    }
+
+    .mobile-progress-subject-icon.biology {
+        color: #10B981;
+        background: #EAFBF5;
+    }
+
+    .mobile-progress-subject-icon.physics {
+        color: #F5A000;
+        background: #FFF7E5;
+    }
+
+    .mobile-progress-subject-left strong {
+        display: block;
+
+        color: #14213D;
+
+        font-size: 14px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+    .mobile-progress-subject-left span {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #98A4B4;
+
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .mobile-progress-percent {
+        flex: 0 0 auto;
+
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-percent.chemistry {
+        color: #2563FF;
+    }
+
+    .mobile-progress-percent.biology {
+        color: #10B981;
+    }
+
+    .mobile-progress-percent.physics {
+        color: #F5A000;
+    }
+
+
+    /* PROGRESS BARS */
+
+    .mobile-progress-bar {
+        width: 100%;
+        height: 5px;
+
+        margin-top: 10px;
+
+        overflow: hidden;
+
+        background: #E8EDF4;
+
+        border-radius: 999px;
+    }
+
+    .mobile-progress-bar span {
+        display: block;
+
+        width: 0%;
+        height: 100%;
+
+        border-radius: 999px;
+    }
+
+    .mobile-progress-bar span.chemistry {
+        background: #2563FF;
+    }
+
+    .mobile-progress-bar span.biology {
+        background: #10B981;
+    }
+
+    .mobile-progress-bar span.physics {
+        background: #F5A000;
+    }
+
+
+    /* BOTTOM NAV */
+
+    .mobile-results-page .mobile-bottom-nav {
+        height: 64px;
+        z-index: 2000;
+    }
+
+    .mobile-results-page .mobile-nav-item {
+        font-size: 9px;
+    }
+
+    .mobile-results-page .mobile-nav-svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .mobile-results-page .mobile-play-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .mobile-results-page .mobile-play-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    /* VERY SMALL PHONES */
+
+    @media (max-height: 700px) {
+
+        .mobile-results-page {
+            padding-top: 15px;
+        }
+
+        .mobile-results-heading {
+            margin-bottom: 11px;
+        }
+
+        .mobile-results-week {
+            margin-bottom: 13px;
+            padding-top: 13px;
+            padding-bottom: 14px;
+        }
+
+        .mobile-progress-subject-card {
+            margin-bottom: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+}
+    /* ========================================
+       HEADING
+    ======================================== */
+
+    .mobile-results-heading {
+        margin-bottom: 24px;
+    }
+
+
+    .mobile-results-heading h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 31px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+
+    .mobile-results-heading p {
+        margin: 10px 0 0;
+
+        color: #8B98AA;
+
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+
+    /* ========================================
+       THIS WEEK CARD
+    ======================================== */
+
+    .mobile-results-week {
+        margin-bottom: 28px;
+
+        padding: 25px 20px 24px;
+
+        background: #152748;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 12px 26px
+            rgba(20, 33, 61, 0.11);
+
+        color: #FFFFFF;
+    }
+
+
+    .mobile-results-week-label {
+        display: block;
+
+        margin-bottom: 20px;
+
+        color: #8FA0BE;
+
+        font-size: 12px;
+        font-weight: 900;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .mobile-results-week-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 8px;
+    }
+
+
+    .mobile-results-week-grid > div {
+        text-align: center;
+    }
+
+
+    .mobile-results-week-grid strong {
+        display: block;
+
+        color: #FFFFFF;
+
+        font-size: 25px;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+
+    .mobile-results-week-grid span {
+        display: block;
+
+        margin-top: 8px;
+
+        color: #A9B4C7;
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+
+    /* ========================================
+       BY SUBJECT
+    ======================================== */
+
+    .mobile-results-subjects h2 {
+        margin:
+            0 0 17px;
+
+        color: #14213D;
+
+        font-size: 19px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-subject-card {
+        margin-bottom: 14px;
+
+        padding: 18px 18px 16px;
+
+        background: #FFFFFF;
+
+        border: 1px solid #E4E9F1;
+        border-radius: 20px;
+
+        box-shadow:
+            0 5px 15px
+            rgba(15, 23, 42, 0.055);
+    }
+
+
+    .mobile-progress-subject-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    .mobile-progress-subject-left {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 13px;
+    }
+
+
+    .mobile-progress-subject-icon {
+        width: 46px;
+        height: 46px;
+
+        flex: 0 0 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 14px;
+
+        font-size: 22px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-subject-icon.chemistry {
+        color: #2563FF;
+        background: #EDF4FF;
+    }
+
+
+    .mobile-progress-subject-icon.biology {
+        color: #10B981;
+        background: #EAFBF5;
+    }
+
+
+    .mobile-progress-subject-icon.physics {
+        color: #F5A000;
+        background: #FFF7E5;
+    }
+
+
+    .mobile-progress-subject-left strong {
+        display: block;
+
+        color: #14213D;
+
+        font-size: 17px;
+        font-weight: 900;
+
+        line-height: 1.15;
+    }
+
+
+    .mobile-progress-subject-left span {
+        display: block;
+
+        margin-top: 4px;
+
+        color: #98A4B4;
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+
+    .mobile-progress-percent {
+        flex: 0 0 auto;
+
+        font-size: 19px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-percent.chemistry {
+        color: #2563FF;
+    }
+
+
+    .mobile-progress-percent.biology {
+        color: #10B981;
+    }
+
+
+    .mobile-progress-percent.physics {
+        color: #F5A000;
+    }
+
+
+    /* ========================================
+       PROGRESS BARS
+    ======================================== */
+
+    .mobile-progress-bar {
+        width: 100%;
+        height: 6px;
+
+        margin-top: 15px;
+
+        overflow: hidden;
+
+        background: #E8EDF4;
+
+        border-radius: 999px;
+    }
+
+
+    .mobile-progress-bar span {
+        display: block;
+
+        width: 0%;
+        height: 100%;
+
+        border-radius: 999px;
+
+        transition:
+            width 0.4s ease;
+    }
+
+
+    .mobile-progress-bar span.chemistry {
+        background: #2563FF;
+    }
+
+
+    .mobile-progress-bar span.biology {
+        background: #10B981;
+    }
+
+
+    .mobile-progress-bar span.physics {
+        background: #F5A000;
+    }
+
+
+    /* ========================================
+       BOTTOM NAV OVERRIDE
+    ======================================== */
+
+    .mobile-results-page .mobile-bottom-nav {
+        z-index: 2000;
+    }
+
+
+    /* SMALL PHONES */
+
+    @media (max-width: 370px) {
+
+        .mobile-results-page {
+            padding-left: 17px;
+            padding-right: 17px;
+        }
+
+
+        .mobile-results-week {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+
+        .mobile-results-week-grid strong {
+            font-size: 22px;
+        }
+
+    }
+
+}

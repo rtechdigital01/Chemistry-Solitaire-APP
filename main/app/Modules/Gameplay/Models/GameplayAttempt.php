@@ -16,6 +16,7 @@ class GameplayAttempt extends Model
         'score',
         'coins_earned',
         'moves',
+        'subject',
         'correct_matches',
         'incorrect_matches',
         'hints_used',

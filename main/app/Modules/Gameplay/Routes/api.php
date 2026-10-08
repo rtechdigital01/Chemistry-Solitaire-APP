@@ -15,6 +15,13 @@ Route::middleware('auth:sanctum')->group(function () {
         [GameplayController::class, 'progress']
     );
 
+
+    Route::get(
+        '/gameplay/feedback/eligibility',
+        [GameplayController::class, 'feedbackEligibility']
+    );
+
+
     Route::post(
         '/gameplay/feedback',
         [GameplayController::class, 'saveFeedback']

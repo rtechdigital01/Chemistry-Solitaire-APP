@@ -1079,3 +1079,361 @@ body {
         color: #FFFFFF;
     }
 }
+
+
+/* =========================================================
+   TEACHER DASHBOARD — MOBILE ONLY
+   Reuses student dashboard structure
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .mobile-teacher-dashboard {
+        padding-bottom: 110px;
+    }
+
+
+    /* =====================================================
+       TEACHER ATTENTION STRIP
+    ===================================================== */
+
+    .mobile-teacher-attention {
+        position: relative;
+        z-index: 2;
+
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin: 0 0 18px;
+
+        padding: 11px 14px;
+
+        background: rgba(255,255,255,0.12);
+
+        border:
+            1px solid
+            rgba(255,255,255,0.18);
+
+        border-radius: 13px;
+
+        backdrop-filter: blur(8px);
+    }
+
+
+    .mobile-teacher-attention span {
+        color: rgba(255,255,255,0.78);
+
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+
+    .mobile-teacher-attention strong {
+        color: #FFFFFF;
+
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+
+    /* =====================================================
+       CLASS PERFORMANCE SECTION
+    ===================================================== */
+
+    .mobile-teacher-classes {
+        width: 100%;
+
+        margin-top: 4px;
+    }
+
+
+    .mobile-teacher-section-heading {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
+
+        margin-bottom: 14px;
+    }
+
+
+    .mobile-teacher-section-heading > div {
+        min-width: 0;
+    }
+
+
+    .mobile-teacher-section-heading span {
+        display: block;
+
+        margin-bottom: 3px;
+
+        color: #94A3B8;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 1.25px;
+    }
+
+
+    .mobile-teacher-section-heading h2 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 20px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+
+    .mobile-teacher-assign-btn {
+        flex: 0 0 auto;
+
+        min-height: 38px;
+
+        padding: 0 14px;
+
+        background: #2563FF;
+
+        border: none;
+        border-radius: 11px;
+
+        color: #FFFFFF;
+
+        font-family: "Nunito", sans-serif;
+
+        font-size: 11px;
+        font-weight: 900;
+
+        box-shadow:
+            0 6px 14px
+            rgba(37,99,255,0.20);
+
+        cursor: pointer;
+    }
+
+
+    /* =====================================================
+       CLASS LIST
+    ===================================================== */
+
+    .mobile-teacher-class-list {
+        width: 100%;
+
+        display: flex;
+        flex-direction: column;
+
+        gap: 10px;
+    }
+
+
+    .mobile-teacher-class-card {
+        width: 100%;
+
+        padding: 15px;
+
+        background: #FFFFFF;
+
+        border:
+            1px solid
+            #E5EAF2;
+
+        border-radius: 16px;
+
+        box-shadow:
+            0 6px 16px
+            rgba(15,23,42,0.045);
+    }
+
+
+    .mobile-teacher-class-top {
+        width: 100%;
+
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+
+        gap: 10px;
+
+        margin-bottom: 12px;
+    }
+
+
+    .mobile-teacher-class-info {
+        min-width: 0;
+    }
+
+
+    .mobile-teacher-class-info strong {
+        display: block;
+
+        overflow: hidden;
+
+        color: #14213D;
+
+        font-size: 14px;
+        font-weight: 900;
+
+        line-height: 1.2;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+
+    .mobile-teacher-class-info span {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #94A3B8;
+
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+
+    .mobile-teacher-score-badge {
+        flex: 0 0 auto;
+
+        min-width: 47px;
+
+        padding: 6px 9px;
+
+        background: #ECFDF5;
+
+        border-radius: 999px;
+
+        color: #10B981;
+
+        font-size: 11px;
+        font-weight: 900;
+
+        text-align: center;
+    }
+
+
+    .mobile-teacher-class-progress-label {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        margin-bottom: 6px;
+    }
+
+
+    .mobile-teacher-class-progress-label span {
+        color: #64748B;
+
+        font-size: 10px;
+        font-weight: 700;
+    }
+
+
+    .mobile-teacher-class-progress-label strong {
+        color: #2563FF;
+
+        font-size: 10px;
+        font-weight: 900;
+    }
+
+
+    .mobile-teacher-class-progress {
+        width: 100%;
+        height: 5px;
+
+        overflow: hidden;
+
+        background: #E8EDF4;
+
+        border-radius: 999px;
+    }
+
+
+    .mobile-teacher-class-progress > span {
+        display: block;
+
+        height: 100%;
+
+        background: #2563FF;
+
+        border-radius: 999px;
+    }
+
+
+    /* =====================================================
+       EMPTY STATE
+    ===================================================== */
+
+    .mobile-teacher-empty {
+        width: 100%;
+
+        padding: 25px 18px;
+
+        background: #FFFFFF;
+
+        border:
+            1px dashed
+            #DCE3EC;
+
+        border-radius: 16px;
+
+        text-align: center;
+    }
+
+
+    .mobile-teacher-empty strong {
+        display: block;
+
+        margin-bottom: 5px;
+
+        color: #334155;
+
+        font-size: 13px;
+        font-weight: 900;
+    }
+
+
+    .mobile-teacher-empty span {
+        color: #94A3B8;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       TEACHER STAT ICON TWEAK
+    ===================================================== */
+
+    .mobile-teacher-dashboard .mobile-stat-icon {
+        font-size: 17px;
+    }
+
+
+    /* =====================================================
+       VERY SMALL PHONES
+    ===================================================== */
+
+    @media (max-width: 370px) {
+
+        .mobile-teacher-section-heading h2 {
+            font-size: 18px;
+        }
+
+        .mobile-teacher-assign-btn {
+            padding-left: 11px;
+            padding-right: 11px;
+        }
+    }
+}

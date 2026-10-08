@@ -10,14 +10,387 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/dashboard-responsive.css">
     <script src="js/config.js"></script>
+
 </head>
 
 <body>
-
     <div id="header"></div>
+  
+<!-- ========================================
+     MOBILE TEACHER DASHBOARD
+========================================= -->
+<div class="mobile-dashboard mobile-teacher-dashboard">
+    <!-- TOP BAR -->
+    <div class="mobile-dashboard-topbar">
 
+        <button
+            type="button"
+            class="mobile-dashboard-menu"
+            id="mobileDashboardMenu"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+
+        <div class="mobile-dashboard-top-actions">
+
+            <button
+                type="button"
+                class="mobile-notification-button"
+                aria-label="Notifications"
+            >
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M18 8A6 6 0 0 0 6 8C6 15 3 15 3 17H21C21 15 18 15 18 8Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M10 21H14"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                    />
+                </svg>
+                <span class="mobile-notification-dot"></span>
+            </button>
+
+            <div
+                class="mobile-profile-avatar"
+                id="mobileTeacherProfileInitial"
+            >
+                T
+            </div>
+        </div>
+    </div>
+
+
+    <!-- MOBILE MENU BACKDROP -->
+    <div
+        class="mobile-menu-backdrop"
+        id="mobileMenuBackdrop"
+    ></div>
+
+
+    <!-- MOBILE DRAWER -->
+    <aside
+        class="mobile-menu-drawer"
+        id="mobileMenuDrawer"
+    >
+
+        <div class="mobile-menu-heading">
+
+            <a href="/" class="mobile-drawer-brand">
+                <img
+                    src="images/logo.png"
+                    alt="Science Solitaire"
+                    class="mobile-drawer-logo"
+                >
+            </a>
+
+            <button
+                type="button"
+                id="closeMobileDashboardMenu"
+                aria-label="Close menu"
+            >
+                ✕
+            </button>
+
+        </div>
+
+
+        <nav class="mobile-drawer-nav">
+
+            <a href="/why-solitaire">
+                Why SciSolitaire?
+            </a>
+
+            <a href="/gameplay">
+                Gameplay Preview
+            </a>
+
+            <a href="/curriculum">
+                Progress & Feedback
+            </a>
+
+            <a href="/about">
+                About
+            </a>
+
+            <a href="#" id="mobileDrawerLogout">
+                Log Out
+            </a>
+
+            <a
+                href="games.html"
+                class="mobile-drawer-play"
+            >
+                Play
+            </a>
+        </nav>
+    </aside>
+
+
+    <!-- GREETING -->
+    <div class="mobile-welcome">
+
+        <p id="mobileTeacherGreeting">
+            Good morning,
+        </p>
+
+        <h1>
+            <span id="mobileTeacherName">Teacher</span>
+            👋
+        </h1>
+
+        <span id="mobileTeacherRole">
+            Teacher
+        </span>
+    </div>
+
+
+    <!-- TEACHER STATS -->
+    <div class="mobile-dashboard-stats">
+
+        <div class="mobile-stat">
+
+            <span class="mobile-stat-icon coin">
+                👥
+            </span>
+
+            <div>
+                <strong id="mobileTeacherStudents">0</strong>
+                <span>Students</span>
+            </div>
+        </div>
+
+        <div class="mobile-stat">
+
+            <span class="mobile-stat-icon decks">
+                ▣
+            </span>
+
+            <div>
+                <strong id="mobileTeacherClasses">0</strong>
+                <span>Classes</span>
+            </div>
+        </div>
+
+        <div class="mobile-stat">
+
+            <span class="mobile-stat-icon accuracy">
+                ◎
+            </span>
+
+            <div>
+                <strong id="mobileTeacherScore">0%</strong>
+                <span>Avg Score</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- TEACHER OVERVIEW -->
+    <section
+        class="mobile-continue-card"
+        id="teacherMobileOverview"
+    >
+
+        <div class="mobile-continue-decoration">
+            ⚛
+        </div>
+
+        <span class="mobile-section-label">
+            TEACHER OVERVIEW
+        </span>
+
+        <h2>
+            Monitor Student Progress
+        </h2>
+
+        <p>
+            View class performance, assigned activities
+            and students who may need support.
+        </p>
+
+        <div class="mobile-teacher-attention">
+
+            <span>Needs Attention</span>
+
+            <strong id="mobileTeacherAttention">
+                0
+            </strong>
+        </div>
+        <a
+            href="#teacherMobileClasses"
+            class="mobile-resume-button"
+        >
+            View Classes
+        </a>
+    </section>
+
+    <!-- CLASS PERFORMANCE -->
+    <section
+        class="mobile-teacher-classes"
+        id="teacherMobileClasses"
+    >
+
+        <div class="mobile-teacher-section-heading">
+
+            <div>
+                <span>CLASS PERFORMANCE</span>
+                <h2>Your Classes</h2>
+            </div>
+
+            <button
+                type="button"
+                class="mobile-teacher-assign-btn"
+            >
+                + Assign
+            </button>
+        </div>
+
+        <div
+            class="mobile-teacher-class-list"
+            id="mobileTeacherClassList"
+        >
+
+            <div class="mobile-teacher-empty">
+
+                <strong>
+                    No classes assigned yet
+                </strong>
+
+                <span>
+                    Assigned classes will appear here.
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- BOTTOM NAV -->
+    <nav class="mobile-bottom-nav">
+
+        <!-- HOME -->
+        <a
+            href="teacher-dashboard.html"
+            class="mobile-nav-item active"
+        >
+
+            <svg
+                class="mobile-nav-svg"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <path
+                    d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+            </svg>
+            <span>Home</span>
+        </a>
+
+        <!-- CLASSES -->
+        <a
+            href="#teacherMobileClasses"
+            class="mobile-nav-item"
+        >
+            <svg
+                class="mobile-nav-svg"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <path
+                    d="M4 6H20V19H4V6Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+
+                <path
+                    d="M8 3V8M16 3V8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <span>Classes</span>
+        </a>
+
+        <!-- ASSIGN -->
+        <a
+            href="#teacherMobileClasses"
+            class="mobile-nav-item mobile-play-nav"
+        >
+            <span class="mobile-play-button">
+                <img
+                    src="./images/favicon.png"
+                    alt="Assign"
+                >
+            </span>
+            <span>Assign</span>
+        </a>
+
+        <!-- PROGRESS -->
+        <a
+            href="#teacherMobileClasses"
+            class="mobile-nav-item"
+        >
+            <svg
+                class="mobile-nav-svg"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <path
+                    d="M5 20V11M12 20V4M19 20V8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <span>Progress</span>
+        </a>
+
+        <!-- PROFILE -->
+        <a
+            href="profile-setup.html"
+            class="mobile-nav-item"
+        >
+            <svg
+                class="mobile-nav-svg"
+                viewBox="0 0 24 24"
+                fill="none"
+            >
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+                <path
+                    d="M4.5 21C5.2 16.8 8 14.5 12 14.5C16 14.5 18.8 16.8 19.5 21"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <span>Profile</span>
+        </a>
+    </nav>
+</div>  
+    
+    
+    
     <main class="dashboard-page">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px;">
             <h1 style="font-size: 24px; font-weight: 800; color: #1E293B; margin: 0;">Teacher Dashboard</h1>
@@ -117,6 +490,496 @@
     <script src="./js/footer.js"></script>
     <script src="./js/app.js"></script>
     <script src="./js/api.js?v=2"></script>
+    
+    
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* =====================================================
+       SYNC MOBILE TEACHER DASHBOARD
+    ===================================================== */
+
+    function syncMobileTeacherDashboard() {
+
+        const teacherName =
+            document.getElementById("dashboardUserName")
+                ?.textContent?.trim()
+            || "Teacher";
+
+        const teacherRole =
+            document.getElementById("dashboardUserCourse")
+                ?.textContent?.trim()
+            || "Teacher";
+
+        const greeting =
+            document.getElementById("dashboardGreeting")
+                ?.textContent?.trim()
+            || "Good morning,";
+
+
+        const totalStudents =
+            document.getElementById("teacherTotalStudents")
+                ?.textContent?.trim()
+            || "0";
+
+        const classesAssigned =
+            document.getElementById("teacherClassesAssigned")
+                ?.textContent?.trim()
+            || "0";
+
+        const averageScore =
+            document.getElementById("teacherAvgClassScore")
+                ?.textContent?.trim()
+            || "0%";
+
+        const needsAttention =
+            document.getElementById("teacherNeedsAttention")
+                ?.textContent?.trim()
+            || "0";
+
+
+        /* NAME */
+
+        const mobileName =
+            document.getElementById("mobileTeacherName");
+
+        if (mobileName) {
+            mobileName.textContent = teacherName;
+        }
+
+
+        /* ROLE */
+
+        const mobileRole =
+            document.getElementById("mobileTeacherRole");
+
+        if (mobileRole) {
+            mobileRole.textContent = teacherRole;
+        }
+
+
+        /* GREETING */
+
+        const mobileGreeting =
+            document.getElementById("mobileTeacherGreeting");
+
+        if (mobileGreeting) {
+
+            mobileGreeting.textContent =
+                greeting.replace("👋", "").trim();
+        }
+
+
+        /* AVATAR */
+
+        const mobileAvatar =
+            document.getElementById(
+                "mobileTeacherProfileInitial"
+            );
+
+        if (mobileAvatar) {
+
+            mobileAvatar.textContent =
+                teacherName
+                    .charAt(0)
+                    .toUpperCase();
+        }
+
+
+        /* STATS */
+
+        const studentsEl =
+            document.getElementById(
+                "mobileTeacherStudents"
+            );
+
+        if (studentsEl) {
+            studentsEl.textContent =
+                totalStudents;
+        }
+
+
+        const classesEl =
+            document.getElementById(
+                "mobileTeacherClasses"
+            );
+
+        if (classesEl) {
+            classesEl.textContent =
+                classesAssigned;
+        }
+
+
+        const scoreEl =
+            document.getElementById(
+                "mobileTeacherScore"
+            );
+
+        if (scoreEl) {
+            scoreEl.textContent =
+                averageScore;
+        }
+
+
+        const attentionEl =
+            document.getElementById(
+                "mobileTeacherAttention"
+            );
+
+        if (attentionEl) {
+            attentionEl.textContent =
+                needsAttention;
+        }
+
+
+        syncMobileTeacherClasses();
+    }
+
+
+
+    /* =====================================================
+       SYNC CLASS TABLE TO MOBILE CARDS
+    ===================================================== */
+
+    function syncMobileTeacherClasses() {
+
+        const desktopTable =
+            document.getElementById(
+                "teacherClassesTableBody"
+            );
+
+        const mobileList =
+            document.getElementById(
+                "mobileTeacherClassList"
+            );
+
+
+        if (!desktopTable || !mobileList) {
+            return;
+        }
+
+
+        const rows =
+            Array.from(
+                desktopTable.querySelectorAll("tr")
+            );
+
+
+        /*
+           EMPTY TABLE
+        */
+
+        if (
+            rows.length === 0 ||
+            (
+                rows.length === 1 &&
+                rows[0].querySelector(
+                    'td[colspan="5"]'
+                )
+            )
+        ) {
+
+            mobileList.innerHTML = `
+                <div class="mobile-teacher-empty">
+
+                    <strong>
+                        No classes assigned yet
+                    </strong>
+
+                    <span>
+                        Assigned classes will appear here.
+                    </span>
+
+                </div>
+            `;
+
+            return;
+        }
+
+
+        mobileList.innerHTML = "";
+
+
+        rows.forEach(function (row) {
+
+            const cells =
+                row.querySelectorAll("td");
+
+
+            if (cells.length < 4) {
+                return;
+            }
+
+
+            const className =
+                cells[0].textContent.trim();
+
+            const subject =
+                cells[1].textContent.trim();
+
+            const completion =
+                cells[2].textContent.trim();
+
+            const averageScore =
+                cells[3].textContent.trim();
+
+
+            const card =
+                document.createElement("div");
+
+            card.className =
+                "mobile-teacher-class-card";
+
+
+            card.innerHTML = `
+
+                <div class="mobile-teacher-class-top">
+
+                    <div class="mobile-teacher-class-info">
+
+                        <strong>
+                            ${className}
+                        </strong>
+
+                        <span>
+                            ${subject}
+                        </span>
+
+                    </div>
+
+
+                    <div class="mobile-teacher-score-badge">
+                        ${averageScore}
+                    </div>
+
+                </div>
+
+
+                <div class="mobile-teacher-class-progress-label">
+
+                    <span>
+                        Completion
+                    </span>
+
+                    <strong>
+                        ${completion}
+                    </strong>
+
+                </div>
+
+
+                <div class="mobile-teacher-class-progress">
+
+                    <span
+                        style="width: ${completion};"
+                    ></span>
+
+                </div>
+            `;
+
+
+            mobileList.appendChild(card);
+
+        });
+    }
+
+
+
+    /* =====================================================
+       RUN AFTER API LOADS
+    ===================================================== */
+
+    setTimeout(
+        syncMobileTeacherDashboard,
+        300
+    );
+
+    setTimeout(
+        syncMobileTeacherDashboard,
+        1000
+    );
+
+    setTimeout(
+        syncMobileTeacherDashboard,
+        2000
+    );
+
+
+
+    /* =====================================================
+       WATCH CLASS TABLE FOR API CHANGES
+    ===================================================== */
+
+    const teacherTable =
+        document.getElementById(
+            "teacherClassesTableBody"
+        );
+
+
+    if (teacherTable) {
+
+        const observer =
+            new MutationObserver(function () {
+
+                syncMobileTeacherDashboard();
+
+            });
+
+
+        observer.observe(
+            teacherTable,
+            {
+                childList: true,
+                subtree: true,
+                characterData: true
+            }
+        );
+    }
+
+
+
+    /* =====================================================
+       HAMBURGER
+    ===================================================== */
+
+    const mobileMenuButton =
+        document.getElementById(
+            "mobileDashboardMenu"
+        );
+
+    const mobileMenuDrawer =
+        document.getElementById(
+            "mobileMenuDrawer"
+        );
+
+    const mobileMenuBackdrop =
+        document.getElementById(
+            "mobileMenuBackdrop"
+        );
+
+    const closeMobileMenu =
+        document.getElementById(
+            "closeMobileDashboardMenu"
+        );
+
+
+    function openMobileMenu() {
+
+        mobileMenuDrawer
+            ?.classList
+            .add("open");
+
+        mobileMenuBackdrop
+            ?.classList
+            .add("open");
+    }
+
+
+    function closeMobileMenuDrawer() {
+
+        mobileMenuDrawer
+            ?.classList
+            .remove("open");
+
+        mobileMenuBackdrop
+            ?.classList
+            .remove("open");
+    }
+
+
+    mobileMenuButton
+        ?.addEventListener(
+            "click",
+            openMobileMenu
+        );
+
+
+    closeMobileMenu
+        ?.addEventListener(
+            "click",
+            closeMobileMenuDrawer
+        );
+
+
+    mobileMenuBackdrop
+        ?.addEventListener(
+            "click",
+            closeMobileMenuDrawer
+        );
+
+
+
+    /* =====================================================
+       MOBILE LOGOUT
+    ===================================================== */
+
+    document
+        .getElementById(
+            "mobileDrawerLogout"
+        )
+        ?.addEventListener(
+            "click",
+            function (event) {
+
+                event.preventDefault();
+
+                localStorage.removeItem(
+                    "auth_token"
+                );
+
+                localStorage.removeItem(
+                    "user"
+                );
+
+                localStorage.removeItem(
+                    "userRole"
+                );
+
+                window.location.href =
+                    "login.html";
+            }
+        );
+
+
+
+    /* =====================================================
+       ASSIGN BUTTON
+    ===================================================== */
+
+    document
+        .querySelector(
+            ".mobile-teacher-assign-btn"
+        )
+        ?.addEventListener(
+            "click",
+            function () {
+
+                const desktopAssignButton =
+                    Array.from(
+                        document.querySelectorAll(
+                            ".dashboard-page button"
+                        )
+                    )
+                    .find(function (button) {
+
+                        return button
+                            .textContent
+                            .includes(
+                                "Assign New Deck"
+                            );
+                    });
+
+
+                if (desktopAssignButton) {
+
+                    desktopAssignButton.click();
+
+                }
+            }
+        );
+
+});
+</script>
 
 </body>
 </html>

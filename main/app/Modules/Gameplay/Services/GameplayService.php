@@ -62,6 +62,7 @@ class GameplayService
              */
             $attempt = GameplayAttempt::create([
                 'user_id' => $user->id,
+                'subject' => strtolower($data['subject']),
                 'topic' => $data['topic'],
                 'deck' => $data['deck'] ?? $data['topic'],
                 'key_stage' => $data['key_stage'] ?? null,

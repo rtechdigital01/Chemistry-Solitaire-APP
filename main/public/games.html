@@ -599,8 +599,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     function openLevelModal(deck) {
-        const cleanName = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-        levelModalTitle.textContent = deck.key_stage ? `${deck.key_stage.toUpperCase()} — ${cleanName}` : cleanName;
+        levelModalTitle.textContent = deck.deck.replace(/-/g, " ").replace(/\b\w/g, c => c.toUpperCase());
 
         const token = localStorage.getItem("auth_token");
         const progressPromise = token
@@ -691,8 +690,6 @@ function renderDeckCard(deck) {
         .replace(/-/g, " ")
         .replace(/\b\w/g, c => c.toUpperCase());
 
-    const displayTitle = deck.key_stage ? `${deck.key_stage.toUpperCase()} · ${topic}` : topic;
-
     card.innerHTML = `
         <div class="premium-deck-card-content">
 
@@ -705,7 +702,7 @@ function renderDeckCard(deck) {
                 <div class="premium-deck-info">
 
                     <h3 class="deck-title">
-                        ${displayTitle}
+                        ${topic}
                     </h3>
 
                     <p class="premium-deck-levels">

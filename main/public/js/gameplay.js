@@ -917,7 +917,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ============================================================
        FULL-SCREEN CONGRATULATIONS OVERLAY
     ============================================================ */
-function showCongratsAndRedirect() {
+function showCongratsAndRedirect(showFeedback = true) {
     document.querySelectorAll(".game-card").forEach(c => {
         c.style.pointerEvents = "none";
     });
@@ -1125,6 +1125,21 @@ function showCongratsAndRedirect() {
         </div>
     `;
     document.body.appendChild(overlay);
+    
+if (!showFeedback) {
+    const feedbackSection = overlay.querySelector("#gameplayRatingStars")?.parentElement;
+    if (feedbackSection) feedbackSection.remove();
+    const continueBtn = overlay.querySelector("#submitGameplayFeedback");
+    continueBtn.textContent = "Continue to Next Level →";
+    continueBtn.addEventListener("click", () => {
+        overlay.remove();
+        if (nextLevelBtn) {
+            nextLevelBtn.disabled = false;
+            nextLevelBtn.click();
+        }
+    });
+    return;
+}
 
     /* ===============================
        STAR RATING
@@ -1396,10 +1411,48 @@ function showCongratsAndRedirect() {
             }, 700);
         }
 
-        if (remaining === 0) {
-            setBanner("🎊 All cards matched! Taking you to results…", "success");
-            setTimeout(() => showCongratsAndRedirect(), categoryComplete ? 1500 : 600);
-        } else if (movesBudget - moves <= 0) {
+if (remaining === 0) {
+    setBanner("🎊 All cards matched! Taking you to results…", "success");
+
+    setTimeout(async () => {
+        const token = localStorage.getItem("auth_token");
+
+        try {
+            const response = await fetch("/api/gameplay/feedback/eligibility", {
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${token}`
+                }
+            });
+
+            if (!response.ok) throw new Error("Eligibility check failed");
+
+            const result = await response.json();
+
+if (result.data?.eligible && (level === 1 || result.data?.has_previous_feedback)) {
+    showCongratsAndRedirect();
+} else {
+    const saved = await saveCompletedAttempt();
+
+    if (saved) {
+        showCongratsAndRedirect(false);
+    } else {
+        setBanner("Unable to save completed level.", "error");
+    }
+}
+        } catch (error) {
+            console.error("Feedback eligibility error:", error);
+        
+            const saved = await saveCompletedAttempt();
+        
+            if (saved) {
+                showCongratsAndRedirect(false);
+            } else {
+                setBanner("Unable to save completed level.", "error");
+        }
+        }
+    }, categoryComplete ? 1500 : 600);
+}  else if (movesBudget - moves <= 0) {
             setBanner("⏱️ Out of moves!", "error");
             setTimeout(() => showGameOverOverlay(), categoryComplete ? 1500 : 600);
         } else if (!categoryComplete) {

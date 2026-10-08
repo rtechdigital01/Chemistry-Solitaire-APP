@@ -11,14 +11,242 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
     <!-- Tailwind compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
-    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/dashboard-responsive.css">
     <link rel="stylesheet" href="./css/style.css">
     <script src="js/config.js"></script>
 </head>
 <body class="bg-[#F8FAFC]">
-
     <!-- Reusable Header -->
     <div id="header"></div>
+    
+
+<!-- ========================================
+     MOBILE PROGRESS / RESULTS VIEW
+========================================= -->
+<div class="mobile-results-page">
+
+    <div class="mobile-results-heading">
+        <h1>Progress</h1>
+        <p>Track your science mastery</p>
+    </div>
+
+
+    <!-- THIS WEEK -->
+    <section class="mobile-results-week">
+        <span class="mobile-results-week-label">
+            THIS WEEK
+        </span>
+        <div class="mobile-results-week-grid">
+            <div>
+                <strong id="mobileWeeklyCards">0</strong>
+                <span>Cards</span>
+            </div>
+
+            <div>
+                <strong id="mobileWeeklySessions">0</strong>
+                <span>Sessions</span>
+            </div>
+
+            <div>
+                <strong id="mobileWeeklyAccuracy">0%</strong>
+                <span>Accuracy</span>
+            </div>
+
+            <div>
+                <strong id="mobileWeeklyCoins">0</strong>
+                <span>Coins</span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BY SUBJECT -->
+    <section class="mobile-results-subjects">
+        <h2>By Subject</h2>
+
+
+        <!-- CHEMISTRY -->
+        <div class="mobile-progress-subject-card">
+            <div class="mobile-progress-subject-top">
+                <div class="mobile-progress-subject-left">
+                    <div class="mobile-progress-subject-icon chemistry">
+                        ⚗
+                    </div>
+
+                    <div>
+                        <strong>Chemistry</strong>
+                        <span id="mobileChemistryDecks">
+                            Overall subject progress
+                        </span>
+                    </div>
+
+                </div>
+
+                <strong
+                    class="mobile-progress-percent chemistry"
+                    id="mobileChemistryPercent"
+                >
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="mobile-progress-bar">
+                <span
+                    class="chemistry"
+                    id="mobileChemistryBar"
+                ></span>
+            </div>
+
+        </div>
+
+
+        <!-- BIOLOGY -->
+        <div class="mobile-progress-subject-card">
+
+            <div class="mobile-progress-subject-top">
+
+                <div class="mobile-progress-subject-left">
+
+                    <div class="mobile-progress-subject-icon biology">
+                        ⚕
+                    </div>
+
+                    <div>
+                        <strong>Biology</strong>
+                        <span id="mobileBiologyDecks">
+                            Overall subject progress
+                        </span>
+                    </div>
+
+                </div>
+
+                <strong
+                    class="mobile-progress-percent biology"
+                    id="mobileBiologyPercent"
+                >
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="mobile-progress-bar">
+                <span
+                    class="biology"
+                    id="mobileBiologyBar"
+                ></span>
+            </div>
+
+        </div>
+
+        <!-- PHYSICS -->
+        <div class="mobile-progress-subject-card">
+            <div class="mobile-progress-subject-top">
+                <div class="mobile-progress-subject-left">
+                    <div class="mobile-progress-subject-icon physics">
+                        ⚡
+                    </div>
+
+                    <div>
+                        <strong>Physics</strong>
+                        <span id="mobilePhysicsDecks">
+                            Overall subject progress
+                        </span>
+                    </div>
+                </div>
+
+                <strong
+                    class="mobile-progress-percent physics"
+                    id="mobilePhysicsPercent"
+                >
+                    0%
+                </strong>
+
+            </div>
+
+            <div class="mobile-progress-bar">
+                <span
+                    class="physics"
+                    id="mobilePhysicsBar"
+                ></span>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- BOTTOM NAV -->
+    <nav class="mobile-bottom-nav">
+
+        <a href="dashboard.html" class="mobile-nav-item">
+            <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linejoin="round"
+                />
+            </svg>
+            <span>Home</span>
+        </a>
+
+        <a href="games.html" class="mobile-nav-item">
+            <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M4 5H10C11.2 5 12 5.8 12 7V20C12 18.8 11.2 18 10 18H4V5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+                <path
+                    d="M20 5H14C12.8 5 12 5.8 12 7V20C12 18.8 12.8 18 14 18H20V5Z"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+            </svg>
+            <span>Decks</span>
+        </a>
+
+        <a href="games.html" class="mobile-nav-item mobile-play-nav">
+
+            <span class="mobile-play-button">
+                <img src="./images/favicon.png" alt="Play">
+            </span>
+            <span>Play</span>
+        </a>
+
+        <a href="results.html" class="mobile-nav-item active">
+            <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+                <path
+                    d="M5 20V11M12 20V4M19 20V8"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <span>Progress</span>
+        </a>
+
+        <a href="profile-setup.html" class="mobile-nav-item">
+            <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+                <circle
+                    cx="12"
+                    cy="8"
+                    r="4"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+                <path
+                    d="M4.5 21C5.2 16.8 8 14.5 12 14.5C16 14.5 18.8 16.8 19.5 21"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                    stroke-linecap="round"
+                />
+            </svg>
+            <span>Profile</span>
+        </a>
+    </nav>
+</div>    
+    
+    
 
     <!-- Results Main Content -->
     <main class="results-main">

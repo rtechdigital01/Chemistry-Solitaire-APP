@@ -31,6 +31,49 @@ const authPages = [
 
 const authToken =
     localStorage.getItem('auth_token');
+    
+/* ========================================
+   ROLE-BASED DASHBOARD PROTECTION
+======================================== */
+if (authToken) {
+
+    try {
+
+        const storedUser =
+            JSON.parse(
+                localStorage.getItem('user')
+                || '{}'
+            );
+
+        const storedRole =
+            storedUser.role;
+
+
+        if (
+            currentPage === 'dashboard' &&
+            (
+                storedRole === 'teacher' ||
+                storedRole === 'admin'
+            )
+        ) {
+
+            window.location.href =
+                '/teacher-dashboard.html';
+            return;
+        }
+
+        if (
+            currentPage === 'teacher-dashboard' &&
+            storedRole === 'student'
+        ) {
+
+            window.location.href =
+                '/dashboard.html';
+
+            return;
+        }
+    } catch (e) {}
+}
 
 
 // Protect private pages
@@ -61,32 +104,124 @@ if (
     
     // Hide Login links everywhere when user is logged in
 function updateAuthNavigation() {
-    const token = localStorage.getItem('auth_token');
-    const userJson = localStorage.getItem('user');
+
+    const token =
+        localStorage.getItem('auth_token');
+
+    const userJson =
+        localStorage.getItem('user');
+
     let role = 'student';
+
+
     if (userJson) {
+
         try {
-            role = JSON.parse(userJson).role || 'student';
-        } catch(e) {}
+
+            role =
+                JSON.parse(userJson).role
+                || 'student';
+
+        } catch (e) {}
+
     }
+
+
+    /* HIDE LOGIN WHEN LOGGED IN */
 
     if (token) {
-        const loginLinks = document.querySelectorAll('a[href$="login.html"]');
+
+        const loginLinks =
+            document.querySelectorAll(
+                'a[href$="login.html"]'
+            );
+
         loginLinks.forEach(link => {
-            link.style.display = 'none';
+
+            link.style.display =
+                'none';
+
         });
+
     }
 
-    // Role-specific UI adjustments
-    if (role !== 'teacher' && role !== 'admin') {
-        const switchTeacherBtns = Array.from(document.querySelectorAll('a[href="teacher-dashboard.html"]'));
-        switchTeacherBtns.forEach(btn => {
-            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+
+    /* ========================================
+       ROLE-AWARE DASHBOARD LINKS
+    ======================================== */
+
+    if (
+        role === 'teacher' ||
+        role === 'admin'
+    ) {
+
+        const dashboardLinks =
+            document.querySelectorAll(
+                'a[href="dashboard.html"], ' +
+                'a[href="/dashboard"], ' +
+                'a[href="/dashboard.html"]'
+            );
+
+
+        dashboardLinks.forEach(link => {
+
+            link.href =
+                'teacher-dashboard.html';
+
         });
 
-        const switchStudentBtns = Array.from(document.querySelectorAll('a[href="dashboard.html"]'));
+    }
+
+
+    /* ========================================
+       STUDENT LINKS
+    ======================================== */
+
+    if (
+        role !== 'teacher' &&
+        role !== 'admin'
+    ) {
+
+        const switchTeacherBtns =
+            Array.from(
+                document.querySelectorAll(
+                    'a[href="teacher-dashboard.html"]'
+                )
+            );
+
+        switchTeacherBtns.forEach(btn => {
+
+            if (
+                btn.textContent.includes(
+                    'Switch'
+                )
+            ) {
+
+                btn.style.display =
+                    'none';
+
+            }
+
+        });
+
+        const switchStudentBtns =
+            Array.from(
+                document.querySelectorAll(
+                    'a[href="dashboard.html"]'
+                )
+            );
+
         switchStudentBtns.forEach(btn => {
-            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+
+            if (
+                btn.textContent.includes(
+                    'Switch'
+                )
+            ) {
+
+                btn.style.display =
+                    'none';
+            }
         });
     }
 }
@@ -512,38 +647,120 @@ if (dashboardCoinBalance) {
     dashboardCoinBalance.textContent = Number(user.coin_balance || 0).toLocaleString();
 }
 
-const dashboardDecksPlayed = document.getElementById("dashboardDecksPlayed");
-if (dashboardDecksPlayed) {
-    dashboardDecksPlayed.textContent = Number(user.decks_played || 0).toLocaleString();
-}
+try {
 
-const dashboardAccuracy = document.getElementById("dashboardAccuracy");
-if (dashboardAccuracy) {
-    dashboardAccuracy.textContent = (user.accuracy ? Number(user.accuracy) : 0) + '%';
-}
+    const progressResponse = await fetch(
+        `${API_BASE_URL}/gameplay/progress`,
+        {
+            headers: {
+                'Accept': 'application/json',
+                'Authorization': `Bearer ${token}`
+            }
+        }
+    );
 
-const chemText = document.getElementById("dashboardChemistryProgressText");
-const chemBar = document.getElementById("dashboardChemistryProgressBar");
-if (chemText && chemBar) {
-    const p = user.progress_chemistry || 0;
-    chemText.textContent = p + '%';
-    chemBar.style.width = p + '%';
-}
+    const progressResult = await progressResponse.json();
 
-const bioText = document.getElementById("dashboardBiologyProgressText");
-const bioBar = document.getElementById("dashboardBiologyProgressBar");
-if (bioText && bioBar) {
-    const p = user.progress_biology || 0;
-    bioText.textContent = p + '%';
-    bioBar.style.width = p + '%';
-}
+    if (progressResponse.ok) {
 
-const physText = document.getElementById("dashboardPhysicsProgressText");
-const physBar = document.getElementById("dashboardPhysicsProgressBar");
-if (physText && physBar) {
-    const p = user.progress_physics || 0;
-    physText.textContent = p + '%';
-    physBar.style.width = p + '%';
+        const progressData = progressResult.data || {};
+        const subjects = progressData.subjects || {};
+
+        const allCompletedDecks =
+            Number(subjects.chemistry?.completed_decks || 0) +
+            Number(subjects.biology?.completed_decks || 0) +
+            Number(subjects.physics?.completed_decks || 0);
+
+        const dashboardDecksPlayed =
+            document.getElementById("dashboardDecksPlayed");
+
+        if (dashboardDecksPlayed) {
+            dashboardDecksPlayed.textContent =
+                allCompletedDecks.toLocaleString();
+        }
+
+
+        const subjectCorrect =
+            Number(subjects.chemistry?.correct_matches || 0) +
+            Number(subjects.biology?.correct_matches || 0) +
+            Number(subjects.physics?.correct_matches || 0);
+
+        const subjectIncorrect =
+            Number(subjects.chemistry?.incorrect_matches || 0) +
+            Number(subjects.biology?.incorrect_matches || 0) +
+            Number(subjects.physics?.incorrect_matches || 0);
+
+        const totalAttempts =
+            subjectCorrect + subjectIncorrect;
+
+        const overallAccuracy =
+            totalAttempts > 0
+                ? Math.round(
+                    (subjectCorrect / totalAttempts) * 100
+                )
+                : 0;
+
+        const dashboardAccuracy =
+            document.getElementById("dashboardAccuracy");
+
+        if (dashboardAccuracy) {
+            dashboardAccuracy.textContent =
+                `${overallAccuracy}%`;
+        }
+
+
+        const setSubjectProgress = (
+            subject,
+            textId,
+            barId
+        ) => {
+
+            const value =
+                Number(
+                    subjects[subject]?.accuracy || 0
+                );
+
+            const textEl =
+                document.getElementById(textId);
+
+            const barEl =
+                document.getElementById(barId);
+
+            if (textEl) {
+                textEl.textContent = `${value}%`;
+            }
+
+            if (barEl) {
+                barEl.style.width = `${value}%`;
+            }
+        };
+
+
+        setSubjectProgress(
+            "chemistry",
+            "dashboardChemistryProgressText",
+            "dashboardChemistryProgressBar"
+        );
+
+        setSubjectProgress(
+            "biology",
+            "dashboardBiologyProgressText",
+            "dashboardBiologyProgressBar"
+        );
+
+        setSubjectProgress(
+            "physics",
+            "dashboardPhysicsProgressText",
+            "dashboardPhysicsProgressBar"
+        );
+    }
+
+} catch (error) {
+
+    console.error(
+        "Dashboard progress error:",
+        error
+    );
 }
 
 const teacherTotalStudents = document.getElementById("teacherTotalStudents");
