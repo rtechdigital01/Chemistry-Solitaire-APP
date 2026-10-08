@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>SciSolitaire</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "Nunito", sans-serif;
+    background: #FFFFFF;
+}
+
+.mobile-subjects-page {
+    display: none;
+}
+
+
+/* =========================================================
+   MOBILE ONLY
+========================================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        width: 100%;
+        height: 100dvh;
+
+        margin: 0;
+        padding: 0;
+
+        overflow: hidden !important;
+
+        background: #FFFFFF;
+    }
+
+
+    .mobile-subjects-page {
+        position: fixed;
+
+        inset: 0;
+
+        width: 100%;
+        height: 100dvh;
+
+        display: flex !important;
+        flex-direction: column;
+
+        padding:
+            max(18px, env(safe-area-inset-top))
+            28px
+            max(18px, env(safe-area-inset-bottom));
+
+        background: #FFFFFF;
+
+        overflow: hidden !important;
+    }
+
+
+    /* =====================================================
+       SKIP
+    ===================================================== */
+
+    .subjects-skip {
+        align-self: flex-end;
+
+        margin: 0;
+
+        color: #8F98A7;
+
+        font-size: 13px;
+        font-weight: 700;
+
+        line-height: 1;
+
+        text-decoration: none;
+    }
+
+
+    /* =====================================================
+       HEADING
+    ===================================================== */
+
+    .subjects-heading {
+        margin-top: 18px;
+    }
+
+    .subjects-heading h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 28px;
+        font-weight: 900;
+
+        line-height: 1.08;
+
+        letter-spacing: -0.8px;
+    }
+
+    .subjects-heading h1 span {
+        display: block;
+
+        margin-top: 2px;
+
+        color: #2563FF;
+    }
+
+    .subjects-heading p {
+        max-width: 330px;
+
+        margin: 12px 0 0;
+
+        color: #818B9B;
+
+        font-size: 12.5px;
+        font-weight: 600;
+
+        line-height: 1.55;
+    }
+
+
+    /* =====================================================
+       SUBJECT LIST
+    ===================================================== */
+
+    .subjects-list {
+        display: flex;
+        flex-direction: column;
+
+        gap: 12px;
+
+        width: 100%;
+
+        margin-top: 20px;
+    }
+
+
+    /* =====================================================
+       CARD
+    ===================================================== */
+
+    .subject-card {
+        position: relative;
+
+        width: 100%;
+        height: 150px;
+
+        flex: 0 0 150px;
+
+        padding: 18px 16px 14px;
+
+        overflow: hidden;
+
+        border: 1px solid #E6EBF2;
+        border-radius: 18px;
+
+        background: #FFFFFF;
+
+        box-shadow:
+            0 5px 14px rgba(20,33,61,0.045);
+    }
+
+    .subject-card::before {
+        content: "";
+
+        position: absolute;
+
+        top: 0;
+        left: 0;
+        right: 0;
+
+        height: 4px;
+
+        border-radius: 18px 18px 0 0;
+    }
+
+    .subject-card.biology::before {
+        background: #29B995;
+    }
+
+    .subject-card.chemistry::before {
+        background: #2B65EA;
+    }
+
+    .subject-card.physics::before {
+        background: #F0AA18;
+    }
+
+
+    /* =====================================================
+       CARD HEADER
+    ===================================================== */
+
+    .subject-card-head {
+        width: 100%;
+
+        display: grid;
+
+        grid-template-columns: 46px minmax(0,1fr) 20px;
+
+        align-items: center;
+
+        gap: 12px;
+    }
+
+
+    /* ICON */
+
+    .subject-icon {
+        width: 46px;
+        height: 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 13px;
+    }
+
+    .subject-icon svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .biology .subject-icon {
+        background: #EAFBF6;
+        color: #22B68C;
+    }
+
+    .chemistry .subject-icon {
+        background: #EEF4FF;
+        color: #2A63E6;
+    }
+
+    .physics .subject-icon {
+        background: #FFF8E4;
+        color: #ECA51B;
+    }
+
+
+    /* NAME */
+
+    .subject-name {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 19px;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+
+    /* LEVEL */
+
+    .subject-level {
+        margin-top: 6px;
+
+        color: #9AA3B2;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        line-height: 1;
+    }
+
+
+    /* ARROW */
+
+    .subject-arrow {
+        width: 20px;
+        height: 20px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        color: #9EA7B5;
+    }
+
+    .subject-arrow svg {
+        width: 17px;
+        height: 17px;
+    }
+
+
+    /* =====================================================
+       TAGS
+    ===================================================== */
+
+    .subject-tags {
+        display: flex;
+        flex-wrap: wrap;
+
+        align-items: center;
+
+        gap: 7px;
+
+        margin-top: 13px;
+    }
+
+    .subject-tag {
+        min-height: 28px;
+
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 5px 11px;
+
+        border-radius: 999px;
+
+        font-size: 10.5px;
+        font-weight: 800;
+
+        line-height: 1;
+    }
+
+    .biology .subject-tag {
+        background: #F1FCF8;
+        border: 1px solid #D2F2E7;
+        color: #26A984;
+    }
+
+    .chemistry .subject-tag {
+        background: #F3F6FD;
+        border: 1px solid #DCE5F6;
+        color: #2C64DC;
+    }
+
+    .physics .subject-tag {
+        background: #FFF9E9;
+        border: 1px solid #F6E8B8;
+        color: #DB9B19;
+    }
+
+
+    /* =====================================================
+       BOTTOM
+    ===================================================== */
+
+    .subjects-bottom {
+        margin-top: auto;
+
+        width: 100%;
+    }
+
+
+    /* DOTS */
+
+    .subjects-dots {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        gap: 6px;
+
+        margin-bottom: 16px;
+    }
+
+    .subjects-dots span {
+        width: 6px;
+        height: 6px;
+
+        border-radius: 999px;
+
+        background: #E2E7EF;
+    }
+
+    .subjects-dots .active {
+        width: 32px;
+
+        background: #2563FF;
+    }
+
+
+    /* BUTTON */
+
+    .get-started-btn {
+        width: 100%;
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 10px;
+
+        border-radius: 999px;
+
+        background: #2563FF;
+
+        color: #FFFFFF;
+
+        font-size: 15px;
+        font-weight: 900;
+
+        text-decoration: none;
+
+        box-shadow:
+            0 9px 24px rgba(37,99,255,0.22);
+    }
+
+    .get-started-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+}
+    </style>
+    
+</head>
+    <body>
+
+<main class="mobile-subjects-page">
+
+    <a href="./login.html" class="subjects-skip">
+        Skip
+    </a>
+
+
+    <section class="subjects-heading">
+
+        <h1>
+            One Game.
+            <span>Three Sciences.</span>
+        </h1>
+
+        <p>
+            Master the curriculum through card matching,
+            topic by topic.
+        </p>
+
+    </section>
+
+
+    <section class="subjects-list">
+
+
+        <!-- BIOLOGY -->
+        <article class="subject-card biology">
+
+            <div class="subject-card-head">
+
+                <div class="subject-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M12 21V10"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"/>
+                        <path d="M12 13C8 13 6 10.5 6 7C10 7 12 9 12 13Z"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+                        <path d="M12 10C12 6 14.5 4 18 4C18 8 16 10 12 10Z"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h2 class="subject-name">Biology</h2>
+                    <div class="subject-level">KS3 · GCSE · A-Level</div>
+                </div>
+
+                <div class="subject-arrow">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5L16 12L9 19"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="subject-tags">
+                <span class="subject-tag">Cells</span>
+                <span class="subject-tag">Genetics</span>
+                <span class="subject-tag">Ecosystems</span>
+                <span class="subject-tag">Human Body</span>
+            </div>
+
+        </article>
+
+
+        <!-- CHEMISTRY -->
+        <article class="subject-card chemistry">
+
+            <div class="subject-card-head">
+
+                <div class="subject-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 3V10L5 18C4.4 19.2 5.3 21 6.8 21H17.2C18.7 21 19.6 19.2 19 18L15 10V3"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+                        <path d="M9 3H15"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h2 class="subject-name">Chemistry</h2>
+                    <div class="subject-level">KS3 · GCSE · A-Level</div>
+                </div>
+
+                <div class="subject-arrow">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5L16 12L9 19"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="subject-tags">
+                <span class="subject-tag">Atomic Structure</span>
+                <span class="subject-tag">Bonding</span>
+                <span class="subject-tag">Reactions</span>
+                <span class="subject-tag">Periodic Table</span>
+            </div>
+
+        </article>
+
+
+        <!-- PHYSICS -->
+        <article class="subject-card physics">
+
+            <div class="subject-card-head">
+
+                <div class="subject-icon">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L5 13H11L10 22L19 10H13L13 2Z"
+                              stroke="currentColor"
+                              stroke-width="1.8"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+                <div>
+                    <h2 class="subject-name">Physics</h2>
+                    <div class="subject-level">KS3 · GCSE · A-Level</div>
+                </div>
+
+                <div class="subject-arrow">
+                    <svg viewBox="0 0 24 24" fill="none">
+                        <path d="M9 5L16 12L9 19"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"/>
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="subject-tags">
+                <span class="subject-tag">Forces</span>
+                <span class="subject-tag">Electricity</span>
+                <span class="subject-tag">Waves</span>
+                <span class="subject-tag">Space</span>
+            </div>
+
+        </article>
+
+    </section>
+
+
+    <div class="subjects-bottom">
+
+        <div class="subjects-dots">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span class="active"></span>
+        </div>
+
+        <a href="./login.html" class="get-started-btn">
+
+            <svg viewBox="0 0 24 24" fill="none">
+                <path d="M5 12H19M14 7L19 12L14 17"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"/>
+            </svg>
+
+            Get Started
+
+        </a>
+
+    </div>
+
+</main>
+
+</body>
+
+</html>

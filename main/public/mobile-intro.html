@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    >
+
+    <title>SciSolitaire</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Nunito", sans-serif;
+            background: #FFFFFF;
+        }
+
+
+        /* =====================================================
+           DESKTOP — PAGE DOES NOT EXIST VISUALLY
+        ===================================================== */
+
+        .mobile-intro-page {
+            display: none;
+        }
+
+
+        /* =====================================================
+           MOBILE ONLY
+        ===================================================== */
+
+        @media (max-width: 700px) {
+
+            html,
+            body {
+                height: 100dvh;
+
+                overflow: hidden;
+            }
+
+            .mobile-intro-page {
+                position: fixed;
+
+                inset: 0;
+
+                display: flex;
+
+                flex-direction: column;
+
+                width: 100%;
+                height: 100dvh;
+
+                padding:
+                    max(30px, env(safe-area-inset-top))
+                    24px
+                    max(24px, env(safe-area-inset-bottom));
+
+                background: #FFFFFF;
+
+                overflow: hidden;
+            }
+
+
+            /* =============================================
+               TOP VISUAL
+            ============================================= */
+
+            .science-orbit-area {
+                position: relative;
+
+                width: 280px;
+                height: 280px;
+
+                margin: 18vh auto 0;
+
+                flex-shrink: 0;
+            }
+
+
+            .science-orbit {
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                border: 2px solid #E6EDFF;
+                border-radius: 50%;
+
+                transform: translate(-50%, -50%);
+            }
+
+            .science-orbit.orbit-1 {
+                width: 142px;
+                height: 142px;
+            }
+
+            .science-orbit.orbit-2 {
+                width: 205px;
+                height: 205px;
+            }
+
+            .science-orbit.orbit-3 {
+                width: 268px;
+                height: 268px;
+            }
+
+
+            /* CENTER LOGO */
+
+            .science-center-logo {
+                position: absolute;
+
+                top: 50%;
+                left: 50%;
+
+                transform: translate(-50%, -50%);
+
+                width: 92px;
+                height: 92px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                z-index: 4;
+            }
+
+            .science-center-logo img {
+                display: block;
+
+                width: 100%;
+                height: auto;
+
+                object-fit: contain;
+            }
+
+
+            /* =============================================
+               SUBJECT ICONS
+            ============================================= */
+
+            .orbit-subject {
+                position: absolute;
+
+                width: 52px;
+                height: 52px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                border-radius: 15px;
+
+                box-shadow:
+                    0 6px 18px rgba(20, 33, 61, 0.06);
+
+                z-index: 5;
+            }
+
+            .orbit-subject svg {
+                width: 25px;
+                height: 25px;
+            }
+
+
+            /* BIOLOGY */
+
+            .orbit-biology {
+                top: 0;
+                left: 50%;
+
+                transform: translateX(-50%);
+
+                background: #E9FFF7;
+                color: #25BE91;
+
+                border: 1px solid #C5F6E5;
+            }
+
+
+            /* PHYSICS */
+
+            .orbit-physics {
+                left: 0;
+                bottom: 38px;
+
+                background: #FFF9E5;
+                color: #F4B726;
+
+                border: 1px solid #FBE7A5;
+            }
+
+
+            /* CHEMISTRY */
+
+            .orbit-chemistry {
+                right: 0;
+                bottom: 38px;
+
+                background: #EFF5FF;
+                color: #4878D9;
+
+                border: 1px solid #D8E5FF;
+            }
+
+
+            /* =============================================
+               COPY
+            ============================================= */
+
+            .mobile-intro-copy {
+                width: 100%;
+
+                margin-top: 42px;
+
+                text-align: center;
+            }
+
+            .mobile-intro-copy h1 {
+                max-width: 340px;
+
+                margin: 0 auto;
+
+                color: #14213D;
+
+                font-size: 34px;
+                font-weight: 900;
+
+                line-height: 1.08;
+
+                letter-spacing: -1px;
+            }
+
+            .mobile-intro-copy h1 span {
+                color: #2563FF;
+            }
+
+            .mobile-intro-copy p {
+                max-width: 310px;
+
+                margin: 22px auto 0;
+
+                color: #8993A5;
+
+                font-size: 15px;
+                font-weight: 600;
+
+                line-height: 1.55;
+            }
+
+
+            /* =============================================
+               BOTTOM AREA
+            ============================================= */
+
+            .mobile-intro-bottom {
+                margin-top: auto;
+
+                width: 100%;
+            }
+
+
+            /* DOT INDICATOR */
+
+            .mobile-intro-dots {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                gap: 8px;
+
+                margin-bottom: 26px;
+            }
+
+            .mobile-intro-dots span {
+                width: 8px;
+                height: 8px;
+
+                border-radius: 999px;
+
+                background: #E4EAF4;
+            }
+
+            .mobile-intro-dots .active {
+                width: 40px;
+
+                background: #2563FF;
+            }
+
+
+            /* CONTINUE */
+
+            .mobile-intro-continue {
+                width: 100%;
+                height: 58px;
+
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
+                gap: 12px;
+
+                border: none;
+                border-radius: 999px;
+
+                background: #2563FF;
+
+                color: #FFFFFF;
+
+                font-family: "Nunito", sans-serif;
+
+                font-size: 16px;
+                font-weight: 800;
+
+                text-decoration: none;
+
+                box-shadow:
+                    0 12px 30px rgba(37, 99, 255, 0.25);
+            }
+
+            .mobile-intro-continue svg {
+                width: 20px;
+                height: 20px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+    <main class="mobile-intro-page">
+
+
+        <!-- ======================================
+             SCIENCE ORBIT
+        ======================================= -->
+
+        <div class="science-orbit-area">
+
+            <div class="science-orbit orbit-1"></div>
+            <div class="science-orbit orbit-2"></div>
+            <div class="science-orbit orbit-3"></div>
+
+
+            <!-- BIOLOGY -->
+
+            <div class="orbit-subject orbit-biology">
+
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M12 21V10"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                    />
+
+                    <path
+                        d="M12 13C8 13 6 10.5 6 7C10 7 12 9 12 13Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M12 10C12 6 14.5 4 18 4C18 8 16 10 12 10Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+            </div>
+
+
+            <!-- PHYSICS -->
+
+            <div class="orbit-subject orbit-physics">
+
+                <svg viewBox="0 0 24 24" fill="none">
+
+                    <path
+                        d="M13 2L5 13H11L10 22L19 10H13L13 2Z"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <!-- CHEMISTRY -->
+
+            <div class="orbit-subject orbit-chemistry">
+
+                <svg viewBox="0 0 24 24" fill="none">
+
+                    <path
+                        d="M9 3V10L5 18C4.4 19.2 5.3 21 6.8 21H17.2C18.7 21 19.6 19.2 19 18L15 10V3"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linejoin="round"
+                    />
+
+                    <path
+                        d="M9 3H15"
+                        stroke="currentColor"
+                        stroke-width="1.8"
+                        stroke-linecap="round"
+                    />
+
+                </svg>
+
+            </div>
+
+
+            <!-- CENTER LOGO -->
+
+            <div class="science-center-logo">
+
+                <img
+                    src="./images/logo.png"
+                    alt="SciSolitaire"
+                >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ======================================
+             TEXT
+        ======================================= -->
+
+        <section class="mobile-intro-copy">
+
+            <h1>
+                Learn Science By<br>
+                Making <span>Connections</span>
+            </h1>
+
+            <p>
+                Card-matching active recall across Biology,
+                Chemistry, and Physics.
+            </p>
+
+        </section>
+
+
+
+        <!-- ======================================
+             BOTTOM
+        ======================================= -->
+
+        <div class="mobile-intro-bottom">
+
+            <div class="mobile-intro-dots">
+                <span></span>
+                <span></span>
+                <span class="active"></span>
+                <span></span>
+            </div>
+
+
+            <a
+                href="./mobile-subjects.html"
+                class="mobile-intro-continue"
+            >
+
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M5 12H19M14 7L19 12L14 17"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+
+                Continue
+
+            </a>
+
+        </div>
+
+    </main>
+
+</body>
+
+</html>

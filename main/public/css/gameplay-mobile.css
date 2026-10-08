@@ -1,0 +1,988 @@
+/* =========================================================
+   SCI SOLITAIRE — FIGMA MOBILE GAMEPLAY
+========================================================= */
+
+.mobile-figma-game-topbar {
+    display: none;
+}
+
+.mobile-game-tools {
+    display: none;
+}
+
+@media (max-width: 700px) {
+html,
+body {
+    width: 100%;
+    max-width: 100%;
+    height: 100dvh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: #EEF5FD;
+    font-family: "Nunito", sans-serif;
+}
+
+    * {
+        box-sizing: border-box;
+    }
+
+
+    /* =====================================================
+       HIDE DESKTOP HEADER
+    ===================================================== */
+
+    .gameplay-top-bar {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       MOBILE FIGMA HEADER
+    ===================================================== */
+
+    .mobile-figma-game-topbar {
+        display: block;
+
+        width: 100%;
+
+        padding: 14px 18px 13px;
+
+        background: #173776;
+
+        color: #FFFFFF;
+    }
+
+    .mobile-game-top-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+
+        align-items: start;
+
+        gap: 10px;
+    }
+
+    .mobile-game-topic-area {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .mobile-game-back {
+        width: 44px;
+        height: 44px;
+
+        flex: 0 0 44px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        padding: 0;
+
+        background: rgba(255,255,255,0.10);
+
+        border: none;
+        border-radius: 12px;
+
+        color: #FFFFFF;
+    }
+
+    .mobile-game-back svg {
+        width: 23px;
+        height: 23px;
+    }
+
+    .mobile-game-topic-text {
+        min-width: 0;
+    }
+
+    .mobile-game-topic-text h1 {
+        margin: 0;
+
+        overflow: hidden;
+
+        color: #FFFFFF;
+
+        font-size: 18px;
+        font-weight: 900;
+        line-height: 22px;
+
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .mobile-game-topic-text p {
+        margin: 3px 0 0;
+
+        color: #9FB6DF;
+
+        font-size: 11px;
+        font-weight: 600;
+
+        white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       COINS / MOVES
+    ===================================================== */
+
+    .mobile-game-stats {
+        display: flex;
+        align-items: flex-start;
+
+        gap: 7px;
+    }
+
+    .mobile-game-stat {
+        text-align: center;
+    }
+
+    .mobile-game-stat-pill {
+        min-width: 58px;
+        height: 34px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 4px;
+
+        padding: 0 8px;
+
+        background: rgba(255,255,255,0.10);
+
+        border-radius: 999px;
+    }
+
+    .mobile-game-stat-pill strong {
+        color: #FFFFFF;
+
+        font-size: 14px;
+        font-weight: 900;
+    }
+
+    .mobile-coin-symbol {
+        color: #F3C442;
+
+        font-size: 15px;
+        font-weight: 900;
+    }
+
+    .mobile-game-stat-label {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #9FB6DF;
+
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+
+    /* =====================================================
+       PROGRESS BAR
+    ===================================================== */
+
+    .mobile-game-progress-row {
+        width: 100%;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+
+        margin-top: 12px;
+    }
+
+    .mobile-game-progress-track {
+        flex: 1;
+
+        height: 6px;
+
+        overflow: hidden;
+
+        background: rgba(255,255,255,0.14);
+
+        border-radius: 999px;
+    }
+
+    .mobile-game-progress-fill {
+        width: 0%;
+        height: 100%;
+
+        background: #2DD4BF;
+
+        border-radius: 999px;
+    }
+
+    #mobileGameProgressText {
+        min-width: 32px;
+
+        color: #FFFFFF;
+
+        font-size: 11px;
+        font-weight: 800;
+
+        text-align: right;
+    }
+
+
+    /* =====================================================
+       MAIN BACKGROUND
+    ===================================================== */
+.gameplay-main {
+    position: relative !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    height: calc(100dvh - 112px) !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 14px 16px 20px !important;
+    background: #EEF5FD !important;
+    overflow: hidden !important;
+    transform: none !important;
+}
+
+    .gameplay-board {
+        width: 100% !important;
+        max-width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    .game-molecule {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       YELLOW INSTRUCTION BANNER
+    ===================================================== */
+
+    .game-info-banner {
+        position: static !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+
+        width: 100% !important;
+
+        display: flex !important;
+        align-items: center !important;
+
+        gap: 10px !important;
+
+        margin: 0 0 20px !important;
+
+        padding: 14px 16px !important;
+
+        background: #FFF7D8 !important;
+
+        border: 1px solid #F1D87A !important;
+        border-radius: 14px !important;
+
+        color: #725500 !important;
+
+        font-size: 12px !important;
+        font-weight: 800 !important;
+        line-height: 1.45 !important;
+
+        box-shadow: none !important;
+
+        transform: none !important;
+    }
+
+    .info-icon-wrap {
+        flex: 0 0 auto !important;
+    }
+
+    .info-icon {
+        width: 19px !important;
+        height: 19px !important;
+    }
+
+
+    /* =====================================================
+       DRAW PILE AREA
+    ===================================================== */
+
+    .game-middle-actions {
+        position: static !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: flex-end !important;
+        align-items: flex-start !important;
+        margin: 0 0 14px !important;
+        min-height: 96px !important;
+        padding: 0 !important;
+        transform: none !important;
+    }
+
+    .moves-badge {
+        display: none !important;
+    }
+
+/* =====================================================
+   MOBILE SHUFFLE / REVEAL AREA — FINAL
+===================================================== */
+
+.shuffle-panels {
+    width: 100% !important;
+
+    display: flex !important;
+    align-items: flex-start !important;
+    justify-content: flex-end !important;
+
+    gap: 12px !important;
+
+    overflow: visible !important;
+}
+
+
+/* FIRST PANEL — revealed card */
+
+.shuffle-panel:first-child {
+    width: 132px !important;
+    min-width: 132px !important;
+    flex: 0 0 132px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    position: relative !important;
+    z-index: 1 !important;
+}
+
+
+/* SECOND PANEL — blue shuffle deck */
+
+.shuffle-panel:last-child {
+    width: 76px !important;
+    min-width: 76px !important;
+    flex: 0 0 76px !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+
+    position: relative !important;
+    z-index: 20 !important;
+}
+
+
+/* REVEALED CARD AREA */
+
+.shuffle-reveal-pile {
+    position: relative !important;
+
+    width: 132px !important;
+    height: 98px !important;
+
+    overflow: visible !important;
+}
+
+
+/* Main revealed card */
+
+#shuffleRevealPile .game-card {
+    position: absolute !important;
+
+    left: 0 !important;
+    top: 0 !important;
+
+    width: 76px !important;
+    min-width: 76px !important;
+    max-width: 76px !important;
+
+    height: 98px !important;
+    min-height: 98px !important;
+
+    padding: 10px 5px !important;
+
+    border-radius: 9px !important;
+
+    font-size: 9px !important;
+
+    z-index: 5 !important;
+}
+
+
+#shuffleRevealPile .game-card.reveal-main-card {
+    display: flex !important;
+
+    align-items: center !important;
+    justify-content: center !important;
+
+    z-index: 10 !important;
+}
+
+
+#shuffleRevealPile .game-card .card-name {
+    font-size: 9px !important;
+    line-height: 1.1 !important;
+
+    padding: 3px !important;
+
+    word-break: normal !important;
+    overflow-wrap: break-word !important;
+}
+
+
+/* FAN CARDS BEHIND MAIN REVEALED CARD */
+
+.reveal-peek-card {
+    position: absolute !important;
+
+    top: 0 !important;
+
+    width: 34px !important;
+    height: 98px !important;
+
+    border-radius: 0 9px 9px 0 !important;
+
+    pointer-events: none !important;
+
+    overflow: hidden !important;
+}
+
+
+/* First card behind */
+
+#shuffleRevealPile .reveal-peek-card:nth-last-child(2) {
+    left: 68px !important;
+    z-index: 4 !important;
+}
+
+
+/* Second card behind */
+
+#shuffleRevealPile .reveal-peek-card:last-child {
+    left: 94px !important;
+    z-index: 3 !important;
+}
+
+
+.reveal-peek-card span {
+    display: none !important;
+}
+
+
+/* BLUE SHUFFLE DECK */
+
+.shuffle-deck-pile {
+    position: relative !important;
+
+    width: 76px !important;
+    min-width: 76px !important;
+
+    height: 98px !important;
+
+    margin: 0 !important;
+
+    border-radius: 10px !important;
+
+    z-index: 30 !important;
+
+    cursor: pointer !important;
+
+    pointer-events: auto !important;
+}
+
+
+/* Make absolutely sure nothing covers the deck */
+
+#shuffleDeckBtn {
+    position: relative !important;
+
+    z-index: 50 !important;
+
+    pointer-events: auto !important;
+}
+
+
+/* Number badge */
+
+.shuffle-deck-count {
+    position: absolute !important;
+
+    top: -7px !important;
+    right: -7px !important;
+
+    width: 25px !important;
+    height: 25px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    background: #FFFFFF !important;
+
+    border-radius: 50% !important;
+
+    color: #2563EB !important;
+
+    font-size: 11px !important;
+    font-weight: 900 !important;
+
+    z-index: 60 !important;
+
+    pointer-events: none !important;
+}
+
+
+
+    /* =====================================================
+       CATEGORY ROW — EXACTLY 4 ACROSS
+       2 active + 2 locked
+    ===================================================== */
+
+    .category-section {
+        width: 100% !important;
+        margin: 0 0 16px !important;
+        padding: 0 !important;
+    }
+
+    .category-grid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+    }
+
+    /*
+       Flatten the two generated wrappers so active and locked
+       categories sit in ONE four-column row.
+    */
+
+    #stacksGrid,
+    #lockedCategorySlots {
+        display: contents !important;
+    }
+
+    .foundation-stack,
+    .locked-category-card {
+        position: relative !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+
+        height: 118px !important;
+        min-height: 118px !important;
+
+        margin: 0 !important;
+
+        overflow: hidden !important;
+
+        border-radius: 12px !important;
+
+        transform: none !important;
+    }
+
+    .foundation-stack {
+        padding: 0 !important;
+    }
+
+    .category-tab {
+        min-height: 24px !important;
+
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+
+        padding: 3px 4px !important;
+
+        font-size: 8px !important;
+        font-weight: 900 !important;
+        line-height: 1.05 !important;
+
+        text-align: center !important;
+    }
+
+    .category-card-top {
+        padding: 5px 7px 0 !important;
+    }
+
+    .category-crown {
+        width: 11px !important;
+        height: 11px !important;
+    }
+
+    .category-progress {
+        font-size: 7px !important;
+    }
+
+.category-icon-circle {
+    width: 30px !important;
+    height: 30px !important;
+    margin: 8px auto 4px !important;
+}
+
+    .category-icon-circle svg {
+        width: 17px !important;
+        height: 17px !important;
+    }
+
+    .stack-title {
+        padding: 0 6px !important;
+
+        font-size: 8px !important;
+        font-weight: 800 !important;
+        line-height: 1.1 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: anywhere !important;
+    }
+
+    .locked-category-card {
+        display: flex !important;
+
+        align-items: center !important;
+        justify-content: center !important;
+
+        background: rgba(255,255,255,0.68) !important;
+
+        border: 1px solid #DCE4EF !important;
+
+        box-shadow:
+            0 4px 10px
+            rgba(15,23,42,0.05) !important;
+    }
+
+    .locked-category-card > span {
+        width: 30px !important;
+
+        color: #D9DFE8 !important;
+    }
+
+
+    /* =====================================================
+       REMOVE DESKTOP DIVIDER
+    ===================================================== */
+
+    .game-section-divider {
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       PLAYABLE CARD HAND — 4 ACROSS
+    ===================================================== */
+
+    .game-cards-section {
+        width: 100% !important;
+
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    #cardsGrid {
+        width: 100% !important;
+
+        display: grid !important;
+
+        grid-template-columns:
+            repeat(4, minmax(0, 1fr)) !important;
+
+        gap: 8px !important;
+
+        margin: 0 0 14px !important;
+        padding: 0 !important;
+
+        overflow: visible !important;
+
+        transform: none !important;
+    }
+
+    .card-pile {
+        position: relative !important;
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+        min-height: 138px !important;
+        margin: 0 !important;
+        overflow: visible !important;
+    }
+
+    .card-pile .game-card {
+        position: absolute !important;
+
+        left: 0 !important;
+
+        width: 100% !important;
+        min-width: 0 !important;
+        max-width: none !important;
+
+        height: 116px !important;
+        min-height: 116px !important;
+
+        margin: 0 !important;
+
+        border-radius: 11px !important;
+
+        transform: none;
+    }
+
+    .card-name {
+        padding: 8px !important;
+
+        font-size: 9px !important;
+        font-weight: 900 !important;
+        line-height: 1.18 !important;
+
+        text-align: center !important;
+
+        overflow-wrap: anywhere !important;
+    }
+
+    .card-crown {
+        width: 11px !important;
+        height: 11px !important;
+
+        top: 7px !important;
+        right: 7px !important;
+    }
+
+    .card-category-count {
+        font-size: 7px !important;
+    }
+
+
+    /* =====================================================
+       HINT + UNDO ROW
+    ===================================================== */
+    .mobile-game-tools {
+        display: grid;
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+        gap: 12px;
+        margin: 0 12px 76px;
+    }
+
+    .mobile-game-tool-btn {
+        height: 52px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        gap: 8px;
+
+        background: #FFFFFF;
+
+        border: none;
+        border-radius: 999px;
+
+        color: #41516A;
+
+        font-family: "Nunito", sans-serif;
+        font-size: 13px;
+        font-weight: 800;
+
+        box-shadow:
+            0 5px 15px
+            rgba(15,23,42,0.05);
+    }
+
+    .mobile-game-tool-btn svg {
+        width: 19px;
+        height: 19px;
+    }
+
+    .mobile-game-tool-btn.hint {
+        color: #7A6500;
+    }
+
+
+    /* =====================================================
+       RESTART + NEXT LEVEL
+    ===================================================== */
+.game-bottom-actions {
+    position: fixed !important;
+    left: 16px !important;
+    right: 16px !important;
+    bottom: 14px !important;
+    width: auto !important;
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    z-index: 500 !important;
+    transform: none !important;
+}
+
+    .bottom-game-btn {
+        width: 100% !important;
+        min-width: 0 !important;
+
+        height: 52px !important;
+
+        margin: 0 !important;
+
+        border-radius: 999px !important;
+
+        font-size: 13px !important;
+        font-weight: 900 !important;
+    }
+
+    .restart-btn {
+        background: #173F82 !important;
+
+        color: #FFFFFF !important;
+
+        border: none !important;
+
+        box-shadow:
+            0 8px 20px
+            rgba(23,63,130,0.20) !important;
+    }
+
+    .next-level-btn:disabled {
+        background: #E2EAF5 !important;
+
+        color: #FFFFFF !important;
+
+        opacity: 1 !important;
+    }
+
+
+    /* =====================================================
+       REMOVE ALL DESKTOP HORIZONTAL OFFSETS
+    ===================================================== */
+
+    .gameplay-main,
+    .gameplay-board,
+    .category-section,
+    .game-cards-section,
+    #cardsGrid {
+        left: auto !important;
+        right: auto !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        
+
+        translate: none !important;
+    }
+    
+
+}
+
+
+/* =====================================================
+   FIRST LEVEL TUTORIAL
+===================================================== */
+
+.first-game-tutorial {
+    position: fixed;
+    inset: 0;
+
+    z-index: 5000;
+
+    pointer-events: none;
+}
+
+
+
+.tutorial-hand {
+    position: fixed;
+    transform: translate(-50%, -10%);
+    font-size: 38px;
+    z-index: 5004;
+    pointer-events: none;
+    max-top: 170px;
+    filter:
+        drop-shadow(
+            0 4px 4px
+            rgba(0,0,0,0.18)
+        );
+    transition:
+        left 0.85s ease,
+        top 0.85s ease,
+        transform 0.85s ease;
+}
+
+
+.tutorial-hand-moving {
+    transform:
+        translate(-50%, -50%)
+        scale(0.92);
+}
+
+
+.tutorial-example-card {
+    position: relative;
+
+    z-index: 5002 !important;
+
+    animation:
+        tutorialCardPulse
+        1s ease-in-out
+        infinite;
+}
+
+
+.tutorial-example-target {
+    position: relative;
+
+    z-index: 5002 !important;
+
+    animation:
+        tutorialTargetPulse
+        1s ease-in-out
+        infinite;
+}
+
+
+@keyframes tutorialCardPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(37,99,255,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 6px
+            rgba(37,99,255,0.30);
+    }
+}
+
+
+@keyframes tutorialTargetPulse {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 0 0
+            rgba(34,197,94,0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 0 6px
+            rgba(34,197,94,0.30);
+    }
+}  

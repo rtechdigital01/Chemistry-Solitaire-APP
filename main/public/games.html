@@ -27,10 +27,142 @@
 
 
 <body>
-
     <!-- Reusable Header -->
     <div id="header"></div>
+    
+    
+<!-- ========================================
+     MOBILE GAMES HEADER
+========================================= -->
+<div class="mobile-games-header">
+    <div class="mobile-games-topbar">
+        <button
+            type="button"
+            class="mobile-games-menu"
+            id="mobileGamesMenu"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
 
+        <div class="mobile-games-top-actions">
+
+            <button
+                type="button"
+                class="mobile-games-notification"
+                aria-label="Notifications"
+            >
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M18 8A6 6 0 0 0 6 8C6 15 3 15 3 17H21C21 15 18 15 18 8Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M10 21H14"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                    />
+                </svg>
+                <span></span>
+            </button>
+
+            <div
+                class="mobile-games-avatar"
+                id="mobileGamesAvatar"
+            >
+                S
+            </div>
+       </div>
+    </div>
+
+    <!-- SAME HAMBURGER DRAWER -->
+    <div
+        class="mobile-menu-backdrop"
+        id="mobileGamesMenuBackdrop"
+    ></div>
+
+    <aside
+        class="mobile-menu-drawer"
+        id="mobileGamesMenuDrawer"
+    >
+        <div class="mobile-menu-heading">
+            <a href="/" class="mobile-drawer-brand">
+                <img
+                    src="images/logo.png"
+                    alt="Science Solitaire"
+                    class="mobile-drawer-logo"
+                >
+            </a>
+
+            <button
+                type="button"
+                id="closeMobileGamesMenu"
+                aria-label="Close menu"
+            >
+                ✕
+            </button>
+            
+        </div>
+        <nav class="mobile-drawer-nav">
+            <a href="/why-solitaire">
+                Why SciSolitaire?
+            </a>
+            <a href="/gameplay">
+                Gameplay Preview
+            </a>
+            <a href="/curriculum">
+                Progress & Feedback
+            </a>
+            <a href="/about">
+                About
+            </a>
+            <a href="#" id="mobileGamesLogout">
+                Log Out
+            </a>
+            <a
+                href="/dashboard"
+                class="mobile-drawer-play"
+            >
+                Dashboard
+            </a>
+        </nav>
+    </aside>
+    
+    <!-- SEARCH -->
+    <div class="mobile-games-search">
+
+        <svg viewBox="0 0 24 24" fill="none">
+            <circle
+                cx="11"
+                cy="11"
+                r="7"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+            <path
+                d="M16.5 16.5L21 21"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+
+        <input
+            type="search"
+            id="mobileDeckSearch"
+            placeholder="Search topics..."
+            autocomplete="off"
+        >
+    </div>
+</div>
+    
+    
+    
 
     <!-- Dashboard Content -->
     <main class="dashboard-page">
@@ -38,18 +170,12 @@
 <!-- ========================================
      DASHBOARD PROFILE SECTION
 ========================================= -->
-<!-- ========================================
-     DASHBOARD PROFILE SECTION
-========================================= -->
-
         <section class="dashboard-profile-card reveal" data-delay="0">
-
+            
             <!-- LEFT: USER PROFILE -->
             <div class="dashboard-user">
 
                 <!-- Avatar -->
-                <!-- Avatar -->
-
                 <div class="dashboard-avatar">
                 <span
                 
@@ -67,16 +193,11 @@
                 class="dashboard-avatar-status"
                 
                 aria-label="Profile active"
-                
                 >
-                
                 ✓
-                
                 </span>
-   
                 </div>
-
-
+                
                 <!-- User Information -->
                 <div class="dashboard-user-info">
 
@@ -87,15 +208,11 @@
                     <h1 class="dashboard-user-name" id="dashboardUserName">
                         Loading...
                     </h1>
-
                     <p class="dashboard-user-course"
                         id="dashboardUserCourse"> Loading...
                     </p>
-
                 </div>
-
             </div>
-
 
             <!-- Right side will be added next -->
             <!-- RIGHT SIDE -->
@@ -142,7 +259,6 @@
                         <span>Edit Profile</span>
                     </a>
 
-
                     <button type="button" class="dashboard-logout-button">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M14 8L18 12L14 16" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
@@ -158,8 +274,6 @@
                 </div>
             </div>
         </section>
-
-
 
         <!-- ========================================
                 CHEMISTRY DECKS HEADING SECTION
@@ -182,9 +296,7 @@
                     <p class="decks-subtitle">
                         Select a deck to start a revision session
                     </p>
-
                 </div>
-
 
                 <!-- Available Decks Pill -->
                 <div class="decks-available-pill">
@@ -218,10 +330,6 @@
 <!-- ========================================
      CHEMISTRY DECK CARDS
 ========================================= -->
-
-<!-- ========================================
-     CHEMISTRY DECK CARDS (data-driven)
-========================================= -->
 <section class="deck-cards-section">
 
     <div class="deck-cards-grid" id="deckCardsGrid">
@@ -236,7 +344,6 @@
      Lists every level for the chosen deck, grouped by difficulty,
      progressively unlocked as earlier levels are completed.
 ============================================================ -->
-
 <div
     id="levelSelectModal"
     style="
@@ -286,14 +393,102 @@
         <div id="levelModalGroups" style="margin-top: 18px; display:flex; flex-direction:column; gap: 22px;"></div>
     </div>
 </div>
-
-
     </main>
+
+<!-- ========================================
+     MOBILE BOTTOM NAV
+========================================= -->
+<nav class="mobile-bottom-nav">
+
+    <a href="dashboard.html" class="mobile-nav-item">
+
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linejoin="round"
+            />
+        </svg>
+    
+        <span>Home</span>
+    </a>
+
+    <a
+        href="games.html"
+        class="mobile-nav-item active"
+    >
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M4 5H10C11.2 5 12 5.8 12 7V20C12 18.8 11.2 18 10 18H4V5Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+
+            <path
+                d="M20 5H14C12.8 5 12 5.8 12 7V20C12 18.8 12.8 18 14 18H20V5Z"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+        </svg>
+        <span>Decks</span>
+
+    </a>
+
+    <a
+        href="games.html"
+        class="mobile-nav-item mobile-play-nav"
+    >
+        <span class="mobile-play-button">
+            <img
+                src="./images/favicon.png"
+                alt="Play"
+            >
+        </span>
+        <span>Play</span>
+    </a>
+
+    <a
+        href="results.html"
+        class="mobile-nav-item"
+    >
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path
+                d="M5 20V11M12 20V4M19 20V8"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+        <span>Progress</span>
+    </a>
+
+    <a
+        href="profile-setup.html"
+        class="mobile-nav-item"
+    >
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <circle
+                cx="12"
+                cy="8"
+                r="4"
+                stroke="currentColor"
+                stroke-width="1.8"
+            />
+            <path
+                d="M4.5 21C5.2 16.8 8 14.5 12 14.5C16 14.5 18.8 16.8 19.5 21"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+            />
+        </svg>
+        <span>Profile</span>
+    </a>
+</nav>
 
 
     <!-- Reusable Footer -->
     <div id="footer"></div>
-
 
     <!-- Reusable Header -->
     <script src="./js/header.js"></script>
@@ -305,12 +500,6 @@
     <script src="./js/app.js"></script>
 
 <script src="./js/api.js?v=3"></script>
-
-
-
-
-
-
 
 
 <style>
@@ -699,6 +888,140 @@ function loadDecks() {
 
     loadDecks();
 
+
+/* =========================================================
+   MOBILE GAMES UI
+========================================================= */
+
+const mobileGamesMenu =
+    document.getElementById("mobileGamesMenu");
+
+const mobileGamesDrawer =
+    document.getElementById("mobileGamesMenuDrawer");
+
+const mobileGamesBackdrop =
+    document.getElementById("mobileGamesMenuBackdrop");
+
+const closeMobileGamesMenu =
+    document.getElementById("closeMobileGamesMenu");
+
+
+function openGamesMobileMenu() {
+    mobileGamesDrawer?.classList.add("open");
+    mobileGamesBackdrop?.classList.add("open");
+}
+
+
+function closeGamesMobileMenuDrawer() {
+    mobileGamesDrawer?.classList.remove("open");
+    mobileGamesBackdrop?.classList.remove("open");
+}
+
+
+mobileGamesMenu?.addEventListener(
+    "click",
+    openGamesMobileMenu
+);
+
+closeMobileGamesMenu?.addEventListener(
+    "click",
+    closeGamesMobileMenuDrawer
+);
+
+mobileGamesBackdrop?.addEventListener(
+    "click",
+    closeGamesMobileMenuDrawer
+);
+
+
+/* PROFILE INITIAL */
+
+try {
+
+    const storedUser =
+        JSON.parse(
+            localStorage.getItem("user") || "null"
+        );
+
+    if (storedUser?.name) {
+
+        const avatar =
+            document.getElementById(
+                "mobileGamesAvatar"
+            );
+
+        if (avatar) {
+            avatar.textContent =
+                storedUser.name
+                    .charAt(0)
+                    .toUpperCase();
+        }
+
+    }
+
+} catch (error) {
+    console.error(error);
+}
+
+
+/* LOG OUT */
+
+document
+    .getElementById("mobileGamesLogout")
+    ?.addEventListener(
+        "click",
+        function (event) {
+
+            event.preventDefault();
+
+            localStorage.removeItem("auth_token");
+            localStorage.removeItem("user");
+            localStorage.removeItem("userRole");
+
+            window.location.href =
+                "login.html";
+        }
+    );
+
+
+/* SEARCH TOPICS */
+
+const mobileDeckSearch =
+    document.getElementById(
+        "mobileDeckSearch"
+    );
+
+
+mobileDeckSearch?.addEventListener(
+    "input",
+    function () {
+
+        const search =
+            this.value
+                .trim()
+                .toLowerCase();
+
+        document
+            .querySelectorAll(
+                "#deckCardsGrid .deck-card"
+            )
+            .forEach(card => {
+
+                const title =
+                    card
+                        .querySelector(".deck-title")
+                        ?.textContent
+                        ?.toLowerCase() || "";
+
+                card.style.display =
+                    title.includes(search)
+                        ? ""
+                        : "none";
+
+            });
+
+    }
+);
 });
 </script>
 

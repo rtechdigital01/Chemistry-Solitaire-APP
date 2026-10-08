@@ -27,9 +27,324 @@
 
 
 <body>
-
     <!-- Reusable Header -->
     <div id="header"></div>
+
+
+<!-- ========================================
+     MOBILE DASHBOARD
+========================================= -->
+
+<div class="mobile-dashboard">
+
+    <!-- TOP BAR -->
+    <div class="mobile-dashboard-topbar">
+
+        <button
+            type="button"
+            class="mobile-dashboard-menu"
+            id="mobileDashboardMenu"
+            aria-label="Open menu"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <div class="mobile-dashboard-top-actions">
+
+            <button
+                type="button"
+                class="mobile-notification-button"
+                aria-label="Notifications"
+            >
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M18 8A6 6 0 0 0 6 8C6 15 3 15 3 17H21C21 15 18 15 18 8Z"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linejoin="round"
+                    />
+                    <path
+                        d="M10 21H14"
+                        stroke="currentColor"
+                        stroke-width="1.7"
+                        stroke-linecap="round"
+                    />
+                </svg>
+
+                <span class="mobile-notification-dot"></span>
+            </button>
+
+            <div
+                class="mobile-profile-avatar"
+                id="mobileProfileInitial"
+            >
+                S
+            </div>
+        </div>
+    </div>
+
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+<aside class="mobile-menu-drawer" id="mobileMenuDrawer">
+    <div class="mobile-menu-heading">
+        <a href="/" class="mobile-drawer-brand">
+            <img
+                src="images/logo.png"
+                alt="Science Solitaire"
+                class="mobile-drawer-logo"
+            >
+        </a>
+        <button
+            type="button"
+            id="closeMobileDashboardMenu"
+            aria-label="Close menu"
+        >
+            ✕
+        </button>
+    </div>
+
+    <nav class="mobile-drawer-nav">
+        <a href="/why-solitaire">
+            Why SciSolitaire?
+        </a>
+        <a href="/gameplay">
+            Gameplay Preview
+        </a>
+
+        <a href="/curriculum">
+            Progress & Feedback
+        </a>
+        <a href="/about">
+            About
+        </a>
+<a href="#" id="mobileDrawerLogout">
+    Log Out
+</a>
+        <a href="/dashboard" class="mobile-drawer-play" id="mobileDrawerPlayLink">
+                Dashboard
+            </a>
+         </nav>
+</aside>
+
+
+
+    <!-- GREETING -->
+
+    <div class="mobile-welcome">
+
+        <p id="mobileDashboardGreeting">
+            Good morning,
+        </p>
+
+        <h1>
+            <span id="mobileDashboardName">Student</span>
+            👋
+        </h1>
+
+        <span id="mobileDashboardCourse">
+            Student Level
+        </span>
+
+    </div>
+
+
+    <!-- STATS -->
+
+    <div class="mobile-dashboard-stats">
+
+        <div class="mobile-stat">
+            <span class="mobile-stat-icon coin">◎</span>
+
+            <div>
+                <strong id="mobileCoinBalance">0</strong>
+                <span>Coins</span>
+            </div>
+        </div>
+
+        <div class="mobile-stat">
+            <span class="mobile-stat-icon decks">◈</span>
+
+            <div>
+                <strong id="mobileDecksPlayed">0</strong>
+                <span>Decks</span>
+            </div>
+        </div>
+
+        <div class="mobile-stat">
+            <span class="mobile-stat-icon accuracy">◎</span>
+
+            <div>
+                <strong id="mobileAccuracy">0%</strong>
+                <span>Accuracy</span>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- CONTINUE LEARNING -->
+
+    <section class="mobile-continue-card">
+
+        <div class="mobile-continue-decoration">⚛</div>
+
+        <span class="mobile-section-label">
+            CONTINUE LEARNING
+        </span>
+
+        <h2 id="mobileContinueTopic">
+            Ready to Play?
+        </h2>
+
+        <p id="mobileContinueMeta">
+            Choose a Science topic and continue learning
+        </p>
+
+        <div class="mobile-progress-track">
+            <div
+                class="mobile-progress-fill"
+                id="mobileContinueProgress"
+            ></div>
+        </div>
+
+        <a
+            href="games.html"
+            class="mobile-resume-button"
+        >
+            <span>▷</span>
+            Play Now
+        </a>
+
+    </section>
+
+
+    <!-- SUBJECTS -->
+
+    <section class="mobile-subjects">
+
+        <h2>Your Subjects</h2>
+
+        <div class="mobile-subject-grid">
+
+            <a
+                href="games.html?subject=chemistry"
+                class="mobile-subject-card"
+            >
+                <div class="mobile-subject-icon chemistry">
+                    ⚗
+                </div>
+
+                <strong>Chemistry</strong>
+
+                <div class="mobile-subject-progress">
+                    <span
+                        id="mobileChemistryProgress"
+                        class="chemistry"
+                    ></span>
+                </div>
+
+                <small id="mobileChemistryText">0%</small>
+            </a>
+
+
+            <a
+                href="games.html?subject=biology"
+                class="mobile-subject-card"
+            >
+                <div class="mobile-subject-icon biology">
+                    ⚕
+                </div>
+
+                <strong>Biology</strong>
+
+                <div class="mobile-subject-progress">
+                    <span
+                        id="mobileBiologyProgress"
+                        class="biology"
+                    ></span>
+                </div>
+
+                <small id="mobileBiologyText">0%</small>
+            </a>
+
+
+            <a
+                href="games.html?subject=physics"
+                class="mobile-subject-card"
+            >
+                <div class="mobile-subject-icon physics">
+                    ⚡
+                </div>
+
+                <strong>Physics</strong>
+
+                <div class="mobile-subject-progress">
+                    <span
+                        id="mobilePhysicsProgress"
+                        class="physics"
+                    ></span>
+                </div>
+
+                <small id="mobilePhysicsText">0%</small>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- BOTTOM NAV -->
+<nav class="mobile-bottom-nav">
+
+    <a href="dashboard.html" class="mobile-nav-item active">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linejoin="round"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <a href="games.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M4 5H10C11.2 5 12 5.8 12 7V20C12 18.8 11.2 18 10 18H4V5Z"
+                stroke="currentColor" stroke-width="1.8"/>
+            <path d="M20 5H14C12.8 5 12 5.8 12 7V20C12 18.8 12.8 18 14 18H20V5Z"
+                stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <span>Decks</span>
+    </a>
+
+    <a href="games.html" class="mobile-nav-item mobile-play-nav">
+        <span class="mobile-play-button">
+            <img src="./images/favicon.png" alt="Play">
+        </span>
+        <span>Play</span>
+    </a>
+
+    <a href="results.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M5 20V11M12 20V4M19 20V8"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+        </svg>
+        <span>Progress</span>
+    </a>
+
+    <a href="profile-setup.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4"
+                stroke="currentColor" stroke-width="1.8"/>
+            <path d="M4.5 21C5.2 16.8 8 14.5 12 14.5C16 14.5 18.8 16.8 19.5 21"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+        </svg>
+        <span>Profile</span>
+    </a>
+</nav>
+</div>
+
 
 
     <!-- Dashboard Content -->
@@ -387,6 +702,142 @@
         });
 
     });
+</script>
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    function syncMobileDashboard() {
+
+        const userName =
+            document.getElementById("dashboardUserName")?.textContent?.trim()
+            || "Student";
+
+        const course =
+            document.getElementById("dashboardUserCourse")?.textContent?.trim()
+            || "Student Level";
+
+        const greeting =
+            document.getElementById("dashboardGreeting")?.textContent?.trim()
+            || "Welcome 👋";
+
+        const coins =
+            document.getElementById("dashboardCoinBalance")?.textContent?.trim()
+            || "0";
+
+        const decks =
+            document.getElementById("dashboardDecksPlayed")?.textContent?.trim()
+            || "0";
+
+        const accuracy =
+            document.getElementById("dashboardAccuracy")?.textContent?.trim()
+            || "0%";
+
+
+        document.getElementById("mobileDashboardName").textContent =
+            userName;
+
+        document.getElementById("mobileDashboardCourse").textContent =
+            course;
+
+        document.getElementById("mobileDashboardGreeting").textContent =
+            greeting.replace("👋", "").trim();
+
+        document.getElementById("mobileCoinBalance").textContent =
+            coins;
+
+        document.getElementById("mobileDecksPlayed").textContent =
+            decks;
+
+        document.getElementById("mobileAccuracy").textContent =
+            accuracy;
+
+        document.getElementById("mobileProfileInitial").textContent =
+            userName.charAt(0).toUpperCase();
+
+
+        const chemistry =
+            document.getElementById("dashboardChemistryProgressText")
+                ?.textContent?.trim() || "0%";
+
+        const biology =
+            document.getElementById("dashboardBiologyProgressText")
+                ?.textContent?.trim() || "0%";
+
+        const physics =
+            document.getElementById("dashboardPhysicsProgressText")
+                ?.textContent?.trim() || "0%";
+
+
+        document.getElementById("mobileChemistryText").textContent =
+            chemistry;
+
+        document.getElementById("mobileBiologyText").textContent =
+            biology;
+
+        document.getElementById("mobilePhysicsText").textContent =
+            physics;
+
+
+        document.getElementById("mobileChemistryProgress").style.width =
+            chemistry;
+
+        document.getElementById("mobileBiologyProgress").style.width =
+            biology;
+
+        document.getElementById("mobilePhysicsProgress").style.width =
+            physics;
+    }
+
+
+    setTimeout(syncMobileDashboard, 500);
+    setTimeout(syncMobileDashboard, 1500);
+
+
+    /* HAMBURGER */
+const mobileMenuButton =
+    document.getElementById("mobileDashboardMenu");
+
+const mobileMenuDrawer =
+    document.getElementById("mobileMenuDrawer");
+
+const mobileMenuBackdrop =
+    document.getElementById("mobileMenuBackdrop");
+
+const closeMobileMenu =
+    document.getElementById("closeMobileDashboardMenu");
+
+function openMobileMenu() {
+    mobileMenuDrawer?.classList.add("open");
+    mobileMenuBackdrop?.classList.add("open");
+}
+
+function closeMobileMenuDrawer() {
+    mobileMenuDrawer?.classList.remove("open");
+    mobileMenuBackdrop?.classList.remove("open");
+}
+
+mobileMenuButton?.addEventListener("click", openMobileMenu);
+closeMobileMenu?.addEventListener("click", closeMobileMenuDrawer);
+mobileMenuBackdrop?.addEventListener("click", closeMobileMenuDrawer);
+
+
+document
+    .getElementById("mobileDrawerLogout")
+    ?.addEventListener("click", function (event) {
+
+        event.preventDefault();
+
+        localStorage.removeItem("auth_token");
+        localStorage.removeItem("user");
+        localStorage.removeItem("userRole");
+
+        window.location.href = "login.html";
+    });
+
+});
 </script>
 
 </body>

@@ -35,19 +35,326 @@
     <!-- ========================================
          TAILWIND COMPILED CSS
     ========================================= -->
-
     <link
         rel="stylesheet"
         href="./css/output.css"
     >
+     <link
+        rel="stylesheet"
+        href="./css/profile-mobile.css"
+    >
+    
+    
 
     <script src="js/config.js"></script>
 </head>
 
 
 <body>
+<!-- ========================================
+     MOBILE PROFILE
+========================================= -->
+
+<div class="mobile-profile-page">
+
+    <!-- PROFILE HEADER -->
+    <section class="mobile-profile-header">
+
+        <div class="mobile-profile-avatar" id="mobileProfileAvatar">
+            A
+        </div>
+
+        <div class="mobile-profile-user">
+
+            <h1 id="mobileProfileName">
+                Alex Johnson
+            </h1>
+
+            <p id="mobileProfileRole">
+                Student · Year 10
+            </p>
+
+            <div class="mobile-profile-course">
+                🎓 <span id="mobileProfileCourse">GCSE · Chemistry</span>
+            </div>
+
+        </div>
+
+        <button
+            class="mobile-profile-settings"
+            type="button"
+            aria-label="Settings"
+        >
+            <svg viewBox="0 0 24 24" fill="none">
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="3"
+                    stroke="currentColor"
+                    stroke-width="1.8"
+                />
+                <path
+                    d="M19 13.5V10.5L16.8 9.8C16.6 9.2 16.3 8.7 15.9 8.2L16.9 6.1L14.8 4L12.7 5C12.2 4.7 11.6 4.4 11 4.2L10.5 2H7.5L7 4.2C6.4 4.4 5.8 4.7 5.3 5L3.2 4L1.1 6.1L2.1 8.2C1.7 8.7 1.4 9.2 1.2 9.8L-1 10.5"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                />
+            </svg>
+        </button>
+
+    </section>
 
 
+    <main class="mobile-profile-content">
+
+        <!-- ACCOUNT -->
+        <section class="mobile-profile-section">
+
+            <h2>ACCOUNT</h2>
+
+            <div class="mobile-settings-card">
+
+                <a href="#" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <circle cx="12" cy="8" r="3"
+                                stroke="currentColor"
+                                stroke-width="1.8"/>
+                            <path d="M6 20V17C6 14 8.5 12.5 12 12.5C15.5 12.5 18 14 18 17V20"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Edit Profile
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+
+                <a href="#" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon yellow">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M6 16H18L16.5 14V10C16.5 7.5 14.5 5.5 12 5.5C9.5 5.5 7.5 7.5 7.5 10V14L6 16Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"/>
+                            <path d="M10 19H14"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Notifications
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+
+                <a href="#" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon green">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M12 3L18 5.5V11C18 15 15.6 18.2 12 20C8.4 18.2 6 15 6 11V5.5L12 3Z"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Privacy &amp; Security
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- LEARNING -->
+        <section class="mobile-profile-section">
+
+            <h2>LEARNING</h2>
+
+            <div class="mobile-settings-card">
+
+                <a href="#" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon blue">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M6 4V20M12 4V20M18 4V20"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                stroke-linecap="round"/>
+                            <circle cx="6" cy="9" r="2"
+                                fill="currentColor"/>
+                            <circle cx="12" cy="15" r="2"
+                                fill="currentColor"/>
+                            <circle cx="18" cy="8" r="2"
+                                fill="currentColor"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Accessibility
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+
+                <a href="./index.html" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon grey">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <rect x="4" y="4" width="6" height="6"
+                                stroke="currentColor"
+                                stroke-width="1.7"/>
+                            <rect x="14" y="4" width="6" height="6"
+                                stroke="currentColor"
+                                stroke-width="1.7"/>
+                            <rect x="4" y="14" width="6" height="6"
+                                stroke="currentColor"
+                                stroke-width="1.7"/>
+                            <rect x="14" y="14" width="6" height="6"
+                                stroke="currentColor"
+                                stroke-width="1.7"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        About SciSolitaire
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+
+                <a href="#" class="mobile-setting-row">
+
+                    <span class="mobile-setting-icon green">
+                        🎓
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Switch to Teacher
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- SESSION -->
+        <section class="mobile-profile-section mobile-session-section">
+
+            <h2>SESSION</h2>
+
+            <div class="mobile-settings-card">
+
+                <button
+                    type="button"
+                    class="mobile-setting-row mobile-logout"
+                    id="mobileProfileLogout"
+                >
+
+                    <span class="mobile-setting-icon red">
+                        <svg viewBox="0 0 24 24" fill="none">
+                            <path d="M10 4H5V20H10"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"/>
+                            <path d="M13 8L17 12L13 16M17 12H8"
+                                stroke="currentColor"
+                                stroke-width="1.8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"/>
+                        </svg>
+                    </span>
+
+                    <span class="mobile-setting-name">
+                        Log Out
+                    </span>
+
+                    <span class="mobile-setting-arrow">›</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+ <!-- BOTTOM NAV -->
+<nav class="mobile-bottom-nav">
+
+    <a href="dashboard.html" class="mobile-nav-item active">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linejoin="round"/>
+        </svg>
+        <span>Home</span>
+    </a>
+
+    <a href="games.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M4 5H10C11.2 5 12 5.8 12 7V20C12 18.8 11.2 18 10 18H4V5Z"
+                stroke="currentColor" stroke-width="1.8"/>
+            <path d="M20 5H14C12.8 5 12 5.8 12 7V20C12 18.8 12.8 18 14 18H20V5Z"
+                stroke="currentColor" stroke-width="1.8"/>
+        </svg>
+        <span>Decks</span>
+    </a>
+
+    <a href="games.html" class="mobile-nav-item mobile-play-nav">
+        <span class="mobile-play-button">
+            <img src="./images/favicon.png" alt="Play">
+        </span>
+        <span>Play</span>
+    </a>
+
+    <a href="results.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <path d="M5 20V11M12 20V4M19 20V8"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+        </svg>
+        <span>Progress</span>
+    </a>
+
+    <a href="profile-setup.html" class="mobile-nav-item">
+        <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="8" r="4"
+                stroke="currentColor" stroke-width="1.8"/>
+            <path d="M4.5 21C5.2 16.8 8 14.5 12 14.5C16 14.5 18.8 16.8 19.5 21"
+                stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round"/>
+        </svg>
+        <span>Profile</span>
+    </a>
+</nav>
+</div>
     <!-- ========================================
          REUSABLE HEADER
     ========================================= -->
@@ -480,15 +787,90 @@
     <!-- ========================================
          JAVASCRIPT
     ========================================= -->
-
     <script src="./js/header.js"></script>
-
     <script src="./js/footer.js"></script>
-
     <script src="./js/app.js"></script>
+    <script src="./js/api.js"></script>
+    
+    <script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    let user = {};
+
+    try {
+        user = JSON.parse(
+            localStorage.getItem("user") || "{}"
+        );
+    } catch (_) {}
 
 
-<script src="./js/api.js"></script>
+    const name =
+        user.name ||
+        user.display_name ||
+        "Alex Johnson";
+
+
+    const nameElement =
+        document.getElementById("mobileProfileName");
+
+    const avatarElement =
+        document.getElementById("mobileProfileAvatar");
+
+
+    if (nameElement) {
+        nameElement.textContent = name;
+    }
+
+
+    if (avatarElement) {
+        avatarElement.textContent =
+            name.trim().charAt(0).toUpperCase();
+    }
+
+
+    const year =
+        user.year_group ||
+        user.year ||
+        "Year 10";
+
+
+    const role =
+        user.role === "teacher"
+            ? "Teacher"
+            : "Student";
+
+
+    document.getElementById(
+        "mobileProfileRole"
+    ).textContent =
+        `${role} · ${year}`;
+
+
+    const keyStage =
+        user.key_stage ||
+        "GCSE";
+
+
+    document.getElementById(
+        "mobileProfileCourse"
+    ).textContent =
+        `${keyStage} · Chemistry`;
+
+
+    document
+        .getElementById("mobileProfileLogout")
+        ?.addEventListener("click", () => {
+
+            localStorage.removeItem("auth_token");
+            localStorage.removeItem("user");
+            localStorage.removeItem("userRole");
+
+            window.location.href =
+                "./login.html";
+        });
+
+});
+</script>
 </body>
 
 </html>

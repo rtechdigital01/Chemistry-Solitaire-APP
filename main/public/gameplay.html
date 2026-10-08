@@ -18,12 +18,96 @@
     <link rel="stylesheet" href="./css/output.css">
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/gameplay-mobile.css">
+    
 
 
     <script src="js/config.js"></script>
 </head>
-
 <body>
+    
+    <!-- ========================================
+     MOBILE GAMEPLAY TOP BAR
+========================================= -->
+<div class="mobile-figma-game-topbar">
+
+    <div class="mobile-game-top-row">
+
+        <!-- BACK + TOPIC -->
+        <div class="mobile-game-topic-area">
+
+            <button
+                type="button"
+                class="mobile-game-back"
+                onclick="window.location.href='games.html'"
+                aria-label="Back to decks"
+            >
+                <svg viewBox="0 0 24 24" fill="none">
+                    <path
+                        d="M15 18L9 12L15 6"
+                        stroke="currentColor"
+                        stroke-width="2.2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                    />
+                </svg>
+            </button>
+
+            <div class="mobile-game-topic-text">
+                <h1 id="mobileGameTopicTitle">
+                    Atomic Structure
+                </h1>
+
+                <p id="mobileGameTopicMeta">
+                    Chemistry · Deck 1
+                </p>
+            </div>
+        </div>
+
+        <!-- COINS + MOVES -->
+        <div class="mobile-game-stats">
+
+            <div class="mobile-game-stat">
+
+                <div class="mobile-game-stat-pill">
+                    <span class="mobile-coin-symbol">◎</span>
+                    <strong id="mobileGameCoins">0</strong>
+                </div>
+
+                <span class="mobile-game-stat-label">
+                    Coins
+                </span>
+            </div>
+
+            <div class="mobile-game-stat">
+
+                <div class="mobile-game-stat-pill">
+                    <strong id="mobileGameMoves">0</strong>
+                </div>
+
+                <span class="mobile-game-stat-label">
+                    Moves
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- PROGRESS -->
+    <div class="mobile-game-progress-row">
+
+        <div class="mobile-game-progress-track">
+
+            <div
+                class="mobile-game-progress-fill"
+                id="mobileGameProgressFill"
+            ></div>
+
+        </div>
+        <span id="mobileGameProgressText">
+            0/0
+        </span>
+    </div>
+</div>
 
 
 
@@ -244,13 +328,59 @@
         <!-- ==============================
              GAME CARDS (HAND)
         ============================== -->
-
         <section class="game-cards-section" aria-label="Card hand">
-
-            <div id="cardsGrid" role="list" aria-label="Playable cards"></div>
-
-            <!-- CONTROLS -->
-            <div class="game-bottom-actions">
+                    <div id="cardsGrid" role="list" aria-label="Playable cards"></div>
+                    
+                    <!-- MOBILE FIGMA TOOLS -->
+                    <div class="mobile-game-tools">
+                        <button
+                            type="button"
+                            class="mobile-game-tool-btn hint"
+                            id="mobileHintBtn"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M9.5 2a7 7 0 000 14h5a7 7 0 000-14h-5z"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                />
+                                <path
+                                    d="M12 16v6M9 19h6"
+                                    stroke="currentColor"
+                                    stroke-width="1.7"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                    
+                            <span id="mobileHintLabel">Hint (3)</span>
+                        </button>
+                    
+                        <button
+                            type="button"
+                            class="mobile-game-tool-btn"
+                            id="mobileUndoBtn"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none">
+                                <path
+                                    d="M9 7H4V2"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
+                                <path
+                                    d="M4 7C6.3 4.7 8.8 3.5 12 3.5C17 3.5 21 7.5 21 12.5C21 17.5 17 21 12 21C8.3 21 5.2 18.9 3.8 15.8"
+                                    stroke="currentColor"
+                                    stroke-width="1.8"
+                                    stroke-linecap="round"
+                                />
+                            </svg>
+                            Undo
+                        </button>
+                    </div>
+                    
+                    <!-- CONTROLS -->
+                    <div class="game-bottom-actions">
 
                 <button
                     type="button"
@@ -319,6 +449,149 @@ document.getElementById("topRedealBtn")?.addEventListener("click", () => {
 document.getElementById("topHintBtn")?.addEventListener("click", () => {
     window._gameHintClick?.();
 });
+
+/* ============================================================
+   MOBILE FIGMA HEADER SYNC
+============================================================ */
+
+function syncMobileGameplayHeader() {
+
+    /* TOPIC */
+
+    const desktopTitle =
+        document.querySelector(".level-title");
+
+    const mobileTitle =
+        document.getElementById("mobileGameTopicTitle");
+
+    if (desktopTitle && mobileTitle) {
+        mobileTitle.textContent =
+            desktopTitle.textContent.trim();
+    }
+
+
+    /* SUBJECT / LEVEL */
+
+    const params =
+        new URLSearchParams(window.location.search);
+
+    const subject =
+        params.get("subject") || "chemistry";
+
+    const mobileMeta =
+        document.getElementById("mobileGameTopicMeta");
+
+    if (mobileMeta) {
+
+        mobileMeta.textContent =
+            `${subject.charAt(0).toUpperCase() + subject.slice(1)} · Deck 1`;
+
+    }
+
+
+    /* MOVES */
+
+    const desktopStats =
+        document.querySelectorAll(".stat-value");
+
+    const mobileMoves =
+        document.getElementById("mobileGameMoves");
+
+    if (desktopStats[1] && mobileMoves) {
+        mobileMoves.textContent =
+            desktopStats[1].textContent;
+    }
+
+
+    /* COINS */
+
+    try {
+
+        const user =
+            JSON.parse(
+                localStorage.getItem("user") || "null"
+            );
+
+        const mobileCoins =
+            document.getElementById("mobileGameCoins");
+
+        if (mobileCoins) {
+            mobileCoins.textContent =
+                user?.coin_balance ?? 0;
+        }
+
+    } catch (e) {}
+
+
+    /* PROGRESS */
+
+    const desktopProgressText =
+        document.querySelector(
+            ".gameplay-progress-text"
+        );
+
+    const mobileProgressText =
+        document.getElementById(
+            "mobileGameProgressText"
+        );
+
+    if (
+        desktopProgressText &&
+        mobileProgressText
+    ) {
+        mobileProgressText.textContent =
+            desktopProgressText.textContent;
+    }
+
+
+    const desktopFill =
+        document.querySelector(
+            ".gameplay-progress-fill"
+        );
+
+    const mobileFill =
+        document.getElementById(
+            "mobileGameProgressFill"
+        );
+
+    if (
+        desktopFill &&
+        mobileFill
+    ) {
+        mobileFill.style.width =
+            desktopFill.style.width || "0%";
+    }
+}
+
+
+/* Keep mobile header updated during gameplay */
+setInterval(
+    syncMobileGameplayHeader,
+    400
+);
+syncMobileGameplayHeader();
+
+document
+    .getElementById("mobileHintBtn")
+    ?.addEventListener("click", () => {
+
+        window._gameHintClick?.();
+
+        const desktopHintLabel =
+            document.getElementById("topHintLabel");
+
+        const mobileHintLabel =
+            document.getElementById("mobileHintLabel");
+
+        if (
+            desktopHintLabel &&
+            mobileHintLabel
+        ) {
+            mobileHintLabel.textContent =
+                desktopHintLabel.textContent;
+        }
+
+    });
 </script>
 
 
