@@ -779,6 +779,25 @@
             grid-template-columns: 1fr;
         }
     }
+    
+    /* LOGIN PAGE — RESTORE MOBILE SCROLLING */
+@media (max-width: 700px) {
+    html:has(.figma-auth-page),
+    body:has(.figma-auth-page) {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+        position: static !important;
+    }
+
+    .figma-auth-page {
+        height: auto !important;
+        min-height: 100dvh !important;
+        overflow: visible !important;
+        touch-action: pan-y !important;
+    }
+}
 </style>
 
     <script src="js/config.js"></script>

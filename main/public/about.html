@@ -27,15 +27,42 @@
 
 
 <body>
-
     <!-- ========================================
          REUSABLE HEADER
     ========================================= -->
-
     <div id="header"></div>
     
-    
-    
+
+<!-- MOBILE MENU BACKDROP -->
+<div class="mobile-menu-backdrop" id="mobileMenuBackdrop"></div>
+
+<!-- MOBILE MENU DRAWER -->
+<aside class="mobile-menu-drawer" id="mobileMenuDrawer">
+
+    <div class="mobile-menu-heading">
+        <a href="/" class="mobile-drawer-brand">
+            <img src="./images/logo.png"
+                 alt="SciSolitaire"
+                 class="mobile-drawer-logo">
+        </a>
+
+        <button type="button"
+                id="closeMobileDashboardMenu"
+                aria-label="Close menu">✕</button>
+    </div>
+
+    <nav class="mobile-drawer-nav">
+        <a href="/">Home</a>
+        <a href="/why-solitaire">Why SciSolitaire?</a>
+        <a href="/gameplay">Gameplay Preview</a>
+        <a href="/curriculum">Progress &amp; Feedback</a>
+        <a href="/about">About</a>
+        <a href="/dashboard" class="mobile-drawer-play">Dashboard</a>
+    </nav>
+
+</aside>
+
+
     
     
 <!-- =========================================
@@ -53,10 +80,29 @@
 
             <div class="about-main-intro reveal">
 
-                <div class="about-main-badge">
-                    <span class="about-main-badge-dot"></span>
-                    ABOUT SCISOLITAIRE
-                </div>
+<div class="about-mobile-heading-row">
+
+    <div class="about-mobile-topbar">
+        <button
+            type="button"
+            class="mobile-dashboard-menu"
+            id="mobileDashboardMenu"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobileMenuDrawer"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+
+    <div class="about-main-badge">
+        <span class="about-main-badge-dot"></span>
+        ABOUT SCISOLITAIRE
+    </div>
+
+</div>
 
                 <h1>
                     Built for Curiosity,
@@ -704,7 +750,34 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.getElementById("mobileDashboardMenu");
+    const menuDrawer = document.getElementById("mobileMenuDrawer");
+    const menuBackdrop = document.getElementById("mobileMenuBackdrop");
+    const closeButton = document.getElementById("closeMobileDashboardMenu");
 
+    function openMenu() {
+        menuDrawer.classList.add("open");
+        menuBackdrop.classList.add("open");
+        menuButton.setAttribute("aria-expanded", "true");
+    }
+
+    function closeMenu() {
+        menuDrawer.classList.remove("open");
+        menuBackdrop.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+    }
+
+    menuButton?.addEventListener("click", openMenu);
+    closeButton?.addEventListener("click", closeMenu);
+    menuBackdrop?.addEventListener("click", closeMenu);
+
+    document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") closeMenu();
+    });
+});
+</script>
 
 </body>
 

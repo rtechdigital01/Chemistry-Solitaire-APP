@@ -4882,6 +4882,26 @@ body {
 /* =====================================================
    SCISOLITAIRE ABOUT PAGE
 ===================================================== */
+/* ABOUT PAGE — HIDE MOBILE MENU ON DESKTOP */
+@media (min-width: 701px) {
+
+    .about-mobile-topbar,
+    .mobile-menu-backdrop,
+    .mobile-menu-drawer {
+        display: none !important;
+    }
+
+}
+/* Allow About page to scroll on mobile */
+@media (max-width: 700px) {
+    html:has(.about-page),
+    body:has(.about-page) {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+}
 
 .about-page {
     font-family: "Nunito", sans-serif;
@@ -5576,7 +5596,6 @@ body {
 /* =====================================================
    MOBILE
 ===================================================== */
-
 @media screen and (max-width: 600px) {
 
     .about-switcher-section {
@@ -6059,9 +6078,191 @@ body {
 
 
 
+/* ABOUT PAGE — MOBILE HAMBURGER */
+.about-mobile-topbar {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    .about-mobile-topbar {
+        display: flex;
+        align-items: center;
+        padding: 18px;
+        background: #F8FAFF;
+    }
+
+    .about-mobile-topbar .mobile-dashboard-menu {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 0 11px;
+        background: #FFFFFF;
+        border: 1px solid #E7ECF5;
+        border-radius: 13px;
+        cursor: pointer;
+    }
+
+    .about-mobile-topbar .mobile-dashboard-menu span {
+        width: 100%;
+        height: 2px;
+        background: #14213D;
+        border-radius: 10px;
+    }
+
+    .mobile-menu-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1998;
+        background: rgba(15, 23, 42, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s ease;
+    }
+
+    .mobile-menu-backdrop.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu-drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1999;
+        width: min(82%, 310px);
+        padding: 24px 20px;
+        background: #FFFFFF;
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+        box-shadow: 18px 0 40px rgba(15, 23, 42, 0.14);
+    }
+
+    .mobile-menu-drawer.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+    }
+
+    .mobile-menu-heading button {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 10px;
+        background: #F1F5F9;
+        color: #475569;
+        cursor: pointer;
+    }
+
+    .mobile-drawer-logo {
+        width: 150px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mobile-drawer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mobile-drawer-nav a {
+        display: block;
+        padding: 13px 14px;
+        border-radius: 10px;
+        color: #334155;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .mobile-drawer-nav a:hover {
+        background: #EFF4FF;
+        color: #2563FF;
+    }
+
+    .mobile-drawer-nav .mobile-drawer-play {
+        margin-top: 8px;
+        background: #2563FF;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}
 
 
+/* ABOUT PAGE — MOBILE HEADING ALIGNMENT */
+@media (max-width: 700px) {
 
+    .about-mobile-heading-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .about-mobile-heading-row .about-mobile-topbar {
+        display: flex !important;
+        flex-shrink: 0;
+        padding: 0 !important;
+        background: transparent !important;
+    }
+
+    .about-mobile-heading-row .about-main-badge {
+        margin: 0 !important;
+        white-space: nowrap;
+        font-size: clamp(10px, 3vw, 14px);
+        padding: 12px 14px;
+    }
+
+    .about-mobile-heading-row .mobile-dashboard-menu {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+}
+
+/* ABOUT PAGE — HAMBURGER LEFT, BADGE CENTRED */
+@media (max-width: 700px) {
+
+    .about-mobile-heading-row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-mobile-heading-row .about-mobile-topbar {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        padding: 0 !important;
+    }
+
+    .about-mobile-heading-row .about-main-badge {
+        margin: 0 auto !important;
+    }
+}
+
+/* ABOUT PAGE — REDUCE TOP SPACING ON MOBILE */
+@media (max-width: 700px) {
+    .about-switcher-section {
+        padding-top: 20px !important;
+    }
+}
 
 /* =========================================================
    RESULTS / PROGRESS — MOBILE APP VIEW
@@ -6075,7 +6276,7 @@ body {
 @media (max-width: 700px) {
 
     html,
-    body {
+    body:has(.mobile-results-page) {
         width: 100%;
         height: 100%;
         margin: 0;
