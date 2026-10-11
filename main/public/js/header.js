@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <nav class="header-nav">
 
                     <a href="/why-solitaire">
-                        Why SciSolitaire?
+                        Why Science Solitaire?
                     </a>
 
                     <span
@@ -86,7 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </span>
 
                     <a href="/curriculum">
-                        Progress & Feedback
+                        Feedback/Contact Us
                     </a>
 
                     <a href="/about">
@@ -159,7 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
             >
 
                 <a href="/why-solitaire">
-                    Why SciSolitaire?
+                    Why Science Solitaire?
                 </a>
 
                 <span
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </span>
 
                 <a href="/curriculum">
-                    Progress & Feedback
+                    Feedback/Contact Us
                 </a>
 
                 <a href="/about">

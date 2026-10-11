@@ -19,6 +19,7 @@
 
     <!-- Tailwind compiled CSS -->
     <link rel="stylesheet" href="./css/output.css">
+    <link rel="preload" as="image" href="./images/hero-chemistry.webp" type="image/webp" fetchpriority="high">
     <script src="js/config.js"></script>
 </head>
 
@@ -100,9 +101,7 @@
 
             <!-- Description -->
             <p class="hero-description reveal" data-delay="240">
-                The interactive card-matching game built for Secondary School
-            Science
-                Learning. Build confidence across biology, chemistry, and physics by matching concepts, recognizing patterns and making connections through active learning, not passive reading.
+                Science Solitaire is a card-matching game for secondary-school science. Explore biology, chemistry and physics by matching related concepts, checking understanding and learning from feedback.
             </p>
 
             <!-- ========================================
@@ -112,7 +111,7 @@
 <div class="hero-buttons reveal" data-delay="360">
 
     <!-- Play Free Demo -->
-    <a href="#free" class="demo-button">
+    <a href="gameplay.html?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="demo-button">
 
         <svg
             class="play-icon"
@@ -159,7 +158,7 @@
 >
 
     <!-- Curriculum-Aligned Science Learning  -->
-    <div class="feature-pill">
+    <div class="feature-pill" style="background: var(--badge-background); border-color: var(--badge-border); color: var(--badge-text);">
 
         <svg
             class="feature-pill-icon"
@@ -189,7 +188,7 @@
 
 
     <!-- Designed for Different Learning Need -->
-    <div class="feature-pill">
+    <div class="feature-pill" style="background: var(--badge-background); border-color: var(--badge-border); color: var(--badge-text);">
 
         <svg
             class="feature-pill-icon"
@@ -229,7 +228,7 @@
             />
         </svg>
 
-        <span>Choose Your Curriculum and Learning Stage</span>
+        <span>Explore Subjects and Levels</span>
 
     </div>
     
@@ -282,18 +281,25 @@
         <!-- RIGHT SIDE -->
         <section class="hero-image-wrapper reveal scale-reveal" data-delay="180">
 
-            <img
-                src="./images/hero-chemistry.png"
-                alt="Interactive science revision cards and laboratory characters"
-                class="hero-image"
-            >
+            <picture style="display:block; width:100%; height:100%;">
+                <source srcset="./images/hero-chemistry.webp" type="image/webp">
+                <img
+                    src="./images/hero-chemistry.png"
+                    alt="Interactive science revision cards and laboratory characters"
+                    class="hero-image"
+                    width="606"
+                    height="606"
+                    fetchpriority="high"
+                    decoding="async"
+                >
+            </picture>
 
         </section>
 
     </main>
 
 
-<section class="why-section">
+<section class="why-section" id="how-it-works" style="padding-top: 52px;">
 
     <div class="why-content reveal" data-delay="0">
 
@@ -302,7 +308,7 @@
         </h2>
 
         <p class="why-description">
-            SciSolitaire turns retrieval practice into short matching challenges. Learners actively recall information, recognize relationships between concepts and receive feedback as they play.
+            Turn science revision into short matching challenges. Recall key ideas, connect related concepts and receive feedback as you play.
         </p>
     </div>
 
@@ -350,7 +356,7 @@
 
         <!-- Description -->
         <p class="why-card-description">
-            Matching prompts learner to retrieve information and recongnize relationships rather than simply re-read notes.
+            Matching cards help learners recall science facts and connect related ideas rather than simply rereading notes.
         </p>
 
     </article>
@@ -387,7 +393,7 @@
     </h3>
 
     <p class="why-card-description">
-        Each deck explores one key science topic in depth, helping you focus on the concepts that matter most for learning, revision, and assessments.
+        Work through focused decks, each covering a science topic for practice, revision and assessment preparation.
     </p>
 
 </article>
@@ -427,8 +433,7 @@
     </h3>
 
     <p class="why-card-description">
-        Earn coins for every correct match. Track your score,
-        completion time, and hints used — celebrating progress at every step.
+        Earn coins as you play and review your accuracy, completion time and hints used.
     </p>
 
 </article>
@@ -456,12 +461,11 @@
     </div>
 
     <h3 class="why-card-title">
-        Designed for Everyone
+        Designed for Different Learning Needs
     </h3>
 
     <p class="why-card-description">
-        Plain English mode, adjustable text size, high contrast,
-        and reduced motion make Science Solitaire accessible to all learners.
+        Clear instructions, visual cues and supportive feedback help learners engage with science in different ways.
     </p>
 
 </article>
@@ -590,8 +594,7 @@
                     line-height: 25px;
                 "
             >
-                The same engaging science experience, tailored to different needs.
-                Whether you're learning or teaching, everyone wins.
+                Learners can practise science concepts through short matching games, while teachers can use the activities to support classroom revision.
             </p>
 
         </div>
@@ -1099,7 +1102,7 @@
                         box-shadow:0 8px 20px rgba(22,155,88,0.20);
                     "
                 >
-                    Empower Your Class
+                    Explore Teacher Features
                     <span>→</span>
                 </a>
 
