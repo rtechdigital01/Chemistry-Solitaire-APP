@@ -38,7 +38,35 @@ Route::post('/auth/logout', [AuthController::class, 'logout']);
 |--------------------------------------------------------------------------
 */
 
-// Route::get('/reviews', [ReviewController::class, 'index']);
+Route::get('/reviews', [
+    \App\Modules\Admin\Controllers\AdminReportsController::class,
+    'homepageReviews'
+]);
+
+Route::post('/feedback', function (Request $request) {
+    $comment = $request->input('message') ?? $request->input('details') ?? 'Pilot feedback';
+    $userName = $request->input('name') ?? ($request->input('email') ? explode('@', $request->input('email'))[0] : 'Pilot User');
+    $rating = (int) ($request->input('rating') ?? 5);
+    $role = $request->input('role') ?? 'Student';
+
+    try {
+        \Illuminate\Support\Facades\DB::table('reviews')->insert([
+            'user_name'  => $userName,
+            'comment'    => substr($comment, 0, 500),
+            'rating'     => $rating,
+            'role'       => $role,
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+    } catch (\Throwable $e) {
+        \Illuminate\Support\Facades\Log::info("Feedback: " . $comment);
+    }
+
+    return response()->json([
+        'status'  => 'success',
+        'message' => 'Thank you for your feedback! It has been recorded for the pilot review team.'
+    ], 201);
+});
 
 
 /*

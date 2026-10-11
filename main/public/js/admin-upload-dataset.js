@@ -87,7 +87,7 @@ if (createTopicDatasetBtn) {
             message.style.color = "#16A34A";
 
             setTimeout(() => {
-                window.location.href = "admin-dashboard.html";
+                window.location.href = "/admin-dashboard";
             }, 900);
 
         } catch (error) {

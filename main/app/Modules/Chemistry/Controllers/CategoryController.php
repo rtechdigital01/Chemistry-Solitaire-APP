@@ -23,9 +23,9 @@ class CategoryController extends Controller
             'chemistry' => 'periodic-table-groups',
         ],
         'Nigeria' => [
-            'biology' => ['SS1' => 'ss1-biology', 'SS2' => 'ss2-biology', 'SS3' => 'ss3-biology'],
-            'chemistry' => ['SS1' => 'ss1-chemistry', 'SS2' => 'ss2-chemistry', 'SS3' => 'ss3-chemistry'],
-            'physics' => ['SS1' => 'ss1-physics', 'SS2' => 'ss2-physics', 'SS3' => 'ss3-physics'],
+            'biology' => ['SS1' => 'biology', 'SS2' => 'biology', 'SS3' => 'biology'],
+            'chemistry' => ['SS1' => 'chemistry', 'SS2' => 'chemistry', 'SS3' => 'chemistry'],
+            'physics' => ['SS1' => 'physics', 'SS2' => 'physics', 'SS3' => 'physics'],
         ],
     ];
 
@@ -73,6 +73,19 @@ class CategoryController extends Controller
 
             if ($exists) {
                 return $requested;
+            }
+
+            // Also check stripped prefix alias (e.g. ss1-biology -> biology)
+            $stripped = preg_replace('/^ss[1-3]-/i', '', $requested);
+            if ($stripped && $stripped !== $requested) {
+                $strippedExists = Category::query()
+                    ->where('deck', $stripped)
+                    ->where('key_stage', $keyStage)
+                    ->exists();
+
+                if ($strippedExists) {
+                    return $stripped;
+                }
             }
         }
 

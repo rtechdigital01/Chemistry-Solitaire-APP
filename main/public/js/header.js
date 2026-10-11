@@ -8,8 +8,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isLoggedIn = !!localStorage.getItem("auth_token");
 
-    let playHref = "/login";
-    let playText = "Play Now";
+    let playHref = "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1";
+    let playText = "Play Demo";
 
     if (isLoggedIn) {
         let userRole = null;
@@ -28,15 +28,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (userRole === 'teacher') {
             const path = window.location.pathname;
-            if (path.includes('games.html') || path.includes('gameplay.html') || path.includes('gameplay-states.html')) {
-                playHref = "teacher-dashboard.html";
+            if (path.includes('games') || path.includes('gameplay')) {
+                playHref = "/teacher-dashboard";
                 playText = "Dashboard";
             } else {
                 playText = "Play Game";
-                playHref = "games.html";
+                playHref = "/games";
             }
         } else {
-            playHref = "dashboard.html";
+            playHref = "/dashboard";
             playText = "Dashboard";
         }
     }
@@ -71,21 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- DESKTOP NAVIGATION -->
                 <nav class="header-nav">
 
-                    <a href="/why-solitaire">
+                    <a href="/#how-it-works">
                         Why Science Solitaire?
                     </a>
 
-                    <span
-                        style="
-                            opacity:0.55;
-                            cursor:not-allowed;
-                            white-space:nowrap;
-                        "
-                    >
-                        Gameplay Preview &#128274;
-                    </span>
+                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                        Gameplay Preview
+                    </a>
 
-                    <a href="/curriculum">
+                    <a href="/feedback">
                         Feedback/Contact Us
                     </a>
 
@@ -158,20 +152,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 id="mobileNav"
             >
 
-                <a href="/why-solitaire">
+                <a href="/#how-it-works">
                     Why Science Solitaire?
                 </a>
 
-                <span
-                    style="
-                        opacity:0.55;
-                        cursor:not-allowed;
-                    "
-                >
-                    Gameplay Preview &#128274;
-                </span>
+                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                    Gameplay Preview
+                </a>
 
-                <a href="/curriculum">
+                <a href="/feedback">
                     Feedback/Contact Us
                 </a>
 

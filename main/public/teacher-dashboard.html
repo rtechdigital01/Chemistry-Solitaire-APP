@@ -5,6 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Teacher Dashboard | Science Solitaire</title>
+    <script>
+        (function() {
+            var token = localStorage.getItem('auth_token');
+            if (!token) {
+                window.location.replace('/login');
+                return;
+            }
+            try {
+                var user = JSON.parse(localStorage.getItem('user') || '{}');
+                var role = user.role || localStorage.getItem('userRole');
+                if (role !== 'teacher' && role !== 'admin') {
+                    window.location.replace('/dashboard');
+                }
+            } catch (e) {
+                window.location.replace('/dashboard');
+            }
+        })();
+    </script>
     <link rel="icon" type="image/png" href="./images/favicon.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +149,7 @@
             </a>
 
             <a
-                href="games.html"
+                href="/games"
                 class="mobile-drawer-play"
             >
                 Play
@@ -281,7 +299,7 @@
 
         <!-- HOME -->
         <a
-            href="teacher-dashboard.html"
+            href="/teacher-dashboard"
             class="mobile-nav-item active"
         >
 
@@ -362,7 +380,7 @@
 
         <!-- PROFILE -->
         <a
-            href="profile-setup.html"
+            href="/profile-setup"
             class="mobile-nav-item"
         >
             <svg
@@ -410,7 +428,7 @@
 
             <div class="dashboard-profile-actions">
                 <div class="dashboard-account-area">
-                    <a href="./profile-setup.html" class="dashboard-edit-button">
+                    <a href="/profile-setup" class="dashboard-edit-button">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M5 4V20M12 4V20M19 4V20" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" />
                             <circle cx="5" cy="9" r="2" fill="currentColor" />

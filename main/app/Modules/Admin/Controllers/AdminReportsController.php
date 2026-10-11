@@ -21,18 +21,39 @@ class AdminReportsController extends Controller
      
 public function homepageReviews(): JsonResponse
 {
-    $rows = DB::table('reviews')
-        ->leftJoin('users', 'reviews.user_id', '=', 'users.id')
-        ->where('reviews.is_featured', 1)
-        ->select(
+    $hasIsFeatured = \Illuminate\Support\Facades\Schema::hasColumn('reviews', 'is_featured');
+    $hasFeedbackCol = \Illuminate\Support\Facades\Schema::hasColumn('reviews', 'feedback');
+    $hasUserId = \Illuminate\Support\Facades\Schema::hasColumn('reviews', 'user_id');
+
+    $query = DB::table('reviews');
+
+    if ($hasUserId) {
+        $query->leftJoin('users', 'reviews.user_id', '=', 'users.id');
+    }
+
+    if ($hasIsFeatured) {
+        $query->where('reviews.is_featured', 1);
+    }
+
+    if ($hasFeedbackCol && $hasUserId) {
+        $query->select(
             'reviews.id',
             'reviews.rating',
             'reviews.feedback as comment',
             'users.name as user_name',
             'users.role as role'
-        )
-        ->orderByDesc('reviews.created_at')
-        ->get();
+        );
+    } else {
+        $query->select(
+            'reviews.id',
+            'reviews.rating',
+            'reviews.comment',
+            'reviews.user_name',
+            'reviews.role'
+        );
+    }
+
+    $rows = $query->orderByDesc('reviews.created_at')->get();
 
     return $this->successResponse(
         $rows,

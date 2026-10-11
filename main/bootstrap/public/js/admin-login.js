@@ -39,7 +39,7 @@ adminLoginForm.addEventListener("submit", async (event) => {
             JSON.stringify(result.data.user)
         );
 
-        window.location.href = "admin-dashboard.html";
+        window.location.href = "/admin-dashboard";
 
     } catch (error) {
         console.error("Admin login error:", error);

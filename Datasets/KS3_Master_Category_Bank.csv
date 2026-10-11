@@ -6,7 +6,7 @@ S/N,Category,Difficulty,Card Pool,Icon Type
 5,Group 1 Chemical Properties,Hard,"Reacts with water, Produces hydrogen gas, Forms alkaline solution, Forms +1 ions, Loses one electron, Reactivity increases down the group, Reacts with oxygen",Chemical
 6,Group 1 Uses,Medium,"Lithium batteries, Sodium street lamps, Potassium fertilisers, Caesium atomic clocks, Sodium coolant, Lithium alloys",Uses
 7,Periodic Trends,Easy,"Atomic Radius, Ionisation Energy, Electronegativity, Electron Affinity, Shielding, Nuclear Charge",Trends
-8,Hydrogen,Hard,"Reactivity increases down the group, Atomic radius increases down the group, Melting point decreases down the group, Boiling point generally decreases down the group, First ionisation energy decreases down the group",Element
+8,Group 1 Trend Statements,Hard,"Reactivity increases down the group, Atomic radius increases down the group, Melting point decreases down the group, Boiling point generally decreases down the group, First ionisation energy decreases down the group",Trends
 9,Group 1 Reactions with Water,Medium,"Fizzing, Floating, Moving on water, Hydrogen gas, Heat released, Alkaline solution",Chemical
 10,Group 1,Easy,"Alkali metal, Group, Period, Reactivity, Ion, Electron, Metal",Element
 11,Group 7 Elements,Easy,"Fluorine, Chlorine, Bromine, Iodine, Astatine",Element
@@ -73,7 +73,7 @@ S/N,Category,Difficulty,Card Pool,Icon Type
 72,Francium,Medium,"Fr, Atomic number 87, Period 7, Group 1, Alkali metal",Element
 73,Francium Physical Properties,Hard,"Radioactive, Extremely rare, Predicted soft metal, Predicted silvery appearance, Short-lived, Naturally occurring in traces",Physical
 74,Francium Chemical Properties,Hard,"Forms Fr? ions, Loses one electron, Extremely reactive, Radioactive, Expected to react with water, Expected to form ionic compounds",Chemical
-75,Francium Occurrence,Hard,"Uranium decay, Trace quantities, Earth’s crust, Radioactive decay, Short half-life",Occurrence
+75,Francium Occurrence,Hard,"Uranium decay, Trace quantities, Earthâ€™s crust, Radioactive decay, Short half-life",Occurrence
 76,Francium Uses,Hard,"Scientific research, Atomic structure studies, Radioactivity research, No commercial use",Uses
 77,Francium Compounds,Hard,"(-)chloride, (-)hydroxide, (-)salts",Element
 78,Francium Position and Trends,Hard,"Bottom of Group 1, Largest atomic radius, Very low ionisation energy, Highly reactive, Period 7",Trends
@@ -107,7 +107,7 @@ S/N,Category,Difficulty,Card Pool,Icon Type
 106,Astatine,Medium,"At, Atomic number 85, Period 6, Group 7, Halogen",Element
 107,Astatine Physical Properties,Hard,"Radioactive, Extremely rare, Solid, Dark appearance, Short-lived, Naturally occurs in traces",Physical
 108,Astatine Chemical Properties,Hard,"Can form At? ions, Less reactive than iodine, Forms astatides, Radioactive, More metallic character, Reacts with some metals",Chemical
-109,Astatine Occurrence,Hard,"Uranium decay, Thorium decay, Trace quantities, Earth’s crust, Radioactive decay, Short half-life",Occurrence
+109,Astatine Occurrence,Hard,"Uranium decay, Thorium decay, Trace quantities, Earthâ€™s crust, Radioactive decay, Short half-life",Occurrence
 110,Astatine Uses,Hard,"Scientific research, Cancer-treatment research, Targeted alpha therapy, Nuclear chemistry research",Uses
 111,Astatine Compounds,Hard,"Hydrogen astatide, Sodium astatide, Silver astatide, Astatine salts",Element
 112,Astatine Position and Trends,Hard,"Below iodine, Larger atomic radius, Lower reactivity, Higher metallic character, Higher boiling point",Trends
@@ -115,33 +115,33 @@ S/N,Category,Difficulty,Card Pool,Icon Type
 114,Helium Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Very low density, Monatomic, Very low boiling point",Physical
 115,Helium Chemical Properties,Medium,"Very unreactive, Non-flammable, Full first electron shell, Chemically inert, Rarely forms compounds, Does not readily form ions",Chemical
 116,Helium Uses,Medium,"Balloons, MRI scanners, NMR instruments, Leak detection, Deep-sea diving mixtures, Welding atmosphere",Uses
-117,Helium Occurrence,Medium,"Stars, Natural gas deposits, Radioactive decay, Earth’s atmosphere, Second-most abundant element in the universe",Occurrence
+117,Helium Occurrence,Medium,"Stars, Natural gas deposits, Radioactive decay, Earthâ€™s atmosphere, Second-most abundant element in the universe",Occurrence
 118,Helium Position and Trends,Hard,"Top of Group 0, Lowest density in the group, Lowest boiling point, Smallest noble-gas atom, Two electrons in outer shell",Trends
 119,Neon,Easy,"Ne, Atomic number 10, Period 2, Group 0, Noble gas",Element
 120,Neon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low density, Low boiling point",Physical
 121,Neon Chemical Properties,Medium,"Very unreactive, Non-flammable, Full outer shell, Chemically inert, Does not readily form ions, No common compounds",Chemical
 122,Neon Uses,Medium,"Advertising signs, High-voltage indicators, Switching equipment, Lightning arresters, Lasers, Cryogenic refrigeration",Uses
 123,Neon Lighting,Easy,"Red-orange glow, Discharge tube, Advertising sign, Electric current, Low-pressure gas",Uses
-124,Neon Occurrence,Hard,"Earth’s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Abundant in the universe",Occurrence
+124,Neon Occurrence,Hard,"Earthâ€™s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Abundant in the universe",Occurrence
 125,Argon,Easy,"Ar, Atomic number 18, Period 3, Group 0, Noble ga",Element
 126,Argon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low boiling point, Denser than air",Physical
 127,Argon Chemical Properties,Medium,"Very unreactive, Non-flammable, Full outer shell, Chemically inert, Rarely forms compounds, Protective atmosphere",Chemical
 128,Argon Uses,Medium,"Welding, Light bulbs, Fluorescent tubes, Double-glazed windows, Titanium production, Low-energy lamps",Uses
-129,Argon Occurrence,Medium,"Earth’s atmosphere, Liquid air, Fractional distillation, Potassium-40 decay, Third-most abundant atmospheric gas",Occurrence
+129,Argon Occurrence,Medium,"Earthâ€™s atmosphere, Liquid air, Fractional distillation, Potassium-40 decay, Third-most abundant atmospheric gas",Occurrence
 130,Argon Position and Trends,Hard,"Below neon, Above krypton, Larger atomic radius than neon, Higher boiling point than neon, Period 3 noble gas",Trends
 131,Krypton,Easy,"Kr, Atomic number 36, Period 4, Group 0, Noble gas",Element
 132,Krypton Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Low boiling point, Dense noble gas",Physical
 133,Krypton Chemical Properties,Medium,"Mostly unreactive, Full outer shell, Reacts with fluorine, Forms limited compounds, Non-flammable, Chemically stable",Chemical
 134,Krypton Uses,Hard,"Energy-saving lights, Flash lamps, High-speed photography, Krypton-fluoride lasers, Scientific research, Nuclear monitoring",Uses
 135,Krypton Compounds,Medium,"Krypton difluoride, KrF?, Fluorine compound, Strong oxidising compound",Element
-136,Krypton Occurrence,Hard,"Earth’s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Nuclear reactors",Occurrence
+136,Krypton Occurrence,Hard,"Earthâ€™s atmosphere, Liquid air, Fractional distillation, Rare atmospheric gas, Nuclear reactors",Occurrence
 137,Krypton Position and Trends,Hard,"Below argon, Above xenon, Higher density than argon, Higher boiling point than argon, Larger atomic radius",Trends
 138,Xenon,Easy,"Xe, Atomic number 54, Period 5, Group 0, Noble gas",Element
 139,Xenon Physical Properties,Easy,"Colourless, Odourless, Gas at room temperature, Monatomic, Dense gas, Low boiling point",Physical
 140,Xenon Chemical Properties,Medium,"Very unreactive, Full outer shell, Forms some compounds, Reacts with fluorine, Strong oxidising compounds, Non-flammable",Chemical
 141,Xenon Uses,Hard,"Camera flash lamps, Bactericidal lamps, Ruby lasers, Satellite propulsion, Spacecraft engines, Silicon etching",Uses
 142,Xenon Compounds,Hard,"Xenon difluoride, Xenon tetrafluoride, Xenon hexafluoride, Xenon oxides, Xenon fluorides",Compounds
-143,Xenon Occurrence,Hard,"Earth’s atmosphere, Mineral springs, Liquid air, Fractional distillation, Rare atmospheric gas",Occurrence
+143,Xenon Occurrence,Hard,"Earthâ€™s atmosphere, Mineral springs, Liquid air, Fractional distillation, Rare atmospheric gas",Occurrence
 144,Xenon Position and Trends,Hard,"Below krypton, Above radon, Higher density than krypton, Higher boiling point than krypton, Larger atomic radius",Trends
 145,Radon,Easy,"Rn, Atomic number 86, Period 6, Group 0, Noble gas",Element
 146,Radon Physical Properties,Medium,"Colourless, Odourless, Gas at room temperature, Monatomic, Very dense gas, Low boiling point",Physical

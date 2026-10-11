@@ -246,7 +246,7 @@
                 <!-- Profile Actions -->
                 <div class="dashboard-account-area">
 
-                    <a href="./profile-setup.html" class="dashboard-edit-button">
+                    <a href="/profile-setup" class="dashboard-edit-button">
                         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
                             <path d="M5 4V20M12 4V20M19 4V20" stroke="currentColor" stroke-width="1.7"
                                 stroke-linecap="round" />
@@ -400,7 +400,7 @@
 ========================================= -->
 <nav class="mobile-bottom-nav">
 
-    <a href="dashboard.html" class="mobile-nav-item">
+    <a href="/dashboard" class="mobile-nav-item">
 
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
             <path
@@ -415,7 +415,7 @@
     </a>
 
     <a
-        href="games.html"
+        href="/games"
         class="mobile-nav-item active"
     >
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
@@ -436,7 +436,7 @@
     </a>
 
     <a
-        href="games.html"
+        href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1"
         class="mobile-nav-item mobile-play-nav"
     >
         <span class="mobile-play-button">
@@ -449,7 +449,7 @@
     </a>
 
     <a
-        href="results.html"
+        href="/results"
         class="mobile-nav-item"
     >
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
@@ -464,7 +464,7 @@
     </a>
 
     <a
-        href="profile-setup.html"
+        href="/profile-setup"
         class="mobile-nav-item"
     >
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
@@ -655,7 +655,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         btn.addEventListener("click", () => {
                             const subject = getSubject();
                             window.location.href =
-                                `gameplay.html?subject=${encodeURIComponent(subject)}&deck=${encodeURIComponent(deck.deck)}&key_stage=${encodeURIComponent(deck.key_stage)}&difficulty=${encodeURIComponent(tier.difficulty.toLowerCase())}&level=${level}`;
+                                `/gameplay?subject=${encodeURIComponent(subject)}&deck=${encodeURIComponent(deck.deck)}&key_stage=${encodeURIComponent(deck.key_stage)}&difficulty=${encodeURIComponent(tier.difficulty.toLowerCase())}&level=${level}`;
                         });
                     }
                     grid.appendChild(btn);
@@ -976,7 +976,7 @@ document
             localStorage.removeItem("userRole");
 
             window.location.href =
-                "login.html";
+                "/login";
         }
     );
 

@@ -38,21 +38,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- DESKTOP NAVIGATION -->
                 <nav class="header-nav">
 
-                    <a href="/why-solitaire">
+                    <a href="/#how-it-works">
                         Why Science Solitaire?
                     </a>
 
-                    <span
-                        style="
-                            opacity:0.55;
-                            cursor:not-allowed;
-                            white-space:nowrap;
-                        "
-                    >
-                        Gameplay Preview &#128274;
-                    </span>
+                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                        Gameplay Preview
+                    </a>
 
-                    <a href="/curriculum">
+                    <a href="/feedback">
                         Feedback/Contact Us
                     </a>
 
@@ -71,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     <a
-                        href="${isLoggedIn ? "/dashboard" : "/login"}"
+                        href="${isLoggedIn ? "/dashboard" : "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1"}"
                         class="header-play-button"
                     >
 
@@ -125,20 +119,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 id="mobileNav"
             >
 
-                <a href="/why-solitaire">
+                <a href="/#how-it-works">
                     Why Science Solitaire?
                 </a>
 
-                <span
-                    style="
-                        opacity:0.55;
-                        cursor:not-allowed;
-                    "
-                >
-                    Gameplay Preview &#128274;
-                </span>
+                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                    Gameplay Preview
+                </a>
 
-                <a href="/curriculum">
+                <a href="/feedback">
                     Feedback/Contact Us
                 </a>
 
@@ -156,8 +145,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         : ""
                 }
 
-                <a href="${isLoggedIn ? "/dashboard" : "/login"}">
-                    ${isLoggedIn ? "Dashboard" : "Play Now"}
+                <a href="${isLoggedIn ? "/dashboard" : "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1"}">
+                    ${isLoggedIn ? "Dashboard" : "Play Demo"}
                 </a>
 
             </nav>

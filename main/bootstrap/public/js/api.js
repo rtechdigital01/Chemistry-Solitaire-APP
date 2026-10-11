@@ -20,7 +20,8 @@ const protectedPages = [
     'profile-setup',
     'gameplay',
     'gameplay-states',
-    'results'
+    'results',
+    'teacher-dashboard'
 ];
 
 const authPages = [
@@ -31,6 +32,57 @@ const authPages = [
 
 const authToken =
     localStorage.getItem('auth_token');
+
+/* ========================================
+   ROLE-BASED DASHBOARD PROTECTION
+======================================== */
+// Under NO circumstance should a student access teacher-dashboard
+if (currentPage === 'teacher-dashboard') {
+    if (!authToken) {
+        window.location.replace('/login');
+        return;
+    }
+    try {
+        const storedUser =
+            JSON.parse(
+                localStorage.getItem('user')
+                || '{}'
+            );
+        const storedRole =
+            storedUser.role || localStorage.getItem('userRole');
+
+        if (storedRole !== 'teacher' && storedRole !== 'admin') {
+            window.location.replace('/dashboard');
+            return;
+        }
+    } catch (e) {
+        window.location.replace('/dashboard');
+        return;
+    }
+}
+
+if (authToken) {
+    try {
+        const storedUser =
+            JSON.parse(
+                localStorage.getItem('user')
+                || '{}'
+            );
+        const storedRole =
+            storedUser.role || localStorage.getItem('userRole');
+
+        if (
+            currentPage === 'dashboard' &&
+            (
+                storedRole === 'teacher' ||
+                storedRole === 'admin'
+            )
+        ) {
+            window.location.replace('/teacher-dashboard');
+            return;
+        }
+    } catch (e) {}
+}
 
 
 // Protect private pages
@@ -48,7 +100,14 @@ if (
     authPages.includes(currentPage) &&
     authToken
 ) {
-    window.location.href = '/dashboard';
+    let redirectUrl = '/dashboard';
+    try {
+        const u = JSON.parse(localStorage.getItem('user') || '{}');
+        if (u.role === 'teacher' || u.role === 'admin') {
+            redirectUrl = '/teacher-dashboard';
+        }
+    } catch(e) {}
+    window.location.href = redirectUrl;
     return;
 }
     
@@ -64,22 +123,31 @@ function updateAuthNavigation() {
     }
 
     if (token) {
-        const loginLinks = document.querySelectorAll('a[href$="login.html"]');
+        const loginLinks = document.querySelectorAll('a[href$="login.html"], a[href="/login"], a[href$="/login"]');
         loginLinks.forEach(link => {
             link.style.display = 'none';
         });
     }
 
+    if (role === 'teacher' || role === 'admin') {
+        const dashboardLinks = document.querySelectorAll(
+            'a[href="dashboard.html"], a[href="/dashboard"], a[href="/dashboard.html"]'
+        );
+        dashboardLinks.forEach(link => {
+            link.href = '/teacher-dashboard';
+        });
+    }
+
     // Role-specific UI adjustments
     if (role !== 'teacher' && role !== 'admin') {
-        const switchTeacherBtns = Array.from(document.querySelectorAll('a[href="teacher-dashboard.html"]'));
-        switchTeacherBtns.forEach(btn => {
-            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+        // Students can NEVER see, click, or switch to teacher view under any circumstance
+        document.querySelectorAll('a[href*="teacher-dashboard"]').forEach(btn => {
+            btn.remove();
         });
 
-        const switchStudentBtns = Array.from(document.querySelectorAll('a[href="dashboard.html"]'));
+        const switchStudentBtns = Array.from(document.querySelectorAll('a[href="dashboard.html"], a[href="/dashboard"]'));
         switchStudentBtns.forEach(btn => {
-            if (btn.textContent.includes('Switch')) btn.style.display = 'none';
+            if (btn.textContent.includes('Switch')) btn.remove();
         });
     }
 }
@@ -170,9 +238,9 @@ authNavObserver.observe(document.body, {
                 localStorage.setItem('user', JSON.stringify(result.data.user));
                 
                 if (result.data.user.role === 'teacher' || result.data.user.role === 'admin') {
-                    window.location.href = 'teacher-dashboard.html';
+                    window.location.href = '/teacher-dashboard';
                 } else {
-                    window.location.href = 'dashboard.html';
+                    window.location.href = '/dashboard';
                 }
 
             } catch (error) {
@@ -302,7 +370,7 @@ if (
                 JSON.stringify(result.data.user)
             );
 
-            window.location.href = 'check-email.html';
+            window.location.href = '/check-email';
 
 
         } catch (error) {
@@ -375,14 +443,14 @@ document.querySelectorAll('.password-toggle').forEach(button => {
             }
             localStorage.removeItem('auth_token');
             localStorage.removeItem('user');
-            window.location.href = 'index';
+            window.location.href = '/';
         });
     }
 
     /* ========================================
        FORGOT PASSWORD FORM HANDLER
     ======================================== */
-    const forgotPasswordForm = document.querySelector('form[action="login.html"]');
+    const forgotPasswordForm = document.querySelector('form[action="login.html"], form[action="/login"], form.login-form');
     if (forgotPasswordForm && window.location.pathname.includes('forgot-password')) {
         // Remove the inline onclick alert first to prevent double firing
         const submitBtn = forgotPasswordForm.querySelector('button[type="submit"]');
@@ -416,7 +484,7 @@ document.querySelectorAll('.password-toggle').forEach(button => {
 
                 // Show success message and redirect
                 alert('Password reset link sent! Please check your email.');
-                window.location.href = 'login.html';
+                window.location.href = '/login';
 
             } catch (error) {
                 showFormError(forgotPasswordForm, error.message);
@@ -454,7 +522,7 @@ if (currentPage === 'dashboard') {
     async function loadDashboardProfile() {
 
         if (!token) {
-            window.location.href = 'login.html';
+            window.location.href = '/login';
             return;
         }
 
@@ -627,7 +695,7 @@ if (currentPage === 'profile-setup') {
             const token = localStorage.getItem('auth_token');
 
             if (!token) {
-                window.location.href = 'login.html';
+                window.location.href = '/login';
                 return;
             }
 
@@ -696,7 +764,11 @@ if (currentPage === 'profile-setup') {
                     JSON.stringify(result.data)
                 );
 
-                window.location.href = 'dashboard.html';
+                if (result.data.role === 'teacher' || result.data.role === 'admin') {
+                    window.location.href = '/teacher-dashboard';
+                } else {
+                    window.location.href = '/dashboard';
+                }
 
             } catch (error) {
 

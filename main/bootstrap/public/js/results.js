@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const DIFFICULTY_ORDER = ["easy", "medium", "hard"];
 
     function buildGameplayUrl(diff, lvl) {
-        return `gameplay.html?subject=${encodeURIComponent(subject)}`
+        return `/gameplay?subject=${encodeURIComponent(subject)}`
             + `&deck=${encodeURIComponent(deck)}`
             + `&key_stage=${encodeURIComponent(keyStage)}`
             + `&difficulty=${encodeURIComponent(diff)}`

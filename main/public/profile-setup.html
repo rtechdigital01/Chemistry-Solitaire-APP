@@ -160,7 +160,7 @@
                 </a>
 
 
-                <a href="#" class="mobile-setting-row">
+                <a href="/privacy" class="mobile-setting-row">
 
                     <span class="mobile-setting-icon green">
                         <svg viewBox="0 0 24 24" fill="none">
@@ -191,7 +191,7 @@
 
             <div class="mobile-settings-card">
 
-                <a href="#" class="mobile-setting-row">
+                <a href="/accessibility" class="mobile-setting-row">
 
                     <span class="mobile-setting-icon blue">
                         <svg viewBox="0 0 24 24" fill="none">
@@ -217,7 +217,7 @@
                 </a>
 
 
-                <a href="./index.html" class="mobile-setting-row">
+                <a href="/about" class="mobile-setting-row">
 
                     <span class="mobile-setting-icon grey">
                         <svg viewBox="0 0 24 24" fill="none">
@@ -237,22 +237,7 @@
                     </span>
 
                     <span class="mobile-setting-name">
-                        About SciSolitaire
-                    </span>
-
-                    <span class="mobile-setting-arrow">›</span>
-
-                </a>
-
-
-                <a href="#" class="mobile-setting-row">
-
-                    <span class="mobile-setting-icon green">
-                        🎓
-                    </span>
-
-                    <span class="mobile-setting-name">
-                        Switch to Teacher
+                        About Science Solitaire
                     </span>
 
                     <span class="mobile-setting-arrow">›</span>
@@ -308,7 +293,7 @@
  <!-- BOTTOM NAV -->
 <nav class="mobile-bottom-nav">
 
-    <a href="dashboard.html" class="mobile-nav-item active">
+    <a href="/dashboard" class="mobile-nav-item">
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
             <path d="M3 10.5L12 3L21 10.5V20H15V14H9V20H3V10.5Z"
                 stroke="currentColor" stroke-width="1.8"
@@ -317,7 +302,7 @@
         <span>Home</span>
     </a>
 
-    <a href="games.html" class="mobile-nav-item">
+    <a href="/games" class="mobile-nav-item">
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
             <path d="M4 5H10C11.2 5 12 5.8 12 7V20C12 18.8 11.2 18 10 18H4V5Z"
                 stroke="currentColor" stroke-width="1.8"/>
@@ -327,14 +312,14 @@
         <span>Decks</span>
     </a>
 
-    <a href="games.html" class="mobile-nav-item mobile-play-nav">
+    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="mobile-nav-item mobile-play-nav">
         <span class="mobile-play-button">
             <img src="./images/favicon.png" alt="Play">
         </span>
         <span>Play</span>
     </a>
 
-    <a href="results.html" class="mobile-nav-item">
+    <a href="/results" class="mobile-nav-item">
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
             <path d="M5 20V11M12 20V4M19 20V8"
                 stroke="currentColor" stroke-width="1.8"
@@ -343,7 +328,7 @@
         <span>Progress</span>
     </a>
 
-    <a href="profile-setup.html" class="mobile-nav-item">
+    <a href="/profile-setup" class="mobile-nav-item active">
         <svg class="mobile-nav-svg" viewBox="0 0 24 24" fill="none">
             <circle cx="12" cy="8" r="4"
                 stroke="currentColor" stroke-width="1.8"/>
@@ -866,7 +851,7 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.removeItem("userRole");
 
             window.location.href =
-                "./login.html";
+                "/login";
         });
 
 });

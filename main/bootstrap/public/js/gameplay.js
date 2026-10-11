@@ -888,7 +888,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        window.location.href = "results.html";
+        window.location.href = "/results";
     }
 
     /* ============================================================
@@ -1660,7 +1660,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     if (viewResultsBtn) {
     viewResultsBtn.addEventListener("click", () => {
-        window.location.href = "results.html";
+        window.location.href = "/results";
     });
     }
     
@@ -1677,7 +1677,7 @@ document.addEventListener("DOMContentLoaded", () => {
         nextLevelBtn.addEventListener("click", () => {
             const next = level + 1;
             window.location.href =
-                `gameplay.html?subject=${subject}&deck=${deck}&key_stage=${keyStage}&difficulty=${difficulty}&level=${next}`;
+                `/gameplay?subject=${subject}&deck=${deck}&key_stage=${keyStage}&difficulty=${difficulty}&level=${next}`;
         });
     }
 
@@ -1686,7 +1686,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (cardsPlaced !== totalCards) return;
 
             const token = localStorage.getItem("auth_token");
-            if (!token) { window.location.href = "login.html"; return; }
+            if (!token) { window.location.href = "/login"; return; }
 
             const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
             finishLevelBtn.disabled = true;
@@ -1716,7 +1716,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (!res.ok) throw new Error(result.message || "Unable to save your result.");
 
                 localStorage.setItem("latest_game_result", JSON.stringify(result.data));
-                window.location.href = "results.html";
+                window.location.href = "/results";
 
             } catch (err) {
                 alert(err.message);

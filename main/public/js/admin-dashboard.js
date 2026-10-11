@@ -336,7 +336,7 @@ async function loadAdminDatasets() {
     panel.dataset.loaded = "1";
 
     if (!token) {
-        window.location.replace("admin-login.html");
+        window.location.replace("/admin-login");
         return;
     }
 
@@ -346,7 +346,7 @@ async function loadAdminDatasets() {
         });
 
         if (response.status === 401) {
-            window.location.replace("admin-login.html");
+            window.location.replace("/admin-login");
             return;
         }
 
@@ -489,7 +489,7 @@ async function runDatasetAction(btn) {
         const result = await response.json();
 
         if (response.status === 401) {
-            window.location.replace("admin-login.html");
+            window.location.replace("/admin-login");
             return;
         }
 
