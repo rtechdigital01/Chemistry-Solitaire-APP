@@ -38,19 +38,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 <!-- DESKTOP NAVIGATION -->
                 <nav class="header-nav">
 
-                    <a href="/#how-it-works">
+                    <a href="/why-solitaire" class="${(window.location.pathname === '/why-solitaire' || window.location.pathname === '/why-solitaire.html') ? 'active' : ''}">
                         Why Science Solitaire?
                     </a>
 
-                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
                         Gameplay Preview
                     </a>
 
-                    <a href="/feedback">
+                    <a href="/feedback" class="${(window.location.pathname === '/feedback' || window.location.pathname === '/feedback.html') ? 'active' : ''}">
                         Feedback/Contact Us
                     </a>
 
-                    <a href="/about">
+                    <a href="/about" class="${(window.location.pathname === '/about' || window.location.pathname === '/about.html') ? 'active' : ''}">
                         About
                     </a>
 
@@ -119,19 +119,19 @@ document.addEventListener("DOMContentLoaded", () => {
                 id="mobileNav"
             >
 
-                <a href="/#how-it-works">
+                <a href="/why-solitaire" class="${(window.location.pathname === '/why-solitaire' || window.location.pathname === '/why-solitaire.html') ? 'active' : ''}">
                     Why Science Solitaire?
                 </a>
 
-                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1">
+                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
                     Gameplay Preview
                 </a>
 
-                <a href="/feedback">
+                <a href="/feedback" class="${(window.location.pathname === '/feedback' || window.location.pathname === '/feedback.html') ? 'active' : ''}">
                     Feedback/Contact Us
                 </a>
 
-                <a href="/about">
+                <a href="/about" class="${(window.location.pathname === '/about' || window.location.pathname === '/about.html') ? 'active' : ''}">
                     About
                 </a>
 

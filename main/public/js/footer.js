@@ -6,10 +6,21 @@ document.addEventListener("DOMContentLoaded", async () => {
         return;
     }
 
-    const response = await fetch("./components/footer.html");
+    try {
+        const response = await fetch("/components/footer.html");
+        if (response.ok) {
+            const footerHTML = await response.text();
+            footerContainer.innerHTML = footerHTML;
+            return;
+        }
+    } catch (e) {}
 
-    const footerHTML = await response.text();
-
-    footerContainer.innerHTML = footerHTML;
+    try {
+        const response = await fetch("./components/footer.html");
+        if (response.ok) {
+            const footerHTML = await response.text();
+            footerContainer.innerHTML = footerHTML;
+        }
+    } catch (e) {}
 
 });

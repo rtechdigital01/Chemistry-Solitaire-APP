@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback &amp; Report a Problem | Science Solitaire</title>
+    <meta name="description" content="Share pilot feedback, report science card inaccuracies, or request assistance from the Science Solitaire team.">
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="js/config.js"></script>
+    <style>
+        .feedback-container {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 48px 20px 80px;
+            font-family: 'Nunito', sans-serif;
+            color: #14213D;
+        }
+        .feedback-hero {
+            text-align: center;
+            margin-bottom: 36px;
+        }
+        .feedback-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 14px;
+            border-radius: 999px;
+            background: #EFF5FF;
+            color: #2563EB;
+            font-size: 13px;
+            font-weight: 800;
+            margin-bottom: 14px;
+            border: 1px solid #C7DBFF;
+        }
+        .feedback-title {
+            font-size: clamp(30px, 4vw, 40px);
+            font-weight: 900;
+            line-height: 1.15;
+            margin: 0 0 12px;
+            color: #14213D;
+        }
+        .feedback-subtitle {
+            font-size: 15px;
+            color: #5F6F88;
+            max-width: 580px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        .feedback-card {
+            background: #FFFFFF;
+            border: 1px solid #EDF1F7;
+            border-radius: 24px;
+            padding: 36px;
+            box-shadow: 0 12px 36px rgba(20, 33, 61, 0.06);
+        }
+        .form-group {
+            margin-bottom: 22px;
+        }
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 800;
+            color: #1E293B;
+            margin-bottom: 8px;
+        }
+        .form-select, .form-input, .form-textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 16px;
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            color: #1E293B;
+            background: #F8FAFC;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .form-select:focus, .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: #2563EB;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+        }
+        .star-rating {
+            display: flex;
+            gap: 10px;
+            margin-top: 6px;
+        }
+        .star-btn {
+            background: none;
+            border: none;
+            font-size: 28px;
+            color: #CBD5E1;
+            cursor: pointer;
+            padding: 0;
+            transition: color 0.15s, transform 0.15s;
+        }
+        .star-btn:hover, .star-btn.active {
+            color: #F59E0B;
+            transform: scale(1.15);
+        }
+        .star-btn:focus-visible {
+            outline: 2px solid #2563EB;
+            border-radius: 4px;
+        }
+        .submit-btn {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 999px;
+            background: #2563EB;
+            color: #FFFFFF;
+            font-family: 'Nunito', sans-serif;
+            font-size: 15px;
+            font-weight: 900;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(37, 99, 235, 0.25);
+            transition: background 0.2s, transform 0.1s;
+        }
+        .submit-btn:hover {
+            background: #1D4ED8;
+            transform: translateY(-1px);
+        }
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+        .success-box {
+            display: none;
+            background: #F0FDF4;
+            border: 1.5px solid #86EFAC;
+            border-radius: 16px;
+            padding: 28px;
+            text-align: center;
+            margin-bottom: 24px;
+            animation: fadeIn 0.3s ease;
+        }
+        .success-box h3 {
+            margin: 0 0 8px;
+            color: #166534;
+            font-size: 20px;
+            font-weight: 900;
+        }
+        .success-box p {
+            margin: 0 0 16px;
+            color: #15803D;
+            font-size: 15px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div id="header"></div>
+
+    <main class="feedback-container">
+        <header class="feedback-hero">
+            <div class="feedback-badge">✦ Continuous Improvement</div>
+            <h1 class="feedback-title">Feedback &amp; Report a Problem</h1>
+            <p class="feedback-subtitle">
+                Found a typo on a science card, an incorrect match, a technical issue, or have an idea to make Science Solitaire better? We review every submission.
+            </p>
+        </header>
+
+        <div id="successMessage" class="success-box">
+            <h3>✓ Thank You for Your Feedback!</h3>
+            <p>Your report has been submitted to the Science Solitaire curriculum and engineering team.</p>
+            <a href="/dashboard" style="display: inline-block; padding: 10px 24px; background: #16A34A; color: #FFFFFF; border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 14px;">
+                Return to Dashboard
+            </a>
+            <a href="/" style="margin-left: 12px; color: #166534; text-decoration: underline; font-weight: 700; font-size: 14px;">
+                Homepage
+            </a>
+        </div>
+
+        <section class="feedback-card" id="formCard">
+            <form id="pilotFeedbackForm">
+                <div class="form-group">
+                    <label class="form-label" for="feedbackType">What is this about? *</label>
+                    <select id="feedbackType" class="form-select" required>
+                        <option value="science-accuracy">Science Content / Card Correctness</option>
+                        <option value="bug-technical">Bug or Game Technical Error</option>
+                        <option value="accessibility">Accessibility or SEND Support Concern</option>
+                        <option value="teacher-curriculum">Teacher Classroom / Assignment Feedback</option>
+                        <option value="general-suggestion">General Suggestion or Compliment</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Overall Rating (optional)</label>
+                    <div class="star-rating" role="radiogroup" aria-label="Rating from 1 to 5 stars">
+                        <button type="button" class="star-btn" data-value="1" aria-label="1 Star">★</button>
+                        <button type="button" class="star-btn" data-value="2" aria-label="2 Stars">★</button>
+                        <button type="button" class="star-btn" data-value="3" aria-label="3 Stars">★</button>
+                        <button type="button" class="star-btn" data-value="4" aria-label="4 Stars">★</button>
+                        <button type="button" class="star-btn active" data-value="5" aria-label="5 Stars">★</button>
+                    </div>
+                    <input type="hidden" id="ratingValue" value="5">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="subjectDeck">Subject &amp; Deck (if relevant)</label>
+                    <input type="text" id="subjectDeck" class="form-input" placeholder="e.g. Chemistry KS3 — Periodic Table Groups">
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="details">Describe the issue or suggestion *</label>
+                    <textarea id="details" class="form-textarea" rows="4" required placeholder="Please describe what happened, the specific card or category name, or how we can improve..."></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label" for="userEmail">Your Email (optional, if you'd like a follow-up)</label>
+                    <input type="email" id="userEmail" class="form-input" placeholder="student@example.com or teacher@school.org">
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitFeedbackBtn">
+                    Submit Pilot Report
+                </button>
+            </form>
+        </section>
+    </main>
+
+    <div id="footer"></div>
+
+    <script src="./js/header.js"></script>
+    <script src="./js/footer.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Star rating interaction
+            const stars = document.querySelectorAll(".star-btn");
+            const ratingInput = document.getElementById("ratingValue");
+
+            stars.forEach(star => {
+                star.addEventListener("click", () => {
+                    const val = parseInt(star.dataset.value, 10);
+                    ratingInput.value = val;
+                    stars.forEach((s, idx) => {
+                        if (idx < val) {
+                            s.classList.add("active");
+                        } else {
+                            s.classList.remove("active");
+                        }
+                    });
+                });
+            });
+
+            // Prefill email if logged in
+            try {
+                const userJson = localStorage.getItem("user");
+                if (userJson) {
+                    const u = JSON.parse(userJson);
+                    if (u.email) {
+                        document.getElementById("userEmail").value = u.email;
+                    }
+                }
+            } catch (e) {}
+
+            // Form submit
+            const form = document.getElementById("pilotFeedbackForm");
+            const formCard = document.getElementById("formCard");
+            const successBox = document.getElementById("successMessage");
+
+            form.addEventListener("submit", async (e) => {
+                e.preventDefault();
+
+                const feedbackData = {
+                    type: document.getElementById("feedbackType").value,
+                    rating: parseInt(ratingInput.value, 10) || 5,
+                    subject_deck: document.getElementById("subjectDeck").value.trim(),
+                    details: document.getElementById("details").value.trim(),
+                    email: document.getElementById("userEmail").value.trim(),
+                    timestamp: new Date().toISOString()
+                };
+
+                // Store in local pilot feedback log
+                try {
+                    const existing = JSON.parse(localStorage.getItem("pilot_feedback_reports") || "[]");
+                    existing.push(feedbackData);
+                    localStorage.setItem("pilot_feedback_reports", JSON.stringify(existing));
+                } catch (err) {}
+
+                // Submit to API (works for both guests and authenticated users)
+                const token = localStorage.getItem("authToken") || localStorage.getItem("auth_token");
+                const headers = {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json"
+                };
+                if (token) {
+                    headers["Authorization"] = `Bearer ${token}`;
+                }
+
+                try {
+                    await fetch("/api/feedback", {
+                        method: "POST",
+                        headers: headers,
+                        body: JSON.stringify({
+                            type: feedbackData.type,
+                            subject_deck: feedbackData.subject_deck || "pilot-feedback",
+                            rating: feedbackData.rating,
+                            details: feedbackData.details,
+                            email: feedbackData.email
+                        })
+                    });
+                } catch (err) {
+                    console.log("Offline or fallback feedback log:", err);
+                }
+
+                // Show success
+                formCard.style.display = "none";
+                successBox.style.display = "block";
+                window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+        });
+    </script>
+</body>
+</html>
