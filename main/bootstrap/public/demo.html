@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Demo | Science Solitaire</title>
+    <meta name="description" content="Try Science Solitaire for free! Match elements to categories in this quick, fun 1-category interactive demo.">
+    
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+
+    <!-- Fonts: Nunito -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/output.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style2.css">
+    <link rel="stylesheet" href="./css/gameplay-mobile.css">
+
+    <style>
+        body {
+            font-family: "Nunito", sans-serif;
+            background: #F4F8FD;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+
+        .demo-top-bar {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E2E8F0;
+            padding: 12px 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(15, 23, 42, 0.04);
+        }
+
+        .demo-top-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .demo-exit-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            border: 1px solid #E2E8F0;
+            background: #F8FAFC;
+            color: #475569;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .demo-exit-btn:hover {
+            background: #EDF2F7;
+            color: #1E293B;
+            transform: scale(1.05);
+        }
+
+        .demo-title-group h1 {
+            margin: 0;
+            font-size: 18px;
+            font-weight: 900;
+            color: #14213D;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .demo-badge {
+            background: #EFF6FF;
+            color: #2563FF;
+            border: 1px solid #BFDBFE;
+            font-size: 11px;
+            font-weight: 800;
+            padding: 2px 8px;
+            border-radius: 999px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .demo-title-group p {
+            margin: 2px 0 0;
+            font-size: 13px;
+            color: #64748B;
+            font-weight: 600;
+        }
+
+        .demo-progress-wrap {
+            flex: 1;
+            max-width: 320px;
+            margin: 0 24px;
+        }
+
+        .demo-progress-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            font-weight: 800;
+            color: #475569;
+            margin-bottom: 4px;
+        }
+
+        .demo-progress-track {
+            height: 8px;
+            background: #E2E8F0;
+            border-radius: 999px;
+            overflow: hidden;
+        }
+
+        .demo-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #10B981, #059669);
+            border-radius: 999px;
+            transition: width 0.4s ease;
+        }
+
+        .demo-stats-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .demo-stat-pill {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            padding: 6px 14px;
+            border-radius: 999px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 13px;
+            font-weight: 800;
+            color: #1E293B;
+        }
+
+        .demo-stat-label {
+            color: #94A3B8;
+            font-weight: 700;
+            font-size: 11px;
+            text-transform: uppercase;
+        }
+
+        .demo-btn-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 999px;
+            font-size: 13px;
+            font-weight: 800;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .demo-btn-hint {
+            background: #FFFBEB;
+            border-color: #FDE68A;
+            color: #B45309;
+        }
+
+        .demo-btn-hint:hover {
+            background: #FEF3C7;
+            transform: translateY(-1px);
+        }
+
+        .demo-btn-restart {
+            background: #F1F5F9;
+            color: #475569;
+        }
+
+        .demo-btn-restart:hover {
+            background: #E2E8F0;
+        }
+
+        /* Demo Play Area */
+        .demo-main {
+            flex: 1;
+            max-width: 1040px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 24px 20px 40px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .demo-banner {
+            background: linear-gradient(90deg, #EFF6FF 0%, #FFFFFF 100%);
+            border: 1px solid #BFDBFE;
+            border-radius: 16px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: #1E40AF;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(37, 99, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .demo-banner.success {
+            background: linear-gradient(90deg, #ECFDF5 0%, #FFFFFF 100%);
+            border-color: #A7F3D0;
+            color: #065F46;
+        }
+
+        .demo-banner.error {
+            background: linear-gradient(90deg, #FEF2F2 0%, #FFFFFF 100%);
+            border-color: #FECACA;
+            color: #991B1B;
+        }
+
+        .demo-banner-icon {
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Foundation Stack Area */
+        .demo-foundation-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .demo-section-label {
+            font-size: 12px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #64748B;
+            margin-bottom: 12px;
+        }
+
+        .demo-category-card {
+            width: 220px;
+            min-height: 200px;
+            background: #FFFFFF;
+            border: 2px dashed #93C5FD;
+            border-radius: 20px;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            cursor: pointer;
+            box-shadow: 0 8px 24px rgba(37, 99, 255, 0.08);
+            transition: all 0.25s ease;
+            position: relative;
+        }
+
+        .demo-category-card:hover,
+        .demo-category-card.drag-over {
+            border-color: #2563FF;
+            border-style: solid;
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(37, 99, 255, 0.16);
+        }
+
+        .demo-category-card.completed {
+            border-color: #10B981;
+            border-style: solid;
+            background: #F0FDF4;
+        }
+
+        .demo-category-top {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .demo-crown-icon {
+            color: #F59E0B;
+            width: 22px;
+            height: 18px;
+        }
+
+        .demo-count-badge {
+            background: #EFF6FF;
+            color: #2563FF;
+            border: 1px solid #BFDBFE;
+            font-size: 12px;
+            font-weight: 900;
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .demo-category-icon-circle {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: #EFF6FF;
+            color: #2563FF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+            box-shadow: 0 4px 12px rgba(37, 99, 255, 0.12);
+        }
+
+        .demo-category-title {
+            font-size: 17px;
+            font-weight: 900;
+            color: #14213D;
+            line-height: 1.25;
+            margin-bottom: 6px;
+        }
+
+        .demo-category-pill {
+            background: #F1F5F9;
+            color: #475569;
+            font-size: 11px;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            margin-top: 4px;
+        }
+
+        /* Hand / Cards Section */
+        .demo-hand-section {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .demo-cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+            width: 100%;
+            max-width: 860px;
+        }
+
+        .demo-card {
+            width: 140px;
+            height: 190px;
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 14px;
+            box-sizing: border-box;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .demo-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 24px rgba(37, 99, 255, 0.14);
+            border-color: #93C5FD;
+        }
+
+        .demo-card.selected {
+            border: 2px solid #2563FF;
+            box-shadow: 0 0 0 4px rgba(37, 99, 255, 0.2), 0 12px 28px rgba(37, 99, 255, 0.2);
+            transform: translateY(-6px);
+        }
+
+        .demo-card.shake {
+            animation: cardShake 0.5s ease;
+        }
+
+        @keyframes cardShake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .demo-card-top-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .demo-card-symbol {
+            font-size: 22px;
+            font-weight: 900;
+            color: #2563FF;
+            line-height: 1;
+        }
+
+        .demo-card.distractor .demo-card-symbol {
+            color: #DC2626;
+        }
+
+        .demo-card-number {
+            font-size: 11px;
+            font-weight: 800;
+            color: #94A3B8;
+        }
+
+        .demo-card-center {
+            text-align: center;
+            margin: auto 0;
+        }
+
+        .demo-card-name {
+            font-size: 16px;
+            font-weight: 900;
+            color: #14213D;
+            margin-bottom: 2px;
+        }
+
+        .demo-card-weight {
+            font-size: 10px;
+            font-weight: 700;
+            color: #94A3B8;
+        }
+
+        .demo-card-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 10px;
+            font-weight: 800;
+            color: #64748B;
+            border-top: 1px solid #F1F5F9;
+            padding-top: 6px;
+        }
+
+        /* Pulse animation for stack */
+        @keyframes pulseSuccess {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); border-color: #10B981; }
+            100% { transform: scale(1); }
+        }
+
+        .stack-pulse {
+            animation: pulseSuccess 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Conversion Modal */
+        .demo-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .demo-modal-backdrop.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .demo-modal-card {
+            background: #FFFFFF;
+            border-radius: 28px;
+            max-width: 520px;
+            width: 100%;
+            padding: 40px 32px 36px;
+            box-shadow: 0 25px 60px rgba(15, 23, 42, 0.25);
+            text-align: center;
+            position: relative;
+            transform: translateY(20px) scale(0.95);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .demo-modal-backdrop.open .demo-modal-card {
+            transform: translateY(0) scale(1);
+        }
+
+        .demo-modal-trophy {
+            width: 76px;
+            height: 76px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            box-shadow: 0 10px 24px rgba(245, 158, 11, 0.25);
+            font-size: 38px;
+        }
+
+        .demo-modal-h2 {
+            font-size: 28px;
+            font-weight: 900;
+            color: #14213D;
+            margin: 0 0 8px;
+            line-height: 1.2;
+        }
+
+        .demo-modal-sub {
+            font-size: 15px;
+            color: #64748B;
+            line-height: 1.5;
+            margin: 0 auto 24px;
+            max-width: 420px;
+        }
+
+        .demo-modal-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-bottom: 28px;
+        }
+
+        .demo-modal-stat-box {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 16px;
+            padding: 14px 10px;
+        }
+
+        .demo-modal-stat-val {
+            font-size: 22px;
+            font-weight: 900;
+            color: #2563FF;
+        }
+
+        .demo-modal-stat-lbl {
+            font-size: 10px;
+            font-weight: 800;
+            color: #94A3B8;
+            text-transform: uppercase;
+            letter-spacing: 0.6px;
+            margin-top: 2px;
+        }
+
+        .demo-modal-btns {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .demo-btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #2563FF;
+            color: #FFFFFF;
+            font-size: 16px;
+            font-weight: 800;
+            padding: 15px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            box-shadow: 0 6px 20px rgba(37, 99, 255, 0.35);
+            transition: all 0.2s ease;
+        }
+
+        .demo-btn-primary:hover {
+            background: #1D4ED8;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(37, 99, 255, 0.45);
+        }
+
+        .demo-btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #FFFFFF;
+            color: #334155;
+            border: 1.5px solid #CBD5E1;
+            font-size: 15px;
+            font-weight: 800;
+            padding: 13px 24px;
+            border-radius: 999px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .demo-btn-secondary:hover {
+            background: #F8FAFC;
+            border-color: #94A3B8;
+        }
+
+        .demo-btn-replay {
+            background: none;
+            border: none;
+            color: #64748B;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            margin-top: 8px;
+            text-decoration: underline;
+            padding: 4px;
+        }
+
+        .demo-btn-replay:hover {
+            color: #1E293B;
+        }
+
+        /* Responsive tweaks */
+        @media (max-width: 640px) {
+            .demo-top-bar {
+                padding: 10px 14px;
+            }
+            .demo-progress-wrap {
+                display: none;
+            }
+            .demo-card {
+                width: calc(50% - 10px);
+                height: 160px;
+                padding: 12px;
+            }
+            .demo-category-card {
+                width: 100%;
+                max-width: 260px;
+                min-height: 170px;
+                padding: 16px;
+            }
+            .demo-title-group h1 {
+                font-size: 15px;
+            }
+            .demo-title-group p {
+                font-size: 11px;
+            }
+            .demo-modal-card {
+                padding: 28px 20px;
+            }
+            .demo-modal-h2 {
+                font-size: 22px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- TOP BAR -->
+    <header class="demo-top-bar">
+        <div class="demo-top-left">
+            <a href="/" class="demo-exit-btn" aria-label="Exit to home" title="Exit to homepage">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </a>
+            <div class="demo-title-group">
+                <h1>
+                    Science Solitaire
+                    <span class="demo-badge">Free Demo</span>
+                </h1>
+                <p>Level 1 · Alkali Metals Sort</p>
+            </div>
+        </div>
+
+        <div class="demo-progress-wrap">
+            <div class="demo-progress-header">
+                <span>PROGRESS</span>
+                <span id="demoProgressText">0 / 4</span>
+            </div>
+            <div class="demo-progress-track">
+                <div class="demo-progress-fill" id="demoProgressFill"></div>
+            </div>
+        </div>
+
+        <div class="demo-stats-actions">
+            <div class="demo-stat-pill">
+                <span class="demo-stat-label">Moves</span>
+                <span id="demoMoves">0</span>
+            </div>
+            <div class="demo-stat-pill">
+                <span class="demo-stat-label">Score</span>
+                <span id="demoScore">0</span>
+            </div>
+            <button type="button" class="demo-btn-action demo-btn-hint" id="demoHintBtn">
+                💡 Hint
+            </button>
+            <button type="button" class="demo-btn-action demo-btn-restart" id="demoRestartBtn">
+                🔄 Reset
+            </button>
+        </div>
+    </header>
+
+    <!-- MAIN PLAY AREA -->
+    <main class="demo-main">
+
+        <!-- INFO BANNER -->
+        <div class="demo-banner" id="demoBanner">
+            <span class="demo-banner-icon">🧪</span>
+            <span id="demoBannerText">Welcome! Tap or drag an element card below to place it into the Alkali Metals category.</span>
+        </div>
+
+        <!-- FOUNDATION TARGET SECTION -->
+        <section class="demo-foundation-section">
+            <div class="demo-section-label">Foundation Category Stack</div>
+            
+            <div class="demo-category-card" id="demoCategoryStack" data-category="alkali">
+                <div class="demo-category-top">
+                    <svg class="demo-crown-icon" viewBox="0 0 24 18" fill="none">
+                        <path d="M2 6.2L6.6 9.3L12 2L17.4 9.3L22 6.2L19.6 15.4H4.4L2 6.2Z" fill="currentColor"/>
+                        <rect x="4" y="15.4" width="16" height="2" rx="1" fill="currentColor"/>
+                    </svg>
+                    <span class="demo-count-badge" id="stackCount">0 / 4</span>
+                </div>
+
+                <div class="demo-category-icon-circle">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <circle cx="12" cy="12" r="3" stroke-width="1.8"/>
+                        <ellipse cx="12" cy="12" rx="9" ry="4" stroke-width="1.5"/>
+                        <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(60 12 12)" stroke-width="1.5"/>
+                        <ellipse cx="12" cy="12" rx="9" ry="4" transform="rotate(120 12 12)" stroke-width="1.5"/>
+                    </svg>
+                </div>
+
+                <div class="demo-category-title">Group 1: Alkali Metals</div>
+                <div class="demo-category-pill">1 Valence Electron · Highly Reactive</div>
+            </div>
+        </section>
+
+        <!-- HAND OF CARDS SECTION -->
+        <section class="demo-hand-section">
+            <div class="demo-section-label">Your Element Cards</div>
+
+            <div class="demo-cards-grid" id="demoCardsGrid">
+                <!-- Cards will be injected by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- COMPLETION MODAL -->
+    <div class="demo-modal-backdrop" id="demoModal">
+        <div class="demo-modal-card">
+            <div class="demo-modal-trophy">🏆</div>
+            <h2 class="demo-modal-h2">Category Solved!</h2>
+            <p class="demo-modal-sub">
+                Awesome work! You matched all 4 Group 1 Alkali Metals. Science Solitaire turns curriculum revision into an engaging card puzzle.
+            </p>
+
+            <div class="demo-modal-stats-grid">
+                <div class="demo-modal-stat-box">
+                    <div class="demo-modal-stat-val" id="modalCards">4/4</div>
+                    <div class="demo-modal-stat-lbl">Cards Matched</div>
+                </div>
+                <div class="demo-modal-stat-box">
+                    <div class="demo-modal-stat-val" id="modalAccuracy">100%</div>
+                    <div class="demo-modal-stat-lbl">Accuracy</div>
+                </div>
+                <div class="demo-modal-stat-box">
+                    <div class="demo-modal-stat-val" id="modalTime">15s</div>
+                    <div class="demo-modal-stat-lbl">Time Taken</div>
+                </div>
+            </div>
+
+            <div class="demo-modal-btns">
+                <a href="/signup" class="demo-btn-primary">
+                    <span>Create Free Account to Play All Decks</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </a>
+                <a href="/login" class="demo-btn-secondary">
+                    Already have an account? Log In
+                </a>
+                <button type="button" class="demo-btn-replay" id="modalReplayBtn">
+                    Play Demo Again
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SOUNDS -->
+    <audio id="sndCorrect" src="./sounds/correct.wav" preload="auto"></audio>
+    <audio id="sndWrong" src="./sounds/wrong.wav" preload="auto"></audio>
+    <audio id="sndCompleted" src="./sounds/completed.wav" preload="auto"></audio>
+
+    <!-- CANVAS CONFETTI SCRIPT (Lightweight, zero external dependency) -->
+    <canvas id="confettiCanvas" style="position:fixed; top:0; left:0; width:100%; height:100%; pointer-events:none; z-index:999; display:none;"></canvas>
+
+    <script>
+    (function() {
+        // --- Confetti particle engine ---
+        const canvas = document.getElementById("confettiCanvas");
+        const ctx = canvas.getContext("2d");
+        let confettiAnimation = null;
+        let particles = [];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener("resize", resizeCanvas);
+
+        function triggerConfetti() {
+            resizeCanvas();
+            canvas.style.display = "block";
+            particles = [];
+            const colors = ["#2563FF", "#10B981", "#F59E0B", "#8B5CF6", "#EC4899", "#3B82F6"];
+            for (let i = 0; i < 120; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    w: Math.random() * 9 + 4,
+                    h: Math.random() * 5 + 3,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    vx: (Math.random() - 0.5) * 16,
+                    vy: (Math.random() - 0.7) * 16,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 8,
+                    gravity: 0.28,
+                    alpha: 1
+                });
+            }
+
+            cancelAnimationFrame(confettiAnimation);
+            function loop() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                let alive = 0;
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += p.gravity;
+                    p.rotation += p.rotationSpeed;
+                    p.alpha -= 0.007;
+
+                    if (p.alpha > 0) {
+                        alive++;
+                        ctx.save();
+                        ctx.translate(p.x, p.y);
+                        ctx.rotate((p.rotation * Math.PI) / 180);
+                        ctx.fillStyle = p.color;
+                        ctx.globalAlpha = Math.max(0, p.alpha);
+                        ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+                        ctx.restore();
+                    }
+                });
+
+                if (alive > 0) {
+                    confettiAnimation = requestAnimationFrame(loop);
+                } else {
+                    canvas.style.display = "none";
+                }
+            }
+            loop();
+        }
+
+        // --- Demo Game State ---
+        const DEMO_CARDS = [
+            { id: "li", symbol: "Li", number: 3, name: "Lithium", weight: "6.94", group: "alkali", isMatch: true },
+            { id: "na", symbol: "Na", number: 11, name: "Sodium", weight: "22.99", group: "alkali", isMatch: true },
+            { id: "k",  symbol: "K",  number: 19, name: "Potassium", weight: "39.10", group: "alkali", isMatch: true },
+            { id: "cs", symbol: "Cs", number: 55, name: "Caesium", weight: "132.9", group: "alkali", isMatch: true },
+            { id: "cl", symbol: "Cl", number: 17, name: "Chlorine", weight: "35.45", group: "halogen", isMatch: false } // Distractor
+        ];
+
+        let cardsInPlay = [];
+        let matchedCount = 0;
+        let score = 0;
+        let moves = 0;
+        let incorrectAttempts = 0;
+        let selectedCard = null;
+        let startTime = Date.now();
+
+        const cardsGrid = document.getElementById("demoCardsGrid");
+        const categoryStack = document.getElementById("demoCategoryStack");
+        const banner = document.getElementById("demoBanner");
+        const bannerText = document.getElementById("demoBannerText");
+        const stackCount = document.getElementById("stackCount");
+        const progressFill = document.getElementById("demoProgressFill");
+        const progressText = document.getElementById("demoProgressText");
+        const movesEl = document.getElementById("demoMoves");
+        const scoreEl = document.getElementById("demoScore");
+        const hintBtn = document.getElementById("demoHintBtn");
+        const restartBtn = document.getElementById("demoRestartBtn");
+        const modal = document.getElementById("demoModal");
+        const modalReplayBtn = document.getElementById("modalReplayBtn");
+
+        const sndCorrect = document.getElementById("sndCorrect");
+        const sndWrong = document.getElementById("sndWrong");
+        const sndCompleted = document.getElementById("sndCompleted");
+
+        function playSound(audioEl) {
+            try {
+                audioEl.currentTime = 0;
+                audioEl.play().catch(() => {});
+            } catch (_) {}
+        }
+
+        function setBanner(text, type = "info") {
+            banner.className = `demo-banner ${type}`;
+            bannerText.textContent = text;
+        }
+
+        function updateUI() {
+            movesEl.textContent = moves;
+            scoreEl.textContent = score;
+            const pct = (matchedCount / 4) * 100;
+            progressFill.style.width = `${pct}%`;
+            progressText.textContent = `${matchedCount} / 4`;
+            stackCount.textContent = `${matchedCount} / 4`;
+        }
+
+        function renderCards() {
+            cardsGrid.innerHTML = "";
+            cardsInPlay.forEach(item => {
+                const card = document.createElement("div");
+                card.className = `demo-card ${!item.isMatch ? 'distractor' : ''}`;
+                card.dataset.id = item.id;
+                card.dataset.match = item.isMatch ? "true" : "false";
+                card.draggable = true;
+
+                card.innerHTML = `
+                    <div class="demo-card-top-row">
+                        <span class="demo-card-symbol">${item.symbol}</span>
+                        <span class="demo-card-number">${item.number}</span>
+                    </div>
+                    <div class="demo-card-center">
+                        <div class="demo-card-name">${item.name}</div>
+                        <div class="demo-card-weight">Atomic: ${item.weight}</div>
+                    </div>
+                    <div class="demo-card-bottom">
+                        <span>Group ${item.isMatch ? '1' : '7'}</span>
+                        <span>${item.isMatch ? 'Alkali' : 'Halogen'}</span>
+                    </div>
+                `;
+
+                // Drag events
+                card.addEventListener("dragstart", (e) => {
+                    selectCard(card);
+                    e.dataTransfer.setData("text/plain", item.id);
+                });
+
+                // Click event
+                card.addEventListener("click", () => {
+                    if (selectedCard === card) {
+                        deselectAll();
+                        setBanner("Card deselected. Tap any card to pick it up.");
+                    } else {
+                        selectCard(card);
+                    }
+                });
+
+                cardsGrid.appendChild(card);
+            });
+        }
+
+        function selectCard(cardEl) {
+            deselectAll();
+            selectedCard = cardEl;
+            cardEl.classList.add("selected");
+            const name = cardEl.querySelector(".demo-card-name").textContent;
+            setBanner(`Selected ${name}. Now tap the Group 1 category stack above!`);
+        }
+
+        function deselectAll() {
+            selectedCard = null;
+            document.querySelectorAll(".demo-card").forEach(c => c.classList.remove("selected"));
+        }
+
+        function flyCard(cardEl, targetEl, callback) {
+            const cRect = cardEl.getBoundingClientRect();
+            const tRect = targetEl.getBoundingClientRect();
+
+            const clone = cardEl.cloneNode(true);
+            clone.style.position = "fixed";
+            clone.style.left = `${cRect.left}px`;
+            clone.style.top = `${cRect.top}px`;
+            clone.style.width = `${cRect.width}px`;
+            clone.style.height = `${cRect.height}px`;
+            clone.style.zIndex = "999";
+            clone.style.pointerEvents = "none";
+            clone.style.transition = "all 0.4s cubic-bezier(0.2, 0.9, 0.3, 1)";
+            document.body.appendChild(clone);
+
+            cardEl.style.opacity = "0";
+
+            requestAnimationFrame(() => {
+                clone.style.left = `${tRect.left + (tRect.width / 2) - (cRect.width / 2)}px`;
+                clone.style.top = `${tRect.top + (tRect.height / 2) - (cRect.height / 2)}px`;
+                clone.style.transform = "scale(0.3) rotate(8deg)";
+                clone.style.opacity = "0";
+            });
+
+            setTimeout(() => {
+                clone.remove();
+                cardEl.remove();
+                if (callback) callback();
+            }, 420);
+        }
+
+        function handleMatchAttempt() {
+            if (!selectedCard) {
+                setBanner("Select an element card below first, then tap here!", "info");
+                return;
+            }
+
+            moves++;
+            const isMatch = selectedCard.dataset.match === "true";
+            const cardId = selectedCard.dataset.id;
+            const cardName = selectedCard.querySelector(".demo-card-name").textContent;
+
+            if (isMatch) {
+                // Correct match
+                playSound(sndCorrect);
+                score += 10;
+                matchedCount++;
+                updateUI();
+
+                categoryStack.classList.add("stack-pulse");
+                setTimeout(() => categoryStack.classList.remove("stack-pulse"), 500);
+
+                const cardToFly = selectedCard;
+                deselectAll();
+
+                setBanner(`Nice job! ${cardName} is a Group 1 Alkali Metal.`, "success");
+
+                flyCard(cardToFly, categoryStack, () => {
+                    cardsInPlay = cardsInPlay.filter(c => c.id !== cardId);
+
+                    if (matchedCount === 4) {
+                        completeDemo();
+                    }
+                });
+
+            } else {
+                // Wrong match (Distractor like Chlorine)
+                incorrectAttempts++;
+                playSound(sndWrong);
+                updateUI();
+
+                selectedCard.classList.add("shake");
+                setTimeout(() => selectedCard?.classList.remove("shake"), 600);
+
+                setBanner(`Oops! ${cardName} is a Group 7 Halogen, NOT an Alkali Metal. Try Lithium, Sodium, Potassium or Caesium instead!`, "error");
+            }
+        }
+
+        function completeDemo() {
+            playSound(sndCompleted);
+            triggerConfetti();
+            categoryStack.classList.add("completed");
+            setBanner("🎉 Solitaire Demo Completed! You've matched all the alkali metals!", "success");
+
+            const timeTakenSec = Math.max(5, Math.floor((Date.now() - startTime) / 1000));
+            const totalAttempts = matchedCount + incorrectAttempts;
+            const accuracy = Math.round((matchedCount / totalAttempts) * 100);
+
+            document.getElementById("modalCards").textContent = "4 / 4";
+            document.getElementById("modalAccuracy").textContent = `${accuracy}%`;
+            document.getElementById("modalTime").textContent = `${timeTakenSec}s`;
+
+            setTimeout(() => {
+                modal.classList.add("open");
+            }, 900);
+        }
+
+        // Setup Stack Click & Drop
+        categoryStack.addEventListener("click", handleMatchAttempt);
+
+        categoryStack.addEventListener("dragover", (e) => {
+            e.preventDefault();
+            categoryStack.classList.add("drag-over");
+        });
+        categoryStack.addEventListener("dragleave", () => {
+            categoryStack.classList.remove("drag-over");
+        });
+        categoryStack.addEventListener("drop", (e) => {
+            e.preventDefault();
+            categoryStack.classList.remove("drag-over");
+            handleMatchAttempt();
+        });
+
+        // Hint button
+        hintBtn.addEventListener("click", () => {
+            const validCard = cardsGrid.querySelector('.demo-card[data-match="true"]');
+            if (validCard) {
+                deselectAll();
+                selectCard(validCard);
+                const name = validCard.querySelector(".demo-card-name").textContent;
+                setBanner(`💡 Hint: ${name} has 1 outer electron — it belongs in Group 1 Alkali Metals!`);
+            }
+        });
+
+        // Restart button
+        function resetGame() {
+            modal.classList.remove("open");
+            categoryStack.classList.remove("completed");
+            cardsInPlay = [...DEMO_CARDS];
+            // Shuffle
+            for (let i = cardsInPlay.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cardsInPlay[i], cardsInPlay[j]] = [cardsInPlay[j], cardsInPlay[i]];
+            }
+            matchedCount = 0;
+            score = 0;
+            moves = 0;
+            incorrectAttempts = 0;
+            selectedCard = null;
+            startTime = Date.now();
+            updateUI();
+            renderCards();
+            setBanner("New game started! Tap or drag an element card below to place it into the Alkali Metals stack.");
+        }
+
+        restartBtn.addEventListener("click", resetGame);
+        modalReplayBtn.addEventListener("click", resetGame);
+
+        // Start initial game
+        resetGame();
+    })();
+    </script>
+</body>
+</html>

@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isLoggedIn = !!localStorage.getItem("auth_token");
 
-    let playHref = "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1";
+    let playHref = "/demo";
     let playText = "Play Demo";
 
     if (isLoggedIn) {
@@ -75,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         Why Science Solitaire?
                     </a>
 
-                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
+                    <a href="/demo" class="${window.location.pathname.startsWith('/demo') ? 'active' : ''}">
                         Gameplay Preview
                     </a>
 
@@ -156,7 +156,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     Why Science Solitaire?
                 </a>
 
-                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
+                <a href="/demo" class="${window.location.pathname.startsWith('/demo') ? 'active' : ''}">
                     Gameplay Preview
                 </a>
 

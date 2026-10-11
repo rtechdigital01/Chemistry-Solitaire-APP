@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         Why Science Solitaire?
                     </a>
 
-                    <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
+                    <a href="/demo" class="${window.location.pathname.startsWith('/demo') ? 'active' : ''}">
                         Gameplay Preview
                     </a>
 
@@ -65,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     <a
-                        href="${isLoggedIn ? "/dashboard" : "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1"}"
+                        href="${isLoggedIn ? "/dashboard" : "/demo"}"
                         class="header-play-button"
                     >
 
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     Why Science Solitaire?
                 </a>
 
-                <a href="/gameplay?subject=chemistry&deck=periodic-table-groups&difficulty=easy&level=1" class="${window.location.pathname.startsWith('/gameplay') ? 'active' : ''}">
+                <a href="/demo" class="${window.location.pathname.startsWith('/demo') ? 'active' : ''}">
                     Gameplay Preview
                 </a>
 
@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         : ""
                 }
 
-                <a href="${isLoggedIn ? "/dashboard" : "/gameplay?subject=chemistry&deck=periodic-table-groups&key_stage=KS3&difficulty=easy&level=1"}">
+                <a href="${isLoggedIn ? "/dashboard" : "/demo"}">
                     ${isLoggedIn ? "Dashboard" : "Play Demo"}
                 </a>
 
