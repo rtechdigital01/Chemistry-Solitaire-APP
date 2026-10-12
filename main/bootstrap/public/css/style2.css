@@ -3,6 +3,225 @@
     color: #FFFFFF;
     border: none;
 }
+
+.view-summary-btn {
+    background: linear-gradient(135deg, #1B3D7A 0%, #2563EB 100%);
+    color: #FFFFFF !important;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    font-weight: 800;
+    box-shadow: 0 4px 12px rgba(37,99,255,0.25);
+    transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.view-summary-btn:hover {
+    background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(37,99,255,0.38);
+}
+
+.view-summary-btn svg {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+/* ============================================================
+   LESSON SUMMARY MODAL (YOUTUBE EMBED)
+============================================================ */
+.summary-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+}
+
+.summary-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, 0.72);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+}
+
+.summary-modal-card {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 680px;
+    background: #FFFFFF;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.4);
+    animation: popupSlideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    max-height: 90vh;
+}
+
+.summary-modal-header {
+    padding: 18px 22px 14px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    border-bottom: 1px solid #E2E8F0;
+    background: #FFFFFF;
+}
+
+.summary-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #2563EB;
+    background: #EFF6FF;
+    padding: 3px 9px;
+    border-radius: 999px;
+    margin-bottom: 4px;
+}
+
+.summary-modal-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 900;
+    color: #14213D;
+    line-height: 1.25;
+}
+
+.summary-modal-close {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #F1F5F9;
+    border: none;
+    border-radius: 50%;
+    color: #64748B;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    flex-shrink: 0;
+}
+
+.summary-modal-close:hover {
+    background: #E2E8F0;
+    color: #0F172A;
+}
+
+.summary-modal-close svg {
+    width: 18px;
+    height: 18px;
+}
+
+.summary-modal-body {
+    padding: 18px 22px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    background: #FFFFFF;
+}
+
+.summary-video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    border-radius: 12px;
+    overflow: hidden;
+    background: #0F172A;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
+}
+
+.summary-video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+.summary-no-video {
+    padding: 36px 20px;
+    text-align: center;
+    background: #F8FAFC;
+    border: 1.5px dashed #CBD5E1;
+    border-radius: 14px;
+    color: #64748B;
+}
+
+.summary-no-video .no-video-icon {
+    width: 48px;
+    height: 48px;
+    margin: 0 auto 10px;
+    stroke: #94A3B8;
+}
+
+.summary-no-video h3 {
+    margin: 0 0 6px;
+    color: #1E293B;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.summary-no-video p {
+    margin: 0;
+    font-size: 13px;
+    color: #64748B;
+}
+
+.summary-notes-wrap {
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
+    border-radius: 10px;
+    padding: 12px 14px;
+}
+
+.summary-notes-wrap h4 {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #1E293B;
+}
+
+.summary-notes-wrap p {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #475569;
+}
+
+.summary-modal-footer {
+    padding: 12px 22px 16px;
+    display: flex;
+    justify-content: flex-end;
+    border-top: 1px solid #E2E8F0;
+    background: #FFFFFF;
+}
+
+.summary-modal-ok-btn {
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: #2563EB;
+    color: #FFFFFF;
+    font-weight: 800;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37,99,255,0.25);
+    transition: background 0.15s, transform 0.15s;
+}
+
+.summary-modal-ok-btn:hover {
+    background: #1D4ED8;
+    transform: translateY(-1px);
+}
 /* ============================================================
    RESET
 ============================================================ */
@@ -765,8 +984,52 @@ body {
     transition: box-shadow 0.18s ease;
 }
 
+/* Skeleton placeholder when a card pile is empty */
+.card-pile::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 220px;
+    border: 1.5px dashed #CBD5E1;
+    border-radius: 16px;
+    background: linear-gradient(145deg, rgba(248, 250, 252, 0.8), rgba(241, 245, 249, 0.55));
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 18' fill='none'%3E%3Cpath d='M2 6.2L6.6 9.3L12 2L17.4 9.3L22 6.2L19.6 15.4H4.4L2 6.2Z' fill='%2394A3B8' fill-opacity='0.35'/%3E%3Crect x='4' y='15.4' width='16' height='2' rx='1' fill='%2394A3B8' fill-opacity='0.35'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 32px 24px;
+    box-shadow: inset 0 2px 6px rgba(20, 33, 61, 0.04);
+    box-sizing: border-box;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-pile.pile-empty::before {
+    opacity: 1;
+}
+
+.card-pile.pile-empty {
+    cursor: pointer;
+}
+
+.card-pile.pile-empty:hover::before {
+    border-color: #93C5FD;
+    background-color: rgba(239, 246, 255, 0.65);
+}
+
 .card-pile.stack-drag-over {
     box-shadow: 0 0 0 3px rgba(37,99,255,0.35);
+}
+
+.card-pile.stack-drag-over::before {
+    opacity: 1 !important;
+    border-color: #2563EB !important;
+    border-style: solid !important;
+    background-color: #EFF6FF !important;
+    box-shadow: 0 0 0 3px rgba(37, 99, 255, 0.2) !important;
 }
 
 /* The stock/shuffle pile column */
@@ -1337,6 +1600,12 @@ body {
         min-height: 140px;
 
         flex: 0 0 var(--desktop-card-width);
+    }
+
+    .card-pile::before {
+        height: var(--desktop-card-height) !important;
+        border-radius: var(--desktop-card-radius) !important;
+        background-size: 26px 20px;
     }
 
     .game-card {
@@ -2040,6 +2309,12 @@ body {
         filter: none !important;
 
         border-radius: 6px !important;
+    }
+
+    .card-pile::before {
+        height: 75px !important;
+        border-radius: 6px !important;
+        background-size: 20px 15px !important;
     }
 
     #cardsGrid .game-card,

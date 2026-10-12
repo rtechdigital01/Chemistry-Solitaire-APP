@@ -20,8 +20,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const shuffleRevealPile= document.getElementById("shuffleRevealPile");
     const movesBadge  = document.getElementById("movesValueBadge");
     const topHintBtn  = document.getElementById("topHintBtn");
-    const topHintLabel= document.getElementById("topHintLabel");
     const viewResultsBtn = document.getElementById("viewResultsBtn");
+    const viewSummaryBtn = document.getElementById("viewSummaryBtn");
+    const mobileSummaryBtn = document.getElementById("mobileSummaryBtn");
 
     const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
@@ -138,6 +139,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let incorrectMatches = 0;
     let hintsUsed     = 0;
     let totalCards    = 0;
+    let currentLessonSummary = null;
 
     /*
      * The Moves badge is a countdown, not an open-ended tally — it
@@ -451,6 +453,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // — drag start (only face-up cards are draggable) —
             card.addEventListener("dragstart", e => {
                 if (card.classList.contains("card-face-down")) { e.preventDefault(); return; }
+                const tutorialEl = document.querySelector(".first-game-tutorial");
+                if (tutorialEl) tutorialEl.style.opacity = "0";
                 resetHintStates();
                 deselectAll();
                 card.classList.add("card-selected");
@@ -472,6 +476,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // — click —
             card.addEventListener("click", () => {
                 if (card.classList.contains("card-face-down")) return;
+                const tutorialEl = document.querySelector(".first-game-tutorial");
+                if (tutorialEl) tutorialEl.style.opacity = "0";
                 resetHintStates();
 
                 // A card already selected from the shuffle pile, clicked
@@ -513,6 +519,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function positionPileCards(container) {
+        if (!container) return;
         const cards = Array.from(container.querySelectorAll(".game-card"));
         cards.forEach((c, idx) => {
             c.style.display = "";
@@ -527,10 +534,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 c.draggable = true;
             }
         });
+        container.classList.toggle("pile-empty", cards.length === 0);
         // Give the container enough height to show the whole top card
         container.style.minHeight = cards.length > 0
             ? `${(cards.length - 1) * PILE_OFFSET_PX + 220}px`
-            : "0px";
+            : "";
         attachCardEvents(container);
     }
 
@@ -563,6 +571,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const cardToMove = selectedCard;
+        const sourcePile = cardToMove.closest(".card-pile");
         selectedCard = null;
         cardToMove.classList.remove("card-selected");
 
@@ -574,6 +583,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
         pileEl.appendChild(cardToMove);
         positionPileCards(pileEl);
+
+        if (sourcePile && sourcePile !== pileEl) {
+            positionPileCards(sourcePile);
+        }
 
         if (wasFromShuffle) {
             renderShuffleRevealPile();
@@ -596,6 +609,14 @@ document.addEventListener("DOMContentLoaded", () => {
             pileEl.classList.remove("stack-drag-over");
             attemptPlaceOnPile(pileEl);
         });
+
+        // Click on empty pile to place selected card
+        pileEl.addEventListener("click", e => {
+            if (pileEl.classList.contains("pile-empty") && selectedCard) {
+                e.stopPropagation();
+                attemptPlaceOnPile(pileEl);
+            }
+        });
     }
 
     /* ============================================================
@@ -612,6 +633,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     topCard.draggable = true;
                 }
             }
+            positionPileCards(container);
         });
     }
 
@@ -759,14 +781,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     newCount
                 );
             
-                /* LEVEL 1 — GUIDE NEXT CARD */
-                if (level === 1) {
-            
-                    setTimeout(() => {
-            
-                        startFirstLevelTutorial();
-            
-                    }, 600);
+                /* LEVEL 1 — GUIDE NEXT CARD (ONLY FOR THE FIRST FEW CARDS) */
+                if (level === 1 && !tutorialCompleted) {
+                    tutorialCardsGuidedCount++;
+                    if (tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                        setTimeout(() => {
+                            if (!tutorialCompleted) {
+                                startFirstLevelTutorial();
+                            }
+                        }, 600);
+                    } else {
+                        stopFirstLevelTutorial(true);
+                    }
                 }
             });
 
@@ -918,6 +944,7 @@ document.addEventListener("DOMContentLoaded", () => {
        FULL-SCREEN CONGRATULATIONS OVERLAY
     ============================================================ */
 function showCongratsAndRedirect(showFeedback = true) {
+    stopFirstLevelTutorial(true);
     document.querySelectorAll(".game-card").forEach(c => {
         c.style.pointerEvents = "none";
     });
@@ -1271,6 +1298,7 @@ if (!showFeedback) {
     ============================================================ */
 
     function showGameOverOverlay() {
+        stopFirstLevelTutorial(true);
         if (document.getElementById("gameOverOverlay") || document.getElementById("congratsOverlay")) return;
 
         document.querySelectorAll(".game-card").forEach(c => {
@@ -1650,11 +1678,18 @@ if (result.data?.eligible && (level === 1 || result.data?.has_previous_feedback)
             revealTopCards();
             renderShuffleRevealPile();
             
-            /* LEVEL 1 — GUIDE NEXT MOVE */
-            if (level === 1) {
-                setTimeout(() => {
-                    startFirstLevelTutorial();
-                }, 600);
+            /* LEVEL 1 — GUIDE NEXT MOVE (ONLY FOR THE FIRST FEW CARDS) */
+            if (level === 1 && !tutorialCompleted) {
+                tutorialCardsGuidedCount++;
+                if (tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                    setTimeout(() => {
+                        if (!tutorialCompleted) {
+                            startFirstLevelTutorial();
+                        }
+                    }, 600);
+                } else {
+                    stopFirstLevelTutorial(true);
+                }
             }
 
             if (movesBudget - moves <= 0) {
@@ -1670,18 +1705,44 @@ if (result.data?.eligible && (level === 1 || result.data?.has_previous_feedback)
 
 /* ============================================================
    LEVEL 1 GUIDED TUTORIAL
+   Shows a helpful demo hand for the first few cards of level 1 only,
+   then stops permanently once the player has learned the mechanic.
 ============================================================ */
+const MAX_TUTORIAL_CARDS = 2; // Only guide the first few cards (2 cards)
+let tutorialCardsGuidedCount = 0;
+let tutorialCompleted = false;
 let tutorialMoveTimer = null;
 let tutorialRepeatTimer = null;
+let tutorialRetryCount = 0;
+
+function stopFirstLevelTutorial(isComplete = false) {
+    clearTimeout(tutorialMoveTimer);
+    clearInterval(tutorialRepeatTimer);
+    tutorialMoveTimer = null;
+    tutorialRepeatTimer = null;
+
+    document.querySelectorAll(".tutorial-example-card").forEach(el => {
+        el.classList.remove("tutorial-example-card");
+    });
+    document.querySelectorAll(".tutorial-example-target").forEach(el => {
+        el.classList.remove("tutorial-example-target");
+    });
+
+    const overlay = document.querySelector(".first-game-tutorial");
+    if (overlay) {
+        overlay.remove();
+    }
+
+    if (isComplete) {
+        tutorialCompleted = true;
+    }
+}
 
 function startFirstLevelTutorial() {
 
-    /* ONLY LEVEL 1 */
-    if (level !== 1) {
-        document
-            .querySelector(".first-game-tutorial")
-            ?.remove();
-
+    /* ONLY LEVEL 1 AND ONLY FOR THE FIRST FEW CARDS */
+    if (level !== 1 || tutorialCompleted || tutorialCardsGuidedCount >= MAX_TUTORIAL_CARDS) {
+        stopFirstLevelTutorial(true);
         return;
     }
 
@@ -1756,14 +1817,16 @@ function startFirstLevelTutorial() {
 
     /* NOTHING PLAYABLE YET */
     if (!tutorialCard || !tutorialTarget) {
-
-        tutorialMoveTimer =
-            setTimeout(() => {
-                startFirstLevelTutorial();
-            }, 700);
-
+        if (++tutorialRetryCount <= 4 && !tutorialCompleted) {
+            tutorialMoveTimer =
+                setTimeout(() => {
+                    startFirstLevelTutorial();
+                }, 700);
+        }
         return;
     }
+
+    tutorialRetryCount = 0;
 
     /* CREATE TUTORIAL ONLY ONCE */
     let overlay =
@@ -1788,10 +1851,17 @@ function startFirstLevelTutorial() {
         document.body.appendChild(overlay);
     }
 
+    overlay.style.opacity = "1";
+    overlay.style.display = "";
+
     const hand =
         overlay.querySelector(
             ".tutorial-hand"
         );
+
+    if (hand) {
+        hand.style.opacity = "1";
+    }
 
     /* HIGHLIGHT CURRENT CORRECT MOVE */
     tutorialCard.classList.add(
@@ -1803,24 +1873,25 @@ function startFirstLevelTutorial() {
     );
 
     function moveHandTo(element) {
-    const rect =
-        element.getBoundingClientRect();
-    const handX =
-        rect.left + rect.width / 2;
-    let handY =
-        rect.top + rect.height / 2;
-    const minimumY =
-    window.innerWidth <= 700
-        ? 170
-        : 80;
-    if (handY < minimumY) {
-        handY = minimumY;
+        const rect =
+            element.getBoundingClientRect();
+        const handX =
+            rect.left + rect.width / 2;
+        let handY =
+            rect.top + rect.height / 2;
+        const minimumY =
+        window.innerWidth <= 700
+            ? 170
+            : 80;
+        if (handY < minimumY) {
+            handY = minimumY;
+        }
+        hand.style.left =
+            `${handX}px`;
+        hand.style.top =
+            `${handY}px`;
     }
-    hand.style.left =
-        `${handX}px`;
-    hand.style.top =
-        `${handY}px`;
-    }
+
     /* START HAND ON THE CARD */
     hand.classList.remove(
         "tutorial-hand-moving"
@@ -1830,7 +1901,7 @@ function startFirstLevelTutorial() {
     /* MOVE HAND TO CORRECT CATEGORY */
     tutorialMoveTimer =
         setTimeout(() => {
-
+            if (tutorialCompleted) return;
             hand.classList.add(
                 "tutorial-hand-moving"
             );
@@ -1841,9 +1912,23 @@ function startFirstLevelTutorial() {
 
         }, 1100);
 
-    /* REPEAT UNTIL USER MAKES THE MOVE */
+    /* REPEAT INTERVAL (MAX 3 DEMONSTRATION CYCLES SO IT DOESN'T RUN ENDLESSLY) */
+    let repeatCycles = 0;
+    const MAX_REPEAT_CYCLES = 3;
+
     tutorialRepeatTimer =
         setInterval(() => {
+            repeatCycles++;
+            if (repeatCycles >= MAX_REPEAT_CYCLES || tutorialCompleted) {
+                clearInterval(tutorialRepeatTimer);
+                tutorialRepeatTimer = null;
+                if (hand) {
+                    hand.style.opacity = "0";
+                    hand.style.transition = "opacity 0.6s ease";
+                }
+                return;
+            }
+
             hand.classList.remove(
                 "tutorial-hand-moving"
             );
@@ -1854,7 +1939,7 @@ function startFirstLevelTutorial() {
             
             tutorialMoveTimer =
                 setTimeout(() => {
-
+                    if (tutorialCompleted) return;
                     hand.classList.add(
                         "tutorial-hand-moving"
                     );
@@ -1921,6 +2006,12 @@ function startFirstLevelTutorial() {
         totalCards     = 0;
         shuffleDeckCards = [];
         pendingCategories = [];
+
+        if (board && board.lesson_summary) {
+            currentLessonSummary = board.lesson_summary;
+        } else {
+            fetchLessonSummary();
+        }
 
         if (resetGame) {
             score = 0;
@@ -2007,7 +2098,9 @@ function startFirstLevelTutorial() {
 
         animateDealCards();
         setTimeout(() => {
-            startFirstLevelTutorial();
+            if (!tutorialCompleted && tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                startFirstLevelTutorial();
+            }
         }, 1400);
     }
 
@@ -2155,6 +2248,125 @@ function startFirstLevelTutorial() {
         });
     }
     
+    /* ============================================================
+       LESSON SUMMARY (YOUTUBE MODAL)
+    ============================================================ */
+    async function fetchLessonSummary() {
+        try {
+            const apiBase = (window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL) || "/api";
+            const query = new URLSearchParams({
+                subject: subject || "chemistry",
+                deck: deck || "periodic-table-groups",
+                key_stage: keyStage || "KS3"
+            });
+            const res = await fetch(`${apiBase}/lesson-summary?${query.toString()}`);
+            const data = await res.json();
+            const summaryPayload = (data && (data.data || data.summary)) || null;
+            if (summaryPayload) {
+                currentLessonSummary = summaryPayload;
+            }
+        } catch (err) {
+            console.warn("Could not fetch lesson summary:", err);
+        }
+    }
+
+    function showLessonSummaryModal() {
+        const modal = document.getElementById("lessonSummaryModal");
+        if (!modal) return;
+
+        const iframe = document.getElementById("summaryVideoIframe");
+        const videoContainer = document.getElementById("summaryVideoContainer");
+        const noVideoNotice = document.getElementById("summaryNoVideoNotice");
+        const titleEl = document.getElementById("summaryModalTitle");
+        const badgeEl = document.getElementById("summaryBadge");
+        const notesWrap = document.getElementById("summaryNotesWrap");
+        const notesText = document.getElementById("summaryNotesText");
+
+        const activeSummary = currentLessonSummary;
+
+        if (badgeEl) {
+            const ks = (activeSummary && activeSummary.key_stage) || keyStage || "KS3";
+            const sub = (activeSummary && activeSummary.subject) || subject || "Chemistry";
+            badgeEl.textContent = `${ks} • ${sub.charAt(0).toUpperCase() + sub.slice(1)}`;
+        }
+
+        if (titleEl) {
+            if (activeSummary && activeSummary.title) {
+                titleEl.textContent = activeSummary.title;
+            } else {
+                titleEl.textContent = (deck || "Lesson Summary")
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase());
+            }
+        }
+
+        if (activeSummary && activeSummary.youtube_id) {
+            if (iframe) {
+                iframe.src = `https://www.youtube-nocookie.com/embed/${activeSummary.youtube_id}?autoplay=1&rel=0`;
+            }
+            if (videoContainer) videoContainer.style.display = "block";
+            if (noVideoNotice) noVideoNotice.style.display = "none";
+        } else {
+            if (iframe) iframe.src = "";
+            if (videoContainer) videoContainer.style.display = "none";
+            if (noVideoNotice) noVideoNotice.style.display = "flex";
+        }
+
+        if (notesWrap && notesText) {
+            if (activeSummary && activeSummary.notes && activeSummary.notes.trim()) {
+                notesText.textContent = activeSummary.notes;
+                notesWrap.style.display = "block";
+            } else {
+                notesWrap.style.display = "none";
+            }
+        }
+
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    function hideLessonSummaryModal() {
+        const modal = document.getElementById("lessonSummaryModal");
+        if (!modal) return;
+
+        const iframe = document.getElementById("summaryVideoIframe");
+        if (iframe) {
+            iframe.src = ""; // Stop YouTube video & audio playback immediately
+        }
+
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    if (viewSummaryBtn) {
+        viewSummaryBtn.addEventListener("click", showLessonSummaryModal);
+    }
+    if (mobileSummaryBtn) {
+        mobileSummaryBtn.addEventListener("click", showLessonSummaryModal);
+    }
+
+    const summaryCloseBtn = document.getElementById("summaryModalCloseBtn");
+    if (summaryCloseBtn) {
+        summaryCloseBtn.addEventListener("click", hideLessonSummaryModal);
+    }
+    const summaryBackdrop = document.getElementById("summaryModalBackdrop");
+    if (summaryBackdrop) {
+        summaryBackdrop.addEventListener("click", hideLessonSummaryModal);
+    }
+    const summaryOkBtn = document.getElementById("summaryModalOkBtn");
+    if (summaryOkBtn) {
+        summaryOkBtn.addEventListener("click", hideLessonSummaryModal);
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            const modal = document.getElementById("lessonSummaryModal");
+            if (modal && modal.style.display === "flex") {
+                hideLessonSummaryModal();
+            }
+        }
+    });
+
     if (viewResultsBtn) {
     viewResultsBtn.addEventListener("click", () => {
         window.location.href = "/results";

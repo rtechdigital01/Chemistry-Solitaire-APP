@@ -115,4 +115,20 @@ Route::middleware(['auth:sanctum', EnsureAdmin::class])->group(function () {
         '/admin/datasets',
         [AdminDatasetController::class, 'destroy']
     );
+
+    // Lesson Summaries
+    Route::get(
+        '/admin/lesson-summaries',
+        [\App\Modules\Admin\Controllers\AdminLessonSummaryController::class, 'index']
+    );
+
+    Route::post(
+        '/admin/lesson-summaries',
+        [\App\Modules\Admin\Controllers\AdminLessonSummaryController::class, 'store']
+    );
+
+    Route::delete(
+        '/admin/lesson-summaries/{id}',
+        [\App\Modules\Admin\Controllers\AdminLessonSummaryController::class, 'destroy']
+    );
 });

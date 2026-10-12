@@ -90,6 +90,11 @@ Route::get('/physics/board', [
     'board'
 ]);
 
+Route::get('/lesson-summary', [
+    \App\Modules\Admin\Controllers\AdminLessonSummaryController::class,
+    'getForGameplay'
+]);
+
 /*
 |--------------------------------------------------------------------------
 | Dynamic Module Routes

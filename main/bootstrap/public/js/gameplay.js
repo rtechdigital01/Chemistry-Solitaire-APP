@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const topHintBtn  = document.getElementById("topHintBtn");
     const topHintLabel= document.getElementById("topHintLabel");
     const viewResultsBtn = document.getElementById("viewResultsBtn");
+    const viewSummaryBtn = document.getElementById("viewSummaryBtn");
+    const mobileSummaryBtn = document.getElementById("mobileSummaryBtn");
 
     const statValues = document.querySelectorAll(".gameplay-stats .stat-value");
     const scoreElement = statValues[0];
@@ -135,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let incorrectMatches = 0;
     let hintsUsed     = 0;
     let totalCards    = 0;
+    let currentLessonSummary = null;
 
     /*
      * The Moves badge is a countdown, not an open-ended tally — it
@@ -1428,6 +1431,12 @@ document.addEventListener("DOMContentLoaded", () => {
         shuffleDeckCards = [];
         pendingCategories = [];
 
+        if (board && board.lesson_summary) {
+            currentLessonSummary = board.lesson_summary;
+        } else {
+            fetchLessonSummary();
+        }
+
         if (resetGame) {
             score = 0;
             moves = 0;
@@ -1658,6 +1667,125 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
     
+    /* ============================================================
+       LESSON SUMMARY (YOUTUBE MODAL)
+    ============================================================ */
+    async function fetchLessonSummary() {
+        try {
+            const apiBase = (window.APP_CONFIG && window.APP_CONFIG.API_BASE_URL) || "/api";
+            const query = new URLSearchParams({
+                subject: subject || "chemistry",
+                deck: deck || "periodic-table-groups",
+                key_stage: keyStage || "KS3"
+            });
+            const res = await fetch(`${apiBase}/lesson-summary?${query.toString()}`);
+            const data = await res.json();
+            const summaryPayload = (data && (data.data || data.summary)) || null;
+            if (summaryPayload) {
+                currentLessonSummary = summaryPayload;
+            }
+        } catch (err) {
+            console.warn("Could not fetch lesson summary:", err);
+        }
+    }
+
+    function showLessonSummaryModal() {
+        const modal = document.getElementById("lessonSummaryModal");
+        if (!modal) return;
+
+        const iframe = document.getElementById("summaryVideoIframe");
+        const videoContainer = document.getElementById("summaryVideoContainer");
+        const noVideoNotice = document.getElementById("summaryNoVideoNotice");
+        const titleEl = document.getElementById("summaryModalTitle");
+        const badgeEl = document.getElementById("summaryBadge");
+        const notesWrap = document.getElementById("summaryNotesWrap");
+        const notesText = document.getElementById("summaryNotesText");
+
+        const activeSummary = currentLessonSummary;
+
+        if (badgeEl) {
+            const ks = (activeSummary && activeSummary.key_stage) || keyStage || "KS3";
+            const sub = (activeSummary && activeSummary.subject) || subject || "Chemistry";
+            badgeEl.textContent = `${ks} • ${sub.charAt(0).toUpperCase() + sub.slice(1)}`;
+        }
+
+        if (titleEl) {
+            if (activeSummary && activeSummary.title) {
+                titleEl.textContent = activeSummary.title;
+            } else {
+                titleEl.textContent = (deck || "Lesson Summary")
+                    .replace(/-/g, " ")
+                    .replace(/\b\w/g, (l) => l.toUpperCase());
+            }
+        }
+
+        if (activeSummary && activeSummary.youtube_id) {
+            if (iframe) {
+                iframe.src = `https://www.youtube-nocookie.com/embed/${activeSummary.youtube_id}?autoplay=1&rel=0`;
+            }
+            if (videoContainer) videoContainer.style.display = "block";
+            if (noVideoNotice) noVideoNotice.style.display = "none";
+        } else {
+            if (iframe) iframe.src = "";
+            if (videoContainer) videoContainer.style.display = "none";
+            if (noVideoNotice) noVideoNotice.style.display = "flex";
+        }
+
+        if (notesWrap && notesText) {
+            if (activeSummary && activeSummary.notes && activeSummary.notes.trim()) {
+                notesText.textContent = activeSummary.notes;
+                notesWrap.style.display = "block";
+            } else {
+                notesWrap.style.display = "none";
+            }
+        }
+
+        modal.style.display = "flex";
+        document.body.style.overflow = "hidden";
+    }
+
+    function hideLessonSummaryModal() {
+        const modal = document.getElementById("lessonSummaryModal");
+        if (!modal) return;
+
+        const iframe = document.getElementById("summaryVideoIframe");
+        if (iframe) {
+            iframe.src = ""; // Stop YouTube video & audio playback immediately
+        }
+
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+    }
+
+    if (viewSummaryBtn) {
+        viewSummaryBtn.addEventListener("click", showLessonSummaryModal);
+    }
+    if (mobileSummaryBtn) {
+        mobileSummaryBtn.addEventListener("click", showLessonSummaryModal);
+    }
+
+    const summaryCloseBtn = document.getElementById("summaryModalCloseBtn");
+    if (summaryCloseBtn) {
+        summaryCloseBtn.addEventListener("click", hideLessonSummaryModal);
+    }
+    const summaryBackdrop = document.getElementById("summaryModalBackdrop");
+    if (summaryBackdrop) {
+        summaryBackdrop.addEventListener("click", hideLessonSummaryModal);
+    }
+    const summaryOkBtn = document.getElementById("summaryModalOkBtn");
+    if (summaryOkBtn) {
+        summaryOkBtn.addEventListener("click", hideLessonSummaryModal);
+    }
+
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") {
+            const modal = document.getElementById("lessonSummaryModal");
+            if (modal && modal.style.display === "flex") {
+                hideLessonSummaryModal();
+            }
+        }
+    });
+
     if (viewResultsBtn) {
     viewResultsBtn.addEventListener("click", () => {
         window.location.href = "/results";

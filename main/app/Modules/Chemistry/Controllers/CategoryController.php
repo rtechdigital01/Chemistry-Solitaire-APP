@@ -287,6 +287,31 @@ class CategoryController extends Controller
             }
         );
 
+        // Attach active lesson summary if available for this deck/subject
+        $lessonSummaryModel = \App\Modules\Admin\Models\LessonSummary::where('deck', $deck)
+            ->where('is_active', true)
+            ->first();
+
+        if (!$lessonSummaryModel) {
+            $lessonSummaryModel = \App\Modules\Admin\Models\LessonSummary::where('subject', $subject)
+                ->where('is_active', true)
+                ->first();
+        }
+
+        $lessonSummaryData = null;
+        if ($lessonSummaryModel) {
+            $ytId = $lessonSummaryModel->youtube_id ?: \App\Modules\Admin\Models\LessonSummary::extractYoutubeId($lessonSummaryModel->youtube_url);
+            $lessonSummaryData = [
+                'id' => $lessonSummaryModel->id,
+                'topic' => $lessonSummaryModel->topic,
+                'title' => $lessonSummaryModel->title ?: ($lessonSummaryModel->topic . ' Lesson Summary'),
+                'youtube_url' => $lessonSummaryModel->youtube_url,
+                'youtube_id' => $ytId,
+                'embed_url' => $ytId ? "https://www.youtube-nocookie.com/embed/{$ytId}?autoplay=1&rel=0" : null,
+                'notes' => $lessonSummaryModel->notes,
+            ];
+        }
+
         return $this->successResponse(
             [
                 'deck' => $deck,
@@ -296,6 +321,7 @@ class CategoryController extends Controller
                 'categories_per_level' => $categoryCount,
                 'total_categories_available' => $availableCategories,
                 'max_levels' => $maxLevels,
+                'lesson_summary' => $lessonSummaryData,
             ],
             'Game board generated successfully'
         );

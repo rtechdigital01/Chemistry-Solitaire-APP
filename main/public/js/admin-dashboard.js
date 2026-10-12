@@ -23,13 +23,14 @@ adminNavButtons.forEach((button) => {
 
         // Lazy-load tab-specific data on first visit.
         const lazyLoads = {
-    gameplay: loadAdminGameplayOverview,
-    datasets: loadAdminDatasets,
-    settings: loadAdminDatasets,
-    feedback: loadAdminFeedback,
-    coins: loadAdminCoins,
-    reports: loadAdminReports,
-}; 
+            gameplay: loadAdminGameplayOverview,
+            datasets: loadAdminDatasets,
+            settings: loadAdminDatasets,
+            feedback: loadAdminFeedback,
+            coins: loadAdminCoins,
+            reports: loadAdminReports,
+            'lesson-summaries': loadAdminLessonSummaries,
+        }; 
 
 
         const loader = lazyLoads[targetTab];
@@ -1199,3 +1200,319 @@ document
         document.getElementById("datasetUploadModal").style.display = "none";
 
     });
+
+/* ============================================================
+   LESSON SUMMARIES TAB
+============================================================ */
+
+let allLessonSummaries = [];
+
+function extractYoutubeIdFromUrl(url) {
+    if (!url) return null;
+    const match = url.trim().match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=|shorts\/))([\w-]{11})/i);
+    if (match && match[1]) return match[1];
+    if (/^[\w-]{11}$/.test(url.trim())) return url.trim();
+    return null;
+}
+
+async function loadAdminLessonSummaries() {
+    const tableBody = document.getElementById("summariesTableBody");
+    const panel = document.getElementById("lesson-summaries");
+    if (!tableBody || !panel) return;
+
+    panel.dataset.loaded = "1";
+
+    const search = document.getElementById("summarySearchInput")?.value || "";
+    const subject = document.getElementById("summarySubjectFilter")?.value || "";
+    const level = document.getElementById("summaryLevelFilter")?.value || "";
+
+    const queryParams = new URLSearchParams();
+    if (search) queryParams.set("search", search);
+    if (subject) queryParams.set("subject", subject);
+    if (level) queryParams.set("key_stage", level);
+
+    try {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/lesson-summaries?${queryParams.toString()}`, {
+            headers: adminHeaders(),
+        });
+
+        const result = await safeJson(response);
+        if (!result) {
+            tableBody.innerHTML = `<tr><td colspan="6" style="color:#DC2626; font-weight:800;">Unable to load lesson summaries.</td></tr>`;
+            return;
+        }
+
+        allLessonSummaries = result.data || [];
+
+        if (allLessonSummaries.length === 0) {
+            tableBody.innerHTML = `<tr><td colspan="6" style="text-align:center; padding:32px; color:#64748B; font-weight:700;">No lesson summaries found. Click "+ Add Lesson Summary" above to link a YouTube video to a lesson.</td></tr>`;
+            return;
+        }
+
+        tableBody.innerHTML = allLessonSummaries.map((item) => {
+            const ytId = item.youtube_id;
+            const thumbUrl = ytId ? `https://img.youtube.com/vi/${ytId}/mqdefault.jpg` : "";
+
+            return `
+                <tr>
+                    <td>
+                        <strong style="color:#0F172A; display:block; font-size:14px;">${item.topic}</strong>
+                        <span style="font-size:12px; color:#64748B;">${item.title || "Lesson Summary"}</span>
+                    </td>
+                    <td style="text-transform:capitalize; font-weight:700;">${item.subject}</td>
+                    <td><span style="background:#EFF6FF; color:#2563EB; padding:3px 8px; border-radius:999px; font-weight:800; font-size:11px;">${item.key_stage || "All"}</span></td>
+                    <td style="font-family:monospace; font-size:12px; color:#475569;">${item.deck || "—"}</td>
+                    <td>
+                        ${ytId ? `
+                            <div style="display:flex; align-items:center; gap:8px;">
+                                <img src="${thumbUrl}" alt="Thumbnail" style="width:54px; height:32px; border-radius:6px; object-fit:cover; border:1px solid #CBD5E1;">
+                                <button type="button" class="preview-summary-btn" data-id="${item.id}" style="padding:4px 8px; font-size:11px; background:#EEF2F6; color:#1E293B; border:none; border-radius:6px; font-weight:800; cursor:pointer;">
+                                    ▶ Preview
+                                </button>
+                            </div>
+                        ` : `<span style="color:#94A3B8;">No video ID</span>`}
+                    </td>
+                    <td style="white-space:nowrap;">
+                        <button type="button" class="edit-summary-btn" data-id="${item.id}" style="padding:6px 10px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer; margin-right:4px;">
+                            Edit
+                        </button>
+                        <button type="button" class="delete-summary-btn" data-id="${item.id}" data-topic="${(item.topic || "").replace(/"/g, '&quot;')}" style="padding:6px 10px; border:none; border-radius:8px; background:#DC2626; color:#fff; font-weight:800; cursor:pointer;">
+                            Delete
+                        </button>
+                    </td>
+                </tr>
+            `;
+        }).join("");
+
+        // Attach action listeners
+        document.querySelectorAll(".preview-summary-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const item = allLessonSummaries.find(s => String(s.id) === btn.dataset.id);
+                if (item) openVideoPreviewModal(item);
+            });
+        });
+
+        document.querySelectorAll(".edit-summary-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const item = allLessonSummaries.find(s => String(s.id) === btn.dataset.id);
+                if (item) openSummaryFormModal(item);
+            });
+        });
+
+        document.querySelectorAll(".delete-summary-btn").forEach(btn => {
+            btn.addEventListener("click", () => deleteLessonSummary(btn.dataset.id, btn.dataset.topic));
+        });
+
+    } catch (error) {
+        console.error("Unable to load lesson summaries:", error);
+        tableBody.innerHTML = `<tr><td colspan="6" style="color:#DC2626;">Unable to load lesson summaries.</td></tr>`;
+    }
+}
+
+// Modal controls
+function openSummaryFormModal(item = null) {
+    const modal = document.getElementById("summaryModal");
+    const heading = document.getElementById("summaryModalHeading");
+    const form = document.getElementById("summaryForm");
+    const msg = document.getElementById("formSummaryMessage");
+    const previewWrap = document.getElementById("formYoutubePreviewWrap");
+    const previewIframe = document.getElementById("formYoutubePreviewIframe");
+
+    if (!modal || !form) return;
+
+    if (msg) msg.textContent = "";
+    if (previewWrap) previewWrap.style.display = "none";
+    if (previewIframe) previewIframe.src = "";
+
+    if (item) {
+        heading.textContent = "Edit Lesson Summary";
+        document.getElementById("summaryId").value = item.id;
+        document.getElementById("formSummarySubject").value = item.subject || "chemistry";
+        document.getElementById("formSummaryLevel").value = item.key_stage || "KS3";
+        document.getElementById("formSummaryTopic").value = item.topic || "";
+        document.getElementById("formSummaryDeck").value = item.deck || "";
+        document.getElementById("formSummaryTitle").value = item.title || "";
+        document.getElementById("formSummaryYoutubeUrl").value = item.youtube_url || "";
+        document.getElementById("formSummaryNotes").value = item.notes || "";
+
+        if (item.youtube_id && previewWrap && previewIframe) {
+            previewIframe.src = `https://www.youtube-nocookie.com/embed/${item.youtube_id}`;
+            previewWrap.style.display = "block";
+        }
+    } else {
+        heading.textContent = "Add Lesson Summary";
+        form.reset();
+        document.getElementById("summaryId").value = "";
+        document.getElementById("formSummarySubject").value = "chemistry";
+        document.getElementById("formSummaryLevel").value = "KS3";
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeSummaryFormModal() {
+    const modal = document.getElementById("summaryModal");
+    const previewIframe = document.getElementById("formYoutubePreviewIframe");
+    if (previewIframe) previewIframe.src = "";
+    if (modal) modal.style.display = "none";
+}
+
+function openVideoPreviewModal(item) {
+    const modal = document.getElementById("summaryPreviewModal");
+    const title = document.getElementById("previewModalTitle");
+    const iframe = document.getElementById("previewModalIframe");
+    const notes = document.getElementById("previewModalNotes");
+
+    if (!modal || !iframe) return;
+
+    title.textContent = item.title || `${item.topic} Summary Video`;
+    iframe.src = `https://www.youtube-nocookie.com/embed/${item.youtube_id}?autoplay=1`;
+
+    if (item.notes && notes) {
+        notes.textContent = item.notes;
+        notes.style.display = "block";
+    } else if (notes) {
+        notes.style.display = "none";
+    }
+
+    modal.style.display = "flex";
+}
+
+function closeVideoPreviewModal() {
+    const modal = document.getElementById("summaryPreviewModal");
+    const iframe = document.getElementById("previewModalIframe");
+    if (iframe) iframe.src = "";
+    if (modal) modal.style.display = "none";
+}
+
+async function deleteLessonSummary(id, topic) {
+    if (!confirm(`Are you sure you want to delete the lesson summary for "${topic}"?`)) return;
+
+    const msg = document.getElementById("summaryActionMessage");
+    if (msg) {
+        msg.textContent = "Deleting…";
+        msg.style.color = "#64748B";
+    }
+
+    try {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/lesson-summaries/${id}`, {
+            method: "DELETE",
+            headers: adminHeaders(),
+        });
+
+        const result = await response.json();
+        if (msg) {
+            msg.textContent = result.message || "Deleted successfully.";
+            msg.style.color = response.ok ? "#16A34A" : "#DC2626";
+        }
+
+        loadAdminLessonSummaries();
+    } catch (e) {
+        console.error("Delete summary error:", e);
+        if (msg) {
+            msg.textContent = "Failed to delete summary.";
+            msg.style.color = "#DC2626";
+        }
+    }
+}
+
+// Wire up events
+document.getElementById("openAddSummaryModalBtn")?.addEventListener("click", () => openSummaryFormModal());
+document.getElementById("closeSummaryModalBtn")?.addEventListener("click", closeSummaryFormModal);
+document.getElementById("cancelSummaryModalBtn")?.addEventListener("click", closeSummaryFormModal);
+document.getElementById("closePreviewModalBtn")?.addEventListener("click", closeVideoPreviewModal);
+
+// Live preview when typing YouTube link
+document.getElementById("formSummaryYoutubeUrl")?.addEventListener("input", (e) => {
+    const ytId = extractYoutubeIdFromUrl(e.target.value);
+    const wrap = document.getElementById("formYoutubePreviewWrap");
+    const iframe = document.getElementById("formYoutubePreviewIframe");
+
+    if (ytId && wrap && iframe) {
+        iframe.src = `https://www.youtube-nocookie.com/embed/${ytId}`;
+        wrap.style.display = "block";
+    } else if (wrap && iframe) {
+        wrap.style.display = "none";
+        iframe.src = "";
+    }
+});
+
+// Auto-fill deck slug from topic if empty
+document.getElementById("formSummaryTopic")?.addEventListener("input", (e) => {
+    const deckInput = document.getElementById("formSummaryDeck");
+    if (deckInput && !deckInput.dataset.manuallyEdited) {
+        deckInput.value = e.target.value.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+    }
+});
+document.getElementById("formSummaryDeck")?.addEventListener("input", (e) => {
+    e.target.dataset.manuallyEdited = "1";
+});
+
+// Search and filter triggers
+["summarySearchInput", "summarySubjectFilter", "summaryLevelFilter"].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) {
+        el.addEventListener("input", loadAdminLessonSummaries);
+        el.addEventListener("change", loadAdminLessonSummaries);
+    }
+});
+
+// Form submit
+document.getElementById("summaryForm")?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = document.getElementById("formSummaryMessage");
+    const saveBtn = document.getElementById("saveSummaryBtn");
+    if (!saveBtn) return;
+
+    const payload = {
+        id: document.getElementById("summaryId")?.value || null,
+        subject: document.getElementById("formSummarySubject")?.value,
+        key_stage: document.getElementById("formSummaryLevel")?.value,
+        topic: document.getElementById("formSummaryTopic")?.value,
+        deck: document.getElementById("formSummaryDeck")?.value || null,
+        title: document.getElementById("formSummaryTitle")?.value || null,
+        youtube_url: document.getElementById("formSummaryYoutubeUrl")?.value,
+        notes: document.getElementById("formSummaryNotes")?.value || null,
+    };
+
+    saveBtn.disabled = true;
+    saveBtn.textContent = "Saving…";
+    if (msg) {
+        msg.textContent = "";
+        msg.style.color = "#64748B";
+    }
+
+    try {
+        const response = await fetch(`${window.APP_CONFIG.API_BASE_URL}/admin/lesson-summaries`, {
+            method: "POST",
+            headers: adminHeaders({ "Content-Type": "application/json" }),
+            body: JSON.stringify(payload),
+        });
+
+        const result = await response.json();
+
+        if (!response.ok) {
+            throw new Error(result.message || "Failed to save lesson summary.");
+        }
+
+        if (msg) {
+            msg.textContent = "Lesson summary saved successfully!";
+            msg.style.color = "#16A34A";
+        }
+
+        setTimeout(() => {
+            closeSummaryFormModal();
+            loadAdminLessonSummaries();
+        }, 600);
+
+    } catch (err) {
+        console.error("Save summary error:", err);
+        if (msg) {
+            msg.textContent = err.message || "Error saving summary. Please check the YouTube link.";
+            msg.style.color = "#DC2626";
+        }
+    } finally {
+        saveBtn.disabled = false;
+        saveBtn.textContent = "Save Lesson Summary";
+    }
+});

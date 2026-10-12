@@ -31,7 +31,7 @@
             !user ||
             user.role !== "admin"
         ) {
-            window.location.replace("admin-login.html");
+            window.location.replace("/admin-login");
         }
     })();
 </script>
@@ -81,6 +81,10 @@
 
             <button class="admin-nav-btn" data-tab="datasets">
                 Datasets
+            </button>
+
+            <button class="admin-nav-btn" data-tab="lesson-summaries">
+                Lesson Summaries
             </button>
 
             <button class="admin-nav-btn" data-tab="settings">
@@ -251,62 +255,406 @@
             </div>
         </section>
 
-        <section class="admin-tab-panel" id="datasets">
+
+<section class="admin-tab-panel" id="datasets">
+
+    <div style="
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:20px;
+        margin-bottom:24px;
+        flex-wrap:wrap;
+    ">
+        <div>
             <h1>Datasets</h1>
-            <p class="admin-section-subtitle">
-                Load, refresh, replace or remove the question datasets students play with.
-                Datasets are grouped by country and grade — students only ever see the
-                dataset belonging to their own level.
+
+            <p class="admin-section-subtitle" style="margin-bottom:0 !important;">
+                Manage subject and topic datasets available to students.
             </p>
-            <div class="admin-table-card">
-                <div class="admin-table-wrapper">
-                    <table class="admin-table" id="datasetsTable">
-                        <thead>
-                            <tr>
-                                <th>Dataset</th>
-                                <th>Label</th>
-                                <th>Country</th>
-                                <th>Level</th>
-                                <th>Subject</th>
-                                <th>Loaded</th>
-                                <th>In CSV</th>
-                                <th>Actions</th>
-                            </tr>
-                        </thead>
-                        <tbody id="datasetsTableBody">
-                            <tr><td colspan="8">Loading datasets…</td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            <div id="datasetActionMessage" style="margin-top:14px; font-weight:800;"></div>
-        </section>
+        </div>
+
+        <a
+            href="/admin-upload-dataset"
+            style="
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                padding:11px 18px;
+                border-radius:10px;
+                background:#2563FF;
+                color:#FFFFFF;
+                font-family:'Nunito',sans-serif;
+                font-size:13px;
+                font-weight:900;
+                text-decoration:none;
+                box-shadow:0 6px 16px rgba(37,99,255,0.18);
+            "
+        >
+            + Upload Dataset
+        </a>
+    </div>
+
+
+    <!-- FILTER BAR -->
+    <div class="admin-table-card" style="margin-bottom:20px;">
+        <div style="
+            padding:16px;
+            display:grid;
+            grid-template-columns:minmax(220px,1fr) 160px 160px 160px;
+            gap:12px;
+        ">
+
+            <input
+                type="search"
+                id="datasetSearchInput"
+                placeholder="Search topic or subject..."
+                style="
+                    width:100%;
+                    padding:10px 12px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+
+            <select
+                id="datasetCountryFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Countries</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="UK">UK</option>
+            </select>
+
+            <select
+                id="datasetLevelFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Levels</option>
+                <option value="SS1">SS1</option>
+                <option value="SS2">SS2</option>
+                <option value="SS3">SS3</option>
+                <option value="KS3">KS3</option>
+                <option value="KS4">KS4</option>
+                <option value="KS5">KS5</option>
+            </select>
+
+            <select
+                id="datasetSubjectFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Subjects</option>
+                <option value="biology">Biology</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="physics">Physics</option>
+                <option value="science">Science</option>
+            </select>
+
+        </div>
+    </div>
+
+    <!-- DATASET LIST -->
+    <div class="admin-table-card">
+
+        <div class="admin-table-wrapper">
+
+            <table class="admin-table" id="datasetsTable">
+
+                <thead>
+                    <tr>
+                        <th>Topic</th>
+                        <th>Subject</th>
+                        <th>Level</th>
+                        <th>Country</th>
+                        <th>Categories</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="datasetsTableBody">
+                    <tr>
+                        <td colspan="7">Loading datasets…</td>
+                    </tr>
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+    <div
+        id="datasetActionMessage"
+        style="margin-top:14px; font-weight:800;"
+    ></div>
+
+</section>
+
+
+<section class="admin-tab-panel" id="lesson-summaries">
+
+    <div style="
+        display:flex;
+        align-items:flex-start;
+        justify-content:space-between;
+        gap:20px;
+        margin-bottom:24px;
+        flex-wrap:wrap;
+    ">
+        <div>
+            <h1>Lesson Summaries</h1>
+
+            <p class="admin-section-subtitle" style="margin-bottom:0 !important;">
+                Upload and manage YouTube video summaries displayed to students during gameplay.
+            </p>
+        </div>
+
+        <button
+            type="button"
+            id="openAddSummaryModalBtn"
+            style="
+                display:inline-flex;
+                align-items:center;
+                justify-content:center;
+                padding:11px 18px;
+                border:none;
+                border-radius:10px;
+                background:#2563FF;
+                color:#FFFFFF;
+                font-family:'Nunito',sans-serif;
+                font-size:13px;
+                font-weight:900;
+                cursor:pointer;
+                box-shadow:0 6px 16px rgba(37,99,255,0.18);
+            "
+        >
+            + Add Lesson Summary
+        </button>
+    </div>
+
+    <!-- FILTER BAR -->
+    <div class="admin-table-card" style="margin-bottom:20px;">
+        <div style="
+            padding:16px;
+            display:grid;
+            grid-template-columns:minmax(220px,1fr) 180px 180px;
+            gap:12px;
+        ">
+            <input
+                type="search"
+                id="summarySearchInput"
+                placeholder="Search topic, title, or deck..."
+                style="
+                    width:100%;
+                    padding:10px 12px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+            <select
+                id="summarySubjectFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Subjects</option>
+                <option value="chemistry">Chemistry</option>
+                <option value="biology">Biology</option>
+                <option value="physics">Physics</option>
+                <option value="science">Science</option>
+            </select>
+            <select
+                id="summaryLevelFilter"
+                style="
+                    padding:10px;
+                    border:1px solid #E2E8F0;
+                    border-radius:8px;
+                    font-family:'Nunito',sans-serif;
+                "
+            >
+                <option value="">All Levels</option>
+                <option value="KS3">KS3</option>
+                <option value="KS4">KS4</option>
+                <option value="KS5">KS5</option>
+                <option value="SS1">SS1</option>
+                <option value="SS2">SS2</option>
+                <option value="SS3">SS3</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- LESSON SUMMARIES TABLE -->
+    <div class="admin-table-card">
+        <div class="admin-table-wrapper">
+            <table class="admin-table" id="summariesTable">
+                <thead>
+                    <tr>
+                        <th>Topic / Title</th>
+                        <th>Subject</th>
+                        <th>Level</th>
+                        <th>Deck</th>
+                        <th>YouTube Video</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="summariesTableBody">
+                    <tr><td colspan="6">Loading lesson summaries…</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div id="summaryActionMessage" style="margin-top:14px; font-weight:800;"></div>
+</section>
+
 
         <section class="admin-tab-panel" id="settings">
             <h1>Settings</h1>
+        
             <p class="admin-section-subtitle">
-                Upload a fresh dataset CSV to replace what is on disk, then import it.
+                Platform configuration and administrative settings.
             </p>
-            <div class="admin-table-card" style="max-width:520px;">
-                <div style="padding:24px; display:flex; flex-direction:column; gap:14px;">
-                    <label style="font-weight:800;">Dataset
-                        <select id="settingsDatasetSelect" style="width:100%; padding:10px; margin-top:6px; border-radius:8px; border:1px solid #E2E8F0;"></select>
-                    </label>
-                    <label style="font-weight:800;">CSV file
-                        <input type="file" id="settingsDatasetFile" accept=".csv,text/csv"
-                            style="width:100%; margin-top:6px; padding:8px;" />
-                    </label>
-                    <button type="button" id="settingsUploadBtn"
-                        style="padding:10px 16px; border:none; border-radius:8px; background:#2563EB; color:#fff; font-weight:800; cursor:pointer;">
-                        Upload CSV
-                    </button>
-                    <p id="settingsUploadMessage" style="font-weight:700; margin:0;"></p>
+        
+            <div class="admin-table-card" style="max-width:700px;">
+                <div style="padding:24px;">
+        
+                    <h2 style="margin:0 0 8px; font-size:18px;">
+                        Platform Settings
+                    </h2>
+        
+                    <p style="margin:0; color:#64748B; font-weight:600;">
+                        Administrative settings such as gameplay rules, coin values,
+                        payment configuration and security controls will be managed here.
+                    </p>
+        
                 </div>
             </div>
         </section>
 
     </main>
 
+</div>
+
+<!-- ADD / EDIT LESSON SUMMARY MODAL -->
+<div id="summaryModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,0.65); backdrop-filter:blur(4px); align-items:center; justify-content:center; padding:16px;">
+    <div style="background:#FFFFFF; border-radius:16px; max-width:620px; width:100%; max-height:90vh; overflow-y:auto; padding:28px; box-shadow:0 20px 40px rgba(0,0,0,0.2);">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
+            <h2 id="summaryModalHeading" style="margin:0; font-size:22px; font-weight:900; color:#14213D;">Add Lesson Summary</h2>
+            <button type="button" id="closeSummaryModalBtn" style="background:#F1F5F9; border:none; border-radius:50%; width:32px; height:32px; cursor:pointer; font-size:16px; font-weight:bold; color:#64748B;">✕</button>
+        </div>
+
+        <form id="summaryForm">
+            <input type="hidden" id="summaryId" value="">
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Subject *
+                    <select id="formSummarySubject" required style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                        <option value="chemistry">Chemistry</option>
+                        <option value="biology">Biology</option>
+                        <option value="physics">Physics</option>
+                        <option value="science">Science</option>
+                    </select>
+                </label>
+
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Level / Key Stage
+                    <select id="formSummaryLevel" style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                        <option value="KS3">KS3</option>
+                        <option value="KS4">KS4</option>
+                        <option value="KS5">KS5</option>
+                        <option value="SS1">SS1</option>
+                        <option value="SS2">SS2</option>
+                        <option value="SS3">SS3</option>
+                    </select>
+                </label>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Topic Name *
+                    <input type="text" id="formSummaryTopic" required placeholder="e.g. Periodic Table & Groups" style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                </label>
+
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Deck Identifier (Slug)
+                    <input type="text" id="formSummaryDeck" placeholder="e.g. periodic-table-groups" style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                </label>
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Summary Title
+                    <input type="text" id="formSummaryTitle" placeholder="e.g. Periodic Table & Trends Crash Course" style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                </label>
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    YouTube Video URL *
+                    <input type="url" id="formSummaryYoutubeUrl" required placeholder="https://www.youtube.com/watch?v=... or https://youtu.be/..." style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif;">
+                </label>
+                <span style="display:block; font-size:11px; color:#64748B; margin-top:4px;">Paste any standard YouTube link, short link (youtu.be), or Shorts URL.</span>
+            </div>
+
+            <!-- Live YouTube Preview -->
+            <div id="formYoutubePreviewWrap" style="display:none; margin-bottom:16px;">
+                <span style="display:block; font-weight:800; font-size:12px; color:#475569; margin-bottom:6px;">Video Preview:</span>
+                <div style="position:relative; width:100%; padding-top:56.25%; border-radius:10px; overflow:hidden; background:#000;">
+                    <iframe id="formYoutubePreviewIframe" src="" style="position:absolute; inset:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div style="margin-bottom:20px;">
+                <label style="font-weight:800; font-size:13px; color:#334155;">
+                    Lesson Notes &amp; Highlights (Optional)
+                    <textarea id="formSummaryNotes" rows="3" placeholder="Key takeaways or summary points for students..." style="width:100%; padding:10px; margin-top:6px; border:1px solid #CBD5E1; border-radius:8px; font-family:'Nunito',sans-serif; resize:vertical;"></textarea>
+                </label>
+            </div>
+
+            <div style="display:flex; justify-content:flex-end; gap:12px;">
+                <button type="button" id="cancelSummaryModalBtn" style="padding:10px 18px; border-radius:8px; background:#F1F5F9; color:#475569; font-weight:800; border:none; cursor:pointer;">Cancel</button>
+                <button type="submit" id="saveSummaryBtn" style="padding:10px 22px; border-radius:8px; background:#2563FF; color:#FFFFFF; font-weight:900; border:none; cursor:pointer;">Save Lesson Summary</button>
+            </div>
+            <div id="formSummaryMessage" style="margin-top:12px; font-weight:800; font-size:13px;"></div>
+        </form>
+    </div>
+</div>
+
+<!-- VIDEO PREVIEW MODAL -->
+<div id="summaryPreviewModal" style="display:none; position:fixed; inset:0; z-index:9999; background:rgba(15,23,42,0.75); backdrop-filter:blur(5px); align-items:center; justify-content:center; padding:16px;">
+    <div style="background:#FFFFFF; border-radius:16px; max-width:700px; width:100%; overflow:hidden; box-shadow:0 25px 50px rgba(0,0,0,0.25);">
+        <div style="display:flex; justify-content:space-between; align-items:center; padding:16px 20px; border-bottom:1px solid #E2E8F0;">
+            <h3 id="previewModalTitle" style="margin:0; font-size:17px; font-weight:900; color:#14213D;">Video Preview</h3>
+            <button type="button" id="closePreviewModalBtn" style="background:#F1F5F9; border:none; border-radius:50%; width:30px; height:30px; cursor:pointer; font-weight:bold; color:#64748B;">✕</button>
+        </div>
+        <div style="padding:20px;">
+            <div style="position:relative; width:100%; padding-top:56.25%; border-radius:10px; overflow:hidden; background:#000;">
+                <iframe id="previewModalIframe" src="" style="position:absolute; inset:0; width:100%; height:100%; border:none;" allowfullscreen></iframe>
+            </div>
+            <p id="previewModalNotes" style="margin:14px 0 0; color:#475569; font-size:13px; line-height:1.5; display:none;"></p>
+        </div>
+    </div>
 </div>
 
 <script src="./js/admin-dashboard.js"></script>

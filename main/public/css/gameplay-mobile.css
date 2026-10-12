@@ -724,6 +724,12 @@ body {
         overflow: visible !important;
     }
 
+    .card-pile::before {
+        height: 116px !important;
+        border-radius: 11px !important;
+        background-size: 24px 18px !important;
+    }
+
     .card-pile .game-card {
         position: absolute !important;
 
@@ -774,8 +780,8 @@ body {
     .mobile-game-tools {
         display: grid;
         grid-template-columns:
-            repeat(2, minmax(0, 1fr));
-        gap: 12px;
+            repeat(3, minmax(0, 1fr));
+        gap: 8px;
         margin: 0 12px 76px;
     }
 
@@ -786,7 +792,7 @@ body {
         align-items: center;
         justify-content: center;
 
-        gap: 8px;
+        gap: 6px;
 
         background: #FFFFFF;
 
@@ -796,7 +802,7 @@ body {
         color: #41516A;
 
         font-family: "Nunito", sans-serif;
-        font-size: 13px;
+        font-size: 12px;
         font-weight: 800;
 
         box-shadow:
@@ -805,12 +811,29 @@ body {
     }
 
     .mobile-game-tool-btn svg {
-        width: 19px;
-        height: 19px;
+        width: 17px;
+        height: 17px;
     }
 
     .mobile-game-tool-btn.hint {
         color: #7A6500;
+    }
+
+    .mobile-game-tool-btn.summary {
+        color: #2563EB;
+        font-weight: 900;
+    }
+
+    .summary-modal-card {
+        max-width: 95vw !important;
+        border-radius: 16px !important;
+    }
+
+    .summary-modal-header,
+    .summary-modal-body,
+    .summary-modal-footer {
+        padding-left: 14px !important;
+        padding-right: 14px !important;
     }
 
 
