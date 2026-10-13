@@ -8,6 +8,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const isLoggedIn = !!localStorage.getItem("auth_token");
 
+    let playHref = "/demo";
+    let playText = "Play Demo";
+
+    if (isLoggedIn) {
+        let userRole = null;
+        let userCountry = null;
+        let userClass = null;
+
+        try {
+            const userJson = localStorage.getItem("user");
+            if (userJson) {
+                const u = JSON.parse(userJson);
+                userRole = u.role;
+                userCountry = u.country;
+                userClass = u.education_level || u.key_stage;
+            }
+        } catch (e) {}
+
+        if (userRole === 'teacher') {
+            const path = window.location.pathname;
+            if (path.includes('games') || path.includes('gameplay')) {
+                playHref = "/teacher-dashboard";
+                playText = "Dashboard";
+            } else {
+                playText = "Play Game";
+                playHref = "/games";
+            }
+        } else {
+            playHref = "/dashboard";
+            playText = "Dashboard";
+        }
+    }
+
 
     /* ========================================
        INSERT HEADER
@@ -65,7 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     }
 
                     <a
-                        href="${isLoggedIn ? "/dashboard" : "/demo"}"
+                        href="${playHref}"
                         class="header-play-button"
                     >
 
@@ -84,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         </svg>
 
                         <span>
-                            ${isLoggedIn ? "Dashboard" : "Play Now"}
+                            ${playText}
                         </span>
 
                     </a>
@@ -99,11 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     type="button"
                     aria-label="Open navigation"
                     aria-expanded="false"
-                    onclick="
-                        const nav = document.getElementById('mobileNav');
-                        const open = nav.classList.toggle('active');
-                        this.setAttribute('aria-expanded', open ? 'true' : 'false');
-                    "
                 >
                     <span></span>
                     <span></span>
@@ -145,8 +173,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         : ""
                 }
 
-                <a href="${isLoggedIn ? "/dashboard" : "/demo"}">
-                    ${isLoggedIn ? "Dashboard" : "Play Demo"}
+                <a href="${playHref}">
+                    ${playText}
                 </a>
 
             </nav>
@@ -166,10 +194,11 @@ document.addEventListener("DOMContentLoaded", () => {
         headerContainer.querySelector("#mobileNav");
 
 
-    if (mobileMenuButton && mobileNav) {
+    if (mobileMenuButton && mobileNav && !mobileMenuButton._menuBound) {
+        mobileMenuButton._menuBound = true;
 
-        mobileMenuButton.addEventListener("click", () => {
-
+        mobileMenuButton.addEventListener("click", (e) => {
+            e.stopPropagation();
             const isOpen =
                 mobileNav.classList.toggle("active");
 
@@ -177,9 +206,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "aria-expanded",
                 isOpen ? "true" : "false"
             );
-
         });
 
+        // Close on tap outside
+        document.addEventListener("click", (e) => {
+            if (!headerContainer.contains(e.target)) {
+                mobileNav.classList.remove("active");
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+        });
 
         mobileNav
             .querySelectorAll("a")

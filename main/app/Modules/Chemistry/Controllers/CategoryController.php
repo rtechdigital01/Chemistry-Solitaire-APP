@@ -20,12 +20,17 @@ class CategoryController extends Controller
     private const DEFAULT_DECKS = [
         'UK' => [
             'science' => 'science-foundation',
+            'science-foundation' => 'science-foundation',
             'chemistry' => 'periodic-table-groups',
+            'biology' => 'biology',
+            'physics' => 'physics',
         ],
         'Nigeria' => [
             'biology' => ['SS1' => 'biology', 'SS2' => 'biology', 'SS3' => 'biology'],
             'chemistry' => ['SS1' => 'chemistry', 'SS2' => 'chemistry', 'SS3' => 'chemistry'],
             'physics' => ['SS1' => 'physics', 'SS2' => 'physics', 'SS3' => 'physics'],
+            'science' => 'science-foundation',
+            'science-foundation' => 'science-foundation',
         ],
     ];
 
@@ -144,13 +149,25 @@ class CategoryController extends Controller
     public function decks(Request $request): JsonResponse
     {
         $categoryCount = 5;
-        $keyStage = $this->resolveKeyStage($request);
+        $requestedStage = $request->query('key_stage');
         $subject = strtolower(
             $request->segment(2) ?: 'chemistry'
         );
-        $rows = Category::query()
-            ->where('key_stage', $keyStage)
-            ->where('subject', $subject)
+        if ($subject === 'science-foundation') {
+            $subject = 'science';
+        }
+
+        $query = Category::query()->where('subject', $subject);
+
+        if ($requestedStage && strtoupper($requestedStage) !== 'ALL') {
+            $keyStage = strtoupper($requestedStage);
+            $query->where('key_stage', $keyStage);
+        } else if (!$request->has('key_stage') && $request->user()?->key_stage) {
+            $keyStage = strtoupper($request->user()->key_stage);
+            $query->where('key_stage', $keyStage);
+        }
+
+        $rows = $query
             ->select('deck', 'key_stage', 'difficulty', 'card_pool')
             ->get()
             ->filter(function ($category) {
@@ -160,6 +177,24 @@ class CategoryController extends Controller
             ->groupBy(function ($row) {
                 return $row->deck . '|' . $row->key_stage;
             });
+
+        // Fallback: If no decks exist for this subject under the resolved key stage,
+        // automatically serve available decks for that subject across all key stages
+        if ($rows->isEmpty()) {
+            $rows = Category::query()
+                ->where('subject', $subject)
+                ->whereNotNull('key_stage')
+                ->where('key_stage', '!=', '')
+                ->select('deck', 'key_stage', 'difficulty', 'card_pool')
+                ->get()
+                ->filter(function ($category) {
+                    return is_array($category->card_pool)
+                        && count($category->card_pool) >= 3;
+                })
+                ->groupBy(function ($row) {
+                    return $row->deck . '|' . $row->key_stage;
+                });
+        }
         $decks = $rows->map(function ($rows, $key) use ($categoryCount) {
             [$deck, $keyStage] = explode('|', $key);
 
@@ -211,7 +246,10 @@ class CategoryController extends Controller
     public function board(Request $request): JsonResponse
     {
         // Route shape: /api/{subject}/board -> subject is segment 2.
-        $subject = $request->segment(2) ?: 'chemistry';
+        $subject = strtolower($request->segment(2) ?: 'chemistry');
+        if ($subject === 'science-foundation') {
+            $subject = 'science';
+        }
 
         $keyStage = $this->resolveKeyStage($request);
         $deck = $this->resolveDeck($request, $subject, $keyStage);
@@ -244,6 +282,36 @@ class CategoryController extends Controller
             });
 
         $availableCategories = $categories->count();
+
+        if ($availableCategories < 3) {
+            $altStage = Category::query()
+                ->where('deck', $deck)
+                ->where('subject', $subject)
+                ->value('key_stage');
+
+            if ($altStage && $altStage !== $keyStage) {
+                $keyStage = $altStage;
+                $altQuery = Category::query()
+                    ->where('deck', $deck)
+                    ->where('key_stage', $keyStage);
+
+                if ($difficulty) {
+                    $altQuery->whereRaw(
+                        'LOWER(difficulty) = ?',
+                        [strtolower($difficulty)]
+                    );
+                }
+
+                $categories = $altQuery
+                    ->get()
+                    ->filter(function ($category) {
+                        return is_array($category->card_pool)
+                            && count($category->card_pool) >= 3;
+                    });
+
+                $availableCategories = $categories->count();
+            }
+        }
 
         if ($availableCategories < 3) {
             \Illuminate\Support\Facades\Log::info('Categories count: ' . $availableCategories . ' Deck: ' . $deck . ' KS: ' . $keyStage);

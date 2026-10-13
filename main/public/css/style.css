@@ -249,6 +249,9 @@ body {
     border: 0;
 
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    touch-action: manipulation;
 }
 
 
@@ -263,6 +266,7 @@ body {
     background-color: #14213D;
 
     border-radius: 999px;
+    pointer-events: none;
 }
 
 
@@ -344,14 +348,16 @@ body {
         background-color: #FFFFFF;
 
         border-bottom: 1px solid #EDF1F7;
+        box-shadow: 0 14px 28px rgba(20, 33, 61, 0.12);
 
         flex-direction: column;
 
         gap: 18px;
+        z-index: 1000;
     }
 
     .mobile-nav.active {
-        display: flex;
+        display: flex !important;
     }
 
     .mobile-nav a {
@@ -6284,15 +6290,17 @@ body {
     html,
     body:has(.mobile-results-page) {
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         margin: 0;
-        overflow: hidden !important;
+        overflow-x: hidden;
+        overflow-y: auto;
         background: #F8FAFF !important;
     }
 
-    #header,
-    .results-main,
-    #footer {
+    body:has(.mobile-results-page) #header,
+    body:has(.mobile-results-page) #footer,
+    .mobile-results-page ~ #footer,
+    .results-main {
         display: none !important;
     }
 
@@ -6300,14 +6308,18 @@ body {
         display: block;
 
         width: 100%;
-        height: 100dvh;
+        min-height: 100dvh;
+        height: auto;
+        box-sizing: border-box;
 
         padding:
             22px
             18px
-            72px;
+            96px;
 
-        overflow: hidden;
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
 
         background: #F8FAFF;
 
@@ -7627,15 +7639,21 @@ body {
         line-height: 26px;
     }
     .ws-stats-box {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     .ws-stat-tile {
-        border-left: none !important;
-        border-top: 0.93px solid #EDF1F7;
-        padding: 18px;
+        padding: 16px 14px;
     }
-    .ws-stat-tile:first-child {
-        border-top: none;
+    .ws-stat-tile:nth-child(2) {
+        border-left: 0.93px solid #EDF1F7 !important;
+        border-top: none !important;
+    }
+    .ws-stat-tile:nth-child(3),
+    .ws-stat-tile:nth-child(4) {
+        border-top: 0.93px solid #EDF1F7 !important;
+    }
+    .ws-stat-tile:nth-child(4) {
+        border-left: 0.93px solid #EDF1F7 !important;
     }
     .ws-problem-cards-grid {
         grid-template-columns: 1fr;
@@ -7645,5 +7663,107 @@ body {
     }
     .ws-subjects-row {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .ws-container {
+        padding: 0 16px;
+    }
+    .ws-hero {
+        padding: 36px 0 32px;
+    }
+    .ws-hero-bg-atom {
+        width: 240px;
+        height: 240px;
+        right: -30px;
+        top: -10px;
+        opacity: 0.04;
+    }
+    .ws-hero-h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .ws-hero-lead {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 20px;
+    }
+    .ws-stats-box {
+        margin-top: 24px;
+        border-radius: 14px;
+    }
+    .ws-stat-val {
+        font-size: 26px;
+    }
+    .ws-stat-desc {
+        font-size: 11px;
+        line-height: 15px;
+    }
+    .ws-section-h2 {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+    .ws-section-sub {
+        font-size: 13.5px;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
+    .ws-problem-wrap,
+    .ws-pillars-wrap,
+    .ws-curriculum-wrap {
+        padding: 44px 0 40px;
+    }
+    .ws-transition-divider {
+        margin-top: 32px;
+        gap: 0;
+        width: 100%;
+    }
+    .ws-trans-line {
+        display: none;
+    }
+    .ws-trans-pill {
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 18px;
+        font-size: 11px;
+    }
+    .ws-cta-block {
+        padding: 48px 16px 56px;
+    }
+    .ws-cta-title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    .ws-cta-sub {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 24px;
+    }
+    .ws-cta-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    .ws-btn-cta-blue,
+    .ws-btn-cta-white {
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+        padding: 13px 20px;
+        box-sizing: border-box;
+    }
+}
+
+@media (max-width: 480px) {
+    .ws-prob-card {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+    .ws-pillar-box {
+        padding: 18px 16px;
+    }
+    .ws-subject-card-box {
+        padding: 20px 16px;
     }
 }

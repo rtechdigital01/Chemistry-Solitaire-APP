@@ -249,6 +249,9 @@ body {
     border: 0;
 
     cursor: pointer;
+    position: relative;
+    z-index: 1001;
+    touch-action: manipulation;
 }
 
 
@@ -263,6 +266,7 @@ body {
     background-color: #14213D;
 
     border-radius: 999px;
+    pointer-events: none;
 }
 
 
@@ -344,14 +348,16 @@ body {
         background-color: #FFFFFF;
 
         border-bottom: 1px solid #EDF1F7;
+        box-shadow: 0 14px 28px rgba(20, 33, 61, 0.12);
 
         flex-direction: column;
 
         gap: 18px;
+        z-index: 1000;
     }
 
     .mobile-nav.active {
-        display: flex;
+        display: flex !important;
     }
 
     .mobile-nav a {
@@ -4888,6 +4894,26 @@ body {
 /* =====================================================
    SCISOLITAIRE ABOUT PAGE
 ===================================================== */
+/* ABOUT PAGE — HIDE MOBILE MENU ON DESKTOP */
+@media (min-width: 701px) {
+
+    .about-mobile-topbar,
+    .mobile-menu-backdrop,
+    .mobile-menu-drawer {
+        display: none !important;
+    }
+
+}
+/* Allow About page to scroll on mobile */
+@media (max-width: 700px) {
+    html:has(.about-page),
+    body:has(.about-page) {
+        height: auto !important;
+        min-height: 100% !important;
+        overflow-y: auto !important;
+        overflow-x: hidden !important;
+    }
+}
 
 .about-page {
     font-family: "Nunito", sans-serif;
@@ -5582,7 +5608,6 @@ body {
 /* =====================================================
    MOBILE
 ===================================================== */
-
 @media screen and (max-width: 600px) {
 
     .about-switcher-section {
@@ -6061,6 +6086,865 @@ body {
     .about-team-photo {
         height: 260px;
     }
+}
+
+
+
+/* ABOUT PAGE — MOBILE HAMBURGER */
+.about-mobile-topbar {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    .about-mobile-topbar {
+        display: flex;
+        align-items: center;
+        padding: 18px;
+        background: #F8FAFF;
+    }
+
+    .about-mobile-topbar .mobile-dashboard-menu {
+        width: 44px;
+        height: 44px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        padding: 0 11px;
+        background: #FFFFFF;
+        border: 1px solid #E7ECF5;
+        border-radius: 13px;
+        cursor: pointer;
+    }
+
+    .about-mobile-topbar .mobile-dashboard-menu span {
+        width: 100%;
+        height: 2px;
+        background: #14213D;
+        border-radius: 10px;
+    }
+
+    .mobile-menu-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 1998;
+        background: rgba(15, 23, 42, 0.45);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.25s ease;
+    }
+
+    .mobile-menu-backdrop.open {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .mobile-menu-drawer {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        z-index: 1999;
+        width: min(82%, 310px);
+        padding: 24px 20px;
+        background: #FFFFFF;
+        transform: translateX(-105%);
+        transition: transform 0.25s ease;
+        box-shadow: 18px 0 40px rgba(15, 23, 42, 0.14);
+    }
+
+    .mobile-menu-drawer.open {
+        transform: translateX(0);
+    }
+
+    .mobile-menu-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 28px;
+    }
+
+    .mobile-menu-heading button {
+        width: 36px;
+        height: 36px;
+        border: none;
+        border-radius: 10px;
+        background: #F1F5F9;
+        color: #475569;
+        cursor: pointer;
+    }
+
+    .mobile-drawer-logo {
+        width: 150px;
+        max-width: 100%;
+        height: auto;
+    }
+
+    .mobile-drawer-nav {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .mobile-drawer-nav a {
+        display: block;
+        padding: 13px 14px;
+        border-radius: 10px;
+        color: #334155;
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+    }
+
+    .mobile-drawer-nav a:hover {
+        background: #EFF4FF;
+        color: #2563FF;
+    }
+
+    .mobile-drawer-nav .mobile-drawer-play {
+        margin-top: 8px;
+        background: #2563FF;
+        color: #FFFFFF;
+        text-align: center;
+    }
+}
+
+
+/* ABOUT PAGE — MOBILE HEADING ALIGNMENT */
+@media (max-width: 700px) {
+
+    .about-mobile-heading-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 24px;
+    }
+
+    .about-mobile-heading-row .about-mobile-topbar {
+        display: flex !important;
+        flex-shrink: 0;
+        padding: 0 !important;
+        background: transparent !important;
+    }
+
+    .about-mobile-heading-row .about-main-badge {
+        margin: 0 !important;
+        white-space: nowrap;
+        font-size: clamp(10px, 3vw, 14px);
+        padding: 12px 14px;
+    }
+
+    .about-mobile-heading-row .mobile-dashboard-menu {
+        width: 44px;
+        height: 44px;
+        flex-shrink: 0;
+    }
+}
+
+/* ABOUT PAGE — HAMBURGER LEFT, BADGE CENTRED */
+@media (max-width: 700px) {
+
+    .about-mobile-heading-row {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .about-mobile-heading-row .about-mobile-topbar {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        margin: 0;
+        padding: 0 !important;
+    }
+
+    .about-mobile-heading-row .about-main-badge {
+        margin: 0 auto !important;
+    }
+}
+
+/* ABOUT PAGE — REDUCE TOP SPACING ON MOBILE */
+@media (max-width: 700px) {
+    .about-switcher-section {
+        padding-top: 20px !important;
+    }
+}
+
+/* =========================================================
+   RESULTS / PROGRESS — MOBILE APP VIEW
+   COMPACT / NO SCROLL
+========================================================= */
+
+.mobile-results-page {
+    display: none;
+}
+
+@media (max-width: 700px) {
+
+    html,
+    body:has(.mobile-results-page) {
+        width: 100%;
+        min-height: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        background: #F8FAFF !important;
+    }
+
+    body:has(.mobile-results-page) #header,
+    body:has(.mobile-results-page) #footer,
+    .mobile-results-page ~ #footer,
+    .results-main {
+        display: none !important;
+    }
+
+    .mobile-results-page {
+        display: block;
+
+        width: 100%;
+        min-height: 100dvh;
+        height: auto;
+        box-sizing: border-box;
+
+        padding:
+            22px
+            18px
+            96px;
+
+        overflow-x: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+
+        background: #F8FAFF;
+
+        font-family: "Nunito", sans-serif;
+    }
+
+
+    /* HEADING */
+
+    .mobile-results-heading {
+        margin-bottom: 15px;
+    }
+
+    .mobile-results-heading h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 23px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+    .mobile-results-heading p {
+        margin: 5px 0 0;
+
+        color: #8B98AA;
+
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+
+    /* THIS WEEK CARD */
+
+    .mobile-results-week {
+        margin-bottom: 18px;
+
+        padding:
+            16px
+            16px
+            17px;
+
+        background: #152748;
+
+        border-radius: 20px;
+
+        color: #FFFFFF;
+    }
+
+    .mobile-results-week-label {
+        display: block;
+
+        margin-bottom: 13px;
+
+        color: #8FA0BE;
+
+        font-size: 9px;
+        font-weight: 900;
+
+        letter-spacing: 1.1px;
+    }
+
+    .mobile-results-week-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+
+        gap: 4px;
+    }
+
+    .mobile-results-week-grid > div {
+        text-align: center;
+    }
+
+    .mobile-results-week-grid strong {
+        display: block;
+
+        color: #FFFFFF;
+
+        font-size: 21px;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+    .mobile-results-week-grid span {
+        display: block;
+
+        margin-top: 5px;
+
+        color: #A9B4C7;
+
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+
+    /* BY SUBJECT */
+
+    .mobile-results-subjects h2 {
+        margin:
+            0
+            0
+            11px;
+
+        color: #14213D;
+
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-subject-card {
+        margin-bottom: 10px;
+
+        padding:
+            13px
+            14px
+            12px;
+
+        background: #FFFFFF;
+
+        border: 1px solid #E4E9F1;
+        border-radius: 17px;
+
+        box-shadow:
+            0 3px 10px
+            rgba(15, 23, 42, 0.04);
+    }
+
+    .mobile-progress-subject-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 8px;
+    }
+
+    .mobile-progress-subject-left {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 10px;
+    }
+
+    .mobile-progress-subject-icon {
+        width: 38px;
+        height: 38px;
+
+        flex: 0 0 38px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 12px;
+
+        font-size: 18px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-subject-icon.chemistry {
+        color: #2563FF;
+        background: #EDF4FF;
+    }
+
+    .mobile-progress-subject-icon.biology {
+        color: #10B981;
+        background: #EAFBF5;
+    }
+
+    .mobile-progress-subject-icon.physics {
+        color: #F5A000;
+        background: #FFF7E5;
+    }
+
+    .mobile-progress-subject-left strong {
+        display: block;
+
+        color: #14213D;
+
+        font-size: 14px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+    .mobile-progress-subject-left span {
+        display: block;
+
+        margin-top: 3px;
+
+        color: #98A4B4;
+
+        font-size: 9px;
+        font-weight: 600;
+    }
+
+    .mobile-progress-percent {
+        flex: 0 0 auto;
+
+        font-size: 16px;
+        font-weight: 900;
+    }
+
+    .mobile-progress-percent.chemistry {
+        color: #2563FF;
+    }
+
+    .mobile-progress-percent.biology {
+        color: #10B981;
+    }
+
+    .mobile-progress-percent.physics {
+        color: #F5A000;
+    }
+
+
+    /* PROGRESS BARS */
+
+    .mobile-progress-bar {
+        width: 100%;
+        height: 5px;
+
+        margin-top: 10px;
+
+        overflow: hidden;
+
+        background: #E8EDF4;
+
+        border-radius: 999px;
+    }
+
+    .mobile-progress-bar span {
+        display: block;
+
+        width: 0%;
+        height: 100%;
+
+        border-radius: 999px;
+
+        transition: width 0.4s ease;
+    }
+
+    .mobile-progress-bar span.chemistry {
+        background: #2563FF;
+    }
+
+    .mobile-progress-bar span.biology {
+        background: #10B981;
+    }
+
+    .mobile-progress-bar span.physics {
+        background: #F5A000;
+    }
+
+
+    /* BOTTOM NAV */
+
+    .mobile-results-page .mobile-bottom-nav {
+        height: 64px;
+        z-index: 2000;
+    }
+
+    .mobile-results-page .mobile-nav-item {
+        font-size: 9px;
+    }
+
+    .mobile-results-page .mobile-nav-svg {
+        width: 21px;
+        height: 21px;
+    }
+
+    .mobile-results-page .mobile-play-button {
+        width: 32px;
+        height: 32px;
+    }
+
+    .mobile-results-page .mobile-play-button img {
+        width: 24px;
+        height: 24px;
+    }
+
+
+    /* VERY SMALL PHONES */
+
+    @media (max-height: 700px) {
+
+        .mobile-results-page {
+            padding-top: 15px;
+        }
+
+        .mobile-results-heading {
+            margin-bottom: 11px;
+        }
+
+        .mobile-results-week {
+            margin-bottom: 13px;
+            padding-top: 13px;
+            padding-bottom: 14px;
+        }
+
+        .mobile-progress-subject-card {
+            margin-bottom: 8px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+        }
+    }
+
+    /* ========================================
+       HEADING
+    ======================================== */
+
+    .mobile-results-heading {
+        margin-bottom: 24px;
+    }
+
+
+    .mobile-results-heading h1 {
+        margin: 0;
+
+        color: #14213D;
+
+        font-size: 31px;
+        font-weight: 900;
+
+        line-height: 1.1;
+    }
+
+
+    .mobile-results-heading p {
+        margin: 10px 0 0;
+
+        color: #8B98AA;
+
+        font-size: 16px;
+        font-weight: 600;
+    }
+
+
+    /* ========================================
+       THIS WEEK CARD
+    ======================================== */
+
+    .mobile-results-week {
+        margin-bottom: 28px;
+
+        padding: 25px 20px 24px;
+
+        background: #152748;
+
+        border-radius: 25px;
+
+        box-shadow:
+            0 12px 26px
+            rgba(20, 33, 61, 0.11);
+
+        color: #FFFFFF;
+    }
+
+
+    .mobile-results-week-label {
+        display: block;
+
+        margin-bottom: 20px;
+
+        color: #8FA0BE;
+
+        font-size: 12px;
+        font-weight: 900;
+
+        letter-spacing: 1.3px;
+    }
+
+
+    .mobile-results-week-grid {
+        display: grid;
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+        gap: 8px;
+    }
+
+
+    .mobile-results-week-grid > div {
+        text-align: center;
+    }
+
+
+    .mobile-results-week-grid strong {
+        display: block;
+
+        color: #FFFFFF;
+
+        font-size: 25px;
+        font-weight: 900;
+
+        line-height: 1;
+    }
+
+
+    .mobile-results-week-grid span {
+        display: block;
+
+        margin-top: 8px;
+
+        color: #A9B4C7;
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+
+    /* ========================================
+       BY SUBJECT
+    ======================================== */
+
+    .mobile-results-subjects h2 {
+        margin:
+            0 0 17px;
+
+        color: #14213D;
+
+        font-size: 19px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-subject-card {
+        margin-bottom: 14px;
+
+        padding: 18px 18px 16px;
+
+        background: #FFFFFF;
+
+        border: 1px solid #E4E9F1;
+        border-radius: 20px;
+
+        box-shadow:
+            0 5px 15px
+            rgba(15, 23, 42, 0.055);
+    }
+
+
+    .mobile-progress-subject-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        gap: 12px;
+    }
+
+
+    .mobile-progress-subject-left {
+        min-width: 0;
+
+        display: flex;
+        align-items: center;
+
+        gap: 13px;
+    }
+
+
+    .mobile-progress-subject-icon {
+        width: 46px;
+        height: 46px;
+
+        flex: 0 0 46px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 14px;
+
+        font-size: 22px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-subject-icon.chemistry {
+        color: #2563FF;
+        background: #EDF4FF;
+    }
+
+
+    .mobile-progress-subject-icon.biology {
+        color: #10B981;
+        background: #EAFBF5;
+    }
+
+
+    .mobile-progress-subject-icon.physics {
+        color: #F5A000;
+        background: #FFF7E5;
+    }
+
+
+    .mobile-progress-subject-left strong {
+        display: block;
+
+        color: #14213D;
+
+        font-size: 17px;
+        font-weight: 900;
+
+        line-height: 1.15;
+    }
+
+
+    .mobile-progress-subject-left span {
+        display: block;
+
+        margin-top: 4px;
+
+        color: #98A4B4;
+
+        font-size: 11px;
+        font-weight: 600;
+    }
+
+
+    .mobile-progress-percent {
+        flex: 0 0 auto;
+
+        font-size: 19px;
+        font-weight: 900;
+    }
+
+
+    .mobile-progress-percent.chemistry {
+        color: #2563FF;
+    }
+
+
+    .mobile-progress-percent.biology {
+        color: #10B981;
+    }
+
+
+    .mobile-progress-percent.physics {
+        color: #F5A000;
+    }
+
+
+    /* ========================================
+       PROGRESS BARS
+    ======================================== */
+
+    .mobile-progress-bar {
+        width: 100%;
+        height: 6px;
+
+        margin-top: 15px;
+
+        overflow: hidden;
+
+        background: #E8EDF4;
+
+        border-radius: 999px;
+    }
+
+
+    .mobile-progress-bar span {
+        display: block;
+
+        width: 0%;
+        height: 100%;
+
+        border-radius: 999px;
+
+        transition:
+            width 0.4s ease;
+    }
+
+
+    .mobile-progress-bar span.chemistry {
+        background: #2563FF;
+    }
+
+
+    .mobile-progress-bar span.biology {
+        background: #10B981;
+    }
+
+
+    .mobile-progress-bar span.physics {
+        background: #F5A000;
+    }
+
+
+    /* ========================================
+       BOTTOM NAV OVERRIDE
+    ======================================== */
+
+    .mobile-results-page .mobile-bottom-nav {
+        z-index: 2000;
+    }
+
+
+    /* SMALL PHONES */
+
+    @media (max-width: 370px) {
+
+        .mobile-results-page {
+            padding-left: 17px;
+            padding-right: 17px;
+        }
+
+
+        .mobile-results-week {
+            padding-left: 14px;
+            padding-right: 14px;
+        }
+
+
+        .mobile-results-week-grid strong {
+            font-size: 22px;
+        }
+
+    }
+
 }
 
 /* ==========================================================================
@@ -6755,15 +7639,21 @@ body {
         line-height: 26px;
     }
     .ws-stats-box {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
     }
     .ws-stat-tile {
-        border-left: none !important;
-        border-top: 0.93px solid #EDF1F7;
-        padding: 18px;
+        padding: 16px 14px;
     }
-    .ws-stat-tile:first-child {
-        border-top: none;
+    .ws-stat-tile:nth-child(2) {
+        border-left: 0.93px solid #EDF1F7 !important;
+        border-top: none !important;
+    }
+    .ws-stat-tile:nth-child(3),
+    .ws-stat-tile:nth-child(4) {
+        border-top: 0.93px solid #EDF1F7 !important;
+    }
+    .ws-stat-tile:nth-child(4) {
+        border-left: 0.93px solid #EDF1F7 !important;
     }
     .ws-problem-cards-grid {
         grid-template-columns: 1fr;
@@ -6776,6 +7666,104 @@ body {
     }
 }
 
+@media (max-width: 640px) {
+    .ws-container {
+        padding: 0 16px;
+    }
+    .ws-hero {
+        padding: 36px 0 32px;
+    }
+    .ws-hero-bg-atom {
+        width: 240px;
+        height: 240px;
+        right: -30px;
+        top: -10px;
+        opacity: 0.04;
+    }
+    .ws-hero-h1 {
+        font-size: 28px;
+        line-height: 1.2;
+    }
+    .ws-hero-lead {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 20px;
+    }
+    .ws-stats-box {
+        margin-top: 24px;
+        border-radius: 14px;
+    }
+    .ws-stat-val {
+        font-size: 26px;
+    }
+    .ws-stat-desc {
+        font-size: 11px;
+        line-height: 15px;
+    }
+    .ws-section-h2 {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+    .ws-section-sub {
+        font-size: 13.5px;
+        line-height: 20px;
+        margin-bottom: 24px;
+    }
+    .ws-problem-wrap,
+    .ws-pillars-wrap,
+    .ws-curriculum-wrap {
+        padding: 44px 0 40px;
+    }
+    .ws-transition-divider {
+        margin-top: 32px;
+        gap: 0;
+        width: 100%;
+    }
+    .ws-trans-line {
+        display: none;
+    }
+    .ws-trans-pill {
+        width: 100%;
+        max-width: 320px;
+        padding: 10px 18px;
+        font-size: 11px;
+    }
+    .ws-cta-block {
+        padding: 48px 16px 56px;
+    }
+    .ws-cta-title {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+    .ws-cta-sub {
+        font-size: 14px;
+        line-height: 22px;
+        margin-bottom: 24px;
+    }
+    .ws-cta-btns {
+        flex-direction: column;
+        width: 100%;
+        gap: 12px;
+    }
+    .ws-btn-cta-blue,
+    .ws-btn-cta-white {
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+        padding: 13px 20px;
+        box-sizing: border-box;
+    }
+}
 
-
-
+@media (max-width: 480px) {
+    .ws-prob-card {
+        padding: 16px 14px;
+        gap: 12px;
+    }
+    .ws-pillar-box {
+        padding: 18px 16px;
+    }
+    .ws-subject-card-box {
+        padding: 20px 16px;
+    }
+}

@@ -154,6 +154,106 @@
             from { opacity: 0; transform: translateY(-8px); }
             to { opacity: 1; transform: translateY(0); }
         }
+
+        .success-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 14px;
+        }
+        .success-dash-link {
+            display: inline-block;
+            padding: 10px 24px;
+            background: #16A34A;
+            color: #FFFFFF;
+            border-radius: 999px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            transition: background 0.2s;
+        }
+        .success-dash-link:hover {
+            background: #15803D;
+        }
+        .success-home-link {
+            color: #166534;
+            text-decoration: underline;
+            font-weight: 700;
+            font-size: 14px;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 640px) {
+            .feedback-container {
+                padding: 24px 16px 64px;
+            }
+            .feedback-hero {
+                margin-bottom: 24px;
+            }
+            .feedback-badge {
+                font-size: 12px;
+                padding: 5px 12px;
+                margin-bottom: 10px;
+            }
+            .feedback-title {
+                font-size: 26px;
+                margin-bottom: 8px;
+            }
+            .feedback-subtitle {
+                font-size: 14px;
+                line-height: 1.5;
+            }
+            .feedback-card {
+                padding: 22px 16px;
+                border-radius: 18px;
+            }
+            .form-group {
+                margin-bottom: 18px;
+            }
+            .form-label {
+                font-size: 13.5px;
+                margin-bottom: 6px;
+            }
+            .form-select, .form-input, .form-textarea {
+                font-size: 16px; /* Prevents unwanted auto-zoom on iOS Safari */
+                padding: 11px 13px;
+                border-radius: 10px;
+            }
+            .star-rating {
+                gap: 8px;
+            }
+            .star-btn {
+                font-size: 32px;
+                padding: 4px;
+                touch-action: manipulation;
+            }
+            .submit-btn {
+                height: 48px;
+                font-size: 15px;
+            }
+            .success-box {
+                padding: 22px 16px;
+                border-radius: 14px;
+            }
+            .success-box h3 {
+                font-size: 18px;
+            }
+            .success-box p {
+                font-size: 14px;
+            }
+            .success-actions {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .success-dash-link {
+                width: 100%;
+                box-sizing: border-box;
+                text-align: center;
+                padding: 12px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -171,12 +271,14 @@
         <div id="successMessage" class="success-box">
             <h3>✓ Thank You for Your Feedback!</h3>
             <p>Your report has been submitted to the Science Solitaire curriculum and engineering team.</p>
-            <a href="/dashboard" style="display: inline-block; padding: 10px 24px; background: #16A34A; color: #FFFFFF; border-radius: 999px; text-decoration: none; font-weight: 800; font-size: 14px;">
-                Return to Dashboard
-            </a>
-            <a href="/" style="margin-left: 12px; color: #166534; text-decoration: underline; font-weight: 700; font-size: 14px;">
-                Homepage
-            </a>
+            <div class="success-actions">
+                <a href="/dashboard" class="success-dash-link">
+                    Return to Dashboard
+                </a>
+                <a href="/" class="success-home-link">
+                    Homepage
+                </a>
+            </div>
         </div>
 
         <section class="feedback-card" id="formCard">
@@ -228,6 +330,7 @@
 
     <div id="footer"></div>
 
+    <script src="./js/app.js"></script>
     <script src="./js/header.js"></script>
     <script src="./js/footer.js"></script>
     <script>

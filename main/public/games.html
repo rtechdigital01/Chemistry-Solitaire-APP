@@ -746,27 +746,6 @@ function renderDeckCard(deck) {
 
 function loadDecks() {
     const subject = getSubject();
-    if (subject === "science") {
-        // Science Foundation is a UK (KS3) subject only. Nigerian
-        // students' subject tabs already cover Bio / Chem / Physics.
-        if (!authToken()) {
-            // Not logged in: no profile, fall through to the generic
-            // deck request and let the API decide what to show.
-        } else {
-            try {
-                const user = JSON.parse(localStorage.getItem("user") || "null");
-                if (user && user.country === "Nigeria") {
-                    deckCardsGrid.innerHTML = `
-                        <p style="padding:24px; color:#64748B; font-weight:700;">
-                            Science Foundation is a UK (KS3) subject. See your SS level subjects above.
-                        </p>
-                    `;
-                    if (decksCountEl) decksCountEl.textContent = "0 decks available";
-                    return;
-                }
-            } catch (e) { /* fall through */ }
-        }
-    }
 
     deckCardsGrid.innerHTML = `
         <p style="padding:24px; color:#64748B; font-weight:700;">
@@ -874,13 +853,34 @@ function loadDecks() {
         });
     });
 
-    // Mark Chemistry as active by default
-    const firstTab = document.querySelector(".subject-tab");
-    if (firstTab) {
-        firstTab.classList.add("active");
-        firstTab.style.background = "#2563EB";
-        firstTab.style.color      = "white";
-        firstTab.style.border     = "none";
+    // Mark active subject tab (from URL query ?subject=... or default to Chemistry)
+    const urlParams = new URLSearchParams(window.location.search);
+    const requestedSubject = urlParams.get("subject")?.toLowerCase();
+
+    let tabToActivate = null;
+    if (requestedSubject) {
+        document.querySelectorAll(".subject-tab").forEach(tab => {
+            if (tab.textContent.trim().toLowerCase().includes(requestedSubject)) {
+                tabToActivate = tab;
+            }
+        });
+    }
+
+    if (!tabToActivate) {
+        tabToActivate = document.querySelector(".subject-tab");
+    }
+
+    if (tabToActivate) {
+        document.querySelectorAll(".subject-tab").forEach(t => {
+            t.style.background = "white";
+            t.style.color      = "#475569";
+            t.style.border     = "1px solid #E2E8F0";
+            t.classList.remove("active");
+        });
+        tabToActivate.classList.add("active");
+        tabToActivate.style.background = "#2563EB";
+        tabToActivate.style.color      = "white";
+        tabToActivate.style.border     = "none";
     }
 
     loadDecks();

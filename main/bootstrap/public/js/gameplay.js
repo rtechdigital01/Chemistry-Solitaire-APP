@@ -4,23 +4,22 @@ document.addEventListener("DOMContentLoaded", () => {
        DOM REFS
     ============================================================ */
 
-    const cardsGrid   = document.getElementById("cardsGrid");
-    const stacksGrid  = document.getElementById("stacksGrid");
+    const cardsGrid = document.getElementById("cardsGrid");
+    const stacksGrid = document.getElementById("stacksGrid");
     const lockedSlotsEl = document.getElementById("lockedCategorySlots");
-    const banner      = document.querySelector(".game-info-banner");
-    const progressFill= document.querySelector(".gameplay-progress-fill");
-    const progressText= document.querySelector(".gameplay-progress-text");
+    const banner = document.querySelector(".game-info-banner");
+    const progressFill = document.querySelector(".gameplay-progress-fill");
+    const progressText = document.querySelector(".gameplay-progress-text");
     const finishLevelBtn = document.getElementById("finishLevelBtn");
-    const hintBtn     = document.getElementById("hintBtn");
-    const redealBtn   = document.getElementById("redealBtn");
-    const nextLevelBtn= document.getElementById("nextLevelBtn");
-    const restartBtn  = document.getElementById("restartBtn");
-    const shuffleDeckBtn   = document.getElementById("shuffleDeckBtn");
+    const hintBtn = document.getElementById("hintBtn");
+    const redealBtn = document.getElementById("redealBtn");
+    const nextLevelBtn = document.getElementById("nextLevelBtn");
+    const restartBtn = document.getElementById("restartBtn");
+    const shuffleDeckBtn = document.getElementById("shuffleDeckBtn");
     const shuffleDeckCount = document.getElementById("shuffleDeckCount");
-    const shuffleRevealPile= document.getElementById("shuffleRevealPile");
-    const movesBadge  = document.getElementById("movesValueBadge");
-    const topHintBtn  = document.getElementById("topHintBtn");
-    const topHintLabel= document.getElementById("topHintLabel");
+    const shuffleRevealPile = document.getElementById("shuffleRevealPile");
+    const movesBadge = document.getElementById("movesValueBadge");
+    const topHintBtn = document.getElementById("topHintBtn");
     const viewResultsBtn = document.getElementById("viewResultsBtn");
     const viewSummaryBtn = document.getElementById("viewSummaryBtn");
     const mobileSummaryBtn = document.getElementById("mobileSummaryBtn");
@@ -35,31 +34,34 @@ document.addEventListener("DOMContentLoaded", () => {
     const correctSound = new Audio("./sounds/correct.wav");
     function playCorrectSound() {
         correctSound.currentTime = 0;
-        correctSound.play().catch(() => {});
+        correctSound.play().catch(() => { });
     }
-    
+
     const wrongSound = new Audio("./sounds/wrong.wav");
     function playWrongSound() {
         wrongSound.currentTime = 0;
-        wrongSound.play().catch(() => {});
+        wrongSound.play().catch(() => { });
     }
-    
+
     const shuffleSound = new Audio("./sounds/shuffle.wav");
     function playShuffleSound() {
         shuffleSound.currentTime = 0;
-        shuffleSound.play().catch(() => {});
+        shuffleSound.play().catch(() => { });
     }
-    
+
     /* ============================================================
        URL PARAMS
     ============================================================ */
-
-    const params      = new URLSearchParams(window.location.search);
-    const subject     = params.get("subject")    || "chemistry";
-    const deck        = params.get("deck")       || "periodic-table-groups";
-    const difficulty  = params.get("difficulty") || "easy";
-    const level       = parseInt(params.get("level")) || 1;
-    const categoryCount = parseInt(params.get("categories")) || 6;
+    const params = new URLSearchParams(window.location.search);
+    const subject = params.get("subject") || "chemistry";
+    const deck = params.get("deck") || "periodic-table-groups";
+    const difficulty = params.get("difficulty") || "easy";
+    const level = parseInt(params.get("level")) || 1;
+    const isMobileGameplay =
+        window.matchMedia("(max-width: 700px)").matches;
+    const categoryCount =
+        parseInt(params.get("categories"))
+        || (isMobileGameplay ? 4 : 6);
 
     // Get key_stage from URL or fetch from user profile
     let keyStage = params.get("key_stage");
@@ -95,10 +97,10 @@ document.addEventListener("DOMContentLoaded", () => {
        Category stack — being stacked in Game Cards or sitting in the
        reveal pile never counts as a match.
     ============================================================ */
-
-    const GAME_PILE_COUNT   = 6;
+    const GAME_PILE_COUNT =
+        isMobileGameplay ? 4 : 6;
     const INITIAL_PILE_SIZE = 3;
-    const PILE_OFFSET_PX    = 16;
+    const PILE_OFFSET_PX = 16;
     const MAX_HINTS_PER_LEVEL = 3;
 
     /*
@@ -129,14 +131,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const retryStorageKey = `retries:${subject}:${deck}:${keyStage}:${difficulty}:${level}`;
     const retries = parseInt(sessionStorage.getItem(retryStorageKey) || "0", 10);
 
-    const startedAt   = Date.now();
-    let selectedCard  = null;
-    let score         = 0;
-    let moves         = 0;
-    let cardsPlaced   = 0;
+    const startedAt = Date.now();
+    let selectedCard = null;
+    let score = 0;
+    let moves = 0;
+    let cardsPlaced = 0;
     let incorrectMatches = 0;
-    let hintsUsed     = 0;
-    let totalCards    = 0;
+    let hintsUsed = 0;
+    let totalCards = 0;
     let currentLessonSummary = null;
 
     /*
@@ -146,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
      * and never blocks further play; `moves` itself keeps counting
      * up in the background for scoring/results.
      */
-    let movesBudget   = 0;
+    let movesBudget = 0;
     let allCategories = [];
     let pendingCategories = []; // categories not yet unlocked into a stack
 
@@ -287,38 +289,38 @@ document.addEventListener("DOMContentLoaded", () => {
             movesBadge.classList.add("bump");
         }
     }
-    
-    
-    function buyExtraMoves(numberOfMoves) {
-    const costPerMove = 3;
-    const totalCost = numberOfMoves * costPerMove;
 
-    if (score < totalCost) {
-        showGamePopup(
-            `You need ${totalCost} points to buy ${numberOfMoves} move${numberOfMoves > 1 ? "s" : ""}.`,
-            "error"
+
+    function buyExtraMoves(numberOfMoves) {
+        const costPerMove = 3;
+        const totalCost = numberOfMoves * costPerMove;
+
+        if (score < totalCost) {
+            showGamePopup(
+                `You need ${totalCost} points to buy ${numberOfMoves} move${numberOfMoves > 1 ? "s" : ""}.`,
+                "error"
+            );
+            return;
+        }
+
+        score -= totalCost;
+        movesBudget += numberOfMoves;
+
+        updateScore();
+        updateMovesBadge();
+
+        document.getElementById("gameOverOverlay")?.remove();
+
+        document.querySelectorAll(".game-card").forEach(card => {
+            card.style.pointerEvents = "";
+        });
+
+        setBanner(
+            `You bought ${numberOfMoves} extra move${numberOfMoves > 1 ? "s" : ""} for ${totalCost} points. Keep going!`,
+            "success"
         );
-        return;
     }
 
-    score -= totalCost;
-    movesBudget += numberOfMoves;
-
-    updateScore();
-    updateMovesBadge();
-
-    document.getElementById("gameOverOverlay")?.remove();
-
-    document.querySelectorAll(".game-card").forEach(card => {
-        card.style.pointerEvents = "";
-    });
-
-    setBanner(
-        `You bought ${numberOfMoves} extra move${numberOfMoves > 1 ? "s" : ""} for ${totalCost} points. Keep going!`,
-        "success"
-    );
-}
-    
 
     function updateShuffleDeckBadge() {
         if (shuffleDeckCount) shuffleDeckCount.textContent = shuffleDeckCards.length;
@@ -344,6 +346,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function resetHintStates() {
         document.querySelectorAll(".card-hint").forEach(c => c.classList.remove("card-hint"));
         document.querySelectorAll(".stack-hint").forEach(s => s.classList.remove("stack-hint"));
+        if (typeof clearHandGesture === "function") clearHandGesture();
     }
 
     /* ============================================================
@@ -356,7 +359,10 @@ document.addEventListener("DOMContentLoaded", () => {
         const levelLabel = document.querySelector(".level-label");
         const levelTitle = document.querySelector(".level-title");
         if (levelLabel) levelLabel.textContent = `${keyStage} · ${difficultyLabels[difficulty] || difficulty.toUpperCase()}`;
-        if (levelTitle) levelTitle.textContent = "Periodic Table & Groups";
+        let titleStr = deck.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        if (deck === 'periodic-table-groups') titleStr = 'Periodic Table & Groups';
+        if (deck === 'ss3-chemistry') titleStr = 'SS3 Chemistry';
+        if (levelTitle) levelTitle.textContent = titleStr;
     }
 
     /* ============================================================
@@ -364,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function flyCardToStack(cardEl, stackEl, onDone) {
-        const cardRect  = cardEl.getBoundingClientRect();
+        const cardRect = cardEl.getBoundingClientRect();
         const stackRect = stackEl.getBoundingClientRect();
 
         const flyEl = cardEl.cloneNode(true);
@@ -390,12 +396,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         requestAnimationFrame(() => {
             requestAnimationFrame(() => {
-                const tx = stackRect.left + stackRect.width  / 2 - cardRect.width  / 2;
-                const ty = stackRect.top  + stackRect.height / 2 - cardRect.height / 2;
-                flyEl.style.left      = tx + "px";
-                flyEl.style.top       = ty + "px";
+                const tx = stackRect.left + stackRect.width / 2 - cardRect.width / 2;
+                const ty = stackRect.top + stackRect.height / 2 - cardRect.height / 2;
+                flyEl.style.left = tx + "px";
+                flyEl.style.top = ty + "px";
                 flyEl.style.transform = "scale(0.25) rotate(10deg)";
-                flyEl.style.opacity   = "0";
+                flyEl.style.opacity = "0";
             });
         });
 
@@ -422,13 +428,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function animateDealCards() {
         const cards = cardsGrid.querySelectorAll(".game-card");
         cards.forEach((card, i) => {
-            card.style.opacity   = "0";
+            card.style.opacity = "0";
             card.style.transform = "translateY(30px) scale(0.92)";
             card.style.transition = "none";
             setTimeout(() => {
                 card.style.transition = "opacity 0.35s ease, transform 0.35s ease";
-                card.style.opacity    = "1";
-                card.style.transform  = "translateY(0) scale(1)";
+                card.style.opacity = "1";
+                card.style.transform = "translateY(0) scale(1)";
             }, i * 60);
         });
     }
@@ -448,6 +454,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // — drag start (only face-up cards are draggable) —
             card.addEventListener("dragstart", e => {
                 if (card.classList.contains("card-face-down")) { e.preventDefault(); return; }
+                const tutorialEl = document.querySelector(".first-game-tutorial");
+                if (tutorialEl) tutorialEl.style.opacity = "0";
                 resetHintStates();
                 deselectAll();
                 card.classList.add("card-selected");
@@ -469,6 +477,8 @@ document.addEventListener("DOMContentLoaded", () => {
             // — click —
             card.addEventListener("click", () => {
                 if (card.classList.contains("card-face-down")) return;
+                const tutorialEl = document.querySelector(".first-game-tutorial");
+                if (tutorialEl) tutorialEl.style.opacity = "0";
                 resetHintStates();
 
                 // A card already selected from the shuffle pile, clicked
@@ -510,6 +520,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function positionPileCards(container) {
+        if (!container) return;
         const cards = Array.from(container.querySelectorAll(".game-card"));
         cards.forEach((c, idx) => {
             c.style.display = "";
@@ -524,10 +535,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 c.draggable = true;
             }
         });
+        container.classList.toggle("pile-empty", cards.length === 0);
         // Give the container enough height to show the whole top card
         container.style.minHeight = cards.length > 0
             ? `${(cards.length - 1) * PILE_OFFSET_PX + 220}px`
-            : "0px";
+            : "";
         attachCardEvents(container);
     }
 
@@ -560,11 +572,12 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         const cardToMove = selectedCard;
+        const sourcePile = cardToMove.closest(".card-pile");
         selectedCard = null;
         cardToMove.classList.remove("card-selected");
 
         const wasFromShuffle = cardToMove.classList.contains("reveal-main-card");
-        
+
         if (wasFromShuffle) {
             cardToMove.classList.remove("reveal-main-card");
         }
@@ -572,10 +585,14 @@ document.addEventListener("DOMContentLoaded", () => {
         pileEl.appendChild(cardToMove);
         positionPileCards(pileEl);
 
+        if (sourcePile && sourcePile !== pileEl) {
+            positionPileCards(sourcePile);
+        }
+
         if (wasFromShuffle) {
             renderShuffleRevealPile();
         }
-        
+
         revealTopCards();
 
         const name = cardToMove.querySelector(".card-name")?.textContent.trim();
@@ -586,12 +603,20 @@ document.addEventListener("DOMContentLoaded", () => {
         if (pileEl.dataset.dropEventsAttached) return;
         pileEl.dataset.dropEventsAttached = "1";
 
-        pileEl.addEventListener("dragover",  e => { e.preventDefault(); pileEl.classList.add("stack-drag-over"); });
-        pileEl.addEventListener("dragleave", ()  => pileEl.classList.remove("stack-drag-over"));
+        pileEl.addEventListener("dragover", e => { e.preventDefault(); pileEl.classList.add("stack-drag-over"); });
+        pileEl.addEventListener("dragleave", () => pileEl.classList.remove("stack-drag-over"));
         pileEl.addEventListener("drop", e => {
             e.preventDefault();
             pileEl.classList.remove("stack-drag-over");
             attemptPlaceOnPile(pileEl);
+        });
+
+        // Click on empty pile to place selected card
+        pileEl.addEventListener("click", e => {
+            if (pileEl.classList.contains("pile-empty") && selectedCard) {
+                e.stopPropagation();
+                attemptPlaceOnPile(pileEl);
+            }
         });
     }
 
@@ -609,6 +634,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     topCard.draggable = true;
                 }
             }
+            positionPileCards(container);
         });
     }
 
@@ -634,7 +660,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const main = cards[cards.length - 1];
         cards.forEach(c => {
             c.style.left = "0px";
-            c.style.top  = "0px";
+            c.style.top = "0px";
             if (c === main) {
                 c.style.display = "";
                 c.classList.remove("card-face-down");
@@ -723,7 +749,7 @@ document.addEventListener("DOMContentLoaded", () => {
         moves++;
         updateMovesBadge();
 
-        const cardCat  = selectedCard.dataset.categoryId;
+        const cardCat = selectedCard.dataset.categoryId;
         const stackCat = stackEl.dataset.categoryId;
 
         if (cardCat === stackCat) {
@@ -745,9 +771,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
             flyCardToStack(cardToRemove, stackEl, () => {
                 updateProgress();
+
                 revealTopCards();
+
                 renderShuffleRevealPile();
-                onCardPlaced(cardName, stackEl, newCount);
+
+                onCardPlaced(
+                    cardName,
+                    stackEl,
+                    newCount
+                );
+
+                /* LEVEL 1 — GUIDE NEXT CARD (ONLY FOR THE FIRST FEW CARDS) */
+                if (level === 1 && !tutorialCompleted) {
+                    tutorialCardsGuidedCount++;
+                    if (tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                        setTimeout(() => {
+                            if (!tutorialCompleted) {
+                                startFirstLevelTutorial();
+                            }
+                        }, 600);
+                    } else {
+                        stopFirstLevelTutorial(true);
+                    }
+                }
             });
 
         } else {
@@ -773,94 +820,94 @@ document.addEventListener("DOMContentLoaded", () => {
        SUBMIT SCORE + NAVIGATE TO RESULTS
     ============================================================ */
     async function saveCompletedAttempt() {
-    const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
-    const token = localStorage.getItem("auth_token");
+        const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
+        const token = localStorage.getItem("auth_token");
 
-    const localResult = {
-        topic: deck,
-        subject,
-        deck,
-        level,
-        score,
-        moves,
-        correct_matches: cardsPlaced,
-        incorrect_matches: incorrectMatches,
-        hints_used: hintsUsed,
-        total_cards: totalCards,
-        retries,
-        time_spent: timeSpent,
-        completed: true,
-        difficulty,
-        key_stage: keyStage,
-        max_levels_per_difficulty: maxLevelsForDifficulty,
-    };
+        const localResult = {
+            topic: deck,
+            subject,
+            deck,
+            level,
+            score,
+            moves,
+            correct_matches: cardsPlaced,
+            incorrect_matches: incorrectMatches,
+            hints_used: hintsUsed,
+            total_cards: totalCards,
+            retries,
+            time_spent: timeSpent,
+            completed: true,
+            difficulty,
+            key_stage: keyStage,
+            max_levels_per_difficulty: maxLevelsForDifficulty,
+        };
 
-    localStorage.setItem(
-        "latest_game_result",
-        JSON.stringify(localResult)
-    );
+        localStorage.setItem(
+            "latest_game_result",
+            JSON.stringify(localResult)
+        );
 
-    if (!token) return false;
+        if (!token) return false;
 
-    try {
-        const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Accept": "application/json",
-                "Authorization": `Bearer ${token}`,
-            },
-            body: JSON.stringify(localResult),
-        });
+        try {
+            const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Accept": "application/json",
+                    "Authorization": `Bearer ${token}`,
+                },
+                body: JSON.stringify(localResult),
+            });
 
-        const result = await res.json();
+            const result = await res.json();
 
-        if (!res.ok) {
-            throw new Error(
-                result.message || "Unable to save completed level."
-            );
+            if (!res.ok) {
+                throw new Error(
+                    result.message || "Unable to save completed level."
+                );
+            }
+
+            if (result.data) {
+                localStorage.setItem(
+                    "latest_game_result",
+                    JSON.stringify({
+                        ...localResult,
+                        ...result.data
+                    })
+                );
+            }
+
+            sessionStorage.removeItem(retryStorageKey);
+
+            return true;
+
+        } catch (error) {
+            console.error("Save completed level error:", error);
+            return false;
         }
-
-        if (result.data) {
-            localStorage.setItem(
-                "latest_game_result",
-                JSON.stringify({
-                    ...localResult,
-                    ...result.data
-                })
-            );
-        }
-
-        sessionStorage.removeItem(retryStorageKey);
-
-        return true;
-
-    } catch (error) {
-        console.error("Save completed level error:", error);
-        return false;
     }
-}
 
     async function submitAndGoToResults() {
         const timeSpent = Math.floor((Date.now() - startedAt) / 1000);
         const token = localStorage.getItem("auth_token");
 
         const localResult = {
-            topic:             deck,
+            topic: deck,
             subject,
             deck,
             level,
             score,
             moves,
-            correct_matches:   cardsPlaced,
+            correct_matches: cardsPlaced,
             incorrect_matches: incorrectMatches,
-            hints_used:        hintsUsed,
-            total_cards:       totalCards,
+            hints_used: hintsUsed,
+            total_cards: totalCards,
             retries,
-            time_spent:        timeSpent,
-            completed:         true,
+            time_spent: timeSpent,
+            completed: true,
             difficulty,
-            key_stage:         keyStage,
+            key_stage: keyStage,
             max_levels_per_difficulty: maxLevelsForDifficulty,
         };
         localStorage.setItem("latest_game_result", JSON.stringify(localResult));
@@ -874,8 +921,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
                     method: "POST",
                     headers: {
-                        "Content-Type":  "application/json",
-                        "Accept":        "application/json",
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
                         "Authorization": `Bearer ${token}`,
                     },
                     body: JSON.stringify(localResult),
@@ -897,125 +944,352 @@ document.addEventListener("DOMContentLoaded", () => {
     /* ============================================================
        FULL-SCREEN CONGRATULATIONS OVERLAY
     ============================================================ */
-
-    function showCongratsAndRedirect() {
+    function showCongratsAndRedirect(showFeedback = true) {
+        stopFirstLevelTutorial(true);
         document.querySelectorAll(".game-card").forEach(c => {
             c.style.pointerEvents = "none";
         });
 
         const overlay = document.createElement("div");
         overlay.id = "congratsOverlay";
+
         overlay.style.cssText = `
-            position: fixed; inset: 0; z-index: 99999;
-            background: rgba(14, 30, 65, 0.82);
-            backdrop-filter: blur(8px);
-            display: flex; align-items: center; justify-content: center;
-            animation: popupFadeIn 0.35s ease;
-        `;
+        position: fixed;
+        inset: 0;
+        z-index: 99999;
+        background: rgba(14, 30, 65, 0.82);
+        backdrop-filter: blur(8px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 20px;
+        animation: popupFadeIn 0.35s ease;
+    `;
 
         overlay.innerHTML = `
+        <div style="
+            background: #FFF;
+            border-radius: 26px;
+            padding: 30px;
+            max-width: 460px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 32px 80px rgba(14,30,65,0.28);
+            font-family: Nunito, sans-serif;
+            animation: popupSlideUp 0.3s ease;
+        ">
+
             <div style="
-                background: #FFF;
-                border-radius: 28px;
-                padding: 44px 36px 36px;
-                max-width: 420px; width: 92%;
-                text-align: center;
-                box-shadow: 0 32px 80px rgba(14,30,65,0.28);
-                font-family: Nunito, sans-serif;
-                animation: popupSlideUp 0.3s ease;
+                font-size: 46px;
+                margin-bottom: 8px;
+                line-height: 1;
+            ">🎉</div>
+
+            <h2 style="
+                margin: 0 0 6px;
+                color: #14213D;
+                font-size: 25px;
+                font-weight: 900;
             ">
-                <div style="font-size: 64px; margin-bottom: 16px; line-height: 1;">🎉</div>
-                <h2 style="margin: 0 0 10px; color: #14213D; font-size: 26px; font-weight: 900;">
-                    Level Complete!
-                </h2>
-                <p style="margin: 0 0 6px; color: #4B5563; font-size: 15px; font-weight: 600; line-height: 1.5;">
-                    You matched all <strong>${cardsPlaced}</strong> cards correctly in <strong>${moves}</strong> moves.
-                </p>
-                <div style="
-                    display: flex; justify-content: center; gap: 28px;
-                    margin: 22px 0 28px;
-                    padding: 16px 20px;
-                    background: #F8FAFF;
-                    border-radius: 16px;
-                    border: 1px solid #E2EEFF;
-                ">
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #F89E19;">${score}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Points</div>
-                    </div>
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #2563EB;">${moves}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Moves</div>
-                    </div>
-                    <div style="text-align:center;">
-                        <div style="font-size: 26px; font-weight: 900; color: #16A34A;">${cardsPlaced}</div>
-                        <div style="font-size: 11px; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.5px;">Cards</div>
-                    </div>
+                Level Complete!
+            </h2>
+
+            <p style="
+                margin: 0;
+                color: #64748B;
+                font-size: 13px;
+                font-weight: 600;
+            ">
+                You matched all ${cardsPlaced} cards correctly in ${moves} moves.
+            </p>
+
+            <!-- RESULTS -->
+            <div style="
+                display: flex;
+                justify-content: center;
+                gap: 24px;
+                margin: 18px 0;
+                padding: 13px 16px;
+                background: #F8FAFF;
+                border-radius: 14px;
+                border: 1px solid #E2EEFF;
+            ">
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #F89E19;
+                    ">${score}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Points</div>
                 </div>
-                <button id="congratsGoBtn" style="
-                    width: 100%; height: 52px;
-                    border: none; border-radius: 999px;
+
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #2563EB;
+                    ">${moves}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Moves</div>
+                </div>
+
+                <div>
+                    <div style="
+                        font-size: 23px;
+                        font-weight: 900;
+                        color: #16A34A;
+                    ">${cardsPlaced}</div>
+
+                    <div style="
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: #94A3B8;
+                        text-transform: uppercase;
+                    ">Cards</div>
+                </div>
+
+            </div>
+
+            <!-- FEEDBACK -->
+            <div style="
+                text-align: left;
+                padding-top: 4px;
+            ">
+
+                <p style="
+                    margin: 0 0 9px;
+                    color: #14213D;
+                    font-size: 14px;
+                    font-weight: 900;
+                    text-align: center;
+                ">
+                    How was this level?
+                </p>
+
+                <div id="gameplayRatingStars" style="
+                    display: flex;
+                    justify-content: center;
+                    gap: 9px;
+                    margin-bottom: 14px;
+                ">
+                    ${[1, 2, 3, 4, 5].map(star => `
+                        <button
+                            type="button"
+                            class="gameplay-rating-star"
+                            data-rating="${star}"
+                            style="
+                                border: none;
+                                background: transparent;
+                                font-size: 30px;
+                                color: #CBD5E1;
+                                cursor: pointer;
+                                padding: 0;
+                            "
+                        >★</button>
+                    `).join("")}
+                </div>
+
+                <textarea
+                    id="gameplayFeedbackText"
+                    rows="3"
+                    maxlength="500"
+                    placeholder="Tell us what you liked or what we can improve..."
+                    style="
+                        width: 100%;
+                        box-sizing: border-box;
+                        resize: none;
+                        border: 1px solid #DDE5F1;
+                        border-radius: 12px;
+                        padding: 12px 13px;
+                        font-family: Nunito, sans-serif;
+                        font-size: 13px;
+                        color: #14213D;
+                        outline: none;
+                        background: #FFFFFF;
+                    "
+                ></textarea>
+                
+                <p id="gameplayFeedbackMessage" style="
+                    min-height: 17px;
+                    margin: 6px 0 0;
+                    color: #DC2626;
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-align: center;
+                "></p>
+            </div>
+            
+            <button
+                id="submitGameplayFeedback"
+                type="button"
+                style="
+                    width: 100%;
+                    height: 48px;
+                    margin-top: 9px;
+                    border: none;
+                    border-radius: 999px;
                     background: linear-gradient(135deg, #2563EB, #1D4ED8);
                     color: #FFF;
                     font-family: Nunito, sans-serif;
-                    font-size: 16px; font-weight: 900;
+                    font-size: 14px;
+                    font-weight: 900;
                     cursor: pointer;
-                    box-shadow: 0 8px 20px rgba(37,99,255,0.3);
-                    transition: opacity 0.15s;
-                ">Continue →</button>
-                <p id="congratsCountdown" style="
-                    margin: 12px 0 0;
-                    font-size: 12px; font-weight: 700;
-                    color: #94A3B8;
-                ">Redirecting in 5s…</p>
-            </div>
-        `;
-
+                    box-shadow: 0 8px 20px rgba(37,99,255,0.25);
+                "
+            >
+                Submit Feedback & Continue →
+            </button>
+        </div>
+    `;
         document.body.appendChild(overlay);
 
-        let secs = 5;
-        const countdownEl = overlay.querySelector("#congratsCountdown");
-        const timer = setInterval(() => {
-            secs--;
-            if (countdownEl) countdownEl.textContent = `Redirecting in ${secs}s…`;
-            if (secs <= 0) {
-                clearInterval(timer);
-            
-                saveCompletedAttempt().then(saved => {
-                    if (!saved) return;
-            
+        if (!showFeedback) {
+            const feedbackSection = overlay.querySelector("#gameplayRatingStars")?.parentElement;
+            if (feedbackSection) feedbackSection.remove();
+            const continueBtn = overlay.querySelector("#submitGameplayFeedback");
+            continueBtn.textContent = "Continue to Next Level →";
+            continueBtn.addEventListener("click", () => {
+                overlay.remove();
+                if (nextLevelBtn) {
+                    nextLevelBtn.disabled = false;
+                    nextLevelBtn.click();
+                }
+            });
+            return;
+        }
+
+        /* ===============================
+           STAR RATING
+        =============================== */
+        let selectedRating = 0;
+
+        const stars = overlay.querySelectorAll(".gameplay-rating-star");
+
+        stars.forEach(star => {
+            star.addEventListener("click", () => {
+
+                selectedRating = Number(star.dataset.rating);
+
+                stars.forEach(s => {
+                    s.style.color =
+                        Number(s.dataset.rating) <= selectedRating
+                            ? "#FBBF24"
+                            : "#CBD5E1";
+                });
+            });
+        });
+
+        /* ===============================
+           SUBMIT FEEDBACK
+        =============================== */
+        overlay
+            .querySelector("#submitGameplayFeedback")
+            .addEventListener("click", async () => {
+
+                const button =
+                    overlay.querySelector("#submitGameplayFeedback");
+
+                const message =
+                    overlay.querySelector("#gameplayFeedbackMessage");
+
+                const feedback =
+                    overlay
+                        .querySelector("#gameplayFeedbackText")
+                        .value
+                        .trim();
+                if (selectedRating === 0) {
+                    message.textContent =
+                        "Please select a rating.";
+                    return;
+                }
+                if (!feedback) {
+                    message.textContent =
+                        "Please enter your feedback.";
+                    return;
+                }
+                button.disabled = true;
+                button.textContent = "Submitting...";
+                message.textContent = "";
+                const saved = await saveCompletedAttempt();
+                if (!saved) {
+                    button.disabled = false;
+                    button.textContent =
+                        "Submit Feedback & Continue →";
+                    message.textContent =
+                        "Unable to save your completed level.";
+                    return;
+                }
+                const params =
+                    new URLSearchParams(window.location.search);
+                const payload = {
+                    subject: params.get("subject"),
+                    deck: params.get("deck"),
+                    key_stage: params.get("key_stage"),
+                    difficulty: params.get("difficulty"),
+                    level: Number(params.get("level") || 1),
+                    rating: selectedRating,
+                    feedback: feedback
+                };
+                try {
+
+                    const token =
+                        localStorage.getItem("auth_token");
+
+                    const response = await fetch(
+                        "/api/gameplay/feedback",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type": "application/json",
+                                "Accept": "application/json",
+                                "Authorization": `Bearer ${token}`
+                            },
+
+                            body: JSON.stringify(payload)
+                        }
+                    );
+                    const result = await response.json();
+                    if (!response.ok) {
+                        throw new Error(
+                            result.message ||
+                            "Unable to submit feedback."
+                        );
+                    }
                     overlay.remove();
-            
                     if (nextLevelBtn) {
                         nextLevelBtn.disabled = false;
                     }
-            
                     setBanner(
-                        "🎉 Level complete! Click Next Level to continue.",
+                        "🎉 Feedback submitted! Click Next Level to continue.",
                         "success"
                     );
-                });
-            }
-        }, 1000);
+                } catch (error) {
 
-        overlay.querySelector("#congratsGoBtn").addEventListener("click", async () => {
-            clearInterval(timer);
-        
-            const saved = await saveCompletedAttempt();
-        
-            if (!saved) return;
-        
-            overlay.remove();
-        
-            if (nextLevelBtn) {
-                nextLevelBtn.disabled = false;
-            }
-        
-            setBanner(
-                "🎉 Level complete! Click Next Level to continue.",
-                "success"
-            );
-        });
+                    console.error(
+                        "Gameplay feedback error:",
+                        error
+                    );
+                    button.disabled = false;
+
+                    button.textContent =
+                        "Submit Feedback & Continue →";
+                    message.textContent =
+                        error.message ||
+                        "Unable to submit feedback.";
+                }
+            });
     }
 
     /* ============================================================
@@ -1025,6 +1299,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     function showGameOverOverlay() {
+        stopFirstLevelTutorial(true);
         if (document.getElementById("gameOverOverlay") || document.getElementById("congratsOverlay")) return;
 
         document.querySelectorAll(".game-card").forEach(c => {
@@ -1131,20 +1406,20 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         document.body.appendChild(overlay);
-        
-        overlay.querySelector("#buyOneMoveBtn").addEventListener("click", () => {
-                buyExtraMoves(1);
-            });
-            
-            overlay.querySelector("#buyFiveMovesBtn").addEventListener("click", () => {
-                buyExtraMoves(5);
-            });
 
-            overlay.querySelector("#gameOverRestartBtn").addEventListener("click", () => {
-                sessionStorage.setItem(retryStorageKey, String(retries + 1));
-                window.location.reload();
-            });
-        }
+        overlay.querySelector("#buyOneMoveBtn").addEventListener("click", () => {
+            buyExtraMoves(1);
+        });
+
+        overlay.querySelector("#buyFiveMovesBtn").addEventListener("click", () => {
+            buyExtraMoves(5);
+        });
+
+        overlay.querySelector("#gameOverRestartBtn").addEventListener("click", () => {
+            sessionStorage.setItem(retryStorageKey, String(retries + 1));
+            window.location.reload();
+        });
+    }
 
     /* ============================================================
        AFTER A CARD IS PLACED
@@ -1167,7 +1442,45 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (remaining === 0) {
             setBanner("🎊 All cards matched! Taking you to results…", "success");
-            setTimeout(() => showCongratsAndRedirect(), categoryComplete ? 1500 : 600);
+
+            setTimeout(async () => {
+                const token = localStorage.getItem("auth_token");
+
+                try {
+                    const response = await fetch("/api/gameplay/feedback/eligibility", {
+                        headers: {
+                            "Accept": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        }
+                    });
+
+                    if (!response.ok) throw new Error("Eligibility check failed");
+
+                    const result = await response.json();
+
+                    if (result.data?.eligible && (level === 1 || result.data?.has_previous_feedback)) {
+                        showCongratsAndRedirect();
+                    } else {
+                        const saved = await saveCompletedAttempt();
+
+                        if (saved) {
+                            showCongratsAndRedirect(false);
+                        } else {
+                            setBanner("Unable to save completed level.", "error");
+                        }
+                    }
+                } catch (error) {
+                    console.error("Feedback eligibility error:", error);
+
+                    const saved = await saveCompletedAttempt();
+
+                    if (saved) {
+                        showCongratsAndRedirect(false);
+                    } else {
+                        setBanner("Unable to save completed level.", "error");
+                    }
+                }
+            }, categoryComplete ? 1500 : 600);
         } else if (movesBudget - moves <= 0) {
             setBanner("⏱️ Out of moves!", "error");
             setTimeout(() => showGameOverOverlay(), categoryComplete ? 1500 : 600);
@@ -1185,8 +1498,8 @@ document.addEventListener("DOMContentLoaded", () => {
             if (stack.dataset.eventsAttached) return;
             stack.dataset.eventsAttached = "1";
 
-            stack.addEventListener("dragover",  e => { e.preventDefault(); stack.classList.add("stack-drag-over"); });
-            stack.addEventListener("dragleave", ()  => stack.classList.remove("stack-drag-over"));
+            stack.addEventListener("dragover", e => { e.preventDefault(); stack.classList.add("stack-drag-over"); });
+            stack.addEventListener("dragleave", () => stack.classList.remove("stack-drag-over"));
             stack.addEventListener("drop", e => {
                 e.preventDefault();
                 stack.classList.remove("stack-drag-over");
@@ -1203,12 +1516,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buildStackCard(category, theme) {
         const iconType = String(category.icon_type || "element").toLowerCase();
-        const icon     = iconSVG[iconType] || iconSVG.element;
+        const icon = iconSVG[iconType] || iconSVG.element;
 
         const stack = document.createElement("div");
-        stack.className           = "foundation-stack";
-        stack.dataset.categoryId  = String(category.id);
-        stack.dataset.totalCount  = String(category.cards.length);
+        stack.className = "foundation-stack";
+        stack.dataset.categoryId = String(category.id);
+        stack.dataset.totalCount = String(category.cards.length);
 
         stack.innerHTML = `
             <div class="category-tab">${category.name}</div>
@@ -1240,10 +1553,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buildCategoryBaseCard(category) {
         const card = document.createElement("div");
-        card.className            = "game-card category-base-card";
-        card.dataset.categoryId   = String(category.id);
+        card.className = "game-card category-base-card";
+        card.dataset.categoryId = String(category.id);
         card.dataset.categoryName = category.name;
-        card.dataset.baseCard     = "1";
+        card.dataset.baseCard = "1";
 
         card.innerHTML = `
             <span class="card-crown">${CROWN_SVG}</span>
@@ -1263,9 +1576,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function buildGameCard(cardText, category) {
         const card = document.createElement("div");
-        card.className           = "game-card";
-        card.dataset.categoryId  = String(category.id);
-        card.dataset.categoryName= category.name;
+        card.className = "game-card";
+        card.dataset.categoryId = String(category.id);
+        card.dataset.categoryName = category.name;
         if (category.hint) {
             card.dataset.hint = category.hint;
         }
@@ -1319,8 +1632,8 @@ document.addEventListener("DOMContentLoaded", () => {
             slot.className = "locked-category-card";
             slot.innerHTML = `<span>${CROWN_SVG}</span>`;
 
-            slot.addEventListener("dragover",  e => { e.preventDefault(); slot.classList.add("stack-drag-over"); });
-            slot.addEventListener("dragleave", ()  => slot.classList.remove("stack-drag-over"));
+            slot.addEventListener("dragover", e => { e.preventDefault(); slot.classList.add("stack-drag-over"); });
+            slot.addEventListener("dragleave", () => slot.classList.remove("stack-drag-over"));
             slot.addEventListener("drop", e => {
                 e.preventDefault();
                 slot.classList.remove("stack-drag-over");
@@ -1359,12 +1672,26 @@ document.addEventListener("DOMContentLoaded", () => {
             pendingCategories = pendingCategories.filter(c => String(c.id) !== categoryId);
 
             const themeIdx = allCategories.findIndex(c => String(c.id) === categoryId);
-            const theme    = categoryThemes[themeIdx % categoryThemes.length];
+            const theme = categoryThemes[themeIdx % categoryThemes.length];
             stacksGrid.appendChild(buildStackCard(category, theme));
             attachStackEvents();
             renderLockedSlots();
             revealTopCards();
             renderShuffleRevealPile();
+
+            /* LEVEL 1 — GUIDE NEXT MOVE (ONLY FOR THE FIRST FEW CARDS) */
+            if (level === 1 && !tutorialCompleted) {
+                tutorialCardsGuidedCount++;
+                if (tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                    setTimeout(() => {
+                        if (!tutorialCompleted) {
+                            startFirstLevelTutorial();
+                        }
+                    }, 600);
+                } else {
+                    stopFirstLevelTutorial(true);
+                }
+            }
 
             if (movesBudget - moves <= 0) {
                 setBanner("⏱️ Out of moves!", "error");
@@ -1375,59 +1702,266 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+
+
+    /* ============================================================
+       LEVEL 1 GUIDED TUTORIAL
+       Shows a helpful demo hand for the first few cards of level 1 only,
+       then stops permanently once the player has learned the mechanic.
+    ============================================================ */
+    const MAX_TUTORIAL_CARDS = 2; // Only guide the first few cards (2 cards)
+    let tutorialCardsGuidedCount = 0;
+    let tutorialCompleted = false;
+    let tutorialMoveTimer = null;
+    let tutorialRepeatTimer = null;
+    let tutorialRetryCount = 0;
+
+    function clearHandGesture() {
+        if (tutorialMoveTimer) {
+            clearTimeout(tutorialMoveTimer);
+            tutorialMoveTimer = null;
+        }
+        if (tutorialRepeatTimer) {
+            clearInterval(tutorialRepeatTimer);
+            tutorialRepeatTimer = null;
+        }
+
+        document.querySelectorAll(".tutorial-example-card").forEach(el => {
+            el.classList.remove("tutorial-example-card");
+        });
+        document.querySelectorAll(".tutorial-example-target").forEach(el => {
+            el.classList.remove("tutorial-example-target");
+        });
+
+        const overlay = document.querySelector(".first-game-tutorial");
+        if (overlay) {
+            const hand = overlay.querySelector(".tutorial-hand");
+            if (hand) {
+                hand.style.opacity = "0";
+                hand.style.transition = "opacity 0.4s ease";
+            }
+            setTimeout(() => {
+                overlay?.remove();
+            }, 400);
+        }
+    }
+
+    function stopFirstLevelTutorial(isComplete = false) {
+        clearHandGesture();
+        if (isComplete) {
+            tutorialCompleted = true;
+        }
+    }
+
+    function showHandGesture(cardElement, targetElement, maxCycles = 2) {
+        if (!cardElement || !targetElement) return;
+
+        clearHandGesture();
+
+        let overlay = document.querySelector(".first-game-tutorial");
+        if (!overlay) {
+            overlay = document.createElement("div");
+            overlay.className = "first-game-tutorial";
+            overlay.innerHTML = `<div class="tutorial-hand">☝️</div>`;
+            document.body.appendChild(overlay);
+        }
+
+        overlay.style.opacity = "1";
+        overlay.style.display = "";
+
+        const hand = overlay.querySelector(".tutorial-hand");
+        if (!hand) return;
+
+        hand.style.opacity = "1";
+
+        cardElement.classList.add("tutorial-example-card");
+        targetElement.classList.add("tutorial-example-target");
+
+        function moveHandTo(element) {
+            if (!element) return;
+            const rect = element.getBoundingClientRect();
+            const handX = rect.left + rect.width / 2;
+            let handY = rect.top + rect.height / 2;
+            const minimumY = window.innerWidth <= 700 ? 170 : 80;
+            if (handY < minimumY) handY = minimumY;
+            hand.style.left = `${handX}px`;
+            hand.style.top = `${handY}px`;
+        }
+
+        // Start hand on the card
+        hand.classList.remove("tutorial-hand-moving");
+        moveHandTo(cardElement);
+
+        // Move to target after brief pause
+        tutorialMoveTimer = setTimeout(() => {
+            hand.classList.add("tutorial-hand-moving");
+            moveHandTo(targetElement);
+        }, 950);
+
+        let repeatCycles = 0;
+        tutorialRepeatTimer = setInterval(() => {
+            repeatCycles++;
+            if (repeatCycles >= maxCycles) {
+                clearHandGesture();
+                return;
+            }
+
+            hand.classList.remove("tutorial-hand-moving");
+            moveHandTo(cardElement);
+
+            tutorialMoveTimer = setTimeout(() => {
+                hand.classList.add("tutorial-hand-moving");
+                moveHandTo(targetElement);
+            }, 950);
+        }, 2500);
+    }
+
+    function startFirstLevelTutorial() {
+
+        /* ONLY LEVEL 1 AND ONLY FOR THE FIRST FEW CARDS */
+        if (level !== 1 || tutorialCompleted || tutorialCardsGuidedCount >= MAX_TUTORIAL_CARDS) {
+            stopFirstLevelTutorial(true);
+            return;
+        }
+
+        /* STOP OLD HAND MOVEMENT */
+        clearTimeout(tutorialMoveTimer);
+        clearInterval(tutorialRepeatTimer);
+
+        /* REMOVE OLD HIGHLIGHTS */
+        document
+            .querySelectorAll(".tutorial-example-card")
+            .forEach(el => {
+                el.classList.remove("tutorial-example-card");
+            });
+
+        document
+            .querySelectorAll(".tutorial-example-target")
+            .forEach(el => {
+                el.classList.remove("tutorial-example-target");
+            });
+
+        /* FIND ALL CURRENT FACE-UP CARDS */
+        const playableCards = Array.from(
+            document.querySelectorAll(
+                "#cardsGrid .game-card:not(.card-face-down), " +
+                "#shuffleRevealPile .game-card.reveal-main-card"
+            )
+        );
+
+        let tutorialCard = null;
+        let tutorialTarget = null;
+
+        /* FIND A CARD THAT CAN BE PLAYED NOW */
+        for (const card of playableCards) {
+
+            const categoryId =
+                card.dataset.categoryId;
+
+            /* NORMAL CARD */
+            if (card.dataset.baseCard !== "1") {
+
+                const matchingStack =
+                    document.querySelector(
+                        `.foundation-stack[data-category-id="${categoryId}"]`
+                    );
+
+                if (matchingStack) {
+
+                    tutorialCard = card;
+                    tutorialTarget = matchingStack;
+
+                    break;
+                }
+            }
+
+            /* CATEGORY UNLOCK CARD */
+            if (card.dataset.baseCard === "1") {
+
+                const lockedSlot =
+                    document.querySelector(
+                        ".locked-category-card"
+                    );
+
+                if (lockedSlot) {
+
+                    tutorialCard = card;
+                    tutorialTarget = lockedSlot;
+
+                    break;
+                }
+            }
+        }
+
+        /* NOTHING PLAYABLE YET */
+        if (!tutorialCard || !tutorialTarget) {
+            if (++tutorialRetryCount <= 4 && !tutorialCompleted) {
+                tutorialMoveTimer =
+                    setTimeout(() => {
+                        startFirstLevelTutorial();
+                    }, 700);
+            }
+            return;
+        }
+
+        tutorialRetryCount = 0;
+        showHandGesture(tutorialCard, tutorialTarget, 2);
+    }
+
+
     /* ============================================================
        RENDER BOARD
     ============================================================ */
     async function checkIfNextLevelUnlocked() {
-    if (!nextLevelBtn) return;
+        if (!nextLevelBtn) return;
 
-    nextLevelBtn.disabled = true;
+        nextLevelBtn.disabled = true;
 
-    const token = localStorage.getItem("auth_token");
-    if (!token) return;
+        const token = localStorage.getItem("auth_token");
+        if (!token) return;
 
-    try {
-        const res = await fetch(
-            `/api/gameplay/progress?deck=${encodeURIComponent(deck)}&key_stage=${encodeURIComponent(keyStage)}`,
-            {
-                headers: {
-                    Accept: "application/json",
-                    Authorization: `Bearer ${token}`,
-                },
-            }
-        );
+        try {
+            const res = await fetch(
+                `/api/gameplay/progress?deck=${encodeURIComponent(deck)}&key_stage=${encodeURIComponent(keyStage)}`,
+                {
+                    headers: {
+                        Accept: "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                }
+            );
 
-        if (!res.ok) return;
+            if (!res.ok) return;
 
-        const result = await res.json();
+            const result = await res.json();
 
-        const highestCompleted =
-            result.data?.highest_completed_level || {};
+            const highestCompleted =
+                result.data?.highest_completed_level || {};
 
-        const completedForDifficulty =
-            highestCompleted[
+            const completedForDifficulty =
+                highestCompleted[
                 difficulty.charAt(0).toUpperCase() +
                 difficulty.slice(1).toLowerCase()
-            ] || 0;
+                ] || 0;
 
-        if (completedForDifficulty >= level) {
-            nextLevelBtn.disabled = false;
+            if (completedForDifficulty >= level) {
+                nextLevelBtn.disabled = false;
+            }
+
+        } catch (error) {
+            console.error("Unable to check next level progress:", error);
         }
-
-    } catch (error) {
-        console.error("Unable to check next level progress:", error);
     }
-}
 
     function renderBoard(board, resetGame = true) {
-        cardsGrid.innerHTML  = "";
+        cardsGrid.innerHTML = "";
         stacksGrid.innerHTML = "";
         if (lockedSlotsEl) lockedSlotsEl.innerHTML = "";
         if (shuffleRevealPile) shuffleRevealPile.innerHTML = "";
 
-        selectedCard   = null;
-        cardsPlaced    = 0;
-        totalCards     = 0;
+        selectedCard = null;
+        cardsPlaced = 0;
+        totalCards = 0;
         shuffleDeckCards = [];
         pendingCategories = [];
 
@@ -1458,11 +1992,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // stacks. The rest stay hidden until their own base card is
         // drawn and played onto an empty locked slot.
         const visibleCategories = allCategories.slice(0, INITIAL_VISIBLE_CATEGORIES);
-        pendingCategories        = allCategories.slice(INITIAL_VISIBLE_CATEGORIES);
+        pendingCategories = allCategories.slice(INITIAL_VISIBLE_CATEGORIES);
         const hiddenIds = new Set(pendingCategories.map(c => String(c.id)));
 
         visibleCategories.forEach(category => {
-            const idx   = allCategories.findIndex(c => c.id === category.id);
+            const idx = allCategories.findIndex(c => c.id === category.id);
             const theme = categoryThemes[idx % categoryThemes.length];
             stacksGrid.appendChild(buildStackCard(category, theme));
         });
@@ -1521,6 +2055,11 @@ document.addEventListener("DOMContentLoaded", () => {
         setBanner("Select a card from the hand below, then tap a category above.");
 
         animateDealCards();
+        setTimeout(() => {
+            if (!tutorialCompleted && tutorialCardsGuidedCount < MAX_TUTORIAL_CARDS) {
+                startFirstLevelTutorial();
+            }
+        }, 1400);
     }
 
     /* ============================================================
@@ -1544,7 +2083,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 headers["Authorization"] = `Bearer ${token}`;
             }
 
-            const res    = await fetch(url, { headers });
+            const res = await fetch(url, { headers });
             const result = await res.json();
 
             if (!res.ok) throw new Error(result.message || "Unable to load the chemistry board.");
@@ -1566,25 +2105,25 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function fallbackBoard(diff) {
         const easy = [
-            { id: "1", name: "Group 1 Elements",  icon_type: "element",     cards: ["Lithium", "Sodium", "Potassium", "Rubidium", "Caesium", "Francium"] },
-            { id: "2", name: "Group 7 Elements",  icon_type: "element",     cards: ["Fluorine", "Chlorine", "Bromine", "Iodine", "Astatine"] },
-            { id: "3", name: "Group 0 Elements",  icon_type: "element",     cards: ["Helium", "Neon", "Argon", "Krypton"] },
-            { id: "4", name: "Periodic Table",    icon_type: "information", cards: ["Groups", "Periods", "Elements", "Metals"] },
-            { id: "5", name: "Periodic Trends",   icon_type: "trends",      cards: ["Atomic Radius", "Ionisation Energy", "Electronegativity", "Shielding"] },
+            { id: "1", name: "Group 1 Elements", icon_type: "element", cards: ["Lithium", "Sodium", "Potassium", "Rubidium", "Caesium", "Francium"] },
+            { id: "2", name: "Group 7 Elements", icon_type: "element", cards: ["Fluorine", "Chlorine", "Bromine", "Iodine", "Astatine"] },
+            { id: "3", name: "Group 0 Elements", icon_type: "element", cards: ["Helium", "Neon", "Argon", "Krypton"] },
+            { id: "4", name: "Periodic Table", icon_type: "information", cards: ["Groups", "Periods", "Elements", "Metals"] },
+            { id: "5", name: "Periodic Trends", icon_type: "trends", cards: ["Atomic Radius", "Ionisation Energy", "Electronegativity", "Shielding"] },
         ];
         const medium = [
             { id: "1", name: "Group 1 Physical Props", icon_type: "physical", cards: ["Soft", "Silvery", "Low density", "Low melting point"] },
             { id: "2", name: "Group 7 Physical Props", icon_type: "physical", cards: ["Coloured", "Diatomic", "Non-metal", "Low boiling point"] },
             { id: "3", name: "Group 0 Physical Props", icon_type: "physical", cards: ["Colourless", "Monatomic", "Odourless", "Gases"] },
-            { id: "4", name: "Group 1 Uses",           icon_type: "uses",     cards: ["Lithium batteries", "Sodium street lamps", "Potassium fertilisers", "Caesium atomic clocks"] },
-            { id: "5", name: "Group 1 Reactions",      icon_type: "reactions",cards: ["Fizzing", "Floating", "Hydrogen gas", "Heat released"] },
+            { id: "4", name: "Group 1 Uses", icon_type: "uses", cards: ["Lithium batteries", "Sodium street lamps", "Potassium fertilisers", "Caesium atomic clocks"] },
+            { id: "5", name: "Group 1 Reactions", icon_type: "reactions", cards: ["Fizzing", "Floating", "Hydrogen gas", "Heat released"] },
         ];
         const hard = [
-            { id: "1", name: "Group 1 Chem Props",  icon_type: "chemical",  cards: ["Reacts with water", "Produces hydrogen", "Forms +1 ions", "Loses one electron"] },
-            { id: "2", name: "Group 7 Chem Props",  icon_type: "chemical",  cards: ["Forms -1 ions", "Gains one electron", "Strong oxidising agents", "Forms salts"] },
-            { id: "3", name: "Group 0 Chem Props",  icon_type: "chemical",  cards: ["Very unreactive", "Full outer shell", "Stable", "Non-flammable"] },
+            { id: "1", name: "Group 1 Chem Props", icon_type: "chemical", cards: ["Reacts with water", "Produces hydrogen", "Forms +1 ions", "Loses one electron"] },
+            { id: "2", name: "Group 7 Chem Props", icon_type: "chemical", cards: ["Forms -1 ions", "Gains one electron", "Strong oxidising agents", "Forms salts"] },
+            { id: "3", name: "Group 0 Chem Props", icon_type: "chemical", cards: ["Very unreactive", "Full outer shell", "Stable", "Non-flammable"] },
             { id: "4", name: "Advanced Vocabulary", icon_type: "information", cards: ["Ionisation energy", "Electronegativity", "Shielding", "Nuclear charge"] },
-            { id: "5", name: "Group 7 Trends",      icon_type: "trends",    cards: ["Reactivity decreases", "Melting point increases", "Boiling point increases", "Atomic radius increases"] },
+            { id: "5", name: "Group 7 Trends", icon_type: "trends", cards: ["Reactivity decreases", "Melting point increases", "Boiling point increases", "Atomic radius increases"] },
         ];
 
         const poolMap = { easy, medium, hard };
@@ -1602,16 +2141,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function shuffleHand() {
         PlayShuffleSound();
-        const pileEls   = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
+        const pileEls = Array.from(cardsGrid.querySelectorAll(".card-pile .game-card"));
         const revealEls = shuffleRevealPile ? Array.from(shuffleRevealPile.querySelectorAll(".game-card")) : [];
-        const allCards  = [...pileEls, ...revealEls, ...shuffleDeckCards];
+        const allCards = [...pileEls, ...revealEls, ...shuffleDeckCards];
         if (allCards.length === 0) return;
 
         const visibleCards = [...pileEls, ...revealEls].filter(c => !c.classList.contains("card-face-down"));
         visibleCards.forEach(c => {
             c.style.transition = "opacity 0.2s, transform 0.2s";
-            c.style.opacity    = "0";
-            c.style.transform  = "scale(0.85)";
+            c.style.opacity = "0";
+            c.style.transform = "scale(0.85)";
         });
 
         setTimeout(() => {
@@ -1649,8 +2188,8 @@ document.addEventListener("DOMContentLoaded", () => {
             nowVisible.forEach((c, i) => {
                 setTimeout(() => {
                     c.style.transition = "opacity 0.3s, transform 0.3s ease";
-                    c.style.opacity    = "1";
-                    c.style.transform  = "scale(1)";
+                    c.style.opacity = "1";
+                    c.style.transform = "scale(1)";
                 }, i * 30);
             });
         }, 220);
@@ -1666,7 +2205,7 @@ document.addEventListener("DOMContentLoaded", () => {
             window.location.reload();
         });
     }
-    
+
     /* ============================================================
        LESSON SUMMARY (YOUTUBE MODAL)
     ============================================================ */
@@ -1787,11 +2326,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     if (viewResultsBtn) {
-    viewResultsBtn.addEventListener("click", () => {
-        window.location.href = "/results";
-    });
+        viewResultsBtn.addEventListener("click", () => {
+            window.location.href = "/results";
+        });
     }
-    
+
 
     if (redealBtn) {
         redealBtn.addEventListener("click", shuffleHand);
@@ -1823,20 +2362,20 @@ document.addEventListener("DOMContentLoaded", () => {
                 const res = await fetch(`${window.APP_CONFIG.API_BASE_URL}/gameplay/attempt`, {
                     method: "POST",
                     headers: {
-                        "Content-Type":  "application/json",
-                        "Accept":        "application/json",
+                        "Content-Type": "application/json",
+                        "Accept": "application/json",
                         "Authorization": `Bearer ${token}`,
                     },
                     body: JSON.stringify({
-                        topic:             deck,
+                        topic: deck,
                         level,
                         score,
                         moves,
-                        correct_matches:   cardsPlaced,
+                        correct_matches: cardsPlaced,
                         incorrect_matches: incorrectMatches,
-                        hints_used:        hintsUsed,
-                        time_spent:        timeSpent,
-                        completed:         true,
+                        hints_used: hintsUsed,
+                        time_spent: timeSpent,
+                        completed: true,
                     }),
                 });
 
@@ -1878,7 +2417,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            const card  = cards[Math.floor(Math.random() * cards.length)];
+            const card = cards[Math.floor(Math.random() * cards.length)];
             const stack = stacks.find(s => s.dataset.categoryId === card.dataset.categoryId);
 
             if (card && stack) {
@@ -1887,6 +2426,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 hintsUsed++;
                 updateHintUI();
                 setBanner(`Hint: Try matching "${card.querySelector(".card-name")?.textContent.trim()}" to the highlighted category.`);
+                showHandGesture(card, stack, 2);
             }
         });
     }
@@ -1902,9 +2442,9 @@ document.addEventListener("DOMContentLoaded", () => {
         popup.id = "gamePopup";
 
         const isError = type === "error";
-        const iconBg  = isError ? "#FEECEC" : "#ECFEF5";
+        const iconBg = isError ? "#FEECEC" : "#ECFEF5";
         const iconEmoji = isError ? "✕" : "🎉";
-        const btnColor  = isError ? "#EF4444" : "#16A34A";
+        const btnColor = isError ? "#EF4444" : "#16A34A";
 
         popup.innerHTML = `
             <div style="
@@ -1968,7 +2508,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ============================================================ */
 
     window._gameShuffleHand = shuffleHand;
-    window._gameHintClick   = () => hintBtn?.click();
+    window._gameHintClick = () => hintBtn?.click();
 
     /* ============================================================
        START

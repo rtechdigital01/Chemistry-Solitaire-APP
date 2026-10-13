@@ -116,57 +116,80 @@ class AdminDatasetController extends Controller
      * currently loaded for it, and how many rows the source CSV has.
      */
     public function index(): JsonResponse
-        {
-            $datasets = GameDataset::query()
-                ->where('is_active', true)
-                ->orderBy('country')
-                ->orderBy('key_stage')
-                ->orderBy('subject')
-                ->orderBy('topic')
-                ->get()
-                ->map(function ($dataset) {
-        
-                    $csvPath = $this->datasetPath($dataset->dataset_key);
-        
-                    $loaded = Category::query()
-                        ->where('deck', $dataset->deck)
-                        ->where('key_stage', $dataset->key_stage)
-                        ->where('subject', $dataset->subject)
-                        ->count();
-        
-                    $sourceRows = 0;
-        
-                    if (is_file($csvPath)) {
-                        $sourceRows = max(
-                            0,
-                            count(
-                                file(
-                                    $csvPath,
-                                    FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
-                                )
-                            ) - 1
-                        );
-                    }
-        
-                    return [
-                        'dataset' => $dataset->dataset_key,
-                        'deck' => $dataset->deck,
-                        'key_stage' => $dataset->key_stage,
-                        'subject' => $dataset->subject,
-                        'topic' => $dataset->topic,
-                        'label' => $dataset->label,
-                        'country' => $dataset->country,
-                        'loaded' => $loaded,
-                        'source_rows' => $sourceRows,
-                        'available' => is_file($csvPath),
-                    ];
-                });
-        
-            return $this->successResponse(
-                $datasets,
-                'Datasets loaded successfully'
-            );
+    {
+        // Auto-seed datasets registry from self::DATASETS if table is empty
+        if (GameDataset::query()->count() === 0) {
+            foreach (self::DATASETS as $key => $meta) {
+                GameDataset::updateOrCreate(
+                    ['dataset_key' => $key],
+                    [
+                        'country' => $meta['country'],
+                        'key_stage' => $meta['key_stage'],
+                        'subject' => $meta['subject'],
+                        'deck' => $meta['deck'],
+                        'label' => $meta['label'],
+                        'topic' => $meta['label'],
+                        'is_active' => true,
+                    ]
+                );
+            }
         }
+
+        $datasets = GameDataset::query()
+            ->where('is_active', true)
+            ->orderBy('country')
+            ->orderBy('key_stage')
+            ->orderBy('subject')
+            ->orderBy('topic')
+            ->get()
+            ->map(function ($dataset) {
+                $csvPath = $this->datasetPath($dataset->dataset_key);
+
+                $deckCandidates = array_unique(array_filter([
+                    $dataset->deck,
+                    $dataset->subject,
+                    preg_replace('/^ss[1-3]-/i', '', (string) $dataset->deck),
+                ]));
+
+                $loaded = Category::query()
+                    ->whereIn('deck', $deckCandidates)
+                    ->where('key_stage', $dataset->key_stage)
+                    ->where('subject', $dataset->subject)
+                    ->count();
+
+                $sourceRows = 0;
+
+                if (is_file($csvPath)) {
+                    $sourceRows = max(
+                        0,
+                        count(
+                            file(
+                                $csvPath,
+                                FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES
+                            )
+                        ) - 1
+                    );
+                }
+
+                return [
+                    'dataset' => $dataset->dataset_key,
+                    'deck' => $dataset->deck,
+                    'key_stage' => $dataset->key_stage,
+                    'subject' => $dataset->subject,
+                    'topic' => $dataset->topic,
+                    'label' => $dataset->label,
+                    'country' => $dataset->country,
+                    'loaded' => $loaded,
+                    'source_rows' => $sourceRows,
+                    'available' => is_file($csvPath),
+                ];
+            });
+
+        return $this->successResponse(
+            $datasets,
+            'Datasets loaded successfully'
+        );
+    }
 
     /**
      * Import (or re-import) one dataset from its CSV. Re-importing is
@@ -349,10 +372,25 @@ public function destroy(Request $request): JsonResponse
         );
     }
 
-private function datasetPath(string $name): string
-{
-    return base_path('../Datasets/' . $name . '.csv');
-}
+    private function datasetPath(string $name): string
+    {
+        $storage = storage_path('app/datasets/' . $name . '.csv');
+        if (is_file($storage)) {
+            return $storage;
+        }
+
+        $appStorage = storage_path('app/' . $name . '.csv');
+        if (is_file($appStorage)) {
+            return $appStorage;
+        }
+
+        $root = base_path('../Datasets/' . $name . '.csv');
+        if (is_file($root)) {
+            return $root;
+        }
+
+        return $storage;
+    }
 
     private function toUtf8(string $value, ?string $encoding): string
     {

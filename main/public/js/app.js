@@ -64,10 +64,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.getElementById("mobileNav");
 
 
-    if (mobileMenuButton && mobileNav) {
+    if (mobileMenuButton && mobileNav && !mobileMenuButton._menuBound) {
+        mobileMenuButton._menuBound = true;
 
-        mobileMenuButton.addEventListener("click", () => {
-
+        mobileMenuButton.addEventListener("click", (e) => {
+            e.stopPropagation();
             const isOpen =
                 mobileNav.classList.toggle("active");
 

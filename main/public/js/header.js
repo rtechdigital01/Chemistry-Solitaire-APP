@@ -132,11 +132,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     type="button"
                     aria-label="Open navigation"
                     aria-expanded="false"
-                    onclick="
-                        const nav = document.getElementById('mobileNav');
-                        const open = nav.classList.toggle('active');
-                        this.setAttribute('aria-expanded', open ? 'true' : 'false');
-                    "
                 >
                     <span></span>
                     <span></span>
@@ -199,10 +194,11 @@ document.addEventListener("DOMContentLoaded", () => {
         headerContainer.querySelector("#mobileNav");
 
 
-    if (mobileMenuButton && mobileNav) {
+    if (mobileMenuButton && mobileNav && !mobileMenuButton._menuBound) {
+        mobileMenuButton._menuBound = true;
 
-        mobileMenuButton.addEventListener("click", () => {
-
+        mobileMenuButton.addEventListener("click", (e) => {
+            e.stopPropagation();
             const isOpen =
                 mobileNav.classList.toggle("active");
 
@@ -210,9 +206,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 "aria-expanded",
                 isOpen ? "true" : "false"
             );
-
         });
 
+        // Close on tap outside
+        document.addEventListener("click", (e) => {
+            if (!headerContainer.contains(e.target)) {
+                mobileNav.classList.remove("active");
+                mobileMenuButton.setAttribute(
+                    "aria-expanded",
+                    "false"
+                );
+            }
+        });
 
         mobileNav
             .querySelectorAll("a")
